@@ -211,6 +211,15 @@ wheels = [
 ]
 
 [[package]]
+name = "pyfmodex"
+version = "0.7.2"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/0a/ed/6106a55d98868c0edb82aa8ee4fa5fa89712acbe2ab5a307adf962ac67fb/pyfmodex-0.7.2.tar.gz", hash = "sha256:d9ad3d7841a1c4cf4733cbedc69389f84c58a640d23d0ffa083ad6080f35103c", size = 111830, upload-time = "2024-03-08T07:41:32.687Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/2c/7b/f7fdcdf6a6e8fd951c41e91baae8c1cecfffc2ed3199157afd6ab5728716/pyfmodex-0.7.2-py3-none-any.whl", hash = "sha256:1c42112b788e80ee7b4b57ae25bbbc0a98eb1e32a8e7c9e1246698cdf72efa9d", size = 126703, upload-time = "2024-03-08T07:41:30.326Z" },
+]
+
+[[package]]
 name = "pygame"
 version = "2.6.1"
 source = { registry = "https://pypi.org/simple" }
@@ -386,6 +395,7 @@ dependencies = [
     { name = "pycparser" },
     { name = "pycryptodomex" },
     { name = "pyenet" },
+    { name = "pyfmodex" },
     { name = "pygame" },
     { name = "pynacl" },
     { name = "pyperclip" },
@@ -410,6 +420,7 @@ requires-dist = [
     { name = "pycparser", specifier = ">=2.21" },
     { name = "pycryptodomex", specifier = ">=3.20.0" },
     { name = "pyenet", specifier = ">=1.3.17" },
+    { name = "pyfmodex", specifier = ">=0.7.2" },
     { name = "pygame", specifier = ">=2.5.0" },
     { name = "pynacl", specifier = ">=1.5.0" },
     { name = "pyperclip", specifier = ">=1.8.2" },
