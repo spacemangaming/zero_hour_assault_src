@@ -1,39 +1,110 @@
 # Zero Hour Assault
 
-Welcome to the public source release of **Zero Hour Assault**, a high-fidelity Python-based audio game!
-
-This repository has been fully restructured, cleaned, and migrated to the **`uv`** project manager. You can now bootstrap and run both the client and the server with zero configuration.
+Zero Hour Assault (ZHA) is an action-packed multiplayer audio game built in Python. This repository houses the fully cleaned, restructured, and modernized source code release, now managed with the high-performance **`uv`** package and build system.
 
 ---
 
-## Quick Start
+## 🎮 Game Architecture & Design
 
-### Prerequisites
-Make sure you have **`uv`** installed. If not, install it using:
+Zero Hour Assault consists of a reliable, high-performance UDP client-server architecture:
+- **Game Client:** High-fidelity 2D stereo/3D audio rendering powered by Pygame, OpenAL, and SRAL, with standard Windows OS forms using wxPython.
+- **Game Server:** Asynchronous network loop managing concurrent player connections, maps, combat, items, and administrative databases.
+- **Resource Package:** Large asset container (`sounds.dat` - 171.47 MB) storing the game's audio assets securely, managed seamlessly with **Git Large File Storage (LFS)**.
+
+---
+
+## 📂 Codebase Directory Layout
+
+The codebase follows standard packaging and workspace best practices:
+
+```text
+zero_hour_assault/
+├── .git/                         # Git repository settings
+├── .gitignore                    # Custom paths to ignore (cache, virtualenvs, local user databases)
+├── pyproject.toml                # UV package dependencies and Python target constraints
+├── sounds.dat                    # Encrypted game audio library (handled via Git LFS)
+├── unpack_sounds.py              # Root script to extract/unpack audio assets
+├── pack_sounds.py                # Root script to compress/pack audio folder back to sounds.dat
+├── lang/                         # Localization and translation dictionaries
+│   ├── english.lang
+│   └── ...
+├── src/                          # Game Client Source Tree
+│   └── zero_hour_assault/        # Client package namespace
+│       ├── main.py               # Main bootstrap script (DLL loading, internal pathing setup)
+│       ├── zero_hour_assault.py  # Primary client game loop, engine loader, UI routines
+│       ├── net.py                # Network client interface (configured for port 55918)
+│       └── ... (40+ client modules)
+└── server/                       # Game Server Source Tree
+    ├── zhaserver.py              # Main server network loop & entry point
+    └── chars/                    # Persisted server character database accounts
+        └── 0user/                # Developer/Admin account directory (customized for 0user)
+```
+
+---
+
+## 🛠️ Requirements & Installation
+
+This project targets standard **Python 3.12** on Windows to leverage pre-built binary wheels for complex packages. 
+
+### 1. Prerequisites
+Install the fast Python package manager **`uv`** if you haven't already:
 ```powershell
-powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
+
+### 2. Synchronization & Workspace Sync
+Simply sync the virtual environment and all 29 major package dependencies:
+```powershell
+uv sync
 ```
 
 ---
 
-## Running the Game
+## 🚀 How to Run
 
-### 1. Launching the Game Client
-To automatically set up the virtual environment, install all required dependencies (including native audio wrappers), and launch the game client:
-```bash
-uv run python src/zero_hour_assault/main.py
-```
-
-### 2. Launching the Game Server
-To boot up the reliable UDP server network loop:
-```bash
+### A. Start the Game Server
+From the root directory, launch the standalone server network loop:
+```powershell
 uv run python server/zhaserver.py
 ```
+*The server boots up with detailed network interface logs and is configured to listen on UDP port `55918`.*
+
+### B. Start the Game Client
+In a separate terminal, launch the client app:
+```powershell
+uv run python src/zero_hour_assault/main.py
+```
+*The client automatically resolves absolute workspace paths, loads native audio libraries, and connects to the local server.*
 
 ---
 
-## Key Features of This Release
-- **Standardized UV Integration:** Python 3.12 target ensures pre-compiled binary compatibility for Windows without requiring any local C++ compiling tools.
-- **Pristine Project Structure:** Clean separation of client source code (`src/zero_hour_assault/`), assets, native DLLs, and server-side code (`server/`).
-- **Painless Dependencies:** All third-party libraries (`pygame`, `wxpython`, `PyAudio`, `pyenet`, `soundfile`, `python-vlc`, etc.) are managed dynamically and safely through the standard PyPI pipeline.
-- **Bypassed Updater Logic:** Automatic internet version checks and file overwrites are commented out so the source tree remains completely under your control.
+## 🔐 Game Customization & Bypasses
+
+We introduced several robust configurations to enable an seamless, developer-friendly local workspace:
+
+1. **Email & Hardware Auth Bypassed:** Both client-side and server-side hardware/email verification checks have been temporarily disabled. You can register and log in instantly without any configuration.
+2. **Promoted Developer Account:** An administrative character account named `0user` is pre-created in `server/chars/0user/` with maximum Developer, Administrator, Moderator, and Beta permissions.
+3. **No Automatic Updaters:** Automatic check-for-updates scripts have been bypassed to prevent production binaries from overwriting your local source files.
+
+---
+
+## 🔊 Unpacking & Packing Sounds
+
+The game client loads its audio from the compressed binary `sounds.dat`. If you wish to edit, preview, or add audio assets:
+
+- **To extract audio files:** Run the root extraction script:
+  ```powershell
+  uv run python unpack_sounds.py
+  ```
+  *This unpacks all audio resources into a temporary `sounds/` directory.*
+  
+- **To rebuild the asset package:** Run the pack script to write changes back:
+  ```powershell
+  uv run python pack_sounds.py
+  ```
+  *This recompresses the `sounds/` directory into a secure `sounds.dat` for client loading.*
+
+---
+
+## 📝 License & Contributions
+This source code is prepared for public customization, optimization, and game design tooling. Ensure that when adding new binary libraries, they are tracked inside `pyproject.toml` using `uv add` instead of manual vendoring.
