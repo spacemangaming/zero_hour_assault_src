@@ -1,0 +1,13 @@
+mapname:grenade
+maxx:50
+maxy:50
+maxz:50
+platform:0:50:0:50:0:0:carpet
+
+
+
+
+src:0:50:0:50:0:50:amb18.ogg:-25
+zone:0:100:0:100:0:100:a small place with explosives around
+platform:0:50:0:50:0:0:debris
+platform:0:50:0:50:0:0:concrete6

@@ -1,0 +1,355 @@
+Character Stats, Check the properties of your account, your score points, rank, amount of tokens, etc.=Statistik Karakter, Periksa properti akun Anda, poin skor Anda, peringkat, jumlah token, dll.
+Change character, View the characters you have and switch to those characters. Notes. You can only change your character in the lobby and waiting part of the match.=Ubah karakter, Lihat karakter yang Anda miliki dan beralih ke karakter tersebut. Catatan. Anda hanya dapat mengubah karakter Anda di lobi dan menunggu bagian pertandingan.
+Store, Spend the zero tokens you have, view the packages you have purchased, or buy tokens from the virtual store.=toko, Belanjakan Zero token yang Anda miliki, lihat paket yang telah Anda beli, atau beli token dari toko virtual.
+done=selesai
+Are you sure to leave the game, press escape or the left D-pad button of the joystick to cancel, press enter or the right D-pad button of the joystick to disconnect.=Apakah Anda yakin ingin keluar dari permainan? Tekan esc atau tombol D-pad kiri pada pengontrol Anda untuk membatalkan, tekan enter atau tombol D-pad kanan pada pengontrol Anda untuk memutuskan sambungan.
+canceled=dibatalkan
+a sign =sebuah tanda
+the lobby, to access to match menu, go to 5 0 0. =lobi, untuk mengakses menu pertandingan, pergi ke 5 0 0.
+match menu. Press shift enter to open it. =menu pertandingan. Tekan shift enter untuk membukanya.
+create a match=buat pertandingan
+Account settings, Update your account password, rename your character, set a status message, see your rename history, Modify your registered email, delete your account, View Login History and See which devices have accessed your account and block unauthorized devices.=Pengaturan akun, Perbarui kata sandi akun Anda, ganti nama karakter Anda, atur pesan status, lihat riwayat penggantian nama Anda, Ubah email terdaftar Anda, Lihat Riwayat Login dan Lihat perangkat mana yang telah mengakses akun Anda dan blokir perangkat yang tidak sah.
+events, Daily Rewards, Upcoming Events.=acara, Hadiah Harian, Acara Mendatang.
+See your motors=Lihat motor anda
+Game settings, Change your game settings.=Pengaturan permainan, Ubah pengaturan permainan Anda.
+Friend menu, Send a friend request, View Pending Friend Requests, Remove Friend.=Menu Teman, Kirim Permintaan Pertemanan, Lihat Permintaan Pertemanan yang Tertunda, Hapus Teman.
+Group menu, Start a new group for collaboration, View Group Invitations, Manage Group Members.=Menu Grup: Mulai grup baru untuk kolaborasi, Lihat Undangan Grup, Kelola Anggota Grup.
+Make suggestions, leave feedback, report bugs.=Berikan saran: tinggalkan umpan balik, laporkan bug.
+View rules, View the game rules, read the rules to avoid making mistakes in the game.=Lihat Peraturan : Periksa peraturan permainan, baca peraturan untuk menghindari kesalahan dalam permainan.
+view all groups, View groups created in the game, view how many kills and how many deaths they have, send a request to join a group.=Lihat semua grup: Lihat grup yang dibuat dalam game, lihat berapa banyak eliminasi dan berapa banyak kematian yang mereka alami, kirim permintaan untuk bergabung dengan grup.
+View destroyed groups history=Lihat sejarah grup yang hancur
+View timed item expiry times=Lihat tanggal kedaluwarsa untuk item.
+View Latest Additions=Lihat perubahan Terbaru
+View game readme file, learn the game about.=Lihat file README game: pelajari tentang game.
+languages, Manage Languages, Switch to a Language, Get syntax and usage tips for different languages, Create New Language.=Bahasa: Kelola Bahasa, Beralih ke Bahasa, Dapatkan sintaksis dan tip penggunaan untuk berbagai bahasa, Buat Bahasa Baru.
+Staff List, View All Staff Members.=Daftar Staf: Lihat Semua Anggota staf.
+Server Status.=Status Server.
+notification settings, Customize Notification Alerts.=Pengaturan Notifikasi: Sesuaikan Notifikasi Peringatan.
+ticket menu, Submit a new support request, View Your Previous Tickets.=Menu Tiket: Kirim permintaan dukungan baru, Lihat Tiket Anda Sebelumnya.
+current character, default=Karakter Saat Ini, Default
+Amount of members required is=Jumlah anggota yang dibutuhkan adalah =substr
+The match mode is=Mode pertandingan adalah =substr
+came online=online =substr
+went offline= offline =substr
+Current area: =Area saat ini: =substr
+Sign in as %s=Masuk sebagai %s
+setup an existing account=login ke akun yang sudah ada
+Create An Account=Buat Akun
+settings=Pengaturan
+English=Bahasa inggris
+romanian=Rumania
+italian=Italia
+kurdish=Kurdi
+french=prancis
+serbian=Serbia
+thailand=Thai
+lithuanian=Lithuania
+spanish=Spanyol
+filipino=Filipina
+polish=polandia
+Ukrainian=Ukraina
+Vietnamese=Vietnam
+Estonian=Estonia
+urdu=Urdu
+german=german
+Greek=Yunani
+russian=Rusia
+malay=malaysia
+indonesian=Indonesia
+Arabic=Arab
+persian=Persia
+nepali=Nepal
+jamaican=Jamaika
+hindi=india
+free_chat=saluran bebas
+turkish=turki
+Disable_chat=Nonaktifkan obrolan
+Exit the game.=Keluar dari permainan.
+join the official telegram group of Zero Hour Assault.=Bergabunglah dengan grup Telegram resmi Zero Hour Assault.
+join or spectate a match=Berpartisipasi atau menonton pertandingan
+Pm from= Pm dari =substr
+ is typing...= Anda mengetik =substr
+The player= pemain =substr
+ created a new match!= membuat pertandingan baru! =substr
+Push to talk off=Tekan untuk berbicara nonaktif
+push to talk on=Tekan untuk berbicara aktif
+The ping took=Ping =substr
+milliseconds.=milidetik.=substr
+Developer =Pengembang = substr
+Helicopters flying area =Area penerbangan helikopter =substr
+Make us a small donation. If you like the game and if you can, a small donation would be appreciated.=Berikan sumbangan kecil. Jika Anda menikmati permainan ini dan jika Anda bisa, sumbangan kecil akan dihargai.
+View game rules.=Lihat aturan permainan.
+View game readme file=Lihat file readme permainan
+View ranking list.=Lihat daftar peringkat.
+Learn game sounds=Pelajari suara permainan
+Change language=Ubah bahasa
+Login Options=Opsi Login
+Back to main menu=Kembali ke menu utama
+Recover your password=Pulihkan kata sandi Anda
+ says: = berkata =substr
+No items=Tidak ada item
+Players menu:=Menu Pemain:=substr
+parachute: =Parasut: =substr
+molotov_cocktail=Bom molotov: =substr
+hand_grenade=Granat tangan: =substr
+vitality_potion=Ramuan kehidupan: =substr
+hours, =Jam, =substr
+minutes, =Menit, =substr
+ seconds= Detik =substr
+revival_nectar=Nektar pembangkit: ​​=substr
+basement of luxury house =basement rumah mewah =substr
+The server will be restarted within =Server akan di-mulai ulang dalam =substr
+for fix bug and lag=untuk memperbaiki bug dan lag =substr
+22_LR_Long_Rifle ammo=munição .22 LR para rifle de longo alcance: =substr
+7.62x51mm ammo=munição 7,62x51mm =substr
+stone_sword, =espada de pedra, =substr
+wooden_sword: =espada de madeira: =substr
+ and = e =substr
+It can be fired every=Pode ser disparado a cada =substr
+enable=ativar
+disable=desativar
+unban player=desbanir jogador
+No banned player found=Nenhum jogador banido encontrado
+kick player=expulsar jogador
+ban player=banir jogador
+select player to ban=selecione o jogador para banir
+connected to the server.=conectado ao servidor.
+Type your team message here=Digite sua mensagem para a equipe aqui =substr
+The server is rebooting. An attempt will be made to log in shortly. Please wait.=O servidor está reiniciando. Uma tentativa de login será feita em breve. Por favor, aguarde.
+There is no private message to reply to.=Não há nenhuma mensagem privada para responder.
+Are you sure you want to go to freedom fight map? You will lose all the items you have.=Tem certeza de que deseja ir para o mapa de batalha pela liberdade? Você perderá todos os itens que possui.
+yes=sim
+no=não
+go to freedom fight map, there are=ir para o mapa de batalha pela liberdade, há =substr
+in freedom fight map, there are=no mapa de batalha pela liberdade, há =substr
+ at coordinates = nas coordenadas =substr
+Watch the match=Assista à partida
+Watch=Assista=substr
+players=jogadores=substr
+, in the freedom fight map=, no mapa de batalha pela liberdade=substr
+, in the lobby=, no lobby=substr
+, playing =, jogando =substr
+Team dead match=Partida em equipe
+Knife fight match teamed=Partida de luta de faca em equipe
+Knife fight match not teamed=Partida de luta de faca sem equipe
+View tickets you've created=Ver os tickets que você criou
+create ticket=Criar ticket
+support=suporte
+report a bug=reportar um bug
+game suggestion=sugestão para o jogo
+report a player=reportar um jogador =substr
+Your gender, Male=Seu sexo, Masculino
+Score point, =Sua pontuação, =substr
+Score Rank, Bronze=Seu ranking, bronze
+a small room. of the lobby. =uma pequena sala do lobby. 
+Welcome to zero hour assault. You can move to coordinates 5 0 0 to access the match menu. Also, if you have suggestions about the game, you can leave your message in the game menu, that is, the letter o, in the suggestion or report bug section, Enjoy!=Bem-vindo ao Zero Hour Assault. Você pode se mover para as coordenadas 5 0 0 para acessar o menu da partida. Além disso, se você tiver sugestões sobre o jogo, pode deixar sua mensagem no menu do jogo, ou seja, na letra "o", na seção de sugestões ou relatórios de bugs. Aproveite!
+a couch =um sofá 
+Game menu=Menu do jogo
+Please select a match to join.=Por favor, selecione uma partida para entrar.
+Select match mode=Selecione o modo de partida
+Select match visibility=Selecione a visibilidade da partida
+Select player to send private message=Selecione o jogador para enviar uma mensagem privada
+Snowflake survival teamed=Sobrevivência de Flocos de Neve em Equipe
+Snowflake survival not teamed=Sobrevivência de Flocos de Neve sem equipe
+Sniper duel teamed=Duelo de Sniper em Equipe
+Sniper duel not teamed=Duelo de Sniper sem equipe
+Zombie survival=Sobrevivência Zumbi
+Zombie vs player=Zumbi contra jogador
+Explosive battle teamed=Batalha Explosiva em Equipe
+Explosive battle not teamed=Batalha esplosiva sem equipe
+Abyss Clash teamed=Confronto no Abismo em Equipe
+Abyss Clash not teamed=Confronto no Abismo sem equipe
+Sword duel not teamed=Duelo de espadas sem equipe
+Sword duel teamed=Duelo de espadas em equipe
+Capture the flag=Capture a bandeira
+Last man standing=Ultimo homem de pé
+bot kills=Bots mortos: =substr
+bot deaths=Morto por bots: =substr
+player kills=jogadores mortos: =substr
+player deaths=morto por jogadores: =substr
+zero token amount=quantidade de tokens zero: =substr
+default=Padrão
+you are already using the default character=você já está usando o personagem padrão
+vehicles=veiculos
+characters=personagens
+weapons=armas
+ammos=munições
+equipments=equipamentos
+potions=poções
+explosives=esplosivos
+View packs you bought from the shop e open them=Veja os pacotes que você comprou na loja e abra-os
+Go to online store website to buy zero token packs.=Vá para o site da loja online para comprar pacotes de zero tokens.
+Copy the link of the online store web page to buy zero token packs.=Copie o link da página da loja online para comprar pacotes de zero tokens.
+copied=copiado
+motor, requires=motor requer =substr
+zero tokens, description: A motor speeding around takes damage when it hits a wall, e your motor takes damage when jogadores shoot.=zero tokens, descrição: Um motor acelerando sofre dano ao colidir com uma parede, e seu motor sofre dano quando jogadores atiram.=substr
+Error, please join a match to be able to buy a motor.=Erro, por favor, entre em uma partida para poder comprar um motor.
+start match=iniciar a partida
+cancel match=cancelar a partida
+back=voltar
+massacre in the city =massacre na cidade 
+Fifth Avenue street  =rua Quinta Avenida  
+luxury houses street  =rua das casas de luxo  
+A liquid city stream made of raindrops  =Um fluxo de cidade líquida feito de gotas de chuva  
+front of houses  =frente das casas  
+main street of massacre city  =rua principal da cidade do massacre  
+bike path  =ciclofaixa  
+driveway, 10  =entrada de veículos, 10  
+near the entrance =perto da entrada  
+store entrance  =entrada da loja  
+near exit =perto da saída  
+inside the store  =dentro da loja  
+store order machine  =máquina de pedidos da loja  
+You have to wait 1 minutes to be able to exit after hit=Você precisa esperar 1 minuto para poder sair após ser atingido
+was last active=estava ativo por último=substr
+ ago.= atrás.=substr
+ days,= dias,=substr
+ month,= mês,=substr
+for fix lag=para corrigir o lag =substr
+Friend =Amigo =substr
+friend =amigo =substr
+enable receiving map messages=ativar o recebimento de mensagens de mapa=substr
+disable receiving map messages=desativar o recebimento de mensagens de mapa=substr
+northwest=noroeste
+north=norte
+northeast=nordeste
+west=oeste
+southwest=sudoeste
+east=leste
+southeast=sudeste
+south=sul
+hour, =hora, =substr
+pm to=pm para =substr
+View privacy.=Ver política de privacidade.
+Zero Hour Assault - Game Rules=Zero Hour Assault - Regras do Jogo
+1. Respect Other Players.=1. Respeite os Outros Jogadores.
+Always treat fellow jogadores with respect. Insults, harassment, or any form of discrimination is strictly prohibited. You can insult someone's personality, but if you continue when the other party asks you to stop doing so, your chat will be closed.=Sempre trate os outros jogadores com respeito. Insultos, assédio ou qualquer forma de discriminação são estritamente proibidos. Você pode fazer críticas leves sobre a personalidade de alguém, mas se continuar após a outra pessoa pedir que pare, o seu chat será encerrado.
+2. No Cheating.=2. Proibido trapacear.
+Cheating or using unauthorized third-party software to gain an unfair advantage will result in an immediate ban.=Trapacear ou usar software de terceiros não autorizado para obter vantagem injusta resultará em banimento imediato.
+3. Fair Play.=3. Jogo Justo.
+Play fairly e follow the game's mechanics e rules. Exploiting bugs or loopholes for personal gain is not allowed.=Jogue de forma justa e siga as mecânicas e regras do jogo. Explorar bugs ou brechas para benefício próprio não é permitido.
+4. Language Channels.=4. Canais de Idiomas.
+Use the appropriate language channels when communicating. If you speak a language other than your channel's language, you will be warned; if you continue, your chat will be desativado  several times. If you keep doing this, you will be banned from the game for a while.=Use os canais de idioma apropriados ao se comunicar. Se você falar um idioma diferente do idioma do seu canal, receberá um aviso; se continuar, seu chat será desativado várias vezes. Se persistir, você será banido do jogo temporariamente.
+5. No Toxic Behavior.=5. Comportamento Tóxico Proibido.
+ Toxic behavior, including griefing, trolling, or intentional disruption of gameplay, will not be tolerated.=Comportamento tóxico, incluindo provocar, trollar ou interromper intencionalmente o jogo, não será tolerado.
+6. No Spamming.=6. Proibido Spam.
+ Spamming messages, sounds, or any in-game features repeatedly will result in disciplinary actions.=Enviar mensagens, sons ou usar recursos do jogo repetidamente de forma excessiva resultará em ações disciplinares.
+7. No Hacking or Exploiting.=7. Proibido Hackear ou Explorar Falhas.
+ Hacking, exploiting game vulnerabilities, or unauthorized access to accounts will result in permanent bans.=Hackear, explorar vulnerabilidades do jogo ou acessar contas de forma não autorizada resultará em banimento permanente.
+8. Account Security.=8. Segurança da Conta.
+ Keep your account secure. Sharing your account information is at your own risk, e compromised accounts may lead to loss of progress or access.=Mantenha sua conta segura. Compartilhar suas informações de conta é por sua conta e risco, e contas comprometidas podem resultar na perda de progresso ou acesso.
+9. Voice chat.=9. Chat de voz.
+Players who disturb jogadores with voice chat, talk loudly despite warnings, or disturb people by playing music or loud content in the game will have their voice chat desativado  for a long time, e if they continue, they will be banned from the game for 1 week.=Jogadores que perturbarem outros jogadores com o chat de voz, falarem alto apesar dos avisos, ou incomodarem com música ou conteúdo alto no jogo terão o chat de voz desativado por um longo período, e, se continuarem, serão banidos do jogo por 1 semana.
+10. Stay Updated.=10. Mantenha-se Atualizado.
+Game rules may evolve. It's the player’s responsibility to stay updated with the latest rules e changes.=As regras do jogo podem evoluir. É responsabilidade do jogador se manter atualizado com as regras e mudanças mais recentes.
+match =Partida =substr
+select team=selecione seu time
+Private match=Partida privada
+copy data=copiar os dados
+Enable logo play at startup=Ativar reprodução do logotipo na inicialização
+loading=carregando
+in the freedom fight map=no mapa da luta pela liberdade=substr
+players in the freedom fight map=jogadores no mapa da luta pela liberdade =substr
+watching=assistindo =substr
+dead =morto =substr
+feet =pés =substr
+Rules.=Regras =substr
+other=outro =substr
+Type the private message you would like to send to=Digite a mensagem privada que você gostaria de enviar para =substr
+submit ticket=enviar ticket
+By checking this box, I understand that this ticket I am making is for serious inquiries only, doesn't violate the games rules e that misuse of the ticket system in any way including but not limited to spam or misinformation of any kind could result in severe punishments to my account=Ao marcar esta caixa, entendo que este ticket que estou criando é apenas para consultas sérias, não viola as regras do jogo e que o uso indevido do sistema de tickets de qualquer forma, incluindo, mas não se limitando a, spam ou desinformação de qualquer tipo, pode resultar em punições severas para minha conta
+Return to previous menu=Voltar ao menu anterior
+Select ticket to view=Selecione o ticket para visualizar
+Select a computer=Selecione um computador
+View computers you logged into the game from, e block their accesses=Visualize os computadores nos quais você fez login no jogo e bloqueie seus acessos
+Zero hour assault is an online fps game. There are various Partida modes in the game e each of them has various tasks. These matches e their tasks are explained below.=Zero Hour Assault é um jogo de tiro em primeira pessoa online. Existem vários modos de Partida no jogo, e cada um deles possui várias tarefas. Esses modos e suas tarefas são explicados abaixo.
+team morto match. In this mode, 2 teams are at war. In order to win, one team must kill all opponents.=Modo de morte em equipe: Neste modo, 2 equipes estão em guerra. Para vencer, uma equipe deve eliminar todos os adversários.
+Knife fight match. This mode is similar to the previous one, but you can only use knife e the map is smaller. You can also collect  snowflake shards in this mode, by pressing shift enter. You can collect up to 5. When you throw these, they will stun the enemy for 3 Segundos .=Modo de luta com faca. Este modo é semelhante ao anterior, mas você só pode usar faca e o mapa é menor. Você também pode coletar fragmentos de flocos de neve neste modo, pressionando Shift + Enter. Você pode coletar até 5. Quando você jogar esses fragmentos, eles atordoam o inimigo por 3 segundos.
+Explosive battle. This mode is similar to the previous one, but jogadores can only use grenades e molotovs, they cannot use any weapons, including knives. When you use a grenade directly, it is not thrown immediately, when you first you hear a sound, after this sound, you must press enter again e throw the grenade. However, if you are too late, the grenade will explode on you.=Batalha explosiva. Este modo é semelhante ao anterior, mas os jogadores só podem usar granadas e molotovs, não podendo usar nenhuma arma, incluindo facas. Quando você usar uma granada diretamente, ela não será jogada imediatamente; ao primeiro som, você deve pressionar Enter novamente e lançar a granada. No entanto, se você demorar demais, a granada explodirá em você.
+abyss clash. similar to explosive battle, but there are pits in the map you can fall. Also there are metal cases you can climb, but grenades can destroy them.=Conflito Abissal. Semelhante à Batalha Explosiva, mas há fossos no mapa nos quais você pode cair. Também há caixas de metal que você pode escalar, mas as granadas podem destruí-las.
+Sniper duel.  This can be played either as teamed or not teamed. People can only use snipers e last team/person standing wins.=Duelo de Sniper. Pode ser jogado em equipes ou individualmente. As pessoas só podem usar snipers, e o último time ou pessoa sobrevivente vence.
+Snowflake survival. Like in the knife fight match, you can collect snowflakes, but if you freeze an enemy even 1 time, it will instantly be dead.=Sobrevivência de Floco de Neve. Assim como no modo de luta com faca, você pode coletar flocos de neve, mas, se congelar um inimigo mesmo que uma única vez, ele será eliminado instantaneamente.
+Zombie survival mode. In this mode, teams cannot hit each outro , but both teams must kill the zombies on the map. The last team standing wins. There are also houses in this mode e they can be used for hiding. However, if zombies can break down the doors of houses, they can enter houses e kill jogadores. Press shift enter to enter houses.=Modo de sobrevivência zumbi. Neste modo, as equipes não podem atacar umas às outras, mas ambas devem matar os zumbis no mapa. A última equipe sobrevivente vence. Também há casas nesse modo, e elas podem ser usadas para se esconder. No entanto, se os zumbis conseguirem quebrar as portas, podem entrar nas casas e eliminar os jogadores. Pressione Shift + Enter para entrar nas casas.
+Zombie vs player. In this mode, the jogadores on one team are jogadores while the outro  team is zombies e the last team standing wins. The zombies' walking sound is a bit low-pitched. Zombies can only use their claws, they make zombie sounds occasionally, they cannot jump e they cannot use any items. However, when zombies hit a player, they gain health as much as they damage.=Zumbi vs jogador. Neste modo, os jogadores de uma equipe são humanos, enquanto a outra equipe é composta por zumbis, e a última equipe sobrevivente vence. O som dos passos dos zumbis é um pouco mais grave. Os zumbis só podem usar suas garras, ocasionalmente emitem sons de zumbi, não podem pular e não podem usar nenhum item. No entanto, quando os zumbis atingem um jogador, eles recuperam saúde na mesma quantidade do dano causado.
+Capture the flag. In this mode, a team tries to steal the flags of the opposing team e must take them to their own team. The one who takes 10 flags to their own team wins. You can take the flags with the shift enter keys. You must take the red flags to the coordinates 100 100 0 e the blue flags to the coordinates 0 0 0. After going to the relevant coordinates, press shift enter to place the flag.=Capture a bandeira. Neste modo, uma equipe tenta roubar as bandeiras da equipe adversária e deve levá-las para sua própria base. Quem conseguir levar 10 bandeiras para sua equipe vence. Você pode pegar as bandeiras pressionando as teclas Shift + Enter. As bandeiras vermelhas devem ser levadas para as coordenadas 100 100 0 e as bandeiras azuis para as coordenadas 0 0 0. Após chegar às coordenadas corretas, pressione Shift + Enter para colocar a bandeira.
+Last man standing. In this mode, the jogadores are alone e there is no team, the last player standing wins.=Último sobrevivente. Neste modo, os jogadores estão sozinhos e não há equipes; o último jogador a sobreviver vence.
+in team morto match, last man standing e zombie vs player modes, the map will gradualy shrink as Partida continues.=Nos modos de partida de morte em equipe, último sobrevivente e zumbi vs jogador, o mapa encolherá gradualmente à medida que a partida continua.
+There are two teams in team matches, red e blue teams.=Existem duas equipes nas partidas em equipe, as equipes vermelha e azul.
+Some matches have a helicopter system. In these matches, when the Partida first starts, you are not sent directly to the map, you are in a helicopter e the helicopter starts to fly you around random coordinates for a certain period of time. If you do not jump from the helicopter after a certain period of time, it will throw you down, you must press shift enter to jump. However, you cannot jump immediately after you first get in the helicopter, 10 Segundos  must pass. If 10 Segundos  are not up, pressing shift enter will inform you how many more Segundos  you have to wait.=Algumas partidas possuem um sistema de helicóptero. Nestas partidas, quando o jogo começa, você não é enviado diretamente para o mapa; você está em um helicóptero, e ele começa a voar em coordenadas aleatórias por um certo período de tempo. Se você não pular do helicóptero após esse tempo, ele o jogará para fora. Você deve pressionar Shift + Enter para pular. No entanto, você não pode pular imediatamente ao entrar no helicóptero; é necessário esperar 10 segundos. Se os 10 segundos ainda não tiverem passado, ao pressionar Shift + Enter, você será informado de quantos segundos faltam para poder pular.
+When you jump from the helicopter, you start falling, so you should open your parachute e close it when you land.=Quando você pula do helicóptero, começa a cair, então deve abrir o paraquedas e fechá-lo ao aterrissar.
+For each match, the player who wins the Partida earns zero tokens. You can buy items from the store with these tokens.=Para cada partida, o jogador que vencer a partida ganha zero tokens. Você pode comprar itens na loja com esses tokens.
+In addition, a player earns score points for each player they kill. You can see the score points of the jogadores from the view ranking list section in the main menu. In addition, jogadores have ranks, as the score points increase, they rise to higher ranks.=Além disso, um jogador ganha pontos de pontuação para cada jogador que ele mata. Você pode ver os pontos de pontuação dos jogadores na seção de visualização do ranking no menu principal. Além disso, os jogadores têm ranks, e à medida que os pontos de pontuação aumentam, eles sobem para ranks mais altos.
+Players can also optionally add bots to matches when creating them. So, for example, if the creator wanted the Partida to be 5 vs 5 (5 jogadores on each team), but only 2 jogadores joined the match, the bots will fill in the remaining jogadores' places. Bots are just like normal jogadores, they can pick up items from the ground, have inventories, e use weapons they pick up.=Os jogadores também podem, opcionalmente, adicionar bots às partidas ao criá-las. Então, por exemplo, se o criador quiser que a partida seja 5 vs 5 (5 jogadores em cada equipe), mas apenas 2 jogadores entrarem na partida, os bots preencherão os lugares dos jogadores restantes. Bots são como jogadores normais, eles podem pegar itens do chão, têm inventários e usam as armas que pegam.
+Bots do not track jogadores, they walk around the map randomly. They will go there if gunshots are heard nearby.=Bots não rastreiam jogadores, eles andam aleatoriamente pelo mapa. Eles irão até lá se ouvirem tiros próximos.
+You can also watch matches, you will have the opportunity to do this when you die, or if you choose to go to the lobby when you die, you can do this by pressing shift enter in the lobby nas coordenadas 5 0 0. While assistindo  the match, navigate between jogadores or bots with the right e left arrows, e exit the Partida with escape. Also, while assistindo  jogadores, the info keys give their information. For example, normally the h key gives your health, while in spectating mode it gives the health of the person you are assistindo .=Você também pode assistir às partidas, tendo a oportunidade de fazer isso quando morrer, ou se escolher ir para o lobby quando morrer, pode fazer isso pressionando Shift + Enter no lobby nas coordenadas 5 0 0. Enquanto assiste à partida, navegue entre jogadores ou bots com as setas para a direita e esquerda, e saia da partida com a tecla Escape. Além disso, enquanto assiste a jogadores, as teclas de informação fornecem as informações deles. Por exemplo, normalmente a tecla H mostra sua saúde, enquanto no modo de espectador ela mostra a saúde da pessoa que você está assistindo.
+There is also anoutro  map in the game, fredom fight map. In this map, there are no bots e no team system, you can fight with jogadores in the map without creating matches. In this map, there are no items like in matches, but there are chests in the houses in the map. You can press shift enter to view the items inside them e get them. New Items will automaticaly add to chests once they are emptied. Although the chest's coordinates are always same, items they will have are randomly determined. Chests can also be destroyed, in which case all the items inside them will be lost, e chest will respawn after some time with new items. When you kill people in this map, you have the chance to receive 1 zero token 50%. Also in this map, you cannot access the store from game menu, you have to press shift enter at 500 463 0. Also, if you are in the same group as anoutro  player, in this mode the beacon of that player will be different sound, e it will play anoutro  beep sound if you hit a player which is in the same group with you. You can leave this map from game menu. Also, motors you buy while in this map will always stay in this map.=Há também outro mapa no jogo, o mapa Freedom Fight. Neste mapa, não há bots e nem sistema de equipes, você pode lutar com jogadores no mapa sem criar partidas. Neste mapa, não há itens como nas partidas, mas há baús nas casas do mapa. Você pode pressionar Shift + Enter para visualizar os itens dentro deles e pegá-los. Novos itens serão automaticamente adicionados aos baús assim que forem esvaziados. Embora as coordenadas dos baús sejam sempre as mesmas, os itens que eles terão são determinados aleatoriamente. Os baús também podem ser destruídos, caso em que todos os itens dentro deles serão perdidos, e o baú irá reaparecer após algum tempo com novos itens. Quando você mata jogadores neste mapa, tem a chance de receber 1 token zero 50%. Também neste mapa, você não pode acessar a loja pelo menu do jogo, é necessário pressionar Shift + Enter nas coordenadas 500 463 0. Além disso, se você estiver no mesmo grupo que outro jogador, neste modo, o beacon daquele jogador será de um som diferente, e tocará outro som de alerta se você acertar um jogador que está no mesmo grupo que você. Você pode sair deste mapa pelo menu do jogo. Além disso, os motores que você comprar enquanto estiver neste mapa permanecerão sempre neste mapa.
+you can watch jogadores in freedom fight map also. C e Z won't work on freedom fight map when assistindo  someone., If the person you watch enters the base, you will stop assistindo  them e switch to next available person in freedom fight map. This will also happen if the person returns to lobby. Like assistindo  the matches, right e left arrow moves between available jogadores in freedom fight map, escape stops assistindo  the freedom fight map e puts you back in the lobby.=Você também pode assistir aos jogadores no mapa Freedom Fight. As teclas C e Z não funcionam no mapa Freedom Fight ao assistir alguém. Se a pessoa que você está assistindo entrar na base, você vai parar de assisti-la e mudar para a próxima pessoa disponível no mapa Freedom Fight. Isso também acontecerá se a pessoa voltar para o lobby. Assim como ao assistir às partidas, as teclas de seta direita e esquerda movem entre os jogadores disponíveis no mapa Freedom Fight, e a tecla Escape para de assistir ao mapa Freedom Fight e te coloca de volta no lobby.
+To create a match, do the following.=Para criar uma partida, faça o seguinte.
+Press shift enter in the lobby nas coordenadas 5 0 0 e select create match. Then, when you make the necessary selections for the match, the Partida will be created. If the jogadores join, wait for them, e press shift enter to start the match. This menu also has additional options such as kicking e banning the player you want from the match. If you ban a player, they will not only be banned from this match, but also from all matches you create in the future.=Pressione shift enter no lobby nas coordenadas 5 0 0 e selecione criar partida. Em seguida, quando você fizer as seleções necessárias para a partida, a partida será criada. Se os jogadores entrarem, aguarde-os e pressione shift enter para iniciar a partida. Este menu também possui opções adicionais, como expulsar e banir o jogador que você deseja da partida. Se você banir um jogador, ele não será banido apenas desta partida, mas também de todas as partidas que você criar no futuro.
+When creating a match, you can set the Partida as public or private. The difference between public e private matches is that private matches require a password to join.=Ao criar uma partida, você pode definir a partida como pública ou privada. A diferença entre partidas públicas e privadas é que partidas privadas exigem uma senha para entrar.
+In team morto Partida e zombie vs player modes, when you die, 50% you will faint. If this happens, you will still be in the match, e you have 3 minutes. During this time, a team member can press t to wake you up when they are near you 3 steps, e you will wake up with 20 health. If no one wakes you up in 3 Minutos, you will die.=Nas partidas de team deathmatch e zombie vs player, quando você morre, há 50% de chance de você desmaiar. Se isso acontecer, você ainda estará na partida e terá 3 minutos. Durante esse tempo, um membro da equipe pode pressionar T para te acordar quando estiver a 3 passos de distância de você, e você acordará com 20 de saúde. Se ninguém te acordar em 3 minutos, você morrerá.
+The game also supports motors, you can buy it from the store. Here's how to use it.=O jogo também suporta motores, você pode comprá-los na loja. Aqui está como usá-los.
+When you get the motor, it will be 1 step ahead of you e you will be able to bump it, To get on it, you must jump e go to the direction of the motor, so you will get on the motor. After you get in, press shift enter e get on the motor.=Quando você pegar o motor, ele estará 1 passo à frente de você e você poderá esbarrar nele. Para subir nele, você deve pular e ir na direção do motor, assim você subirá nele. Depois de subir, pressione shift enter para andar no motor.
+You can start or stop the engine by pressing shift enter. Use the following controls while it is running.=Você pode ligar ou desligar o motor pressionando shift enter. Use os seguintes controles enquanto ele estiver funcionando.
+Up e down arrows, acceleration e deceleration. You should keep the up arrow pressed continuously so that the engine does not slow down. You can stop instantly even when you are very fast with the down arrow.=Setas para cima e para baixo, aceleração e desaceleração. Você deve manter a seta para cima pressionada continuamente para que o motor não desacelere. Você pode parar instantaneamente, mesmo quando estiver muito rápido, com a seta para baixo.
+Space. use the horn=Espaço. Use a buzina
+Right e left arrows, turn 45 degrees, which direction you are turning is announced. You can turn 1 degree with the right e left arrows with the shift.=Setas para a direita e para a esquerda, vire 45 graus, a direção para a qual você está virando é anunciada. Você pode virar 1 grau com as setas para a direita e para a esquerda segurando o shift.
+Escape, get off the motor. However, if you press escape while the motor is moving, you will fall off the motor.=Escape, saia do motor. No entanto, se você pressionar escape enquanto o motor estiver em movimento, você cairá do motor.
+Also, outro s can get on your motor, e if you start the engine e go , they can also go automatically. However, the driver of the motor is always the first to get on, if you get off e outro s have gotten on, the person who got on after you can drive the motor. Also, if you have gotten your motor but left it lying around, outro s can get on it e steal it.=Além disso, outros podem subir no seu motor, e se você ligar o motor e começar a andar, eles também podem ir automaticamente. No entanto, o motorista do motor é sempre a primeira pessoa a subir. Se você sair e outros já tiverem subido, a pessoa que subiu depois de você pode dirigir o motor. Além disso, se você pegou seu motor mas o deixou abandonado, outros podem subir nele e roubá-lo.
+Each motor you get is specific to that match, you have to get it again in the following matches.=Cada motor que você pegar é específico para aquela partida, você terá que pegá-lo novamente nas partidas seguintes.
+Your motor can also hit walls, e if this happens, you will fall off the motor e your motor will lose 30 health. If the motor gets close to a wall, you will hear a beep, in which case you should turn away e walk away. Other jogadores can also hit your motor e destroy it.=Seu motor também pode bater nas paredes, e se isso acontecer, você vai cair do motor e o motor perderá 30 de saúde. Se o motor se aproximar de uma parede, você ouvirá um bipe, e nesse caso, você deve se afastar e desviar. Outros jogadores também podem bater no seu motor e destruí-lo.
+You can voicechat with people in the game. After you have set who you will voice chat with in the settings, you can chat with them with the v key. If push to talk is on, hold down the v key to talk, if it is off, the v key will turn voice chat on e off every time you press it. You can control push to talk with the shift v.=Você pode fazer chat de voz com as pessoas no jogo. Depois de configurar com quem você fará o chat de voz nas configurações, você pode conversar com elas pressionando a tecla V. Se a função 'pressione para falar' estiver ativada, segure a tecla V para falar. Se estiver desativada, a tecla V ligará e desligará o chat de voz toda vez que você pressioná-la. Você pode controlar a função 'pressione para falar' com Shift + V.
+You can also play the game with a joystick. However, there is no default joystick layout in the game, you must set which keys on the joystick are used for what in the settings, outro wise none of the keys on your joystick will work. There are a few exceptions to this, e you cannot change these keys, these are.=Você também pode jogar o jogo com um joystick. No entanto, não há um layout padrão para o joystick no jogo, você deve configurar quais teclas no joystick serão usadas para o que nas configurações, caso contrário, nenhuma das teclas do seu joystick funcionará. Existem algumas exceções a isso, e você não pode alterar essas teclas, que são.
+The up e down dpad buttons navigate menus or change weapons while in the game.=Os botões para cima e para baixo do D-pad navegam pelos menus ou trocam de armas durante o jogo.
+The right dpad button activates the current option in the menus, acts as the enter key in the game.=O botão direito do D-pad ativa a opção atual nos menus, funcionando como a tecla Enter no jogo.
+The left dpad button returns to the previous menu in the menus, acts as the escape key in the game.=O botão esquerdo do D-pad retorna ao menu anterior nos menus, funcionando como a tecla Escape no jogo.
+The left stick moves the character, The right stick turns the character.=O stick esquerdo move o personagem, o stick direito vira o personagem.
+Also if you connect more than one joystick, you can use the joystick you want, you don't have to choose from the settings, the game will detect which joystick buttons you press. However, there can be confusion in the key mappings because the buttons e codes of each joystick can be different, so if you connect 2 or more joysticks, make sure they are the same brand/model.=Além disso, se você conectar mais de um joystick, pode usar o joystick que quiser, não precisando escolher nas configurações, o jogo detectará quais botões do joystick você pressionar. No entanto, pode haver confusão nos mapeamentos das teclas, pois os botões e códigos de cada joystick podem ser diferentes, então, se conectar 2 ou mais joysticks, certifique-se de que sejam da mesma marca/modelo.
+This game supports vertical aiming. This means you can even hit things above or below you. You can aim up e down with the up e down arrows, e as you aim up e down, the sounds will make it sound like you are above or below. You can aim up or down up to 20 steps.=Este jogo suporta mira vertical. Isso significa que você pode até atingir coisas acima ou abaixo de você. Você pode mirar para cima e para baixo com as setas para cima e para baixo, e conforme você mira para cima ou para baixo, os sons farão com que pareça que você está acima ou abaixo. Você pode mirar para cima ou para baixo até 20 passos.
+Note. If you are using the classic walking mode, you will walk with the arrow keys instead of w, s, a e d, so you can aim with the w e s keys. Also, the turning keys are the d e a keys in classic walking mode, these keys turn you 45 degrees e the direction you are in is announced. Pressing these keys with shift turns you 1 degree e the direction you turn is not announced. In normal walking mode, you walk with the w a s e d keys, you can turn e aim with the arrow keys. Also, pressing the aim keys once will make you aim 1 step more in that direction, while pressing with shift will make you aim 5 steps.=Nota. Se você estiver usando o modo de caminhada clássico, você caminhará com as teclas de seta em vez das teclas w, s, a e d, então você poderá mirar com as teclas w e s. Além disso, as teclas de virada são as teclas d e a no modo de caminhada clássico, essas teclas viram você 45 graus e a direção em que você está é anunciada. Pressionar essas teclas com shift faz você virar 1 grau e a direção que você vira não é anunciada. No modo de caminhada normal, você anda com as teclas w, a, s e d, você pode virar e mirar com as teclas de seta. Além disso, pressionar as teclas de mira uma vez fará com que você mire 1 passo mais nessa direção, enquanto pressionar com shift fará com que você mire 5 passos.
+It is also possible to play the game with the mouse. After enabling this from the settings, the following can be done with the mouse.=Também é possível jogar o jogo com o mouse. Após habilitar isso nas configurações, o seguinte pode ser feito com o mouse.
+Manage languages=Gerenciar idiomas
+switch to a language=mudar para um idioma
+View language syntax help=Ver ajuda de sintaxe de idioma
+go back=voltar
+View contributors=ver os contribuidores
+update data=atualizar os dados
+add line=adicionar uma nova linha
+Switch to this language=mudar para esse idioma
+Change owner=mudar o dono
+Add contributor=adicionar um contribuidor
+Remove contributor=remover um contribuidor
+delete language=excluir idioma
+Moving the mouse turns the character.=Movimentar o mouse gira o personagem.
+Left click shoots.=O clique esquerdo atira.
+Wheel changes weapons.=A roda do mouse troca as armas.
+Right click walks in the direction you are facing.=O clique direito faz o personagem andar na direção em que está virado.
+You can become friends with jogadores in the game. This allows you to send them private messages e be notified when they enter e exit the game. You do not receive notifications when normal jogadores enter e exit the game.=Você pode se tornar amigo de jogadores no jogo. Isso permite que você envie mensagens privadas para eles e seja notificado quando entrarem e saírem do jogo. Você não recebe notificações quando jogadores normais entram e saem do jogo.
+You can create groups in the game e outro  jogadores can join these groups. They can send requests to your group or you can invite them. People in the same group can send private messages to the group. You can also see how many kills e deaths each group has e its members in the group information menu. In addition, the group owner can add additional administrators to the group, these administrators do not have as much authority as the group owner, but they can still manage the basic functions of the group.=Você pode criar grupos no jogo, e outros jogadores podem se juntar a esses grupos. Eles podem enviar solicitações para entrar no seu grupo, ou você pode convidá-los. Pessoas do mesmo grupo podem enviar mensagens privadas para o grupo. Também é possível ver quantas eliminações e mortes cada grupo tem e seus membros no menu de informações do grupo. Além disso, o proprietário do grupo pode adicionar administradores adicionais; esses administradores não têm tanta autoridade quanto o proprietário, mas ainda podem gerenciar as funções básicas do grupo.
+each group must be created no mapa da luta pela liberdade e each group has a base. This base has a chest that members can use to store items. To put items to chest, enter the base e drop the item with backspace when you are near to chest, or use shift backspace to drop a specific amount of that item. When someone creates a group, the group base will spawn next to the player, e there'll be wall. Group members can open the door only, however if the door is left out open, outro s can also enter the base. In the outside, if the door is closed, a group member can open it by shift enter. When it is on, when anyone presses shift enter, a menu will show which will allow to close the door e enter the base. In the inside in coordinates 0 0 0, pressing shift enter will do these. If the door is on, it will allow anyone to exit the base or to close the door. If the door is closed, anyone inside the base can open it. The base can also be destroyed, e if it happens, the group asociated with it will be permanently deleted. The items put on the base's chest will also be lost. Also, in the chests in the fredom fight map, you can find an item named base_life_amplifier, which you can use to increase base's health. If base's health is less than 2000, door functionality will be not available, e anyone can enter the base.=Cada grupo deve ser criado no mapa da Luta pela Liberdade e possui uma base. Esta base tem um baú que os membros podem usar para armazenar itens. Para colocar itens no baú, entre na base e solte o item pressionando a tecla Backspace quando estiver próximo ao baú ou use Shift + Backspace para soltar uma quantidade específica do item. Quando alguém cria um grupo, a base do grupo será gerada ao lado do jogador e haverá uma parede. Somente os membros do grupo podem abrir a porta; no entanto, se a porta for deixada aberta, outros também poderão entrar na base. Do lado de fora, se a porta estiver fechada, um membro do grupo pode abri-la com Shift + Enter. Quando está ativa, qualquer um que pressione Shift + Enter verá um menu que permitirá fechar a porta e entrar na base. No interior, nas coordenadas 0 0 0, pressionar Shift + Enter realizará essas ações. Se a porta estiver ativa, permitirá que qualquer pessoa saia da base ou feche a porta. Se a porta estiver fechada, qualquer pessoa dentro da base pode abri-la. A base também pode ser destruída e, se isso acontecer, o grupo associado a ela será permanentemente deletado. Os itens colocados no baú da base também serão perdidos. Além disso, nos baús do mapa Luta pela Liberdade, você pode encontrar um item chamado "amplificador de vida da base", que pode ser usado para aumentar a saúde da base. Se a saúde da base for inferior a 2000, a funcionalidade da porta não estará disponível, e qualquer um poderá entrar na base.
+Apart from groups, there is also a general chat in the game, you can select a language channel with f11 e send a message to that channel with the / key.=Além dos grupos, também há um chat geral no jogo. Você pode selecionar um canal de idioma com a tecla F11 e enviar uma mensagem para esse canal com a tecla /.
+There is a headshot system in the game. If you shoot someone two steps below you, you will deal 2 times more damage than you would normally.=Existe um sistema de headshot no jogo. Se você acertar alguém que está dois passos abaixo de você, causará 2 vezes mais dano do que causaria normalmente.
+There are 3 items in the game to increase health. These are Small potion, vitality potion e revival nectar. All of them increase your health at different rates.=Há 3 itens no jogo para aumentar a saúde: poção pequena, poção de vitalidade e néctar de renascimento. Cada um deles aumenta sua saúde em diferentes proporções.
+There is an item called binoculars in the game. With this item, you can see jogadores within 120 steps of you.=Há um item chamado binóculos no jogo. Com este item, você pode ver jogadores a até 120 passos de distância de você.
+You can assign your current weapon to any number you want in the game=Você pode atribuir sua arma atual a qualquer número que desejar no jogo
+max volume=volume máximo
+game sounds muted=sons do jogo silenciados
+Attention. The game has now been frozen by a staff member. Please be patiently.=Atenção. O jogo foi agora congelado por um membro da equipe. Por favor, seja paciente.
+Attention. The game has now been unfrozen!=Atenção. O jogo foi agora descongelado!
+Press shift + enter to exit from group base=Pressione shift + enter para sair da base do grupo =substr
+View group base location=Ver localização da base do grupo
+Put all your inventory to chest=Coloque todo o seu inventário no baú
+Type your message here=Digite sua mensagem aqui =substr
+Get all items from chest=Pegue todos os itens do baú
+this base reached to max health.=Esta base alcançou a saúde máxima.
+You accepted the invitation=Você aceitou o convite
+Current location: An overpass then covers the entire city=Localização atual: Um viaduto cobre toda a cidade=substr
+stairs leading down to ground=Escadas que levam ao chão=substr
+An overpass then covers the entire city=Um viaduto então cobre toda a cidade=substr
+front of long factory=Frente de uma longa fábrica=substr
+Change password=Alterar sua senha
+Change email address=Alterar endereço de e-mail
+rename your character=Renomeie seu personagem
+Set a status message=Defina uma mensagem de status
+Rename history=Renomear histórico
+disable receiving group messages=desativar recebimento de mensagens de grupo

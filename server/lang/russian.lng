@@ -1,0 +1,121 @@
+north=север=substr
+northeast=Северо-Восток=substr
+east=восток=substr
+southeast=юго-восток=substr
+south=юг=substr
+southwest=юго-запад=substr
+west=запад=substr
+northwest=северо-запад=substr
+Attention. The game is frozen. Please be patient.=Внимание. Игра заморожена. Пожалуйста, будьте терпеливы.
+Attention. The game has now been unfrozen!=Внимание. Игра теперь разморожена!
+no friends online=Нет друзей в Сети
+You have no weapon equipped.=у вас нет экипированного оружия
+Type your message here.=Введите свое сообщение здесь.
+Nobody near you=Рядом с тобой никого нет
+You haven't selected any weapons yet.=вы ещё не выбрали какое либо оружие.
+Select an option=выберите нужный вариант
+leave match=покинуть матч
+Type your team message here.=Введите здесь сообщение вашей команды.
+friends online=друзей в сети=substr
+a sign =знак
+Create An Account=создать учетную запись
+all matches ended by staff=все матчи завершились по решению персонала
+is typing=печатает=substr
+No items=нет предметов
+Character Stats, Check the properties of your account, your score points, rank, amount of tokens, etc.=Статистика персонажа, проверьте свойства вашей учетной записи, набранные вами очки, ранг, количество жетонов и т.д.
+current character, default=текущий символ, по умолчанию
+Your gender, Male=Ваш пол, Мужской
+Score point=Набранное очко=substr
+Score Rank, Bronze=Оценочный ранг, Бронза
+bot kills=Убийств ботов=substr
+bot deaths=Смертей бота=substr
+player kills=убийств игроков=substr
+player deaths=смертей игрока=substr
+zero token amount=нулевая сумма токенов=substr
+Game menu=игровое меню
+Pm from=личное сообщение от=substr
+Exit the game=выход из игры
+settings=настройки
+Exit the game.=выход из игры.
+pm to=личное сообщение для=substr
+character stats menu.=меню статистики персонажа
+max volume=максимальная громкость
+game sounds muted=звуки игры приглушены
+You are not in a group=Вы не состоите в группе
+Type a map message here.=Введите сообщение карты здесь.
+Change character, View the characters you have and switch to those characters. Notes. You can only change your character in the lobby and waiting part of the match.=Измените персонажа, просмотрите имеющиеся у вас персонажи и переключитесь на них. Записи. Вы можете сменить своего персонажа только в лобби и во время ожидания матча.
+Select character to switch=Выберите персонажа для переключения
+default=стандарт
+Server Message:=Сообщение Сервера:
+Store, Spend the zero tokens you have, view the packages you have purchased, or buy tokens from the virtual store.=магазин, тратьте имеющиеся у вас нулевые токены, просматривайте приобретенные пакеты или покупайте токены в виртуальном магазине.
+Select category=выберите категорию
+vehicles=транспортные средства
+characters=персонажи
+weapons=оружие
+ammos=боеприпасы
+equipments=оборудование
+potions=зелья
+explosives=взрывчатые вещества
+View packs you bought from the shop and open them=Просмотрите пакеты, которые вы купили в магазине, и откройте их
+Go to online store website to buy zero token packs.=Перейдите на сайт интернет-магазина, чтобы купить пакеты нулевых токенов.
+Copy the link of the online store web page to buy zero token packs.=Скопируйте ссылку на веб-страницу интернет-магазина, чтобы купить пакеты с нулевыми токенами.
+copied=скопированный
+Beacons disabled.=Маяки отключены.
+Beacons enabled.=Маяки включены.
+Friend went offline=Друг вышел=substr
+Friend menu, Send a friend request, View Pending Friend Requests, Remove Friend.=Меню "Друзей", Отправить запрос в друзья, Просмотреть ожидающие запросы в друзья, Удалить друзей.
+add friend=добавить друга
+Pending friend requests sent to you=Запросы на добавление в друзья ожидающие вашего подтверждения
+Pending friend requests you sent=Запросы на добавление в друзья отправленные вами и ожидающие подтверждения
+Remove friend=удалить друга
+Select player to remove from friend list=Выберите игрока, которого вы хотите удалить из списка друзей
+No friend requests found.=Запросов в друзья не найдено.
+Select player to add as friend=Выберите игрока, которого вы хотите добавить в друзья
+friend=друг=substr
+came online=зашёл в игру=substr
+went offline=вышел из игры=substr
+Friend=друг=substr
+Select an item to buy=Выберите предмет для покупки
+Language was updated successfully.=Язык был успешно обновлен.
+copy data=скопировать данные
+update data=обновить данные
+
+You are looking=Ты смотришь=substr
+Change language=Выберете язык
+Learn game sounds=прослушать звуки игры
+View ranking list.=Просмотреть ранговый список.
+View game readme file=Прочитать игровую справку
+View game's rules.=Просмотреть правила игры.
+Make us a small donation. If you like the game and if you can, a small donation would be appreciated.=Пожертвовать. Если вам нравится игра, и у вас есть возможность, мы будем признательны.
+join the official telegram group of Zero Hour Assault.=Пресоединиться к официальной группе в telegram.
+Sign in as=Войти как=substr
+Welcome to zero_hour_assault!=Добро пожаловать в zero_hour_assault!
+Login Options=Параметры входа.
+southeast=юго-восток
+northeast=северо-восток
+southwest=юго-запад
+northwest=северо-запад
+zero hour assault Main Menu. Please select an option using the up and down arrow keys and press enter to confirm. Use the page up and page down keys to adjust the music volume.=главное меню zero hour assault. Пожалуйста, выберите опцию с помощью клавиш со стрелками вверх и вниз и нажмите enter для подтверждения. Используйте клавиши page up и page down для регулировки громкости музыки.
+loading=загрузка
+Logo. Press enter to continue.=Логотип. Нажмите клавишу enter, чтобы продолжить.
+Please select an option.=Пожалуйста, выберите нужный вариант.
+setup an existing account=настройка существующей учетной записи
+Recover your password=Восстановите свой пароль
+Back to main menu=Вернуться в главное меню
+connecting to the server, please wait...=Подключение к серверу, пожалуйста подождите...
+Account security, Update your account password, Modify your registered email, View Login History and See which devices have accessed your account and block unauthorized devices.=Обеспечьте безопасность учетной записи, обновите пароль учетной записи, измените свой зарегистрированный адрес электронной почты, просмотрите историю входа в систему и узнайте, какие устройства получили доступ к вашей учетной записи, а также заблокируйте несанкционированные устройства.
+events, Daily Rewards, Upcoming Events.=события, Ежедневные награды, Предстоящие события.
+Game settings, Change your game settings.=Настройки игры, измените свои настройки игры.
+Group menu, Start a new group for collaboration, View Group Invitations, Manage Group Members.=Групповое меню, Создание новой группы для совместной работы, Просмотр групповых приглашений, Управление участниками группы.
+Make suggestions, leave feedback, report bugs.=Вносите предложения, оставляйте отзывы, сообщайте об ошибках.
+View rules, View the game rules, read the rules to avoid making mistakes in the game.=Просматривайте правила, просматривайте правила игры, читайте правила, чтобы избежать ошибок в игре.
+view all groups, View groups created in the game, view how many kills and how many deaths they have, send a request to join a group.=просматривайте все группы, просматривайте группы, созданные в игре, просматривайте, сколько в них убийств и смертей, отправляйте запрос на вступление в группу.
+View timed item expiry times=Просмотр времени истечения срока годности товара
+View Latest Additions=Просмотр последних дополнений
+View game readme file, learn the game about.=Просмотрите игровую справку, узнайте по больше об игре.
+languages, Manage Languages, Switch to a Language, Get syntax and usage tips for different languages, Create New Language.=языки, Управление языками, Переключение на язык, получение советов по синтаксису и использованию для разных языков, создание нового языка.
+Staff List, View All Staff Members.=Список сотрудников, Просмотр всех сотрудников.
+Server Status.=Состояние сервера.
+notification settings, Customize Notification Alerts.=настройки уведомлений, настройка оповещений об уведомлениях.
+ticket menu, Submit a new support request, View Your Previous Tickets.=Меню обращений, отправте обращение разработчикам, просмотрите ваши привидущие обращения.
+Are you sure to leave the game, press escape or the left D-pad button of the joystick to cancel, press enter or the right D-pad button of the joystick to disconnect.=Если вы уверены, что хотите выйти из игры, нажмите escape или левую кнопку D-pad на джойстике для отмены, нажмите enter или правую кнопку D-pad на джойстике для отключения.

@@ -1,0 +1,9 @@
+mapname:flag
+maxx:100
+maxy:100
+maxz:100
+zone:0:250:0:250:0:250:capture the flag
+platform:0:100:0:100:0:0:gravel2
+src:0:100:0:100:0:70:amb3.ogg:0
+zone:0:0:0:0:0:10:press shift enter to put blue flag:trackable
+zone:100:100:0:0:0:10:press shift enter to put red flag:trackable

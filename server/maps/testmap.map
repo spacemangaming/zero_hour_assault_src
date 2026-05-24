@@ -1,0 +1,5 @@
+mapname:testmap
+maxx:25
+maxy:25
+maxz:25
+platform:0:25:0:25:0:tile

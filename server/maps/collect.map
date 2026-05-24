@@ -1,0 +1,7 @@
+mapname:collect
+maxx:100
+maxy:100
+maxz:100
+zone:0:250:0:250:0:250:collector's arena
+platform:0:100:0:100:0:0:gravel2
+src:0:100:0:100:0:70:amb3.ogg:0

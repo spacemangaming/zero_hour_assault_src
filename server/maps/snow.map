@@ -1,0 +1,7 @@
+mapname:snow
+maxx:100
+maxy:100
+maxz:100
+src:0:100:0:100:0:100:amb3.ogg:0
+zone:0:100:0:100:0:100:Let's see who can swing a knife the best!
+platform:0:100:0:100:0:0:ice1

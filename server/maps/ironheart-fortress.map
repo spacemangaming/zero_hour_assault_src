@@ -1,0 +1,35 @@
+mapname:ironheart-fortress
+maxx:100
+maxy:100
+maxz:100
+platform:0:100:0:100:0:0:carpet
+platform:0:0:0:100:0:15:wallstone
+platform:100:100:0:100:0:15:wallstone
+platform:0:100:0:0:0:15:wallstone
+platform:0:100:100:100:0:15:wallstone
+platform:0:0:0:0:15:30:generic
+platform:100:100:0:0:15:30:generic
+platform:0:0:100:100:15:30:generic
+platform:100:100:100:100:15:30:generic
+door:50:50:0:0:15:30:50:10:15:1000:dooropen5.ogg:doorclose4.ogg
+platform:30:70:50:50:20:30:concrete14
+platform:10:20:10:10:15:20:concrete24
+platform:45:45:0:10:15:30:wallbuilding
+platform:55:55:0:10:15:30:wallbuilding
+platform:45:55:10:10:15:30:wallbuilding2
+zone:0:20:0:20:0:10:respawn:trackable
+zone:70:90:0:20:0:10:loot:trackable
+zone:30:70:20:50:15:30:combat:trackable
+hidden_area:45:55:45:55:0:10
+platform:45:55:45:55:0:10:appartment
+hidden_area:85:95:85:95:0:10
+platform:85:95:85:95:0:10:appartment
+zone:45:55:45:55:0:10:refuge
+zone:85:95:85:95:0:10:refuge 2
+hidden_area:5:15:5:15:0:10
+platform:5:15:5:15:0:10:appartment
+zone:5:15:5:15:0:10:refuge 3
+hidden_area:18:22:78:82:0:10
+platform:18:22:78:82:0:10:appartment
+zone:18:22:78:82:0:10:refuge 4
+amb:45:55:45:55:0:50:amb4.ogg:0

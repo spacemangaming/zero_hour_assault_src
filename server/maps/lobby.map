@@ -1,0 +1,21 @@
+mapname:lobby
+maxx:100
+maxy:100
+maxz:100
+zone:0:100:0:100:0:100:the lobby, to access to match menu, go to 5 0 0.
+
+
+zone:4:6:0:4:0:10:match menu. Triple tap middle of screen to open it.
+zone:0:0:0:0:0:10:a sign
+sign:0:0:0:Welcome to zero hour assault. You can move to coordinates 5 0 0 to access the match menu. Also, if you have suggestions about the game, you can leave your message in the game menu, that is, the letter o, in the suggestion or report bug section, Enjoy!
+platform:0:100:0:100:0:0:wood4
+platform:4:6:0:4:0:0:carpet3
+src:0:100:0:100:0:100:ceiling_fan2.ogg:-24
+src:0:100:0:100:0:100:menumusic4.ogg:-45
+
+platform:0:0:0:0:0:0:cement4
+reverb:0:100:0:100:0:30:1.0:1.0:0.10:0.40:1.20:0.10:0.02:0.005:1.20:0.009:0.900:1.0
+zone:0:10:15:25:0:30:a big clock:trackable
+src:0:10:15:25:0:30:wallclock.ogg:0
+platform:0:10:15:25:0:0:wood7
+door:63:1:77:1:0:5:5:0:100:1:dooropen5.ogg:doorclose6.ogg

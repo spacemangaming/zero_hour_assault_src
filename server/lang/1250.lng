@@ -1,0 +1,2112 @@
+base chest log=سجل الصندوق
+view group base chest log=سجل الصندوق
+no one within 50 steps=لا يوجد أحد للتشويش عليه
+There is a guard's sleeping room, a swimming pool to the east, the main building to the north, and the parking area to the west.=في الشرق حمام سباحة وغرفة نوم الحارس بينما في الغرب موقف السيارات وأمامك في الشمال المبنى الرئيسي
+enable event notifications=إشعارات الأحداث
+disable event notifications=إشعارات الأحداث
+Welcome to the Explosives Store! Pack a punch with a grenade, lay traps with TM62, or go big with a timebomb—your enemies won’t know what hit them. The machine for this store is located at (111, 775, 0).=مرحبًا بك في متجر المتفجرات! احصل على قنبلة يدوية، أو قم بزرع لغم، أو فعّل قنبلة زمنية — وراقب الفوضى. آلة المرتجر تقع في (111, 775, 0).
+Welcome to the Potions Store! From a quick health boost to a full revival, our potions can turn the tide of any fight. Find your healing potion machine at (300, 775, 0).=مرحبًا بك في متجر الجرعات! من الجرع الصغيرة إلى جرعات الإحياء الكاملة — نحن هنا لتبقى حيًا في القتال. ستجد آلة الجرعات في (300, 775, 0).
+Welcome to the Vehicles Store! Ready to ride? Pick up your Motor and speed across the map—just watch out for walls and enemy bullets. The machine for this store is located at (400, 775, 0).=مرحبًا بك في متجر المركبات! هل أنت مستعد للانطلاق؟ احصل على الدراجة وانطلق بسرعة عبر الخريطة — فقط احذر من الاصطدام بالجدران أو نيران الأعداء. موقع آلة هذا المتجر هو (400, 775, 0).
+the player selected went offline, a new one will be selected.=سوف يتم اختيار لاعب آخر لإن المختار أصبح غير متصل
+you are died=أنت ميت
+event info=معلومات الحدث
+You have not completed this event=انت لم تكمل هذا الحدث
+Enable Use Steam Audio for 3d audio=Steam Audio صوت ثلاثي الأبعاد
+Disable Use Steam Audio for 3d audio=Steam Audio صوت ثلاثي الأبعاد
+The eMail provided for this account is not correct=أعد تسجيل الدخول مع كتابة البريد الإلكتروني بشكل صحيح
+loading=جاري التحميل
+Forge Your Legend!=إصنع أسطورتك
+you left the community=لقد غادرت المجتمع
+community Microphone disabled=تم تعطيل مايكروفون المجتمع
+all muted=تم الكتم
+all unmuted=تم الغاء الكتم
+Are you sure you want to delete this community?=هل انت متاكد من انك ترغب في حذف هذا المجتمع؟
+You already bought this character before!=انت تملك هذه الشخصية بالفعل
+disable poll notifications=اصوات الاستفتاءات
+enable poll notifications=اصوات الاستفتاءات
+community menu, Create a new community for talk, View community Invitations, Manage community Members.=المجتمع
+Poll menu, create polls, vote on existing polls=الاستفتاءات
+view all communitys, View communitys created in the game, send a request to join a community.=المجتمعات
+disable sound when someone enters and exits your map=صوت دخول وخروج شخص من الخريطة
+enable sound when someone enters and exits your map=صوت دخول وخروج شخص من الخريطة
+Welcome to zero hour assault. You can move to coordinates 5 0 0 to access the match menu. Also, if you have suggestions about the game, you can leave your message in the game menu, that is, the letter o, in the suggestion or report bug section, Enjoy!=أهلا بك في لعبة ZeroHourAssault, إذهب إلى  الإحداثيات 5.0.0 ,للوصول إلى قائمة المبارايات. أيضا إذا كان لديك أي إقتراحات فلا تتردد في إيصالها لنا عبر قائمة اللعبة بالضغط على حرف O في لوحة المفاتيح ثم الإنتقال لقسم الإقتراحات
+jump=القفز
+reload weapon=تعمير السلاح
+fire weapon=إطلاق النار
+move to next inventory item=الانتقال الى العنصر التالي في الحقيبة
+move to previous inventory item=الانتقال الى العنصر السابق في الحقيبة
+Use the selected inventory item=استخدام العنصر الذي تم التحديد عليه في الحقيبة
+Drop the selected inventory item=رمي العنصر الذي تم التحديد عليه في الحقيبة الى الأرض
+Speak facing direction=نطق الاتجاه الذي تنظر اليه حاليا
+Speak coordinates=نطق الإحداثيات الحالية
+Climb up=الصعود الى الأعلى
+Climb down=النزول الى الأسفل
+Open the game menu=فتح قائمة اللعبة
+Configuration saved.=تم حفظ التكوين
+Select player to send private message. Press shift enter on a player to copy their name to clipboard.=اختر اسم لاعب من الأصدقاء وانسخ اسمه بمفتاح المسافة ولعرض إحصائياته اضغط على اسمه شِفّت إنتر ولإرسال رسالة خاصة له اضغط إنتر فقط
+select hand=اختر اليد
+Select output device=اختر جهاز اخراج الصوت 
+Please select the audio output device.=من فضلك اختر جهاز اخراج الصوت الذي تريده
+disable typing notifications=تنبيهات بدء الكتابة
+enable typing notifications=تنبيهات بدء الكتابة
+disable vote notifications=استلام إشعارات التصويت
+enable vote notifications=استلام إشعارات التصويت
+enable authorization requirement when logging in from different computers=التأكيد على تسجيل الدخول من أجهزة أخرى
+disable authorization requirement when logging in from different computers=التأكيد على تسجيل الدخول من أجهزة أخرى
+disable hearing community voice chat=سماع أعضاء المجتمع
+enable hearing community voice chat=سماع أعضاء المجتمع
+This player has disabled receiving group invitations=لا يمكن هذا بسبب منعه لاستلام دعوات المجموعات
+You accepted the request=تم قبول الطلب بنجاح
+Error, this player has blocked you.=وضعك هذا اللاعب في قائمة الحظر.
+You can't put base here=لا يمكن وضع قاعدة هنا
+The Email is not correct.=البريد الالكتروني غير صحيحأعد المحاولة واكتب البريد الإلكتروني بشكل صحيح
+loggedin=تسجيل الدخول
+Connecting.=جاري الاتصال
+Success! Your account password has been sent to your e-mail address.=راجع البريد الخاص بك تم إرسال كلمة المرور له
+no such account found=لا يوجد حساب بهذه البيانات
+this feature has been disabled until new updates comes=تم تعطيل هذه الميزة حتى صدور التحديث الجديد
+This player already sent friend request to you=هذا اللاعب بالفعل قام بإرسال طلب صداقة لك
+The password provided for this account is not correct=كلمة المرور خطأ
+Stopped tracking=تم
+You turned off receiving group messages. So you can not send also=فَعّل خيار استلام رسائل المجموعة كي تتمكن من إرسال الرسائل لهم
+Verifying code ...=جار التحقق من الكود المدخل0
+Invalid code=هذا الكود غير صحيح  يرجا اعادة المحاولة  بعد ساعتين
+You have tried to log into this account from a different computer than the one in which it is created. To be sure you are indeed the owner, we will send an verification code to the email address you wrote when creating this account. Please enter the code you received, to authorize this computer. After you authorize this computer, you can log into your account from this computer and all your other authorized computers. You can later on remove the authorization from the game menu from any of the your authorized computers. Do you want to authorize this computer?=لقد حاولت تسجيل الدخول من جهاز مختلف لذا سوف نرسل لك كود على البريد الخاص بك راجع البريد الإلكتروني.
+Rank: administrator=الرتبة الوظيفية إداري
+you resigned from administrating the group=لقد استقلت من إدارة المجموعة
+wait=انتظر
+current character, tristan=الشخصية الحالية، تريستان
+current character, barry_allen=الشخصية الحالية، باري ألين
+current character, kado=الشخصية الحالية، كادوا
+current character, aria=الشخصية الحالية، أنغام
+current character, default=الشخصية الحالية، الافتراضية
+Timed item information menu=قائمة العناصر المؤقتة
+you are already using the aria character=أنت تستخدمها بالفعل
+Done, switched to the aria character.=تم التحويل إلى شخصية أنغام.
+Success=نجاح
+Select a member to remove admin.=إزالة مشرف من الإشراف 
+No requests found.=ليس هناك طلبات للإنضمام
+Select a member to kick.=اختر لاعب لطردهُ من المجموعة
+get zero tokens from donated tokens=اجمع الرموز التي تم المساهمة بها
+Done, friend request declined successfully.=تم رفض الطلب بنجاح
+you can not drop an item right now!=لا يمكنك رمي العناصر حاليا
+Accept friend request from this player=قبول طلب الصداقة الذي أرسلهُ لك
+Decline friend request from this player=رفض طلب الصداقة الذي أرسلهُ لك
+No items=ليس هناك أي عناصر
+Error. This computer is not authorized to log into your account, but you already authorized one computer in the last 2 hours. You can only authorize one computer per 2 hours.=خطأ. هذا الكمبيوتر غير مصرح له بتسجيل الدخول إلى حسابك، ولكنك قمت بالفعل بتفويض جهاز كمبيوتر واحد خلال الساعتين الماضيتين. يمكنك ترخيص جهاز كمبيوتر واحد فقط كل ساعتين.
+You do not have that many tokens=ليس لديك هذا العدد من الرموز
+oops, something went wrong. Please try again.=عفوًا، حدث خطأ ما. يرجى المحاولة مرة أخرى.
+Logging in ...=جارٍ تسجيل الدخول.
+connecting to the server, please wait...=جارٍ الاتصال بالخادم يرجى الانتظار 
+No such account exists.=لا يوجد حساب بتلك المعلومات الرجاء التحقق من صحة البيانات التي تم إدخالها
+you cannot get more tokens=لا يمكن أخذ المزيد من العُملات
+Chat language, disabled.=الدردشة معطلة 
+Chat language, free_chat=لغة الدردشة، دردشة عامة
+Rank: Player=الرتبة الوظيفية لاعب
+You cannot unload the weapon when you have weapons on both of your hands=لا يمكنك تفريغ السلاح عندما يكون لديك أسلحة في كلتا يديك
+You cannot buy a motor in the map boundary=لا يمكن شراء دراجة في حدود الخريطة
+You are jailed=لا يمكنك القيام بذلك لإنكَ مسجون
+This player free account=حساب غير معتمد
+you are free account=حساب غير معتمد
+In this mode, a team tries to steal the flags of the opposing team and must take them to their own team. The one who takes 10 flags to their own team wins. You can take the flags with the shift enter keys. You must take the red flags to the coordinates 100 100 0 and the blue flags to the coordinates 0 0 0. After going to the relevant coordinates, press shift enter to place the flag.=في هذا الوضع، يحاول الفريق سرقة أعلام الفريق المنافس ويجب أن يأخذها إلى فريقه. الشخص الذي يأخذ 10 أعلام لفريقه هو الفائز. يمكنك أن تأخذ الأعلام باستخدام مفاتيح الشِفّت يجب أن تأخذ الأعلام الحمراء إلى الإحداثيات 100 100 0 والأعلام الزرقاء إلى الإحداثيات 0 0 0. بعد الذهاب إلى الإحداثيات ذات الصلة، اضغط على مفتاح شِفّت إنتر لوضع العَلَم.=substr
+Also in this map, you cannot access the store from game menu, you have to press shift enter at 500 463 0. Also, if you are in the same group as another player, in this mode the beacon of that player will be different sound, and it will play another beep sound if you hit a player which is in the same gr=وفي هذه الخريطة أيضًا، لا يمكنك الوصول إلى المتجر من قائمة اللعبة، يجب عليك الضغط على مفتاح شِفّت إنتر عند الإحداثيات 500 463 0. وأيضًا، إذا كنت في مجموعة مع لاعب آخر، ففي هذا الوضع، سيكون صوت منارة ذلك اللاعب مختلفًا ، وسوف يصدر صوت صفير آخر إذا ضربت لاعبًا في نفس النطاق=substr
+the game chooses a random player in the freedom fight map, which is announced. If the player exits the freedom fight map or game, a new player is selected. This player should survive for 10 minutes. If they get killed, killer gets 10 event points and another player is selected. If nobody can kill them, they get 10 event points and another player is selected. Each 1 minute info about the player is given.في هذا الحدث سيتم الاعلان عن اسم لاعب في خريطة الحرب المفتوحة, على اللاعب الذي تم الاعلان عن اسمه ان يبقا على قيد الحياة لمدة 10 دقائق, اذا تم قتله قبل انقضاء المدة فسيحصل الشخص الذي قام بقتله على 10 نقاط, وسيتم اختيار شخص اخر لهذا التحدي, ولكن اذا نجح وتمكن من البقاء حيا فسيحصل هو على 10 نقاط, وسيتم الاعلان عن تفاصيل هذا التحدي كل دقيقة=substr
+you get 10 event points for each thing you kill untill 20. After 20 kills, your event point won't increase, but your score on this event scoreboard will increase.= في هذا التحدي ستحصل على 10 نقطة لكل شخص تقتله الى ان تقتل 20 شخصاً, عندما تقتل اكثر من 20 شخصاً فلن تحصل على مزيد من النقاط ولكن سترتفع مرتبتك في قائمة صدارة التحديات=substr
+you get 10 event points for each chest you destroy untill 15 chests. After 15 chests, you won't get event points, but your score in the event scoreboard will increase=في هذا التحدي ستحصل على 10 نقاط على كل صندوق تقوم بتدميره حتى تصل الى ما مجموعه 15 صندوقاً مدمراً, بعد ذلك لن تزداد نقاطك على اي صندوقٍ تدمره ولكن ستزداد مرتبتك في قائمة صدارة التحديات=substr
+requires 250 zero tokens, description: The 1-week validity period of the gun begins as soon as you start draw the gun in your hand. You will have the gun for 1 week and it will be gone after 1 week=تتَطَلب 250 عملة وهي تظل معك لمدة أسبوع واحد فقط=substr
+requires 300 zero tokens, description: The 1-week validity period of the gun begins as soon as you start draw the gun in your hand. You will have the gun for 1 week and it will be gone after 1 week=تتَطَلب 300 عملة وهي تظل معك لمدة أسبوع واحد فقط=substr
+you get 1 event point for each headshot you make untill 50 headshots. After 50 headshots, you won't get event points, but your score on this event scoreboard will increase=في هذا التحدي ستحصل على نقطة واحدة لكل ضربة تضربها على راس عدو حتى تصل الى 50 ضربة, بعد ان تتجاوز ال50 ضربة لن تزداد نقاطك ولكن سترتفع مرتبتك في قائمة صدارة التحديات=substr
+successfully survived for 10 minutes! they got 10 event points, and another player will be selected.=نجح في البقاء حي لمدة 10 دقائق, و حصل على 10 نقاط, سيتم اختيار لاعب آخر=substr
+Type your text here. A maximum of 1000 characters is allowed.=اكتب حالتك هنا, بحد لا يتجاوز ال1000 حرفا=substr
+ colt1911 45_ACP ammos from inside cartrigges= رصاص نص آلي من الخزنة التي اشتريتها=substr
+the lobby, to access to match menu, go to 5 0 0. =الساحة الخارجية إذهب إلى الإحداثيات 5.0.0 للوصول لقائمة المباريات=substr
+ m4 5.56x45mm ammos from inside cartrigges= رصاص رشاش من الخزنة التي اشتريتها=substr
+You need 100 tokens to create a group=تحتاج إلى 100 رمزًا لإنشاء مجموعة =substr
+barry_allen, requires 200=باري ألين، يتطلب 200 =substr
+tristan, requires 300=تريستان، يتطلب 300 =substr
+aria, requires 500=أنغام، يتطلب 500 =substr
+kado, requires 500=كادوا، يتطلب 500 =substr
+7.62x54mmR ammo=من ذخيرة الموسين=substr
+7.62x51mm ammo=من ذخيرة القَنص =substr
+5.56x45mm ammo=من ذخيرة الرشاش =substr
+7.62x54mmR=ذخيرة موسين =substr
+7.62x51mm=ذخيرة قَنص =substr
+5.56x45mm=ذخيرة رشاش =substr
+the player selected which should survive for 10 minutes is =اللاعب اللذي تم اختياره و يجب ان يبقى حي لمدة 10 دقائق هو =substr
+the player selected which should survive for 10 minutes =اللاعب الذي تم اختياره وسيتعين عليه ان يبقا حيا لمدة 10 دقائق هو =substr
+Type your text here. A maximum of 1000 characters is allowed.=اكتب هنا الحد الأقصى للحروف ألف حرف =substr
+player selected which should survive for 10 minutes=اللاعب الذيي تم اختياره ويجب ان يبقا حيا لمدة 10 دقائق هو=substr
+How many colt1911_ammo_cartrigges would you like to buy=كم عدد خزن ذخيرة النص آلي التي تريدها=substr
+ fnhfnp40 40S&W ammos from inside cartrigges= رصاص بندقية من الخزنة التي اشتريتها=substr
+colt1911_ammo_cartrigges: You have =خزنة ذخيرة النص آلي =substr
+You survived for 10 minutes=بقيت حياً لمدة 10 دقائق=substr
+colt1911_ammo_cartrigges=خزنة ذخيرة النص آلي=substr
+eliminate 20 enemies= اقتل 20 من الاعداء=substr
+make 50 headshots=اقتل 50 من الاعداء في الرأس=substr
+destroy 15 chests=قم بتدمير 15 صندوقاً=substr
+IthicaM37=إيثاكا 37=substr
+colt1911=نصف آلي أمريكي=substr
+Use the arrow keys to change the volume in 1% increments, page up and page down for 10% increments.=استخدم الأسهم لأعلى ولأسفل لللتغيير درجة واحدة بينما page up و page down للتغيير بنسبة عشرة بالمئة بينما home لصفر بالمئة و  end لمئة بالمئة =substr
+This mode is similar to the previous one, but you can only use knife and the map is smaller. You can also collect  snowflake shards in this mode, by pressing shift enter. You can collect up to 5. When you throw these, they will stun the enemy=هذا الوضع مشابه للوضع السابق، لكن يمكنك فقط استخدام السكينة والخريطة أصغر. يمكنك أيضًا جمع بقايا الثلج في هذا الوضع، بالضغط على مفتاح شِفّت إنتر يمكنك جمع ما يصل إلى 5. عندما ترمي هذه، سوف تصعقه =substr
+How many fnhfnp40_ammo_cartrigges would you like to buy=كم عدد خزنة ذخيرة البندقية التي تريدها=substr
+The item maverick88 will expire after=ستنتهي فترة استخدامك سلاح بندقية المافريك بعد=substr
+fnhfnp40_ammo_cartrigges: You have =خزنة ذخيرة البندقية =substr
+fnhfnp40_ammo_cartrigges=خزنة ذخيرة البندقية=substr
+22_LR_Long_Rifle ammo=من ذخيرة البندقية الألماني=substr
+22_LR_Long_Rifle=ذخيرة البندقية الألماني=substr
+for 3 seconds.=لمدة 3 ثوان.=substr
+mkek_yavuz16=مسدس تركي=substr
+12_gauge ammo=من ذخيرة الصيد =substr
+maverick88=بندقية المافريك=substr
+mkek_mpt76k=رشاش تركي =substr
+45_ACP ammo=من ذخيرة النصف آلي =substr
+mkek_jng90=قناصة قصيرة المدى=substr
+fnhfnp45=نصف آلي بلجيكي=substr
+fnhfnp40=بندقية =substr
+40S&W ammo=من ذخيرة البندقية =substr
+12_gauge=ذخيرة صيد =substr
+45_ACP=ذخيرة النصف آلي =substr
+40S&W=ذخيرة البندقية =substr
+tm62=لَغَمْ=substr
+There is also another map in the game, fredom fight map. In this map, there are no bots and no team system, you can fight with players in the map without creating matches. In this map, there are no items like in matches, but there are chests in the houses in the map. You can press shift enter to view the items inside them and get them. New Items will automaticaly add to chests once they are emptied. Although the chest's coordinates are always same, items they will have are randomly determined. Chests can also be destroyed, in which case all the items inside them will be lost, and chest will respawn after some time with new items. When you kill people in this map, you have the chance to receive 1 zero token =وهناك أيضًا خريطة أخرى في اللعبة، وهي الخريطة العامة في هذه الخريطة، لا يوجد روبوتات ولا نظام فريق، يمكنك القتال مع اللاعبين في الخريطة دون إنشاء مباريات. في هذه الخريطة، لا توجد عناصر كما هو الحال في المباريات، ولكن توجد صناديق في المنازل الموجودة في الخريطة. يمكنك الضغط على مفتاح شِفّت إنتر لعرض العناصر الموجودة بداخلها والحصول عليها. سيتم إضافة العناصر الجديدة تلقائيًا إلى الصناديق بمجرد إفراغها. على الرغم من أن إحداثيات الصندوق هي نفسها دائمًا، إلا أنه يتم تحديد العناصر الموجودة به بشكل عشوائي. يمكن أيضًا تدمير الصناديق، وفي هذه الحالة سيتم فقدان جميع العناصر الموجودة بداخلها، وسيعود الصندوق إلى الحياة بعد مرور بعض الوقت بعناصر جديدة. عندما تقتل أشخاصًا في هذه الخريطة، لديك فرصة للحصول على صفر رمزي بنسبة =substr
+Like in the knife fight match, you can collect snowflakes, but if you freeze an enemy even 1 time, it will instantly be dead.=كما هو الحال في مباراة قتال السكين، يمكنك جمع رقاقات الثلج، ولكن إذا قمت بتجميد عدو مرة واحدة، فقط فسوف يموت على الفور.=substr
+used jammer, you cannot use binoculars and you cannot check near players with e/p for 2 minutes=قام بتفعيل جهاز التشويش, لا يمكنك استخدام المنظار او حرفE بالقرب منه لمدة دقيقتين=substr
+How many m4_ammo_cartrigges would you like to buy=كم عدد خزنة ذخيرة الرشاش التي تريدها=substr
+Backpack level 0 expired. You may lose items!=إنتهت صلاحية الشنطة سوف تفقد عناصرك=substr
+You get 1 score point for killing =حصلت على نقطة بسبب قتل =substr
+m4_ammo_cartrigges: You have =خزنة ذخيرة رشاش =substr
+basement of luxury house 1=القبو=substr
+Disable Improved 3d audio= الصوت ثلاثي الأبعاد=substr
+Enable Improved 3d audio=تمكين الصوت ثلاثي الأبعاد=substr
+kitchen of luxury house 1=فِنَاء الفّلّا =substr
+m4_ammo_cartrigges=خزنة ذخيرة رشاش=substr
+has 0 contributors=ليس لديهِ مساهمين=substr
+has 1 contributors=واحد مساهم فقط =substr
+has 2 contributors=اثنين مساهمين فقط =substr
+has 3 contributors=ثلاث مساهمين=substr
+has 4 contributors=أربعة مساهمين =substr
+example=مثال
+has 5 contributors=خمسة مساهمين =substr
+has 6 contributors=ستة مساهمين =substr
+luxury house 1=الفّلّا=substr
+9mm ammo=من ذخيرة المسدس التُركي =substr
+gsg5=بندقية ألماني=substr
+9mm=ذخيرة المسدس التركي =substr
+m4=رشاش أمريكي=substr
+Welcome to joystick button configuration. In this section, you have to set what buttons of your joystick you want to use in the game to perform in-game actions. The game will speak some actions. What you have to do is to press the button on the joystick which you want to use for performing this action. At any time, you can pres escape key or the left D-pad button to cancel the configuration and go back to the options menu. Press enter or the right D-Pad button to continue.=أهلا بك في قسم اعداد أزرار ذراع التحكم, هنا سيتعين عليك اعداد الازرار على ذراع التحكم الى الوظائف التي تريدها في اللعبة. سيتم نطق الوظيفة وسيتوجب عليك ضغط الزر الذي ترغب في تعيين هذه الوظيفة له على ذراع التحكم الخاصة بك. للبدء, اضغط زر الادخال enter على لوحة المفاتيح, او زر السهم الايمن على ذراع التحكم. وللخروج اضغط زر الهروب esc على لوحة المفاتيح, او زر السهم الايسر على ذراع التحكم=substr
+In this mode, the players on one team are players while the other team is zombies and the last team standing wins. The zombies' walking sound is a bit low-pitched. Zombies can only use their claws, they make zombie sounds occasionally, they cannot jump and they cannot use any items. However, when zombies hit a player, they gain health as much as they damage.=في هذا الوضع، يكون اللاعبون في أحد الفريقين لاعبين بينما الفريق الآخر عبارة عن زومبي ويفوز الفريق الأخير. صوت مشي الزومبي منخفض النبرة بعض الشيء. يمكن للزومبي استخدام مخالبهم فقط، ويصدرون أصوات الزومبي من حين لآخر، ولا يمكنهم القفز ولا يمكنهم استخدام أي عناصر. ومع ذلك، عندما يضرب الزومبي أحد اللاعبين، فإنهم يكتسبون الصحة بقدر ما يلحقون الضرر.=substr
+In this mode, teams cannot hit each other, but both teams must kill the zombies on the map. The last team standing wins. There are also houses in this mode and they can be used for hiding. However, if zombies can break down the doors of houses, they can enter houses and kill players. Press shift enter to enter houses.=في هذا الوضع، لا يمكن للفرق ضرب بعضها البعض، ولكن يجب على كلا الفريقين قتل الزومبي الموجود جميعًا على الخريطة. آخر فريق يقف يفوز. توجد أيضًا منازل في هذا الوضع ويمكن استخدامها للاختباء. ومع ذلك، إذا تمكن الزومبي من كسر أبواب المنازل، فيمكنهم دخول المنازل وقتل اللاعبين. وللدخول للمنازل اضغط على زر الإدخال.=substr
+The maintenance of the game was not successful due to some technical difficulties. We are trying to switch to a server with a better ping value and provide better service to our valued players. Maintenance work will be done again tomorrow, but this time it will not take long time.=لم تكن صيانة اللعبة ناجحة بسبب بعض الصعوبات التقنية. نحن نحاول التبديل إلى خادم يقدم بنج أفضل للاعبين الكرام. ستتم أعمال الصيانة مرة أخرى غداً، لكن هذه المرة لن تستغرق وقتاً طويلاً.=substr
+You can also watch matches, you will have the opportunity to do this when you die, or if you choose to go to the lobby when you die, you can do this by pressing shift enter in the lobby=يمكنك أيضا مشاهدة المباريات، عن طريق الضغط على مفتاح شِفّت إنتر في الساحة الخارجية =substr
+You can get information about the game and chat by joining our Telegram group! There is a button to join our telegram group in the main menu, we invite you there to stay in touch=ويمكنك الحصول على معلومات حول اللعبة والدردشة معنا من خلال الانضمام إلى مجموعة التليجرام الخاصة بنا! وللوصول لها يوجد زر للانضمام لها في القائمة الرئيسية، ونحن ندعوك هناك للبقاء على اتصال.=substr
+team, Press left and right arrow keys to move between teams, up and down keys to see the players in the team you selected, enter key to copy a player's name to clipboard=اضغط على الأسهم لليسار ولليمين لمعرفة الفرق، ولأعلى ولأسفل لرؤية اللاعبين في الفريق الذي حددته، ومفتاح إدخال لنسخ اسم اللاعب إلى الحافظة=substr
+similar to explosive battle, but there are pits in the map you can fall. Also there are metal cases you can climb, but grenades can destroy them=تشبه المعركة المتفجرة، ولكن هناك حفر في الخريطة يمكنك السقوط فيها. هناك أيضًا صناديق معدنية يمكنك تسلقها، ولكن يمكن للقنابل اليدوية تدميرها=substr
+Please enter a valid email address. If you enter an incorrect e-mail address, you will have no chance of recovering your account. No spaces=يرجى إدخال عنوان بريد إلكتروني صالح. بدون مسافات ملحوظة إذا كان البريد الإلكتروني خاطأ او وهميا فلن تتمكن من استرداد الحساب نهائيا =substr
+It's an abandoned, ruined nightclub with some dead bodies around, all of them holding beer bottles in their hands, hmm, that's interesting=إنه بيت ضعارة مدمر مع بعض الجثث حوله، وجميعهم يحملون زجاجات البيرة في أيديهم=substr
+It's an abandoned, ruined nightclub with some dead bodies around, all of them holding beer bottles in their hands, hmm, that's interesting.=إنه ملهى ليلي مهجور ومدمر مع بعض الجثث حوله، جميعهم يحملون زجاجات بيرة في أيديهم=substr
+use substr keyword after the translation if you want to translate a string that is not static=ولترجمة نص غير ثابت اتبعها بكلمة substr وقبلها علامة يساوي يعني يساوي substr ملحوظة يساوي تكتب بالحساب وليس بالأحرف كما هنا وهذا فقط كي لا يحدث مشكلة في الترجمة
+Use up and down arrows to read help, escape to go back=استخدم الأسهم لأعلى ولأسفل للقراءة وزر الهروب للعودة للشاشة السابقة
+This player is not in the group=هذا اللاعب ليس في المجموعة
+New line inserted.=خط جديد.
+this player disabled receiving token transfers=لقد عطل هذا الاعب خيار استلام العُملات
+disable receiving zero token transfers=استلام العُملات
+enable receiving zero token transfers=استلام العُملات
+join or spectate a match, There are no matches right now=الانضمام او مشاهدة مبارة، لا توجد مباريات
+Not enough zero tokens=رموزك غير كافية
+Done, Friend request removed successfully.=تم إلغاء طلب الصداقة بنجاح.
+Attention. The game has now been unfrozen!=تم تشغيل اللعبة مرة ثانية
+Done, answer sent successfully.=تم إرسال ردك بنجاح
+this user is already logged in=هذا الحساب موجود في اللعبة حاليا, اعد المحاولة لاحقا
+you are already invisible=أنت غير ظاهر بالفعل
+it would be very strange to turn off the engine of a moving motor=لا يمكن إقاف الدراجة وهي تتحرك
+Error, you can't send friend requests to people because you turned of receiving friend requests.=عذرًا لا يمكنك إرسال طلب صداقة لهذا اللاعب لإنكَ قمت بتعطيل تلقي طلبات الصداقة.
+Select language to switch=حدد اللغة التي تريد التبديل لها
+You can't place ladder here=لا يمكن وضع السلم هنا
+wrong password=كلمة السر خطأ
+near players=اللاعبين القريبين من القاعدة 
+base computer=كمبيوتر القاعدة
+no near players within 100 steps=لا يوجد لاعبين قريبين من القاعدة على بعد 100 خطوة
+open the door=فتح الباب
+change basse password=تغيير كلمة المرور
+see nearby players=اللاعبين القريبين
+You can't place barricade here=لا يمكن وضع حاجز هنا
+This player is already joined to a group=لا يمكن دعوتهُ لإنهُ بالفعل عضو في مجموعة أخرى
+remove invitation of a player to this group=التراجع عن دعوة لاعب
+you need 200 zero tokens for this=تحتاج إلى 200 عُملة لهذا الغرض
+put a base here=أنشأ قاعدة إضافية هنا
+no actions=لا توجد معلومات
+clear group action history=مسح سجل المعلومات 
+actions=السجل هو
+view group action history=سجل معلومات المجموعة
+Base information=المعلومات المهمة
+View group base info=معلومات المجموعة
+You disabled receiving voicechats=لا يمكنك معرفة الأشخاص الذين يتحدثون لإنك قمت بتعطيل تلك الميزة 
+invitation sent=تم إرسال الدعوة 
+you left the group=لقد غادرت المجموعة
+Here you can view the players who were penalized in the game.=هنا يمكنك الاطلاع على اللاعبين المحذورين والاطلاع على السبب ملحوظة السبب غير مترجم كما وضعهُ المطور ويمكن أن تجد بعض الكلمات مترجمة وهذا بسبب خلل في نظام الترجمة من اللعبة
+View penalyzed players=عرض قائمة باللاعبين المحذورين
+chat disabled=تم تعطيل الرسائل العامة
+channel set to free_chat=أنت تستخدم القناة العامة 
+You don't have this many tokens!=ليس معك هذا العدد من العُملات
+You cannot send messages because you have disabled chat. Please select a channel by pressing F11=لا يمكنك إرسال الرسائل العامة لإنك لم تختار قناة اللغة أو ربما تكون عطلتها ولتنشيطها اختر لغة للتواصل من خلال مفتاح f11
+You declined the request=تم رفض الطلب
+You have no tickets=لم ترسل تذاكر بعد كي تفتحها
+oops, something went wrong. Please try again .=حدث خطأ ما يرجى إعادة المحاولة في وقت آخر 
+You do not have any other account=ليس لديك حساب آخر للتبديل لهُ 
+Are you sure you want to delete your account? You cannot get it back if you delete it.=هل أنت متأكد من رغبتك في حذف الحساب لإنك لن تستطيع استعادتهُ إذا قمت بحذفه
+you only have right to create two accounts per computer.=لا يمكن إنشاء أكثر من حسابين على نفس الجهاز
+Warning. You can only change your email address 1 time each day, and if you enter the code sent invalid even 1 time, you will have to wait one day. Do you want to continue?=يمكنك تغيير البريد الإلكتروني مرة واحدة في اليوم وكذلك لا يمكننا إرسال أكثر من كود التحقق أكثر من مرة واحدة في اليوم اضغط نعم للاستمرار وللإلغاء اختر لا
+You cannot exit the map because someone near you=لا يمكنك الخروج من الخريطة بسبب وجود شخص قريب منك
+You can't drop persistent items!=لا يمكن إلقاء هذا السلاح
+free_chat=دردشة عامة 
+Disable_chat=تعطيل المحادثة
+Select a channel to switch.=حدد قناة للتبديل لها 
+Are you sure you want to delete this group?=هل تريد إزالة المجموعة 
+Select a request.=اختر الطلب الذي تريد قبوله أو رفضهُ
+attention. Server message has been updated. Please press f1 for see more details=انتبه تم تحديث رسالة الخادم للاطلاع عليها قم بالضغط على f1 ملحوظة هذه الرسالة تكون باللغة الإنجليزية
+no announcement=لا توجد توجيهات
+Select a member to make owner.=اختر عضو لنقل ملكية المجموعة لهُ
+view announcement=توجيهات الإدارة 
+Select a member to make admin.=اختر عضو لترقيتهُ لمشرف
+make a member the group administrator=ترقية عضو ليكون مشرفًا
+remove a member's group administrator role=عزل مشرف
+change group owner=نقل الملكية
+rename this group=تغيير الاسم
+publish announcement=نشر توجييه جديد
+delete this group=حذف المجموعة 
+view zero token amount donated to this group=عرض عدد الرموز التي تم المساهمة بها
+Now group members can no longer hit the group members in freedom fight map!=الآن لا يمكن لأعضاء المجموعة ضرب بعضهم البعض
+Disable members' hitting each other in freedom fight map=منع أعضاء المجموعة من ضرب بعضهم البعض
+Now group members can hit the group members in freedom fight map!=الآن يمكن لأعضاء المجموعة ضرب بعضهم البعض
+Enable members' hitting each other in freedom fight map=تمكين أعضاء المجموعة من ضرب بعضهم
+You declined the invitation=لقد رفضت الدعوة
+you lef the group=لقد غادرت المجموع ة 
+No language selected for translation=لم تحدد لغة للترجمة
+Wait 1 second.=انتظر ثانية واحدة 
+You are not member of any team.=أنت لست بفريق
+You can use this item while at the near of the base=يمكنك استخدام هذا العنصر فقط عندما تكون أمام القاعدة
+donations=المساهمات
+donate to this group=وضع عُمَلات
+no donations=لم يضع أحد
+view donation history=سجل المتبرعين
+entrance too luxury house 1  =مدخل الفّلّا  
+Latest Additions.=أحدث الإضافات
+Error, you need to enter a number.=خطا, يجب عليك ان تدخل رقما  
+The game also has timebombs. You can get it from chests, items or  from the store. Once you arm it, it explodes within 20 seconds and damages anything within 50 feet. You can see how many seconds are left until it explodes from the letter M.=كذلك يوجد عنصر يسمى القنبلة الزمنية يمكن الحصول عليها من الصناديق أو المتجر كما هو الحال في الدرع وبمجرد الضغط عليها إنتر تنفجر خلال عشرين ثانية ويمكن معرفة الوقت المتبقي عن طريق القائمة المتاحة بحرف تاء مربوطة ولاكن يجب أن تكون قريب لتعلم عدد الثواني المتبقية وهذهِ القنبلة تدمر كل شيء على بعد 50 خطوة
+There is a mine, named tm62 in the game. When you place it, and if someone steps to it, it will explode and everything within 15 steps will  get damage. It can also be exploded by hitting it a couple times with a weapon however, there is no sound that indicates you there is a mine.=وأيضًا يوجد عنصر يسمى لغم يتم وضعه على الأرض وليس له صوت يدل عليه وإذا داس أحد اللاعبين عليه سينفجر كذلك يمكن تفجيره سواء بالرصاص أو السيوف وهو يصيب أي شيء حوله ب15 خطوة
+Another item in the game is metal shield. This will protect you from hits until its broken when you use it. However, it won't protect from headshots. You can get it from items, chests or store. Also, in the abyss clash and explosive battle matches, you will get 2 shields by default.=كذلك يوجد عنصر يسمى الدرع المعدني. سيحميك من الضربات حتى ينكسر ولاكنهُ لن يحميك من طلقات الموجهة على الرأس. ويمكنك الحصول عليه من الصناديق أو المتجر. وفيالخرائط غير الخريطة العامة يمكن الحصول عليه من العناصر الموجودة على الأرض بينما في مباريات الهاوية ومعارك المتفجرات، سوف تحصل على درعين افتراضيًا.
+Sword duel:  This can be played either as teamed or not teamed. People can only use swords and last team/person standing wins. Available swords are wooden sword, diamond sword and stone sword. You are given only wooden sword in the start, but you can find other sword types in items.=مبارزة السيوف يمكنكم لعبها كفرق مع بعض أو بشكل فردي يستخدم السيوف فقط في تلك اللقائات وبالطبع يفوز الشخص الأخير يوجد في تلك المبارزة جميع أنواع السيوف ولاكن تمنح فقط في البداية السيف الخشبي وبقية الأنواع يمكنك الحصول عليها من الأرض أثناء اللعب
+In the game, you can only have certain amounts of same items. Below is a list of these items. Other items you can have unlimited:=العناصر التالية هي العناصر المحدودة باللعبة بينما غير المتاحة هنا يمكنك حمل ما تشاء منها
+Inventory item limits list:=قائمة بالعناصر المحدودة:
+you are already using the barry_allen character=أنت تستخدمها بالفعل
+Done, switched to the barry_allen character.=تم تغيير الشخصية إلى باري ألين.
+you are already using the tristan character=أنت تستخدمها بالفعل
+Done, switched to the tristan character.=تم تغيير الشخصية إلى تريستان.
+you are already using the default character=أنت تستخدمها بالفعل
+you are already using the kado character=أنت تستخدمها بالفعل
+Use the up and down arrow keys to read the rules, escape to go back.=استخدم السهم لأعلى والسهم لأسفل للقراءة واضغط زر الهروب للعودة للنافذة السابقة 
+Done, switched to the default character.=تم تغيير الشخصية للإفتراضية
+Done, switched to the kado character.=تم تغيير الشخصية إلى كادوا.
+Purchase success.=نجح الشراء
+This player not on your friend list=هذا اللاعب ليس ضمن أصدقائك
+Watching the match=مشاهدة المباراة
+If you enter your email incorrectly when creating an account and try to change it later, we will not be able to help.=إذا قُمْت بإدخال بريد إلكتروني غير صالح عند إنشاء الحساب فلم يمكننا مساعدتك إذا أردت تغييرهُ أو تغيير كلمة المرور 
+If you delete your account, and it is your responsibility forever, we do not have the luxury of recovering your account.=إذا قُمْت بحذف حسابك فلا يمكننا إسترجاعهُ إذا أرَدْت ذلك لذلك كن حريص عند اتخاذ هذا القرار 
+If people insult you, regardless of religion, race, profession, country, it is your responsibility. This is an FPS game, so people can insult in anger, so if you don't want to hear the person's insult, block him/her.=إذا قام أحد اللاعبين بإهانتك بغض النظر عن دينَك أو لونك أو جنسك فهذا مهمتك ولِتفادي هذا يمكنك وضعهُ في قائمة الحظر 
+Game rules may evolve. It's the player's responsibility to stay updated with the latest rules and changes.=قد تتطور قواعد اللعبة. من مسؤولية اللاعب البقاء على اطلاع بأحدث القواعد والتغييرات.
+Game rules may evolve. It's the playerâ€™s responsibility to stay updated with the latest rules and changes.=قد تتطور قواعد اللعبة. من مسؤولية اللاعب البقاء على اطلاع بأحدث القواعد والتغييرات.
+You turned off receiving map messages. So you can not send also=لا يمكنك إرسال رسالة للخريطة بسبب تعطيلك لتلقي إشعاراتها
+Amount cannot be less than or equal to 0=لا يمكن أن يكون الرقم 0 أو أقل 
+Amount cannot be higher than the item amount in the chest=العدد أكبر من الموجود
+Your inventory is empty=حقيبتك فارغة
+Select the target language you want to use for translating sent messages=اختر لغة الهدف التي تريد ترجمت رسائلك المرسلة لها
+Error, please join a match to be able to buy a motor.=لا يُمّكنَكْ شِرَاء الدَرَاجة من هنا رجاء دخول الخريطة كي تتمكن من شرائها من المتجر عند الإحداثيات 500، 463، 0
+This item is already your favorite item. Please select another item=هذا مفضل اختر عنصر آخر لتعيينهُ عنصر مفضل
+ is updated, please check=تم تحديثها رجاء التحقق
+You received 1 zero token=حصلت على عُمّلَة
+you got 1 zero token=حصلت على عُمّلَة
+team Base - Second floor =الدور الثاني بالقاعدة
+You have no weapon equipped.=ليس في يدك أي سلاح
+Player not found=اللاعب غير متاح الآن وربما مغلق
+Error, you can send friend request every 20 seconds.=خطأ، يمكنك إرسال طلب صداقة كل 20 ثانية.
+Your voice chat feature has been unblocked by staff=تم إزالتك من قائمة حظر الدردشة الصوتية وإذا تكرر منك الأمر سيتم حظرك مرة ثانية للابد
+You cannot open the game twice=اللعبة مفتوحة بالفعل
+Error. No input device configured. Please set your input device from game settings.=لم تقم بتعيين الميكروفون الخاص بك لتعيينه اتجه لإعدادات اللعبة
+you can't collect more than 5 snowflake_shard=لا يمكنك جمع أكثر من خمس شظايا ثَلّج
+Language released=تم صدور اللغة
+match full=العدد اكتمل
+Respawning=جارٍ اعادة الدخول
+You cannot do this after hit=لا يمكنك ذلك الآن بعد الضربة انتظر نفس الدقيقة التي تنتظرها بعد الضربة للخروج
+colt1911, requires 2 zero tokens, description: a super weapon=نصف آلي أمريكي  طلقات وهو بعملتين 
+m4, requires 2 zero tokens, description: powerfull machinegun=رشاش أمريكي وهو بعُمّلتين 
+fnhfnp40, requires 2 zero tokens, description: powerfull pistol=بندقية وهي بعُمّلتين
+fnhfnp40_ammo_cartrigges, requires 1 zero tokens, description: ammo for fnhfnp40=ذخيرة البندقية وهي بعُمّلة واحدة
+m4_ammo_cartrigges, requires 1 zero tokens, description: ammo for m4=ذخيرة للرشاش وهي بعُمّلة واحدة
+colt1911_ammo_cartrigges, requires 1 zero tokens, description: ammo for colt1911 cartrigges=ذخيرة مسدس النصف آلي وهي بعُمّلة واحدة
+Select vote to view=اختر التصويت
+No friends online=لا يوجد أصدقاء متصلين
+Your account must be created at least one week ago before you can delete it=يجب مرور أسبوع على حسابك منذ إنشائهُ لتتمكن من حذفه
+Delete your account=حذف الحساب 
+kick a member=طرد عضو
+invite a player to this group=دعوة لاعب
+View group join requests=عرض طلبات الانضمام
+resign from administrating this group=الإنسحاب من الإدارة
+disable ticket update mails=إشعارات تحديث التذاكر
+enable ticket update mails=إشعارات تحديث التذاكر
+Your motors: =الدراجات الخاصة بك
+No one on freedom fight map=لا يوجد أحد لمشاهدتهُ في الخريطة العامة
+You are on the blue team, Press left and right arrow keys to move between teams, up and down keys to see the players in the team you selected, enter key to copy a player's name to clipboard.=أنت في الفريق الأزرق، اضغط على مفاتيح الأسهم لليسار ولليمين للتنقل بين الفرق، والأسهم لأعلى ولأسفل لرؤية اللاعبين في الفريق الذي حددته، ومفتاح إنتر لنسخ اسم اللاعب إلى الحافظة.
+not enough players=عدد الللاعبين غير كافي
+go!=ابدأ
+This language is exists=هذه اللغة موجودة بالفعل
+metal_shield, requires 10 zero tokens, description: This will protect you from hits until its broken when you use it. However, it won't protect from headshots.=درع وهو بعشر عملات من ziro يحميك من الضربات حتى ينكسر ولاكن لا يحميك من الضربات الموجهة على الرأس 
+revival_nectar, requires 3 zero tokens, description: increase health to 100%=جرعة الحياة بثلاث عملات وهي تعيد صحتك بنسبة 100%
+vitality_potion, requires 2 zero tokens, description: increase health to 50%=جرعة الصحة بِعُمْلتين وهي تعيد صحتك بنسبة 50%
+small_potion, requires 1 zero tokens, description: increase health to 20%=جرعة صغيرة بعملة واحدة وهي تعيد لك صحتك بنسبة 20%
+hand_grenade, requires 1 zero tokens, description: It is a type of explosive that can be held by hand and thrown easily.=قنبلة يدوية بعملة واحدة وهي نوع من المتفجرات اليدوية 
+tm62, requires 5 zero tokens, description: When you place it, and if someone steps to it, it will explode and everything within 15 steps will  get damage. It can also be exploded by hitting it a couple times with a weapon however, there is no sound that indicates you there is a mine.=اللغم بخمس عُمّلات يستخدم للفخاخ وإذا خطا شخص ما إليه، سوف ينفجر وسيتعرض كل شيء خلال 15 خطوة للضرر. كذلك ينفجر عن طريق ضربه عدة مرات بسلاح، ولا يوجد صوت يدل عليه
+timebomb, requires 4 zero tokens, description: Once you arm it, it explodes within 20 seconds and damages anything within 50 feet. You can see how many seconds are left until it explodes from the letter M.=قنبلة زمنية، تتطلب 4 عُمّلات وهي بمجرد سحب فتيلها تنفجر في غضون 20 ثانية وتلحق الضرر بأي شيء على بعد 50 قدمًا. ويمكنك معرفة عدد الثواني المتبقية حتى تنفجر من حرف M ملحوظة لازم لاستخدام حرف m تكون في منطقة قريبة منها كالأمر الخاص بالصناديق.
+Select an action=اختر إجراء
+enter reply=اكتب ردًا 
+Select an item to buy=حدد عنصر لشرائه
+Report message sent successfull=تم الإبلاغ عن الرسالة بنجاح
+The countdown has started!=اهرب بدأ العد التنازلي 
+Language deleted=تم حذف اللغة
+Are you sure you want to delete this language?=هل أنت متأكد من حذف اللغة 
+Select player to remove from contributor list=اختر مساهم لإزالته
+Select player to add as contributor=اختر لاعب ليساهم معك في الترجمة
+No contributors=لا يوجد مساهمين
+Select player to make owner=اختر لاعب لنقل الملكية لهُ
+release=نشر
+Language was created successfully.=تم إنشاء ملف اللغة بنجاح اتجه إلى إدارة اللغات لبداية الترجمة 
+Create language=إنشاء لغة 
+motor, requires 5 zero tokens, description: A motor speeding around takes damage when it hits a wall, and your motor takes damage when players shoot.=دراجة بخمس عملات، ملحوظة تتأثر صحتها بالإصتدام بالحائط أو مهاجمتها بالسلاح من اللاعبين
+binoculars, requires 1 zero tokens, description: To see players 120 feet away.=منظار بعملة واحدة ويستخدم في رؤيت اللاعبين من مسافة 120 خطوة منك في كل اتجاه سواء كانوا على الجسر أو في النفق أو في مستواك 
+You have no packs=ليس معك حزم لرؤيتها
+You already have a shield on=أنت بالفعل ترتدي درع
+Select an object to track=اختر
+Are you sure you want to block this computer from logging into your account? to remove the block, you will have to verify your email access.=هل أنت متأكد أنك تريد منع هذا الكمبيوتر من تسجيل الدخول إلى حسابك؟، تنبيه لإزالة الحظر، سيتعين عليك التحقق من الوصول إلى بريدك الإلكتروني.
+Status set!=تم تعيين الحالة!
+Join request removed.=تم إلغاء طلب الانضمام
+Remove joining request=إلغاء طلب الانضمام
+Join request sent.=تم إرسال الطلب
+Send joining request=أرسل طلب انضمام لهم
+Remove from friend list=إزالته من الأصدقاء 
+View packs you bought from the shop and open them=عرض الحزم التي اشتريتها من المتجر
+Go to online store website to buy zero token packs.=انتقل لصفحة الويب الخاصة بالمتجر لشراء حزم عُمُلات zero 
+Copy the link of the online store web page to buy zero token packs.=انسخ رابط صفحة الويب الخاصة بالمتجر لشراء حزم عُمُلات zero 
+Account settings, Update your account password, rename your character, set a status message, see your rename history, Modify your registered email, delete your account, View Login History and See which devices have accessed your account and block unauthorized devices.=إعدادات الحساب وتعيين الحالة
+Store, Spend the zero tokens you have, view the packages you have purchased, or buy tokens from the virtual store.=المتجر 
+Select category=اختر الفئة 
+Please enter the amount of zero tokens you want to transfer.=ادخل العدد الذي تريد إرسالهُ من عُمُلاتكْ
+Player not found=اللاعب غير متاح
+Done, friend removed successfully.=تم إزالتهُ بنجاح
+Unblock this player from sending you private messages=السماح لهذا اللاعب بإرسال رسائل خاصة لكّ
+Block this player from sending you private messages=منع هذا اللاعب من إرسال رسائل خاصة لكّ
+
+Send friend request=إرسال طلب صداقة 
+View stats=عرض الإحصائيات
+view status message=عرض الحالة 
+change voicechat volume=تغيير مستوى الدردشة الصوتية 
+Transfer zero token=إرسال عُمّلات zero 
+Reconnecting...=جاري إعادة الاتصال
+Select an account to login=حدد حساب للدخول به
+Creating account=إنشاء الحساب
+done! Account created successfully. Please press enter to log in=تم إنشاء الحساب بنجاح اضغط على دخول لاستخدام الحساب
+Choose a gender for your character.=اختر جنس الشخصية
+Microphone activated=تم تفعيل الميكروفون
+Microphone disabled=تم تعطيل الميكروفون
+team full=الفريق اكتمل
+Are you sure you want to cancel this match?=هل أنت متأكد أنك تريد إلغاء هذه المباراة؟
+This flag is not opposing teams=هذا العَلَم يتبع فريقك
+leave match=مغادرة المباراة
+Incorrect password=كلمة مرور خطأ 
+Cancel the match=إلغاء المباراة 
+select team=اختر الفريق
+Match ended. Red team won!=انتهت المباراة فَاَزّ الفريق الأحمر
+Match ended. Blue team won!=انتهت المباراة فَاَزّ الفريق الأزرق
+Amount cannot be higher than the amount your inventory can hold of this item=لا يمكن أن تأخذ أكثر مما تستطيع حمّلهُ
+You can't place mine here=لا يمكن وضع اللَغَمْ هنا
+You cannot exit because someone near you=لا يمكن الخروج لأن هناك أحد قريب منك
+the horn is not active because the motor is not running=الزَمَارة  لا تعمل لأنك لم تقم بتشغيل  محرك الدراجة, اضغط شِفّت وإنتر لتشغيلها
+game sounds muted=الصوت منخفض بالفعل ولرفعه اضغط home
+Enter the base=دخول القاعدة
+Exit the base=الخروج من القاعدة
+Close the door=إغلّقْ الباب
+Attention. The game has now been frozen by a staff member. Please be patiently.=تم تعطيل اللعبة من قبل أحد المطورين يرجى الانتظار
+View group base location=إحداثيات قاعدة المجموعة
+Put all your inventory to chest=ضع كل ما لديك بالصندوق
+Get all items from chest=الحصول على كافة العناصر من الصندوق
+this base reached to max health.=وصلت هذه القاعدة إلى أقصى مستوى من الصحة.
+You accepted the invitation=لقد قبلت الدعوة بنجاح
+you can get weapons on your left and right hands. When you get the weapon from your inventory or from numbers you assigned to them, they will be on your left hand. To get them on your right hand, assign the weapon to a number, then press alt+shift+a number. Then you can get another weapon to your left hand with just pressing a number or selecting it from your inventory. Left controll fire the weapon on your left hand, while right control will fire the weapon on your right hand. If you have weapons on your both hands, reload and unload will not be possible. X will tell you the ammo info on your left hand, shift x will tell you ammo information on your right hand. Grave will tell you weapon info on your left hand, shift grave will tlel you weapon info on your right hand. Shift+1 will put the weapon on your left hand to your inventory, and alt+shift+1 will put the weapon on your right hand to the inventory. For right hand, it will play a different scope sound to indicate you which weapon to fire.=يمكنك الحصول على أسلحة في يديك اليمنى واليسرى. معًا في وقت واحد ولتقوم بذلك اتبع التالي وهو عندما تحصل على السلاح من مخزونك أو من الأرقام التي خصصتها لها، ستكون في يدك اليسرى. للحصول عليها في يدك اليمنى، خصص السلاح لرقم، ثم اضغط على ألت+شِفّت+ الرقم،. بعد ذلك، يمكنك الحصول على سلاح آخر في يدك اليسرى بمجرد الضغط على رقم السلاح الذي خصصتهُ له أو تحديده من مخزونك. أطلق النار باستخدام زرار الكنترول الأيسر للسلاح الموجود في يدك اليسرى، بينما سيطلق زرار الكنترول الأيمن النار للسلاح الذي في يدك اليمنى. وإذا كان لديك أسلحة في كلتا يديك، فلن يكون إعادة التعمير والتفريغ ممكنًا. سيخبرك ء، بمعلومات الذخيرة على يدك اليسرى، وسيخبرك شِفّت ء، بمعلومات الذخيرة على يدك اليمنى. سيخبرك ذ، بمعلومات السلاح في يدك اليسرى، وسيخبرك شِفّت ذ، بمعلومات السلاح في يدك اليمنى. سيضع شِفّت+1 السلاح الذي بيدك اليسرى في مخزونك، وسيضع ألت + شِفّت +1 السلاح الذي بيدك اليمنى في المخزون. بالنسبة لليد اليمنى، سيتم تشغيل صوت نطاق مختلف للإشارة إلى السلاح الذي يجب إطلاقه.
+By checking this box, I understand that this ticket I am making is for serious inquiries only, doesn't violate the games rules and that misuse of the ticket system in any way including but not limited to spam or misinformation of any kind could result in severe punishments to my account=من خلال تحديد هذا المربع فهذا يعني إنني مدرك أن التذكرة التي اقدمها للاستفسارات الجادة وإنها لا تنتهك قواعد اللعبة وإن إسائت استخدام التذكرة بأي شكل من الأشكال يعرض حسابي للعقوبات الصارمة
+submit ticket=قدم التذكرة
+Return to previous menu=العودة إلى القائمة السابقة
+Select ticket to view=اختر تَذكَرة لعرضها
+You can set the item you want in the inventory as a favorite item. After selecting the item with tab and shift tab, you can do this with shift u. Then you can use that item with the letter u. You can put a favorite item to the letter y also, with the same procedure.=يمكنك تعيين العنصر الذي تريده في المخزون كعنصر مفضل. بعد تحديد العنصر باستخدام "تاب" و"شيفت + تاب"، يمكنك القيام بذلك باستخدام "شيفت + ع". بعد ذلك، يمكنك استخدام هذا العنصر بالضغط على الحرف "ع". يمكنك أيضًا تخصيص عنصر مفضل للحرف "غ" بنفس الطريقة.
+There is a scope in the game. This allows you to understand whether your weapon can hit something. If this feature is enabled in the settings, a beep will start to sound when your weapon can hit an object.=يوجد نطاق في اللعبة. يتيح لك هذا النطاق معرفة ما إذا كان بإمكان سلاحك إصابة شيء ما. إذا كانت هذه الميزة مفعلة في الإعدادات، فسيبدأ صوت صفير عندما يكون سلاحك قادرًا على إصابة هدف.
+Select the source language you want to use for translating sent messages=اختر لغة المصدر التي تريد استخدامها لترجمة الرسائل المرسلة.
+The game has translation support when sending and receiving messages. When sending a group chat, general chat, map chat, pm, team chat etc., control enter will send the message by translating it into the language you selectw ith alt l. You can also translate a buffer message with control enter to a language which you can set with shift l.=وكذلك تدعم اللعبة الترجمة عند إرسال واستقبال الرسائل. عند إرسال دردشة جماعية أو دردشة عامة أو دردشة الخريطة أو الرسائل الخاصة أو دردشة الفريق، سيقوم الضغط على "كنترول+ انتر" بإرسال الرسالة بعد ترجمتها إلى اللغة التي تختارها باستخدام "ألت+ م". يمكنك أيضًا ترجمة رسالة في المخزن المؤقت باستخدام "أَلّطْ+ انتر" إلى لغة يمكن تحديدها باستخدام "شيفت+ م".
+Group base destroy history=تاريخ المجموعات التي تم تدميرها
+each group must be created in the freedom fight map and each group has a base. This base has a chest that members can use to store items. To put items to chest, enter the base and drop the item with backspace when you are near to chest, or use shift backspace to drop a specific amount of that item. When someone creates a group, the group base will spawn next to the player, and there'll be wall. Group members can open the door only, however if the door is left out open, others can also enter the base. In the outside, if the door is closed, a group member can open it by shift enter. When it is on, when anyone presses shift enter, a menu will show which will allow to close the door and enter the base. In the inside in coordinates 0 0 0, pressing shift enter will do these: If the door is on, it will allow anyone to exit the base or to close the door. If the door is closed, anyone inside the base can open it. The base can also be destroyed, and if it happens, the group asociated with it will be permanently deleted. The items put on the base's chest will also be lost. Also, in the chests in the fredom fight map, you can find an item named base_life_amplifier, which you can use to increase base's health. If base's health is less than 2000, door functionality will be not available, and anyone can enter the base.=يجب إنشاء كل مجموعة في الخريطة العامة ولكل مجموعة قاعدة. تحتوي هذه القاعدة على صندوق يمكن للأعضاء استخدامه لتخزين العناصر. لوضع العناصر على الصندوق، أدخل القاعدة وقم بإسقاط العنصر باستخدام مسافة للخلف عندما تكون بالقرب من الصندوق، أو استخدم شِفّت مسافة للخلف، لإسقاط كمية محددة من هذا العنصر. كما هو الحال إذا أسقطت عناصر لصديقك وعندما يقوم شخص ما بإنشاء مجموعة، ستظهر قاعدة المجموعة بجوار اللاعب، وسيكون هناك جدار. يمكن لأعضاء المجموعة فتح الباب فقط، ولكن إذا ترك الباب مفتوحًا، فيمكن للآخرين أيضًا الدخول إلى القاعدة. وفي الخارج، إذا كان الباب مغلقًا، فيمكن لعضو المجموعة فتحه عن طريق الدخول المناوب. عندما يكون قيد التشغيل، وعندما يضغط أي شخص على مفتاح شِفّت إنتر، ستظهر قائمة تسمح لهُ بإغلاق الباب والدخول إلى القاعدة. في الداخل بالإحداثيات 0 0 0، يؤدي الضغط على مفتاح شِفّت إنتر إلى القيام بما يلي: إذا كان الباب مفتوحًا، فسيسمح لأي شخص بالخروج من القاعدة أو إغلاق الباب. إذا كان الباب مغلقا، يمكن لأي شخص داخل القاعدة أن يفتحه. يمكن أيضًا تدمير القاعدة، وإذا حدث ذلك، فسيتم حذف المجموعة المرتبطة بها نهائيًا. سيتم أيضًا فقدان العناصر الموضوعة على صندوق القاعدة. أيضًا، في الصناديق الموجودة في الخريطة العامة، يمكنك العثور على عنصر يسمى تقويت القاعدة والذي يمكنك استخدامه لزيادة صحة القاعدة. إذا كانت صحة القاعدة أقل من 2000، فلن تكون وظيفة الباب متاحة، ويمكن لأي شخص الدخول إلى القاعدة.
+Done, friend request refused successfully.=تم رفض طلب الصداقة بنجاح
+No items on this category=لا توجد عناصر في هذه الفئة
+Select the target language you want to use for translating buffer messages=حدد لغة الهدف التي تريد الترجمة لها
+Select the source language you want to use for translating buffer messages=حدد لغة المصدر للرسائل المؤقتة التي تريد ترجمتها
+Use the up and down arrow keys to read the readme, escape to go back.=استخدم السهم لأعلى ولأسفل للقراءة والهروب للعودة للشاشة السابقة
+you can watch players in freedom fight map also. C and Z won't work on freedom fight map when watching someone., If the person you watch enters the base, you will stop watching them and switch to next available person in freedom fight map. This will also happen if the person returns to lobby. Like watching the matches, right and left arrow moves between available players in freedom fight map, escape stops watching the freedom fight map and puts you back in the lobby.=يمكنك مشاهدة اللاعبين في الخريطة العامة لن يعمل ؤ، وحرف ئ، على تلك الخريطة وعند مشاهدة شخص ما. إذا دخل الشخص الذي تشاهده إلى القاعدة، فسوف تتوقف عن مشاهدته وتتحول إلى الشخص التالي المتاح وسيحدث هذا أيضًا إذا عاد الشخص ومثل مشاهدة المباريات، يتحرك السهم الأيمن والأيسر بين اللاعبين المتاحين في الخريطة ويتوقف الهروب عن مشاهدة اللاعبين الموجودين بالخريطة ويعيدك إلى الساحة الخارجية.
+In team dead match and zombie vs player modes, when you die, 50% you will faint. If this happens, you will still be in the match, and you have 3 minutes. During this time, a team member can press t to wake you up when they are near you 3 steps, and you will wake up with 20 health. If no one wakes you up in 3 minutes, you will die.=في مباراة الفريق الميت وأوضاع الزومبي ضد اللاعب، عندما تموت، ستصاب بالإغماء بنسبة 50%. إذا حدث هذا، فستظل موجودًا في المباراة، وأمامك 3 دقائق. خلال هذا الوقت، يمكن لأحد أعضاء الفريق الضغط على حرف ف، لإيقاظك عندما يكون بالقرب منك 3 خطوات، وسوف تستيقظ بـ 20 صحة. إذا لم يوقظك أحد خلال 3 دقائق، فسوف تموت.
+When you jump from the helicopter, you start falling, so you should open your parachute and close it when you land.=عندما تقفز من الطائرة تبدأ في السقوط فعليك فتح المظلة حتى لا تموت وتغلقها بعد الوصول لسطح صَلب
+For each match, the player who wins the match earns zero tokens. You can buy items from the store with these tokens.=في كل مباراة اللاعب الذي يكسب يفوز بعملة صفرية ويمكنك استخدام العملات الصفرية في الشراء من المتجر وبنَاء المباني وإنشاء المجموعات وغيرها من الأمور
+Select a computer=اختر جهاز الكمبيوتر 
+View computers you logged into the game from, and block their accesses=عرض أجهزة الكمبيوتر التي قمت بتسجيل الدخول منها إلى اللعبة، وحظر الوصول إليها
+You can only change characters in lobby or in the waiting area of a match!=يمكنك فقط تغيير الشخصيات في الساحة الخارجية  أو في منطقة انتظار المباراة!
+Select character to switch=حدد الشخصية للتبديل لها
+No one talking=لا أحد يتحدث
+You disabled receiving voice chats.=لقد قمت بتعطيل تلقي الدردشات الصوتية.
+Use up and down arrows to see players within 120 steps, escape to close the binoculars=استخدم الأسهم الرأسية للتنقل والهروب للإغلاق
+Use the appropriate language channels when communicating. If you speak a language other than your channel's language, you will be warned; if you continue, your chat will be disabled several times. If you keep doing this, you will be banned from the game for a while.=استخدم قنوات اللغة المناسبة عند التواصل. إذا كنت تتحدث بلغة غير لغة القناة المخصصة، سيتم تحذيرك؛ وإذا استمررت في ذلك، سيتم تعطيل الدردشة الخاصة بك عدة مرات. وإذا واصلت القيام بذلك، سيتم حظرك من اللعبة لفترة.
+Players who disturb players with voice chat, talk loudly despite warnings, or disturb people by playing music or loud content in the game will have their voice chat disabled for a long time, and if they continue, they will be banned from the game for 1 week. If they will continue, we will disable their voice message for permanently.=اللاعبون الذين يزعجون اللاعبين بالدردشة الصوتية، أو يتحدثون بصوت عالٍ رغم التحذيرات، أو يزعجون الأشخاص من خلال تشغيل الموسيقى أو المحتوى العالي في اللعبة، سيتم تعطيل الدردشة الصوتية الخاصة بهم لفترة طويلة، وإذا استمروا، فسيتم حظرهم من اللعبة لمدة أسبوع.
+View privacy.=الخصوصية 
+Use the up and down arrow keys to read the privacy, escape to go back.=استخدم الأسهم لأعلى ولأسفل للقراءة والهروب للعودة للشاشة الرئيسية 
+Zero Hour Assault Privacy Policy=سياسة خصوصية Zero Hour Assault
+Effective Date: November 1, 2024=تاريخ السريان: 1 نوفمبر 2024
+This Privacy Policy explains how NBM Studios ("we," "us," or "our") collects, uses, and protects your data in relation to Zero Hour Assault. By playing the game, you agree to the data practices described in this policy. If you do not accept these terms, please refrain from launching or installing the game.=تشرح سياسة الخصوصية هذه كيف تقوم NBM Studios بجمع بياناتك واستخدامها وحمايتها فيما يتعلق بـ Zero Hour Assault. من خلال لعب اللعبة، فإنك توافق على ممارسات البيانات الموضحة في هذه السياسة. إذا كنت لا تقبل هذه الشروط، يرجى الامتناع عن تشغيل اللعبة أو تثبيتها.
+1. Scope of Data Access=1 مدى الوصول للبيانات
+We respect your privacy and limit our access to your personal data. Our direct interactions with your account are restricted to essential game management actions, including, but not limited to:=نحن نحترم خصوصيتك ونحد من وصولنا إلى بياناتك الشخصية. وتقتصر تفاعلاتنا المباشرة مع حسابك على إجراءات إدارة اللعبة الأساسية، بما في ذلك، وعلى سبيل المثال لا الحصر:
+• Moving your in-game character=• تَحرُك شخصيتك داخل اللعبة
+• Disabling voice chat=• تعطيل الدردشة الصوتية
+• Issuing bans, kicks (disconnections), or other disciplinary actions=• إصدار الحظر والطرض وقطع الاتصال، أو غيرها من الإجراءات التأديبية
+Data collected by the game for operational purposes is restricted and encrypted. This data is not visible to our administrators or developers and is accessed solely by automated systems as needed.=والبيانات التي تجمعها اللعبة لأغراض تشغيلية مقيدة ومشفرة. هذه البيانات غير مرئية للمسؤولين أو المطورين لدينا، ولا يمكن الوصول إليها إلا عن طريق الأنظمة الآلية حسب الحاجة.
+2. Data We Collect=2. البيانات التي نجمعها
+To help manage game integrity and enforce our policies, Zero Hour Assault collects certain data from your device. This data enables us to establish a unique identifier associated with your device and includes:=للمساعدة في إدارة سلامة اللعبة وإنفاذ سياساتنا، تقوم Zero Hour Assault بجمع بيانات معينة من جهازك. تمكننا هذه البيانات من إنشاء معرف فريد مرتبط بجهازك ويتضمن:
+• BIOS serial number=• الرقم التسلسلي للـ BIOS
+• Motherboard manufacturer=• الشركة المصنعة للوحة الأم
+• Motherboard model=• طراز اللوحة الأم
+• Motherboard version=إصدار اللوحة الأم
+• Processor information (name and model)=• معلومات المعالج (الاسم والطراز)
+• Total amount of RAM installed=عدد الجيجات بالنسبة للرام
+• Number of processor cores=عدد أنوية المعالج
+3. Purpose of Data Collection=3. الغرض من جمع البيانات
+The information collected is used to generate a "Unique Computer Identifier," a unique identifier that distinguishes your device from others. This identifier assists in maintaining the security of the game by:=يتم استخدام المعلومات التي تم جمعها لإنشاء "معرف كمبيوتر فريد"، وهو معرف فريد يميز جهازك عن الأجهزة الأخرى. يساعد هذا المعرف في الحفاظ على أمان اللعبة من خلال:
+• Preventing players who violate community standards from circumventing bans=منع اللاعبين الذين ينتهكون معايير المجتمع من التحايل على الحظر
+• Ensuring a fair and safe gaming environment for all participants=• ضمان بيئة لعب عادلة وآمنة لجميع المشاركين
+All data collected is encrypted, securely stored, and solely intended for ensuring compliance with community guidelines.=ويتم تشفير كافة البيانات التي تم جمعها، وتخزينها بشكل آمن، وتهدف فقط إلى ضمان الامتثال لإرشادات المجتمع.
+On the server, we only store your username, email, password and gender.=ونحتفظ على الخادم باسم المستخدم والبريد الألكتروني وكلمة المرور وجنسه فقط
+4. Data Protection=4. حماية البيانات
+We take your privacy seriously. All data collected is encrypted and is used only by our automated systems to facilitate community management and enforcement. No personal data is shared, sold, or disclosed to third parties without your consent, except where required by law.=نحن نحترم خصوصيتك ونأخذها على مَحمل الجد ونقوم بتشفير جميع البيانات التي تم جمعها وتستخدمها أنظمتنا الآلية فقط لتسهيل إدارة المجتمع وتنفيذه. لا تتم مشاركة أي بيانات شخصية أو بيعها أو الكشف عنها لأطراف ثالثة دون موافقتك، باستثناء الحالات التي يقتضيها القانون.
+By continuing to use Zero Hour Assault, you acknowledge and accept these privacy terms. We are committed to safeguarding your privacy and invite you to reach out with any questions regarding this policy.=من خلال الاستمرار في استخدام Zero Hour Assault، فإنك تقر وتقبل شروط الخصوصية هذه. ونحن ملتزمون بحماية خصوصيتك وندعوك للتواصل معنا لأي أسئلة بخصوص هذه السياسة.
+stairs going down the mountain =سلم النزول للجسر من على الجبل
+pet shop, but, all the animals in here are dead and there's another human corpse=متجر حيوانات, ولكن الحيوانات ميتة وهناك جثث بشرية أيضا
+pet shop, but, all the animals in here are dead and there's another human corpse=متجر الحيوانات الأليفة، 
+unban player=اللاعبين المحظورين
+No banned player found=ليس هناك لاعب محظور
+kick player=طرد لاعب من المباراة
+ban player=حظر لاعب
+select player to ban=تحرك بالأسهم لاختيار لاعب لحظرهُ واستخدم الإنتر للحظر
+select player to kick=تحرك بالأسهم لاختيار لاعب لطردهُ وإطردهُ  بالإنتر
+connected to the server.=تم الاتصال
+The server is rebooting. An attempt will be made to log in shortly. Please wait.=يتم إعادة تشغيل الخادم. سيتم إجراء محاولة لتسجيل الدخول قريبًا. يرجى الانتظار.
+server status=حالة الخادم
+There is no private message to reply to.=لا توجد رسالة خاصة للرد عليها.
+You are not on any match.=أنت لست في أي مباراة.
+You have to wait 1 minutes to be able to exit after hit=عليك الانتظار لمدة دقيقة واحدة لتتمكن من الخروج بعد ان يتم ضربك او اصابتك
+shift l and alt l, set translation languages when sending and receiving messages= شِفّت م، وألت م، ضبط لغات الترجمة عند إرسال واستقبال الرسائل
+alt+x, duck. When you duck, others cannot hit you unless they also duck or aim downwards.=ألت ء، الانبطاح ، عندما تنبطح لا يمكن للآخرين إصابتك إلا إذا وجه السلاح للأسفل
+m, it will open a menu where you can see all nearby objects and track any of them. Press n to learn where the tracked object is.=ة، سيتم فتح قائمة حيث يمكنك رؤية جميع الكائنات القريبة وتتبع أي منها. اضغط على ،ى، لمعرفة مكان الكائن التي تتبعهُ
+shift u, set a favorite item=شِفّت عين تعيين العنصر المفضل الأول
+u, use the favorite item you set=ع استخدم العنصر المفضل الذي قمت بتعيينهُ كعنصر أول
+shift y, set a 2nd favorite item=شِفّت غين، تعيين العنصر المفضل الثاني
+y, use the 2nd favorite item you set=غ، استخدم العنصر المفضل الذي قمت بتعيينهُ كعنصر ثاني
+j, send a message to the team you are on in matches=ت، أرسل رسالة إلى الفريق الذي تتواجد فيه في المباريات
+tab and shift tab, navigate the inventory=تاب وشِفّت تاب تنقل بين العناصر
+enter, use the selected inventory item=إنتر استخدم العنصر المحدد
+shift enter, interact with objects on the map=شِفّت إنتر التفاعل مع المكونات الموجودة على الخريطة كألتقاط العناصر وركوب الدراجات
+backspace, drop the selected inventory item. The sound of the item you drop will be low-pitched than normal items, and players must pick them up with shift enter. Shift backspace allows you to drop multiple items of the same item.=مسافة للخلف، لإسقاط العنصر المحدد. سيكون صوت العنصر الذي تقوم بإسقاطه منخفض النبرة عن العناصر العادية، ويجب على اللاعبين التقاطها باستخدام مفتاح شِفّت إنتر يسمح لك شِفّت مسافة للخلف، بإسقاط عناصر متعددة من نفس العنصر.
+control, fire=كنترول لاستخدام السلاح ملحوظة على حسب السلاح في أي يد، كما سبق شرحهُ بالأعلى
+space, jump=مسافة للقفز
+home and end, adjust the game volume=home و end ضبط مستوى اللعبة داخل الخريطة
+h, learn health=ا معرفة الصحة 
+/, send a public message to the language channel you selected=ظ إرسل رسالة عامة لقناة اللغة التي حددتها
+o, open the game menu. Most in-game operations are done here.=خ، افتح قائمة اللعبة. تتم معظم العمليات داخل اللعبة هنا.
+left bracket and right bracket, browse buffer categories.=الجيم والدال تصفح فئات المخزن المؤقت.
+comma and period, view items in the selected category.=وَ. ز. عرض العناصر في الفئة المحددة.
+All of these keys can be used with shift, in which case they go to the first and last item.=يمكن استخدام كل هذه المفاتيح مع شِفّت، وفي هذه الحالة يتم الانتقال إلى العنصر الأول والأخير.
+e, see players and bots near you=ث، شاهد اللاعبين والروبوتات بالقرب منك
+n, see where the zone you are tracking is=ى، انظر أين تقع المنطقة التي تتتبعها
+shift m, see trackable zones on the map and track one=شِفّت ة، شاهد قائمة بالأماكن التي يمكن التوجه لها وللاتجاه إلى إحداها اختارها بالإنتر وتفقد معلوماتها ب(ى)
+m, see objects other than players and bots near you=ة، شاهد أشياء أخرى غير اللاعبين والروبوتات القريبة منك
+l, see participants in your match while in a match.=م، تعرف على المشاركين في مباراتك أثناء تواجدك في الخريطة 
+x, view the ammo status in your weapon=ء، قم بعرض حالة الذخيرة في السلاح الموجود في يدك
+grave, view the weapon's info=ذ، عرض معلومات السلاح
+r, reload the weapon=ق، قم بتعمير السلاح الذي في يدك ولا يمكن استخدامهُ في حالة استخدامين سلاحين في نفس الوقت
+shift r, unload the weapon=شِفّت ق، لتفريغ السلاح من الطلقات تعمل مع جميع الأسلحة التي يتم تعميرها ولا يمكن استخدامهُ في حالة استخدامين سلاحين في نفس الوقت
+escape, exit the game or menus=الهروب الخروج من اللعبة أو القوائم
+shift c, copy the selected buffer item=شِفّت ؤ، ، انسخ عنصر المخزن المؤقت المحدد
+c, view your coordinates=ؤ، عرض الإحداثيات الخاصة بك
+left and right arrows, navigate between players while watching the match, walk right and left in classic walk mode, turn 45 degrees in normal walk mode, turn 1 degree with shift=السهمان اليمين واليسار، التنقل بين اللاعبين أثناء مشاهدة المباراة، المشي يمينًا ويسارًا في وضع المشي الكلاسيكي، الدوران 45 درجة في وضع المشي العادي، الدوران درجة واحدة مع الشِفّت
+up and down arrows, move forward and backward in classic walk mode, change vertical aim in normal mode=الأسهم لأعلى والأسفل، التحرك للأمام والخلف في وضع المشي الكلاسيكي، وتغيير الهدف الرأسي في الوضع العادي
+a and d, walk right and left in normal walk mode, turn 45 degrees in classic walk mode, turn 1 degree with shift=ش، ي، المشي يمينًا ويسارًا في وضع المشي العادي، الدوران 45 درجة في وضع المشي الكلاسيكي، الدوران درجة واحدة مع الشِفّت
+w and s, move forward and backward in normal walk mode, change vertical aim in classic mode=ص س، تحرك للأمام والخلف في وضع المشي العادي، وقم بتغيير الهدف الرأسي في الوضع الكلاسيكي
+f, learn your direction, learn your vertical aim status with shift f.=باء، تعرف على اتجاهك، وتعرف على حالة التصويب الرأسي باستخدام شِفّت باء،
+shift page up and page down, adjust map music volume=شِفّت page up وشِفّت page down, رفع وخفض مستوى الموسيقى وأيضًا صعود وهبوط الدرج داخل اللعبة في حال وقُفَك على سلم
+apostrophe, send group message=الفاصلة العليا، إرسال رسالة جماعية
+Alt and number keys, navigate between inventory category items.=مفاتيح ألط  والأرقام، للتنقل بين عناصر فئة المخزون.
+Shift v, enable or disable push-to-talk.=شِفّت راء ، قم بتمكين أو تعطيل الضغط والتحدث.
+v, voice chat=راء ، الدردشة الصوتية
+alt v, learn who is talking with voice chat. It will only tell the players that you can hear.=ألت راء، تعرف على من يتحدث عبر الدردشة الصوتية. سيخبر اللاعبين فقط أنه يمكنك سماعهم.
+Number keys, select the weapons you have set, number 1 is always the knife and cannot be changed=مفاتيح الأرقام الأسلحة التي ضبطها أنت ورقم واحد دائمًا يكون السكينة ولا يمكن تغييره
+g and arrow keys or a s d w keys, move the camera=ل ومفاتيح الأسهم أو مفاتيح ش س ص ي ، قم بتحريك الكاميرا
+g and t key, find out where the camera is located=مفتاح ال ل والفاء، لمعرفة مكان وجود الكاميرا
+K, reply to last pm sent.=ن، الرد على آخر رسالة
+Z, find out the zone you are in=ئ معرفة طبيعة المكان الذي أنت به
+you can not look while watching someone=لا تعمل تلك الميزة وأنت تشاهد الآخرين
+you can not look while you watching someone=لا تعمل تلك الميزة وأنت تشاهد الآخرين
+While watching someone on this map, you cannot look at their coordinates.=لا يمكن الاطلاع على إحداثيات أي شخص وأنت تشاهده في هذه الخريطة 
+While watching someone on this map, you cannot look at their location=لا يمكن معرفة المنطقة الحالية لأي شخص وأنت تشاهده في هذه  الخريطة 
+1. About Respect=1 احترام اللاعبين
+2. No Cheating.=2 عدم الغش
+3. Fair Play.=3 اللعب النزيه
+4. Language Channels.=4 قنوات اللغة 
+5. No Toxic Behavior.=5 عدم التصرف بسلوك سلبي
+6. No Spamming.=6 عدم ارسال الرسائل المتكررة
+7. No Hacking or Exploiting.=7 عدم الاختراق أو الاستغلال
+8. Account Security.=8 أمان الحساب
+10. Stay Updated.=10 ابقى على اطلاع
+9. Voice chat.=9. الدردشة الصوتية:
+Group menu, Start a new group for collaboration, View Group Invitations, Manage Group Members.=المجموعة
+view all groups, View groups created in the game, view how many kills and how many deaths they have, send a request to join a group.=المجموعات
+View game readme file, learn the game about.=شرح اللعبة 
+ticket menu, Submit a new support request, View Your Previous Tickets.=قائمة تذاكر الدعم ملحوظة لم يكن مترجم مربعات الكتابة 
+to contact us, use these methods.=للاتصال بنا، استخدم هذه الطرق.
+Telegram Group: https://t.me/zerohournbm=مجموعة التليجرام https://t.me/zerohournbm
+discord: @bar_long=طرق أخرى 
+e-mail: nbmdigital@gmail.com=البريد الإلكتروني nbmdigital@gmail.com
+website: https://nbmstudios.com=الصفحة الرسمية https://nbmstudios.com
+You can also watch matches, you will have the opportunity to do this when you die, or if you choose to go to the lobby when you die, you can do this by pressing shift enter in the lobby at coordinates 5 0 0. While watching the match, navigate between players or bots with the right and left arrows, and exit the match with escape. Also, while watching players, the info keys give their information. For example, normally the h key gives your health, while in spectating mode it gives the health of the person you are watching.=يمكنك أيضًا مشاهدة المباريات، سيكون لديك الفرصة للقيام بذلك عند وفاتك، أو إذا اخترت الذهاب إلى الساحة الخارجية عندما تموت، يمكنك القيام بذلك عن طريق الضغط على مفتاح شِفّت إنتر في الساحة الخارجية عند الإحداثيات 5 0 0. أثناء المشاهدة المباراة، والتنقل بين اللاعبين أو الروبوتات باستخدام الأسهم اليمنى واليسرى، والخروج من المباراة باستخدام الهروب. وأيضًا، أثناء مشاهدة اللاعبين، توفر مفاتيح المعلومات معلوماتهم. على سبيل المثال، عادةً ما يعطي مفتاح ا، صحتك، بينما في وضع المشاهدة فإنه يعطي صحة الشخص الذي تشاهده.
+To create a match, do the following:=لإنشاء مباراة، قم بما يلي:
+Press shift enter in the lobby at coordinates 5 0 0 and select create match. Then, when you make the necessary selections for the match, the match will be created. If the players join, wait for them, and press shift enter to start the match. This menu also has additional options such as kicking and banning the player you want from the match. If you ban a player, they will not only be banned from this match, but also from all matches you create in the future.=اضغط على زر شِفّت إنتر في الساحة الخارجية عند الإحداثيات 5 0 0 وحدد إنشاء مباراة بعد ذلك، عند إجراء التحديدات اللازمة له سيتم إنشائها إذا لم ينضم اللاعبون، انتظرهم، ثم اضغط على مفتاح شِفّت إنتر لبدء المباراة. تحتوي هذه القائمة أيضًا على خيارات إضافية مثل طرد اللاعب الذي تريده من المباراة وحظره. إذا قمت بحظر لاعب، فلن يتم حظره من هذه المباراة فحسب، بل سيتم أيضًا حظره من جميع المباريات التي تنشئها في المستقبل.
+When creating a match, you can set the match as public or private. The difference between public and private matches is that private matches require a password to join.=عند إنشاء مباراة، يمكنك تعيين المباراة على أنها عامة أو خاصة. الفرق بين المباريات العامة والخاصة هو أن المباريات الخاصة تتطلب كلمة مرور للانضمام لها.
+The game also supports motors, you can buy it from the store. Here's how to use it:=كما تدعم اللعبة المركبات يمكنك شرائها من المتجر. وإليك كيفية استخدامه:
+When you get the motor, it will be 1 step ahead of you and you will be able to bump it, To get on it, you must jump and go to the direction of the motor, so you will get on the motor. After you get in, press shift enter and get on the motor.=عندما تحصل على المركبة سيكون أمامك بخطوة واحدة وستتمكن من الاصطدام بها، للصعود عليها، يجب عليك القفز والذهاب إلى اتجاهها وبعد دخولك، اضغط على مفتاح شِفّت إنتر واصعد إلى المركبة.
+You can start or stop the engine by pressing shift enter. Use the following controls while it is running:=يمكنك تشغيل المحرك أو إيقافه بالضغط على مفتاح شِفّت إنتر استخدم عناصر التحكم التالية أثناء تشغيله:
+Up and down arrows, acceleration and deceleration. You should keep the up arrow pressed continuously so that the engine does not slow down. You can stop instantly even when you are very fast with the down arrow.=الأسهم لأعلى ولأسفل، للسرعه والبطء. يجب عليك الاستمرار في الضغط على السهم لأعلى حتى لا تتباطأ المركبة يمكنك التوقف على الفور حتى عندما تكون سريعًا جدًا باستخدام السهم لأسفل.
+Space: use the horn=المسافة تستخدم للقفز
+Right and left arrows, turn 45 degrees, which direction you are turning is announced. You can turn 1 degree with the right and left arrows with the shift.=السهمان الأيمن والأيسر، انعطفا بمقدار 45 درجة، ويتم الإعلان عن الاتجاه الذي ستتجه إليه. يمكنك الدوران بمقدار درجة واحدة باستخدام الأسهم اليمنى واليسرى مع الشِفّت.
+Escape, get off the motor. However, if you press escape while the motor is moving, you will fall off the motor.=الهروب يؤدي لسق وطك من المركبة سواء كان واقف أو متحرك
+Also, others can get on your motor, and if you start the engine and go , they can also go automatically. However, the driver of the motor is always the first to get on, if you get off and others have gotten on, the person who got on after you can drive the motor. Also, if you have gotten your motor but left it lying around, others can get on it and steal it.=أيضًا، يمكن للآخرين الوصول إلى المركبة الخاصه بك، وإذا قمت بتشغيلها وانطلقت، فيمكنهم أيضًا التشغيل تلقائيًا. ومع ذلك، فإن سائق المركبة هو دائمًا أول من يصعد، وإذا نزلت وصعد آخرون، فإن الشخص الذي ركب بعدك يمكنه القيادة أيضًا، إذا كنت قد حصلت على المركبة الخاصه بك ولكنك تركته ملقاة، فيمكن للآخرين الاستيلاء عليها وسرقتها.
+Each motor you get is specific to that match, you have to get it again in the following matches.=كل مركبة تحصل عليها خاصه بتلك المباراة، عليك الحصول عليها مرة أخرى في المباريات التالية.
+Your motor can also hit walls, and if this happens, you will fall off the motor and your motor will lose 30 health. If the motor gets close to a wall, you will hear a beep, in which case you should turn away and walk away. Other players can also hit your motor and destroy it.=يمكن للمركبة أيضًا أن تصطدم بالجدران، وإذا حدث ذلك، فسوف تسقط من المركبة وستفقد المركبة 30 نقطة من الصحة. إذا اقتربت من الحائط، فسوف تسمع صوت تنبيه، وفي هذه الحالة يجب عليك الابتعاد والابتعاد. يمكن للاعبين الآخرين أيضًا ضربها وتدميره.
+You can voicechat with people in the game. After you have set who you will voice chat with in the settings, you can chat with them with the v key. If push to talk is on, hold down the v key to talk, if it is off, the v key will turn voice chat on and off every time you press it. You can control push to talk with the shift v.=يمكنك الدردشة الصوتية مع الأشخاص الموجودين في اللعبة. بعد أن تحدد من ستتحدث معه في الإعدادات، يمكنك الدردشة معه باستخدام مفتاح الراء. إذا كانت ميزة "الضغط والتحدث" قيد التشغيل، فاضغط باستمرار على مفتاح الراء  للتحدث، وإذا كان متوقفاً عن التشغيل، فسيقوم مفتاح الراء بتشغيل وإيقاف الدردشة الصوتية في كل مرة تضغط فيها. يمكنك التحكم في ميزة الضغط والتحدث باستخدام شِفّت راء
+You can also play the game with a joystick. However, there is no default joystick layout in the game, you must set which keys on the joystick are used for what in the settings, otherwise none of the keys on your joystick will work. There are a few exceptions to this, and you cannot change these keys, these are:=يمكنك أيضًا لعب اللعبة باستخدام عصا التحكم. ومع ذلك، لا يوجد تخطيط افتراضي لعصا التحكم في اللعبة، ويجب عليك تعيين المفاتيح الموجودة على عصا التحكم التي سيتم استخدامها للغرض الموجود في الإعدادات، وإلا فلن يعمل أي من المفاتيح الموجودة على عصا التحكم الخاصة بك. هناك بعض الاستثناءات لذلك، ولا يمكنك تغيير هذه المفاتيح، وهي:
+The up and down dpad buttons navigate menus or change weapons while in the game.=تتنقل أزرار dpad لأعلى ولأسفل في القوائم أو تغير الأسلحة أثناء وجودك في اللعبة.
+The right dpad button activates the current option in the menus, acts as the enter key in the game.=يقوم زر dpad الأيمن بتنشيط الخيار الحالي في القوائم، ويعمل كمفتاح إنتر في اللعبة.
+The left dpad button returns to the previous menu in the menus, acts as the escape key in the game.=يعود زر dpad الأيسر إلى القائمة السابقة في القوائم، ويعمل كمفتاح الهروب في اللعبة.
+The left stick moves the character, The right stick turns the character.=العصا اليسرى تحرك الشخصية، والعصا اليمنى تدير الشخصية.
+Also if you connect more than one joystick, you can use the joystick you want, you don't have to choose from the settings, the game will detect which joystick buttons you press. However, there can be confusion in the key mappings because the buttons and codes of each joystick can be different, so if you connect 2 or more joysticks, make sure they are the same brand/model.=أيضًا إذا قمت بتوصيل أكثر من عصا تحكم، يمكنك استخدام عصا التحكم التي تريدها، ولا يتعين عليك الاختيار من بين الإعدادات، ستكتشف اللعبة أزرار عصا التحكم التي تضغط عليها. ومع ذلك، يمكن أن يكون هناك ارتباك في تعيينات المفاتيح لأن الأزرار والأكواد الخاصة بكل عصا تحكم يمكن أن تكون مختلفة، لذلك إذا قمت بتوصيل 2 أو أكثر من عصا التحكم، فتأكد من أنهما من نفس العلامة التجارية وكذلك الطراز.
+This game supports vertical aiming. This means you can even hit things above or below you. You can aim up and down with the up and down arrows, and as you aim up and down, the sounds will make it sound like you are above or below. You can aim up or down up to 20 steps.=هذه اللعبة تدعم التصويب الرأسي. هذا يعني أنه يمكنك حتى ضرب الأشياء الموجودة فوقك أو أسفلك. يمكنك التصويب لأعلى ولأسفل باستخدام الأسهم لأعلى ولأسفل، وعندما تقوم بالتصويب لأعلى ولأسفل، فإن الأصوات ستجعل الأمر يبدو وكأنك أعلى أو أسفل. يمكنك التصويب لأعلى أو لأسفل حتى 20 خطوة.
+Note: If you are using the classic walking mode, you will walk with the arrow keys instead of w, s, a and d, so you can aim with the w and s keys. Also, the turning keys are the d and a keys in classic walking mode, these keys turn you 45 degrees and the direction you are in is announced. Pressing these keys with shift turns you 1 degree and the direction you turn is not announced. In normal walking mode, you walk with the w a s and d keys, you can turn and aim with the arrow keys. Also, pressing the aim keys once will make you aim 1 step more in that direction, while pressing with shift will make you aim 5 steps.=ملاحظة: إذا كنت تستخدم وضع المشي الكلاسيكي، فسوف تمشي باستخدام مفاتيح الأسهم بدلاً من ص، وسين وشين والياء، حتى تتمكن من التصويب باستخدام مفاتيح صاض و سين. أيضًا، مفاتيح الدوران هي مفتاح الياء والمفتاح ش في وضع المشي الكلاسيكي، هذه المفاتيح تدور بك 45 درجة ويتم الإعلان عن الاتجاه الذي أنت فيه. يؤدي الضغط على هذه المفاتيح باستخدام مفتاح شِفّت إلى تحويلك بمقدار درجة واحدة ولا يتم الإعلان عن الاتجاه الذي تتجه إليه. في وضع المشي العادي، يمكنك المشي باستخدام مفتاحي الصاض وشين والسين والياء ، ويمكنك الدوران والتصويب باستخدام مفاتيح الأسهم. كما أن الضغط على مفاتيح التصويب مرة واحدة سيجعلك تصوب خطوة واحدة أكثر في هذا الاتجاه، بينما الضغط مع مفتاح شِفّت سيجعلك تصوب 5 خطوات.
+It is also possible to play the game with the mouse. After enabling this from the settings, the following can be done with the mouse:=من الممكن أيضًا لعب اللعبة باستخدام الماوس. بعد تمكين هذا من الإعدادات، يمكن القيام بما يلي باستخدام الماوس:
+Moving the mouse turns the character.=يؤدي تحريك الماوس إلى تحويل الشخصية.
+Left click shoots.=الزر اليسار استخدام السلاح
+Wheel changes weapons.=العجلة تغير الأسلحة 
+Right click walks in the direction you are facing.=انقر بزر الماوس الأيمن للمشي في الاتجاه الذي تواجهه.
+You can become friends with players in the game. This allows you to send them private messages and be notified when they enter and exit the game. You do not receive notifications when normal players enter and exit the game.=يمكنك أن تصبح أصدقاء مع اللاعبين في اللعبة. يتيح لك ذلك إرسال رسائل خاصة إليهم وإخطارهم عند دخولهم إلى اللعبة والخروج منها. لا تتلقى إشعارات عندما يدخل اللاعبون العاديون إلى اللعبة ويخرجون منها.
+You can create groups in the game and other players can join these groups. They can send requests to your group or you can invite them. People in the same group can send private messages to the group. You can also see how many kills and deaths each group has and its members in the group information menu. In addition, the group owner can add additional administrators to the group, these administrators do not have as much authority as the group owner, but they can still manage the basic functions of the group.=يمكنك إنشاء مجموعات في اللعبة ويمكن للاعبين الآخرين الانضمام إلى هذه المجموعات. يمكنهم إرسال طلبات إلى مجموعتك أو يمكنك دعوتهم. يمكن للأشخاص في نفس المجموعة إرسال رسائل خاصة إلى المجموعة. يمكنك أيضًا معرفة عدد عمليات القتل والوفيات لكل مجموعة وأعضائها في قائمة معلومات المجموعة. بالإضافة إلى ذلك، يمكن لمالك المجموعة إضافة مسؤولين إضافيين إلى المجموعة، ولا يتمتع هؤلاء المسؤولون بنفس القدر من السلطة التي يتمتع بها مالك المجموعة، ولكن لا يزال بإمكانهم إدارة الوظائف الأساسية للمجموعة.
+Apart from groups, there is also a general chat in the game, you can select a language channel with f11 and send a message to that channel with the / key.=بصرف النظر عن المجموعات، هناك أيضًا دردشة عامة في اللعبة، يمكنك تحديد قناة لغة باستخدام f11 وإرسال رسالة إلى تلك القناة باستخدام مفتاح الظاء.
+There is a headshot system in the game. If you shoot someone two steps below you, you will deal 2 times more damage than you would normally.=يوجد نظام للرأس في اللعبة. إذا قمت بإطلاق النار على شخص ما أسفلك بخطوتين، فسوف تتسبب في ضرر أكبر بمرتين من المعتاد.
+There are 3 items in the game to increase health. These are Small potion, vitality potion and revival nectar. All of them increase your health at different rates.=هناك 3 عناصر في اللعبة لزيادة الصحة. هذه هي الجرعة الصغيرة وجرعة الحيوية ورحيق الإحياء. كل منهم يزيد من صحتك بمعدلات مختلفة.
+There is an item called binoculars in the game. With this item, you can see players within 120 steps of you.=هناك عنصر يسمى مناظير في اللعبة. باستخدام هذا العنصر، يمكنك رؤية اللاعبين على مسافة 120 خطوة منك.
+You can assign your current weapon to any number you want in the game=ويمكنك تخصيص سلاحك الحالي لأي رقم تريده في اللعبة
+. When you have the weapon you want in your hand, when you press a number with the shift key, the weapon will be assigned to that number. Then, when you press that number, if you have that weapon in your inventory, you can draw it directly.=إذا كان السلاح الذي تريد تخصيص له رقم في يدك اضغط شِفّت مع الرقم الذي تريدهُ لتخصيصهُ لهذا السلاح وإذا أردتهُ بعد ذلك إذا كان بحوزتك ما عليك سوى الضغط على هذا الرقم 
+In team matches, bots have the following feature. You can call bots to your side. If you write come to the team you are on with the letter J and then a bot name, example come botname, that bot will come to your side and always follow you. You can write go and the bot name to send the bot back. You can also call all bots to your side with the come all command and send them back with go all.=في مباريات الفريق، تتمتع الروبوتات بالميزة التالية. يمكنك استدعاء الروبوتات إلى جانبك. في فريقك عن طريق ضغط الحرف J ثم come واسم الروبوت، فسيأتي هذا الروبوت إلى جانبك ويتبعك دائمًا. يمكنك كتابة go واسم الروبوت لإرسال الروبوت مرة أخرى. يمكنك أيضًا استدعاء جميع الروبوتات إلى جانبك باستخدام الأمر Come all وإرسالها مرة أخرى باستخدام go all.
+There is a scope in the game. This allows you to understand whether your weapon can hit something. If this feature is enabled in the settings, a beep will start to sound when your weapon can hit an object.=هناك نطاق في اللعبة. يتيح لك هذا معرفة ما إذا كان سلاحك يمكنه إصابة شيء ما. إذا تم تمكين هذه الميزة في الإعدادات، سيبدأ إصدار صوت تنبيه عندما يتمكن سلاحك من إصابة أي شيء.
+You can set the item you want in the inventory as a favorite item. After selecting the item with tab and shift tab, you can do this with shift u. Then you can use that item with the letter u.=يمكنك تعيين العنصر الذي تريده من المخزون كعنصر مفضل. بعد اختيار العنصر باستخدام تاب وشِفّت تاب، اضغط شِفّت عين ولاستخدامه اضغط فقط الحرف عين.
+You can break some walls in matches. However, this does not apply to all walls on the map.=يمكنك كسر بعض الجدران في المباريات. ومع ذلك، هذا لا ينطبق على جميع الجدران على الخريطة.
+When you join a match, you can leave if you want before the creator starts the match. When you press shift enter, you only get the option to leave. However, if the match is started, you cannot leave.=عندما تنضم إلى مباراة، يمكنك المغادرة إذا أردت قبل أن يبدأ المنشئ المباراة. بالضغط على مفتاح شِفّت إنتر، يتوفر لديك خيار المغادرة فقط. ومع ذلك، إذا بدأت المباراة، لا يمكنك المغادرة.
+The game supports playing YouTube videos in-game. Press F9. While playing a video, f6 pauses it, shift f7 and shift f8 skip to the previous and next video respectively, F7 and F8 rewind and forward the current video respectively, and shift home and shift end control the volume of the current video.=تدعم اللعبة تشغيل مقاطع فيديو اليوتيوب داخل اللعبة. اضغط على F9. أثناء تشغيل مقطع فيديو، يقوم f6 بإيقافه مؤقتًا، وللانتقال إلى الفيديو السابق والتالي على التوالي، F7 وF8 ويمكن إرجاع الفيديو الحالي وإعادة توجيهه كما يتحكم شِفّت home وشِفّت end في مستوى صوت الفيديو الحالي.
+When you die in the game, you lose the items you collected in the match. However, some items you buy from the store may be permanent, you will not lose them. Each time you join a match, you are given some items to use in the match, which items are given may vary from match mode to match mode.=عندما تموت في اللعبة، ستفقد العناصر التي جمعتها في المباراة. ومع ذلك، قد تكون بعض العناصر التي تشتريها من المتجر دائمة، ولن تفقدها. في كل مرة تنضم فيها إلى مباراة، كما يتم إعطاؤك بعض العناصر لاستخدامها في المباراة، وقد تختلف العناصر المقدمة من مباراة إلى آخر
+The game has a character system. You can buy characters from the store and they are permanent. Each character has different voices and different specifications, and you can change characters from the game menu.=اللعبة لديها نظام الشخصيات. يمكنك شراء الشخصيات من المتجر وهي دائمة. تتمتع كل شخصية بأصوات مختلفة ومواصفات مختلفة، ويمكنك تغيير الشخصيات من قائمة اللعبة.
+The game has a ticket system. You can report any questions you want to ask the developers or bugs you find in the game by opening a ticket.=اللعبة لديها نظام التذاكر. يمكنك الإبلاغ عن أي أسئلة تريد طرحها على المطورين أو الأخطاء التي تجدها في اللعبة عن طريق فتح تذكرة.
+Bots in different team: enabled=الروبوتات في الفريق الآخر
+Bots in different team: disabled=الروبوتات في الفريق الآخر
+players in same team: enabled=اللاعبين في فريقي
+players in same team: disabled=اللاعبين في فريقي
+players in different team: enabled=اللاعبين في فريق آخر
+players in different team: disabled=اللاعبين في فريق آخر
+players in same group: enabled=اللاعبين في المجموعة التي أنا بها
+players in same group: disabled=اللاعبين في المجموعة التي أنا بها
+players in different group: enabled=اللاعبين الذين في مجموعة أخرى
+players in different group: disabled=اللاعبين الذين في مجموعة أخرى
+Bots in same team: enabled=الروبوتات في فريقي
+Bots in same team: disabled=الروبوتات في فريقي
+Set what indicators you want to hear for near players/bots=قم بتعيين المؤشرات التي تريد سماعها بالقرب من الروبوتات
+Character voice: disabled=صوت الشخصية نفسها
+Character voice: enabled=صوت الشخصية نفسها
+Sound: enabled=صوت الروبوت
+Sound: disabled=صوت الروبوت
+Set who's near notifications you want to receive=إعدادات الإشعارات
+Enable Speak degrees when turning in 1 degree increments=الإعلان عن الاتجاه عند الدوران بقيمة درجة واحدة
+Disable Speak degrees when turning in 1 degree increments=الإعلان عن الاتجاه عند الدوران بقيمة درجة واحدة
+Enable Speak facing direction when turning in 45 degree increments=الإعلان عن الاتجاه عند الدوران بقيمة 45 درجة
+Disable Speak facing direction when turning in 45 degree increments=الإعلان عن الاتجاه عند الدوران بقيمة 45 درجة
+Enable Auto running=الجري التلقائي
+Disable Auto running=الجري التلقائي
+ Keep your account secure. Sharing your account information is at your own risk, and compromised accounts may lead to loss of progress or access.=احرص على تأمين حسابك. مشاركة معلومات حسابك تكون على مسؤوليتك الخاصة، وقد تؤدي الحسابات المخترقة إلى فقدان التقدم أو الوصول.
+a sign =لافتة, اضغط شفت و انتر لقراءتها
+1. Respect Other Players:=1 احترام اللاعبين الآخرين
+2. No Cheating:=2 عدم الغش
+3. Fair Play:=3 اللعب النزيه
+4. Language Channels:=4 قنوات اللغة 
+5. No Toxic Behavior:=5 عدم التصرف بسلوك سلبي
+6. No Spamming:=6 عدم ارسال الرسائل المتكررة
+7. No Hacking or Exploiting:=7 عدم الاختراق أو الاستغلال
+8. Account Security:=8 أمان الحساب
+10. Stay Updated:=10 ابقى على اطلاع
+9. Voice chat:=9. الدردشة الصوتية:
+accept=قبول
+Add contributor=إضافة مساهم
+add friend=إضافة صديق
+add line=إضافة سطر
+Administrators: resolving player issues, crafting maps, and other duties.=المشرفين, لديهم الإمكانية لحل مشاكل اللاعبين, بناء الخرائط وغير ذلك
+Always treat fellow players with respect. Insults, harassment, or any form of discrimination is strictly prohibited. You can insult someone's personality, but if you continue when the other party asks you to stop doing so, your chat will be closed.=دائمًا عامل اللاعبين الآخرين باحترام. الإهانات، التحرش أو أي شكل من أشكال التمييز ممنوع تمامًا. يمكنك السخرية من شخصية شخص ما، ولكن إذا طلب الطرف الآخر منك التوقف ولم تفعل، سيتم إغلاق الدردشة الخاصة بك.
+Are you sure to leave the game, press escape or the left D-pad button of the joystick to cancel, press enter or the right D-pad button of the joystick to disconnect.=هل أنت متأكد من أنك ترغب في الخروج من اللعبة؟، إضغط زر الهروب ESCللإلغاء او إضغط زر الإدخال enter للتأكيد والخروج
+Are you sure you want to go to freedom fight map? You will lose all the items you have.=هل أنت متأكد من أنك ترغب في الذهاب إلى خريطة الحرب المفتوحة؟, سوف تفقد كل العناصر التي لديك
+Are you sure you want to return to lobby? You will lose all the items you got in this map.=هل أنت متأكد من أنك ترغب في العودة إلى الساحة الخارجية؟, سوف تخسر كل العناصر التي حصلت عليها من هذه الخريطة
+Back to main menu=العودة إلى القائمة الرئيسية
+Back to settings=العودة للإعدادات
+Bots do not track players, they walk around the map randomly. They will go there if gunshots are heard nearby.=ولاكنها لا تتعقب اللاعبين، بل تتجول في الخريطة بشكل عشوائي. سوف يذهبون إلى هناك إذا سمعوا طلقات نارية في مكان قريب.
+Builders: Capable of constructing maps and integrating them into the game.=البنائين, لديهم القدرة على إنشاء الخرائط وإضافتها للعبة
+canceled=تم الإلغاء
+Change language=تغيير اللغة
+Change owner=تغيير المالك
+Cheating or using unauthorized third-party software to gain an unfair advantage will result in an immediate ban.=الغش أو استخدام برامج خارجية غير مصرح بها للحصول على ميزة غير عادلة سيؤدي إلى حظر فوري.
+Configure joystick buttons=تكوين أزرار عصا التحكم
+connecting=جاري الاتصال
+copy data=نسخ البيانات
+copyed=تم النسخ
+create a match=إنشاء مباراة
+Create An Account=إنشاء حساب
+delete language=حذف اللغة
+Developers: Has the ability to view or edit the game's code.=المطورين, لديهم الإمكانية لتعديل اللعبة بالكامل
+Disable announcement of near players= الاعلان عن اللاعبين القريبين 
+Disable classic walking style= الوضع الكلاسيكي للمشي
+Disable hearing map sign sound= سماع صوت لافتات الخريطة
+Disable hrtf= hrtf
+Disable kill counter notification=  تعطيل   اشعار عدد القتلى
+Disable listening your own voice while voicechatting= الاستماع إلى صوتك اثناء الدردشة الصوتية
+Disable logo play at startup= تشغيل الشعار عند بداية تشغيل اللعبة 
+Disable muting of speech and audio when the game window is not in focus= كتم الصوت والكلام عندما لا تكون نافذة اللعبة في وضع التركيز
+Disable online and offline messages= رسائل الدخو والخروج
+Disable Play match-specific music in the game= الموسيقى الخاصة بالمباراة في اللعبة
+Disable push to talk for voicechat= ميزة الضغط للتحدث في الدردشة الصوتية
+Disable Save buffer messages to the log.txt= حفظ رسائل المخزن إلى log.txt
+Disable saving of buffer items when exiting the game= حفظ عناصر المخزن المؤقت عند الخروج من اللعبة
+Disable scope= صوت التنبيه بان هناك شخص امام مستوى سلاحك
+Disable speech interrupt= مقاطعة الكلام
+Disable Stop aiming when key is not held down= إيقاف التصويب عند عدم الضغط على الزر
+Disable turning and shooting with mouse= الدوران وإطلاق النار باستخدام الفأرة
+does not take ammo= لا يأخذ رصاص
+Donate with PayPal.=التبرع باستخدام PayPal.
+Donate with using card.=التبرع باستخدام البطاقة البنكية.
+Done, friend request accepted successfully.=تم قبول الطلب بنجاح
+Done, friend request sent successfully.=تم إرسال الطلب بنجاح
+Done=تم
+Enable announcement of near players= الاعلان عن اللاعبين القريبين
+Enable classic walking style= الوضع الكلاسيكي للمشي
+Enable hearing map sign sound= سماع صوت لافتات الخريطة
+enable hrtf= hrtf
+Enable kill counter notification= تفعيل   اشعار عدد القتلى
+enable listening your own voice while voicechatting= تمكين الاستماع إلى صوتك أثناء الدردشة الصوتية
+Enable logo play at startup= تشغيل الشعار عند بداية تشغيل اللعبة 
+Enable muting of speech and audio when the game window is not in focus= كتم الصوت والكلام عندما لا تكون نافذة اللعبة في وضع التركيز
+Enable online and offline messages= رسائل الدخول والخروج
+Enable Play match-specific music in the game= تشغيل الموسيقى الخاصة بالمباراة في اللعبة
+enable push to talk for voicechat= ميزة الضغط للتحدث في المحادثة
+Enable Save buffer messages to the log.txt= حفظ رساءل المخزن إلى log.txt
+enable saving of buffer items when exiting the game= حفظ عناصر المخزن عند الخروج من اللعبة
+Enable scope= المنظار
+enable speech interrupt= مقاطعة الكلام
+Enable Stop aiming when key is not held down= إيقاف التصويب عند عدم الضغط على الزر
+Enable turning and shooting with mouse= الدوران وإطلاق النار باستخدام الفأرة
+Enemy Bot beep sound.=بوت عدو.
+English=الإنجليزية
+Error, no joystick found. Waiting for joysticks ... Press escape to cancel.=خطأ، لم يتم العثور على عصا التحكم. قم بتَركيب عصا التحكم أو اضغط على الهروب للإلغاء.
+Error, you can't send friend request to this player because they turned of receiving friend requests.=المعذرة, لا يمكنك إرسال طلب صداقة لهذا اللاعب لأنه قام بتعطيل إستقبال طلبات الصداقة
+events, Daily Rewards, Upcoming Events.=الهداية اليومية
+Exit the game.=انهاء اللعبة
+Explosive battle: This mode is similar to the previous one, but players can only use grenades and molotovs, they cannot use any weapons, including knives. When you use a grenade directly, it is not thrown immediately, when you first you hear a sound, after this sound, you must press enter again and throw the grenade. However, if you are too late, the grenade will explode on you.=معركة المتفجرات: هذا الوضع مشابه للوضع السابق، لكن يمكن للاعبين استخدام القنابل اليدوية والمولوتوف فقط، ولا يمكنهم استخدام أي أسلحة، بما في ذلك السكاكين. عندما تستخدم قنبلة يدوية مباشرة، لا يتم إلقاؤها على الفور، عندما تسمع صوتًا لأول مرة، بعد هذا الصوت، يجب عليك الضغط على زر الإنتر مرة أخرى ورمي القنبلة اليدوية. ومع ذلك، إذا تأخرت كثيرًا، فسوف تنفجر القنبلة عليك.
+faster=سريع
+For each match, the player who wins the match earns zero tokens. You can buy items from the store معthese tokens.=في كل مباراة، اللاعب الذي يفوز بالمباراة يكسب رموز. صفرية ويمكنه شراء سلع من المتجر باستخدام هذه الرموز.
+forward=أمامك
+Friend menu, Send a friend request, View Pending Friend Requests, Remove Friend.=الأصدقاء 
+Game menu=قائمة اللعبة
+Game settings, Change your game settings.=الإعدادات
+General Chat message Tone=نغمة رسائل الدردشة العامة
+Get your daily zero token=الحصول على عملة zero اليومية الخاصة بك
+go back=رجوع
+ Hacking, exploiting game vulnerabilities, or unauthorized access to accounts will result in permanent bans.=سوف يؤدي الاختراق، أو استغلال ثغرات اللعبة، أو الوصول غير المصرح به إلى الحسابات إلى حظر دائم.
+hello=مرحبًا
+High quality (Recommended)=عالية (مستحسن)
+In addition, a player earns score points for each player they kill. You can see the score points of the players from the view ranking list section in the main menu. In addition, players have ranks, as the score points increase, they rise to higher ranks.=بالإضافة إلى ذلك، يكسب اللاعب نقاطًا مقابل كل لاعب يقتله. يمكنك رؤية نقاط تسجيل اللاعبين من قسم عرض قائمة الترتيب في القائمة الرئيسية. كذلك، يتمتع اللاعبون برتب، فكلما زادت نقاط النتيجة، ارتقوا إلى رتبه أعلى.
+in team dead match, last man standing and zombie vs player modes, the map will gradualy shrink as match continues.=في مباراة الفريق الميت، وآخر رجل واقف، وأوضاع الزومبي مقابل اللاعب، ستتقلص الخريطة تدريجيًا مع استمرار المباراة.
+join or spectate a match=الإنضمام او مشاهدة مباراة
+join the official telegram group of Zero Hour Assault.=انضم لمجموعة التليجرام الرسمية
+ Keep your account secure. Sharing your account information is=حافظ على أمان حسابك. مشاركة معلومات حسابك هي
+your own risk, and compromised accounts may lead to loss of progress or access.=مسؤوليتك الخاصة، وقد تؤدي الحسابات المخترقة إلى فقدان التقدم أو الوصول.
+Knife fight match: This mode is similar to the previous one, but you can only use knife and the map is smaller. You can also collect  snowflake shards in this mode, by pressing shift enter. You can collect up to 5. When you throw these, they will stun the enemy for 3 seconds.=مباراة قتال السكينة: هذا الوضع مشابه للوضع السابق، لكن يمكنك فقط استخدام السكينة والخريطة أصغر. يمكنك أيضًا جمع بقايا الثلج في هذا الوضع، بالضغط على مفتاح شِفّت إنتر يمكنك جمع ما يصل إلى 5. عندما ترمي هذه، سوف تصعق العدو لمدة 3 ثوان.
+Language was updated successfully.=تم تحديث اللغة بنجاح
+languages menu=قائمة اللغات
+languages, Manage Languages, Switch to a Language, Get syntax و usage tips for creating languages, Create New Language.=اللغات 
+Last man standing: In this mode, the players are alone and there is no team, the last player standing wins.=آخر رجل صامد: في هذا الوضع، يكون اللاعبون بمفردهم ولا يوجد فريق، وآخر لاعب صامد هو الفائز.
+Learn game sounds=التعرف على أصوات اللعبة
+Leave from freedom fight map=الخروج من خريطة الحرب المفتوحة
+Login Options=خيارات تسجيل الدخول
+Logo. Press enter to continue.=الشعار. اضغط على إنتر للمتابعة.
+Low quality=منخفضة
+Make suggestions, leave feedback, report bugs.=تحدث مع الإدارة
+Make us a small donation. If you like the game and if you can, a small donation would be appreciated.=قم بالتبرع لنا بمبلغ بسيط. إذا أعجبتك اللعبة سوف نقدرذلك
+Manage languages=إدارة اللغات
+max volume=الصوت مرتفع للغاية بالفعل وللخفض اضغط end
+Medium quality=متوسطة
+No friend requests found.=لم يتم العثور على طلبات صداقة
+No match created yet=لا يوجد مباريات
+no, i dont want to add bot in this match=لا
+no=لا
+Nobody near you=لا يوجد أحد
+Pending friend requests sent to you=طلبات الصداقة المعلقة التي تم إرسالها لك
+Pending friend requests you sent=طلبات الصداقة المعلقة التي أنت أرسلتها
+Play fairly and follow the game's mechanics and rules. Exploiting bugs or loopholes for personal gain is not allowed.=العب بنزاهة واتبع آليات اللعبة وقواعدها. استغلال الأخطاء أو الثغرات لتحقيق مكاسب شخصية غير مسموح به.
+Players can also optionally add bots to matches when creating them. So, for example, if the creator wanted the match to be 5 vs 5 (5 players on each team), but only 2 players joined the match, the bots will fill in the remaining players' places. Bots are just like normal players, they can pick up items from the ground, have inventories, and use weapons they pick up.=يمكن للاعبين أيضًا إضافة الروبوتات إلى المباريات بشكل اختياري عند إنشائها. لذلك، على سبيل المثال، إذا أراد المنشئ أن تكون المباراة 5 ضد 5 (5 لاعبين في كل فريق)، ولكن انضم لاعبان فقط إلى المباراة، فسوف تملأ الروبوتات أماكن اللاعبين المتبقين. تشبه الروبوتات اللاعبين العاديين تمامًا، حيث يمكنهم التقاط العناصر من الأرض، والحصول على مخزون، واستخدام الأسلحة التي يلتقطونها.
+Please enter a match password=الرجاء إدخال كلمة مرور للمباراة 
+Please input new line=اكتب أو ألصق ما لديك
+Please paste language data=الرجاء لصق البيانات
+Please select a language.=الرجاء تحديد اللغة التي تريدها بالسهم لأعلى ولأسفل واختارها بالإنتر
+Please select a match to join.=اختار المباراة التي تريد الانضمام إليها
+Please select an option.=الرجاء الإختيار
+Please select the device you want to use.=الرجاء تحديد الميكروفون الذي تريدهُ.
+português=البرتغالية 
+Press escape to return.= اضغط على الهروب للإنهاء
+Press shift enter in the lobby at coordinates 5 0 0 and select create match. Then, when you make the necessary selections for the match, the match will be created. If the players join, wait for them, and press shift enter to start the match. This menu also has additional options such as kicking and banning the player you want from the match. If you ban a player, they will not only be banned from this match, but also from all matches you create in the future.=اضغط على زر شِفّت إنتر في الساحة الخارجية عند الإحداثيات 5 0 0 وحدد إنشاء مباراة بعد ذلك، عند إجراء التحديدات اللازمة له سيتم إنشائها إذا لم ينضم اللاعبون، انتظرهم، ثم اضغط على مفتاح شِفّت إنتر لبدء المباراة. تحتوي هذه القائمة أيضا على خيارات إضافية مثل طرد اللاعب الذي تريده من المباراة وحظره. إذا قمت بحظر لاعب، فلن يتم حظره من هذه المباراة فحسب، بل سيتم أيضا حظره من جميع المباريات التي تنشئها في المستقبل.
+Push to talk off=تم تفعيل خاصية التحدث الدائم
+push to talk on=تم إغلاق الميكروفون
+Recover your password=إستعادة كلمةِ المرور
+decline=رفض
+refuse=رفض
+Select an invitation.=اختر الدعوة بالأسهم واضغط إنتر للإختيار والهروب للخروج
+Select what would you like to do.=حدد ما تريد أن تفعلهُ
+Remove contributor=إزالة مساهم
+Remove friend=إزالة لاعب من قائمة الأصدقاء
+Select a zone to track.=حدد منطقة لتتبعها
+Select input device for voicechat=حدد الميكروفون الذي تريدهُ للدردشة الصوتية
+Select language to manage=إإختر لغة لإدارتها
+Select match mode=إختر الوضع
+Select match visibility=إختر نوع المباراة
+Select player to add as friend=إختر لاعب لإضافته كصديق
+Select player to refuse or accept=إختر لاعب لقبوله او رفضه
+Select player to remove from friend list=إختر لاعب لإزالته
+Select player to remove your request=إختر لاعب لإلغاء طلب الصداقة منه
+Select player to send private message=إختر لاعب لإرسال رسالة خاصة له
+Select quality=حدد الجودة
+Select the match type=إختر نظام المباراة
+Select what you would like to do.=إختر ماذا تريد أن تفعل
+Server Status.=حالة الخادم
+Set turning speed. Currently default=ضبط سرعة الدوران. افتراضي
+Set turning speed. Currently faster=ضبط سرعة الدوران. سريع
+Set turning speed. Currently slower=ضبط سرعة الدوران. بطيء
+Set voicechat quality=ضبط جودة الدردشة الصوتية
+Set voicechat volume=ضبط مستوى صوت الدردشة
+Set who you want to voicechat with=قم بتعيين من تريد التحدث معه
+settings=الإعدادات
+setup an existing account=تسجيل الدخول بحساب موجود مسبقا
+slower=بطيء
+Some matches have a helicopter system. In these matches, when the match first starts, you are not sent directly to the map, you are in a helicopter and the helicopter starts to fly you around random coordinates for a certain period of time. If you do not jump from the helicopter after a certain period of time, it will throw you down, you must press shift enter to jump. However, you cannot jump immediately after you first get in the helicopter, 10 seconds must pass. If 10 seconds are not up, pressing shift enter will inform you how many more seconds you have to wait.=وتحتوي بعض المباريات على نظام طائرات الهليكوبتر. في هذه المباريات، عندما تبدأ المباراة لا يتم إرسالك مباشرةً إلى الخريطة، بل تكون في طائرة هليكوبتر وتبدأ في التحليق بك حول إحداثيات عشوائية لفترة معينة من الوقت. إذا لم تقفز منها بعد فترة زمنية معينة فسوف ترميك للخارج على الخريطة، وللقفز يجب عليك الضغط على مفتاح شِفّت إنتر ومع ذلك، لا يمكنك القفز مباشرة بعد ركوب الطائرة لأول مرة، فيجب مرور 10 ثوانٍ. إذا لم تنتهي 10 ثوانٍ، والضغط على مفتاح  شِفّت إنتر سيخبرك بعدد الثواني التي عليك انتظارها.
+ Spamming messages, sounds, or any in-game features repeatedly will result in disciplinary actions.=سيتسبب إرسال الرسائل أو الأصوات أو أي ميزات داخل اللعبة بشكل مكرر في اتخاذ إجراءات تأديبية.
+Spanish=الاسبانية
+Staff List, View All Staff Members.=قائمة المسؤولين
+Staff list.=قائمة المشرفين
+Successfully connected. Requesting scoreboard table...=تم الاتصال بنجاح. جاريطلب جدول النتائج...
+switch to a language=تغيير اللغة
+Switch to this language=التغيير لهذه اللغة
+team dead match: In this mode, 2 teams are at war. In order to win, one team must kill all opponents.=مباراة الفريق الميت: في هذا الوضع، هناك فريقان في حالة حرب. من أجل الفوز، يجب على فريق واحد قتل جميعأعضاء الفريق الثاني.
+Teammate's beep sound.=الزميل 
+test voicechat=اختبار الدردشة الصوتية
+The game also supports motors, you can buy it from the store. Here's how to use it:=كما تدعم اللعبة الدراجات يمكنك شرائها من المتجر. وإليك كيفية استخدامه:
+The opposing team's beep sound.=اللاعب المنافس
+The Scope for your weapon to can hit a objects or players=صوت السلاح عندما يكون في مواجهة أحد
+There are two teams in team matches, red and blue teams.=وفي حالة كانت المباراة من فريقين فهناك فريق أحمر والثاني أزرق.
+there is nothing around=لا يوجد شيء
+This weapon knife does not take ammo=السكينة لا تأخذ ذخيرة
+To create a match, do the following:=لإنشاء مباراة ، قم بما يلي:
+ Toxic behavior, including griefing, trolling, or intentional disruption of gameplay, will not be tolerated.=لن يتم التسامح مع السلوك السلبي، بما في ذلك الإزعاج المتعمد، أو استفزاز الآخرين، أو تعطيل سير اللعبة عمدًا.
+translate a static string=ترجمة سلسلة ثابتة
+Turkish=التركية
+Type a map message here.=اكتب رسالة لجميع الأعضاء في الخريطة
+update data=تحديث البيانات
+Use the arrow keys to adjust the volume and press the OK button to confirm. Use home and end to set it to 0% and 100%, and use the page up and page down keys to adjust it by 10%.=استخدم مفاتيح الأسهم لضبط مستوى الصوت واضغط على زر موافق للتأكيد. استخدم زر end و home لتعيينهما على 0% و100%، واستخدم مفتاحين page up و page down للتغيير بنسبة 10%. وبعد الانتهاء اضغط على تاب مرة واحدة ستجد موافق اضغط عليها بالإنتر 
+use this syntax on the language=استخدم بناء الجملة هذا للترجمة ملحوظة الترجمة فقط من الواجهة الإنجليزية
+Use up and down arrows to select a sound then press enter to listen to it.=استخدم السهمين الأعلى والأسفل للاختيار والأنتر للإستماع 
+Very high quality (may cause choppiness/lag)=عالية جدًا (قد تُسبب تقطعًا أو تأخُرًا)
+Vietnamese=الفيتنامية
+View contributors=عرض المساهمين
+View game readme file=شرح اللعبة
+View game rules.=قواعد اللعبة
+View game's rules.=قواعد اللعبة.
+View language syntax help=عرض تعليمات بناء جملة اللغة
+View rules, View the game rules, read the rules to avoid making mistakes in the game.=القوانين
+When creating a match, you can set the match as public or private. The difference between public and private matches is that private matches require a password to join.=عند إنشاء مباراة، يمكنك تعيين المباراة على أنها عامة أو خاصة. الفرق بين اللقائات العامة والخاصة هو أن اللقائات الخاصة تتطلب كلمة مرور للانضمام.
+When you get the motor, it will be 1 step ahead of you and you will be able to bump it, To get on it, you must jump and go to the direction of the motor, so you will get on the motor. After you get in, press shift enter and get on the motor.=عندما تحصل على الدراجة سيكون أمامك بخطوة واحدة وستتمكن من الاصطدام بها، للصعود عليها، يجب عليك القفز والذهاب إلى اتجاهها وبعد دخولك، اضغط على مفتاح شِفّت إنتر واصعد إليها.
+When you jump from the helicopter, you start falling, so you should open your parachute and close it when you land.=عندما تقفز من الطائرة تبدأ بالسقوط، لذا يجب عليك فتح مظلتك وإغلاقها بعد الهبوط.
+With friends: disabled=مع الأصدقاء: تعطيل
+With friends: enabled=مع الأصدقاء: تشغيل
+With players on the same map as me: disabled=مع اللاعبين على نفس الخريطة تعطيل
+With players on the same map as me: enabled=مع اللاعبين على نفس الخريطة تشغيل
+With players on the same group as me: enabled=مع اللاعبين في مجموعتي تشغيل
+With players on the same group as me: disabled=مع اللاعبين في مجموعتي تعطيل
+With players who are in the same team as me: disabled=مع اللاعبين الذين هم في فريقي تعطيل
+With players who are in the same team as me: enabled=مع اللاعبين الذين هم في فريقي تشغيل
+Would you like to add bot in this match=هل تريد إضافة بوتات إلى هذه المباراة؟
+yes, i want to add bot in this match=نعم
+yes=نعم
+You are not in a group=أنت لست في مجموعة
+you are not tracking anything=أنت لا تقوم بتتبع اي شيء حاليا
+You bought products from paid store successful=لقد اشتريت منتجات من المتجر بنجاح
+you can not leave this input blank=لا يمكنك ترك هذا الحقل فارغ
+You choosed to be private match. Select match mode=لقد إخترت أن تكون المباراة خاصة, إختر نوع المباراة
+You don't have a friend you can send a private message to.=ليس لديك أصدقاء لإرسال رسالة لهم
+You haven't selected any weapons yet.=أنت لم تختر اي سلاح بعد
+You've already sent friend request to this player.=لقد قمت بالفعل بإرسال طلب صداقة لهذا اللاعب
+Zero Hour Assault - Game Rules=قواعد اللعبة
+Zero hour assault is an online fps game. There are various match modes in the game and each of them has various tasks. These matches and their tasks are explained below:=Zero Hour Assault هي لعبة إطلاق نار عبر الإنترنت. هناك أوضاع مختلفة للمباريات في اللعبة ولكل منها مهام مختلفة. وفيما يلي شرح لهذه المباريات ومهامها:
+zero hour assault Main Menu. Please select an option using the up and down arrow keys and press enter to confirm. Use the page up and page down keys to adjust the music volume.= القائمة الرئيسية ل zero hour assault. يرجا تحديد خيار باستخدام مفاتيح السهم لأعلى والسهم لأسفل ثم اضغط مفتاح إنتر للتأكيد. استخدم أزرار page up و page down لضبط مستوى صوت الموسيقى.
+zero hour assault settings. Please select an option.=اعدادات zero hour assault. يُرجا تحديد خيار
+In this mode, teams cannot hit each other, but both teams must kill the zombies on the map. The last team standing wins. There are also houses in this mode and they can be used for hiding. However, if zombies can break down the doors of houses, they can enter houses and kill players. Press shift enter to enter houses.=في هذا الوضع، لا يمكن للفرق ضرب بعضها البعض، ولكن يجب على كلا الفريقين قتل الزومبي الموجود جميعًا على الخريطة. آخر فريق يقف يفوز. توجد أيضًا منازل في هذا الوضع ويمكن استخدامها للاختباء. ومع ذلك، إذا تمكن الزومبي من كسر أبواب المنازل، فيمكنهم دخول المنازل وقتل اللاعبين. وللدخول للمنازل اضغط على زرالإنتر.
+In this mode, the players on one team are players while the other team is zombies and the last team standing wins. The zombies' walking sound is a bit low-pitched. Zombies can only use their claws, they make zombie sounds occasionally, they cannot jump and they cannot use any items. However, when zombies hit a player, they gain health as much as they damage.=في هذا الوضع، يكون اللاعبون في أحد الفريقين لاعبين بينما الفريق الآخر عبارة عن زومبي ويفوز الفريق الأخير. صوت مشي الزومبي منخفض النبرة بعض الشيء. يمكن للزومبي استخدام مخالبهم فقط، ويصدرون أصوات الزومبي من حين لآخر، ولا يمكنهم القفز ولا يمكنهم استخدام أي عناصر. ومع ذلك، عندما يضرب الزومبي أحد اللاعبين، فإنهم يكتسبون الصحة بقدر ما يلحقون الضرر.
+Watch the match=شاهد المباراة
+Enable Turning with q and e=الدوران باستخدام حرف الضاض والثاء وتعطيل الشين والياء
+Disable Turning with q and e=الدوران باستخدام حرف الضاض والثاء وتعطيل الشين والياء
+default=افتراضي
+Keys=الاختصارات
+In this section you can learn the keyboard keys used in the game and all their functions:=في هذا القسم يمكنك التعرف على مفاتيح لوحة المفاتيح المستخدمة في اللعبة وجميع وظائفها:
+waiting to teams match=في انتظار المباراة
+start match=إبدأ المبارة
+You have no motors in this map=ليس لديك دراجات في هذه الخريطة 
+back to game menu=العودة إلى قائمة اللعبة
+exiting...=العودة للشَاشة السابقة 
+Go back to lobby=الذهاب للساحة الخارجية
+cancel match=إلغاء المباراة
+back=الرجوع
+create ticket=إنشاء تذكرة دعم
+View tickets you've created=عرض التذاكر الخاصة بك
+View Latest Additions=آخر الإضافات
+You have no timed items.=ليس لديك أي عناصر مؤقتة
+select an option=حدد خيارًا
+You cannot reload the weapon when you have weapons on both of your hands=لا يمكن تعمير السلاح عندما يكون لديك أسلحة في كلتا يديك
+There's a snowy mountain on the overpass, maybe you can do something with the snow here=هناك جبل ثلجي على الجسر، ربما يمكنك فعل شيء بالثلج هنا
+you can't collect more than 10 snowflake_shard=لا يمكنك جمع أكثر من 10 شظايا من الثلج
+Maximum health=لا يمكن زيادة الصحة
+No one near you=لا يوجد أحد
+character stats menu.=قائمة إحصائيات الشخصية.
+title= العنوان
+message=الرسالة 
+leave this group=مغادرة هذه المجموعة
+vehicles=مركبات
+characters=شخصيات
+weapons=أسلحة
+ammos=ذخيرة
+potions=جُرَع
+explosives=متفجرات
+quote= نسخ  الرسالة وجعلها مَعْ رَدُّك 
+report=إبلاغ
+You cannot quote messages in this buffer=لا يمكنك الاقتباس هنا, قم بتغيير قسم الرسائل الحالي عبر ازرار الاقواس او الجيم,الدال. في لوحة المفاتيح لتتمكن من الاقتباس.
+a large grassland =ارض عشبية كبيرة
+change your status message=تغيير رسالة الحالة
+clear your status=مسح الحالة
+you did not set a status message=انت لم تقم بوضع حالة مسبقا
+Set a status message=تعيين حالة
+You can't create group here=لا يمكن عمل قاعدة مجموعة هنا 
+The account information you entered has been successfully set for login.=تم تسجيل معلومات الحساب التي ادخلتها بنجاح، قم بتسجيل الدخول للتحقق من صحة المعلومات.
+A number is required=خطا، هنا مسموح فقط بكتابت رقم
+View destroyed groups history=المجموعات المُدَمَرة
+Character Stats, Check the properties of your account, your score points, rank, amount of tokens, etc.=خصائص الحساب
+Change character, View the characters you have and switch to those characters. Notes. You can only change your character in the lobby and waiting part of the match.=تغيير الشخصية، ملاحظة. يمكنك تغيير شخصيتك فقط في الساحة الخارجية وجزء الانتظار من المباراة.
+See your motors=عرض دراجاتك
+View timed item expiry times=العناصر المؤقتة
+notification settings, Customize Notification Alerts.=إعدادات التنبيهات.
+view scoreboard=قائمة الصدارة
+enable hearing voice chat=سماع اللاعبين في المحادثات الصوتية
+disable hearing voice chat=عدم سماع اللاعبين في المحادثة الصوتية
+Joystick inserted=تم التعرف على ذراع التحكم
+Motor full=الدراجة ممتلأة
+create poll=إنشاء إستفتاء
+view polls=عرض الإستفتاءات
+Select poll to view=اختر استفتاءًا لعرض تفاصيله
+vote yes=التصويت بنعم
+vote no=التصويت بلا
+You cannot vote your own poll=لا يمكنك التصويت على استفتاؤك
+You already voted=لقد قمت بالتصويت بالفعل
+community admins=مشرفين المجتمع
+leave this community=مغادرة هذا المجتمع
+create community=انشاء مجتمع
+View community invitations=عرض دعوات المجتمعات
+No community invitations=لا توجد اي دعوات للمجتمعات
+view community action history=عرض سجل اجراءات المجتمع
+clear community action history=مسح سجل اجراءات المجتمع
+invite a player to this community=دعوة لاعب لهذا المجتمع
+remove invitation of a player to this community=الغاء دعوة لاعب لهذا المجتمع
+View community join requests=عرض طلبات الانضمام لهذا المجتمع
+make a member the community administrator=جعل لاعب مشرفاً على هذا المجتمع
+remove a member's community administrator role=سحب رتبة الاشراف من لاعب على هذا المجتمع
+change community owner=تغيير مالك المجتمع
+rename this community=اعادة تسمية هذا المجتمع
+delete this community=حذف هذا المجتمع
+You are not in a community=انت لست في مجتمع
+community microphone activated=تم تفعيل مايكروفون المجتمع
+events, Upcoming Events.=الأحداث
+view event point=عرض نقاط الاحداث
+Event store, Spend the event points you have.=متجر الاحداث, انفاق النقاط المكتسبة من الاحداث في المتجر
+view current event scoreboard=عرض قائمة صدارة الاحداث
+no scores available=لا توجد نتائج متاحة
+events=الأحداث
+We would be very happy if you report us suggestions, bugs for the survival of the game. We are waiting for your support, thank you=وسنكون سعداء جدًا إذا أبلغتنا عن الاقتراحات والأخطاء لبقاء اللعبة. نحن في انتظار دعمكم، شكرا لكم=substr
+Retype the mail. If you enter an incorrect e-mail address, you will have no chance of recovering your account. No spaces=أعد كتابة الإميل =substr
+oup with you. You can leave this map from game menu. Also, motors you buy while in this map will always stay in this map=معك. كما يمكنك ترك هذه الخريطة من قائمة اللعبة. كما أن المحركات التي تشتريها أثناء وجودك في هذه الخريطة ستبقى بها دائمًا=substr
+This can be played either as teamed or not teamed. People can only use snipers and last team/person standing wins.=يمكن لعبها كفريق أو بدون فريق. يمكن للأشخاص استخدام القناصات فقط ويفوز (الفريق، الشخص) الأخيرعلى حسب نوع المباراة =substr
+more players. If the owner turned on bots, and the match gets started without enough players, bots will fill in= من اللاعبين للبداية وإذا قام المالك بتشغيل المباراة بدون عدد كافٍ من اللاعبين، فسيتم ملء الأماكن المتبقية بالروبوتات =substr
+This is a jewelery store. You remember that it used to be very fashionable. Well, what if it was fashionable now?=هذا محل مجوهرات. تذكرّ أنه كان من المألوف جدًا. سابقًا ماذا لو كان من المألوف الآن؟=substr
+Moderators: Responsible for players, tickets, assisting administrators, and helping people in the game.=المشرفون: مسؤولون عن حل مشاكل اللاعبين والرد على التذاكر ومساعدة المسؤولين في اللعبة.=substr
+This will protect you from hits until its broken when you use it. However, it won't protect from headshots=سيحميك هذا من الضربات حتى ينكسر عند استخدامه. ومع ذلك، لن يحميك من إصابات الرأس=substr
+items. Use up and down keys to move between items, enter key to pick it up, escape key to close the corpse=من العناصر تحرك بالأسهم لأعلى وأسفل لمشاهدتها ومفتاح الإنتر للحصول على العنصر والهروب لإغلاق الشنطة=substr
+items. Use up and down keys to move between items, enter key to pick it up, escape key to close the chest=عناصر استخدم الأسهم للحركة على العناصر ومفتاح إنتر لحيازتها والهروب لإغلاق الصندوق=substr
+community! Please use the community menu in the game menu to accept or decline their invitation.=الرجاء الذهاب الى قائمة المجتمعات لقبول او رفض الدعوة.=substr
+The server is currently not active. An attempt will be made to connect to the server again within =الخادم غير نشط حاليا. ستتم محاولة الاتصال بالخادم مرة أخرى بعد=substr
+group! Please use the group menu in the game menu to accept or decline their invitation=استخدم قائمة المجموعات لقبول الدعوة أو رفضها من خلال خيارات اللعبة =substr
+There's a snowy mountain on the overpass, maybe you can do something with the snow here=هذا جبل ثلجي على الجسر، ربما يمكنك فعل شيء بالثلج هنا=substr
+If you want to get your password faster, please contact us at contact@nbmstudios.com= وللحصول على كلمة المرور بشكل أسرع تواصل معنا من خلال contact@nbmstudios.com=substr
+In this mode, the players are alone and there is no team, the last player standing wins.=في هذا الوضع، يكون اللاعبون بمفردهم ولا يوجد فريق، وآخر لاعب صامد هو الفائز.=substr
+, open the friend menu. From here you can send private messages to your friends.=، افتح قائمة الأصدقاء. ومن هنا يمكنك إرسال رسائل خاصة إلى أصدقائك.=substr
+Builders: Capable of constructing maps and integrating them into the game.=البنائين: قادرون على تصميم الخرائط ودمجها في اللعبة.=substr
+so it translates came online even if it is not the whole text. If you do not add =لذا فقد جاءت الترجمة "دخل إلى اللعبة" وستأتي لو النص ذكر حتى لو كان جزء من جملة أو لو حرفين أو أشارة ستأتي ولو في وسط الكلمة مادامت مكتملة في النص بالنسبة لأصل الجملة المتغيره في الترجمة =substr
+, it would only work if the string is exactly "came online" without player name=، ولن تعمل إلا إذا كانت السلسلة "متصلة" بمعنى لا يجوز أن تكون في نص الجملة المترجمة تغير يعني الحرف الأول في الكلمة كبير أو علامة ترقيم وما شابه في وسط الجملة وليس أولها أو آخرها يعني ملحقة بالمقدمة أو النهاية تعمل بدون مشاكل=substr
+Administrators: resolving player issues, crafting maps, and other duties.=المديرون: حل مشكلات الخرائط والللاعبين وأمور أخرى.=substr
+ initiated a cleanup to fix server lags. This process may take a few seconds= بدأ عملية تنظيف لإصلاح تأخر الخادم. قد تستغرق هذه العملية بضع ثوان=substr
+disable online/offline messages when your friends enter/exit to the game=رسائل دخول او خروج الأصدقاء عند دخولهم او خروجهم من اللعبة=substr
+initiated a cleanup to fix server lags. This process may take a few seconds=بدا عملية إصلاح تأخر الخادم سيستغرق هذا الأمر بضع ثواني=substr
+enable online/offline messages when your friends enter/exit to the game=رسائل دخول او خروج الأصدقاء عند دخولهم او خروجهم من اللعبة=substr
+, open the player menu. Here you can do many operations related to players.=، افتح قائمة المشغل. هنا يمكنك القيام بالعديد من العمليات المتعلقة باللاعبين.=substr
+ but, all the animals in here are dead and there's another human corpse=لكن جميع الحيوانات هنا ماتت وهناك جثث بشرية أيضًا=substr
+here, since the player name is before the string "came online", we added =هنا، نظرًا لأن اسم المشغل موجود قبل ظهور السلسلة "دخل إلى اللعبة"، أضفنا =substr
+Staircase from the riverbed to the entrance of the southern tube=درج من مجرى النهر إلى مدخل الأنبوب الجنوبي=substr
+hospital in the city where soldiers and citizens were treated=مستشفى في المدينة=substr
+ disabled members to hit other members in freedom fight map at = عَطل أعضاء المجموعة من ضرب بعض في الخريطة في =substr
+Collect snowflakes with shift enter and freeze your enemies!=اجمع رقاقات الثلج مع مفتاح Shift واضغط Enter لتجميد أعدائك!=substr
+ enabled members to hit other members in freedom fight map at = مَكن أعضاء المجموعة من ضرب بعض في الخريطة في =substr
+The last changes section has been updated, please take a look=هناك تحديثات جديدة في قسم عرض اخر التحديثات, قم بإلقاء نظرة=substr
+the player selected went offline, a new one will be selected.=خرج اللاعب اللذي تم إختياره و سيتم إختيار لاعب آخر=substr
+You can not recover your password right now. Please try in =لقد حصلت على كلمة المرور الخاص بك منذ قليل، أعد المحاولة بعد مرور =substr
+ If this persists further, please contact the developers.=إذا استمرت تلك المشكلة يرجى التواصل مع المطورين=substr
+Staircase from the riverbed to the entrance of the pipe=درج من مجرى النهر إلى مدخل الأنبوب=substr
+A magnificent and large police station above the city=مركز شرطة كبير ورائع فوق المدينة=substr
+The garbage clearing is completed. Enjoyable games=تم إصلاح الخلل لعب ممتع=substr
+Amount of times you got event points from this event=عدد المرات التي حصلت فيها على نقاط من هذا الحدث=substr
+Since your last login, the server has been rebooted =منذ آخر عملية تسجيل تم إعادة تشغيل الخادم =substr
+Your message has been delivered to the staff team=لقد تم تسليم رسالتك إلى فريق العمل =substr
+, ping, in input boxes, dtoggle character repeating=، معرفة قوة الإشارة (البنج)=substr
+Type the private message you would like to send to=اكتب الرسالة الخاصة التي تريد إرسالها إلى =substr
+The administrative floor of the police station=الطابق الإداري بمركز الشرطة=substr
+slightly in front and a fair distance off to the=أمامك بقليل على ال=substr
+clothes shops, women's shoes, men's shoes and more=محل الملابس والأحذية =substr
+Type the reason you want to report this message=اكتب سبب رغبتك للإبلاغ عن تلك الرسالة =substr
+of this item, but if you buy this amount, you'd have=فقط من هذا النوع وإذا كررت الشراء في هذه الحالة يكون معك=substr
+because someone opened your corpse with bomb=لأن أحدهم فتح شنطتك المفخخة=substr
+Amount of event points you got from this event=عدد النقاط التي حصلت عليها من هذا الحدث=substr
+group deleted because its base destroyed by =تم إزالة مجموعتك بسبب تدمير قاعدتها الأخيرة بواسطت =substr
+how many zero tokens you want to get? group has =كم عدد الرموز الصفرية التي تريد الحصول عليها؟ المجموعة لديها=substr
+disable receiving team messages in matches=استلام رسائل الفريق في المباريات=substr
+Your inventory cannot hold more of this item=لا يمكنك حمل المزيد من هذا العنصر=substr
+enable receiving team messages in matches=استلام رسائل الفريق في المباريات=substr
+disable receiving new match notification=استلام إشعارات المباريات الجديدة=substr
+Enter the username you would like. No spaces=ادخل اسم المستخدم الذي تريده ويجب ان يكون بدون مسافات=substr
+Time elapsed since this account is created: =هذا الحساب تم إنشائهُ منذ =substr
+a door leading into a small room. of the lobby=باب لغرفة صغيرة في الساحة=substr
+Enter the password you would like. No spaces=اكتب كلمة المرور بدون مسافات=substr
+No players found that you can remove admin.=لا يوجد لاعبين يمكنك سحب رتبة الاشراف منهم=substr
+ in the helicopter of the freedom fight map= في طائرة الخريطة العامة=substr
+resigned from administrating this group!=انسحب من ادارة هذه المجموعة=substr
+A huge secret canarization under the city=النفق=substr
+, copy the last spoken text to the clipboard=، انسخ آخر نص منطوق إلى الحافظة=substr
+enable receiving new match notification=استلام إشعارات المباريات الجديدة=substr
+ A huge secret canarization under the city=أنفاق ضخمة تحت المدينة =substr
+Electrical device maintenance workshop=ورشة صيانة الأجهزة الكهربائية=substr
+ door for the Entrance too jewelery store=باب متجر المجوهرات=substr
+Press shift + enter to exit from group base=أمام المخرج اضغط على شِفّت + إنتر لفتح الباب أو إغلاقه أو الدخول أو الخروج من القاعدة =substr
+tower of the defense soldiers of the city=البرج=substr
+motor parking area of ​​the police station=منطقة وقوف السيارات في مركز الشرطة=substr
+You are now a contributor of the language=أصبحت مساهم في لغة =substr
+No players found that you can make admin.=لا يوجد لاعبين يمكنك جعلهم مشرفين=substr
+No players found that you can make owner.=لا يوجد لاعبين يمكنك جعلهم مشرفين=substr
+The item MosinNagant will expire after=ستنتهي فترة استخدامك لسلاح موسين الروسي بعد=substr
+disable receiving friend request from =تلقي طلبات الصداقة من =substr
+An overpass that covers the entire city=جسر فوق المدينة =substr
+You are jailed for the following reason=لقد تم سجنك للسبب التالي=substr
+Who can do the best punch and kick battle=حلبة القتال=substr
+Production line stairs for the factory=سلالم خط الإنتاج للمصنع=substr
+Who can do the best punch and kick battle?=حلبة الملاكمة=substr
+Please enter the code sent to your mail=ادخل الكود الذي تم ارساله الى البريد الالكتروني المرتبط بحسابك=substr
+A liquid city stream made of raindrops  =نهر صناعي=substr
+match menu. Press shift enter to open it. =قائمة المباريات, إضغط على زري شِفّت و إنتر لفتح القائمة=substr
+enable receiving friend request from =تلقي طلبات الصداقة من =substr
+disable receiving group invitations=استلام دعوات المجموعات=substr
+Please enter to password of this match=اكتب كلمة السر لهذه المباراة =substr
+how many zero tokens you want to donate?=كم عدد الرموز التي تريد وضعها=substr
+In front of the workers' house building=أمام مبنى سكن العمال=substr
+a small place with explosives around=أُم القنابل=substr
+Let's see who can swing a knifethe best=أرض السكاكين =substr
+zero tokens to rename your character=من عُمُلات zero لتغيير اسمك=substr
+enable receiving group invitations=استلام دعوات المجموعات=substr
+disable receiving private messages=استلام الرسائل الخاصة=substr
+stairs leading to the police station=الدرج المؤدي إلى مركز الشرطة=substr
+The first floor of the police station=الطابق الأول بمركز الشرطة=substr
+Let's see who can swing a knife the best=الثلج الأحمر =substr
+Let's see who can swing a knife the best!=ألقاء السكاكين=substr
+a door for the Exit from jewelry store=باب للخروج من متجر المجوهرات=substr
+Ascending of South overpass stairs=سلالم الصعود الجنوبية للجسر=substr
+Staircase at the end of the Farm pipe=سلالم نهاية ماسورة المزرعة =substr
+No players found that you can invite.=لم يتم العثور على اعضاء يمكنك دعوتهم=substr
+behind and a fair distance off to the=للخلف وقليلًا لل=substr
+in front and very slightly off to the=أمامك لل=substr
+created a new match! The match mode is =أنشأ مباراة وهي =substr
+, turn player and bot beacon on and off=، قم بتشغيل وإيقاف إشارة المشغل والروبوت=substr
+ created a new match! The match mode is = قام بإنشاء مباراة جديدة! نوع المباراة هو =substr
+The server will be restarted within =سيتم إعادة تشغيل الخادم خلال =substr
+enable receiving private messages=استلام الرسائل الخاصة=substr
+Grace's_house, this is a killer's house=منزل القاتل جهَادْ=substr
+You are now the owner of the language=أنت الآن مالك اللغة=substr
+You are now the owner of the language=أصبحت مالك للُغة =substr
+for change spawning in massacre map=لتطبيق التغييرات=substr
+Done, ticket has been created with id=تم إرسال التذكرة وهي رقمها:=substr
+silencer not usable for this weapon=لا يمكن تركيب كاتم صوت على هذا السلاح=substr
+Descending South overpass stairs=سلالم النزول الجنوبية للجسر=substr
+Ascending West of  overpass stairs=سلالم الصعود الغربية للجسر=substr
+in front and a little ways off to the=أمامكبقليل لل=substr
+a stairs covered with sharp stones=درج من الحجارة المكسرة=substr
+removed you from their friend list=قام بإزالتك من قائمة أصدقائهُ =substr
+is a Developer of Zero Hour Assault=هو مطور لعبة Zero Hour Assault=substr
+members required, not started, with =لم تبدأ وعدد الأعضاء المطلوبة =substr
+disable receiving group messages=استلام رسائل المجموعات=substr
+online and offline notifications=إشعارات الدخول والخروج من اللعبة=substr
+is a moderator of Zero Hour Assault=أحد مشرفين Zero Hour Assault=substr
+a door leading out of the small room=باب لخارج الغرفة الصغيرة =substr
+Parasol in the middle of the garden=مظلة في وسط الحديقة=substr
+A pipe supplies the farm with water.=أنبوب يزود المزرعة بالمياه.=substr
+The stairs to the roof of the house=سلالم إلى سطح المنزل=substr
+Descending West overpass stairs=سلالم النزول الغربية للجسر=substr
+community information. There are =معلومات المجتمعات, هناك حاليا =substr
+No players found that you can kick.=لم يتم العثور على اعضاء يمكنك طردهم=substr
+behind and a little ways off to the=للخلف قليلًا لل=substr
+slightly behind and far off to the=للخلف وقليلًا جدًا لل=substr
+ has been kicked from this group by = تم طرده من المجموعة بواسطت =substr
+press shift enter to put blue flag=اضغط على شِفّت إنتر لوضع العَلَم الأزرق=substr
+enable receiving group messages=استلام رسائل المجموعات=substr
+house with walls painted in blood=منزل مطلي بالدم =substr
+This player is using the language =يستخدم اللغة =substr
+no longer wants to join this group=ألغى طلب الانضمام للمجموعة=substr
+is no longer an admin of this group!=لم يعد مسؤولاً في هذه المجموعة!=substr
+join or spectate a match, There are =الانضمام أو مشاهدة مباراة، هناك =substr
+ zero tokens for destroying a base= عُملة بسبب تدميرك لقاعدة =substr
+accepted your group join request!=قَبَل طلب الإنضمام للمجموعة =substr
+declined your group join request=رفض طلب انضمامك للمجموعة=substr
+of this item, so purchase canceled=لذا لم يمكننا أن نستكمل عملية البيع افتح خزن الرصاص التي معك ثم حاول مرة أخرى=substr
+Freedom map selected Player Info=اليكم معلومات اللاعب الذي تم اختياره للتحدي=substr
+entrance to The southeast tower=مدخل البرج الجنوبي الشرقي=substr
+entrance to the West Lovers Park=مدخل حديقة العشاق الغربية=substr
+entrance to the East Lovers Park=مدخل حديقة العشاق الشرقية=substr
+ Electrical appliance workshop=المكتبة=substr
+in front and very slightly to the=أمامك لل=substr
+item Added as your favorite item=تم إضافة العنصر كعنصر مفضل=substr
+press shift enter to put red flag=اضغط على شِفّت إنتر لوضع العَلَم الأحمر=substr
+go to freedom fight map, there are=الذهاب لخريطة الحرب المفتوحة هناك حاليًا =substr
+players in the freedom fight map=لاعبين في الخريطة العامة=substr
+disable receiving map messages=استلام رسائل الخريطة التي هي الرسائل العامة=substr
+Connection lost from the server=فقدنا الاتصال بخادم اللعبة=substr
+grasses going down to the stream =عشب يتجه للنهر=substr
+this player has backpacks level=مستوى حقيبته, =substr
+entrance to BarryAllen's house=مدخل لـ منزل بيري=substr
+behind and very slightly to the=خلفك بقليل جدًا لل=substr
+in front a little ways off to the=أمامك بقليل جدًا لل=substr
+in front and slightly off to the=أمامك بقليل جدًا لل=substr
+the server will be shutdown for =سيتم تعطيل السرفر لمدة =substr
+quote messages in chat buffers.=رسائل الاقتباس في المخازن المؤقتة للدردشة.=substr
+enable receiving map messages=استلام رسائل الخريطة التي هي الرسائل العامة=substr
+tall tree leading to tree house=شجرة طويلة تؤدي إلى الكوخ=substr
+is an admin of Zero Hour Assault=هو أحد مدُراء Zero Hour Assault=substr
+Enter the password of this base=ادخل كلمة السر للدخول=substr
+has been finished. The new event =انتهى. التحدي الجديد هو =substr
+Cave inside the snow mountain=كهف داخل جبل الثلج=substr
+enter the mail of this account=اكتب البريد المرتبط بهذا الحساب=substr
+Enter something to search for=اكتب شيء للبحث عنهُ=substr
+living room and several rooms=غرفة النوم وملحقاتها =substr
+accepted your friend request!=قَبَل طلب الصداقة =substr
+in freedom fight map, there are=في الخريطة العامة وهناك حاليًا=substr
+, Amount of members required is =, وعدد الأعضاء المطلوب هو =substr
+stairs leading to upper floor =السلالم المؤدية إلى الطابق العلوي=substr
+stairs to go up to the overpass=الدرج الصاعد للجسر =substr
+The roof of the police station=سقف مركز الشرطة=substr
+death and kill notifications=إشعارات الموت والقتل=substr
+a huge abandoned battlefield =ساحة معركة ضخمة مهجورة=substr
+Retype the password. No spaces=أعد كتابة كلمة المرور =substr
+the group owner was changed to =تم نقل ملكية المجموعة إلى =substr
+ declined your friend request!= رَفض طلبك=substr
+Please enter a community name=الرجاء ادخال اسم للمجتمع=substr
+created a new public match! The =قام بإنشاء مباراة عامة جديدة! =substr
+In front of the tower entrance=أمام مدخل البرج=substr
+William Shakespeare's house=منزل شكسبير=substr
+A front of the tower entrance=أمام مدخل البرج=substr
+a new poll has been created by =تم انشاء استفتاء جديد بواسطة =substr
+Welcome to zero_hour_assault!=مرحبا بك في zeroHourAssault=substr
+ members cannot join to group= عضو التجمع في مجموعة=substr
+refused your friend request=رفض طلب الصاداقة الذي أرسلته=substr
+knife fight match not teamed=قتال السكاكين الفردية=substr
+seconds left before explode=ثواني على الانفجار=substr
+Your score rank is changed to =تم تغيير رُتَبتَكْ إلى =substr
+rock looking down from above=صخرة أعلى البير=substr
+main street of massacre city  =شارع الخليل=substr
+Group information. There are=هناك حاليًا =substr
+You already draw this weapon=أنت بالفعل في يدك هذا السلاح المخصص لهذا الرقم=substr
+a long water bridge crossing=معبر جسر مائي =substr
+abandoned house roof ladder=سقف المنزل المهجور=substr
+ changed the base password to =غير كلمة السر الخاصة بالقاعدة إلى =substr
+Your inventory can hold up to=يمكن حَمل=substr
+tree house covered with wood=بيت الشجرة المغطى بالخشب=substr
+cannot get near player info=لا يمكن بسبب جهاز التشويش=substr
+ Suleiman al-Qanuni's chalet=شاليه سليمان القانوني=substr
+The back door of the kitchen=الباب الخلفي للمطبخ=substr
+in front and a ways off to the=أمامك على ال=substr
+Type your team message here=أكتب رسالة لفريقك هنا=substr
+stairs leading to basement =الدرج المؤدي إلى الطابق السفلي=substr
+stairs leading downstairs=سلالم النزول=substr
+current character, default=الشخصية الحالية الافتراضية =substr
+items will disappear after=عناصر, وستختفي بعد =substr
+did not set a status message=لم يُعين الحالة=substr
+is now an admin of this group!=الان مشرف على هذه المجموعة=substr
+Please input language name=الرجاء ادخال اسم اللغة=substr
+removed your invitation to =ألغى دعوتك لمجموعة =substr
+please enter your password=اكتب كلمة السر=substr
+It has no silencer inserted =لم يتم تركيب كاتم صوت له =substr
+Entrance to the ammo Vault=مدخل لـ خزانة الذخيرة=substr
+The edge of the north river=الحافة الشمالية للنهر=substr
+The edge of the south river=الحافة الجنوبية للنهر=substr
+Entrance to the girls' room=مدخل غرفة البنات=substr
+downstairs to the tunnels=سلم النفق=substr
+community notifications=إشعارات المجتمع=substr
+behind and slightly to the=للخلف وقليل لل=substr
+hospital car parking area=مَوقف للسيارات أمام المستشفى=substr
+attacking your group base=يقوم بمهاجمة مجموعتك=substr
+You already got your daily=لقد حصلت اليوم على عملاتك للحصول على =substr
+jumped off the helicopter=قفز من الطيارة=substr
+shield damage resistance= من مقاومة الدرع=substr
+You will be unjailed after=سيتم الافراج عنك بعد=substr
+helmet damage resistance=من مقاومة الخوذة=substr
+ private matches right now=مباراة خاصة حاليًا=substr
+Staircase to the bathroom=درج إلى الحمام=substr
+equipments order machine=آلة طلب المعدات=substr
+explosives order machine=آلة طلب المتفجرات=substr
+top of a large wooden table=قمة طاولة خشبية كبيرة=substr
+Downstairs to the tunnels=الطابق السفلي المؤدي إلى الأنفاق=substr
+The production line door=باب خط الإنتاج=substr
+Entrance to the bathroom=مدخل الحمام=substr
+Entrance to the boys' room=مدخل غرفة الأولاد=substr
+Farmers management room=غرفة إدارة المزرعة =substr
+time left for this player=الوقت المتبقي لهذا اللاعب هو=substr
+joined to this community!=انضم لهذا المجتمع=substr
+knife fight match teamed=قتال السكاكين للفرق=substr
+Select a member to invite.=اختر لاعب لدعوتهُ=substr
+wants to add you as friend=يريد إضافتك كصديق=substr
+, change language channel=، تغيير قناة اللغة=substr
+Helicopters flying area =منطقة الهوليكوبتر=substr
+The server has been up for =الخادم يعمل منذ =substr
+Please enter a group name=الرجاء إدخال اسم المجموعة=substr
+near abandoned building  =بالقرب من مبنى مهجور=substr
+Type a group message here=اكتب هنا للمجموعة =substr
+in the waiting area of the=في منطقة انتظار بداية مباراة =substr
+write announcement text=أكتب نص الإعلان =substr
+zero tokens to this group=عملة ziro للمجموعة=substr
+amount of headshots made, =عدد إصابته لرأس اللاعبين=substr
+It has silencer inserted =تم تركيب كاتم صوت له =substr
+The roof of the guard room=سقف غرفة الحراسة=substr
+basement of the hospital=قبو المستشفى=substr
+abd al-Rahman III's house=منزل عبد الرحمن الثالث=substr
+current active event is =التحدي الحالي هو =substr
+ deleted this community!= قام بحذف هذا المجتمع!=substr
+Entrance to living room  =مدخل الغرفة=substr
+players on blue team are =لاعبين الفريق الأزرق هم =substr
+a small room. of the lobby. =غرفة صغيرة في الساحة =substr
+, in the freedom fight map=, يلعب في خريطة الحرب المفتوحة=substr
+loaded, and also you have =وتَبَقى معك =substr
+offline, was last active = غير متصل منذ =substr
+View group invitations=عرض دعوات المجموعات=substr
+in the freedom fight map=في الخريطة العامة=substr
+is updated, please check=تم تحديثها يرجا الاطلاع عليها =substr
+wants to join this group!=يرغب في الانضمام الى المجموعة=substr
+New group announcement=توجيه المجموعة =substr
+amount of headshots got, =عدد إصابة اللاعبين لرأسه=substr
+amount of legshots made, =عدد إصابته لأقدام اللاعبين, =substr
+The beginning of stairs=بداية السلالم=substr
+Stairs Fish restaurant=سلم مطعم الأسماك=substr
+The meeting room stairs=سلالم غرفة الاجتماعات=substr
+The roof of the building=سقف المبنى=substr
+vehicles order machine=آلة طلب المركبات=substr
+george_spencer's house=منزل جورج=substr
+South overpass stairs=سلالم الجسر الجنوبية=substr
+Guest reception suite=جناح استقبال الضيوف=substr
+ Guardian bedroom door=باب غرفةنوم الحارس=substr
+ Women's clothing store=متجر ملابس نسائية=substr
+passage between shops=ممر بين المتاجر=substr
+ players on red team are =لاعبين الفريق الأحمر هم =substr
+Type your message here=اكتب الرسالة هنا =substr
+go to freedom fight map,=الذهاب لخريطة الحرب المفتوحة=substr
+waiting to teams match=ساحة انتظار بدء المباريات=substr
+rename your character=تغيير إسم حسابك=substr
+character barry_allen=شخصية باري ألين=substr
+entrance of group base =مدخل قاعدة مجموعة =substr
+View group base health=قوة القاعدة حاليًا=substr
+members required, with=أعضاء المباراة هم =substr
+ contributors. They are=المساهمين. في القائمة=substr
+unofficial, created by=غير معتمدة وتم إنشائها بواسطة =substr
+ opened the base door at = فتح باب القاعدة في =substr
+team Base - Second floor=الطابق الثاني=substr
+will be unjailed after =سيتم إطلاق سراحهُ بعد =substr
+amount of legshots got, =عدد إصابة اللاعبين لقدميه, ، =substr
+unofficial languages=لغات غير معتمدة=substr
+potions order machine=آلة شراء الجرعات=substr
+Police station cellar=قبو مركز الشرطة=substr
+Fruit transfer tunnel=نفق نقل الفاكهة=substr
+Reconnaissance point=نقطة استطلاع=substr
+weapons order machine=آلة طلب الأسلحة=substr
+West overpass stairs=سلالم الجسر الغربية=substr
+ yalcin_bulut's chalet=شاليه مِتّهان=substr
+ sent a join request at =أرسل طلب انضمام في =substr
+luxury houses street=شارع الفلَل =substr
+is inviting you to the=يدعوك إلى  =substr
+Zombie survival mode=وضع النجاة من الزومبي =substr
+ without any shutdown=دون أي توقف=substr
+ammo and can hold up to=ويمكنه أن يحمل حتى =substr
+Its damage is between =. قدرة الضرر الخاصة به هي ما بين =substr
+a stairs leading down=الدرج المؤدي إلى أسفل=substr
+Change email address=تغيير البريد الالكتروني=substr
+No group invitations=ليس لديك أي دعوات=substr
+front of long factory=أمام المَصّنع =substr
+climb snowy mountain  =لجبل الثلجي=substr
+Your gender, feminine=الجنس أنثى =substr
+Team base living room=غرفة القاعدة =substr
+group notifications=إشعارات المجموعات =substr
+a moss covered stream=مستنقع مغطى بالطحالب=substr
+invisibility_shield=قنبلة دخان=substr
+your base password is: =كلمة المرور الخاصة بقاعدتك هي: =substr
+Type the account mail=اكتب البريد المرتبط بالحساب=substr
+Entrance to the tower=مدخل البرج=substr
+large area of dry land=منطقة واسعة من الأرض الجافة=substr
+Management building=مبنى الإدارة=substr
+The Book Archive roof=سقف أرشيف الكتب=substr
+The Book Archive exit=مخرج أرشيف الكتب=substr
+entrance Food store=مدخل مخزن الطعام=substr
+jammer time expired=انتهى وقت جهاز التشويش=substr
+The roof of the tower=سطح البرج=substr
+The Southeast Tower=البرج الجنوبي الشرقي=substr
+Entrance to the hall=مدخل القاعة=substr
+entrance to The Farm=مدخل المزرعة=substr
+The northeast tower=البرج الشمالي الشرقي=substr
+ The northwest tower=البرج الشمالي الغربي=substr
+ Men's clothing store=متجر الملابس الرجالية=substr
+ the East Lovers Park=حديقة العشاق الشرقية=substr
+ the West Lovers Park=حديقة العشاق الغربية=substr
+Farmers female room=غرفة مزارعات=substr
+  the southwest tower=البرج الجنوبي الغربي=substr
+zero builders found=لا يوجد بناءين=substr
+would you like to buy?=التي ترغب في شرائها؟=substr
+because you reached = بسبب وصولك إلى =substr
+ changed the owner to = نقل الملكية إلى =substr
+a flag from blue team=عَلَم الفريق الأزرق =substr
+joined! They're in the =انضم إنهُ في الفريق =substr
+write your text here=اكتب النص الخاص بك هنا =substr
+ is no longer near you!= لم يعد بالقرب منك=substr
+massacre in the city =مدينة المججازر=substr
+store order machine  =آلة البيع=substr
+base_life_amplifier=تقوية القاعدة=substr
+Fifth Avenue street=شارع المصالح =substr
+a ruined candy store=متجر حَلَويات مُدَمَر=substr
+It can be fired every=ويمكن إطلاقه كل =substr
+stairs leading down=سلالم النزول=substr
+Snowflake survival=إلقاء الثلج=substr
+copied to clipboard=تم نسخ العبارة للحافظة =substr
+Second floor stairs  =سلالم الدور الثاني =substr
+near notifications=إشعارات الأشخاص القريبون=substr
+the roof of the house=سقف المنزل=substr
+official, created by=معتمدة وتم إنشائها بواسطة =substr
+you are not member of =أنت لست عضو في =substr
+ is marked as pending=معلقة=substr
+ group was created by =تم إنشاء المجموعة بواسطة =substr
+community messages=رسائل المجتمع=substr
+The factory storage=مخزن المصنع=substr
+Guest bathroom door=باب حمام الضيوف=substr
+In front of the Villa=أمام الفيلا=substr
+ammos order machine=آلة طلب الذخيرة=substr
+door leading inside=باب يؤدي إلى الداخل=substr
+Jeanne d'Arc's house=منزل عماد=substr
+Salah al-Din's house=منزل صلاح الدين=substr
+BarryAllen's_house=منزل باسل علوان=substr
+Descending stairs=سلالم النزول=substr
+Farmers ’dwellings=مساكن المزارعين =substr
+ almushref's chalet=شاليه المشرف=substr
+ Coach,ziro's chalet=شاليه المدرب=substr
+ shoes Women's Store=متجر الأحذية النسائية=substr
+Guarding room door=باب غرفة الحراسة=substr
+Hospital entrance=مدخل المستشفى=substr
+ Farmers boss's room=غرفة رئيس المزارعين=substr
+Farmers' dwellings=مساكن المزارعين=substr
+event description=وصف الحدث=substr
+community members=أعضاء المجتمع=substr
+in progress, Vote of =متاح تصويت =substr
+ vote has been ended, = تصويتهُ انتهى مُنّذُ، =substr
+streight off to the=مستقيم لل=substr
+a swallowing swamp=بير =substr
+has transfered you =أرسل لك =substr
+a flag from red team=عَلَم الفريق الأحمر=substr
+a stairs leading up=الدرج الصاعد لأعلى=substr
+character default=الشخصية الافتراضية =substr
+character tristan=الشخصية تريستان=substr
+rusted wooden door=باب خشبي قديم =substr
+current character,=الشخصية الحالية, =substr
+Type your username=اكتب اسم المستخدم الخاص بك=substr
+Your ticket with id=تذكرتك رقم =substr
+connected players=لاعبين متصلين =substr
+a female character=شخصية أنثى =substr
+joined! match needs=انضم واحتياجات المباراة =substr
+deleted this group!=قام بإزالة المجموعة =substr
+ entered the base at = دخل القاعدة في توقيت =substr
+health, password is=صحة وكلمة السر هي =substr
+ with not helmetted=وبدون خَوذة=substr
+hand to hand combat=قتال القبضة والقدم=substr
+enter new password=اكتب كلمة السر الجديدة=substr
+from the staff team=من المطورين=substr
+hitting the ground=سقوطِهِ من مكانٌ مرتفع=substr
+Head of the farmers=رئيس المزارعين=substr
+In front of the door=أمام الباب=substr
+In front of the hall=أمام القاعة=substr
+SADO's bedroom door=باب غرفة نوم سادو=substr
+Women's shoes Store=متجر الأحذية النسائية=substr
+BarryAllen's house=منزل باري آلن=substr
+Unloading ladder=سلم التفريغ=substr
+Brigadier's house=منزل برِجدير=substr
+dark-night's house=منزل دَلال=substr
+Ascending stairs=سلالم الصعود=substr
+ equipments store=متجر المعدات=substr
+Control room door=باب غرفة التحكم=substr
+  Farmers' male room=غرفة المزارعين =substr
+ explosives store=متجر المتفجرات=substr
+is near you! They're =قريب منك =substr
+Character repeat =نطق الحروف =substr
+Beacons disabled.=تم تعطيل أصوات الاشخاص القريبين=substr
+with not shielded=وبدون درع =substr
+molotov_cocktail=مُلِتوف=substr
+, message of the day=، رسالة اليوم=substr
+has been killed by = تم قتله بواسطة =substr
+View ranking list=عرض قائمة الترتيب. =substr
+Explosive battle =معركة المتفجرات =substr
+last man standing=آخر من يكون على قيد الحياة =substr
+Last man standing=آخر من يكون على قيد الحياة =substr
+Knife fight match =قتال السَكَاكين =substr
+no ammo loaded for =لم يتم تحميل ذخيرة =substr
+does not take ammo=ليس لهُ ذخيرة=substr
+for fix bug and lag= لإصلاح الخلل والتأخير=substr
+you dont have  ammo=ليس لديك ذخيرة =substr
+near the entrance =أمام المدخل =substr
+You have no motors=ليس لديك دراجات=substr
+stairs leading up =الدرج الصاعد لأعلى =substr
+a big long factory=مصنع طويل ومهجور=substr
+ms. It has a range of=مللي ثانيةويبلغ مَدَاه =substr
+zero token amount,=تبلغ عملاتك ZERO الخاصة بك =substr
+a large grassland =ارض عشبية كبيرة=substr
+Volume changed to=تم تغيير الصوت إلى =substr
+Match canceled by=تم إلغاء المباراة بواسطة=substr
+ exited the base at = خرج من القاعدة في تمام =substr
+Te am base's toilet=الحمام=substr
+a small staircase=سلم صغير=substr
+set on this number=عُينى لهذا الرقم=substr
+do you want to drop?=الذي تريد رميهُ=substr
+congratulations=مبروك=substr
+community admins: =مشرفين هذا المجتمع هم: =substr
+In front of stores=أمام المتاجر=substr
+more flags needed=أعلام متبقية=substr
+Collector's arena=تجميع الذهب=substr
+collector's arena=تجميع الذهب=substr
+Stationery Store=المكتبة=substr
+Guardian bedroom=غرفة نوم الحارس=substr
+Reception office=مكتب الاستقبال=substr
+Service room door=باب غرفة الخدمة=substr
+Production line=خط الإنتاج=substr
+Lordrahl's house=منزل لورد=substr
+tim_music's house=منزل ريماس=substr
+Benjamin's_house=منزل بنيامين=substr
+Jennifer's House=منزل جينيفر=substr
+corpse with bomb=شنطة مفخخة=substr
+The second floor=الطابق الثاني=substr
+Next to the trees=بجانب الأشجار=substr
+northeast tower=البرج الشمالي الشرقي=substr
+northwest tower=البرج الشمالي الغربي=substr
+Southeast Tower=البرج الجنوبي الشرقي=substr
+ Male shoes Store=متجر الاحذية الرجالية=substr
+ supreme's chalet=شاليه سُبْريم=substr
+ marlowe's chalet=شاليه مروة=substr
+Fish restaurant=مطعم الأسماك=substr
+end of water pipe=نهاية ماسورة المياه=substr
+southwest tower=البرج الجنوبي الغربي=substr
+coordinates are=واحداثياته هي=substr
+You have a Pm from =لديك رسالة من =substr
+Your ticket with #=تَذّكَرتك #=substr
+a great causeway=حافة البير =substr
+Player vs zombie=لاعب ضد الزومبي=substr
+Beacons enabled.=تم تفعيل أصوات الاشخاص القريبين=substr
+team, match needs =المباراة تحتاج =substr
+does not require=لا يتطلب =substr
+vitality_potion=جرعة صحة, =substr
+inside the store  =داخل المتجر=substr
+Zombie vs player=الزومبي ضد اللاعبين =substr
+Capture the flag=ألتقاط العَلَم =substr
+Select an option=إختر خيارا =substr
+and also you have =ولديك =substr
+ and the motor has=والدراجة لديها =substr
+capture the flag=التقاط العَلَم=substr
+Match of Shadohh, = مباراة =substr
+Change password=تغيير كلمة المرور=substr
+got the blue flag=حصل على العَلَم الأزرق =substr
+put the blue flag=وضع العَلَم الأزرق =substr
+veronica's_house=منزل فيروز=substr
+and can hold up to=بخزنة تحمل =substr
+Living room exit=مخرج الغرفة =substr
+snowflake_shard=شظية من الثلج=substr
+game suggestion=تقديم اقتراح =substr
+says to the group=قال للمجموعة: =substr
+friend messages=رسائل الأصدقاء=substr
+abandoned house  =منزل مهجور=substr
+an old staircase=درج قديم=substr
+a wide open space =منطقة فارغة كبيرة =substr
+roof of the house =سقف المنزل =substr
+Send new message=اكتب رسالة=substr
+One Shot, One kill=المرة الواحدة =substr
+a male character, =شخصية ذكر =substr
+Talking players:=اللاعبين الذين يتحدثون =substr
+Premium account=حساب مميز=substr
+Zombie survival=بقاء الزومبي=substr
+silencer off for =تم ازالة الكاتم من ال=substr
+inside the store=داخل المتجر=substr
+backpacks_level=حقيبة مستوى =substr
+Tower corridors=ممر البرج=substr
+Veloria village=قرية فيلوريا=substr
+management door=باب الإدارة=substr
+Manager's office=مكتب المدير=substr
+Office entrance=مدخل المكتب=substr
+shoes Male Store=متجر الأحذية الرجالية=substr
+The fourth floor=الطابق الرابع=substr
+a small entrance=مدخل صغير=substr
+Bathroom window=نافذة الحمام=substr
+Dining room door=باب غرفة الطعام=substr
+vehicles store=متجر المركبات=substr
+Richard's house=منزل راشد=substr
+elmtiri's house=منزل المطيري=substr
+supreme's house=منزل سُبريم=substr
+metehan's house=منزل مِتْهان=substr
+makhlwf's house=منزل مخلوف=substr
+Michael's house=منزل مايكل=substr
+William's_house=منزل وليد=substr
+metehan's_house=منزل ممدوح=substr
+el-masry's house=منزل المصري=substr
+The third floor=الطابق الثالث=substr
+entrance to the =مدخل =substr
+entrance to The =مدخل =substr
+Villa building=مبنى الفيلا=substr
+ la_brea's chalet=شاليه لبيب=substr
+ Predators shop=متجر الحيوانات الشرسة=substr
+ Newcomers room=غرفة النُزَلاء الجُدد=substr
+friends online:=صديق:=substr
+Enter username=اكتب اسم اللاعب بالضبط=substr
+team dead match=قتال الفرق=substr
+Keyboard theme =صوت الأزرار =substr
+says to the team:=قال للفريق:=substr
+This is a prison=السجن =substr
+You transfered =لقد قُمّت بتحويل =substr
+revival_nectar=جرعة الإحياء, =substr
+front of houses  =أمام المنازل=substr
+store entrance  =مدخل المتجر=substr
+Team dead match=مباراة قتال الفرق =substr
+You are looking=أنت تنظر إلى =substr
+ at coordinates = عند الإحداثيات =substr
+Administrator=, مدير=substr
+jewelery store  =محل مجوهرات=substr
+Rename history=عرض قائمة بتواريخ إعادة التسمية=substr
+got the red flag=حصل على العَلَم الأحمر =substr
+put the red flag=وضع العَلَم الأحمر =substr
+police station=مركز الشرطة=substr
+It has a range of=يبلغ مدى استخدامها =substr
+Message copied=تم نسخ الرسالة=substr
+report a player=الإبلاغ عن لاعب =substr
+match messages=رسائل المباريات=substr
+admin messages.=رسائل المشرفين=substr
+group messages.=رسائل مَجموعَتك.=substr
+notifications.=الإشعارات =substr
+Quoted message:=رسالة مقتبسة:=substr
+Current volume =المستوى الحالي =substr
+Client version:=إصدار اللعبة =substr
+from this group!=من المجموعة =substr
+Server Message:=رسالة الخادم:=substr
+Inventory menu.=قائمة العناصر=substr
+ public matches= مباراة عامة =substr
+character aria=الشخصية أنغام=substr
+character kado=الشخصية كادوا=substr
+due to silencer, =بسبب كاتم الصوت=substr
+silencer on for =تم تركيب الكاتم لل=substr
+corpse bomb off=تم إزالة قنبلة الجثة=substr
+select a corpse=إختار شنطة=substr
+Talvani Street=شارع تَلفاني=substr
+Ashkar village=قرية عشقر=substr
+The first floor=الطابق الأول=substr
+Food store door=باب متجر الطعام=substr
+Food store exit=مخرج متجر الطعام=substr
+Guest bathroom=حمام الضيوف=substr
+The fifth floor=الطابق الخامس=substr
+The small gate=البوابة الصغيرة=substr
+Camila's house=منزل جميلة=substr
+Gandhi's house=منزل غاندي=substr
+Hadeer's house=منزل هدير=substr
+la_brea's_house=منزل لبيب=substr
+Olivia's_house=منزل أُلفَت =substr
+el-hero's house=منزل الهيرو=substr
+Daniel's house=منزل دانيال=substr
+Snow Mountain=جبل الثلج=substr
+Bathroom door=باب الحمام=substr
+ to wake them up= لإحيائهُ=substr
+The death city=مدينة الموت=substr
+ weapons store=متجر الأسلحة=substr
+ potions store=متجر الجرعات=substr
+electric pole =عمود كهرباء =substr
+ in the match of =في مباراة =substr
+inside the pit=الهاوية =substr
+Private match=مباراة خاصة=substr
+says to the map: = قال: =substr
+hit the ground =سقوطه من مكان مرتفع =substr
+left the match!=غادر المباراة =substr
+Stop tracking=إيقاف التتبع=substr
+stop tracking=إيقاف التتبع=substr
+diamond_sword=سيف ألماسي=substr
+clothes shops=محل الملابس والأحذية=substr
+la_brea's_house=منزل براء=substr
+and a spread of=وانتشار =substr
+player deaths=عدد قتل اللاعبين لك =substr
+group members=الأعضاء=substr
+milliseconds=ملي ثانية =substr
+General_Chats=الدردشات العامة=substr
+team messages.=رسائل الفريق.=substr
+Chat language,=لغة الدردشة، =substr
+a soft cushion=وسادة ناعمة=substr
+from the match=من المباراة =substr
+channel set to =تم ضبط قناة الرسائل على =substr
+a barricade of =حاجز=substr
+unlocked with =مفتوحةة ومعها=substr
+zero tokens to =عملة zero إلى =substr
+ Conqueror III= الفاتح الثالث=substr
+from the chest!=من الصناديق=substr
+channel set to=تم تغيير القناة إلى =substr
+ for stability= للإستقرار=substr
+current event =الحدث الحالي =substr
+will end after =سينتهي بعد =substr
+wuodan's house=منزل وادان=substr
+Dragon's house=منزل دراجون=substr
+Hospital Roof =سطح المستشفى=substr
+corpse bomb on=تم تركيب قنبلة الجثة=substr
+swimming pool=حمام سباحة=substr
+Fruit storage=تخزين الفاكهة=substr
+near the table=بالقرب من الطاولة=substr
+SADO's bedroom=غرفة نوم سادو=substr
+wuodan's_house=منزل وودان=substr
+Bathroom Door=باب الحمام=substr
+Dragon's_house=منزل التنين=substr
+The main gate=البوابة الرئيسية=substr
+Dante's house=منزل دياب=substr
+Pablo's house=منزل نبيل=substr
+Julia's house=منزل جودي=substr
+Abdul's house=منزل عبدول=substr
+riley's house=منزل رامي=substr
+james's_house=منزل جاسر=substr
+Emily's_house=منزل إيمان =substr
+Western room=الغرفة الغربية=substr
+entrance too =مدخل ل=substr
+ jims's chalet=شاليه جاسر=substr
+ braw's chalet=شاليه براء=substr
+ sado's chalet=شاليه سادو=substr
+ended, Vote of =انتهى تصويت =substr
+You are on the =أنت في الفريق =substr
+match mode is =نوع المباراة هو =substr
+group member =عضو المجموعة=substr
+the hospital =المستشفى =substr
+a timebomb of =قنبلة زمنية من =substr
+Enter amount=اكتب العدد=substr
+MosinNagant=موسين الروسية=substr
+Loot dropped=تم إسقاط العناصر =substr
+broken table =طاولة مكسورة=substr
+hand_grenade=قُمبَلة يدوية, =substr
+Players menu:=قائمة اللاعبين:=substr
+Public match=مباراة عامة=substr
+Current area:= المنطقة الحالية =substr
+dragunov_psl= قناصة =substr
+near the exit =أمام المخرج =substr
+small_potion=جرعة صغيرة, =substr
+and spread of =, ولديه مدى إنتشار يبلغ =substr
+ destroyed by =تم تدميرها بواسطة =substr
+create group=إنشاء مجموعة=substr
+wooden_sword=سيف خشبي=substr
+Grace's_house=منزل جهَادْ=substr
+score points=نقطة=substr
+player kills=عدد قتلك للاعبين =substr
+The ping took =البينج =substr
+You are in the =أنت في الفريق =substr
+is not typing=توقف عن الكتابة =substr
+group admins=المشرفين=substr
+went offline=خرج من اللعبة=substr
+map messages=رسائل الخريطة=substr
+Unknown area=منطقةٌ غيرُ معروفة=substr
+a long street =شارع طويل=substr
+metal_shield=درع=substr
+description=الوصف=substr
+metal stairs=سلالم من المعدن=substr
+Last updated=تم تحديثه اخر مرة منذ=substr
+Send message=إرسال الرسالة=substr
+member count: =عدد الأعضاء =substr
+riley's_house=منزل علياء=substr
+lucas's_house=منزل لويس=substr
+, in the base of=في قاعدة =substr
+you dont have=ليس لديك ذخيرة =substr
+steel_helmet=خوذة=substr
+a bloody pond=بحيرة دم=substr
+çevrimiçi oldu=دخل إلى اللعبة=substr
+ to this group!=للمجموعة=substr
+You don't have =عذرًًا ليس معك =substr
+ Conqueror II= الفاتح الثاني=substr
+ Conqueror IV= الفاتح الرابع=substr
+Platinum III=البلاتين الثالث=substr
+ended, poll of=استفتاء منتهي ل=substr
+ event points= نقطة من الاحداث=substr
+coordinates=الإحداثيات=substr
+Coordinates:=و إحداثياته هي=substr
+Control room=غرفة التحكم=substr
+Farmers boss=زعيم المزارعين=substr
+inside the pi=داخل الممر=substr
+Kitchen door=باب المطبخ=substr
+Meeting room=غرفة الاجتماعات=substr
+Service room=غرفة الخدمة=substr
+the bathroom=الحمام=substr
+The top floor=الطابق العلوي=substr
+an empty room=غرفة فارغة=substr
+Book Archive=أرشيف الأوراق=substr
+sado's house=منزل سادو=substr
+entrance to=مدخل ل=substr
+ ammos store=متجر الذخيرة=substr
+ communitys.=مجتمعاً=substr
+a chest with =صندوق بهِ =substr
+this weapon =هذا السلاح =substr
+, in the lobby=, في الساحة الخارجية=substr
+Abyss Clash =معركة الهاوية =substr
+Abyss Clash=أرض الهَاوية=substr
+today, after =بعد =substr
+ seconds ago.= ثانية.=substr
+See members=اضغط لمعرفة الأعضاء =substr
+binoculars=منظار =substr
+stone_sword=سيف حجري=substr
+sado's_house=منزل سعد=substr
+basement of=داخل =substr
+scores menu=قائمة النتائج=substr
+score point= عدد النقاط =substr
+Score point, =نقاطك, =substr
+Your gender,=الجنس, =substr
+abyss clash=فخاخ الحُفر=substr
+Sniper duel=مبارزة القناصة=substr
+Department=اختر القسم =substr
+report a bug=الإبلاغ عن خطأ =substr
+equipments=معدات=substr
+base health=من مستوى الصحة =substr
+Enter reply=اكتب رد=substr
+This weapon=هذا السلاح=substr
+Base Camera=الكمبيوتر=substr
+in the match:=في المباراة:=substr
+not started=لم تبدأ =substr
+in progress,=بدأت=substr
+ms walktime=مِلّي ثانية أثناء المشي=substr
+plus damage, = ضرر فوق الضرر الفعلي =substr
+Match ended.=انتهت المباراة =substr
+You are dead=أنت مقتول=substr
+corpse with =شنطة المرحوم وبها =substr
+toilet bowl=قعدة الحمام=substr
+locked with =مغلقة ومعها=substr
+ came online=دخل إلى اللعبة=substr
+lithuanian=الليثوانية=substr
+Vietnamese=الفيتنامية=substr
+portuguese=البرتغالية=substr
+indonesian=الاندونيسية=substr
+zero tokens=عُملة ziro=substr
+ Conqueror I= الفاتح الأول=substr
+ Conqueror V= الفاتح الخامس=substr
+Diamond III=الماسي الثالث=substr
+Platinum II=البلاتين الثاني=substr
+Platinum IV=البلاتين الرابع=substr
+ password is = وكلمة السر هي =substr
+survive for =إبقا حياً لمدة =substr
+you are died=أنت مقتول=substr
+event point=نقاط حدث=substr
+Guests room=غرفة الضيوف=substr
+the kitchen=المطبخ=substr
+Gaming room=غرفة الألعاب=substr
+corpse_bomb=قنبلة الجثة=substr
+Lovers Park=حديقة العشاق=substr
+Sahmir Lane=زقاق سَحمير=substr
+You waked up=لقد أفَقْت=substr
+master room=الغرفة الرئيسية=substr
+Office door=باب المكتب=substr
+Dining hall=قاعة الطعام=substr
+Ali's house=منزل علي=substr
+ünal's house=منزل يونس=substr
+Food store=مخزن الطعام=substr
+Girls' room=غرفة البنات=substr
+ fainted in = أغمى عليه في =substr
+Guard room=غرفة الحراسة=substr
+event name=إسم الحدث=substr
+will end in =سوف ينتَهيِ بعد =substr
+attention: =انتبه: =substr
+ withdrawn = سحب =substr
+metal case=مسرح معدني=substr
+ an admin at = لمسؤول في =substr
+parachute=مظلة: =substr
+Sword duel =مبارزة السيوف =substr
+The player =اللاعب =substr
+steps down=لأسفل=substr
+ second ago.=ثانية.=substr
+Logging in=تسجيل الدخول=substr
+Bedroom of =غرفة نوم =substr
+The weapon=السلاح =substr
+nightclub=بيت الضعارة=substr
+score rank=الرتبة =substr
+tiles away) =خطوة بعيدًا =substr
+Score Rank= الرتبة =substr
+bot deaths=عدد قتل البوتات لك =substr
+in this map=في هذه الخريطة =substr
+group base =قاعدة المجموعة =substr
+Chest zone  =منطقة الصندوق =substr
+Moderator=مشرف =substr
+wooden hut=الكوخ =substr
+Status for =حالة =substr
+Your motor=الدراجة الخاصة بك =substr
+max health, =الصحة القصوى =substr
+Chest with=الصندوق بهِ=substr
+not teamed=الفردية=substr
+for fix bug=لإصلاح الخلل=substr
+barricade=حاجز=substr
+a ladder of =سلم =substr
+The base of =قاعدة =substr
+base count: =عدد القواعد =substr
+attention: =انتبه=substr
+ Developer=، المطور،=substr
+ jailed for =مسجون بسبب =substr
+Ukrainian=الاوكرانية=substr
+ Conqueror= الفاتح=substr
+Diamond II=الماسي الثاني=substr
+Diamond IV=الماسي الرابع=substr
+Platinum I=البلاتين الأول =substr
+Platinum V=البلاتين الخامس=substr
+Silver III=الفضية الثالثة=substr
+Bronze III=البرونزية الثالثة=substr
+zero_token=عملات zero=substr
+spectator =المشاهد =substr
+Yes voters: =عدد المصوتين بنعم هو: =substr
+community=المجتمع=substr
+a electric =عمود كهرباء=substr
+zero token=عملات zero=substr
+Ardent Way=طريق أردن=substr
+Ammo Vault=خزانة الذخيرة=substr
+courtyard=الفِناء=substr
+Deep river=نهر عميق=substr
+small room=غرفة صغيرة=substr
+Stairs café=سلم المقهى=substr
+Villa exit=مخرج الفيلا=substr
+Room door=باب الغرفة=substr
+Bathroom=الحمام=substr
+Boys' room=غرفة الأولاد=substr
+time left=الوقت المتبقي هو=substr
+More than =لا يمكن لأكثر من =substr
+hospital =لمستشفى =substr
+near exit=بجوار المخرج =substr
+bike path  =مسار الدراجات=substr
+Sign in as=تسجيل الدخول باسم =substr
+try again= حاول ثانيًا =substr
+driveway, =الممر=substr
+Tracking =يتم تتبع =substr
+Toilet of =حمام =substr
+requires =يتطلب  رصاص =substr
+No groups=لا توجد مجموعات=substr
+to ground=إلى الأرض=substr
+stairs to =الدرج ل=substr
+feet away=خطوه =substr
+bot kills=عدد قتلك للبوتات =substr
+ is typing= يكتب=substr
+watching=يشاهد =substr
+Team base =داخل القاعدة =substr
+corpse of=جثة=substr
+timebomb=قنبلة زمنية=substr
+a big pole=قطب=substr
+jump time=وقت القفز =substr
+a motor of =دراجة =substr
+ is closed=تم إغلاقها =substr
+ health is=صحة وهو=substr
+teammate=عضو الفريق=substr
+There are =هناك =substr
+streight=مستقيم =substr
+romanian=الرومانية=substr
+thailand=التايلاندية=substr
+filipino=الفلبينية=substr
+Estonian=الاستونية=substr
+jamaican=الجايمايكية=substr
+disabled=تم التعطيل=substr
+Crown III=التاج الثالث=substr
+Diamond I=الماسي الأول=substr
+Diamond V=الماسي الخامس=substr
+Platinum=البلاتين=substr
+Silver II=الفضية الثانية=substr
+Silver IV=الفضية الرابعة=substr
+Bronze II=البرونزية الثانية=substr
+Bronze IV=البرونزية الرابعة=substr
+, shielded=, مدرع=substr
+no voters: =عدد المصوتين بلا هو: =substr
+silencer=كاتم للصوت=substr
+The event =التحدي =substr
+Ebon Road=طريق إبّون=substr
+waked you=أفاقَكَ=substr
+bathroom=حمام=substr
+red team=الفريق الأحمر=substr
+Red team=الفريق الأحمر=substr
+The Farm=المزرعة=substr
+, message: =، الرسالة: =substr
+in front=أمامك =substr
+in front,=أمامك،=substr
+ minutes= دقيقة=substr
+ invited = دعى =substr
+, playing =, يلعب =substr
+degrees=درجة=substr
+ ammo for = طلقات بالسلاح =substr
+steps up= لأعلى =substr
+You have =أنت لديك =substr
+minutes, =دقيقة =substr
+ seconds= ثانية=substr
+Exiting= جاري الخروج =substr
+pet shop=متجر الحيوانات الأليفة =substr
+support=الدعم =substr
+team has = به =substr
+nothing=لا شيء=substr
+hut door  =باب الكوخ =substr
+ english=إنجليزي=substr
+Blocked =حظرت =substr
+You need =تحتاج =substr
+Match of =مباراة =substr
+offline=غير متصل=substr
+Removed =تم إزالة =substr
+ grenade= قنبلة يدوية =substr
+pending, #=قيد المراجعة #=substr
+items  is=عنصر وهو =substr
+ seconds= ثانية =substr
+merhaba=مرحبا=substr
+turkish=التركية=substr
+italian=الايطالية=substr
+kurdish=الكردية=substr
+serbian=الصربية=substr
+spanish=الاسبانية=substr
+russian=الروسية=substr
+persian=الفارسية=substr
+members= عضو =substr
+donated =وضع =substr
+players=لاعبين =substr
+Ducking = المنّبَطح =substr
+How many =كم عدد =substr
+enabled=تم التفعيل =substr
+Crown II=التاج الثاني=substr
+Crown IV=التاج الرابع=substr
+Diamond=الماسية=substr
+Gold III=الذهبية الثالثة=substr
+Silver I=الفضية الأولى=substr
+Silver V=الفضية الخامسة=substr
+Bronze I=البرونزية الأولى=substr
+ Bronze V=البرونزية الخامسة=substr
+private, =خاصة، =substr
+message: =الرسالة: =substr
+, they are: =, والذين صوتو بذلك هم: =substr
+Message: =الرسالة: =substr
+started!. =بدات!.=substr
+motor of =الدراجة الخاصة ب=substr
+you have =لديك =substr
+Builder=مهندس=substr
+Bedroom=غرفة النوم=substr
+Factory=المصنع=substr
+The Roof=السقف=substr
+Balcony=شرفة=substr
+Car park=موقف السيارات=substr
+Gender,=الجنسْ,=substr
+female=أنثى=substr
+Female=أنثى=substr
+behind =للخلف =substr
+ left at = غادر في =substr
+You got =لقد حصلت على =substr
+ second= ثانية=substr
+ public, = عام =substr
+mm ammo =من الذخيرة=substr
+tavern=حانة=substr
+a chest=صندوق =substr
+months=شهر=substr
+A table=طاولة =substr
+Pm from =رسالة من =substr
+minute=دقيقة=substr
+Arabic=العربية=substr
+deaths=بينما تم قتلهم من قبل اللاعبين الآخرين بعدد=substr
+groups.=مجموعات =substr
+roof of=سقف =substr
+a couch=أريكة =substr
+closed, #=مغلقة #=substr
+teamed=للفرق=substr
+ health  = صحة =substr
+base at =القاعدة تقع في =substr
+ladder=سلم=substr
+online=متصل=substr
+you got =حصلت على=substr
+Friend=صديقك=substr
+french=الفرنسية=substr
+polish=البولندية=substr
+german=الالمانية=substr
+nepali=النيبالية=substr
+joined=إنضَم =substr
+kicked =أخرج =substr
+friend=صديقك=substr
+ Ace III= البارع الثالث=substr
+Crown I=التاج الأول=substr
+Crown V=التاج الخامس=substr
+Gold II=الذهبية الثانية=substr
+Gold IV=الذهبية الرابعة =substr
+Silver=فضي=substr
+ Bronze=البرونزية=substr
+ behind= بالخلف=substr
+poll of =استفتاء ل=substr
+stairs =سلالم=substr
+Toilet=قاعدة الحمام=substr
+jammer=جهاز تشويش=substr
+Office=المكتب=substr
+window=نافذة=substr
+Window=نافذة=substr
+Villa=فيلا=substr
+. Title: =. العنوان: =substr
+ a sign =لافتة, اضغط شفت+ انتر لقراءتها =substr
+south=جنوب=substr
+Watch=شاهد ال=substr
+enemy =العدو =substr
+north=شمال=substr
+hours, =ساعة =substr
+below=تحتك و=substr
+above=فوقك و=substr
+Rules.=القوانين =substr
+Chair =كرسي بالغرفة=substr
+Empty=فارغ=substr
+flags,=اعلام =substr
+month,=شهر =substr
+group,=مجموعة =substr
+owner: =المالك=substr
+kills: =عدد قتلهم للاعبين الآخرين =substr
+block=من قائمة الحظر=substr
+punch=القبضة=substr
+ items.= عنصر.=substr
+right=يمين =substr
+ times.= مرة.=substr
+items =عناصر =substr
+Greek=اليونانية=substr
+malay=الماليزية=substr
+hindi=الهندية=substr
+other=آخر =substr
+knife=سكين =substr
+Table=طاولة=substr
+ Ace II= البارع الثاني،=substr
+ Ace IV= البارع الرابع،=substr
+Crown=تاج=substr
+Gold I=الذهبية الأولى=substr
+Gold V=الذهبية الخامسة=substr
+found=عثر على=substr
+title: =العنوان: =substr
+no one=لا أحد=substr
+items=العناصر=substr
+faint=المُغْمَى عليه=substr
+A sign=لافتة=substr
+couch=أريكة=substr
+Room=غرفة=substr
+flat =الشقة=substr
+ Cave=الكهف=substr
+Pass=الممر=substr
+Male=ذكر=substr
+male=ذكر=substr
+west=غرب =substr
+east=شرق=substr
+says:=يقول:=substr
+ ammo=ذخيرة=substr
+feet =قدم =substr
+pm to=رسال إلى =substr
+misc.=متنوعات=substr
+mine=لغم=substr
+blue=الأزرق=substr
+team, =الفريق، =substr
+Open=مفتوح=substr
+hour=ساعة=substr
+days=يوما=substr
+Name: =الاسم=substr
+exit=المخرج =substr
+feet=القدم=substr
+left=يسار =substr
+ week= أسبوع=substr
+urdu=الاردوية=substr
+dead = مقتول =substr
+ with = معهُ =substr
+Wait =انتظر =substr
+kado, =كادو، =substr
+feet.=خَطوة.=substr
+ Ace I= البارع الأول،=substr
+ Ace V= البارع الخامس،=substr
+Gold=الذهبي=substr
+type=بوضع=substr
+gold=ذهب=substr
+Exit=خروج=substr
+café=مقهى=substr
+red=الأحمر=substr
+ had = كان يملك =substr
+ got = أخذ =substr
+get =أخذ =substr
+ and = و =substr
+all= الكل =substr
+won!=انتصر =substr
+day=يوم =substr
+ Ace= البارع،=substr
+ ms.= ملي ثانية.=substr
+OK=موافق=substr
+ HP= نقاط قوة  =substr
+ hp=نقاط قوة =substr
+ by = بواسطة =substr
+ at = عند =substr
+ vs =ضد =substr
+ is = =substr
+Enter new password=اكتب كلمة المرور الجديدة=substr
+Enter new email=اكتب البريد الإلكتروني الجديد=substr
+Enter code sent to your old email=اكتب الرمز الذي تم إرسالهُ على البريد القديم=substr
+Enter code sent to your new email=اكتب الرمز الذي تم إرسالهُ على البريد الجديد=substr
+enter new name, warning, you need 150 tokens for proceed=اكتب اسمك الجديد وسوف يتم خصم 150 من عملاتك=substr
+Current computer with id =هذا الكمبيوتر بسريال =substr
+computer with id =كمبيوتر بسريال =substr
+ has = به =substr
+ players and = لاعبين وجمع =substr

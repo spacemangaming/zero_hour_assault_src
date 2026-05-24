@@ -1,0 +1,11 @@
+mapname:one_shot_one_kill
+maxx:100
+maxy:100
+maxz:10000
+platform:0:100:0:100:0:0:sand
+zone:0:100:0:100:0:10000:One Shot, One kill
+src:0:100:0:100:0:10000:nbmambience6.ogg:0
+src:0:100:0:100:0:10000:generic.ogg:-15
+platform:50:60:50:60:0:0:water
+src:50:60:50:60:0:100:water_ambience2.ogg:-10
+zone:50:60:50:60:0:100:a bloody pond:trackable

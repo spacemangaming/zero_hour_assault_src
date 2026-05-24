@@ -1,0 +1,2319 @@
+motors are disabled at this moment=Motorlar þu anda devre dýþý
+You need to restart the game for the change to take effect, would you like to restart now?=Deðiþikliðin etkili olmasý için oyunu yeniden baþlatmanýz gerekiyor, þimdi yeniden baþlatmak ister misiniz?
+clear friend list=Tüm arkadaþlarý sil
+see base gun ammo amount=Üs silahýnýn mermi miktarýný gör
+fire the gun=Ateþ et
+auto tracking disabled=Otomatik takip devre dýþý
+auto tracking enabled=Otomatik takip etkin
+half down=Biraz aþaðý
+streight down=Tam aþaðý
+half up=Biraz yukarý
+streight up=Tam yukarý
+ forward=Ýlerinize
+you are already using the razeon character=Zaten razeon karakterini kullanýyorsun
+Done, switched to the razeon character.=Tamam, Razan karakterine geçildi.
+a big clock  =Saat
+near notifications muted=Yakýndaki kiþi bildirimleri sessize alýndý
+near notifications unmuted=Yakýndaki kiþi bildirimleri sesi açýldý
+aria=Anðam
+death and kill notifications muted=Ölüm ve öldürme bildirimleri sessize alýndý
+death and kill notifications unmuted=Ölüm ve öldürme bildirimleri sesi açýldý
+admin messages muted=Yönetici bildirimleri sessize alýndý
+admin messages unmuted=Yönetici bildirimleri sesi açýldý
+General_Chats unmuted=Genel bildirimler sesi açýldý
+General_Chats muted=Genel bildirimler sessize alýndý
+group notifications muted=Grup bildirim mesajlarý sessize alýndý
+group notifications unmuted=Grup bildirim mesajlarý sesi açýldý
+community notifications muted=Topluluk bildirim mesajlarý sessize alýndý
+community notifications unmuted=Topluluk bildirim mesajlarý sesi açýldý
+online and offline notifications muted=Çevrimiçi arkadaþ bildirimleri sessize alýndý
+online and offline notifications unmuted=Çevrimiçi arkadaþ bildirimleri sesi açýldý
+notifications muted=Bildirimler etkinleþtirildi
+notifications unmuted=Bildirimler devre dýþý býrakýldý
+community messages muted=Topluluk bildirimleri sessize alýndý
+community messages unmuted=Topluluk bildirimleri sesi açýldý
+team messages muted=Takým bildirimleri sessize alýndý
+team messages unmuted=Takým bildirimleri sesi açýldý
+friend messages muted=Arkadaþ bildirimleri sessize alýndý
+friend messages unmuted=Arkadaþ bildirimleri sesi açýldý
+map messages muted=Harita bildirimleri sessize alýndý
+map messages unmuted=Harita bildirimleri sesi açýldý
+group messages muted=Grup bildirimleri sessize alýndý
+group messages unmuted=Grup bildirimleri sesi açýldý
+match messages muted=Maç bildirimleri sessize alýndý
+match messages unmuted=Maç bildirimleri sesi açýldý
+you do not have more silencer to insert to this weapon=Bu silaha takmak için baþka susturucun yok
+Error, this player disabled receiving private message from friends.=Hata, bu oyuncu özel mesaj alýmýný devre dýþý býraktý.
+you are not member of any group=Herhangi bir grubun üyesi deðilsin
+you are not member of any community=Herhangi bir topluluðun üyesi deðilsin
+You can't have more than 5 open tickets=5'ten fazla açýk biletin olamaz
+enable reeceiving match invitations=Maç davetleri
+disable receiving community messages=Topluluk mesajlarýný al
+disable reeceiving match invitations=Maç davetleri
+enable receiving community messages=Topluluk mesajlarýný al
+Client platform: Windows=Ýþletim sistemi: Windows
+backpacks_level1, requires 400 zero tokens, description: your inventory capacity will be 2x more, it will expire after one week=Sýrt çantasý seviye 1, 400 zero jetonu gerektirir, envanter kapasitenizi 2 kat artýrýr ve bir hafta sonra süresi dolar
+steel_helmet, requires 30 zero tokens, description: If you wear this, it will protect you from headshots (both extra damage and fall effect) until it is broken. Its damage resistance is persistent even if taken off and re-worn after rejoining the game.=Kask, 30 zero jetonu gerektirir, kýrýlana kadar sizi kafadan vuruþlardan korur ve ayrýca yere düþmekten de korur
+ladder, requires 10 zero tokens, description: Placing a Ladder creates a climbable ladder extending upwards for 20 tiles. It can also be destroyed with weapons. The player who placed the ladder can retrieve it by pressing shift + enter near its base.=Merdiven, 10 zero jetonu gerektirir, 20 birim yüksekliðe kadar týrmanabilirsiniz, ateþ edilerek yok edilebilir, üssünde dururken Shift+Enter'a basarak çantaya geri alýnabilir
+barricade, requires 10 zero tokens, description: When you place a Barricade, it creates a wall structure that is 10 tiles in height, featuring a platform on top that you can stand on. It can be destroyed by weapon fire. The dirt platform on top is removed when the barricade is destroyed.=Barikat, 10 zero jetonu gerektirir, 10 birim yüksekliðindedir ve üzerinde durabilirsiniz, ateþ edilerek yok edilebilir
+invisibility_shield, requires 15 zero tokens, description: When you use the Invisibility Shield, you will become invisible for 15 seconds. During this time, other players cannot see you on their nearby player list (E key) or through binoculars, and they cannot hear your beacon signal. Only your footstep sounds will be audible to others. The weapon scope feature will also not be beep for invisible players. However, opponents can still hit you with weapons if they manage to guess your location.=Sis bombasý, 15 zero jetonu gerektirir ve sizi 15 saniye boyunca gizler
+metal_shield, requires 30 zero tokens, description: This will protect you from hits until its broken when you use it. However, it won't protect from headshots.=Kalkan, 30 zero jetonu gerektirir, kýrýlana kadar sizi darbelerden korur, ancak kafadan vuruþlardan korumaz
+gsg5, requires 13 zero tokens, description: a rifle=Alman tüfeði, 13 zero jetonu gerektirir, Açýklama: Tüfek
+dragunov_psl, requires 10 zero tokens, description: a sniper weapon=Keskin niþancý tüfeði, 10 zero jetonu gerektirir, Açýklama: Keskin niþancý
+fnhfnp45, requires 15 zero tokens, description: a pistol weapon=Belçika yarý-otomatik, 15 zero jetonu gerektirir, Açýklama: Tabanca
+knife, requires 5 zero tokens, description: no description=Býçak, 5 zero jetonu gerektirir
+wooden_sword, requires 10 zero tokens, description: no description=Tahta kýlýç, 10 zero jetonu gerektirir
+stone_sword, requires 20 zero tokens, a description: no description=Taþ kýlýç, 20 zero jetonu gerektirir
+diamond_sword, requires 30 zero tokens, description: no description=Elmas kýlýç, 30 zero jetonu gerektirir
+colt1911_ammo_cartrigges, requires 4 zero tokens, description: ammo for colt1911 cartrigges=Yarý-otomatik þarjörü, 4 zero jetonu gerektirir
+m4_ammo_cartrigges, requires 4 zero tokens, description: ammo for m4=Makineli tüfek þarjörü, 4 zero jetonu gerektirir
+fnhfnp40_ammo_cartrigges, requires 3 zero tokens, description: ammo for fnhfnp40=Tüfek þarjörü, 3 zero jetonu gerektirir
+gsg5_ammo_cartrigges, requires 6 zero tokens, description: ammo package for gsg5=Alman tüfeði þarjörü, 6 zero jetonu gerektirir
+dragunov_psl_ammo_cartrigges, requires 4 zero tokens, description: ammo package for dragunov_psl=Keskin niþancý þarjörü, 4 zero jetonu gerektirir
+There are no currently banned players. at this time=Þu anda yasaklanmýþ oyuncu yok
+Ticket messages=Bilet mesajlarý
+rate the ticket=Bileti oyla
+rate=Oyla
+Done, rating sent successfully.=Oylama tamamlandý.
+bike, requires 30 event points, description: no description=Bisiklet, 30 etkinlik puaný gerektirir
+spatial_amplifier, requires 40 event points, description: If you are within 5 tiles of another player, you can press Enter (use item) to place the Spatial Amplifier on them. For the next 10 minutes, you can use the Spatial Amplifier Controller to see that player's coordinates. The amplifier can be destroyed; if it is, the affected player and any players within a 20-tile radius will hear an explosion and take damage. All players on the map will hear a distant sound of the explosion.=Takip cihazý, 40 etkinlik puaný gerektirir, düþmana 5 adým mesafeden yerleþtirebilirsiniz, 10 dakika sürer, bu sayede düþmanýn koordinatlarýný öðrenebilir veya takip cihazý kumandasýyla patlatarak düþmana ve 20 adým çevresindeki her þeye zarar verebilirsiniz
+jammer, requires 20 event points, description: When you activate a Jammer, players nearby (within its effective radius) will be unable to use Binoculars or see other players using the E key (nearby player list) for 2 minutes. Their weapon scopes will also not function during this time.=Parazit cihazý, 20 etkinlik puaný gerektirir, etkinleþtirildiðinde dürbünü bozar ve düþman E tuþunu kullanarak yerinizi öðrenemez veya iki dakika boyunca niþan alma sesini duyamaz
+adrenaline_shot, requires 30 event points, description: When used, the Adrenaline Shot speeds up your weapon's fire rate for 2 minutes.=Adrenalin iðnesi, 30 etkinlik puaný gerektirir, silahýn ateþ hýzýný 2 dakika boyunca artýrýr
+boom_box, requires 20 event points, description: When you use a Boom Box, it spawns a random-looking item on the ground. If any player (including yourself) tries to pick it up using shift + enter, it will explode. Nearby players, including the one who triggered it, will take damage, and you (the placer of the Boom Box) will receive 1 Zero Token.=Tuzaklý eþya, 20 etkinlik puaný gerektirir, Açýklama: Yere sahte eþyalar yerleþtirilir ve bir oyuncu Shift+Enter'a basarsa etrafýndaki her þey patlar ve sahte eþyayý yerleþtiren kiþi bir zero jetonu kazanýr
+corpse_scanner, requires 40 event points, description: Using this item will show you a list of all corpses on your current map, including their coordinates, the time remaining until they disappear, and the owner's name.=Ceset tarayýcý, 40 etkinlik puaný gerektirir, Açýklama: Bu eþya haritadaki tüm cesetleri, kaybolma sürelerini, sahiplerini ve koordinatlarýný bulmanýzý saðlar
+corpse_bomb, requires 40 event points, description: This item can be toggled on or off. If it's active when you die, and another player attempts to open your corpse, the bomb will explode. Nearby players, including the one opening the corpse, will take damage. The corpse will disappear, and you will receive 1 Zero Token.=Ceset bombasý, 40 etkinlik puaný gerektirir, Açýklama: Etkinleþtirilebilir veya devre dýþý býrakýlabilir, eðer öldürülürseniz ve biri cesedinizi açmaya çalýþýrsa patlar ve onu açan da dahil olmak üzere yakýndaki oyuncularý öldürür, ceset de kaybolur ve bir zero jetonu kazanýrsýnýz
+Type a community message here.=Topluluk mesajýný buraya yazýn
+base chest log=Sandýk kaydý
+view group base chest log=Sandýk kaydý
+Not enough event points=Yeterli etkinlik puanýn yok
+You have completed this event=Bu etkinliði tamamladýn
+no one within 50 steps=Parazitlenecek kimse yok
+There is a guard's sleeping room, a swimming pool to the east, the main building to the north, and the parking area to the west.=Doðuda bir yüzme havuzu ve bekçinin yatak odasý, batýda otopark alaný ve kuzeyde önünüzde ana bina bulunmaktadýr.
+enable event notifications=Etkinlik bildirimleri
+disable event notifications=Etkinlik bildirimleri
+Select a member to remove invitation.=Daveti iptal edilecek bir oyuncu seçin.
+Welcome to the Explosives Store! Pack a punch with a grenade, lay traps with TM62, or go big with a timebomb—your enemies won’t know what hit them. The machine for this store is located at (111, 775, 0).=Patlayýcý Maðazasýna hoþ geldiniz! Bir el bombasý alýn, bir mayýn yerleþtirin veya bir saatli bombayý etkinleþtirin - ve kaosu izleyin. Maðaza makinesi (111, 775, 0) konumundadýr.
+Welcome to the Potions Store! From a quick health boost to a full revival, our potions can turn the tide of any fight. Find your healing potion machine at (300, 775, 0).=Ýksir Maðazasýna hoþ geldiniz! Küçük iksirlerden tam canlandýrma iksirlerine kadar - savaþta hayatta kalmanýz için buradayýz. Ýksir makinesini (300, 775, 0) konumunda bulacaksýnýz.
+Welcome to the Vehicles Store! Ready to ride? Pick up your Motor and speed across the map—just watch out for walls and enemy bullets. The machine for this store is located at (400, 775, 0).=Araç Maðazasýna hoþ geldiniz! Yola çýkmaya hazýr mýsýnýz? Motorunuzu alýn ve haritada hýzla ilerleyin - sadece duvarlara çarpmaktan veya düþman ateþinden sakýnýn. Bu maðazanýn makinesi (400, 775, 0) konumundadýr.
+the player selected went offline, a new one will be selected.=Seçilen oyuncu çevrimdýþý olduðu için baþka bir oyuncu seçilecek.
+this player is died=Bu oyuncu öldü
+you are died=Sen öldün
+Leave a comment=Yorum býrak
+event info=Etkinlik bilgisi
+You have not completed this event=Bu etkinliði tamamlamadýn
+Enable Use Steam Audio for 3d audio, disable this if it causes lag issues=3D ses, gecikme sorunlarý yaþarsanýz devre dýþý býrakmanýz önerilir
+Disable Use Steam Audio for 3d audio, disable this if it causes lag issues=3D ses, gecikme sorunlarý yaþarsanýz devre dýþý býrakmanýz önerilir
+The eMail provided for this account is not correct=Giriþ yaparken e-posta adresinizi doðru yazdýðýnýzdan emin olun
+Forge Your Legend!=Efsaneni Yarat!
+you left the community=Topluluktan ayrýldýn
+community Microphone disabled=Topluluk mikrofonu devre dýþý býrakýldý
+all muted=Tümü sessize alýndý
+all unmuted=Tümünün sesi açýldý
+Are you sure you want to delete this community?=Bu topluluðu silmek istediðinizden emin misiniz?
+You already bought this character before!=Bu karaktere zaten sahipsin!
+disable poll notifications=Anket oylarý
+enable poll notifications=Anket oylarý
+community menu, Create a new community for talk, View community Invitations, Manage community Members.=Topluluk
+Poll menu, create polls, vote on existing polls=Anketler
+view all communitys, View communitys created in the game, send a request to join a community.=Topluluklar
+disable sound when someone enters and exits your map=Biri haritaya girdiðinde veya çýktýðýnda ses
+enable sound when someone enters and exits your map=Biri haritaya girdiðinde veya çýktýðýnda ses
+Welcome to zero hour assault. You can move to coordinates 5 0 0 to access the match menu. Also, if you have suggestions about the game, you can leave your message in the game menu, that is, the letter o, in the suggestion or report bug section, Enjoy!=ZeroHourAssault'a hoþ geldiniz, maç menüsüne eriþmek için 5.0.0 koordinatlarýna gidin. Ayrýca herhangi bir öneriniz varsa, klavyeden O harfine basarak oyun menüsünden öneriler bölümüne býrakmaktan çekinmeyin.
+jump=Zýpla
+reload weapon=Silahý doldur
+fire weapon=Ateþ et
+move to next inventory item=Envanterde sonraki öðeye git
+move to previous inventory item=Envanterde önceki öðeye git
+Use the selected inventory item=Seçili envanter öðesini kullan
+Drop the selected inventory item=Seçili envanter öðesini yere at
+Speak facing direction=Baktýðýn yönü söyle
+Speak coordinates=Mevcut koordinatlarý söyle
+Climb up=Yukarý týrman
+Climb down=Aþaðý in
+Open the game menu=Oyun menüsünü aç
+Configuration saved.=Yapýlandýrma kaydedildi.
+Select player to send private message. Press shift enter on a player to copy their name to clipboard.=Arkadaþlardan bir oyuncu seçin, adýný kopyalamak için Shift+Enter'a basýn, istatistiklerini görüntülemek için adýnýn üzerine týklayýn ve özel bir mesaj göndermek için sadece Enter'a basýn.
+select hand=El seç
+Select output device=Ses çýkýþ cihazýný seç
+Please select the audio output device.=Lütfen istediðiniz ses çýkýþ cihazýný seçin.
+disable typing notifications=Yazmaya baþlama uyarýlarý
+enable typing notifications=Yazmaya baþlama uyarýlarý
+disable vote notifications=Oylama bildirimlerini al
+enable vote notifications=Oylama bildirimlerini al
+enable authorization requirement when logging in from different computers=Farklý bilgisayarlardan giriþ yaparken onayý zorunlu kýl
+disable authorization requirement when logging in from different computers=Farklý bilgisayarlardan giriþ yaparken onayý zorunlu kýlma
+disable hearing community voice chat=Topluluk üyelerini duyma
+enable hearing community voice chat=Topluluk üyelerini duyma
+This player has disabled receiving group invitations=Bu mümkün deðil çünkü grup davetlerini almayý engelledi
+You accepted the request=Talep baþarýyla kabul edildi
+Error, this player has blocked you.=Bu oyuncu seni engelledi.
+You can't put base here=Buraya üs kurulamaz
+The Email is not correct.=E-posta adresi yanlýþ. Tekrar deneyin ve e-posta adresini doðru yazýn.
+loggedin=Giriþ yapýldý
+Connecting.=Baðlanýyor...
+Success! Your account password has been sent to your e-mail address.=E-postanýzý kontrol edin, þifre gönderildi.
+no such account found=Bu bilgilere sahip bir hesap bulunamadý
+this feature has been disabled until new updates comes=Bu özellik yeni güncelleme gelene kadar devre dýþý býrakýldý
+This player already sent friend request to you=Bu oyuncu size zaten arkadaþlýk isteði gönderdi
+The password provided for this account is not correct=Þifre yanlýþ
+Stopped tracking=Durduruldu
+You turned off receiving group messages. So you can not send also=Mesaj gönderebilmek için grup mesajlarýný alma seçeneðini etkinleþtirin
+Verifying code ...=Girilen kod doðrulanýyor
+Invalid code=Bu kod yanlýþ, lütfen iki saat sonra tekrar deneyin
+You have tried to log into this account from a different computer than the one in which it is created. To be sure you are indeed the owner, we will send an verification code to the email address you wrote when creating this account. Please enter the code you received, to authorize this computer. After you authorize this computer, you can log into your account from this computer and all your other authorized computers. You can later on remove the authorization from the game menu from any of the your authorized computers. Do you want to authorize this computer?=Farklý bir cihazdan giriþ yapmaya çalýþtýnýz, bu nedenle e-postanýza bir kod göndereceðiz, e-postanýzý kontrol edin.
+Rank: administrator=Rütbe: Yönetici
+you resigned from administrating the group=Grup yönetiminden istifa ettin
+wait=Bekle
+current character, tristan=Mevcut karakter: Tristan
+current character, barry_allen=Mevcut karakter: Barry Allen
+current character, kado=Mevcut karakter: Kado
+current character, aria=Mevcut karakter: Anðam
+current character, default=Mevcut karakter: Varsayýlan
+Timed item information menu=Süreli eþya bilgisi menüsü
+you are already using the aria character=Zaten bu karakteri kullanýyorsun
+Done, switched to the aria character.=Anðam karakterine geçildi.
+Success=Baþarýlý
+Select a member to remove admin.=Yöneticilikten alýnacak bir üye seçin.
+No requests found.=Katýlým talebi yok.
+Select a member to kick.=Gruptan atýlacak bir oyuncu seçin.
+get zero tokens from donated tokens=Baðýþlanan jetonlarý topla
+Done, friend request declined successfully.=Talep baþarýyla reddedildi.
+you can not drop an item right now!=Þu anda eþya atamazsýn!
+Accept friend request from this player=Gönderdiði arkadaþlýk isteðini kabul et
+Decline friend request from this player=Gönderdiði arkadaþlýk isteðini reddet
+No items=Eþya yok
+Error. This computer is not authorized to log into your account, but you already authorized one computer in the last 2 hours. You can only authorize one computer per 2 hours.=Hata. Bu bilgisayar hesabýnýza giriþ yapmaya yetkili deðil, ancak son 2 saat içinde zaten bir bilgisayarý yetkilendirdiniz. Her 2 saatte sadece bir bilgisayarý yetkilendirebilirsiniz.
+You do not have that many tokens=Bu kadar jetonun yok
+oops, something went wrong. Please try again.=Üzgünüz, bir hata oluþtu. Lütfen tekrar deneyin.
+Logging in ...=Giriþ yapýlýyor...
+connecting to the server, please wait...=Sunucuya baðlanýlýyor, lütfen bekleyin...
+No such account exists.=Bu bilgilere sahip bir hesap bulunamadý, lütfen girilen bilgilerin doðruluðunu kontrol edin.
+you cannot get more tokens=Daha fazla jeton alýnamaz
+Chat language, disabled.=Sohbet devre dýþý.
+Chat language, free_chat=Sohbet dili: Genel sohbet
+Rank: Player=Rütbe: Oyuncu
+You cannot unload the weapon when you have weapons on both of your hands=Her iki elinizde de silah varken silahý boþaltamazsýnýz
+You cannot buy a motor in the map boundary=Harita sýnýrýnda motor satýn alamazsýnýz
+You are jailed=Bunu yapamazsýn çünkü hapistesin
+This player free account=Ücretsiz hesap
+you are free account=Ücretsiz hesap
+you are paid account=Ücretli hesap
+This player paid account=Ücretli hesap
+Device cannot operate=Cihaz parazitli
+example=Örnek
+use substr keyword after the translation if you want to translate a string that is not static=Statik olmayan bir metni çevirmek için çeviriden sonra substr kelimesini kullanýn, öncesinde eþittir iþareti ile. Not: Eþittir, çeviride sorun olmamasý için harflerle deðil, sembolle yazýlýr.
+Use up and down arrows to read help, escape to go back=Okumak için yukarý ve aþaðý oklarý, önceki ekrana dönmek için Escape tuþunu kullanýn
+This player is not in the group=Bu oyuncu grupta deðil
+New line inserted.=Yeni satýr.
+this player disabled receiving token transfers=Bu oyuncu jeton transferi alma seçeneðini devre dýþý býraktý
+disable receiving zero token transfers=Jeton alýmý
+enable receiving zero token transfers=Jeton alýmý
+join or spectate a match, There are no matches right now=Maça katýl veya izle, þu anda maç yok
+Not enough zero tokens=Jetonlarýn yetersiz
+Done, Friend request removed successfully.=Arkadaþlýk isteði baþarýyla iptal edildi.
+Done, answer sent successfully.=Cevabýnýz baþarýyla gönderildi.
+this user is already logged in=Bu hesap þu anda oyunda, daha sonra tekrar deneyin
+you are already invisible=Zaten görünmezsin
+it would be very strange to turn off the engine of a moving motor=Hareket halindeki bir motorun motorunu durdurmak mümkün deðil
+Error, you can't send friend requests to people because you turned of receiving friend requests.=Üzgünüz, arkadaþlýk isteði alýmýný devre dýþý býraktýðýnýz için bu oyuncuya arkadaþlýk isteði gönderemezsiniz.
+Select language to switch=Geçiþ yapmak istediðiniz dili seçin
+You can't place ladder here=Buraya merdiven koyamazsýn
+wrong password=Þifre yanlýþ
+near players=Üsse yakýn oyuncular
+base computer=Üs bilgisayarý
+no near players within 100 steps=100 adým mesafede üsse yakýn oyuncu yok
+open the door=Kapýyý aç
+change basse password=Þifreyi deðiþtir
+see nearby players=Yakýndaki oyuncular
+You can't place barricade here=Buraya barikat koyamazsýn
+This player is already joined to a group=Zaten baþka bir grubun üyesi olduðu için davet edilemez
+remove invitation of a player to this group=Bir oyuncunun davetini geri çek
+you need 200 zero tokens for this=Bunun için 200 jetona ihtiyacýn var
+put a base here=Buraya ek bir üs kur
+no actions=Bilgi yok
+clear group action history=Bilgi kaydýný sil
+actions=Kayýt þudur
+view group action history=Grup bilgi kaydý
+Base information=Önemli bilgiler
+View group base info=Grup bilgileri
+You disabled receiving voicechats=Bu özelliði devre dýþý býraktýðýnýz için konuþan kiþileri bilemezsiniz
+invitation sent=Davet gönderildi
+you left the group=Gruptan ayrýldýn
+Here you can view the players who were penalized in the game.=Burada yasaklanan oyuncularý ve nedenini görebilirsiniz. Not: Neden, geliþtiricinin koyduðu gibi çevrilmemiþtir ve oyundaki çeviri sistemindeki bir hata nedeniyle bazý kelimelerin çevrildiðini görebilirsiniz.
+View penalyzed players=Yasaklanan oyuncular listesini görüntüle
+chat disabled=Genel mesajlar devre dýþý
+channel set to free_chat=Genel kanalý kullanýyorsunuz
+You don't have this many tokens!=Bu kadar jetonun yok!
+You cannot send messages because you have disabled chat. Please select a channel by pressing F11=Dil kanalýný seçmediðiniz veya devre dýþý býraktýðýnýz için genel mesaj gönderemezsiniz, etkinleþtirmek için F11 tuþu ile bir iletiþim dili seçin
+You declined the request=Talep reddedildi
+You have no tickets=Açmak için henüz bilet göndermediniz
+oops, something went wrong. Please try again .=Bir hata oluþtu, lütfen daha sonra tekrar deneyin
+You do not have any other account=Deðiþtirilecek baþka hesabýnýz yok
+Are you sure you want to delete your account? You cannot get it back if you delete it.=Hesabýnýzý silmek istediðinizden emin misiniz, çünkü silerseniz geri alamazsýnýz
+you only have right to create two accounts per computer.=Ayný cihazda ikiden fazla hesap oluþturulamaz
+Warning. You can only change your email address 1 time each day, and if you enter the code sent invalid even 1 time, you will have to wait one day. Do you want to continue?=E-posta adresini günde sadece bir kez deðiþtirebilirsiniz ve doðrulama kodunu günde bir kereden fazla gönderemeyiz. Devam etmek için evet, iptal etmek için hayýr seçin.
+You cannot exit the map because someone near you=Yakýnýnýzda biri olduðu için haritadan çýkamazsýnýz
+You can't drop persistent items!=Bu silahý atamazsýn
+free_chat=Genel sohbet
+Disable_chat=Sohbeti devre dýþý býrak
+Select a channel to switch.=Geçiþ yapmak için bir kanal seçin.
+Are you sure you want to delete this group?=Grubu kaldýrmak istiyor musunuz?
+Select a request.=Kabul etmek veya reddetmek istediðiniz talebi seçin
+attention. Server message has been updated. Please press f1 for see more details=Dikkat, sunucu mesajý güncellendi, görmek için F1'e basýn. Not: Bu mesaj Ýngilizce olacaktýr.
+no announcement=Talimat yok
+Select a member to make owner.=Grup sahipliðini devretmek için bir üye seçin.
+view announcement=Yönetim talimatlarý
+Select a member to make admin.=Yönetici olarak terfi ettirilecek bir üye seçin.
+make a member the group administrator=Bir üyeyi yönetici olarak terfi ettir
+remove a member's group administrator role=Bir yöneticinin rütbesini al
+change group owner=Sahipliði devret
+rename this group=Ýsmi deðiþtir
+publish announcement=Yeni bir talimat yayýnla
+delete this group=Grubu sil
+view zero token amount donated to this group=Bu gruba baðýþlanan jeton sayýsýný görüntüle
+Disable members' hitting each other in freedom fight map=Grup üyelerinin birbirine vurmasýný engelle
+Enable members' hitting each other in freedom fight map=Grup üyelerinin birbirine vurmasýný etkinleþtir
+You declined the invitation=Daveti reddettin
+you lef the group=Gruptan ayrýldýn
+No language selected for translation=Çeviri için dil seçilmedi
+Wait 1 second.=1 saniye bekle.
+You are not member of any team.=Bir takýmda deðilsin.
+You can use this item while at the near of the base=Bu öðeyi sadece üssün önündeyken kullanabilirsin
+donations=Baðýþlar
+donate to this group=Jeton koy
+no donations=Kimse koymadý
+view donation history=Baðýþçýlarýn kaydý
+entrance too luxury house 1  =Villa giriþi
+Latest Additions.=En son eklenenler
+Error, you need to enter a number.=Hata, bir sayý girmelisiniz.
+The game also has timebombs. You can get it from chests, items or  from the store. Once you arm it, it explodes within 20 seconds and damages anything within 50 feet. You can see how many seconds are left until it explodes from the letter M.=Ayrýca saatli bomba denilen bir öðe de var. Sandýklardan veya maðazadan elde edilebilir. Enter'a bastýðýnýzda yirmi saniye içinde patlar ve kalan süreyi M harfiyle öðrenebilirsiniz, ancak kalan saniye sayýsýný öðrenmek için yakýn olmanýz gerekir ve bu bomba 50 adým uzaklýktaki her þeyi yok eder.
+tm62, requires 10 zero tokens, description: When you place it, and if someone steps to it, it will explode and everything within 15 steps will  get damage. It can also be exploded by hitting it a couple times with a weapon however, there is no sound that indicates you there is a mine.=Mayýn, 10 zero jetonu gerektirir, tuzaklar için kullanýlýr ve biri üzerine basarsa patlar ve 15 adým içindeki her þey hasar görür. Ayrýca bir silahla birkaç kez vurularak da patlatýlabilir ve onu gösteren bir ses yoktur.
+There is a mine, named tm62 in the game. When you place it, and if someone steps to it, it will explode and everything within 15 steps will  get damage. It can also be exploded by hitting it a couple times with a weapon however, there is no sound that indicates you there is a mine.=Ayrýca mayýn denilen bir öðe de var. Yere konur ve onu gösteren bir sesi yoktur. Bir oyuncu üzerine basarsa patlar, ayrýca mermilerle veya kýlýçlarla patlatýlabilir ve 15 adým çevresindeki her þeye zarar verir.
+Another item in the game is metal shield. This will protect you from hits until its broken when you use it. However, it won't protect from headshots. You can get it from items, chests or store. Also, in the abyss clash and explosive battle matches, you will get 2 shields by default.=Ayrýca metal kalkan denilen bir öðe de var. Kýrýlana kadar sizi darbelerden korur ama kafaya yönelik atýþlardan korumaz. Sandýklardan veya maðazadan elde edebilirsiniz. Genel harita dýþýndaki haritalarda yerdeki öðelerden elde edilebilirken, uçurum ve patlayýcý savaþ maçlarýnda varsayýlan olarak iki kalkan alýrsýnýz.
+Sword duel:  This can be played either as teamed or not teamed. People can only use swords and last team/person standing wins. Available swords are wooden sword, diamond sword and stone sword. You are given only wooden sword in the start, but you can find other sword types in items.=Kýlýç düellosu, takýmlar halinde veya bireysel olarak oynanabilir, bu karþýlaþmalarda sadece kýlýçlar kullanýlýr ve elbette son kiþi kazanýr. Bu düelloda her türlü kýlýç bulunur, ancak baþlangýçta sadece tahta kýlýç verilir ve diðer türleri oyun sýrasýnda yerden alabilirsiniz.
+In the game, you can only have certain amounts of same items. Below is a list of these items. Other items you can have unlimited:=Aþaðýdaki öðeler oyunda sýnýrlýdýr, burada bulunmayanlardan istediðiniz kadar taþýyabilirsiniz
+Inventory item limits list:=Sýnýrlý öðeler listesi:
+you are already using the barry_allen character=Zaten bu karakteri kullanýyorsun
+Done, switched to the barry_allen character.=Karakter Barry Allen olarak deðiþtirildi.
+you are already using the tristan character=Zaten bu karakteri kullanýyorsun
+Done, switched to the tristan character.=Karakter Tristan olarak deðiþtirildi.
+you are already using the default character=Zaten bu karakteri kullanýyorsun
+you are already using the kade character=Zaten bu karakteri kullanýyorsun
+Use the up and down arrow keys to read the rules, escape to go back.=Okumak için yukarý ve aþaðý ok tuþlarýný, önceki pencereye dönmek için Escape tuþunu kullanýn.
+Done, switched to the default character.=Karakter varsayýlan olarak deðiþtirildi.
+Done, switched to the kade character.=Karakter Kado olarak deðiþtirildi.
+Purchase success.=Satýn alma baþarýlý.
+This player not on your friend list=Bu oyuncu arkadaþ listenizde deðil
+Watching the match=Maçý izliyor
+If you enter your email incorrectly when creating an account and try to change it later, we will not be able to help.=Hesap oluþtururken geçersiz bir e-posta adresi girerseniz, daha sonra deðiþtirmek veya þifreyi deðiþtirmek isterseniz size yardýmcý olamayýz.
+If you delete your account, and it is your responsibility forever, we do not have the luxury of recovering your account.=Hesabýnýzý silerseniz, isterseniz geri alamayýz, bu nedenle bu kararý verirken dikkatli olun.
+If people insult you, regardless of religion, race, profession, country, it is your responsibility. This is an FPS game, so people can insult in anger, so if you don't want to hear the person's insult, block him/her.=Bir oyuncu dininize, renginize veya cinsiyetinize bakýlmaksýzýn size hakaret ederse, bu sizin görevinizdir ve bunu önlemek için onu engelleme listesine koyabilirsiniz.
+Game rules may evolve. It's the player's responsibility to stay updated with the latest rules and changes.=Oyun kurallarý geliþebilir. En son kurallar ve deðiþikliklerle güncel kalmak oyuncunun sorumluluðundadýr.
+Game rules may evolve. It's the playerâ€™s responsibility to stay updated with the latest rules and changes.=Oyun kurallarý geliþebilir. En son kurallar ve deðiþikliklerle güncel kalmak oyuncunun sorumluluðundadýr.
+You turned off receiving map messages. So you can not send also=Bildirimlerini devre dýþý býraktýðýnýz için haritaya mesaj gönderemezsiniz
+Amount cannot be less than or equal to 0=Sayý 0 veya daha az olamaz
+Amount cannot be higher than the item amount in the chest=Sayý, mevcut olandan daha büyük
+Your inventory is empty=Çantan boþ
+Select the target language you want to use for translating sent messages=Gönderilen mesajlarýnýzý çevirmek için hedef dili seçin
+Error, please join a match to be able to buy a motor.=Bisikleti buradan satýn alamazsýnýz, lütfen maðazadan 500, 463, 0 koordinatlarýnda satýn alabilmek için haritaya girin.
+This item is already your favorite item. Please select another item=Bu favori, favori olarak atamak için baþka bir öðe seçin
+ is updated, please check=Güncellendi, lütfen kontrol edin
+you got 1 zero token=Bir jeton kazandýn
+team Base - Second floor =Üssün ikinci katý
+You have no weapon equipped.=Elinde silah yok
+Player not found=Oyuncu þu anda mevcut deðil ve muhtemelen kapalý
+Error, you can send friend request every 20 seconds.=Hata, her 20 saniyede bir arkadaþlýk isteði gönderebilirsiniz.
+Your voice chat feature has been unblocked by staff=Sesli sohbet engelleme listesinden çýkarýldýnýz, tekrar ederseniz sonsuza dek tekrar engellenirsiniz
+You cannot open the game twice=Oyun zaten açýk
+Error. No input device configured. Please set your input device from game settings.=Mikrofonunuzu ayarlamadýnýz, ayarlamak için oyun ayarlarýna gidin
+you can't collect more than 5 snowflake_shard=Beþten fazla kar tanesi toplayamazsýn
+Language released=Dil yayýnlandý
+match full=Sayý tamamlandý
+Respawning=Yeniden giriþ yapýlýyor
+You cannot do this after hit=Darbe sonrasý þimdi yapamazsýn, darbe sonrasý çýkmak için beklediðin ayný dakikayý bekle
+colt1911, requires 10 zero tokens, description: a pistol weapon=Amerikan yarý-otomatik ve 10 jeton deðerinde
+m4, requires 11 zero tokens, description: powerfull machinegun=Amerikan makineli tüfek ve 11 jeton deðerinde
+fnhfnp40, requires 9 zero tokens, description: powerfull pistol=Tüfek ve 9 jeton deðerinde
+fnhfnp40_ammo_cartrigges, requires 1 zero tokens, description: ammo for fnhfnp40=Tüfek mermisi ve bir jeton deðerinde
+m4_ammo_cartrigges, requires 1 zero tokens, description: ammo for m4=Makineli tüfek mermisi ve bir jeton deðerinde
+colt1911_ammo_cartrigges, requires 1 zero tokens, description: ammo for colt1911 cartrigges=Yarý-otomatik tabanca mermisi ve bir jeton deðerinde
+Select vote to view=Oylamayý seç
+No friends online=Çevrimiçi arkadaþ yok
+Your account must be created at least one week ago before you can delete it=Silebilmek için hesabýnýzýn oluþturulmasýndan bu yana bir hafta geçmiþ olmalý
+Delete your account=Hesabý sil
+kick a member=Üyeyi at
+invite a player to this group=Oyuncuyu davet et
+View group join requests=Katýlým taleplerini görüntüle
+resign from administrating this group=Yönetimden çekil
+disable ticket update mails=Bilet güncelleme bildirimleri
+enable ticket update mails=Bilet güncelleme bildirimleri
+Your motors: =Motorlarýn:
+No one on freedom fight map=Genel haritada izlenecek kimse yok
+You are on the blue team, Press left and right arrow keys to move between teams, up and down keys to see the players in the team you selected, enter key to copy a player's name to clipboard.=Mavi takýmdasýnýz, takýmlar arasýnda gezinmek için sol ve sað ok tuþlarýna, seçtiðiniz takýmdaki oyuncularý görmek için yukarý ve aþaðý ok tuþlarýna, bir oyuncunun adýný panoya kopyalamak için Enter tuþuna basýn.
+not enough players=Oyuncu sayýsý yetersiz
+go!=Baþla!
+This language is exists=Bu dil zaten mevcut
+metal_shield, requires 10 zero tokens, description: This will protect you from hits until its broken when you use it. However, it won't protect from headshots.=Ziro'dan on jetonluk kalkan, kýrýlana kadar sizi darbelerden korur ama kafaya yönelik darbelerden korumaz
+revival_nectar, requires 20 zero tokens, description: increase health to 100%=20 jetonluk can iksiri ve saðlýðýnýzý %100 oranýnda geri kazandýrýr
+vitality_potion, requires 15 zero tokens, description: increase health to 50%=15 jetonluk saðlýk iksiri ve saðlýðýnýzý %50 oranýnda geri kazandýrýr
+small_potion, requires 10 zero tokens, description: increase health to 20%=10 jetonluk küçük iksir ve saðlýðýnýzý %20 oranýnda geri kazandýrýr
+hand_grenade, requires 10 zero tokens, description: It is a type of explosive that can be held by hand and thrown easily.=El bombasý, 10 zero jetonu gerektirir ve bir tür el patlayýcýsýdýr
+timebomb, requires 15 zero tokens, description: Once you arm it, it explodes within 20 seconds and damages anything within 50 feet. You can see how many seconds are left until it explodes from the letter M.=Saatli bomba, 15 jeton gerektirir ve fitilini çektiðinizde 20 saniye içinde patlar ve 50 fit uzaklýktaki her þeye zarar verir. M harfinden patlamasýna ne kadar saniye kaldýðýný görebilirsiniz. Not: M harfini kullanmak için sandýklar gibi yakýn bir bölgede olmanýz gerekir.
+molotov_cocktail, requires 15 zero tokens, description: no description=Molotof, 15 zero jetonu gerektirir
+Select an action=Bir eylem seçin
+enter reply=Bir yanýt yazýn
+Select an item to buy=Satýn alýnacak bir öðe seçin
+Report message sent successfull=Mesaj baþarýyla bildirildi
+Language deleted=Dil silindi
+Are you sure you want to delete this language?=Dili silmek istediðinizden emin misiniz?
+Select player to remove from contributor list=Katkýda bulunanlar listesinden çýkarýlacak bir oyuncu seçin
+Select player to add as contributor=Çeviride sizinle birlikte katkýda bulunacak bir oyuncu seçin
+No contributors=Katkýda bulunan yok
+Select player to make owner=Sahipliði devretmek için bir oyuncu seçin
+release=Yayýnla
+Language was created successfully.=Dil dosyasý baþarýyla oluþturuldu, çeviriye baþlamak için dil yönetimine gidin
+Create language=Dil oluþtur
+motor, requires 30 zero tokens, description: A motor speeding around takes damage when it hits a wall, and your motor takes damage when players shoot.=Motor, 30 zero jetonu gerektirir, Not: Duvara çarpmasý veya oyuncular tarafýndan silahla saldýrýya uðramasý saðlýðýný etkiler
+binoculars, requires 9 zero tokens, description: To see players 120 feet away.=Dürbün, 9 zero jetonu gerektirir ve köprüde, tünelde veya sizin seviyenizde olsalar bile her yönden 120 adým mesafedeki oyuncularý görmek için kullanýlýr
+You have no packs=Görülecek paketiniz yok
+You already have a shield on=Zaten bir kalkan takýyorsun
+Select an object to track=Seç
+Are you sure you want to block this computer from logging into your account? to remove the block, you will have to verify your email access.=Bu bilgisayarýn hesabýnýza giriþ yapmasýný engellemek istediðinizden emin misiniz? Uyarý: Engeli kaldýrmak için e-posta eriþiminizi doðrulamanýz gerekecektir.
+Status set!=Durum ayarlandý!
+Join request removed.=Katýlým talebi iptal edildi.
+Remove joining request=Katýlým talebini iptal et
+Join request sent.=Talep gönderildi.
+Send joining request=Katýlým talebi gönder
+Remove from friend list=Arkadaþ listesinden kaldýr
+View packs you bought from the shop and open them=Maðazadan satýn aldýðýnýz paketleri görüntüleyin
+Go to online store website to buy zero token packs, paid account, event points, etc=Zero jeton paketleri, sýrt çantalarý, etkinlik puanlarý ve ücretli hesap satýn almak için maðazanýn web sayfasýna gidin
+Copy the link of the online store web page to buy zero token packs, paid account, event points, etc=Zero jeton paketleri, sýrt çantalarý, etkinlik puanlarý ve ücretli hesap satýn almak için maðazanýn web sayfasýnýn baðlantýsýný kopyalayýn
+Account settings, Update your account password, rename your character, set a status message, see your rename history, Modify your registered email, delete your account, View Login History and See which devices have accessed your account and block unauthorized devices.=Hesap ayarlarý ve durum belirleme
+Store, Spend the zero tokens you have, view the packages you have purchased, or buy tokens from the virtual store.=Maðaza
+Select category=Kategori seçin
+Please enter the amount of zero tokens you want to transfer.=Göndermek istediðiniz jeton miktarýný girin
+Player not found=Oyuncu mevcut deðil
+Done, friend removed successfully.=Baþarýyla kaldýrýldý.
+Unblock this player from sending you private messages=Bu oyuncunun size özel mesaj göndermesine izin ver
+Block this player from sending you private messages=Bu oyuncunun size özel mesaj göndermesini engelle
+Send friend request=Arkadaþlýk isteði gönder
+View stats=Ýstatistikleri görüntüle
+view status message=Durumu görüntüle
+change voicechat volume=Sesli sohbet seviyesini deðiþtir
+Transfer zero token=Zero jeton gönder
+Reconnecting...=Yeniden baðlanýlýyor...
+Select an account to login=Giriþ yapýlacak bir hesap seçin
+Creating account=Hesap oluþturuluyor
+done! Account created successfully. Please press enter to log in=Hesap baþarýyla oluþturuldu, hesabý kullanmak için giriþe basýn
+Choose a gender for your character.=Karakter için bir cinsiyet seçin.
+Microphone activated=Mikrofon etkinleþtirildi
+Microphone disabled=Mikrofon devre dýþý býrakýldý
+team full=Takým dolu
+Are you sure you want to cancel this match?=Bu maçý iptal etmek istediðinizden emin misiniz?
+This flag is not opposing teams=Bu bayrak takýmýnýza ait
+leave match=Maçtan ayrýl
+Incorrect password=Þifre yanlýþ
+Cancel the match=Maçý iptal et
+select team=Takým seç
+Amount cannot be higher than the amount your inventory can hold of this item=Taþýyabileceðinden daha fazlasýný alamazsýn
+You can't place mine here=Buraya mayýn koyamazsýn
+You cannot exit because someone near you=Yakýnda biri olduðu için çýkamazsýn
+the horn is not active because the motor is not running=Korna çalýþmýyor çünkü motoru çalýþtýrmadýn, çalýþtýrmak için Shift+Enter'a bas
+game sounds muted=Ses zaten kýsýk, yükseltmek için Home'a basýn
+Enter the base=Üsse gir
+Exit the base=Üsten çýk
+Close the door=Kapýyý kapat
+View group base location=Grup üssünün koordinatlarý
+Put all your inventory to chest=Her þeyini sandýða koy
+Get all items from chest=Sandýktaki tüm öðeleri al
+this base reached to max health.=Bu üs maksimum saðlýk seviyesine ulaþtý.
+You accepted the invitation=Daveti baþarýyla kabul ettin
+you can get weapons on your left and right hands. When you get the weapon from your inventory or from numbers you assigned to them, they will be on your left hand. To get them on your right hand, assign the weapon to a number, then press alt+shift+a number. Then you can get another weapon to your left hand with just pressing a number or selecting it from your inventory. Left controll fire the weapon on your left hand, while right control will fire the weapon on your right hand. If you have weapons on your both hands, reload and unload will not be possible. X will tell you the ammo info on your left hand, shift x will tell you ammo information on your right hand. Grave will tell you weapon info on your left hand, shift grave will tlel you weapon info on your right hand. Shift+1 will put the weapon on your left hand to your inventory, and alt+shift+1 will put the weapon on your right hand to the inventory. For right hand, it will play a different scope sound to indicate you which weapon to fire.=Silahlarý sað ve sol ellerinizde ayný anda alabilirsiniz. Bunu yapmak için aþaðýdakileri izleyin: Silahý envanterinizden veya atadýðýnýz numaralardan aldýðýnýzda sol elinizde olacaktýr. Sað elinize almak için silahý bir numaraya atayýn, ardýndan Alt+Shift+numara tuþuna basýn. Ardýndan, atadýðýnýz silah numarasýný basarak veya envanterinizden seçerek sol elinize baþka bir silah alabilirsiniz. Sol Ctrl tuþu sol elinizdeki silahý, sað Ctrl tuþu ise sað elinizdeki silahý ateþler. Her iki elinizde de silah varsa, yeniden doldurma ve boþaltma mümkün olmayacaktýr. X tuþu sol elinizdeki mermi bilgisini, Shift+X tuþu sað elinizdeki mermi bilgisini söyler. Grave tuþu sol elinizdeki silah bilgisini, Shift+Grave tuþu sað elinizdeki silah bilgisini söyler. Shift+1 sol elinizdeki silahý envanterinize, Alt+Shift+1 ise sað elinizdeki silahý envanterinize koyar. Sað el için, hangi silahýn ateþleneceðini belirtmek için farklý bir dürbün sesi çalýnacaktýr.
+By checking this box, I understand that this ticket I am making is for serious inquiries only, doesn't violate the games rules and that misuse of the ticket system in any way including but not limited to spam or misinformation of any kind could result in severe punishments to my account=Bu kutuyu iþaretleyerek, yaptýðým biletin sadece ciddi sorular için olduðunu, oyun kurallarýný ihlal etmediðini ve bilet sisteminin herhangi bir þekilde kötüye kullanýlmasýnýn hesabýma ciddi cezalarla sonuçlanabileceðini anlýyorum.
+submit ticket=Bileti gönder
+Return to previous menu=Önceki menüye dön
+Select ticket to view=Görüntülenecek bir bilet seçin
+You can set the item you want in the inventory as a favorite item. After selecting the item with tab and shift tab, you can do this with shift u. Then you can use that item with the letter u. You can put a favorite item to the letter y also, with the same procedure.=Ýstediðiniz envanter öðesini favori olarak ayarlayabilirsiniz. "Tab" ve "Shift+Tab" ile öðeyi seçtikten sonra, bunu "Shift+U" ile yapabilirsiniz. Ardýndan, bu öðeyi "U" harfine basarak kullanabilirsiniz. Ayný þekilde "Y" harfine de bir favori öðe atayabilirsiniz.
+There is a scope in the game. This allows you to understand whether your weapon can hit something. If this feature is enabled in the settings, a beep will start to sound when your weapon can hit an object.=Oyunda bir dürbün var. Bu dürbün, silahýnýzýn bir þeye isabet edip edemeyeceðini anlamanýzý saðlar. Ayarlarda bu özellik etkinse, silahýnýz bir hedefe isabet edebildiðinde bir bip sesi çalmaya baþlar.
+Select the source language you want to use for translating sent messages=Gönderilen mesajlarý çevirmek için kullanmak istediðiniz kaynak dili seçin.
+The game has translation support when sending and receiving messages. When sending a group chat, general chat, map chat, pm, team chat etc., control enter will send the message by translating it into the language you selectw ith alt l. You can also translate a buffer message with control enter to a language which you can set with shift l.=Oyun, mesaj gönderirken ve alýrken çeviriyi de destekler. Bir grup sohbeti, genel sohbet, harita sohbeti, özel mesajlar veya takým sohbeti gönderirken "Ctrl+Enter" tuþuna basmak, mesajý "Alt+L" ile seçtiðiniz dile çevirerek gönderir. Ayrýca, arabellek mesajýný "Alt+Enter" ile "Shift+L" ile ayarlayabileceðiniz bir dile çevirebilirsiniz.
+Group base destroy history=Yok edilen grup geçmiþi
+each group must be created in the freedom fight map and each group has a base. This base has a chest that members can use to store items. To put items to chest, enter the base and drop the item with backspace when you are near to chest, or use shift backspace to drop a specific amount of that item. When someone creates a group, the group base will spawn next to the player, and there'll be wall. Group members can open the door only, however if the door is left out open, others can also enter the base. In the outside, if the door is closed, a group member can open it by shift enter. When it is on, when anyone presses shift enter, a menu will show which will allow to close the door and enter the base. In the inside in coordinates 0 0 0, pressing shift enter will do these: If the door is on, it will allow anyone to exit the base or to close the door. If the door is closed, anyone inside the base can open it. The base can also be destroyed, and if it happens, the group asociated with it will be permanently deleted. The items put on the base's chest will also be lost. Also, in the chests in the fredom fight map, you can find an item named base_life_amplifier, which you can use to increase base's health. If base's health is less than 2000, door functionality will be not available, and anyone can enter the base.=Her grup genel haritada oluþturulmalý ve her grubun bir üssü olmalýdýr. Bu üs, üyelerin eþyalarýný saklamak için kullanabileceði bir sandýk içerir. Sandýða eþya koymak için üsse girin ve sandýðýn yakýnýndayken backspace ile eþyayý býrakýn veya o eþyadan belirli bir miktar býrakmak için shift+backspace kullanýn. Arkadaþýnýza eþya býraktýðýnýzda olduðu gibi. Biri bir grup oluþturduðunda, grup üssü oyuncunun yanýnda belirir ve bir duvar olur. Grup üyeleri sadece kapýyý açabilir, ancak kapý açýk býrakýlýrsa baþkalarý da üsse girebilir. Dýþarýda, kapý kapalýysa, bir grup üyesi shift+enter ile açabilir. Açýkken, herhangi biri shift+enter tuþuna bastýðýnda, kapýyý kapatmasýna ve üsse girmesine izin veren bir menü gösterir. Ýçeride 0 0 0 koordinatlarýnda, shift+enter tuþuna basmak þunlarý yapar: Kapý açýksa, herhangi birinin üsten çýkmasýna veya kapýyý kapatmasýna izin verir. Kapý kapalýysa, üs içindeki herhangi biri onu açabilir. Üs de yok edilebilir ve bu olursa, onunla iliþkili grup kalýcý olarak silinir. Üs sandýðýna konulan eþyalar da kaybolur. Ayrýca, genel haritadaki sandýklarda, üs saðlýðýný artýrmak için kullanabileceðiniz üs güçlendirme adlý bir öðe bulabilirsiniz. Üs saðlýðý 2000'den azsa, kapý iþlevselliði kullanýlamaz ve herhangi biri üsse girebilir.
+Done, friend request refused successfully.=Arkadaþlýk isteði baþarýyla reddedildi.
+No items on this category=Bu kategoride öðe yok
+Select the target language you want to use for translating buffer messages=Çevirmek istediðiniz hedef dili seçin
+Select the source language you want to use for translating buffer messages=Çevirmek istediðiniz geçici mesajlar için kaynak dili seçin
+Use the up and down arrow keys to read the readme, escape to go back.=Okumak için yukarý ve aþaðý ok tuþlarýný, önceki ekrana dönmek için Escape tuþunu kullanýn.
+you can watch players in freedom fight map also. C and Z won't work on freedom fight map when watching someone., If the person you watch enters the base, you will stop watching them and switch to next available person in freedom fight map. This will also happen if the person returns to lobby. Like watching the matches, right and left arrow moves between available players in freedom fight map, escape stops watching the freedom fight map and puts you back in the lobby.=Genel haritadaki oyuncularý izleyebilirsiniz. C ve Z tuþlarý bu haritada birini izlerken çalýþmaz. Ýzlediðiniz kiþi üsse girerse, onu izlemeyi býrakýr ve bir sonraki uygun kiþiye geçersiniz. Bu, kiþi geri dönerse de olur. Maçlarý izlemek gibi, sað ve sol ok tuþlarý genel haritadaki uygun oyuncular arasýnda hareket eder ve Escape tuþu haritadaki oyuncularý izlemeyi durdurur ve sizi dýþ alana geri götürür.
+In team dead match and zombie vs player modes, when you die, 50% you will faint. If this happens, you will still be in the match, and you have 3 minutes. During this time, a team member can press t to wake you up when they are near you 3 steps, and you will wake up with 20 health. If no one wakes you up in 3 minutes, you will die.=Takým ölü maçý ve zombi vs oyuncu modlarýnda, öldüðünüzde %50 bayýlýrsýnýz. Bu olursa, hala maçta olursunuz ve 3 dakikanýz vardýr. Bu süre zarfýnda, bir takým üyesi 3 adým yakýnýnýzdayken T tuþuna basarak sizi uyandýrabilir ve 20 canla uyanýrsýnýz. 3 dakika içinde kimse sizi uyandýrmazsa, ölürsünüz.
+When you jump from the helicopter, you start falling, so you should open your parachute and close it when you land.=Helikopterden atladýðýnýzda düþmeye baþlarsýnýz, bu yüzden ölmemek için paraþütü açmalý ve sert bir yüzeye ulaþtýktan sonra kapatmalýsýnýz.
+For each match, the player who wins the match earns zero tokens. You can buy items from the store with these tokens.=Her maçta kazanan oyuncu sýfýr jeton kazanýr ve bu sýfýr jetonlarý maðazadan alýþveriþ yapmak, binalar inþa etmek, gruplar oluþturmak ve diðer þeyler için kullanabilirsiniz.
+Select a computer=Bir bilgisayar seçin
+View computers you logged into the game from, and block their accesses=Oyuna giriþ yaptýðýnýz bilgisayarlarý görüntüleyin ve eriþimlerini engelleyin
+You can only change characters in lobby or in the waiting area of a match!=Karakterleri sadece dýþ alanda veya bir maçýn bekleme alanýnda deðiþtirebilirsiniz!
+Select character to switch=Deðiþtirilecek karakteri seçin
+No one talking=Kimse konuþmuyor
+You disabled receiving voice chats.=Sesli sohbetleri almayý devre dýþý býraktýnýz.
+Use up and down arrows to see players within 120 steps, escape to close the binoculars=Gezinmek için dikey oklarý, kapatmak için Escape tuþunu kullanýn
+Use the appropriate language channels when communicating. If you speak a language other than your channel's language, you will be warned; if you continue, your chat will be disabled several times. If you keep doing this, you will be banned from the game for a while.=Ýletiþim kurarken uygun dil kanallarýný kullanýn. Belirlenen kanalýn dilinden baþka bir dilde konuþursanýz uyarýlýrsýnýz; devam ederseniz sohbetiniz birkaç kez devre dýþý býrakýlýr. Bunu yapmaya devam ederseniz, bir süreliðine oyundan yasaklanýrsýnýz.
+Players who disturb players with voice chat, talk loudly despite warnings, or disturb people by playing music or loud content in the game will have their voice chat disabled for a long time, and if they continue, they will be banned from the game for 1 week. If they will continue, we will disable their voice message for permanently.=Sesli sohbetle oyuncularý rahatsýz eden, uyarýlara raðmen yüksek sesle konuþan veya oyunda müzik veya yüksek sesli içerik çalarak insanlarý rahatsýz eden oyuncularýn sesli sohbeti uzun bir süre devre dýþý býrakýlacak ve devam ederlerse bir hafta süreyle oyundan yasaklanacaklardýr.
+View privacy.=Gizlilik
+Use the up and down arrow keys to read the privacy, escape to go back.=Okumak için yukarý ve aþaðý ok tuþlarýný, ana ekrana dönmek için Escape tuþunu kullanýn.
+Zero Hour Assault Privacy Policy=Zero Hour Assault Gizlilik Politikasý
+Effective Date: November 1, 2024=Yürürlük Tarihi: 1 Kasým 2024
+This Privacy Policy explains how NBM Studios ("we," "us," or "our") collects, uses, and protects your data in relation to Zero Hour Assault. By playing the game, you agree to the data practices described in this policy. If you do not accept these terms, please refrain from launching or installing the game.=Bu Gizlilik Politikasý, NBM Studios'un ("biz", "bize" veya "bizim") Zero Hour Assault ile ilgili verilerinizi nasýl topladýðýný, kullandýðýný ve koruduðunu açýklar. Oyunu oynayarak, bu politikada açýklanan veri uygulamalarýný kabul etmiþ olursunuz. Bu þartlarý kabul etmiyorsanýz, lütfen oyunu çalýþtýrmaktan veya kurmaktan kaçýnýn.
+1. Scope of Data Access=1. Veri Eriþimi Kapsamý
+We respect your privacy and limit our access to your personal data. Our direct interactions with your account are restricted to essential game management actions, including, but not limited to:=Gizliliðinize saygý duyuyoruz ve kiþisel verilerinize eriþimimizi sýnýrlýyoruz. Hesabýnýzla olan doðrudan etkileþimlerimiz, bunlarla sýnýrlý olmamak üzere, temel oyun yönetimi eylemleriyle sýnýrlýdýr:
+• Moving your in-game character=• Oyun içi karakterinizi hareket ettirme
+• Disabling voice chat=• Sesli sohbeti devre dýþý býrakma
+• Issuing bans, kicks (disconnections), or other disciplinary actions=• Yasaklama, atma (baðlantý kesme) veya diðer disiplin cezalarý verme
+Data collected by the game for operational purposes is restricted and encrypted. This data is not visible to our administrators or developers and is accessed solely by automated systems as needed.=Oyun tarafýndan operasyonel amaçlarla toplanan veriler kýsýtlý ve þifrelidir. Bu veriler yöneticilerimiz veya geliþtiricilerimiz tarafýndan görülemez ve yalnýzca gerektiðinde otomatik sistemler tarafýndan eriþilir.
+2. Data We Collect=2. Topladýðýmýz Veriler
+To help manage game integrity and enforce our policies, Zero Hour Assault collects certain data from your device. This data enables us to establish a unique identifier associated with your device and includes:=Oyun bütünlüðünü yönetmeye ve politikalarýmýzý uygulamaya yardýmcý olmak için Zero Hour Assault, cihazýnýzdan belirli verileri toplar. Bu veriler, cihazýnýzla iliþkili benzersiz bir tanýmlayýcý oluþturmamýzý saðlar ve þunlarý içerir:
+• BIOS serial number=• BIOS seri numarasý
+• Motherboard manufacturer=• Anakart üreticisi
+• Motherboard model=• Anakart modeli
+• Motherboard version=Anakart sürümü
+• Processor information (name and model)=• Ýþlemci bilgileri (ad ve model)
+• Total amount of RAM installed=RAM miktarý (gigabayt)
+• Number of processor cores=Ýþlemci çekirdek sayýsý
+3. Purpose of Data Collection=3. Veri Toplama Amacý
+The information collected is used to generate a "Unique Computer Identifier," a unique identifier that distinguishes your device from others. This identifier assists in maintaining the security of the game by:=Toplanan bilgiler, cihazýnýzý diðerlerinden ayýran benzersiz bir tanýmlayýcý olan "Benzersiz Bilgisayar Tanýmlayýcýsý" oluþturmak için kullanýlýr. Bu tanýmlayýcý, oyunun güvenliðini saðlamaya yardýmcý olur:
+• Preventing players who violate community standards from circumventing bans=Topluluk standartlarýný ihlal eden oyuncularýn yasaklardan kaçmasýný önleme
+• Ensuring a fair and safe gaming environment for all participants=• Tüm katýlýmcýlar için adil ve güvenli bir oyun ortamý saðlama
+All data collected is encrypted, securely stored, and solely intended for ensuring compliance with community guidelines.=Toplanan tüm veriler þifrelenir, güvenli bir þekilde saklanýr ve yalnýzca topluluk yönergelerine uyumu saðlamak için tasarlanmýþtýr.
+On the server, we only store your username, email, password and gender.=Sunucuda yalnýzca kullanýcý adýnýzý, e-postanýzý, þifrenizi ve cinsiyetinizi saklýyoruz.
+4. Data Protection=4. Veri Koruma
+We take your privacy seriously. All data collected is encrypted and is used only by our automated systems to facilitate community management and enforcement. No personal data is shared, sold, or disclosed to third parties without your consent, except where required by law.=Gizliliðinize saygý duyuyoruz ve ciddiye alýyoruz. Toplanan tüm verileri þifreliyoruz ve yalnýzca topluluk yönetimini ve uygulamasýný kolaylaþtýrmak için otomatik sistemlerimiz tarafýndan kullanýlýr. Kanunen gerekli olmadýkça, onayýnýz olmadan hiçbir kiþisel veri üçüncü taraflarla paylaþýlmaz, satýlmaz veya ifþa edilmez.
+By continuing to use Zero Hour Assault, you acknowledge and accept these privacy terms. We are committed to safeguarding your privacy and invite you to reach out with any questions regarding this policy.=Zero Hour Assault'u kullanmaya devam ederek, bu gizlilik þartlarýný kabul etmiþ olursunuz. Gizliliðinizi korumaya kararlýyýz ve bu politika ile ilgili herhangi bir sorunuz için bizimle iletiþime geçmenizi rica ederiz.
+stairs going down the mountain =Daðdan köprüye inen merdiven
+pet shop, but, all the animals in here are dead and there's another human corpse=Hayvan dükkaný, ancak hayvanlar ölü ve ayrýca insan cesetleri var
+pet shop, but, all the animals in here are dead and there's another human corpse=Evcil hayvan dükkaný
+unban player=Yasaklý oyuncular
+No banned player found=Yasaklý oyuncu bulunamadý
+kick player=Maçtan oyuncu at
+ban player=Oyuncuyu yasakla
+select player to ban=Yasaklanacak bir oyuncu seçmek için oklarý kullanýn ve yasaklamak için Enter tuþunu kullanýn
+select player to kick=Atýlacak bir oyuncu seçmek için oklarý kullanýn ve atmak için Enter tuþunu kullanýn
+connected to the server.=Baðlantý kuruldu.
+The server is rebooting. An attempt will be made to log in shortly. Please wait.=Sunucu yeniden baþlatýlýyor. Kýsa bir süre sonra giriþ yapma denemesi yapýlacaktýr. Lütfen bekleyin.
+server status=Sunucu durumu
+There is no private message to reply to.=Yanýtlanacak özel mesaj yok.
+You are not on any match.=Herhangi bir maçta deðilsin.
+You have to wait 1 minutes to be able to exit after hit=Vurulduktan veya yaralandýktan sonra çýkabilmek için bir dakika beklemeniz gerekir
+shift l and alt l, set translation languages when sending and receiving messages=Shift+M ve Alt+M, mesaj gönderirken ve alýrken çeviri dillerini ayarlar
+alt+x, duck. When you duck, others cannot hit you unless they also duck or aim downwards.=Alt+X, eðilme, eðildiðinizde baþkalarý silahý aþaðýya doðrultmadýkça size isabet edemez
+m, it will open a menu where you can see all nearby objects and track any of them. Press n to learn where the tracked object is.=M, yakýndaki tüm nesneleri görebileceðiniz ve herhangi birini takip edebileceðiniz bir menü açar. Takip ettiðiniz nesnenin nerede olduðunu öðrenmek için N'ye basýn.
+shift u, set a favorite item=Shift+U, ilk favori öðeyi ayarlar
+u, use the favorite item you set=U, ilk favori olarak ayarladýðýnýz öðeyi kullanýr
+shift y, set a 2nd favorite item=Shift+Y, ikinci favori öðeyi ayarlar
+y, use the 2nd favorite item you set=Y, ikinci favori olarak ayarladýðýnýz öðeyi kullanýr
+j, send a message to the team you are on in matches=J, maçlarda bulunduðunuz takýma bir mesaj gönderir
+tab and shift tab, navigate the inventory=Tab ve Shift+Tab, öðeler arasýnda gezinir
+enter, use the selected inventory item=Enter, seçili öðeyi kullanýr
+shift enter, interact with objects on the map=Shift+Enter, haritadaki bileþenlerle (eþya toplama, bisiklete binme gibi) etkileþim kurar
+backspace, drop the selected inventory item. The sound of the item you drop will be low-pitched than normal items, and players must pick them up with shift enter. Shift backspace allows you to drop multiple items of the same item.=Backspace, seçili öðeyi býrakýr. Býraktýðýnýz öðenin sesi normal öðelerden daha düþük tonda olacaktýr ve oyuncular Shift+Enter ile almalýdýr. Shift+Backspace, ayný öðeden birden fazla öðe býrakmanýzý saðlar.
+control, fire=Ctrl, silahý kullanýr. Not: Silahýn hangi elde olduðuna baðlý olarak, yukarýda açýklandýðý gibi.
+space, jump=Space, zýplar
+home and end, adjust the game volume=Home ve End, harita içindeki oyun seviyesini ayarlar
+h, learn health=H, saðlýðý öðrenir
+/, send a public message to the language channel you selected=/ tuþu, seçtiðiniz dil kanalýna genel bir mesaj gönderir
+o, open the game menu. Most in-game operations are done here.=O, oyun menüsünü açar. Oyun içi iþlemlerin çoðu burada yapýlýr.
+left bracket and right bracket, browse buffer categories.=Sol ve sað parantez, arabellek kategorilerinde gezinir.
+comma and period, view items in the selected category.=Virgül ve nokta, seçilen kategorideki öðeleri görüntüler.
+All of these keys can be used with shift, in which case they go to the first and last item.=Tüm bu tuþlar Shift ile kullanýlabilir, bu durumda ilk ve son öðeye giderler.
+e, see players and bots near you=E, yakýnýnýzdaki oyuncularý ve botlarý görür
+n, see where the zone you are tracking is=N, takip ettiðiniz bölgenin nerede olduðunu görür
+shift m, see trackable zones on the map and track one=Shift+M, gidilebilecek yerlerin bir listesini görür, birine gitmek için Enter ile seçin ve bilgisini N ile kontrol edin
+m, see objects other than players and bots near you=M, yakýnýnýzdaki oyuncular ve botlar dýþýndaki þeyleri görür
+l, see participants in your match while in a match.=L, maçtayken maçýnýzdaki katýlýmcýlarý tanýr.
+x, view the ammo status in your weapon=X, elinizdeki silahtaki mermi durumunu görüntüler
+grave, view the weapon's info=Grave, silah bilgilerini görüntüler
+r, reload the weapon=R, elinizdeki silahý doldurur ve ayný anda iki silah kullanýrken kullanýlamaz
+shift r, unload the weapon=Shift+R, silahý mermilerden boþaltýr, doldurulan tüm silahlarla çalýþýr ve ayný anda iki silah kullanýrken kullanýlamaz
+escape, exit the game or menus=Escape, oyundan veya menülerden çýkar
+shift c, copy the selected buffer item=Shift+C, seçili arabellek öðesini kopyalar
+c, view your coordinates=C, koordinatlarýnýzý görüntüler
+left and right arrows, navigate between players while watching the match, walk right and left in classic walk mode, turn 45 degrees in normal walk mode, turn 1 degree with shift=Sol ve sað oklar, maçý izlerken oyuncular arasýnda gezinir, klasik yürüme modunda saða ve sola yürür, normal yürüme modunda 45 derece döner, Shift ile 1 derece döner
+up and down arrows, move forward and backward in classic walk mode, change vertical aim in normal mode=Yukarý ve aþaðý oklar, klasik yürüme modunda ileri ve geri hareket eder, normal modda dikey hedefi deðiþtirir
+a and d, walk right and left in normal walk mode, turn 45 degrees in classic walk mode, turn 1 degree with shift=A ve D, normal yürüme modunda saða ve sola yürür, klasik yürüme modunda 45 derece döner, Shift ile 1 derece döner
+w and s, move forward and backward in normal walk mode, change vertical aim in classic mode=W ve S, normal yürüme modunda ileri ve geri hareket eder, klasik modda dikey hedefi deðiþtirir
+f, learn your direction, learn your vertical aim status with shift f.=F, yönünüzü öðrenir, Shift+F ile dikey niþan durumunuzu öðrenir.
+shift page up and page down, adjust map music volume=Shift+Page Up ve Shift+Page Down, müziðin seviyesini yükseltir ve düþürür, ayrýca merdiven üzerinde dururken oyunda merdiven çýkýp inmenizi saðlar
+apostrophe, send group message=Kesme iþareti, grup mesajý gönderir
+Alt and number keys, navigate between inventory category items.=Alt ve sayý tuþlarý, envanter kategorisi öðeleri arasýnda gezinir.
+Shift v, enable or disable push-to-talk.=Shift+V, bas-konuþ özelliðini etkinleþtirir veya devre dýþý býrakýr.
+v, voice chat=V, sesli sohbet
+alt v, learn who is talking with voice chat. It will only tell the players that you can hear.=Alt+V, sesli sohbetle kimin konuþtuðunu öðrenir. Yalnýzca duyabildiðiniz oyuncularý söyler.
+Number keys, select the weapons you have set, number 1 is always the knife and cannot be changed=Sayý tuþlarý, ayarladýðýnýz silahlarý seçer, 1 numara her zaman býçaktýr ve deðiþtirilemez
+g and arrow keys or a s d w keys, move the camera=G ve ok tuþlarý veya A, S, D, W tuþlarý, kamerayý hareket ettirir
+g and t key, find out where the camera is located=G ve T tuþlarý, kameranýn nerede olduðunu öðrenir
+K, reply to last pm sent.=K, son özel mesaja yanýt verir.
+Z, find out the zone you are in=Z, içinde bulunduðunuz bölgenin doðasýný öðrenir
+you can not look while watching someone=Baþkalarýný izlerken bu özellik çalýþmaz
+you can not look while you watching someone=Baþkalarýný izlerken bu özellik çalýþmaz
+While watching someone on this map, you cannot look at their coordinates.=Bu haritada birini izlerken koordinatlarýna bakamazsýnýz.
+While watching someone on this map, you cannot look at their location=Bu haritada birini izlerken mevcut bölgesini bilemezsiniz.
+1. About Respect=1. Oyunculara Saygý
+2. No Cheating.=2. Hile Yapmamak
+3. Fair Play.=3. Adil Oyun
+4. Language Channels.=4. Dil Kanallarý
+5. No Toxic Behavior.=5. Olumsuz Davranýþlardan Kaçýnmak
+6. No Spamming.=6. Tekrarlanan Mesajlar Göndermemek
+7. No Hacking or Exploiting.=7. Hackleme veya Sömürü Yapmamak
+8. Account Security.=8. Hesap Güvenliði
+10. Stay Updated.=10. Güncel Kalýn
+9. Voice chat.=9. Sesli Sohbet:
+Group menu, Start a new group for collaboration, View Group Invitations, Manage Group Members.=Grup
+view all groups, View groups created in the game, view how many kills and how many deaths they have, send a request to join a group.=Gruplar
+View game readme file, learn the game about.=Oyun açýklamasý
+ticket menu, Submit a new support request, View Your Previous Tickets.=Destek biletleri menüsü. Not: Yazý kutularý çevrilmemiþtir.
+to contact us, use these methods.=Bizimle iletiþime geçmek için bu yöntemleri kullanýn.
+Telegram Group: https://t.me/zerohournbm=Telegram Grubu: https://t.me/zerohournbm
+discord: @bar_long=Diðer Yöntemler
+e-mail: nbmdigital@gmail.com=E-posta: nbmdigital@gmail.com
+website: https://nbmstudios.com=Resmi Sayfa: https://nbmstudios.com
+You can also watch matches, you will have the opportunity to do this when you die, or if you choose to go to the lobby when you die, you can do this by pressing shift enter in the lobby at coordinates 5 0 0. While watching the match, navigate between players or bots with the right and left arrows, and exit the match with escape. Also, while watching players, the info keys give their information. For example, normally the h key gives your health, while in spectating mode it gives the health of the person you are watching.=Ayrýca maçlarý izleyebilirsiniz. Öldüðünüzde bunu yapma fýrsatýnýz olur veya öldüðünüzde dýþ alana gitmeyi seçerseniz, 5 0 0 koordinatlarýnda dýþ alanda Shift+Enter tuþuna basarak bunu yapabilirsiniz. Maçý izlerken sað ve sol oklarla oyuncular veya botlar arasýnda gezinin ve Escape ile maçtan çýkýn. Ayrýca oyuncularý izlerken bilgi tuþlarý onlarýn bilgilerini verir. Örneðin, normalde H tuþu saðlýðýnýzý verirken, izleme modunda izlediðiniz kiþinin saðlýðýný verir.
+To create a match, do the following:=Bir maç oluþturmak için þunlarý yapýn:
+Press shift enter in the lobby at coordinates 5 0 0 and select create match. Then, when you make the necessary selections for the match, the match will be created. If the players join, wait for them, and press shift enter to start the match. This menu also has additional options such as kicking and banning the player you want from the match. If you ban a player, they will not only be banned from this match, but also from all matches you create in the future.=Dýþ alanda 5 0 0 koordinatlarýnda Shift+Enter tuþuna basýn ve maç oluþtur'u seçin. Ardýndan, gerekli seçimleri yaptýðýnýzda maç oluþturulur. Oyuncular katýlmazsa onlarý bekleyin, ardýndan maçý baþlatmak için Shift+Enter tuþuna basýn. Bu menüde ayrýca istediðiniz oyuncuyu maçtan atma ve yasaklama gibi ek seçenekler de bulunur. Bir oyuncuyu yasaklarsanýz, sadece bu maçtan deðil, gelecekte oluþturacaðýnýz tüm maçlardan da yasaklanýr.
+When creating a match, you can set the match as public or private. The difference between public and private matches is that private matches require a password to join.=Bir maç oluþtururken, maçý genel veya özel olarak ayarlayabilirsiniz. Genel ve özel maçlar arasýndaki fark, özel maçlarýn katýlmak için bir þifre gerektirmesidir.
+The game also supports motors, you can buy it from the store. Here's how to use it:=Oyun ayrýca araçlarý da destekler, maðazadan satýn alabilirsiniz. Ýþte nasýl kullanýlacaðý:
+When you get the motor, it will be 1 step ahead of you and you will be able to bump it, To get on it, you must jump and go to the direction of the motor, so you will get on the motor. After you get in, press shift enter and get on the motor.=Aracý aldýðýnýzda bir adým önünüzde olur ve ona çarpabilirsiniz. Üzerine çýkmak için zýplamalý ve onun yönüne gitmelisiniz. Ýçine girdikten sonra Shift+Enter tuþuna basýp araca binin.
+You can start or stop the engine by pressing shift enter. Use the following controls while it is running:=Shift+Enter tuþuna basarak motoru çalýþtýrabilir veya durdurabilirsiniz. Çalýþýrken aþaðýdaki kontrolleri kullanýn:
+Up and down arrows, acceleration and deceleration. You should keep the up arrow pressed continuously so that the engine does not slow down. You can stop instantly even when you are very fast with the down arrow.=Yukarý ve aþaðý oklar, hýzlanma ve yavaþlama. Aracýn yavaþlamamasý için yukarý oku sürekli basýlý tutmalýsýnýz. Aþaðý ok ile çok hýzlýyken bile anýnda durabilirsiniz.
+Space: use the horn=Space, zýplamak için kullanýlýr
+Right and left arrows, turn 45 degrees, which direction you are turning is announced. You can turn 1 degree with the right and left arrows with the shift.=Sað ve sol oklar, 45 derece dönün, döneceðiniz yön anons edilir. Shift ile sað ve sol oklarla 1 derece dönebilirsiniz.
+Escape, get off the motor. However, if you press escape while the motor is moving, you will fall off the motor.=Escape, dururken veya hareket halindeyken araçtan düþmenize neden olur
+Also, others can get on your motor, and if you start the engine and go , they can also go automatically. However, the driver of the motor is always the first to get on, if you get off and others have gotten on, the person who got on after you can drive the motor. Also, if you have gotten your motor but left it lying around, others can get on it and steal it.=Ayrýca, baþkalarý aracýnýza binebilir ve onu çalýþtýrýp giderseniz, onlar da otomatik olarak gidebilirler. Ancak, aracýn sürücüsü her zaman ilk binen kiþidir. Eðer inerseniz ve baþkalarý binmiþse, sizden sonra binen kiþi de aracý sürebilir. Ayrýca, aracýnýzý almýþ ama ortada býrakmýþsanýz, baþkalarý onu alýp çalabilir.
+Each motor you get is specific to that match, you have to get it again in the following matches.=Aldýðýnýz her araç o maça özeldir, sonraki maçlarda tekrar almanýz gerekir.
+Your motor can also hit walls, and if this happens, you will fall off the motor and your motor will lose 30 health. If the motor gets close to a wall, you will hear a beep, in which case you should turn away and walk away. Other players can also hit your motor and destroy it.=Araç ayrýca duvarlara çarpabilir ve bu olursa, araçtan düþersiniz ve araç 30 can kaybeder. Duvara yaklaþýrsanýz bir bip sesi duyarsýnýz, bu durumda uzaklaþmalýsýnýz. Diðer oyuncular da onu vurup yok edebilir.
+You can voicechat with people in the game. After you have set who you will voice chat with in the settings, you can chat with them with the v key. If push to talk is on, hold down the v key to talk, if it is off, the v key will turn voice chat on and off every time you press it. You can control push to talk with the shift v.=Oyundaki kiþilerle sesli sohbet edebilirsiniz. Ayarlarda kiminle konuþacaðýnýzý belirledikten sonra V tuþu ile onlarla sohbet edebilirsiniz. "Bas-konuþ" özelliði açýksa, konuþmak için V tuþunu basýlý tutun, kapalýysa V tuþu her bastýðýnýzda sesli sohbeti açýp kapatýr. Bas-konuþ özelliðini Shift+V ile kontrol edebilirsiniz.
+You can also play the game with a joystick. However, there is no default joystick layout in the game, you must set which keys on the joystick are used for what in the settings, otherwise none of the keys on your joystick will work. There are a few exceptions to this, and you cannot change these keys, these are:=Oyunu bir joystick ile de oynayabilirsiniz. Ancak, oyunda varsayýlan bir joystick düzeni yoktur. Joystick üzerindeki tuþlarýn ne için kullanýlacaðýný ayarlarda belirlemelisiniz, aksi takdirde joystick'inizdeki hiçbir tuþ çalýþmaz. Bunun birkaç istisnasý vardýr ve bu tuþlarý deðiþtiremezsiniz, bunlar:
+The up and down dpad buttons navigate menus or change weapons while in the game.=Yukarý ve aþaðý d-pad tuþlarý menülerde gezinir veya oyundayken silah deðiþtirir.
+The right dpad button activates the current option in the menus, acts as the enter key in the game.=Sað d-pad tuþu menülerdeki mevcut seçeneði etkinleþtirir, oyunda Enter tuþu olarak iþlev görür.
+The left dpad button returns to the previous menu in the menus, acts as the escape key in the game.=Sol d-pad tuþu menülerde önceki menüye döner, oyunda Escape tuþu olarak iþlev görür.
+The left stick moves the character, The right stick turns the character.=Sol çubuk karakteri hareket ettirir, sað çubuk karakteri döndürür.
+Also if you connect more than one joystick, you can use the joystick you want, you don't have to choose from the settings, the game will detect which joystick buttons you press. However, there can be confusion in the key mappings because the buttons and codes of each joystick can be different, so if you connect 2 or more joysticks, make sure they are the same brand/model.=Ayrýca birden fazla joystick baðlarsanýz, istediðiniz joystick'i kullanabilirsiniz. Ayarlardan seçmek zorunda deðilsiniz, oyun hangi joystick tuþlarýna bastýðýnýzý algýlar. Ancak, her joystick'in tuþlarý ve kodlarý farklý olabileceðinden tuþ atamalarýnda karýþýklýk olabilir, bu nedenle 2 veya daha fazla joystick baðlarsanýz, ayný marka ve model olduklarýndan emin olun.
+This game supports vertical aiming. This means you can even hit things above or below you. You can aim up and down with the up and down arrows, and as you aim up and down, the sounds will make it sound like you are above or below. You can aim up or down up to 20 steps.=Bu oyun dikey niþan almayý destekler. Bu, üstünüzdeki veya altýnýzdaki þeylere bile vurabileceðiniz anlamýna gelir. Yukarý ve aþaðý oklarla yukarý ve aþaðý niþan alabilirsiniz ve yukarý ve aþaðý niþan aldýkça sesler sanki üstünüzde veya altýnýzdaymýþsýnýz gibi ses çýkarýr. 20 adýma kadar yukarý veya aþaðý niþan alabilirsiniz.
+Note: If you are using the classic walking mode, you will walk with the arrow keys instead of w, s, a and d, so you can aim with the w and s keys. Also, the turning keys are the d and a keys in classic walking mode, these keys turn you 45 degrees and the direction you are in is announced. Pressing these keys with shift turns you 1 degree and the direction you turn is not announced. In normal walking mode, you walk with the w a s and d keys, you can turn and aim with the arrow keys. Also, pressing the aim keys once will make you aim 1 step more in that direction, while pressing with shift will make you aim 5 steps.=Not: Klasik yürüme modunu kullanýyorsanýz, W, S, A ve D yerine ok tuþlarýyla yürürsünüz, böylece W ve S tuþlarýyla niþan alabilirsiniz. Ayrýca, klasik yürüme modunda dönme tuþlarý D ve A tuþlarýdýr. Bu tuþlar sizi 45 derece döndürür ve bulunduðunuz yön anons edilir. Bu tuþlara Shift ile basmak sizi 1 derece döndürür ve döndüðünüz yön anons edilmez. Normal yürüme modunda W, A, S ve D tuþlarýyla yürürsünüz, ok tuþlarýyla dönebilir ve niþan alabilirsiniz. Ayrýca, niþan tuþlarýna bir kez basmak o yönde 1 adým daha niþan almanýzý saðlarken, Shift ile basmak 5 adým niþan almanýzý saðlar.
+It is also possible to play the game with the mouse. After enabling this from the settings, the following can be done with the mouse:=Oyunu fare ile oynamak da mümkündür. Ayarlardan bunu etkinleþtirdikten sonra, fare ile þunlar yapýlabilir:
+Moving the mouse turns the character.=Fareyi hareket ettirmek karakteri döndürür.
+Left click shoots.=Sol týklama silahý kullanýr.
+Wheel changes weapons.=Tekerlek silahlarý deðiþtirir.
+Right click walks in the direction you are facing.=Sað týklama baktýðýnýz yöne doðru yürür.
+You can become friends with players in the game. This allows you to send them private messages and be notified when they enter and exit the game. You do not receive notifications when normal players enter and exit the game.=Oyundaki oyuncularla arkadaþ olabilirsiniz. Bu, onlara özel mesajlar göndermenizi ve oyuna girip çýktýklarýnda bildirim almanýzý saðlar. Normal oyuncular oyuna girip çýktýðýnda bildirim almazsýnýz.
+You can create groups in the game and other players can join these groups. They can send requests to your group or you can invite them. People in the same group can send private messages to the group. You can also see how many kills and deaths each group has and its members in the group information menu. In addition, the group owner can add additional administrators to the group, these administrators do not have as much authority as the group owner, but they can still manage the basic functions of the group.=Oyunda gruplar oluþturabilir ve diðer oyuncular bu gruplara katýlabilir. Grubunuza istek gönderebilirler veya onlarý davet edebilirsiniz. Ayný gruptaki kiþiler gruba özel mesajlar gönderebilir. Ayrýca her grubun ne kadar öldürme ve ölüm sayýsý olduðunu ve üyelerini grup bilgileri menüsünde görebilirsiniz. Ayrýca, grup sahibi gruba ek yöneticiler ekleyebilir. Bu yöneticiler grup sahibi kadar yetkiye sahip deðildir, ancak yine de grubun temel iþlevlerini yönetebilirler.
+Apart from groups, there is also a general chat in the game, you can select a language channel with f11 and send a message to that channel with the / key.=Gruplarýn yaný sýra, oyunda genel bir sohbet de vardýr. F11 ile bir dil kanalý seçebilir ve / tuþu ile o kanala bir mesaj gönderebilirsiniz.
+There is a headshot system in the game. If you shoot someone two steps below you, you will deal 2 times more damage than you would normally.=Oyunda bir kafa vuruþu sistemi vardýr. Ýki adým altýnýzdaki birini vurursanýz, normalden 2 kat daha fazla hasar verirsiniz.
+There are 3 items in the game to increase health. These are Small potion, vitality potion and revival nectar. All of them increase your health at different rates.=Oyunda saðlýðý artýrmak için 3 öðe vardýr. Bunlar küçük iksir, canlýlýk iksiri ve canlanma nektarýdýr. Hepsi saðlýðýnýzý farklý oranlarda artýrýr.
+There is an item called binoculars in the game. With this item, you can see players within 120 steps of you.=Oyunda dürbün adlý bir öðe vardýr. Bu öðe ile 120 adým içindeki oyuncularý görebilirsiniz.
+You can assign your current weapon to any number you want in the game=Mevcut silahýnýzý oyunda istediðiniz herhangi bir numaraya atayabilirsiniz
+. When you have the weapon you want in your hand, when you press a number with the shift key, the weapon will be assigned to that number. Then, when you press that number, if you have that weapon in your inventory, you can draw it directly.=Ýstediðiniz silahý elinizde tutarken Shift tuþu ile bir numaraya basarsanýz, silah o numaraya atanýr. Daha sonra o numaraya bastýðýnýzda, o silah envanterinizde varsa, doðrudan çekebilirsiniz.
+In team matches, bots have the following feature. You can call bots to your side. If you write come to the team you are on with the letter J and then a bot name, example come botname, that bot will come to your side and always follow you. You can write go and the bot name to send the bot back. You can also call all bots to your side with the come all command and send them back with go all.=Takým maçlarýnda, botlarýn aþaðýdaki özelliði vardýr. Botlarý yanýnýza çaðýrabilirsiniz. Takýmýnýzda J harfi ile come yazýp ardýndan bir bot adý yazarsanýz, örneðin come botname, o bot yanýnýza gelir ve sizi her zaman takip eder. Botu geri göndermek için go ve bot adýný yazabilirsiniz. Ayrýca come all komutuyla tüm botlarý yanýnýza çaðýrabilir ve go all ile geri gönderebilirsiniz.
+There is a scope in the game. This allows you to understand whether your weapon can hit something. If this feature is enabled in the settings, a beep will start to sound when your weapon can hit an object.=Oyunda bir dürbün vardýr. Bu, silahýnýzýn bir þeye isabet edip edemeyeceðini anlamanýzý saðlar. Ayarlarda bu özellik etkinleþtirilirse, silahýnýz herhangi bir þeye isabet edebildiðinde bir uyarý sesi çalmaya baþlar.
+You can set the item you want in the inventory as a favorite item. After selecting the item with tab and shift tab, you can do this with shift u. Then you can use that item with the letter u.=Ýstediðiniz envanter öðesini favori olarak ayarlayabilirsiniz. Tab ve Shift+Tab ile öðeyi seçtikten sonra, Shift+U tuþuna basýn ve kullanmak için sadece U harfine basýn.
+You can break some walls in matches. However, this does not apply to all walls on the map.=Maçlarda bazý duvarlarý kýrabilirsiniz. Ancak, bu haritadaki tüm duvarlar için geçerli deðildir.
+When you join a match, you can leave if you want before the creator starts the match. When you press shift enter, you only get the option to leave. However, if the match is started, you cannot leave.=Bir maça katýldýðýnýzda, kurucu maçý baþlatmadan önce isterseniz ayrýlabilirsiniz. Shift+Enter tuþuna bastýðýnýzda, yalnýzca ayrýlma seçeneðiniz olur. Ancak, maç baþlarsa ayrýlamazsýnýz.
+The game supports playing YouTube videos in-game. Press F9. While playing a video, f6 pauses it, shift f7 and shift f8 skip to the previous and next video respectively, F7 and F8 rewind and forward the current video respectively, and shift home and shift end control the volume of the current video.=Oyun, oyun içinde YouTube videolarý oynatmayý destekler. F9'a basýn. Bir video oynatýlýrken, F6 duraklatýr, Shift+F7 ve Shift+F8 sýrasýyla önceki ve sonraki videoya atlar, F7 ve F8 mevcut videoyu geri ve ileri sarar ve Shift+Home ve Shift+End mevcut videonun ses seviyesini kontrol eder.
+When you die in the game, you lose the items you collected in the match. However, some items you buy from the store may be permanent, you will not lose them. Each time you join a match, you are given some items to use in the match, which items are given may vary from match mode to match mode.=Oyunda öldüðünüzde, maçta topladýðýnýz öðeleri kaybedersiniz. Ancak, maðazadan satýn aldýðýnýz bazý öðeler kalýcý olabilir ve onlarý kaybetmezsiniz. Her maça katýldýðýnýzda, maçta kullanmanýz için bazý öðeler verilir ve verilen öðeler maç moduna göre deðiþebilir.
+The game has a character system. You can buy characters from the store and they are permanent. Each character has different voices and different specifications, and you can change characters from the game menu.=Oyunun bir karakter sistemi vardýr. Maðazadan karakterler satýn alabilir ve bunlar kalýcýdýr. Her karakterin farklý sesleri ve farklý özellikleri vardýr ve oyun menüsünden karakterleri deðiþtirebilirsiniz.
+The game has a ticket system. You can report any questions you want to ask the developers or bugs you find in the game by opening a ticket.=Oyunun bir bilet sistemi vardýr. Geliþtiricilere sormak istediðiniz sorularý veya oyunda bulduðunuz hatalarý bir bilet açarak bildirebilirsiniz.
+Bots in different team: enabled=Diðer takýmdaki botlar
+Bots in different team: disabled=Diðer takýmdaki botlar
+players in same team: enabled=Takýmýmdaki oyuncular
+players in same team: disabled=Takýmýmdaki oyuncular
+players in different team: enabled=Baþka takýmdaki oyuncular
+players in different team: disabled=Baþka takýmdaki oyuncular
+players in same group: enabled=Bulunduðum gruptaki oyuncular
+players in same group: disabled=Bulunduðum gruptaki oyuncular
+players in different group: enabled=Baþka bir gruptaki oyuncular
+players in different group: disabled=Baþka bir gruptaki oyuncular
+Bots in same team: enabled=Takýmýmdaki botlar
+Bots in same team: disabled=Takýmýmdaki botlar
+Set what indicators you want to hear for near players/bots=Yakýndaki botlar için duymak istediðiniz göstergeleri ayarlayýn
+Character voice: disabled=Karakterin kendi sesi
+Character voice: enabled=Karakterin kendi sesi
+Sound: enabled=Bot sesi
+Sound: disabled=Bot sesi
+Set who's near notifications you want to receive=Bildirim ayarlarý
+Enable Speak degrees when turning in 1 degree increments=1 derecelik artýþlarla dönerken yönü anons et
+Disable Speak degrees when turning in 1 degree increments=1 derecelik artýþlarla dönerken yönü anons et
+Enable Speak facing direction when turning in 45 degree increments=45 derecelik artýþlarla dönerken yönü anons et
+Disable Speak facing direction when turning in 45 degree increments=45 derecelik artýþlarla dönerken yönü anons et
+Enable Auto running=Otomatik koþma
+Disable Auto running=Otomatik koþma
+ Keep your account secure. Sharing your account information is at your own risk, and compromised accounts may lead to loss of progress or access.=Hesabýnýzý güvende tutun. Hesap bilgilerinizi paylaþmak kendi sorumluluðunuzdadýr ve ele geçirilen hesaplar ilerleme veya eriþim kaybýna yol açabilir.
+a sign =Tabela, okumak için Shift+Enter'a basýn
+1. Respect Other Players:=1. Diðer Oyunculara Saygý
+2. No Cheating:=2. Hile Yapmamak
+3. Fair Play:=3. Adil Oyun
+4. Language Channels:=4. Dil Kanallarý
+5. No Toxic Behavior:=5. Olumsuz Davranýþlardan Kaçýnmak
+6. No Spamming:=6. Tekrarlanan Mesajlar Göndermemek
+7. No Hacking or Exploiting:=7. Hackleme veya Sömürü Yapmamak
+8. Account Security:=8. Hesap Güvenliði
+10. Stay Updated:=10. Güncel Kalýn
+9. Voice chat:=9. Sesli Sohbet:
+accept=Kabul et
+Add contributor=Katkýda bulunan ekle
+add friend=Arkadaþ ekle
+add line=Satýr ekle
+Administrators: resolving player issues, crafting maps, and other duties.=Yöneticiler: Oyuncu sorunlarýný çözme, harita oluþturma ve diðer görevler.
+Always treat fellow players with respect. Insults, harassment, or any form of discrimination is strictly prohibited. You can insult someone's personality, but if you continue when the other party asks you to stop doing so, your chat will be closed.=Diðer oyunculara her zaman saygýyla davranýn. Hakaretler, taciz veya her türlü ayrýmcýlýk kesinlikle yasaktýr. Birinin kiþiliðiyle alay edebilirsiniz, ancak karþý taraf sizden durmanýzý istediðinde devam ederseniz sohbetiniz kapatýlýr.
+Are you sure to leave the game, press escape or the left D-pad button of the joystick to cancel, press enter or the right D-pad button of the joystick to disconnect.=Oyundan çýkmak istediðinizden emin misiniz? Ýptal etmek için ESC tuþuna, onaylamak ve çýkmak için Enter tuþuna basýn.
+Are you sure you want to go to freedom fight map? You will lose all the items you have.=Açýk savaþ haritasýna gitmek istediðinizden emin misiniz? Sahip olduðunuz tüm eþyalarý kaybedeceksiniz.
+Are you sure you want to return to lobby? You will lose all the items you got in this map.=Dýþ alana dönmek istediðinizden emin misiniz? Bu haritadan aldýðýnýz tüm eþyalarý kaybedeceksiniz.
+Back to main menu=Ana menüye dön
+Back to settings=Ayarlara dön
+Bots do not track players, they walk around the map randomly. They will go there if gunshots are heard nearby.=Ama oyuncularý takip etmezler, haritada rastgele dolaþýrlar. Yakýnda silah sesleri duyulursa oraya giderler.
+Builders: Capable of constructing maps and integrating them into the game.=Ýnþaatçýlar: Harita oluþturma ve oyuna ekleme yeteneðine sahiptirler.
+canceled=Ýptal edildi
+Change language=Dili deðiþtir
+Change owner=Sahibi deðiþtir
+Cheating or using unauthorized third-party software to gain an unfair advantage will result in an immediate ban.=Hile yapmak veya haksýz bir avantaj elde etmek için yetkisiz üçüncü taraf yazýlýmlarý kullanmak anýnda yasaklanmayla sonuçlanýr.
+Configure joystick buttons=Joystick tuþlarýný yapýlandýr
+connecting=Baðlanýyor
+copy data=Verileri kopyala
+copyed=Kopyalandý
+create a match=Maç oluþtur
+Create An Account=Hesap oluþtur
+delete language=Dili sil
+Developers: Has the ability to view or edit the game's code.=Geliþtiriciler: Oyunun kodunu görüntüleme veya düzenleme yeteneðine sahiptirler.
+Disable announcement of near players= Yakýndaki oyuncularýn anonsu
+Disable classic walking style= Klasik yürüme modu
+Disable hearing map sign sound= Harita tabelasý sesini duyma
+Disable hrtf= HRTF
+Disable kill counter notification=  Öldürme sayýsý bildirimini devre dýþý býrak
+Disable listening your own voice while voicechatting= Sohbet sýrasýnda kendi sesinizi dinleme
+Disable logo play at startup= Baþlangýçta logoyu oynat
+Disable muting of speech and audio when the game window is not in focus= Oyun penceresi odakta olmadýðýnda ses ve konuþmayý sessize al
+Disable online and offline messages= Giriþ ve çýkýþ mesajlarý
+Disable Play match-specific music in the game= Oyunda maça özgü müzik
+Disable push to talk for voicechat= Sesli sohbette bas-konuþ özelliði
+Disable Save buffer messages to the log.txt= Arabellek mesajlarýný log.txt'ye kaydet
+Disable saving of buffer items when exiting the game= Oyundan çýkarken arabellek öðelerini kaydet
+Disable scope= Silahýnýzýn önünde birinin olduðuna dair uyarý sesi
+Disable speech interrupt= Konuþma kesintisi
+Disable Stop aiming when key is not held down= Tuþa basýlmadýðýnda niþan almayý durdur
+Disable turning and shooting with mouse= Fare ile dönme ve ateþ etme
+does not take ammo= Mermi almaz
+Donate with PayPal.=PayPal ile baðýþ yapýn.
+Donate with using card.=Banka kartý ile baðýþ yapýn.
+Done, friend request accepted successfully.=Talep baþarýyla kabul edildi.
+Done, friend request sent successfully.=Talep baþarýyla gönderildi.
+Done=Tamamlandý
+Enable announcement of near players= Yakýndaki oyuncularýn anonsu
+Enable classic walking style= Klasik yürüme modu
+Enable hearing map sign sound= Harita tabelasý sesini duyma
+enable hrtf= HRTF
+Enable kill counter notification= Öldürme sayýsý bildirimini etkinleþtir
+enable listening your own voice while voicechatting= Sohbet sýrasýnda kendi sesinizi dinlemeyi etkinleþtir
+Enable logo play at startup= Baþlangýçta logoyu oynat
+Enable muting of speech and audio when the game window is not in focus= Oyun penceresi odakta olmadýðýnda ses ve konuþmayý sessize al
+Enable online and offline messages= Giriþ ve çýkýþ mesajlarý
+Enable Play match-specific music in the game= Oyunda maça özgü müzik çal
+enable push to talk for voicechat= Sohbette bas-konuþ özelliði
+Enable Save buffer messages to the log.txt= Arabellek mesajlarýný log.txt'ye kaydet
+enable saving of buffer items when exiting the game= Oyundan çýkarken arabellek öðelerini kaydet
+Enable scope= Dürbün
+enable speech interrupt= Konuþma kesintisi
+Enable Stop aiming when key is not held down= Tuþa basýlmadýðýnda niþan almayý durdur
+Enable turning and shooting with mouse= Fare ile dönme ve ateþ etme
+Enemy Bot beep sound.=Düþman botu.
+English=Ýngilizce
+Error, no joystick found. Waiting for joysticks ... Press escape to cancel.=Hata, joystick bulunamadý. Joystick'i takýn veya iptal etmek için Escape'e basýn.
+Error, you can't send friend request to this player because they turned of receiving friend requests.=Üzgünüz, arkadaþlýk isteði alýmýný devre dýþý býraktýðý için bu oyuncuya arkadaþlýk isteði gönderemezsiniz.
+events, Daily Rewards, Upcoming Events.=Günlük Hediyeler
+Exit the game.=Oyundan çýk
+Explosive battle: This mode is similar to the previous one, but players can only use grenades and molotovs, they cannot use any weapons, including knives. When you use a grenade directly, it is not thrown immediately, when you first you hear a sound, after this sound, you must press enter again and throw the grenade. However, if you are too late, the grenade will explode on you.=Patlayýcý savaþý: Bu mod önceki moda benzer, ancak oyuncular sadece el bombalarý ve molotoflar kullanabilir, býçaklar da dahil olmak üzere hiçbir silah kullanamazlar. Bir el bombasýný doðrudan kullandýðýnýzda, hemen atýlmaz, önce bir ses duyarsýnýz, bu sesten sonra Enter tuþuna tekrar basýp el bombasýný atmalýsýnýz. Ancak, çok geç kalýrsanýz, el bombasý üzerinizde patlar.
+faster=Hýzlý
+For each match, the player who wins the match earns zero tokens. You can buy items from the store ??these tokens.=Her maçta, maçý kazanan oyuncu sýfýr jeton kazanýr ve bu jetonlarý kullanarak maðazadan eþya satýn alabilir.
+forward=Ýleri
+Friend menu, Send a friend request, View Pending Friend Requests, Remove Friend.=Arkadaþlar
+Game menu=Oyun menüsü
+Game settings, Change your game settings.=Ayarlar
+General Chat message Tone=Genel sohbet mesajý tonu
+Get your daily zero token=Günlük zero jetonunu al
+go back=Geri dön
+ Hacking, exploiting game vulnerabilities, or unauthorized access to accounts will result in permanent bans.=Hackleme, oyun açýklarýný sömürme veya hesaplara yetkisiz eriþim kalýcý yasaklamalarla sonuçlanýr.
+hello=Merhaba
+High quality (Recommended)=Yüksek (önerilir)
+In addition, a player earns score points for each player they kill. You can see the score points of the players from the view ranking list section in the main menu. In addition, players have ranks, as the score points increase, they rise to higher ranks.=Ayrýca, bir oyuncu öldürdüðü her oyuncu için puan kazanýr. Oyuncularýn puanlarýný ana menüdeki sýralama listesini görüntüle bölümünden görebilirsiniz. Ayrýca, oyuncularýn rütbeleri vardýr, puan arttýkça daha yüksek rütbelere yükselirler.
+in team dead match, last man standing and zombie vs player modes, the map will gradualy shrink as match continues.=Takým ölü maçý, son adam ayakta ve zombi vs oyuncu modlarýnda, maç devam ettikçe harita giderek küçülür.
+join or spectate a match=Maça katýl veya izle
+join the official telegram group of Zero Hour Assault.=Resmi Telegram grubuna katýl.
+ Keep your account secure. Sharing your account information is=Hesabýnýzý güvende tutun. Hesap bilgilerinizi paylaþmak
+your own risk, and compromised accounts may lead to loss of progress or access.=kendi sorumluluðunuzdadýr ve ele geçirilen hesaplar ilerleme veya eriþim kaybýna yol açabilir.
+Knife fight match: This mode is similar to the previous one, but you can only use knife and the map is smaller. You can also collect  snowflake shards in this mode, by pressing shift enter. You can collect up to 5. When you throw these, they will stun the enemy for 3 seconds.=Býçak dövüþü maçý: Bu mod önceki moda benzer, ancak sadece býçak kullanabilirsiniz ve harita daha küçüktür. Bu modda Shift+Enter tuþuna basarak kar taneleri de toplayabilirsiniz. En fazla 5 tane toplayabilirsiniz. Bunlarý attýðýnýzda, düþmaný 3 saniye sersemletir.
+Language was updated successfully.=Dil baþarýyla güncellendi.
+languages menu=Diller menüsü
+languages, Manage Languages, Switch to a Language, Get syntax ? usage tips for creating languages, Create New Language.=Diller
+Last man standing: In this mode, the players are alone and there is no team, the last player standing wins.=Son adam ayakta: Bu modda, oyuncular yalnýzdýr ve takým yoktur, ayakta kalan son oyuncu kazanýr.
+Learn game sounds=Oyun seslerini öðren
+Leave from freedom fight map=Açýk savaþ haritasýndan çýk
+Login Options=Giriþ seçenekleri
+Logo. Press enter to continue.=Logo. Devam etmek için Enter'a basýn.
+Low quality=Düþük kalite
+Make suggestions, leave feedback, report bugs.=Yönetimle konuþ
+Make us a small donation. If you like the game and if you can, a small donation would be appreciated.=Bize küçük bir baðýþ yapýn. Oyunu beðendiyseniz bunu takdir ederiz.
+Manage languages=Dilleri yönet
+max volume=Ses zaten çok yüksek, kýsmak için End'e basýn
+Medium quality=Orta kalite
+No friend requests found.=Arkadaþlýk isteði bulunamadý.
+No match created yet=Henüz maç yok
+no, i dont want to add bot in this match=Hayýr
+no=Hayýr
+Nobody near you=Yakýnda kimse yok
+Pending friend requests sent to you=Size gönderilen bekleyen arkadaþlýk istekleri
+Pending friend requests you sent=Gönderdiðiniz bekleyen arkadaþlýk istekleri
+Play fairly and follow the game's mechanics and rules. Exploiting bugs or loopholes for personal gain is not allowed.=Adil oynayýn ve oyunun mekaniklerine ve kurallarýna uyun. Kiþisel kazanç için hatalarý veya açýklarý sömürmek yasaktýr.
+Players can also optionally add bots to matches when creating them. So, for example, if the creator wanted the match to be 5 vs 5 (5 players on each team), but only 2 players joined the match, the bots will fill in the remaining players' places. Bots are just like normal players, they can pick up items from the ground, have inventories, and use weapons they pick up.=Oyuncular ayrýca maç oluþtururken isteðe baðlý olarak bot ekleyebilirler. Yani, örneðin, kurucu maçýn 5'e 5 (her takýmda 5 oyuncu) olmasýný istediyse, ancak maça sadece 2 oyuncu katýldýysa, botlar kalan oyuncularýn yerlerini doldurur. Botlar normal oyuncular gibidir, yerden eþya alabilir, envanterleri olabilir ve aldýklarý silahlarý kullanabilirler.
+Please enter a match password=Lütfen maç için bir þifre girin
+Please input new line=Yazýn veya yapýþtýrýn
+Please paste language data=Lütfen verileri yapýþtýrýn
+Please select a language.=Lütfen yukarý ve aþaðý oklarla istediðiniz dili seçin ve Enter ile seçin.
+Please select a match to join.=Katýlmak istediðiniz maçý seçin.
+Please select an option.=Lütfen seçin.
+Please select the device you want to use.=Lütfen istediðiniz mikrofonu seçin.
+português=Portekizce
+Press escape to return.= Bitirmek için Escape'e basýn.
+Press shift enter in the lobby at coordinates 5 0 0 and select create match. Then, when you make the necessary selections for the match, the match will be created. If the players join, wait for them, and press shift enter to start the match. This menu also has additional options such as kicking and banning the player you want from the match. If you ban a player, they will not only be banned from this match, but also from all matches you create in the future.=Dýþ alanda 5 0 0 koordinatlarýnda Shift+Enter tuþuna basýn ve maç oluþtur'u seçin. Ardýndan, gerekli seçimleri yaptýðýnýzda maç oluþturulur. Oyuncular katýlmazsa onlarý bekleyin, ardýndan maçý baþlatmak için Shift+Enter tuþuna basýn. Bu menüde ayrýca istediðiniz oyuncuyu maçtan atma ve yasaklama gibi ek seçenekler de bulunur. Bir oyuncuyu yasaklarsanýz, sadece bu maçtan deðil, gelecekte oluþturacaðýnýz tüm maçlardan da yasaklanýr.
+Push to talk off=Sürekli konuþma özelliði etkinleþtirildi
+push to talk on=Mikrofon kapatýldý
+Recover your password=Þifreyi kurtar
+decline=Reddet
+refuse=Reddet
+Select an invitation.=Oklarla daveti seçin ve seçmek için Enter'a, çýkmak için Escape'e basýn.
+Select what would you like to do.=Ne yapmak istediðinizi seçin.
+Remove contributor=Katkýda bulunaný kaldýr
+Remove friend=Arkadaþ listesinden bir oyuncuyu kaldýr
+Select a zone to track.=Takip edilecek bir bölge seçin.
+Select input device for voicechat=Sesli sohbet için istediðiniz mikrofonu seçin
+Select language to manage=Yönetilecek bir dil seçin
+Select match mode=Modu seçin
+Select match visibility=Maç türünü seçin
+Select player to add as friend=Arkadaþ olarak eklenecek bir oyuncu seçin
+Select player to refuse or accept=Kabul edilecek veya reddedilecek bir oyuncu seçin
+Select player to remove from friend list=Kaldýrýlacak bir oyuncu seçin
+Select player to remove your request=Arkadaþlýk isteðini iptal edilecek bir oyuncu seçin
+Select player to send private message=Özel mesaj gönderilecek bir oyuncu seçin
+Select quality=Kaliteyi seçin
+Select the match type=Maç sistemini seçin
+Select what you would like to do.=Ne yapmak istediðinizi seçin
+Server Status.=Sunucu durumu
+Set turning speed. Currently default=Dönme hýzýný ayarla. Varsayýlan
+Set turning speed. Currently faster=Dönme hýzýný ayarla. Hýzlý
+Set turning speed. Currently slower=Dönme hýzýný ayarla. Yavaþ
+Set voicechat quality=Sesli sohbet kalitesini ayarla
+Set voicechat volume=Sesli sohbet seviyesini ayarla
+Set who you want to voicechat with=Kiminle konuþmak istediðinizi ayarlayýn
+settings=Ayarlar
+setup an existing account=Mevcut bir hesapla giriþ yap
+slower=Yavaþ
+Some matches have a helicopter system. In these matches, when the match first starts, you are not sent directly to the map, you are in a helicopter and the helicopter starts to fly you around random coordinates for a certain period of time. If you do not jump from the helicopter after a certain period of time, it will throw you down, you must press shift enter to jump. However, you cannot jump immediately after you first get in the helicopter, 10 seconds must pass. If 10 seconds are not up, pressing shift enter will inform you how many more seconds you have to wait.=Bazý maçlarda helikopter sistemi vardýr. Bu maçlarda, maç ilk baþladýðýnda doðrudan haritaya gönderilmezsiniz, bir helikopterdesiniz ve helikopter sizi belirli bir süre boyunca rastgele koordinatlar etrafýnda uçurmaya baþlar. Belirli bir süre sonra atlamazsanýz sizi haritaya atar, atlamak için Shift+Enter tuþuna basmanýz gerekir. Ancak, helikoptere ilk bindiðinizde hemen atlayamazsýnýz, 10 saniye geçmesi gerekir. 10 saniye dolmadýysa, Shift+Enter tuþuna basmak size kaç saniye daha beklemeniz gerektiðini bildirir.
+ Spamming messages, sounds, or any in-game features repeatedly will result in disciplinary actions.=Mesajlarý, sesleri veya herhangi bir oyun içi özelliði tekrar tekrar göndermek disiplin cezalarýyla sonuçlanýr.
+Spanish=Ýspanyolca
+Staff List, View All Staff Members.=Yetkililer listesi
+Staff list.=Yöneticiler listesi
+Successfully connected. Requesting scoreboard table...=Baþarýyla baðlandý. Sonuç tablosu isteniyor...
+switch to a language=Dili deðiþtir
+Switch to this language=Bu dile geç
+team dead match: In this mode, 2 teams are at war. In order to win, one team must kill all opponents.=Takým ölü maçý: Bu modda, 2 takým savaþ halindedir. Kazanmak için, bir takým tüm ikinci takým üyelerini öldürmelidir.
+Teammate's beep sound.=Takým arkadaþý
+test voicechat=Sesli sohbeti test et
+The game also supports motors, you can buy it from the store. Here's how to use it:=Oyun ayrýca bisikletleri de destekler, maðazadan satýn alabilirsiniz. Ýþte nasýl kullanýlacaðý:
+The opposing team's beep sound.=Rakip oyuncu
+The Scope for your weapon to can hit a objects or players=Silahýn birine doðrultulduðunda çýkan ses
+There are two teams in team matches, red and blue teams.=Maçýn iki takýmlý olmasý durumunda bir kýrmýzý ve bir mavi takým vardýr.
+there is nothing around=Etrafta bir þey yok
+This weapon knife does not take ammo=Býçak mermi almaz
+To create a match, do the following:=Bir maç oluþturmak için þunlarý yapýn:
+ Toxic behavior, including griefing, trolling, or intentional disruption of gameplay, will not be tolerated.=Kasýtlý rahatsýzlýk, baþkalarýný kýþkýrtma veya oyun akýþýný kasýtlý olarak bozma gibi olumsuz davranýþlara tolerans gösterilmez.
+translate a static string=Statik bir dizeyi çevir
+Turkish=Türkçe
+Type a map message here.=Haritadaki tüm üyelere bir mesaj yazýn
+update data=Verileri güncelle
+Use the arrow keys to adjust the volume and press the OK button to confirm. Use home and end to set it to 0% and 100%, and use the page up and page down keys to adjust it by 10%.=Ses seviyesini ayarlamak için ok tuþlarýný kullanýn ve onaylamak için OK düðmesine basýn. %0 ve %100'e ayarlamak için End ve Home tuþlarýný, %10'luk artýþlarla deðiþtirmek için Page Up ve Page Down tuþlarýný kullanýn. Bitirdikten sonra Tab tuþuna bir kez basýn, OK'i bulup Enter ile basýn.
+use this syntax on the language=Çeviri için bu sözdizimini kullanýn. Not: Çeviri yalnýzca Ýngilizce arayüzden yapýlýr.
+Use up and down arrows to select a sound then press enter to listen to it.=Seçmek için yukarý ve aþaðý oklarý, dinlemek için Enter'ý kullanýn.
+Very high quality (may cause choppiness/lag)=Çok yüksek kalite (kesintiye veya gecikmeye neden olabilir)
+Vietnamese=Vietnamca
+View contributors=Katkýda bulunanlarý görüntüle
+View game readme file=Oyun açýklamasý
+View game rules.=Oyun kurallarý
+View game's rules.=Oyun kurallarý.
+View language syntax help=Dil sözdizimi yardýmýný görüntüle
+View rules, View the game rules, read the rules to avoid making mistakes in the game.=Kurallar
+When creating a match, you can set the match as public or private. The difference between public and private matches is that private matches require a password to join.=Bir maç oluþtururken, maçý genel veya özel olarak ayarlayabilirsiniz. Genel ve özel karþýlaþmalar arasýndaki fark, özel karþýlaþmalarýn katýlmak için bir þifre gerektirmesidir.
+When you get the motor, it will be 1 step ahead of you and you will be able to bump it, To get on it, you must jump and go to the direction of the motor, so you will get on the motor. After you get in, press shift enter and get on the motor.=Bisikleti aldýðýnýzda bir adým önünüzde olur ve ona çarpabilirsiniz. Üzerine çýkmak için zýplamalý ve onun yönüne gitmelisiniz. Ýçine girdikten sonra Shift+Enter tuþuna basýp üzerine çýkýn.
+When you jump from the helicopter, you start falling, so you should open your parachute and close it when you land.=Helikopterden atladýðýnýzda düþmeye baþlarsýnýz, bu yüzden paraþütünüzü açmalý ve indikten sonra kapatmalýsýnýz.
+With friends: disabled=Arkadaþlarla: Devre dýþý
+With friends: enabled=Arkadaþlarla: Etkin
+With players on the same map as me: disabled=Ayný haritadaki oyuncularla: Devre dýþý
+With players on the same map as me: enabled=Ayný haritadaki oyuncularla: Etkin
+With players on the same group as me: enabled=Grubumdaki oyuncularla: Etkin
+With players on the same group as me: disabled=Grubumdaki oyuncularla: Devre dýþý
+With players who are in the same team as me: disabled=Takýmýmdaki oyuncularla: Devre dýþý
+With players who are in the same team as me: enabled=Takýmýmdaki oyuncularla: Etkin
+Would you like to add bot in this match=Bu maça bot eklemek ister misiniz?
+yes, i want to add bot in this match=Evet
+yes=Evet
+You are not in a group=Bir grupta deðilsin
+you are not tracking anything=Þu anda bir þey takip etmiyorsun
+You bought products from paid store successful=Maðazadan baþarýyla ürün satýn aldýnýz
+you can not leave this input blank=Bu alaný boþ býrakamazsýn
+You choosed to be private match. Select match mode=Maçýn özel olmasýný seçtiniz, maç türünü seçin
+You don't have a friend you can send a private message to.=Mesaj gönderebileceðin arkadaþýn yok
+You haven't selected any weapons yet.=Henüz bir silah seçmedin.
+You've already sent friend request to this player.=Bu oyuncuya zaten arkadaþlýk isteði gönderdiniz.
+Zero Hour Assault - Game Rules=Oyun Kurallarý
+Zero hour assault is an online fps game. There are various match modes in the game and each of them has various tasks. These matches and their tasks are explained below:=Zero Hour Assault, çevrimiçi bir niþancý oyunudur. Oyunda çeþitli maç modlarý vardýr ve her birinin çeþitli görevleri vardýr. Bu maçlar ve görevleri aþaðýda açýklanmýþtýr:
+zero hour assault Main Menu. Please select an option using the up and down arrow keys and press enter to confirm. Use the page up and page down keys to adjust the music volume.=Zero Hour Assault Ana Menüsü. Lütfen yukarý ve aþaðý ok tuþlarýný kullanarak bir seçenek belirleyin ve onaylamak için Enter tuþuna basýn. Müzik sesini ayarlamak için Page Up ve Page Down tuþlarýný kullanýn.
+zero hour assault settings. Please select an option.=Zero Hour Assault Ayarlarý. Lütfen bir seçenek belirleyin.
+In this mode, teams cannot hit each other, but both teams must kill the zombies on the map. The last team standing wins. There are also houses in this mode and they can be used for hiding. However, if zombies can break down the doors of houses, they can enter houses and kill players. Press shift enter to enter houses.=Bu modda, takýmlar birbirine vuramaz, ancak her iki takým da haritadaki tüm zombileri öldürmelidir. Ayakta kalan son takým kazanýr. Bu modda ayrýca evler vardýr ve saklanmak için kullanýlabilirler. Ancak, zombiler evlerin kapýlarýný kýrabilirse, evlere girip oyuncularý öldürebilirler. Evlere girmek için Enter tuþuna basýn.
+In this mode, the players on one team are players while the other team is zombies and the last team standing wins. The zombies' walking sound is a bit low-pitched. Zombies can only use their claws, they make zombie sounds occasionally, they cannot jump and they cannot use any items. However, when zombies hit a player, they gain health as much as they damage.=Bu modda, bir takýmdaki oyuncular oyuncu, diðer takým ise zombidir ve son takým kazanýr. Zombilerin yürüme sesi biraz düþüktür. Zombiler sadece pençelerini kullanabilir, ara sýra zombi sesleri çýkarýr, zýplayamazlar ve hiçbir eþya kullanamazlar. Ancak, bir oyuncuya vurduklarýnda, verdikleri hasar kadar can kazanýrlar.
+Watch the match=Maçý izle
+Enable Turning with q and e=Q ve E ile dönmeyi etkinleþtir, A ve D'yi devre dýþý býrak
+Disable Turning with q and e=Q ve E ile dönmeyi devre dýþý býrak, A ve D'yi etkinleþtir
+default=Varsayýlan
+Keys=Kýsayollar
+In this section you can learn the keyboard keys used in the game and all their functions:=Bu bölümde oyunda kullanýlan klavye tuþlarýný ve tüm iþlevlerini öðrenebilirsiniz:
+waiting to teams match=Maç bekleniyor
+start match=Maçý baþlat
+You have no motors in this map=Bu haritada motorun yok
+back to game menu=Oyun menüsüne dön
+exiting...=Önceki ekrana dönülüyor
+Go back to lobby=Dýþ alana git
+cancel match=Maçý iptal et
+back=Geri
+create ticket=Destek bileti oluþtur
+View tickets you've created=Biletlerini görüntüle
+View Latest Additions=Son eklenenler
+You have no timed items.=Süreli eþyan yok
+select an option=Bir seçenek seçin
+You cannot reload the weapon when you have weapons on both of your hands=Her iki elinizde de silah varken silahý dolduramazsýnýz
+There's a snowy mountain on the overpass, maybe you can do something with the snow here=Köprüde karlý bir dað var, belki buradaki karla bir þeyler yapabilirsin
+you can't collect more than 10 snowflake_shard=10'dan fazla kar tanesi toplayamazsýn
+Maximum health=Can artýrýlamaz
+No one near you=Yakýnda kimse yok
+character stats menu.=Karakter istatistikleri menüsü.
+title= Baþlýk
+message=Mesaj
+leave this group=Bu gruptan ayrýl
+vehicles=Araçlar
+characters=Karakterler
+weapons=Silahlar
+ammos=Mühimmat
+potions=Ýksirler
+explosives=Patlayýcýlar
+quote= Mesajý kopyala ve yanýtýnla birlikte yap
+report=Bildir
+You cannot quote messages in this buffer=Burada alýntý yapamazsýnýz, alýntý yapabilmek için klavyedeki parantez veya G, D tuþlarý aracýlýðýyla mevcut mesajlar bölümünü deðiþtirin.
+a large grassland =Geniþ çayýrlýk alan
+change your status message=Durum mesajýný deðiþtir
+clear your status=Durumu sil
+you did not set a status message=Daha önce durum belirlemedin
+Set a status message=Durum belirle
+You can't create group here=Burada grup üssü oluþturulamaz
+The account information you entered has been successfully set for login.=Girdiðiniz hesap bilgileri baþarýyla kaydedildi, bilgilerin doðruluðunu kontrol etmek için giriþ yapýn.
+A number is required=Hata, burada sadece sayý yazmaya izin verilir
+View destroyed groups history=Yok edilen gruplar
+Character Stats, Check the properties of your account, your score points, rank, amount of tokens, etc.=Hesap özellikleri
+Change character, View the characters you have and switch to those characters. Notes. You can only change your character in the lobby and waiting part of the match.=Karakter deðiþtir, Not. Karakterinizi sadece dýþ alanda ve maçýn bekleme bölümünde deðiþtirebilirsiniz.
+See your motors=Motorlarýný gör
+View timed item expiry times=Süreli eþyalar
+notification settings, Customize Notification Alerts.=Uyarý ayarlarý.
+view scoreboard=Lider tablosu
+enable hearing voice chat=Sesli sohbetlerde oyuncularý duyma
+disable hearing voice chat=Sesli sohbette oyuncularý duymama
+Joystick inserted=Kontrol kolu tanýndý
+Motor full=Motor dolu
+create poll=Anket oluþtur
+view polls=Anketleri görüntüle
+select poll to view=Ayrýntýlarýný görüntülemek için bir anket seçin
+vote yes=Evet oyu ver
+vote no=Hayýr oyu ver
+You cannot vote your own poll=Kendi anketinize oy veremezsiniz
+You already voted=Zaten oy verdiniz
+community admins=Topluluk yöneticileri
+leave this community=Bu topluluktan ayrýl
+create community=Topluluk oluþtur
+View community invitations=Topluluk davetlerini görüntüle
+No community invitations=Topluluk daveti yok
+view community action history=Topluluk iþlem kaydýný görüntüle
+clear community action history=Topluluk iþlem kaydýný sil
+invite a player to this community=Bu topluluða bir oyuncu davet et
+remove invitation of a player to this community=Bir oyuncunun davetini iptal et
+View community join requests=Bu topluluða katýlým taleplerini görüntüle
+make a a member the community administrator=Bir oyuncuyu bu toplulukta yönetici yap
+remove a member's community administrator role=Bir oyuncunun yönetici rütbesini al
+change community owner=Topluluk sahibini deðiþtir
+rename this community=Bu topluluðu yeniden adlandýr
+delete this community=Bu topluluðu sil
+You are not in a community=Bir toplulukta deðilsin
+community microphone activated=Topluluk mikrofonu etkinleþtirildi
+events, Upcoming Events.=Etkinlikler
+view event point=Etkinlik puanlarýný görüntüle
+Event store, Spend the event points you have.=Etkinlik maðazasý, etkinliklerden kazanýlan puanlarý maðazada harca
+view current event scoreboard=Etkinlikler lider tablosunu görüntüle
+no scores available=Mevcut sonuç yok
+events=Etkinlikler
+sonar on=Sonar çalýþýyor
+sonar off=Sonar kapalý
+adrenaline shot already on=Ýðne henüz bitmedi
+Comment added successfully.=Yorum baþarýyla eklendi.
+you cannot create a new ticket without raing your last closed ticket=Kapalý biletleri deðerlendirmeden yeni bir bilet gönderemezsiniz
+Enter your comment:=Yorumunu yaz:
+You are sitting. Press alt z or shift z to stand up.=Oturuyorsun, kalkmak için Alt+Z veya Shift+Z'ye bas
+Client platform: Android=Ýþletim sistemi: Android
+invite player=Oyuncuyu davet et
+select player to invite=Davet edilecek bir oyuncu seçin
+removed their friend request to you!= Sana gönderdiði arkadaþlýk isteðini iptal etti!
+See your bikes=Bisikletlerini gör
+In this mode, a team tries to steal the flags of the opposing team and must take them to their own team. The one who takes 10 flags to their own team wins. You can take the flags with the shift enter keys. You must take the red flags to the coordinates 100 100 0 and the blue flags to the coordinates 0 0 0. After going to the relevant coordinates, press shift enter to place the flag.=Bu modda, bir takým rakip takýmýn bayraklarýný çalmaya çalýþýr ve kendi takýmýna götürmelidir. 10 bayraðý kendi takýmýna götüren kazanýr. Bayraklarý Shift+Enter tuþlarýyla alabilirsiniz. Kýrmýzý bayraklarý 100 100 0 koordinatlarýna, mavi bayraklarý ise 0 0 0 koordinatlarýna götürmelisiniz. Ýlgili koordinatlara gittikten sonra bayraðý yerleþtirmek için Shift+Enter'a basýn.=substr
+Also in this map, you cannot access the store from game menu, you have to press shift enter at 500 463 0. Also, if you are in the same group as another player, in this mode the beacon of that player will be different sound, and it will play another beep sound if you hit a player which is in the same gr=Ayrýca bu haritada, oyun menüsünden maðazaya eriþemezsiniz, 500 463 0 koordinatlarýnda Shift+Enter'a basmanýz gerekir. Ayrýca, baþka bir oyuncuyla ayný gruptaysanýz, bu modda o oyuncunun sinyali farklý bir ses çýkarýr ve ayný gruptaki bir oyuncuya vurursanýz baþka bir bip sesi çalar.=substr
+the game chooses a random player in the freedom fight map, which is announced. If the player exits the freedom fight map or game, a new player is selected. This player should survive for 10 minutes. If they get killed, killer gets 10 event points and another player is selected. If nobody can kill them, they get 10 event points and another player is selected. Each 1 minute info about the player is given.=Bu etkinlikte, açýk savaþ haritasýnda bir oyuncunun adý anons edilecek. Adý anons edilen oyuncu 10 dakika hayatta kalmalýdýr. Süre dolmadan öldürülürse, onu öldüren kiþi 10 puan alýr ve bu meydan okuma için baþka bir kiþi seçilir. Ancak hayatta kalmayý baþarýrsa, 10 puaný o alýr. Bu meydan okumanýn ayrýntýlarý her dakika anons edilir.=substr
+you get 10 event points for each thing you kill untill 20. After 20 kills, your event point won't increase, but your score on this event scoreboard will increase.= Bu meydan okumada, 20 kiþiyi öldürene kadar öldürdüðünüz her kiþi için 10 puan alýrsýnýz. 20 kiþiden fazla öldürdüðünüzde daha fazla puan almazsýnýz, ancak meydan okuma lider tablosundaki sýralamanýz yükselir.=substr
+you get 10 event points for each chest you destroy untill 15 chests. After 15 chests, you won't get event points, but your score in the event scoreboard will increase=Bu meydan okumada, toplam 15 sandýk yok edene kadar yok ettiðiniz her sandýk için 10 puan alýrsýnýz. Bundan sonra, yok ettiðiniz hiçbir sandýk için puanlarýnýz artmaz, ancak meydan okuma lider tablosundaki sýralamanýz artar.=substr
+requires 250 zero tokens, description: The 1-week validity period of the gun begins as soon as you start draw the gun in your hand. You will have the gun for 1 week and it will be gone after 1 week=250 jeton gerektirir ve sadece bir hafta boyunca sizde kalýr.=substr
+requires 300 zero tokens, description: The 1-week validity period of the gun begins as soon as you start draw the gun in your hand. You will have the gun for 1 week and it will be gone after 1 week=300 jeton gerektirir ve sadece bir hafta boyunca sizde kalýr.=substr
+you get 1 event point for each headshot you make untill 50 headshots. After 50 headshots, you won't get event points, but your score on this event scoreboard will increase=Bu meydan okumada, 50 vuruþa ulaþana kadar bir düþmanýn kafasýna vurduðunuz her vuruþ için bir puan alýrsýnýz. 50 vuruþu aþtýktan sonra puanlarýnýz artmaz, ancak meydan okuma lider tablosundaki sýralamanýz yükselir.=substr
+successfully survived for 10 minutes! they got 10 event points, and another player will be selected.=10 dakika hayatta kalmayý baþardý, 10 puan kazandý, baþka bir oyuncu seçilecek.=substr
+Type your text here. A maximum of 1000 characters is allowed.=Durumunuzu buraya yazýn, en fazla 1000 karakter.=substr
+enter new name, warning, you need 150 tokens for proceed=Yeni adýnýzý yazýn, 150 jetonunuzdan düþülecektir.=substr
+ colt1911 45_ACP ammos from inside cartrigges= Satýn aldýðýnýz þarjörden yarý-otomatik mermiler=substr
+the lobby, to access to match menu, go to 5 0 0. =Dýþ alan, maç menüsüne eriþmek için 5.0.0 koordinatlarýna gidin.=substr
+ m4 5.56x45mm ammos from inside cartrigges= Satýn aldýðýnýz þarjörden makineli tüfek mermileri=substr
+You need 100 tokens to create a group=Bir grup oluþturmak için 100 jetona ihtiyacýnýz var =substr
+barry_allen, requires 200=Barry Allen, 200 gerektirir =substr
+increase health to 100%=Saðlýðýnýzý %100 artýrýr=substr
+tristan, requires 300=Tristan, 300 gerektirir =substr
+aria, requires 500=Anðam, 500 gerektirir =substr
+kado, requires 500=Kado, 500 gerektirir =substr
+7.62x54mmR ammo=Mosin mermisinden=substr
+7.62x51mm ammo=Keskin niþancý mermisinden =substr
+5.56x45mm ammo=Makineli tüfek mermisinden =substr
+7.62x54mmR=Mosin mermisi =substr
+7.62x51mm=Keskin niþancý mermisi =substr
+5.56x45mm=Makineli tüfek mermisi =substr
+the player selected which should survive for 10 minutes is =10 dakika hayatta kalmasý gereken seçilmiþ oyuncu: =substr
+gets 10 event points, and another player will be selected=10 etkinlik puaný kazandý ve baþka bir oyuncu seçilecek=substr
+the player selected which should survive for 10 minutes =10 dakika hayatta kalmasý gereken seçilmiþ oyuncu: =substr
+Type your text here. A maximum of 1000 characters is allowed.=Metninizi buraya yazýn, en fazla 1000 karakter =substr
+player selected which should survive for 10 minutes=10 dakika hayatta kalmasý gereken seçilmiþ oyuncu:=substr
+How many colt1911_ammo_cartrigges would you like to buy=Kaç adet yarý-otomatik þarjörü istersiniz?=substr
+ fnhfnp40 40S&W ammos from inside cartrigges= Satýn aldýðýnýz þarjörden tüfek mermileri=substr
+colt1911_ammo_cartrigges: You have =Yarý-otomatik þarjörü: =substr
+You survived for 10 minutes=10 dakika hayatta kaldýn=substr
+colt1911_ammo_cartrigges=Yarý-otomatik þarjörü=substr
+eliminate 20 enemies= 20 düþmaný öldür=substr
+increase health to 50%=Saðlýðýnýzý %50 artýrýr=substr
+increase health to 20%=Saðlýðýnýzý %20 artýrýr=substr
+make 50 headshots=50 düþmaný kafadan vur=substr
+destroy 15 chests=15 sandýðý yok et=substr
+colt1911, requires=Amerikan yarý-otomatik, gerektirir:=substr
+IthicaM37=Ithica 37=substr
+colt1911=Amerikan yarý-otomatik=substr
+Use the arrow keys to change the volume in 1% increments, page up and page down for 10% increments.=Bir derece deðiþtirmek için yukarý ve aþaðý oklarý, yüzde on deðiþtirmek için Page Up ve Page Down, yüzde sýfýr için Home ve yüzde yüz için End'i kullanýn =substr
+357_magnum ammo=Amerikan tabanca mermisinden=substr
+357_magnum=Amerikan tabanca mermisi=substr
+This mode is similar to the previous one, but you can only use knife and the map is smaller. You can also collect  snowflake shards in this mode, by pressing shift enter. You can collect up to 5. When you throw these, they will stun the enemy=Bu mod önceki moda benzer, ancak sadece býçak kullanabilirsiniz ve harita daha küçüktür. Bu modda Shift+Enter tuþuna basarak kar taneleri de toplayabilirsiniz. En fazla 5 tane toplayabilirsiniz. Bunlarý attýðýnýzda, düþmaný sersemletir =substr
+Your paid account has been updated. It is now active for approximately 1.0 months. Thanks for your purchase!=Ücretli hesabýnýz bir ay süreyle etkinleþtirildi, desteðiniz için teþekkürler=substr
+How many fnhfnp40_ammo_cartrigges would you like to buy=Kaç adet tüfek þarjörü istersiniz?=substr
+failed to survive for 10 minutes, they got killed by =Hayatta kalmayý baþaramadý, öldüren kiþi: =substr
+The item maverick88 will expire after=Maverick tüfeði kullaným süreniz þundan sonra sona erecek:=substr
+fnhfnp40_ammo_cartrigges: You have =Tüfek þarjörü: =substr
+You get 2 score point for killing=Öldürdüðün için 2 puan kazandýn: =substr
+fnhfnp40_ammo_cartrigges=Tüfek þarjörü=substr
+You received 2 zero token=2 zero jetonu kazandýn=substr
+22_LR_Long_Rifle ammo=Alman tüfeði mermisinden=substr
+fnhfnp40, requires=Tüfek, gerektirir,=substr
+22_LR_Long_Rifle=Alman tüfeði mermisi=substr
+for 3 seconds.=3 saniye boyunca.=substr
+mkek_yavuz16=Türk tabancasý=substr
+12_gauge ammo=Av mermisinden =substr
+maverick88=Maverick tüfeði=substr
+mkek_mpt76k=Türk makineli tüfek =substr
+45_ACP ammo=Yarý-otomatik mermisinden =substr
+mkek_jng90=Kýsa menzilli keskin niþancý=substr
+S&WModel66=Amerikan tabancasý=substr
+fnhfnp45=Belçika yarý-otomatik=substr
+fnhfnp40=Tüfek =substr
+40S&W ammo=Tüfek mermisinden =substr
+12_gauge=Av mermisi =substr
+45_ACP=Yarý-otomatik mermisi =substr
+40S&W=Tüfek mermisi =substr
+tm62=Mayýn=substr
+There is also another map in the game, fredom fight map. In this map, there are no bots and no team system, you can fight with players in the map without creating matches. In this map, there are no items like in matches, but there are chests in the houses in the map. You can press shift enter to view the items inside them and get them. New Items will automaticaly add to chests once they are emptied. Although the chest's coordinates are always same, items they will have are randomly determined. Chests can also be destroyed, in which case all the items inside them will be lost, and chest will respawn after some time with new items. When you kill people in this map, you have the chance to receive 1 zero token =Ayrýca oyunda baþka bir harita daha var, genel harita. Bu haritada botlar ve takým sistemi yoktur, maç oluþturmadan haritadaki oyuncularla savaþabilirsiniz. Bu haritada maçlardaki gibi öðeler yoktur, ancak haritadaki evlerde sandýklar vardýr. Ýçlerindeki öðeleri görüntülemek ve almak için Shift+Enter'a basabilirsiniz. Yeni öðeler, boþaltýldýktan sonra otomatik olarak sandýklara eklenir. Sandýðýn koordinatlarý her zaman ayný olmasýna raðmen, içereceði öðeler rastgele belirlenir. Sandýklar da yok edilebilir, bu durumda içlerindeki tüm öðeler kaybolur ve sandýk bir süre sonra yeni öðelerle yeniden canlanýr. Bu haritada insanlarý öldürdüðünüzde, bir sýfýr jeton alma þansýnýz yüzde =substr
+Like in the knife fight match, you can collect snowflakes, but if you freeze an enemy even 1 time, it will instantly be dead.=Býçak dövüþü maçýnda olduðu gibi, kar taneleri toplayabilirsiniz, ancak bir düþmaný sadece bir kez dondurursanýz, anýnda ölür.=substr
+used jammer, you cannot use binoculars and you cannot check near players with e/p for 2 minutes=Parazit cihazýný etkinleþtirdi, 2 dakika boyunca dürbün kullanamaz veya E/P harfiyle yakýndaki oyuncularý kontrol edemezsiniz=substr
+How many m4_ammo_cartrigges would you like to buy=Kaç adet makineli tüfek þarjörü istersiniz?=substr
+Backpack level 0 expired. You may lose items!=Sýrt çantasý süresi doldu, eþyalarýnýzý kaybedeceksiniz!=substr
+You get 1 score point for killing =Öldürdüðün için 1 puan kazandýn: =substr
+m4_ammo_cartrigges: You have =Makineli tüfek þarjörü: =substr
+basement of luxury house 1=Kiler=substr
+Disable Improved 3d audio= 3D ses=substr
+Enable Improved 3d audio=3D sesi etkinleþtir=substr
+kitchen of luxury house 1=Villa avlusu =substr
+You received 1 zero token=Bir jeton kazandýn=substr
+m4_ammo_cartrigges=Makineli tüfek þarjörü=substr
+has 0 contributors=Katkýda bulunan yok=substr
+has 1 contributors=Sadece bir katkýda bulunan var =substr
+has 2 contributors=Sadece iki katkýda bulunan var =substr
+has 3 contributors=Üç katkýda bulunan var=substr
+has 4 contributors=Dört katkýda bulunan var =substr
+has 5 contributors=Beþ katkýda bulunan var =substr
+has 6 contributors=Altý katkýda bulunan var =substr
+luxury house 1=Villa=substr
+m4, requires=Amerikan makineli tüfek, gerektirir,=substr
+9mm ammo=Türk tabanca mermisinden =substr
+gsg5=Alman tüfeði=substr
+9mm=Türk tabanca mermisi =substr
+m4=Amerikan makineli tüfek=substr
+Welcome to joystick button configuration. In this section, you have to set what buttons of your joystick you want to use in the game to perform in-game actions. The game will speak some actions. What you have to do is to press the button on the joystick which you want to use for performing this action. At any time, you can pres escape key or the left D-pad button to cancel the configuration and go back to the options menu. Press enter or the right D-Pad button to continue.=Joystick tuþ yapýlandýrma bölümüne hoþ geldiniz. Bu bölümde, oyunda oyun içi eylemleri gerçekleþtirmek için joystick'inizin hangi tuþlarýný kullanmak istediðinizi ayarlamanýz gerekir. Oyun bazý eylemleri seslendirecektir. Yapmanýz gereken, bu eylemi gerçekleþtirmek için kullanmak istediðiniz joystick üzerindeki düðmeye basmaktýr. Baþlamak için klavyede Enter tuþuna veya joystick'te sað ok tuþuna basýn. Çýkmak için klavyede Esc tuþuna veya joystick'te sol ok tuþuna basýn.=substr
+In this mode, the players on one team are players while the other team is zombies and the last team standing wins. The zombies' walking sound is a bit low-pitched. Zombies can only use their claws, they make zombie sounds occasionally, they cannot jump and they cannot use any items. However, when zombies hit a player, they gain health as much as they damage.=Bu modda, bir takýmdaki oyuncular oyuncu, diðer takým ise zombidir ve son takým kazanýr. Zombilerin yürüme sesi biraz düþüktür. Zombiler sadece pençelerini kullanabilir, ara sýra zombi sesleri çýkarýr, zýplayamazlar ve hiçbir eþya kullanamazlar. Ancak, bir oyuncuya vurduklarýnda, verdikleri hasar kadar can kazanýrlar.=substr
+In this mode, teams cannot hit each other, but both teams must kill the zombies on the map. The last team standing wins. There are also houses in this mode and they can be used for hiding. However, if zombies can break down the doors of houses, they can enter houses and kill players. Press shift enter to enter houses.=Bu modda, takýmlar birbirine vuramaz, ancak her iki takým da haritadaki tüm zombileri öldürmelidir. Ayakta kalan son takým kazanýr. Bu modda ayrýca evler vardýr ve saklanmak için kullanýlabilirler. Ancak, zombiler evlerin kapýlarýný kýrabilirse, evlere girip oyuncularý öldürebilirler. Evlere girmek için Enter tuþuna basýn.=substr
+The maintenance of the game was not successful due to some technical difficulties. We are trying to switch to a server with a better ping value and provide better service to our valued players. Maintenance work will be done again tomorrow, but this time it will not take long time.=Oyunun bakýmý bazý teknik zorluklar nedeniyle baþarýlý olamadý. Deðerli oyuncularýmýza daha iyi ping deðeri olan bir sunucuya geçmeye ve daha iyi hizmet vermeye çalýþýyoruz. Bakým çalýþmalarý yarýn tekrar yapýlacak, ancak bu sefer uzun sürmeyecek.=substr
+Disable game performance. Note: When you disable this, your computer will use more RAM and CPU to deliver the best performance in the game. If you enable it, your game may lag during multitasking or battles, especially if your computer has low specifications.=Oyun performansýný iyileþtir, Not: Bu seçeneði devre dýþý býrakýrsanýz, cihazýnýz oyun içinde en iyi performansý saðlamak için daha fazla bellek (RAM) ve iþlemci (CPU) kullanýr. Etkinleþtirirseniz, özellikle cihazýnýz düþük özelliklere sahipse, çoklu görevler sýrasýnda veya savaþlar sýrasýnda bazý yavaþlamalar fark edebilirsiniz.=substr
+Enable game performance. Note: When you disable this, your computer will use more RAM and CPU to deliver the best performance in the game. If you enable it, your game may lag during multitasking or battles, especially if your computer has low specifications.=Oyun performansýný iyileþtir, Not: Bu seçeneði devre dýþý býrakýrsanýz, cihazýnýz oyun içinde en iyi performansý saðlamak için daha fazla bellek (RAM) ve iþlemci (CPU) kullanýr. Etkinleþtirirseniz, özellikle cihazýnýz düþük özelliklere sahipse, çoklu görevler sýrasýnda veya savaþlar sýrasýnda bazý yavaþlamalar fark edebilirsiniz.=substr
+You can also watch matches, you will have the opportunity to do this when you die, or if you choose to go to the lobby when you die, you can do this by pressing shift enter in the lobby=Ayrýca maçlarý izleyebilirsiniz, dýþ alanda Shift+Enter tuþuna basarak.=substr
+You can get information about the game and chat by joining our Telegram group! There is a button to join our telegram group in the main menu, we invite you there to stay in touch=Oyun hakkýnda bilgi alabilir ve Telegram grubumuza katýlarak bizimle sohbet edebilirsiniz! Ana menüde Telegram grubumuza katýlmak için bir düðme vardýr, sizi orada iletiþimde kalmaya davet ediyoruz.=substr
+team, Press left and right arrow keys to move between teams, up and down keys to see the players in the team you selected, enter key to copy a player's name to clipboard=Takýmlar arasýnda gezinmek için sol ve sað ok tuþlarýna, seçtiðiniz takýmdaki oyuncularý görmek için yukarý ve aþaðý ok tuþlarýna, bir oyuncunun adýný panoya kopyalamak için Enter tuþuna basýn=substr
+similar to explosive battle, but there are pits in the map you can fall. Also there are metal cases you can climb, but grenades can destroy them=Patlayýcý savaþa benzer, ancak haritada düþebileceðiniz çukurlar vardýr. Ayrýca týrmanabileceðiniz metal kasalar da vardýr, ancak el bombalarý onlarý yok edebilir.=substr
+Please enter a valid email address. If you enter an incorrect e-mail address, you will have no chance of recovering your account. No spaces=Lütfen geçerli bir e-posta adresi girin. Boþluk býrakmayýn. Not: E-posta adresi yanlýþ veya sahte ise, hesabý kesinlikle kurtaramazsýnýz.=substr
+It's an abandoned, ruined nightclub with some dead bodies around, all of them holding beer bottles in their hands, hmm, that's interesting=Yýkýlmýþ bir genelev ve etrafýnda birkaç ceset var, hepsi ellerinde bira þiþeleri tutuyor=substr
+It's an abandoned, ruined nightclub with some dead bodies around, all of them holding beer bottles in their hands, hmm, that's interesting.=Terk edilmiþ ve yýkýlmýþ bir gece kulübü ve etrafýnda birkaç ceset var, hepsi ellerinde bira þiþeleri tutuyor=substr
+We would be very happy if you report us suggestions, bugs for the survival of the game. We are waiting for your support, thank you=Oyunun hayatta kalmasý için önerileri ve hatalarý bize bildirirseniz çok seviniriz. Desteðinizi bekliyoruz, teþekkür ederiz.=substr
+Retype the mail. If you enter an incorrect e-mail address, you will have no chance of recovering your account. No spaces=E-postayý yeniden yazýn =substr
+oup with you. You can leave this map from game menu. Also, motors you buy while in this map will always stay in this map=sizinle. Ayrýca bu haritayý oyun menüsünden terk edebilirsiniz. Bu haritadayken satýn aldýðýnýz motorlar da her zaman bu haritada kalacaktýr.=substr
+This can be played either as teamed or not teamed. People can only use snipers and last team/person standing wins.=Takýmlý veya takýmsýz oynanabilir. Ýnsanlar sadece keskin niþancý kullanabilir ve son (takým, kiþi) maç türüne göre kazanýr.=substr
+more players. If the owner turned on bots, and the match gets started without enough players, bots will fill in= oyuncu gereklidir ve sahibi maçý yeterli sayýda oyuncu olmadan baþlatýrsa, kalan yerler botlarla doldurulur.=substr
+This is a jewelery store. You remember that it used to be very fashionable. Well, what if it was fashionable now?=Bu bir mücevher dükkaný. Eskiden çok moda olduðunu hatýrlýyorsunuz. Peki ya þimdi moda olsaydý?=substr
+Moderators: Responsible for players, tickets, assisting administrators, and helping people in the game.=Denetçiler: Oyuncu sorunlarýndan, biletlere yanýt vermekten ve oyunda insanlara yardým etmekten sorumludurlar.=substr
+This will protect you from hits until its broken when you use it. However, it won't protect from headshots=Bu, kullandýðýnýzda kýrýlana kadar sizi darbelerden korur. Ancak, kafa vuruþlarýndan korumaz.=substr
+items. Use up and down keys to move between items, enter key to pick it up, escape key to close the corpse=öðelerden, görüntülemek için yukarý ve aþaðý oklarla hareket edin, öðeyi almak için Enter tuþuna basýn ve çantayý kapatmak için Escape'e basýn=substr
+items. Use up and down keys to move between items, enter key to pick it up, escape key to close the chest=öðeler, öðeler üzerinde hareket etmek için oklarý kullanýn, sahip olmak için Enter tuþuna basýn ve sandýðý kapatmak için Escape'e basýn=substr
+community! Please use the community menu in the game menu to accept or decline their invitation.=Lütfen daveti kabul etmek veya reddetmek için topluluklar menüsüne gidin.=substr
+The server is currently not active. An attempt will be made to connect to the server again within =Sunucu þu anda aktif deðil. Sunucuya tekrar baðlanma denemesi þundan sonra yapýlacak:=substr
+group! Please use the group menu in the game menu to accept or decline their invitation=Oyun seçenekleri aracýlýðýyla daveti kabul etmek veya reddetmek için gruplar menüsünü kullanýn =substr
+There's a snowy mountain on the overpass, maybe you can do something with the snow here=Bu, köprüde karlý bir dað, belki buradaki karla bir þeyler yapabilirsin=substr
+If you want to get your password faster, please contact us at contact@nbmstudios.com= ve þifreyi daha hýzlý almak için contact@nbmstudios.com adresinden bizimle iletiþime geçin=substr
+In this mode, the players are alone and there is no team, the last player standing wins.=Bu modda, oyuncular yalnýzdýr ve takým yoktur, ayakta kalan son oyuncu kazanýr.=substr
+talking players. Press enter on one player to adjust their voicechat volume=Konuþan oyuncular, ses seviyesini ayarlamak için ismin üzerine Enter'a basýn=substr
+Attention. The game has now been frozen by a staff member. Please be patiently.=Dikkat. Oyun bir geliþtirici tarafýndan durduruldu, lütfen bekleyin=substr
+, open the friend menu. From here you can send private messages to your friends.=, arkadaþlar menüsünü açýn. Buradan arkadaþlarýnýza özel mesajlar gönderebilirsiniz.=substr
+Builders: Capable of constructing maps and integrating them into the game.=Ýnþaatçýlar: Harita tasarlama ve oyuna entegre etme yeteneðine sahiptirler.=substr
+so it translates came online even if it is not the whole text. If you do not add =Böylece "oyuna girdi" çevirisi gelir ve bu, cümlenin bir parçasý olsa bile, hatta iki harf veya bir iþaret olsa bile gelir ve kelimenin ortasýnda olsa bile gelir, çevirideki orijinal deðiþken cümlenin metninde tamamlandýðý sürece =substr
+, it would only work if the string is exactly "came online" without player name=, ve yalnýzca dize "baðlý" ise çalýþýr, yani çevrilen cümlenin metninde bir deðiþiklik olmamalýdýr, yani kelimenin ilk harfi büyük veya bir noktalama iþareti ve benzeri cümlenin ortasýnda deðil, baþýnda veya sonunda olmalýdýr, yani öneke veya soneke eklenmiþse sorunsuz çalýþýr=substr
+Now group members can no longer hit the group members in freedom fight map!=Artýk grup üyeleri birbirine vuramaz=substr
+Administrators: resolving player issues, crafting maps, and other duties.=Yöneticiler: Harita ve oyuncu sorunlarýný ve diðer konularý çözme.=substr
+ initiated a cleanup to fix server lags. This process may take a few seconds= Sunucu gecikmesini düzeltmek için bir temizleme iþlemi baþlattý. Bu iþlem birkaç saniye sürebilir=substr
+disable online/offline messages when your friends enter/exit to the game=Arkadaþlar oyuna girdiðinde veya çýktýðýnda giriþ veya çýkýþ mesajlarý=substr
+initiated a cleanup to fix server lags. This process may take a few seconds=Sunucu gecikmesini düzeltmek için bir onarým iþlemi baþladý, bu iþlem birkaç saniye sürecek=substr
+enable online/offline messages when your friends enter/exit to the game=Arkadaþlar oyuna girdiðinde veya çýktýðýnda giriþ veya çýkýþ mesajlarý=substr
+, open the player menu. Here you can do many operations related to players.=, oyuncu menüsünü açýn. Burada oyuncularla ilgili birçok iþlem yapabilirsiniz.=substr
+ but, all the animals in here are dead and there's another human corpse=ancak buradaki tüm hayvanlar ölü ve ayrýca insan cesetleri var=substr
+here, since the player name is before the string "came online", we added =burada, oyuncunun adý "oyuna girdi" dizesinden önce geldiði için, ekledik =substr
+amount of times you need to get event points to complete this event=Bu etkinliði tamamlamak için gereken süre=substr
+hospital above the city where soldiers and citizens were treated=Þehrin üzerindeki hastane=substr
+Staircase from the riverbed to the entrance of the southern tube=Nehir yataðýndan güney boru giriþine merdiven=substr
+Now group members can hit the group members in freedom fight map!=Artýk grup üyeleri birbirine vurabilir=substr
+hospital in the city where soldiers and citizens were treated=Þehirdeki hastane=substr
+ disabled members to hit other members in freedom fight map at = grup üyelerinin haritada birbirine vurmasýný þu saatte devre dýþý býraktý: =substr
+Collect snowflakes with shift enter and freeze your enemies!=Shift tuþu ile kar taneleri toplayýn ve düþmanlarýnýzý dondurmak için Enter'a basýn!=substr
+ enabled members to hit other members in freedom fight map at = grup üyelerinin haritada birbirine vurmasýný þu saatte etkinleþtirdi: =substr
+The last changes section has been updated, please take a look=Son güncellemeleri görüntüle bölümünde yeni güncellemeler var, bir göz atýn=substr
+the player selected went offline, a new one will be selected.=Seçilen oyuncu çýktý ve baþka bir oyuncu seçilecek=substr
+the player selected left the map, a new one will be selected.=Oyuncu haritadan ayrýldý ve baþka bir oyuncu seçilecek=substr
+You can not recover your password right now. Please try in =Þifrenizi az önce aldýnýz, þu süre geçtikten sonra tekrar deneyin: =substr
+ If this persists further, please contact the developers.=Bu sorun devam ederse lütfen geliþtiricilerle iletiþime geçin=substr
+ has been created! We wish them an epic journey in the game.=Ona oyunda destansý bir yolculuk dileriz=substr
+Staircase from the riverbed to the entrance of the pipe=Nehir yataðýndan boru giriþine merdiven=substr
+A magnificent and large police station above the city=Þehrin üzerinde büyük ve harika bir polis karakolu=substr
+Amount of times you got event points from this event=Bu etkinlikten puan aldýðýnýz süre=substr
+The garbage clearing is completed. Enjoyable games=Hata düzeltildi, iyi oyunlar=substr
+Amount of times you got event points from this event=Bu etkinlikten puan aldýðýnýz süre sayýsý=substr
+Since your last login, the server has been rebooted =Son giriþinizden bu yana sunucu þu kadar kez yeniden baþlatýldý: =substr
+Your message has been delivered to the staff team=Mesajýnýz çalýþma ekibine teslim edildi =substr
+, ping, in input boxes, dtoggle character repeating=, sinyal gücünü (ping) bilme=substr
+Type the private message you would like to send to=Þu kiþiye göndermek istediðiniz özel mesajý yazýn: =substr
+The administrative floor of the police station=Polis karakolunun idari katý=substr
+Attention. The game is frozen. Please be patient.=Dikkat. Oyun bir geliþtirici tarafýndan durduruldu, lütfen bekleyin=substr
+slightly in front and a fair distance off to the=Biraz önünüzde ve saðda=substr
+clothes shops, women's shoes, men's shoes and more=Giyim ve ayakkabý maðazasý =substr
+Type the reason you want to report this message=Bu mesajý bildirme nedeninizi yazýn =substr
+of this item, but if you buy this amount, you'd have=sadece bu türden ve bu durumda tekrar satýn alýrsanýz, elinizde olacak=substr
+because someone opened your corpse with bomb=çünkü biri bombalý çantaný açtý=substr
+Amount of event points you got from this event=Bu etkinlikten aldýðýnýz puan sayýsý=substr
+group deleted because its base destroyed by =Grubunuz son üssünün þu kiþi tarafýndan yok edilmesi nedeniyle kaldýrýldý: =substr
+how many zero tokens you want to get? group has =Kaç sýfýr jetonu almak istiyorsunuz? Grubun þunlarý var:=substr
+disable receiving team messages in matches=Maçlarda takým mesajlarýný al=substr
+Your inventory cannot hold more of this item=Bu öðeden daha fazlasýný taþýyamazsýnýz=substr
+enable receiving team messages in matches=Maçlarda takým mesajlarýný al=substr
+disable receiving new match notification=Yeni maç bildirimlerini al=substr
+Enter the username you would like. No spaces=Ýstediðiniz kullanýcý adýný girin ve boþluk olmamalýdýr=substr
+Time elapsed since this account is created: =Bu hesap þu kadar süredir oluþturuldu: =substr
+a door leading into a small room. of the lobby=Alanýn küçük bir odasýna açýlan kapý=substr
+Enter the password you would like. No spaces=Þifreyi boþluksuz yazýn=substr
+No players found that you can remove admin.=Yönetici rütbesini alabileceðiniz oyuncu bulunamadý=substr
+ in the helicopter of the freedom fight map= Genel harita uçaðýnda=substr
+resigned from administrating this group!=Bu grubun yönetiminden çekildi!=substr
+A huge secret canarization under the city=Tünel=substr
+, copy the last spoken text to the clipboard=, son söylenen metni panoya kopyala=substr
+enable receiving new match notification=Yeni maç bildirimlerini al=substr
+ A huge secret canarization under the city=Þehrin altýnda devasa tüneller =substr
+Electrical device maintenance workshop=Elektrikli cihaz bakým atölyesi=substr
+Attention. The game has now been unfrozen!=Oyun tekrar çalýþtýrýldý=substr
+ door for the Entrance too jewelery store=Mücevher dükkaný kapýsý=substr
+Press shift + enter to exit from group base=Çýkýþýn önünde kapýyý açmak veya kapatmak, girmek veya çýkmak için Shift+Enter'a basýn =substr
+tower of the defense soldiers of the city=Kule=substr
+motor parking area of â€‹â€‹the police station=Polis karakolu otopark alaný=substr
+You are now a contributor of the language=Þu dilin bir katýlýmcýsý oldun: =substr
+because someone picked up your boom box= çünkü biri tuzaklý eþyaný aldý =substr
+No players found that you can make admin.=Yönetici yapabileceðiniz oyuncu bulunamadý=substr
+No players found that you can make owner.=Yönetici yapabileceðiniz oyuncu bulunamadý=substr
+The item MosinNagant will expire after=Rus Mosin silahýný kullanma süreniz þundan sonra sona erecek:=substr
+disable receiving friend request from =Þu kiþilerden arkadaþlýk isteði al: =substr
+An overpass that covers the entire city=Þehrin üzerindeki köprü =substr
+You are jailed for the following reason=Aþaðýdaki nedenden dolayý hapsedildin:=substr
+Who can do the best punch and kick battle=Dövüþ ringi=substr
+Production line stairs for the factory=Fabrika üretim hattý merdivenleri=substr
+Who can do the best punch and kick battle?=Boks ringi=substr
+accepted your community join request!=Topluluða katýlým talebini onayladý!=substr
+no longer wants to join this community!=Artýk bu topluluða katýlmak istemiyor!=substr
+a door for the Exit from jewelery store=Mücevher dükkanýndan çýkýþ kapýsý=substr
+Please enter the code sent to your mail=Hesabýnýza baðlý e-postaya gönderilen kodu girin=substr
+A liquid city stream made of raindrops  =Yapay nehir=substr
+match menu. Press shift enter to open it. =Maç menüsü, menüyü açmak için Shift ve Enter tuþlarýna basýn=substr
+enable receiving friend request from =Þu kiþilerden arkadaþlýk isteði al: =substr
+disable receiving group invitations=Grup davetlerini al=substr
+Please enter to password of this match=Bu maçýn þifresini yazýn =substr
+how many zero tokens you want to donate?=Kaç jeton koymak istiyorsunuz?=substr
+In front of the workers' house building=Ýþçi konut binasýnýn önü=substr
+another stairs to go up to the overpass=Köprüye çýkan baþka bir merdiven=substr
+has been kicked from this community by=Þu kiþi tarafýndan bu topluluktan atýldý:=substr
+a small place with explosives around=Bomba anasý=substr
+Let's see who can swing a knifethe best=Býçak diyarý =substr
+zero tokens to rename your character=Adýnýzý deðiþtirmek için sýfýr jetonu=substr
+enable receiving group invitations=Grup davetlerini al=substr
+disable receiving private messages=Özel mesajlarý al=substr
+stairs leading to the police station=Polis karakoluna giden merdiven=substr
+The first floor of the police station=Polis karakolunun birinci katý=substr
+Let's see who can swing a knife the best=Kýzýl kar =substr
+Let's see who can swing a knife the best!=Býçak fýrlatma=substr
+a door for the Exit from jewelry store=Mücevher dükkanýndan çýkýþ için bir kapý=substr
+Ascending of South overpass stairs=Güney köprü çýkýþ merdivenleri=substr
+Staircase at the end of the Farm pipe=Çiftlik borusu sonu merdivenleri =substr
+No players found that you can invite.=Davet edebileceðiniz üye bulunamadý=substr
+behind and a fair distance off to the=Arkada ve biraz saðda=substr
+in front and very slightly off to the=Önünüzde ve saðda=substr
+created a new match! The match mode is =Bir maç oluþturdu ve türü: =substr
+, turn player and bot beacon on and off=, oyuncu ve bot sinyalini açýp kapat=substr
+ created a new match! The match mode is = Yeni bir maç oluþturdu! Maç türü: =substr
+The server will be restarted within =Sunucu þu süre içinde yeniden baþlatýlacak: =substr
+enable receiving private messages=Özel mesajlarý al=substr
+Grace's_house, this is a killer's house=Katil Cihat'ýn evi=substr
+You are now the owner of the language=Artýk dilin sahibisin=substr
+You are now the owner of the language=Dilin sahibi oldun =substr
+for change spawning in massacre map=Deðiþiklikleri uygulamak için=substr
+Done, ticket has been created with id=Bilet gönderildi ve numarasý:=substr
+silencer not usable for this weapon=Bu silaha susturucu takýlamaz=substr
+New announcement to the community!=Topluluða yeni bir duyuru yayýnlandý,=substr
+Descending South overpass stairs=Güney köprü iniþ merdivenleri=substr
+Ascending West of  overpass stairs=Batý köprü çýkýþ merdivenleri=substr
+in front and a little ways off to the=Önünüzde ve biraz saðda=substr
+a stairs covered with sharp stones=Kýrýk taþlardan bir merdiven=substr
+removed you from their friend list=Seni arkadaþ listesinden çýkardý =substr
+is a Developer of Zero Hour Assault=Zero Hour Assault'ýn bir geliþtiricisidir=substr
+members required, not started, with =Baþlamadý ve gerekli üye sayýsý: =substr
+disable receiving group messages=Grup mesajlarýný al=substr
+online and offline notifications=Oyuna giriþ ve çýkýþ bildirimleri=substr
+is a moderator of Zero Hour Assault=Zero Hour Assault'ýn bir denetçisidir=substr
+a door leading out of the small room=Küçük odadan dýþarý açýlan bir kapý=substr
+Parasol in the middle of the garden=Bahçenin ortasýndaki þemsiye=substr
+A pipe supplies the farm with water.=Bir boru çiftliðe su saðlýyor.=substr
+You are in the red team, red team has=Kýrmýzý takýmdasýn ve içinde: =substr
+A new comment was added to the poll=Ankete yeni bir yorum eklendi, =substr
+Time left for paid account expiry: =Ücretli hesabýnýzýn süresi þu kadar sonra dolacak: =substr
+The stairs to the roof of the house=Evin çatýsýna giden merdiven=substr
+Descending West overpass stairs=Batý köprü iniþ merdivenleri=substr
+community information. There are =Topluluk bilgileri, þu anda var: =substr
+No players found that you can kick.=Atabileceðiniz üye bulunamadý=substr
+behind and a little ways off to the=Arkada ve biraz saðda=substr
+slightly behind and far off to the=Arkada ve çok az saðda=substr
+ has been kicked from this group by = Gruptan þu kiþi tarafýndan atýldý: =substr
+press shift enter to put blue flag=Mavi bayraðý koymak için Shift+Enter'a basýn=substr
+enable receiving group messages=Grup mesajlarýný al=substr
+house with walls painted in blood=Duvarlarý kanla boyanmýþ ev =substr
+This player is using the language =Þu dili kullanýyor: =substr
+no longer wants to join this group=Gruba katýlma isteðini iptal etti=substr
+is no longer an admin of this group!=Artýk bu grubun bir yöneticisi deðil!=substr
+join or spectate a match, There are =Maça katýl veya izle, þunlar var: =substr
+ zero tokens for destroying a base= Bir üssü yok ettiðin için jeton=substr
+accepted your group join request!=Gruba katýlým talebini kabul etti =substr
+declined your group join request=Gruba katýlým talebini reddetti=substr
+of this item, so purchase canceled=Bu yüzden satýþ iþlemini tamamlayamadýk, elinizdeki mermi þarjörlerini açýn ve tekrar deneyin=substr
+Freedom map selected Player Info=Ýþte meydan okuma için seçilen oyuncunun bilgileri=substr
+is now an admin of this community!=Topluluðun bir yöneticisi oldu=substr
+entrance to The southeast tower=Güneydoðu kule giriþi=substr
+entrance to the West Lovers Park=Batý Aþýklar Parký giriþi=substr
+entrance to the East Lovers Park=Doðu Aþýklar Parký giriþi=substr
+ Electrical appliance workshop=Elektrikli cihaz atölyesi=substr
+in front and very slightly to the=Önünüzde ve saðda=substr
+item Added as your favorite item=Öðe favori olarak eklendi=substr
+press shift enter to put red flag=Kýrmýzý bayraðý koymak için Shift+Enter'a basýn=substr
+go to freedom fight map, there are=Açýk savaþ haritasýna git, þu anda var: =substr
+players in the freedom fight map=Genel haritadaki oyuncular=substr
+disable receiving map messages=Genel mesajlar olan harita mesajlarýný al=substr
+Connection lost from the server=Oyun sunucusuyla baðlantý kesildi=substr
+grasses going down to the stream =Nehre doðru inen otlar=substr
+this player has backpacks level=Çanta seviyesi: =substr
+Enter code sent to your old email=Eski e-postaya gönderilen kodu yazýn=substr
+Enter code sent to your new email=Yeni e-postaya gönderilen kodu yazýn=substr
+ created a new private match! The=Özel bir maç oluþturdu,=substr
+entrance to BarryAllen's house=Barry'nin evine giriþ=substr
+behind and very slightly to the=Arkanýzda ve çok az saðda=substr
+in front a little ways off to the=Önünüzde ve çok az saðda=substr
+in front and slightly off to the=Önünüzde ve çok az saðda=substr
+the server will be shutdown for =Sunucu þu süreyle kapatýlacak: =substr
+quote messages in chat buffers.=Sohbet arabelleklerindeki alýntý mesajlarý.=substr
+enable receiving map messages=Genel mesajlar olan harita mesajlarýný al=substr
+tall tree leading to tree house=Kulübeye giden uzun aðaç=substr
+is an admin of Zero Hour Assault=Zero Hour Assault'ýn bir yöneticisidir=substr
+Enter the password of this base=Girmek için þifreyi girin=substr
+has been finished. The new event =Bitti. Yeni meydan okuma: =substr
+spatial_amplifier_controller=Takip cihazý kumandasý=substr
+adrenaline shot time expired=Adrenalin iðnesi süresi doldu=substr
+Cave inside the snow mountain=Kar daðýnýn içindeki maðara=substr
+enter the mail of this account=Bu hesaba baðlý e-postayý yazýn=substr
+Enter something to search for=Aranacak bir þey yazýn=substr
+living room and several rooms=Yatak odasý ve eklentileri =substr
+accepted your friend request!=Arkadaþlýk isteðini kabul etti =substr
+in freedom fight map, there are=Genel haritada ve þu anda var:=substr
+, Amount of members required is =, ve gerekli üye sayýsý: =substr
+stairs leading to upper floor =Üst kata çýkan merdivenler=substr
+stairs to go up to the overpass=Köprüye çýkan merdiven =substr
+The roof of the police station=Polis karakolu çatýsý=substr
+death and kill notifications=Ölüm ve öldürme bildirimleri=substr
+a huge abandoned battlefield =Terk edilmiþ büyük bir savaþ alaný=substr
+Retype the password. No spaces=Þifreyi yeniden yazýn =substr
+the group owner was changed to =Grup sahipliði þuna devredildi: =substr
+ declined your friend request!= Ýsteðini reddetti=substr
+Please enter a community name=Lütfen bir topluluk adý girin=substr
+created a new public match! The =Yeni bir genel maç oluþturdu! =substr
+In front of the tower entrance=Kule giriþinin önü=substr
+New community announcement!=Topluluða yeni bir duyuru yayýnlandý,=substr
+wants to join this community!=Bu topluluða katýlmak istiyor!=substr
+the group name was changed to =Grup adý þuna deðiþtirildi:=substr
+William Shakespeare's house=Shakespeare'in evi=substr
+A front of the tower entrance=Kule giriþinin önü=substr
+a new poll has been created by =Þu kiþi tarafýndan yeni bir anket oluþturuldu: =substr
+Welcome to zero_hour_assault!=ZeroHourAssault'a hoþ geldiniz!=substr
+ members cannot join to group= üye gruba katýlamaz=substr
+refused your friend request=Gönderdiðin arkadaþlýk isteðini reddetti=substr
+knife fight match not teamed=Bireysel býçak dövüþü=substr
+seconds left before explode=Saniye sonra patlayacak=substr
+Your score rank is changed to =Rütben þuna deðiþtirildi: =substr
+rock looking down from above=Kuyunun üstündeki kaya=substr
+main street of massacre city  =Halil Caddesi=substr
+Group information. There are=Þu anda var: =substr
+You already draw this weapon=Zaten bu numaraya atanmýþ silah elinizde=substr
+a long water bridge crossing=Uzun bir su köprüsü geçidi =substr
+abandoned house roof ladder=Terk edilmiþ evin çatýsý merdiveni=substr
+ changed the base password to =Üssün þifresini þuna deðiþtirdi: =substr
+Your inventory can hold up to=Taþýyabilir:=substr
+tree house covered with wood=Ahþapla kaplý aðaç ev=substr
+is inviting you to the match!=Seni maça davet ediyor!=substr
+players affected by jammer: =Parazitten etkilenen oyuncular: =substr
+cannot get near player info=Parazit cihazý nedeniyle mümkün deðil=substr
+ Suleiman al-Qanuni's chalet=Kanuni Sultan Süleyman'ýn dað evi=substr
+The back door of the kitchen=Mutfaðýn arka kapýsý=substr
+in front and a ways off to the=Önünüzde ve saðda=substr
+Type your team message here=Takýmýna bir mesaj yaz=substr
+stairs leading to basement =Bodrum katýna inen merdiven=substr
+stairs leading downstairs=Ýniþ merdivenleri=substr
+current character, default=Mevcut karakter: Varsayýlan =substr
+items will disappear after=öðe, ve þundan sonra kaybolacak: =substr
+did not set a status message=Durumu ayarlamadý=substr
+is now an admin of this group!=Þimdi bu grubun bir yöneticisi=substr
+Please input language name=Lütfen dil adýný girin=substr
+removed your invitation to =Þu grubun davetini iptal etti: =substr
+please enter your password=Þifreyi yazýn=substr
+It has no silencer inserted =Susturucu takýlý deðil =substr
+the staff sent you a message! =Yönetimden bir mesajýn var! =substr
+The countdown has started!=Kaçýn! Geri sayým baþladý=substr
+Entrance to the ammo Vault=Mühimmat kasasýna giriþ=substr
+The edge of the north river=Nehrin kuzey kenarý=substr
+The edge of the south river=Nehrin güney kenarý=substr
+Entrance to the girls' room=Kýzlar odasýna giriþ=substr
+downstairs to the tunnels=Tünel merdiveni=substr
+community notifications=Topluluk bildirimleri=substr
+behind and slightly to the=Arkada ve biraz saðda=substr
+hospital car parking area=Hastane önü otopark alaný=substr
+attacking your group base=Grubunuza saldýrýyor=substr
+You already got your daily=Bugün jetonlarýnýzý aldýnýz, almak için =substr
+jumped off the helicopter=Uçaktan atladý=substr
+shield damage resistance= Kalkan direncinden=substr
+You will be unjailed after=Þu süre sonra serbest býrakýlacaksýn:=substr
+helmet damage resistance=Kask direncinden=substr
+ private matches right now=Özel maç þu anda=substr
+Staircase to the bathroom=Banyoya giden merdiven=substr
+equipments order machine=Ekipman sipariþ makinesi=substr
+explosives order machine=Patlayýcý sipariþ makinesi=substr
+top of a large wooden table=Büyük bir ahþap masanýn üstü=substr
+Downstairs to the tunnels=Tünellere inen alt kat=substr
+Disable caching of sounds=Oyun seslerinin önbelleðe alýnmasý=substr
+The production line door=Üretim hattý kapýsý=substr
+Entrance to the bathroom=Banyo giriþi=substr
+Entrance to the boys' room=Erkekler odasýna giriþ=substr
+Farmers management room=Çiftlik yönetim odasý =substr
+time left for this player=Bu oyuncu için kalan süre: =substr
+joined to this community!=Bu topluluða katýldý!=substr
+knife fight match teamed=Takýmlar için býçak dövüþü=substr
+Select a member to invite.=Davet edilecek bir oyuncu seçin.=substr
+wants to add you as friend=Seni arkadaþ olarak eklemek istiyor=substr
+, change language channel=, dil kanalýný deðiþtir=substr
+Helicopters flying area =Helikopter alaný=substr
+The server has been up for =Sunucu þu kadar süredir çalýþýyor: =substr
+Please enter a group name=Lütfen grup adýný girin=substr
+near abandoned building  =Terk edilmiþ bir binanýn yakýnýnda=substr
+Type a group message here=Gruba buradan yaz =substr
+in the waiting area of the=Þu maçýn bekleme alanýnda: =substr
+write announcement text=Duyuru metnini yaz =substr
+zero tokens to this group=Sýfýr jetonu gruba=substr
+amount of headshots made, =Oyuncularýn kafasýna vuruþ sayýsý=substr
+It has silencer inserted =Susturucu takýlý =substr
+The roof of the guard room=Bekçi odasýnýn çatýsý=substr
+basement of the hospital=Hastane bodrumu=substr
+Current computer with id =Bu bilgisayar seri numarasýyla: =substr
+Match ended. Blue team won!=Maç bitti, mavi takým kazandý=substr
+Enable caching of sounds=Oyun seslerinin önbelleðe alýnmasý=substr
+abd al-Rahman III's house=III. Abdurrahman'ýn evi=substr
+current active event is =Mevcut meydan okuma: =substr
+ deleted this community!= Bu topluluðu sildi!=substr
+Entrance to living room  =Oda giriþi=substr
+players on blue team are =Mavi takým oyuncularý þunlardýr: =substr
+a small room. of the lobby. =Alanýn küçük bir odasý =substr
+, in the freedom fight map=, açýk savaþ haritasýnda oynuyor=substr
+loaded, and also you have =ve ayrýca elinizde kaldý =substr
+offline, was last active = Çevrimdýþý, son aktif olma zamaný: =substr
+View group invitations=Grup davetlerini görüntüle=substr
+in the freedom fight map=Genel haritada=substr
+is updated, please check=Güncellendi, lütfen kontrol edin =substr
+wants to join this group!=Gruba katýlmak istiyor!=substr
+New group announcement=Grup duyurusu =substr
+amount of headshots got, =Oyuncularýn kafasýna vuruþ sayýsý=substr
+amount of legshots made, =Oyuncularýn ayaklarýna vuruþ sayýsý, =substr
+The beginning of stairs=Merdivenlerin baþý=substr
+Stairs Fish restaurant=Balýk restoraný merdiveni=substr
+The meeting room stairs=Toplantý odasý merdivenleri=substr
+The roof of the building=Binanýn çatýsý=substr
+vehicles order machine=Araç sipariþ makinesi=substr
+Match ended. Red team won!=Maç bitti, kýrmýzý takým kazandý=substr
+you cannot buy bike here=Buradan bisiklet satýn alamazsýnýz=substr
+stairs leading to roof=Çatý merdivenleri=substr
+george_spencer's house=George'un evi=substr
+South overpass stairs=Güney köprü merdivenleri=substr
+Guest reception suite=Misafir kabul süiti=substr
+ Guardian bedroom door=Bekçi yatak odasý kapýsý=substr
+ Women's clothing store=Kadýn giyim maðazasý=substr
+passage between shops=Maðazalar arasý geçit=substr
+ players on red team are =Kýrmýzý takým oyuncularý þunlardýr: =substr
+Type your message here=Mesajýnýzý buraya yazýn =substr
+go to freedom fight map,=Açýk savaþ haritasýna git=substr
+waiting to teams match=Maçlarýn baþlama bekleme alaný=substr
+rename your character=Hesap adýný deðiþtir=substr
+character barry_allen=Barry Allen karakteri=substr
+entrance of group base =Þu grubun üs giriþi: =substr
+View group base health=Mevcut üs gücü=substr
+members required, with=Gerekli üye sayýsý ve üyeler: =substr
+ contributors. They are=Katkýda bulunanlar. Listede:=substr
+unofficial, created by=Onaylanmamýþ ve þu kiþi tarafýndan oluþturulmuþ: =substr
+ opened the base door at = Üs kapýsýný þu saatte açtý: =substr
+team Base - Second floor=Ýkinci kat=substr
+will be unjailed after =Þu süre sonra serbest býrakýlacak: =substr
+amount of legshots got, =Oyuncularýn ayaklarýna vuruþ sayýsý, =substr
+unofficial languages=Onaylanmamýþ diller=substr
+potions order machine=Ýksir satýn alma makinesi=substr
+Police station cellar=Polis karakolu bodrumu=substr
+Fruit transfer tunnel=Meyve transfer tüneli=substr
+Reconnaissance point=Keþif noktasý=substr
+weapons order machine=Silah sipariþ makinesi=substr
+'s poll has been ended by= anketi þu kiþi tarafýndan sonlandýrýldý:=substr
+powerfull machinegun=Güçlü makineli tüfek=substr
+entrance_of_group_base_=Þu grubun üs giriþi: =substr
+A new character named =Þu isimle bir hesap oluþturuldu: =substr
+says to the community=Topluluða dedi ki:=substr
+West overpass stairs=Batý köprü merdivenleri=substr
+ yalcin_bulut's chalet=Yalçýn'ýn dað evi=substr
+ sent a join request at =Þu saatte katýlým talebi gönderdi: =substr
+luxury houses street=Villalar caddesi =substr
+is inviting you to the=Seni þuraya davet ediyor: =substr
+Zombie survival mode=Zombi hayatta kalma modu =substr
+ without any shutdown=Hiç durmadan=substr
+ammo and can hold up to=ve þu kadar taþýyabilir: =substr
+Its damage is between =. Hasar gücü þunlar arasýndadýr: =substr
+a stairs leading down=Aþaðýya inen merdiven=substr
+Change email address=E-posta adresini deðiþtir=substr
+No group invitations=Davetiniz yok=substr
+front of long factory=Uzun fabrikanýn önü=substr
+climb snowy mountain  =Karlý daða=substr
+Your gender, feminine=Cinsiyet: Kadýn =substr
+Team base living room=Üs odasý =substr
+group notifications=Grup bildirimleri =substr
+a moss covered stream=Yosunla kaplý bir bataklýk=substr
+invisibility_shield=Sis bombasý=substr
+your base password is: =Üssünüzün þifresi: =substr
+Type the account mail=Hesaba baðlý e-postayý yazýn=substr
+Entrance to the tower=Kule giriþi=substr
+large area of dry land=Geniþ kuru arazi alaný=substr
+Management building=Yönetim binasý=substr
+The Book Archive roof=Kitap arþivi çatýsý=substr
+The Book Archiveexit=Kitap arþivi çýkýþý=substr
+Disable Item beeping=Öðe seslerini duyma=substr
+players are using it=Kullanýcý,=substr
+The The second floor=Ýkinci kat=substr
+entrance Food store=Yiyecek deposu giriþi=substr
+jammer time expired=Parazit cihazý süresi doldu=substr
+The roof of the tower=Kule çatýsý=substr
+The Southeast Tower=Güneydoðu Kulesi=substr
+Entrance to the hall=Salon giriþi=substr
+entrance to The Farm=Çiftlik giriþi=substr
+The northeast tower=Kuzeydoðu Kulesi=substr
+The northwest tower=Kuzeybatý Kulesi=substr
+Men's clothing store=Erkek giyim maðazasý=substr
+the East Lovers Park=Doðu Aþýklar Parký=substr
+the West Lovers Park=Batý Aþýklar Parký=substr
+Farmers female room=Kadýn çiftçi odasý=substr
+the southwest tower=Güneybatý Kulesi=substr
+zero builders found=Ýnþaatçý bulunamadý=substr
+would you like to buy?=Satýn almak istediðiniz? =substr
+because you reached = Þuraya ulaþtýðýnýz için: =substr
+ changed the owner to = Sahipliði þuna devretti: =substr
+a flag from blue team=Mavi takýmdan bir bayrak =substr
+joined! They're in the =Katýldý! Þu takýmda: =substr
+write your text here=Metninizi buraya yazýn =substr
+ is no longer near you!= Artýk yakýnýnýzda deðil!=substr
+massacre in the city =Katliam þehri=substr
+store order machine  =Satýþ makinesi=substr
+base_life_amplifier=Üs güçlendirme=substr
+Fifth Avenue street=Beþinci Cadde =substr
+a ruined candy store=Yýkýlmýþ bir þekerci dükkaný=substr
+It can be fired every=Her þu kadar sürede bir ateþlenebilir:=substr
+stairs leading down=Ýniþ merdivenleri=substr
+Snowflake survival=Kar fýrlatma=substr
+copied to clipboard=Ýfade panoya kopyalandý =substr
+Second floor stairs  =Ýkinci kat merdivenleri =substr
+near notifications=Yakýndaki kiþi bildirimleri=substr
+the roof of the house=Evin çatýsý=substr
+official, created by=Onaylanmýþ ve þu kiþi tarafýndan oluþturulmuþ: =substr
+you are not member of =Þunun üyesi deðilsin: =substr
+ is marked as pending=Beklemede=substr
+ group was created by =Grup þu kiþi tarafýndan oluþturuldu: =substr
+community messages=Topluluk mesajlarý=substr
+The factory storage=Fabrika deposu=substr
+Guest bathroom door=Misafir banyosu kapýsý=substr
+In front of the Villa=Villanýn önü=substr
+ammos order machine=Mühimmat sipariþ makinesi=substr
+door leading inside=Ýçeriye açýlan kapý=substr
+'s vote has been ended= Oylamasý sona erdi=substr
+match will end after =Maç þundan sonra sona erecek: =substr
+in progress, poll of=Devam eden anket: =substr
+vote has been ended, = Oylamasý þu kadar süre önce sona erdi: =substr
+Jeanne d'Arc's house=Ýmad'ýn evi=substr
+Salah al-Din's house=Selahaddin'in evi=substr
+BarryAllen's_house=Basil Alwan'ýn evi=substr
+Descending stairs=Ýniþ merdivenleri=substr
+Farmers ’dwellings=Çiftçi konutlarý =substr
+ almushref's chalet=Müþref'in dað evi=substr
+ Coach,ziro's chalet=Koç'un dað evi=substr
+ shoes Women's Store=Kadýn ayakkabý maðazasý=substr
+Guarding room door=Bekçi odasý kapýsý=substr
+Hospital entrance=Hastane giriþi=substr
+ Farmers boss's room=Çiftçi baþýnýn odasý=substr
+Farmers' dwellings=Çiftçi konutlarý=substr
+event description=Etkinlik açýklamasý=substr
+community members=Topluluk üyeleri=substr
+in progress, Vote of =Mevcut oylama: =substr
+ streight off to the=Düz saða=substr
+a swallowing swamp=Kuyu =substr
+has transfered you =Size þu kadar gönderdi: =substr
+a flag from red team=Kýrmýzý takýmdan bir bayrak=substr
+a stairs leading up=Yukarý çýkan merdiven=substr
+character default=Varsayýlan karakter =substr
+character tristan=Tristan karakteri=substr
+rusted wooden door=Eski ahþap kapý =substr
+current character,=Mevcut karakter: =substr
+Type your username=Kullanýcý adýnýzý yazýn=substr
+Your ticket with id=Bilet numaranýz: =substr
+connected players=Baðlý oyuncular =substr
+a female character=Kadýn karakter =substr
+joined! match needs=Katýldý ve maçýn ihtiyaçlarý: =substr
+deleted this group!=Grubu kaldýrdý =substr
+ entered the base at = Üsse þu saatte girdi: =substr
+health, password is=Saðlýk ve þifre: =substr
+ with not helmetted=ve kasksýz=substr
+hand to hand combat=Yumruk ve tekme dövüþü=substr
+enter new password=Yeni þifreyi yazýn=substr
+from the staff team=Geliþtiricilerden=substr
+hitting the ground=Yüksek bir yerden düþmesi=substr
+Head of the farmers=Çiftçilerin baþý=substr
+In front of the door=Kapýnýn önü=substr
+In front of the hall=Salonun önü=substr
+SADO's bedroom door=Sado'nun yatak odasý kapýsý=substr
+Women's shoes Store=Kadýn ayakkabý maðazasý=substr
+BarryAllen's house=Barry Allen'ýn evi=substr
+Enter new password=Yeni þifreyi yazýn=substr
+you have destroyed=Kýrdýn:=substr
+main street of city=Halil Caddesi=substr
+spatial_amplifier=Takip cihazý=substr
+spatial amplifier=Takip cihazý=substr
+is near you! They're =Yakýnýnýzda! Þurada: =substr
+Unloading ladder=Boþaltma merdiveni=substr
+Brigadier's house=Tuðgeneral'in evi=substr
+dark-night's house=Dalal'ýn evi=substr
+Ascending stairs=Çýkýþ merdivenleri=substr
+ equipments store=Ekipman maðazasý=substr
+Control room door=Kontrol odasý kapýsý=substr
+  Farmers' male room=Çiftçi odasý =substr
+ explosives store=Patlayýcý maðazasý=substr
+Character repeat =Harflerin telaffuzu =substr
+Beacons disabled.=Yakýndaki kiþilerin sesleri devre dýþý býrakýldý=substr
+with not shielded=ve kalkansýz =substr
+molotov_cocktail=Molotof=substr
+, message of the day=, günün mesajý=substr
+has been killed by = Þunun tarafýndan öldürüldü: =substr
+View ranking list=Sýralama listesini görüntüle. =substr
+Explosive battle =Patlayýcý savaþý =substr
+last man standing=Hayatta kalan son kiþi =substr
+Last man standing=Hayatta kalan son kiþi =substr
+Knife fight match =Býçak dövüþü =substr
+no ammo loaded for =Þunun için mermi yüklenmedi: =substr
+does not take ammo=Mermisi yok=substr
+for fix bug and lag= Hata ve gecikmeyi düzeltmek için=substr
+you dont have  ammo=Mermin yok =substr
+near the entrance =Giriþin önünde =substr
+You have no motors=Motorun yok=substr
+stairs leading up =Yukarý çýkan merdiven =substr
+a big long factory=Uzun ve terk edilmiþ bir fabrika=substr
+ms. It has a range of=milisaniye ve menzili: =substr
+zero token amount,=ZERO jetonlarýnýzýn miktarý: =substr
+a large grassland =Geniþ çayýrlýk alan=substr
+Volume changed to=Ses þuna deðiþtirildi: =substr
+Match canceled by=Maç þu kiþi tarafýndan iptal edildi:=substr
+ exited the base at = Üsten þu saatte çýktý: =substr
+Te am base's toilet=Tuvalet=substr
+a small staircase=Küçük bir merdiven=substr
+set on this number=Bu numaraya atandý=substr
+do you want to drop?=Atmak istediðiniz? =substr
+congratulations=Tebrikler=substr
+community admins: =Bu topluluðun yöneticileri: =substr
+In front of stores=Maðazalarýn önü=substr
+more flags needed=Kalan bayrak sayýsý=substr
+Collector's arena=Altýn toplama=substr
+collector's arena=Altýn toplama=substr
+Stationery Store=Kýrtasiye=substr
+Guardian bedroom=Bekçi yatak odasý=substr
+Reception office=Resepsiyon ofisi=substr
+Service room door=Servis odasý kapýsý=substr
+russian_official=Rusça_Onaylanmýþ=substr
+powerfull pistol=Güçlü tabanca=substr
+character razeon=Razan karakteri=substr
+fire_suppressant=Yangýn söndürücü=substr
+base_ammo_gun_pack=Üs silahý þarjörü=substr
+adrenaline_shot=Adrenalin iðnesi=substr
+Production line=Üretim hattý=substr
+Lordrahl's house=Lord'un evi=substr
+tim_music's house=Rimas'ýn evi=substr
+Benjamin's_house=Benjamin'in evi=substr
+Jennifer's House=Jennifer'ýn evi=substr
+corpse with bomb=Bombalý çanta=substr
+The second floor=Ýkinci kat=substr
+Next to the trees=Aðaçlarýn yanýnda=substr
+northeast tower=Kuzeydoðu kulesi=substr
+northwest tower=Kuzeybatý kulesi=substr
+Southeast Tower=Güneydoðu Kulesi=substr
+ Male shoes Store=Erkek ayakkabý maðazasý=substr
+ supreme's chalet=Supreme'in dað evi=substr
+ marlowe's chalet=Merve'nin dað evi=substr
+Fish restaurant=Balýk restoraný=substr
+end of water pipe=Su borusunun sonu=substr
+southwest tower=Güneybatý kulesi=substr
+coordinates are=ve koordinatlarý: =substr
+You have a Pm from =Þu kiþiden bir mesajýn var: =substr
+Your ticket with #=Biletiniz #=substr
+a great causeway=Kuyunun kenarý =substr
+Player vs zombie=Oyuncu zombiye karþý=substr
+Beacons enabled.=Yakýndaki kiþilerin sesleri etkinleþtirildi=substr
+team, match needs =Maçýn ihtiyacý: =substr
+does not require=Gerektirmez =substr
+vitality_potion=Saðlýk iksiri, =substr
+inside the store  =Maðazanýn içinde=substr
+Zombie vs player=Zombiler oyunculara karþý =substr
+Capture the flag=Bayraðý kap =substr
+Select an option=Bir seçenek seçin =substr
+and also you have =ve ayrýca elinizde var =substr
+ and the motor has=ve motorun þunlarý var: =substr
+capture the flag=Bayraðý kap=substr
+Match of Shadohh, = Maç: =substr
+Change password=Þifreyi deðiþtir=substr
+got the blue flag=Mavi bayraðý aldý =substr
+put the blue flag=Mavi bayraðý koydu =substr
+veronica's_house=Feyruz'un evi=substr
+and can hold up to=ve þu kadar taþýyabilir: =substr
+Living room exit=Oda çýkýþý =substr
+snowflake_shard=Kar tanesi=substr
+game suggestion=Öneri sun=substr
+says to the group=Gruba dedi ki: =substr
+friend messages=Arkadaþ mesajlarý=substr
+abandoned house  =Terk edilmiþ ev=substr
+an old staircase=Eski bir merdiven=substr
+a wide open space =Geniþ açýk alan =substr
+roof of the house =Evin çatýsý =substr
+Send new message=Mesaj yaz=substr
+One Shot, One kill=Tek atýþ, tek öldürme =substr
+a male character, =Erkek karakter, =substr
+Talking players:=Konuþan oyuncular: =substr
+Premium account=Premium hesap=substr
+Zombie survival=Zombi hayatta kalma=substr
+silencer off for =Þunun için susturucu çýkarýldý: =substr
+inside the store=Maðazanýn içinde=substr
+backpacks_level=Sýrt çantasý seviyesi =substr
+Tower corridors=Kule koridoru=substr
+Veloria village=Veloria köyü=substr
+management door=Yönetim kapýsý=substr
+Manager's office=Müdür ofisi=substr
+Office entrance=Ofis giriþi=substr
+shoes Male Store=Erkek ayakkabý maðazasý=substr
+The fourth floor=Dördüncü kat=substr
+a small entrance=Küçük bir giriþ=substr
+Bathroom window=Banyo penceresi=substr
+Dining room door=Yemek odasý kapýsý=substr
+computer with id =Seri numaralý bilgisayar: =substr
+in the admin room=Yönetim odasýnda=substr
+voted yes to the =Þuna evet oyu verdi: =substr
+left this group!=Bu gruptan ayrýldý!=substr
+vehicles store=Araç maðazasý=substr
+Richard's house=Raþid'in evi=substr
+elmtiri's house=El-Mutayri'nin evi=substr
+Supreme's house=Supreme'in evi =substr
+metehan's house=Sessiz Katil'in evi=substr
+makhlwf's house=Mahluf'un evi=substr
+Michael's house=Michael'ýn evi=substr
+William's_house=Walid'in evi=substr
+metehan's_house=Memduh'un evi=substr
+el-masry's house=El-Masri'nin evi=substr
+The third floor=Üçüncü kat=substr
+entrance to the =Giriþ: =substr
+entrance to The =Giriþ: =substr
+Villa building=Villa binasý=substr
+ la_brea's chalet=Labib'in dað evi=substr
+ Predators shop=Vahþi hayvanlar dükkaný=substr
+ Newcomers room=Yeni gelenler odasý=substr
+friends online:=Arkadaþ:=substr
+Enter username=Oyuncu adýný tam olarak yazýn=substr
+team dead match=Takým dövüþü=substr
+Keyboard theme =Tuþlarýn sesi =substr
+says to the team:=Takýma dedi ki:=substr
+This is a prison=Hapishane =substr
+You transfered =Þu kadar aktardýn: =substr
+revival_nectar=Canlanma iksiri, =substr
+front of houses  =Evlerin önü=substr
+store entrance  =Maðaza giriþi=substr
+Team dead match=Takým dövüþü maçý =substr
+You are looking=Þuna bakýyorsun: =substr
+ at coordinates = Þu koordinatlarda: =substr
+Administrator=, Yönetici=substr
+jewelery store  =Mücevher dükkaný=substr
+Rename history=Yeniden adlandýrma tarihleri listesini görüntüle=substr
+got the red flag=Kýrmýzý bayraðý aldý =substr
+put the red flag=Kýrmýzý bayraðý koydu =substr
+police station=Polis karakolu=substr
+It has a range of=Kullaným menzili: =substr
+Message copied=Mesaj kopyalandý=substr
+report a player=Oyuncuyu bildir =substr
+match messages=Maç mesajlarý=substr
+admin messages.=Yönetici mesajlarý=substr
+group messages.=Grubunuzun mesajlarý.=substr
+notifications.=Bildirimler =substr
+Quoted message:=Alýntýlanan mesaj:=substr
+Current volume =Mevcut seviye =substr
+Client version:=Oyun sürümü: =substr
+from this group!=Gruptan =substr
+Server Message:=Sunucu Mesajý:=substr
+Inventory menu.=Öðeler listesi=substr
+ public matches= Genel maç =substr
+character aria=Anðam karakteri=substr
+character kade=Kado karakteri=substr
+due to silencer, =Susturucu nedeniyle, =substr
+silencer on for =Þunun için susturucu takýldý: =substr
+corpse bomb off=Ceset bombasý çýkarýldý=substr
+select a corpse=Bir çanta seç=substr
+Talvani Street=Talvani Caddesi=substr
+Ashkar village=Aþkar köyü=substr
+The first floor=Birinci kat=substr
+Food store door=Yiyecek deposu kapýsý=substr
+Food store exit=Yiyecek deposu çýkýþý=substr
+Guest bathroom=Misafir banyosu=substr
+The fifth floor=Beþinci kat=substr
+Enter new email=Yeni e-posta adresini yazýn=substr
+no description=Açýklama yok=substr
+administrator=Yönetici =substr
+a pistol weapon=Tabanca silahý=substr
+a sniper weapon=Keskin niþancý silahý=substr
+corpse_scanner=Ceset arayýcý=substr
+voted no to the =Þuna hayýr oyu verdi:=substr
+sticky, poll of=Sabitlenmiþ anket: =substr
+The small gate=Küçük kapý=substr
+Camila's house=Camila'nýn evi=substr
+Gandhi's house=Gandhi'nin evi=substr
+Hadeer's house=Hadeer'in evi=substr
+la_brea's_house=Labib'in evi=substr
+Olivia's_house=Ülfet'in evi =substr
+el-hero's house=El-Hero'nun evi=substr
+Daniel's house=Daniel'ýn evi=substr
+Snow Mountain=Kar Daðý=substr
+Bathroom door=Banyo kapýsý=substr
+ to wake them up= Onu canlandýrmak için=substr
+The death city=Ölüm þehri=substr
+ weapons store=Silah maðazasý=substr
+ potions store=Ýksir maðazasý=substr
+electric pole =Elektrik direði =substr
+ in the match of =Þu maçta: =substr
+inside the pit=Uçurum =substr
+Private match=Özel maç=substr
+says to the map: = Dedi ki: =substr
+hit the ground =Yüksek bir yerden düþmesi =substr
+left the match!=Maçtan ayrýldý! =substr
+Stop tracking=Takibi durdur=substr
+stop tracking=Takibi durdur=substr
+diamond_sword=Elmas kýlýç=substr
+clothes shops=Giyim ve ayakkabý maðazasý=substr
+la_brea's_house=Bera'nýn evi=substr
+and a spread of=ve yayýlýmý: =substr
+player deaths=Oyuncularýn sizi öldürme sayýsý =substr
+group members=Üyeler=substr
+milliseconds=milisaniye =substr
+General_Chats=Genel sohbetler=substr
+team messages.=Takým mesajlarý.=substr
+Chat language,=Sohbet dili, =substr
+a soft cushion=Yumuþak bir yastýk=substr
+from the match=Maçtan =substr
+channel set to =Mesaj kanalý þuna ayarlandý: =substr
+a barricade of =Bir barikat=substr
+unlocked with =Þunlarla açýk: =substr
+zero tokens to =Sýfýr jetonu þuna: =substr
+ Conqueror III= Fatih III=substr
+from the chest!=Sandýklardan=substr
+channel set to=Kanal þuna deðiþtirildi: =substr
+ for stability= Ýstikrar için=substr
+current event =Mevcut etkinlik =substr
+will end after =Þundan sonra sona erecek: =substr
+wuodan's house=Wadan'ýn evi=substr
+Dragon's house=Dragon'un evi=substr
+hospital roof=Hastane çatýsý=substr
+corpse bomb on=Ceset bombasý takýldý=substr
+swimming pool=Yüzme havuzu=substr
+Fruit storage=Meyve depolama=substr
+near the table=Masanýn yanýnda=substr
+SADO's bedroom=Sado'nun yatak odasý=substr
+wuodan's_house=Wudan'ýn evi=substr
+Bathroom Door=Banyo Kapýsý=substr
+Dragon's_house=Ejderha'nýn evi=substr
+ended, poll of=Sonuçlanmýþ anket: =substr
+See comments=Yorumlarý gör=substr
+The main gate=Ana kapý=substr
+Dante's house=Diyab'ýn evi=substr
+Pablo's house=Nebil'in evi=substr
+Julia's house=Judy'nin evi=substr
+Abdul's house=Abdul'un evi=substr
+riley's house=Rami'nin evi=substr
+james's_house=Tiger'ýn evi=substr
+Emily's_house=Ýman'ýn evi =substr
+Western room=Batý odasý=substr
+entrance too =Giriþ: =substr
+ jims's chalet=Casir'in dað evi=substr
+ braw's chalet=Bera'nýn dað evi=substr
+ sado's chalet=Sado'nun dað evi=substr
+ended, Vote of =Oylamasý bitti: =substr
+You are on the =Þu takýmdasýn: =substr
+match mode is =Maç türü: =substr
+group member =Grup üyesi=substr
+the hospital =Hastane =substr
+a timebomb of =Þundan bir saatli bomba: =substr
+Enter amount=Miktarý yazýn=substr
+MosinNagant=Rus Mosin=substr
+Loot dropped=Eþyalar býrakýldý =substr
+broken table =Kýrýk masa =substr
+hand_grenade=El bombasý, =substr
+Players menu:=Oyuncular menüsü:=substr
+Public match=Genel maç=substr
+Current area:= Mevcut bölge =substr
+dragunov_psl= Keskin niþancý =substr
+near the exit =Çýkýþýn önünde =substr
+small_potion=Küçük iksir, =substr
+and spread of =, ve yayýlým menzili: =substr
+ destroyed by =Þunun tarafýndan yok edildi: =substr
+create group=Grup oluþtur=substr
+wooden_sword=Tahta kýlýç=substr
+Grace's_house=Cihat'ýn evi=substr
+score points=Puan=substr
+player kills=Öldürdüðünüz oyuncu sayýsý =substr
+The ping took =Ping: =substr
+You are in the =Þu takýmdasýn: =substr
+is not typing=Yazmayý býraktý =substr
+group admins=Yöneticiler=substr
+went offline=Oyundan çýktý=substr
+map messages=Harita mesajlarý=substr
+Unknown area=Bilinmeyen bir bölge=substr
+a long street =Uzun bir cadde=substr
+metal_shield=Kalkan=substr
+description=Açýklama=substr
+metal stairs=Metal merdivenler=substr
+Last updated=Son güncelleme: =substr
+Send message=Mesajý gönder=substr
+member count: =Üye sayýsý: =substr
+riley's_house=Aliya'nýn evi=substr
+lucas's_house=Luis'in evi=substr
+, in the base of=Þunun üssünde: =substr
+you dont have=Mermin yok =substr
+steel_helmet=Kask=substr
+a bloody pond=Kan gölü=substr
+çevrimiçi oldu=Oyuna girdi=substr
+ to this group!=Gruba=substr
+You don't have =Üzgünüm, elinizde yok =substr
+ Conqueror II= Fatih II=substr
+ Conqueror IV= Fatih IV=substr
+Platinum III=Platin III=substr
+ended, poll of=Sonuçlanmýþ anket: =substr
+ event points= Etkinlik puaný=substr
+coordinates=Koordinatlar=substr
+Coordinates:= Ve koordinatlarý: =substr
+Control room=Kontrol odasý=substr
+Farmers boss=Çiftçi lideri=substr
+inside the pi=Geçidin içinde=substr
+Kitchen door=Mutfak kapýsý=substr
+Meeting room=Toplantý odasý=substr
+Service room=Servis odasý=substr
+the bathroom=Banyo=substr
+The top floor=Üst kat=substr
+an empty room=Boþ bir oda=substr
+Book Archive=Kaðýt arþivi=substr
+thrown_knife=Býçak fýrlattý=substr
+amluk's house =Amluk'un evi=substr
+Comments for=Þunun için yorumlar:=substr
+department= Bölüm =substr
+red team has=Kýrmýzý takýmda var:=substr
+sado's house=Sado'nun evi=substr
+entrance to=Giriþ: =substr
+ ammos store=Mühimmat maðazasý=substr
+ communitys.=topluluk.=substr
+a chest with =Þununla bir sandýk: =substr
+this weapon =Bu silah =substr
+, in the lobby=, dýþ alanda=substr
+Abyss Clash =Uçurum savaþý =substr
+Abyss Clash=Uçurum diyarý=substr
+today, after =bugün, þundan sonra =substr
+ seconds ago.= saniye önce.=substr
+See members=Üyeleri görmek için basýn =substr
+binoculars=Dürbün =substr
+stone_sword=Taþ kýlýç=substr
+sado's_house=Saad'ýn evi=substr
+basement of=Ýçinde =substr
+scores menu=Sonuçlar menüsü=substr
+score point= Puan sayýsý =substr
+Score point, =Puanlarýnýz, =substr
+Your gender,=Cinsiyet, =substr
+abyss clash=Çukur tuzaklarý=substr
+Sniper duel=Keskin niþancý düellosu=substr
+Department=Bölüm seçin =substr
+report a bug=Hata bildir =substr
+equipments=Ekipmanlar=substr
+base health=Saðlýk seviyesinden =substr
+Enter reply=Yanýt yaz=substr
+This weapon=Bu silah=substr
+Base Camera=Bilgisayar=substr
+in the match:=Maçta:=substr
+not started=Baþlamadý =substr
+in progress,=Baþladý=substr
+ms walktime=Yürürken milisaniye=substr
+plus damage, = Gerçek hasarýn üzerine hasar =substr
+Match ended.=Maç bitti. =substr
+You are dead=Öldün=substr
+corpse with =Merhumun çantasý ve içinde: =substr
+toilet bowl=Klozet=substr
+locked with =Þunlarla kilitli: =substr
+ came online=Oyuna girdi=substr
+lithuanian=Litvanyaca=substr
+Vietnamese=Vietnamca=substr
+portuguese=Portekizce=substr
+indonesian=Endonezyaca=substr
+zero tokens=Sýfýr jetonu=substr
+ Conqueror I= Fatih I=substr
+ Conqueror V= Fatih V=substr
+Diamond III=Elmas III=substr
+Platinum II=Platin II=substr
+Platinum IV=Platin IV=substr
+ password is = ve þifre: =substr
+survive for =Þu kadar süre hayatta kal: =substr
+you are died=Öldün=substr
+event point=Etkinlik puaný=substr
+Guests room=Misafir odasý=substr
+the kitchen=Mutfak=substr
+Gaming room=Oyun odasý=substr
+corpse_bomb=Ceset bombasý=substr
+Lovers Park=Aþýklar Parký=substr
+Sahmir Lane=Sahmir Sokaðý=substr
+You waked up=Uyandýn=substr
+master room=Ana oda=substr
+Office door=Ofis kapýsý=substr
+Dining hall=Yemek salonu=substr
+are Windows=Windows'ta=substr
+are Android=Android'de=substr
+base gun has=Üs silahýnda var:=substr
+As a result=Sonuç olarak=substr
+Ali's house=Ali'nin evi=substr
+ünal's house=Yunus'un evi=substr
+Food store=Yiyecek deposu=substr
+Girls' room=Kýzlar odasý=substr
+ fainted in = Þurada bayýldý: =substr
+Guard room=Bekçi odasý=substr
+event name=Etkinlik adý=substr
+will end in =Þundan sonra sona erecek: =substr
+attention: =Dikkat: =substr
+ withdrawn = Çekildi =substr
+metal case=Metal sahne=substr
+ an admin at = Bir yöneticiye: =substr
+parachute=Paraþüt: =substr
+Sword duel =Kýlýç düellosu =substr
+The player =Oyuncu =substr
+steps down=Aþaðý=substr
+ second ago.=saniye önce.=substr
+Logging in=Giriþ yapýlýyor=substr
+Bedroom of =Þunun yatak odasý: =substr
+The weapon=Silah =substr
+nightclub=Genelev=substr
+score rank=Rütbe =substr
+tiles away) =Adým uzakta) =substr
+Score Rank= Rütbe =substr
+bot deaths=Botlarýn sizi öldürme sayýsý =substr
+in this map=Bu haritada =substr
+group base =Grup üssü =substr
+Chest zone  =Sandýk bölgesi =substr
+Moderator=Denetçi =substr
+wooden hut=Kulübe =substr
+Status for =Þunun durumu: =substr
+Your motor=Motorun =substr
+max health, =Maksimum saðlýk, =substr
+Chest with=Sandýkta var:=substr
+not teamed=Bireysel=substr
+for fix bug=Hatayý düzeltmek için=substr
+barricade=Barikat=substr
+a ladder of =Bir merdiven =substr
+The base of =Þunun üssü: =substr
+base count: =Üs sayýsý: =substr
+attention: =Dikkat=substr
+ Developer=, Geliþtirici,=substr
+ jailed for =Þu nedenden dolayý hapsedildi: =substr
+Ukrainian=Ukraynaca=substr
+ Conqueror= Fatih=substr
+Diamond II=Elmas II=substr
+Diamond IV=Elmas IV=substr
+Platinum I=Platin I =substr
+Platinum V=Platin V=substr
+Silver III=Gümüþ III=substr
+Bronze III=Bronz III=substr
+zero_token=Sýfýr jetonlarý=substr
+spectator =Ýzleyici =substr
+Yes voters: =Evet oyu verenlerin sayýsý: =substr
+community=Topluluk=substr
+a electric =Elektrik direði=substr
+zero token=Sýfýr jetonlarý=substr
+Ardent Way=Arden Yolu=substr
+Ammo Vault=Mühimmat kasasý=substr
+courtyard=Avlu=substr
+Deep river=Derin nehir=substr
+small room=Küçük oda=substr
+Stairs café=Kafe merdiveni=substr
+Villa exit=Villa çýkýþý=substr
+a huge city=Katliam þehri=substr
+Room door=Oda kapýsý=substr
+Bathroom=Banyo=substr
+Boys' room=Erkekler odasý=substr
+time left=Kalan süre: =substr
+More than =Þundan daha fazlasý olamaz: =substr
+hospital =Hastane =substr
+near exit=Çýkýþýn yanýnda =substr
+bike path  =Bisiklet yolu=substr
+Sign in as=Þu isimle giriþ yap: =substr
+try again= Tekrar dene =substr
+driveway, =Yol,=substr
+Tracking =Takip ediliyor =substr
+Toilet of =Þunun tuvaleti: =substr
+requires =Mermi gerektirir =substr
+No groups=Grup yok=substr
+to ground=Yere=substr
+stairs to =Merdivenler: =substr
+feet away=Adým =substr
+bot kills=Öldürdüðünüz bot sayýsý =substr
+ is typing= Yazýyor=substr
+watching=Ýzliyor =substr
+Team base =Üssün içinde =substr
+corpse of=Ceset: =substr
+timebomb=Saatli bomba=substr
+a big pole=Direk=substr
+jump time=Zýplama zamaný =substr
+a motor of =Bir motor =substr
+ is closed=Kapatýldý =substr
+ health is=Saðlýk ve o: =substr
+teammate=Takým üyesi=substr
+There are =Var =substr
+streight=Düz =substr
+romanian=Rumence=substr
+thailand=Tayca=substr
+filipino=Filipince=substr
+Estonian=Estonca=substr
+jamaican=Jamaikaca=substr
+disabled=Devre dýþý býrakýldý=substr
+Crown III=Taç III=substr
+Diamond I=Elmas I=substr
+Diamond V=Elmas V=substr
+Platinum=Platin=substr
+Silver II=Gümüþ II=substr
+Silver IV=Gümüþ IV=substr
+Bronze II=Bronz II=substr
+Bronze IV=Bronz IV=substr
+, shielded=, kalkanlý=substr
+no voters: =Hayýr oyu verenlerin sayýsý: =substr
+silencer=Susturucu=substr
+The event =Meydan okuma =substr
+Ebon Road=Ebon Yolu=substr
+waked you=Seni uyandýrdý=substr
+bathroom=Banyo=substr
+português=Portekizce=substr
+boom_box=Tuzaklý eþya=substr
+red team=Kýrmýzý takým=substr
+Red team=Kýrmýzý takým=substr
+The Farm=Çiftlik=substr
+, message: =, Mesaj: =substr
+in front=Önünde =substr
+in front,=Önünde,=substr
+ minutes= Dakika=substr
+ invited = Davet etti =substr
+, playing =, Oynuyor =substr
+degrees=derece=substr
+ ammo for = Mermiyle silah =substr
+steps up= Yukarý =substr
+You have =Sende var =substr
+minutes, =Dakika =substr
+ seconds= Saniye=substr
+Exiting= Çýkýlýyor =substr
+pet shop=Evcil hayvan dükkaný =substr
+support=Destek =substr
+team has = Var =substr
+nothing=Hiçbir þey=substr
+hut door  =Kulübe kapýsý =substr
+ english=Ýngilizce=substr
+Blocked =Engelledi =substr
+You need =Ýhtiyacýn var =substr
+Match of =Maç: =substr
+offline=Çevrimdýþý=substr
+Removed =Kaldýrýldý =substr
+ grenade= El bombasý =substr
+pending, #=Ýncelemede #=substr
+items  is=Öðe ve o: =substr
+ seconds= Saniye =substr
+merhaba=Merhaba=substr
+turkish=Türkçe=substr
+italian=Ýtalyanca=substr
+kurdish=Kürtçe=substr
+serbian=Sýrpça=substr
+spanish=Ýspanyolca=substr
+russian=Rusça=substr
+persian=Farsça=substr
+members= Üye =substr
+donated =Koydu =substr
+players=Oyuncular =substr
+Ducking = Eðilmiþ =substr
+How many =Kaç adet =substr
+enabled=Etkinleþtirildi =substr
+Crown II=Taç II=substr
+Crown IV=Taç IV=substr
+Diamond=Elmas=substr
+Gold III=Altýn III=substr
+Silver I=Gümüþ I=substr
+Silver V=Gümüþ V=substr
+Bronze I=Bronz I=substr
+ Bronze V=Bronz V=substr
+private, =Özel, =substr
+message: =Mesaj: =substr
+, they are: =, ve oy verenler: =substr
+Message: =Mesaj: =substr
+started!=Baþladý!=substr
+motor of =Þunun motoru: =substr
+you have =Sende var =substr
+Builder=Mühendis=substr
+Bedroom=Yatak odasý=substr
+Factory=Fabrika=substr
+The Roof=Çatý=substr
+Balcony=Balkon=substr
+Car park=Otopark=substr
+friends=Arkadaþlar=substr
+boom box=Tuzaklý eþya=substr
+Just now.=Þimdi.=substr
+English=Ýngilizce=substr
+a bike of=Bir bisiklet=substr
+base_gun=Üs silahý=substr
+Turkish=Türkçe=substr
+Spanish=Ýspanyolca=substr
+Gender,=Cinsiyet,=substr
+female=Kadýn=substr
+Female=Kadýn=substr
+behind =Arkada =substr
+ left at = Þurada ayrýldý: =substr
+You got =Þunu aldýn: =substr
+ second= Saniye=substr
+ public, = Genel =substr
+mm ammo =Mermiden=substr
+tavern=Meyhane=substr
+a chest=Sandýk =substr
+months=Ay=substr
+A table=Masa =substr
+Pm from =Þu kiþiden mesaj: =substr
+minute=Dakika=substr
+Arabic=Arapça=substr
+deaths=diðer oyuncular tarafýndan öldürülme sayýsý=substr
+groups.=Gruplar =substr
+roof of=Çatý: =substr
+a couch=Koltuk =substr
+closed, #=Kapalý #=substr
+teamed=Takýmlar için=substr
+ health  = Saðlýk =substr
+base at =Üs þurada bulunuyor: =substr
+ladder=Merdiven=substr
+online=Çevrimiçi=substr
+you got =Aldýn:=substr
+Friend=Arkadaþýn=substr
+french=Fransýzca=substr
+polish=Lehçe=substr
+german=Almanca=substr
+nepali=Nepalce=substr
+joined=Katýldý =substr
+kicked =Çýkardý =substr
+friend=Arkadaþýn=substr
+ Ace III= Usta III=substr
+Crown I=Taç I=substr
+Crown V=Taç V=substr
+Gold II=Altýn II=substr
+Gold IV=Altýn IV =substr
+Silver=Gümüþ=substr
+ Bronze=Bronz=substr
+ behind= Arkada=substr
+poll of =Þunun anketi: =substr
+stairs =Merdivenler=substr
+Toilet=Klozet=substr
+jammer=Parazit cihazý=substr
+Office=Ofis=substr
+window=Pencere=substr
+Window=Pencere=substr
+a rifle=Tüfek=substr
+razeon=Razan=substr
+Villa=Villa=substr
+. Title: =. Baþlýk: =substr
+ a sign =Tabela, okumak için Shift+Enter'a basýn =substr
+south=Güney=substr
+Watch=Ýzle=substr
+enemy =Düþman =substr
+north=Kuzey=substr
+hours, =Saat, =substr
+below=Altýnda ve=substr
+above=Üstünde ve=substr
+Rules.=Kurallar =substr
+Chair =Odada sandalye=substr
+Empty=Boþ=substr
+flags,=Bayrak, =substr
+month,=Ay =substr
+group,=Grup =substr
+owner: =Sahip:=substr
+kills: =Öldürdükleri oyuncu sayýsý =substr
+block=Engelleme listesinden=substr
+punch=Yumruk=substr
+ items.= Öðe.=substr
+right=Sað =substr
+ times.= Kez.=substr
+items =Öðeler =substr
+Greek=Yunanca=substr
+malay=Malayca=substr
+hindi=Hintçe=substr
+other=Diðer =substr
+knife=Býçak =substr
+Table=Masa=substr
+ Ace II= Usta II,=substr
+ Ace IV= Usta IV,=substr
+Crown=Taç=substr
+Gold I=Altýn I=substr
+Gold V=Altýn V=substr
+found=Buldu=substr
+title: =Baþlýk: =substr
+no one=Kimse=substr
+items=Öðeler=substr
+faint=Baygýn=substr
+A sign=Tabela=substr
+couch=Koltuk=substr
+ weeks= Hafta=substr
+dutch=Hollandaca=substr
+Room=Oda=substr
+flat =Daire=substr
+ Cave=Maðara=substr
+Pass=Geçit=substr
+Male=Erkek=substr
+male=Erkek=substr
+west=Batý =substr
+east=Doðu=substr
+says:=Diyor:=substr
+ ammo=Mühimmat=substr
+feet =Adým =substr
+pm to=Mesaj þuna: =substr
+misc.=Çeþitli=substr
+mine=Mayýn=substr
+blue=Mavi=substr
+team, =Takým, =substr
+Open=Açýk=substr
+hour=Saat=substr
+days=Gün=substr
+Name: =Ad: =substr
+exit=Çýkýþ =substr
+feet=Adým=substr
+left=Sol =substr
+ week= Hafta=substr
+urdu=Urduca=substr
+dead = Ölü =substr
+ with = Ýle =substr
+Wait =Bekle =substr
+kade=Kado, =substr
+feet.=Adým.=substr
+ Ace I= Usta I,=substr
+ Ace V= Usta V,=substr
+poll=Anket=substr
+Gold=Altýn=substr
+type=Tip=substr
+gold=Altýn=substr
+Exit=Çýkýþ=substr
+café=Kafe=substr
+red= Kýrmýzý=substr
+ had = Vardý =substr
+ got = Aldý =substr
+get =Al =substr
+ and = ve =substr
+all= Hepsi =substr
+won!=Kazandý! =substr
+day=Gün =substr
+ Ace= Usta,=substr
+ ms.= Milisaniye.=substr
+OK=Tamam=substr
+ HP= Güç puaný  =substr
+ hp=Güç puaný =substr
+ by = Tarafýndan =substr
+ at = Þurada =substr
+ vs =Karþý =substr
+ is = =substr

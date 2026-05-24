@@ -1,0 +1,201 @@
+mapname:freedomtest
+maxx:6000
+maxy:6000
+maxz:1000
+platform:0:6000:0:6000:0:0:cement3
+
+
+zone:0:2996:0:6000:0:500:a lush forest by the side of the road
+platform:0:2996:0:6000:0:0:grass3
+zone:2997:3000:0:700:0:500:soulder
+zone:3001:3011:0:700:0:500:lane 1, one way
+zone:3012:3022:0:700:0:500:lane2, return
+zone:3023:3026:0:700:0:500:soulder
+zone:3001:3011:186:190:0:500:on the right, a small parking area for motorcycles:trackable
+zone:3012:3022:186:190:0:500:on the left, a small parking area for motorcycles:trackable
+zone:3027:6000:0:6000:0:500:a lush forest by the side of the road 
+platform:3027:6000:0:6000:0:0:grass3
+platform:2997:3000:0:700:0:0:concrete8
+platform:3023:3026:0:700:0:0:concrete8
+platform:3023:3026:186:190:0:0:concrete6
+zone:3023:3026:186:190:0:500:parking lot entrance:trackable
+platform:3027:3040:170:195:0:0:concrete24
+zone:3027:3040:170:195:0:500:a small parking lot
+platform:3027:3040:169:169:0:10:wallair
+platform:3041:3041:169:195:0:10:wallair
+platform:3027:3041:196:196:0:10:wallair
+zone:3001:3023:670:700:0:500:entering Esperanza village, 30 meters:trackable
+zone:2997:3000:701:901:0:500:sidewalk of the village of esperanza
+platform:2997:3000:701:901:0:0:concrete6
+zone:3001:3011:701:901:0:500:Lane 1 of Esperanza Village
+zone:3012:3022:701:901:0:500:Lane 2 of Esperanza Village
+zone:3023:3026:701:901:0:500:Sidewalk Of Esperanza village
+platform:3023:3026:701:901:0:0:concrete6
+
+sign:2997:700:0:welcome to esperanza
+
+
+
+platform:2980:2996:701:701:0:30:wallbuilding3
+platform:2997:2997:701:708:0:30:wallbuilding3
+zone:2997:2997:709:711:0:10:the entrance of a house
+platform:2997:2997:712:720:0:30:wallbuilding3
+platform:2979:2979:701:720:0:30:wallbuilding3
+platform:2980:2996:720:720:0:30:wallbuilding3
+zone:2980:2996:701:720:0:10:a small house with a homey feel.
+
+platform:2980:2996:702:719:0:0:carpet3
+zone:2980:2980:719:719:0:6:a small fireplace heats the entire house
+platform:2980:2980:719:719:0:0:debris
+
+
+platform:2980:2996:721:721:0:30:wallbuilding3
+platform:2997:2997:721:728:0:30:wallbuilding3
+zone:2997:2997:729:731:0:10:the entrance of a house
+platform:2997:2997:732:740:0:30:wallbuilding3
+platform:2979:2979:721:740:0:30:wallbuilding3
+platform:2980:2996:740:740:0:30:wallbuilding3
+platform:2980:2996:722:739:0:0:carpet3
+zone:2980:2980:739:739:0:6:a small fireplace heats the entire house
+platform:2980:2980:739:739:0:0:debris
+zone:2980:2996:721:740:0:10:a small house with a homey feel.
+zone:2980:2980:739:739:0:6:a small fireplace heats the entire house
+platform:2980:2996:740:740:0:30:wallbuilding3
+platform:2997:2997:740:748:0:30:wallbuilding3
+zone:2997:2997:749:751:0:10:the entrance of a house
+platform:2997:2997:752:760:0:30:wallbuilding3
+platform:2979:2979:740:760:0:30:wallbuilding3
+platform:2980:2996:760:760:0:30:wallbuilding3
+platform:2980:2996:741:759:0:0:carpet3
+platform:2980:2980:759:759:0:0:debris
+zone:2980:2996:740:760:0:10:a small house with a homey feel.
+zone:2980:2980:759:759:0:6:A small fireplace heats the entire house
+platform:2980:2996:760:760:0:30:wallbuilding3
+platform:2997:2997:760:768:0:30:wallbuilding3
+zone:2997:2997:769:771:0:10:the entrance of a house
+platform:2997:2997:772:780:0:30:wallbuilding3
+platform:2979:2979:760:780:0:30:wallbuilding3
+platform:2980:2996:780:780:0:30:wallbuilding3
+platform:2980:2996:761:779:0:0:carpet3
+zone:2980:2980:779:779:0:6:a small fireplace heats the entire house
+platform:2980:2980:779:779:0:0:debris
+zone:2980:2996:760:780:0:10:a small house with a homey feel.
+zone:2980:2980:779:779:0:6:A small fireplace heats the entire house 
+platform:2980:2996:780:780:0:30:wallbuilding3
+platform:2997:2997:780:788:0:30:wallbuilding3
+zone:2997:2997:789:791:0:10:the entrance of a house
+platform:2997:2997:792:800:0:30:wallbuilding3
+platform:2979:2979:780:800:0:30:wallbuilding3
+platform:2980:2996:800:800:0:30:wallbuilding3
+platform:2980:2996:781:799:0:0:carpet3
+zone:2980:2980:799:799:0:6:a small fireplace heats the entire house
+platform:2980:2980:799:799:0:0:debris
+zone:2980:2996:780:800:0:10:a small house with a homey feel.
+zone:2980:2980:799:799:0:6:a small fireplace heats the entire house
+platform:2980:2996:800:800:0:30:wallbuilding3
+platform:2997:2997:800:806:0:30:wallbuilding3
+zone:2997:2997:807:809:0:10:the entrance of a motorcycle garage
+platform:2997:2997:810:820:0:30:wallbuilding3
+platform:2979:2979:800:820:0:30:wallbuilding3
+platform:2980:2996:820:820:0:30:wallbuilding3
+platform:2980:2996:801:819:0:0:cement3
+zone:2980:2996:800:820:0:10:a small garage for motorcycles
+zone:2998:3000:809:811:0:10:garage entrance:trackable
+zone:3001:3011:809:811:0:6:to the left, the entrance to a motorcycle garage.:trackable
+zone:2950:2996:821:830:0:20:a street between the houses that leads to the forest.:trackable
+platform:2950:2996:821:830:0:0:concrete
+platform:2980:2996:831:831:0:30:wallbuilding3
+platform:2997:2997:831:838:0:30:wallbuilding3
+zone:2997:2997:839:841:0:10:the entrance of a house
+platform:2997:2997:842:851:0:30:wallbuilding3
+platform:2979:2979:831:851:0:30:wallbuilding3
+platform:2980:2996:851:851:0:30:wallbuilding3
+platform:2980:2996:832:850:0:0:carpet3
+zone:2980:2980:850:850:0:6:a small fireplace heats the entire house
+platform:2980:2980:850:850:0:0:debris
+zone:2980:2996:831:851:0:10:a small house with a homey feel.
+platform:2996:2996:851:1000:0:30:wallfence
+zone:2997:2997:851:1000:0:30:a security fence behind which there is a river
+src:2995:2995:851:1000:0:20:water_ambience.ogg:0
+zone:2990:2995:851:1000:0:30:a long and deep river
+platform:2990:2995:851:1000:0:0:water
+platform:2990:2996:850:850:0:30:wallglass5
+zone:2990:2996:849:850:0:30:a window overlooking the river
+zone:3001:3011:880:901:0:500:Esperanza village exit, 30 meters:trackable
+
+platform:3005:3010:710:800:8:8:appartment
+
+zone:3001:3023:650:670:0:500:intersection. right in front, entrance to esperanza village. on the right, access ramp to the z1 highway, direction Poodle springs.:trackable
+platform:3023:3026:649:649:0:30:wallbuilding6
+zone:3023:3026:620:626:0:500:a crosswalk:trackable
+zone:2997:3000:620:626:0:500:a crosswalk:trackable
+zone:3023:3026:648:648:0:30:a safety barrier blocking pedestrian access to the freeway
+platform:3023:3026:671:671:0:30:wallbuilding6
+zone:3023:3026:672:672:0:30:a safety barrier blocking pedestrian access to the freeway
+zone:3023:3030:650:670:0:30:z1 freeway on-ramp, poodle springs, turn left at the end to merge onto the freeway.
+platform:3027:3030:650:670:0:0:concrete24
+platform:3031:3041:650:1650:0:0:cement3
+platform:3042:3052:650:1650:0:0:cement3
+platform:3053:3063:650:1650:0:0:cement3
+zone:3031:3041:650:1650:0:30:lane1, of z1 Highway
+zone:3042:3052:650:1650:0:30:lane2, of z1 highway
+zone:3053:3063:650:1650:0:30:lane3, of z1 highway
+platform:3027:3063:650:650:0:30:wallair
+platform:3064:3064:650:1650:0:30:wallbuilding6
+platform:3027:3030:671:671:0:30:wallair
+platform:3027:3027:672:901:0:30:wallbuilding6
+platform:3030:3030:672:1650:0:30:wallbuilding6
+platform:2997:3000:901:1901:0:0:concrete24
+zone:2998:3000:901:1901:0:30:souldier
+zone:3001:3011:901:1901:0:50:lane 1, one way
+zone:3012:3022:901:1901:0:50:lane 2, return
+zone:3023:3026:901:1901:0:50:souldier
+
+platform:3023:3026:901:1901:0:0:concrete24
+zone:3031:3064:851:861:0:30:on 50 meters, start for NZ1, Esperanza Poodle springs.stay in lane1 to exit, change lanes to continue on the freeway.:trackable
+
+platform:3023:3030:904:910:0:0:concrete24
+zone:3023:3030:904:910:0:30:exit ramp, keep heading west to take NZ1, then take lane 1 to continue towards Poodle springs, or lane 2 to Esperanza village. 
+platform:3023:3030:903:903:0:30:wallbuilding6
+zone:3023:3030:902:902:0:30:a barrier preventing pedestrian access to the freeway
+
+zone:3031:3041:890:904:0:30:exit lane:trackable
+
+zone:3031:3041:904:910:0:30:turn left to exit the freeway:trackable
+platform:3023:3029:911:911:0:30:wallbuilding6
+zone:3031:3064:1600:1610:0:30:in 50 meters, end of highway. stay in lane 1 to connect to NZ1, direction poodle Springs, or stay in lane 2 to connect to Z2, direction zero city. stay in lane3 to exit to a car park.:trackable
+
+
+
+zone:3031:3041:1631:1650:0:30:Exit lane
+zone:3042:3052:1631:1650:0:30:connecting rail:trackable
+zone:3031:3041:1651:1671:0:30:output Z1/NZ1/PoodleSprings:trackable
+platform:3030:3030:1651:1671:0:30:wallbuilding5
+platform:3031:3041:1651:1671:0:0:concrete7
+platform:3042:3042:1651:1671:0:30:wallbuilding5
+
+zone:3031:3041:1672:1682:0:30:turn left to connect with NZ1 Poodle Springs:trackable
+platform:3031:3041:1672:1682:0:0:concrete9
+platform:3023:3029:1671:1671:0:30:wallbuilding4
+zone:3023:3030:1672:1682:0:30:exit ramp
+platform:3042:3042:1672:1682:0:30:wallbuilding4
+platform:3023:3042:1683:1683:0:30:wallbuilding4
+
+
+
+
+
+
+
+amb:0:6000:0:6000:0:6000:birds7.ogg:0
+reverb:2980:2996:801:819:0:30:1.0:1.0:0.32:0.89:1.49:0.83:0.5:0.007:1.26:0.01:0.994:0.0
+
+
+
+platform:3053:3063:1651:1651:0:30:wallbuilding5
+zone:3053:3063:1610:1650:0:30:a car park on the road.:trackable
+platform:3053:3053:1610:1650:0:30:wallbuilding5
+staircase:3043:3053:1651:1701:0:50:cement3:y
+platform:3041:3041:1716:1716:50:50:appartment
+platform:3049:3049:1716:1716:50:50:appartment
+platform:3043:3053:1701:1750:50:50:cement3

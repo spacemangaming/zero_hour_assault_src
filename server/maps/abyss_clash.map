@@ -1,0 +1,25 @@
+mapname:abyss_clash
+maxx:75
+maxy:75
+maxz:75
+platform:0:75:0:49:0:0:concrete26
+platform:0:75:55:75:0:0:concrete26
+platform:0:75:0:75:-50:-50:metal2
+zone:0:75:0:49:0:10:Abyss Clash
+zone:0:75:55:100:0:10:Abyss Clash
+src:0:75:0:75:-50:100:generic.ogg:-6
+src:0:75:50:54:-50:0:amb12.ogg:0
+zone:0:75:50:54:-50:0:inside the pi
+zone:0:75:0:75:-50:-1:inside the pit
+wall:15:20:15:20:5:5:metal6
+wall:15:20:15:20:0:4:wallmedal4
+zone:15:20:15:20:0:15:metal case:trackable
+wall:30:35:30:35:5:5:metal6
+wall:30:35:30:35:0:4:wallmedal4
+zone:30:35:30:35:0:15:metal case:trackable
+wall:30:35:60:65:5:5:metal6
+wall:30:35:60:65:0:4:wallmedal4
+zone:30:35:60:65:0:15:metal case:trackable
+wall:15:20:60:65:5:5:metal6
+wall:15:20:60:65:0:4:wallmedal4
+zone:15:20:60:65:0:15:metal case:trackable

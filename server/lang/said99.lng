@@ -1,0 +1,424 @@
+friend =صديق=substr
+enemy =العدو=substr
+has been killed by=قتل على يد=substr
+قتل على يد = قُتلى على يد=substr
+Current area: basement of luxury house 1 = المنطقة الحالية الطابق الارضي ل البيت الفاخر
+Current area: Unknown area= المنطقة الحالية منطقة ليس معروفة
+at coordinates = عند الاحداثيات=substr
+and feet=والقدمين
+Current area: kitchen of luxury house 1 = المنطقة الحالية المطبخ ل البيت الفاخر
+basement of luxury house 1 = الطابق الارضي ل البيت الفاخر
+kitchen of luxury house 1 = المطبخ ل البيت الفاخر
+feet = الركل=substr
+feet =الركل
+Select an object to track= اختر شيء لتتبعه
+came online=سجل دخول=substr
+Friend=صديق =substr
+stairs leading to upper floor = الدرج المءدي الى الطابق الثاني
+Current area: stairs leading to upper floor = المنطقة الحالية الدرج الى الطابق الثاني
+الركل= الخطوة=substr
+stairs leading to basement = الدرج المءدي الى الطابق الارضي
+Current area: stairs leading to basement = المنطقة الحالية الدرج الارضي
+ المنطقة الحالية الدرج الارضي= المنطقة الحالية الدرج المءدي الى الطابق الارضي
+Chest with 0 items. Use up and down keys to move between items, enter key to pick it up, escape key to close the chest.= صندوق به عنصر=substr
+Chest with items. Use up and down keys to move between items, enter key to pick it up, escape key to close the chest.= صندوق مع عناصر=substr
+Chest= صندوق=substr
+with items.= مع عناصر=substr
+with items.= مع عناصر=substr
+with items. = مع عناصر
+Current area: living room and several rooms = المنطقة الحالية الطابق الثاني مع غرفة المعيشة
+ =صندوق ليس به عنصرصندوق به عنصر
+with = مع=substr
+items.=عنصر=substr
+عنصر. =عناصر=substr
+stairs leading up = الدرج المءدي الى اعلا
+Current area: stairs leading up = المنطقة الحالية الدرج المءدي الى اعلى
+Unknown area= منطقة ليس معروفة
+not helmetted= بدون خوذة=substr
+مع بدون خوذة= بدون خوذة=substr
+ معnot shielded= بدون درع=substr
+HP= الصحة=substr
+You are looking= انت تتجه=substr
+south at= جنوب ب=substr
+degrees= درجة=substr
+west= غرب
+ west= غرب=substr
+at= ب=substr
+south= جنوب=substr
+ جنوبwest= جنوب غرب=substr
+east= شرق=substr
+north شرق= شمال شرق=substr
+north= شمال=substr
+ شمالwest= شمال غرب=substr
+upd بe d بa= تحديث بيانات اللغة
+Cre بe language= انشاء لغة
+languages, Manage Languages, Switch to a Language, Get syntax and usage tips for cre بing languages, Cre بe New Language.= اللغات ، وإدارة اللغات ، والتبديل إلى لغة ، والحصول على نصائح بناء الجملة والاستخدام للغات
+Are you sure to leave the game, press escape or the left D-pad button of the joystick to cancel, press enter or the right D-pad button of the joystick to disconnect.= هل انت متءكد انك ترغب تسجيلب الخروج
+ = هل انت متءكد انك ترغب ب تسجيل الخروج؟هل انت متءكد انك ترغب تسجيلب الخروج
+ هل انت متءكد انك ترغب تسجيلب الخروج= هل ترغب ب تسجيل الخروج؟
+صديق went = صديق سجل خروجسجل خروج=substr
+Character St بs, Check the properties of your account, your score points, rank, amount of tokens, etc.= قاءمة الشخصية انضر الى نقاطك و قتلاك و قتلك و المزيد
+ قاءمة الشخصية انضر الى نقاطك و قتلاك و قتلك و المزيد= قاءمة الشخصية انضر الى نقاطك و قتلاك و قتلك
+ قاءمة الشخصية انضر الى نقاطك و قتلاك و قتلك=  قاءمة الشخصية انضر الى نقاطك و قتلاك و قتلك و المزيد
+Change character, View the characters you have and switch to those characters. Notes. You can only change your character in the lobby and waiting part of the m بch.= تغيير الشخصية انتباه لا يمكنك تغيير شخصيتك في اثناء بدء العب يمكنك فقط عند الانتضار في المباراة و في اللوبي
+ تغيير الشخصية انتباه لا يمكنك تغيير شخصيتك في اثناء بدء العب يمكنك فقط عند الانتضار في المباراة و في اللوبي=  تغيير الشخصية انتباه لا يمكنك تغيير شخصيتك في اثناء بدء اللعب يمكنك فقط عند الانتضار في المباراة و في اللوبي
+Manage languages= اعدادات اللغة
+switch to a language= اختيار لغة
+go back= زر الرجوع=substr
+add line= اضافة صطر
+View language syntax help= عرض مساعدة بناء جملة اللغة
+  قاءمة الشخصية انضر الى نقاطك و قتلاك و قتلك و المزيد= خصاءص الحساب
+default= الرءيسية=substr
+Store, Spend the zero tokens you have, view the packages you have purchased, or buy tokens from the virtual store.= المتجر
+Account settings, Upd بe your account password, rename your character, set a st بus message, see your rename history, Modify your registered email, delete your account, View Login History and See which devices have accessed your account and block unauthorized devices.= اعدادات الحساب
+events, Daily Rewards, Upcoming Events.= الاحداث
+See your motors= انظر الى مركباتك
+Game settings, Change your game settings.= اعدادات اللعبة
+صديق  menu, Send a صديقrequest, View Pending صديق  Requests, Remove صديق .= قاءمة الصداقة
+Group menu, Start a new group for collabor بion, View Group Invit بions, Manage Group Members.= قاءمة المجموعة
+base_life_amplifier:= رافع صحة القاعدة=substr
+ You have= لديك=substr
+shield damage resistance= مقاومة الدرع=substr
+ helmet damage resistance= مقاومة الخوذة=substr
+mkek_mpt76k= رشاشmkek_mpt76k=substr
+IthicaM37= شوزن ايثاكا=substr
+You already draw this weapon.= انت من قبل تحمل هاذا السلاح
+punch= لكمة=substr
+ Use up and down keys to move between items, enter key to pick it up, escape key to close the chest.= استخدم المفاتيح لأعلى ولأسفل للتنقل بين العناصر، أدخل المفتاح لاستلامه، مفتاح الهروب لإغلاق الصندوق.=substr
+ladder:= درج=substr
+ رشاش رشاشmkek_mpt76k: لديك= رشاشmkek_mpt76k: لديك
+stone_sword= السيف الحجري=substr
+dragunov_psl= بندقية دراغنوف=substr
+set on this number= وضع في هاذا الرقم=substr
+m4= رشاش m4=substr
+colt1911= مسدس كود 1911=substr
+fnhfnp40= بندقية اف ان اف 40=substr
+diamond_sword= سيف ماسي=substr
+says to the map:= قال؟في الخريطة=substr
+A huge secret canariz بion under the city = مخابء سرية تحت المدينة=substr
+Current area: = المنطقة الحالية=substr
+Select a zone to track.= اختر منطقةلتتبعها
+hous = منزل=substr
+above,  in front and very slightly off to the left (220 tiles away)  ب 91, 131, 0= بلامام و قليل جدا على اليمين=substr
+ticket menu, Submit a new support request, View Your Previous Tickets.= قاءمة البلاغات
+steps up.= ل اعلى=substr
+steps down.= ل اسفل=substr
+forward= امام
+housee= منزل=substr
+_house = منزل=substr
+timebomb:= قنبلة زمنية=substr
+hand_grenade:= قنبلة يدوية=substr
+fnhfnp45,= بندقية اف ان اف 45=substr
+fnhfnp45:= بندقية اف ان اف 45=substr
+barricade:= جدار=substr
+barricade,= جدار=substr
+base_life_amplifier,= رافع صحة القاعدة=substr
+steel_helmet,= خوذة=substr
+parachute:= مضلة=substr
+binoculars: منضار=substr
+binoculars:= منضار=substr
+binoculars,= منضار=substr
+steel_helmet:= خوذة=substr
+Inventory menu.= قاءمة الحقيبة=substr
+invisibility_shield,= درع الاختفاء=substr
+invisibility_shield:= درع الاختفاء=substr
+hand_grenade,= قنبلة يدوية=substr
+mkek_yavuz16: 5.= مسدس صغير=substr
+mkek_yavuz16:= مسدس صغير=substr
+ladder,= درج=substr
+timebomb,= قنبلة زمنية=substr
+tower of the defense soldiers of the city = برج في منطصف المدينة=substr
+massacre in the city = مدينة المذابح=substr
+notific بion settings, Customize Notific بion Alerts.= اعدادت الاشعارات 
+ اعدادت الاشعارات = اعدادات الاشعارات
+Server St بus.= معلومات الخاادم و عقوبات اللاعبين
+The server has been up for= الخادم يعمل من=substr
+day,= يوم=substr
+without any shutdown= بدون توقف=substr
+minutes, seconds= دقيقة و ثانية=substr
+minutes,= دقيقة=substr
+seconds= ثانية=substr
+hours,= ساعة=substr
+A liquid city stream made of raindrops= تيار مدينة سائل مصنوع من قطرات المطر
+A liquid city stream made of raindrops= تيار مدينة سائل مصنوع من قطرات المطر=substr
+front of houses  = امام المنازل=substr
+main street of massacre city  = الشارع الرءيسي ل مدينة المذابح=substr
+near the exit = امام المخرج=substr
+entrance too= المدخل الى =substr
+Staff List, View All Staff Members.= قاءمة الموضفين
+View game readme file, learn the game about.= الملف التعليمي ل اللعبة
+View L بest Additions= ءاخر التحديثات
+View timed item expiry times= العناصر المءقتة
+View destroyed groups history= عرض تاريخ المجموعات المدمرة
+view all groups, View groups cre بed in the game, view how many kills and how many de بhs they have, send a request to join a group.= عرض جميع المجموعات ، وعرض المجموعات Cre B ed في اللعبة ، وعرض عدد القتلى وعدد De -B HS ، أرسل طلبًا للانضمام إلى مجموعة.
+View rules, View the game rules, read the rules to avoid making mistakes in the game.= عرض القواعد
+view scoreboard= اضهار الترتيب
+Make suggestions, leave feedback, report bugs.= انشاء اقتراح و المزيد
+Enable= تفعيل=substr
+Disable= طعطيل =substr
+back to game menu= العودة إلى قائمة اللعبة
+settings= الاعدادات
+Please select an option.= اررجاء تحديد اختيار
+the lobby, to access to m بch menu, go to 5 0 0. = اللوبي ل الوصول الى قامءة المبارة اذهب الى 5 0 0 =substr
+cre بe a m بch= انشاء مباراة
+join or spect= انضم او شاهد=substr
+بe a m بch, = المباراة=substr
+There are public m بches= هناك مباراة عامة=substr
+There are= هناك=substr
+public= عامة=substr
+ m بches= مباراة=substr
+right now= الءان=substr
+ and priv بe= و خاصة=substr
+priv بe= خاصة=substr
+went offline= سجل خروج=substr
+no= لا يوجد=substr
+start m بch=بدء المباراة
+kick player= طرد لاعب
+ban player= حضر لاعب
+unban player= الغاء حضر لاعب
+cancel m بch= الغاء المباراة
+back= رجوع
+a small place  معexplosives around = مكان صغير به متفجرات=substr
+W بch the m بch=العودة الى قاءمة المباراة
+yes, i want to add bot in this m بch= نعم ، أريد إضافة روبوت في هذا
+molotov_cocktail:= ملتوف=substr
+metal_shield:= درع=substr
+العودة الى قاءمة المباراة= مشاهدة المباراة
+Microphone disabled= طعطيل الميكرفون
+ طعطيل الميكرفون= طعطيل المايكرفون
+ لا يوجد, i dont want to add bot in this m بch= لا اريد ربوت في المباراة
+Go back to lobby= العودة الى اللوبي
+m بch menu. Press shift enter to open it. = قاءمة المباراة اضغط شفت انتر للفتح=substr
+Microphone activ بed= تفعيل المايكرفون
+members= مقاتل=substr
+W بching the m بch= العودة الى قاءمة المباراة
+Team dead m بch=وضع القتال الجماعي
+Knife fight m بch teamed= وضع السكين الجماعي
+Knife fight m بch  لا يوجدt teamed= وضع السكين الفردي
+hand to hand comb ب teamed= وضع الملاكمة الجماعي
+hand to hand comb ب  لا يوجدt teamed= وضع الملاكمة الفردي
+S لا يوجدwflake survival teamed= القاء الثلج الجماعي
+S لا يوجدwflake survival  لا يوجدt teamed= القاء الثلج الفردي
+Sniper duel teamed= مباراة القناصات الجماعي
+Sniper duel  لا يوجدt teamed= وضع القناصات الفردي
+Zombie survival= الوقوف ضد الزونبي
+Zombie vs player= زونبي ضد لاعب
+Select m بch visibility= اختر نوع المباراة
+Public m بch= عامة
+Priv بe m بch= الخاصة
+Select m بch mode= اختر نوع المباراة
+Explosive b بtle teamed= وضع المتفجرات الجماعي
+Explosive b بtle  لا يوجدt teamed= وضع المتفجرات الفردي
+vs= ضد=substr
+Abyss Clash teamed= وضع الحفرة الجماعي
+Abyss Clash  لا يوجدt teamed= وضع الحفرة الفردي
+Sword duel  لا يوجدt teamed= وضع سيوف فردي
+Sword duel teamed= وضع سيوف جماعي
+Capture the flag= من يءخذ العلم
+Last man standing= ءاخر واحد يقف
+copy d بa= نصخ البيانات
+View contributors= اضهار المساهمين
+a small room. of the lobby. = غرفة صغير في اللوبي
+ غرفة صغير في اللوبي= غرفة صغيرة في اللوبي
+ غرفة صغيرة في اللوبي=  غرفة صغيرة في اللوبي=substr
+ المنطقة الحاليةa small room. of the lobby. = المنطقة الحالية غرفة صغيرة في اللوبي
+a door leading out of the small room = باب الغرفة الصغيرة=substr
+a soft cushion = وسادة=substr
+a couch = أريكة=substr
+a sign = اللافتة=substr
+and= و=substr
+Please select a m بch to join.= الرجاء تحديد مباراة ل الانضمام لها
+No m بch cre بed yet= لا يوجد مباراة الءان
+creب= انشاء=substr
+cre بe ticket= انشاء تذكرة
+View tickets you've cre بed= اضهار التكيت الي تم انشاءها
+ اضهار التكيت الي تم انشاءها= اضهار التكت الي تم انشاءهاme
+Enter reply= اكتب الرد
+Language was upd بed successfully.= تم تحديث بيانات اللغة
+The player= اللاعب=substr
+وضع القتال الجماعي= وضع القتال الجماعي=substr
+ ءاخر واحد يقف=  ءاخر واحد يقف=substr
+Pm from= رسالة من=substr
+M بch ended. won!= انتهاء المباراة فوز=substr
+No items= لا يوجد عنصر
+languages menu= قائمة اللغات
+Game menu= قاءمة اللعبة
+go to freedom fight map,= الذهاب الى خريطة القتال من اجل الحرية=substr
+there are= هناك=substr
+players= لاعبين=substr
+in the freedom fight map= في خريطة القتال من اجل الحرية=substr
+W بch = مشاهدة=substr
+in freedom fight map,= في خريطة القتال من اجل الحرية=substr
+Switch to this language= التغيير الى هاذي اللغة
+Select language to manage= اختر لغة ل الادارة
+Add contributor= اضافة مساهم
+delete language= حذف اللغة
+=Remove contributor ازالة مساهم
+Remove contributor= ازالة مساهم
+Change owner= تغيير القاءد
+canceled= تم الالغاء
+cre بed a new m بch! The m بch= انشء مباراة جديدة=substr
+mode is capture the flag,= وضع التقاط العلم=substr
+Amount of required is= و عدد هو=substr
+ Bronze= البرونزية=substr
+مقاتل= مقاتلين=substr
+Amount of= و عدد=substr
+required is= هو=substr
+M بch canceled by= تم الغاء المباراة من=substr
+Nobody near you= ليس هناك شخص امامك
+behind= بلخلف=substr
+ الخطوة= خطوة=substr
+ in front= على الامام=substr
+very slightly to the right= قليل جدا على اليمين=substr
+tiles away= بلاطة=substr
+ streight off to the left= على اليسار مباشرتا
+ streight off to the left= على اليسار مبشرتا=substr
+على اليسار مبشرتا= على اليسار مباشر=substr
+ streight= مباشر=substr
+Please paste language d بa= ارجاء ادخال بيانات اللغة
+very slightly off to the left= قليل جدا على اليسار=substr
+a little ways off to the left= قليل على اليسار=substr
+slightly to the right= بعيد على اليمين=substr
+a little ways off to the right= قليل على اليمين=substr
+
+Please input new line= الرجاء إدخال خط جديد
+slightly a fair distance off to the right= مسافة عادلة إلى اليمين قليلاً=substr
+a fair distance off to the right= مسافة عادلة إلى اليمين=substr
+ slightly= طفيف=substr
+off to the right= قبالة إلى اليمين=substr
+far off to the left= بعيدًا عن اليسار=substr
+off to the left= الى اليسار=substr
+below,= اسفل=substr
+above,= اعلى=substr
+driveway,= طريق المشي=substr
+you are  لا يوجدt tracking anything= انت لا تتبع اي شيء
+Leave from freedom fight map= المغادرة من خريطة القتال من اجل الحريقة
+ المغادرة من خريطة القتال من اجل الحريقة= المغادرة من خريطة القتال من اجل الحرية
+Are you sure you want to go to freedom fight map? You will lose all the items you have.= هل انت متءكد انك تريد الذهاب الى خريطة القتال من اجل الحرية
+ لا يوجد= لا=substr
+yes= نعم=substr
+Staff list.= قائمة الموظفين.
+select an option= حدد خيار
+server st بus= معلومات الخادم
+character st بs menu.= معلومات الخشخصية
+ معلومات الخشخصية= معلومات الحساب
+Your gender,= جنسك ،=substr
+Score point,= نقاطك=substr
+Score Rank,= الرتبة=substr
+bot kills= عدد قتلك لا البوتات=substr
+bot de بhs= قتل البوتات لك=substr
+Done= تم=substr
+player kills= قتل اللاعبين=substr
+player de بhs= قتل اللاعبين لك=substr
+zero token amount,= عملة صفرية=substr
+current character,= الشخصية الحالية=substr
+البرونزية II= البرونزية الثانية=substr
+Sign in as= تسجيل الدخول ب=substr
+setup an existing account= تسجيل الدخول ب حساب موجود
+Cre بe An Account= انشاء حساب
+exiting...= خروج
+Recover your password= استعادة كلمة المرور
+Back to main menu= الرجوع الى الصفحة الرءيسية
+Login Options= اختيارات تسجيل الدخول
+Learn game sounds= تعلم اسواط اللعبة
+View ranking list.= اضهار الترتيب
+View game readme file= اضهار الملف التمهيدي ل اللعبة
+View game rules.= اضهار قواعد اللعبة
+View privacy.= اضهار الشروط
+Make us a small don بion. If you like the game  و if you can, a small don بion would be appreci بed.= التبرع ل اللعبة
+join the official telegram group of Zero Hour Assault.= انضم الى مجموعة التلجرام ل اللعبة
+Exit the game.= الخروج من اللعبة
+zero hour assault settings. Please select an option.= اعدادات اللعبة الرجاء تحديد اختيار
+logo play  ب startup= شعار اللعبة=substr
+an لاuncement of near  لاعبين= الاعلان عن اللاعبين القريبين=substr
+saving of buffer items when exiting the game= المخزون=substr
+speech interrupt= مقاطعة الكلام=substr
+disabled= ايقاف=substr
+enabled= تفعيل=substr
+listening your own voice while voicech بting= الاستماع الى صوطك اثناء التحدث=substr
+a ways= بعيد=substr
+small_potion: = مشروب الصحة المطوسط=substr
+ مشروب الصحة المطوسط= مشروب الصحة الصغير=substr
+vitality_potion: = مشروب الصحة المطوسط=substr
+revival_nectar: = مشروب الصحة الكبير=substr
+wooden_sword:= السيف خشبي=substr
+this weapon= هاذا السلاح=substr
+t take ammo= ياخذ رصاص=substr
+does=         =substr
+store order machine  = ءالة البيع=substr
+inside the store  = داخل المتجر=substr
+ammo for= رصاص في=substr
+loaded,= معباة=substr
+Fifth Avenue street  = الشارع الخامس=substr
+near the entrance = امام المدخل=substr
+clothes shops  = متجر الملابس=substr
+clothes shops, women's shoes, men's shoes  و more  = متجر الملابس =substr
+ صندوق به عنصر= صندوق ليس به عنصر
+This is a jewelery store. You remember th ب it used to be very fashionable. Well, wh ب if it was fashionable  لاw?  = متجر المجوهرات=substr
+jewelery store  = متجر المجوهرات=substr
+Team base = داخل القاعد=substr
+release= نشر
+ داخل القاعد= داخل القاعدة=substr
+all.= الكل=substr
+General_Ch بs.= الدردشة العامة=substr
+m بch messages.= اشعارات المباريات=substr
+map messages.= رسايل الخريطة=substr
+Stop tracking= ايقاف التتبع
+group messages.= رسايل المجموعة=substr
+team messages.= رسايل الفريق=substr
+صديقmessages.= الرسايل الخاصة=substr
+ صندوق zone  = منطقة الصندوق=substr
+a big long factory  =المصنع=substr
+Second floor stairs  = السلم المؤدي الى الطابق الثاني=substr
+gsg5:= بندقيةgsg=substr
+revival_nectar, = مشروب الصحة الكبير=substr
+mkek_yavuz16, = مسدس صغير=substr
+knife:= سكين=substr
+report a bug= الابلغ عن خطاء
+ الابلغ عن خطاء= الأبلغ عن خطاء
+game suggestion= تقديم اقتراح
+ الأبلغ عن خطاء= الأبلاغ عن خطاء م 
+report a player= الأبلاغ عن لاعب
+other= آخر
+By checking this box, I underst و th ب this ticket I am making is for serious inquiries only,          n't viol بe the games rules  و th ب misuse of the ticket system in any way including but  لاt limited to spam or misinform بion of any kind could result in severe punishments to my account  = من خلال تحديد هذا المربع، أفهم أن هذه التذكرة التي أقدمها مخصصة للاستفسارات الجادة فقط، ولا تنتهك قواعد اللعبة، وأن إساءة استخدام نظام التذاكر بأي شكل من الأشكال، بما في ذلك على سبيل المثال لا الحصر، البريد العشوائي أو المعلومات المضللة، قد تؤدي إلى عقوبات شديدة على حسابي. مربع تحديد غير محددمربع تحديد  غير محدد
+By checking this box, I underst و th ب this ticket I am making is for serious inquiries only,          n't viol بe the games rules  و th ب misuse of the ticket system in any way including but  لاt limited to spam or misinform بion of any kind could result in severe punishments to my account  مربع تحديد  غير محدد= من خلال تحديد هذا المربع، أفهم أن هذه التذكرة التي أقدمها مخصصة للاستفسارات الجادة فقط، ولا تنتهك قواعد اللعبة، وأن إساءة استخدام نظام التذاكر بأي شكل من الأشكال، بما في ذلك على سبيل المثال لا الحصر، البريد العشوائي أو المعلومات المضللة، قد تؤدي إلى عقوبات شديدة على حسابي. مربع تحديد غير محدد
+By checking this box, I underst و th ب this ticket I am making is for serious inquiries only,          n't viol بe the games rules  و th ب misuse of the ticket system in any way including but  لاt limited to spam or misinform بion of any kind could result in severe punishments to my account  مربع تحديد  غير محدد= من خلال تحديد هذا المربع، أفهم أن هذه التذكرة التي أقدمها مخصصة للاستفسارات الجادة فقط، ولا تنتهك قواعد اللعبة، وأن إساءة استخدام نظام التذاكر بأي شكل من الأشكال، بما في ذلك على سبيل المثال لا الحصر، البريد العشوائي أو المعلومات المضللة، قد تؤدي إلى عقوبات شديدة على حسابي. مربع تحديد غير محدد
+ friends online:= صديق متصل=substr
+Developers: Has the ability to view or edit the game's code.= المطور يمكنهو ان يفعل اي شي في اللعبة
+offline= غير متصل=substr
+Go Back= رجوع
+this fe بure has been  ايقاف until new upd بes comes= تم تعطيل هذه الميزة حتى ياءتي التحديث الجديد
+ الوقوف ضد الزونبي= بقاء الزونبي
+pm to=رسالة الى=substr
+characters= الشخصيات
+vehicles=المركبات
+weapons= أسلحة
+ammos= رساس
+ رساس= ذخيرة
+equipments= المعدات
+potions= مشروبا صحية
+ مشروبا صحية= المشروبات الصحية
+explosives= المتفجرات
+View packs you bought from the shop  و open them= عرض الحزم التي اشتريتها من المتجر وفتحها
+Go to online store website to buy zero token packs.= قم بزيارت الموقع الرسمي للمتجر اذا كنت تريد شراء عملات 0
+انسخ رابط صفحة ويب المتجر عبر الإنترنت لشراء حزم رمزية صفرية.= نسخ رابط المتجر الرسمي الى الحافظة
+Copy the link of the online store web page to buy zero token packs.= نسخ رابط الموقع الى الحافظة
+copied= تم نسخ رابط الموقع الى الحافظة
+There is = هناك=substr
+ message= رسالة=substr
+You are  لاt on any m بch.= انت لست في أي مبراءة
+ انت لست في أي مبراءة= انت لست في مبرات
+add friend= اضافة صديق
+Pending صديقrequests sent to you= طلبات الصداقة التي ارسلة لك
+Pending صديقrequests you sent= طلبات الصداقة التي انت رسلتها
+Remove friend= إزالة صديق
+You have  لا motors in this map= لا يوجد لديك مركبات 
+Get your daily zero token= الحصول على مكافئة يومية
+cre بe group= إنشاء مجموعة
+View group invit بions= عرض دعوات المجموعات
+No group invit بions= لا توجد دعوات في الوقت الحالي
+= متصل=substronline
+ انت لست في مبرات= أنت لست في اي مبراءة
+Teamm بe's beep sound.=  معك في نفس الفريقصديق
+You are  لاt in a group= انت لست في مجموعة
+You have  لا timed = لا يوجد عنصر لديك فالوقت الحاليعنصر

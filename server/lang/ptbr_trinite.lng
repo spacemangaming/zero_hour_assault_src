@@ -1,0 +1,310 @@
+Login Options=Opções de login
+Sign in as =Faça login como =substr
+setup an existing account=configurar uma conta existente
+Type your username=Digite seu nome de usuário
+you can not leave this input blank=você não pode deixar esta entrada em branco
+Type the account mail =Digite o e-mail da conta
+please enter your password =por favor digite sua senha
+The account information you entered has been successfully set for login.=As informações da conta que você inseriu foram definidas com sucesso para login.
+Create An Account=Crie uma conta
+Recover your password=Recupere sua senha
+Back to main menu=Voltar ao menu principal
+zero hour assault Main Menu. Please select an option using the up e down arrow keys e press enter to confirm. Use the page up e page down keys to adjust the music volume.=Menu principal de assalto zero hora. Selecione uma opção usando as teclas de seta para cima e para baixo e pressione Enter para confirmar. Use as teclas page up e page down para ajustar o volume da música.
+settings=configurações
+Learn game sounds=Aprenda sons do jogo
+Use up e down arrows to select a sound then press enter to listen to it.=Use as setas para cima e para baixo para selecionar um som e pressione Enter para ouvi-lo.
+The opposing team's beep sound.=O bipe da equipe adversária.
+Teammate's beep sound.=Som de bipe do companheiro de equipe.
+Enemy Bot beep sound.=Som de bipe do bot inimigo.
+General Chat message Tone=Som geral da mensagem do bate-papo
+The Scope for your weapon to can hit a objects or players=O alcanse da sua arma pode atingir objetos ou jogadores
+You bought products from paid store successful=Você comprou produtos de uma loja paga com sucesso
+View ranking list.=Veja a lista de classificação.
+View game readme file=Ver arquivo leia-me do jogo
+View game rules.=Veja as regras do jogo.
+View privacy.=Ver privacidade.
+Make us a small donation. If you like the game e if you can, a small donation would be appreciated.=Faça-nos uma pequena doação. Se você gosta do jogo e pode, uma pequena doação seria apreciada.
+join the official telegram group of Zero Hour Assault.=junte-se ao grupo oficial do telegram do Zero Hour Assault.
+Exit the game.=sair do jogo.
+exiting...=saindo
+There is no private message to reply to.=Não há mensagem privada para responder.
+you are not tracking anything=você não está rastreando nada
+Are you sure to leave the game, press escape or the left D-pad button of the joystick to cancel, press enter or the right D-pad button of the joystick to disconnect.=Tem certeza de que deseja sair do jogo, pressione escape ou o botão direcional esquerdo do joystick para cancelar, pressione enter ou o botão direcional direito do joystick para desconectar.
+canceled=cancelado
+the lobby, to access to match menu, go to 5 0 0. =no lobby, para acessar o menu do jogo, vá para 5 0 0.
+match menu. Press shift enter to open it. =menu de partidas. Pressione shift enter para abri-lo.
+create a match=criar uma partida
+Select match visibility=Selecione a visibilidade da partida
+Public match=Partida pública
+Private match=partida privada
+Please enter a match password=digite a senha para a partida
+You choosed to be private match. Select match mode=você está criando uma partida privada, selecione o modo
+Select match mode=Selecione o modo de partida
+Team dead match=partida em equipe=substr
+Knife fight match teamed=Luta de faca em equipe=substr
+Knife fight match not teamed=Luta de faca sem equipe=substr
+hand to hand combat teamed=combate corpo a corpo em equipe=substr
+hand to hand combat not teamed=combate corpo a corpo sem equipe=substr
+Snowflake survival teamed=Sobrevivência na Neve em Equipe=substr
+Snowflake survival not teamed=Sobrevivência na Neve sem Equipe=substr
+Sniper duel teamed=Duelo de atiradores em equipe=substr
+Sniper duel not teamed=Duelo de atiradores sem equipe=substr
+Zombie survival=Sobrevivência zumbi=substr
+Zombie vs player=Zumbi vs jogador=substr
+Explosive battle teamed=Batalha com explosivos em equipe=substr
+Explosive battle not teamed=Batalha com explosivos sem equipe=substr
+Abyss Clash teamed=Confronto no Abismo em Equipe=substr
+Abyss Clash not teamed=Confronto no Abismo sem Equipe=substr
+Sword duel not teamed=Duelo de espadas sem equipe=substr
+Sword duel teamed=Duelo de espadas em equipe=substr
+Capture the flag=Capture a bandeira=substr
+Select the match type=selecione o número de jogadores
+members=jogadores=substr
+Would you like to add bot in this match=Você gostaria de adicionar bot nesta partida
+yes, i want to add bot in this match=sim, quero adicionar bot nesta partida
+no, i dont want to add bot in this match=não, não quero adicionar bot nesta partida
+select team=selecione a equipe
+red=vermelha
+blue=azul
+waiting to teams match = esperando a partida começar 
+start match=começar partida
+not enough players=não há jogadores suficientes
+kick player=chutar jogador
+select player to kick=selecione o jogador para chutar
+ban player=banir jogador
+select player to ban=selecione o jogador para banir
+unban player=desbanir jogador
+No banned player found=Nenhum jogador banido encontrado
+cancel match=canselar partida
+back=voltar
+join or spectate a match, =participar ou assistir a uma partida,=substr
+join or spectate a match, no matches right now=participe ou assista a uma partida, nenhuma partida no momento
+There are =ha=substr
+public matches and=partidas públicas e=substr
+private matches right now=partidas privadas agora=substr
+No match created yet=nem uma partida criada agora
+go to freedom fight map, there are=vá para o mapa da luta pela liberdade, há=substr
+players in the freedom fight map=jogadores no mapa=substr
+Are you sure you want to=Tem certeza que quer=substr
+You will lose all the items you have.=Você perderá todos os itens que possui.=substr
+yes=sim
+no=não
+Watch players in freedom fight map, there are=assista os jogadores no mapa de luta pela liberdade=substr
+Done=pronto
+copy data=copiar dados
+copyed=copiado
+View contributors=Ver colaboradores
+There are =há=substr
+with=com=substr
+feet streight in front=na sua frente=substr
+feet streight off to the right=passos a sua direita=substr
+update data=atualizar dados
+Please paste language data=Cole os dados do idioma
+add line=adicionar linha
+Please input new line=Por favor insira uma nova linha
+Switch to this language=Mudar para este idioma
+Language was updated successfully.=O idioma foi atualizado com sucesso.
+is typing...=está digitando=substr
+is not typing=não está mais digitando=substr
+created a new match!=criou uma nova partida!=substr
+The match mode is=O modo da partida é=substr
+Amount of members required is=A quantidade de membros necessária é=substr
+last man standing=último homem de pé=substr
+Game menu=Menu do jogo
+Character Stats, Check the properties of your account, your score points, rank, amount of tokens, etc.=Estatísticas do personagem, verifique as propriedades da sua conta, sua pontuação, classificação, quantidade de tokens, etc.
+Change character, View the characters you have and switch to those characters. Notes. You can only change your character in the lobby and waiting part of the match.=Mude de personagem, veja os personagens que você possui e mude para esses personagens. Notas. Você só pode mudar de personagem no lobby e aguardando parte da partida.
+Store, Spend the zero tokens you have, view the packages you have purchased, or buy tokens from the virtual store.=Armazene, gaste os zero tokens que você possui, visualize os pacotes que você comprou ou compre tokens na loja virtual.
+Account settings, Update your account password, rename your character, set a status message, see your rename history, Modify your registered email, delete your account, View Login History and See which devices have accessed your account and block unauthorized devices.=Configurações da conta, atualize a senha da sua conta, renomeie seu personagem, defina uma mensagem de status, veja seu histórico de renomeação, modifique seu e-mail registrado, exclua sua conta, visualize o histórico de login e veja quais dispositivos acessaram sua conta e bloqueie dispositivos não autorizados.
+Select an option=Selecione uma opção
+Change password=Alterar a senha
+Change email address=Alterar endereço de e-mail
+rename your character=renomeie seu personagem
+You need 150 zero tokens to rename your character=Você precisa de 150 tokens zero para renomear seu personagem
+Set a status message=Defina uma mensagem de status
+Rename history=Renomear histórico
+View computers you logged into the game from, and block their accesses=Veja os computadores dos quais você fez login no jogo e bloqueie seus acessos
+Delete your account=Exclua sua conta
+events, Daily Rewards, Upcoming Events.=eventos, recompensas diárias, próximos eventos.
+See your motors=Veja seus motores
+Game settings, Change your game settings.=Configurações do jogo, altere as configurações do jogo.
+zero hour assault settings. Please select an option.=configurações do jogo. Selecione uma opção.
+Enable logo play at startup=Habilite a reprodução do logotipo na inicialização=substr
+Disable announcement of near players=Desativar anúncio de jogadores próximos=substr
+Disable saving of buffer items when exiting the game=Desative o salvamento de itens de buffer ao sair do jogo=substr
+Disable speech interrupt=Desativar interrupção de fala=substr
+Enable listening your own voice while voicechatting=Habilite ouvir sua própria voz durante o bate-papo por voz=substr
+Disable push to talk for voicechat=Desativar push to talk para chat de voz=substr
+Enable Save buffer messages to the log.txt=Ative Salvar mensagens de buffer no log.txt=substr
+Enable Stop aiming when key is not held down=Habilite Parar de mirar quando a tecla não for pressionada=substr
+Enable Turning with q and e=Habilite o giro com q e e=substr
+Disable Speak degrees when turning in 1 degree increments=Desativar Falar graus ao girar em incrementos de 1 grau=substr
+Disable Speak facing direction when turning in 45 degree increments=Desativar Falar na direção ao girar em incrementos de 45 graus=substr
+Disable Auto running=Desativar execução automática=substr
+Disable turning and shooting with mouse=Desative virar e atirar com o mouse=substr
+Disable hearing map sign sound=Desativar som do sinal do mapa auditivo=substr
+Disable online and offline messages=Desative mensagens online e offline=substr
+Disable kill counter notification=Desativar notificação de mortes=substr
+Disable classic walking style=Desative o estilo de caminhada clássico=substr
+Disable muting of speech and audio when the game window is not in focus=Desative o silenciamento de fala e áudio quando a janela do jogo não estiver em foco=substr
+Disable Play match-specific music in the game=Desative Tocar música específica da partida no jogo=substr
+Disable scope=Desabilitar escopo=substr
+Configure joystick buttons=Configurar botões do joystick
+Set turning speed. Currently default=Defina a velocidade de rotação. Atualmente padrão
+Select input device for voicechat=Selecione o dispositivo de entrada para chat de voz
+test voicechat=testar chat de voz
+Press escape to return.=Pressione esque para retornar.
+Set who you want to voicechat with=Defina com quem você deseja conversar por voz
+Please select an option.=Selecione uma opção.
+With friends:=Com amigos:=substr
+disabled= desabilitado=substr
+enabled=habilitado=substr
+With players on the same map as me:=Com jogadores no mesmo mapa que eu:=substr
+With players on the same group as me:=com jogadores do mesmo grupo que eu:=substr
+With players who are in the same team as me:=com jogadores da mesma equipe que eu:=substr
+Set who's near notifications you want to receive=Defina notificações que você deseja receber
+Bots in same team:=Bots na mesma equipe:=substr
+Bots in different team:=Bots em equipes diferentes:=substr
+players in same team:=jogadores na mesma equipe=substr
+players in different team:=jogadores em outra equipe=substr
+players in same group:=jogadores no mesmo grupo=substr
+players in different group:=jogadores em outro grupo=substr
+Back to settings=Voltar às configurações
+Set what indicators you want to hear for near players/bots=Defina quais indicadores você deseja ouvir para jogadores/bots próximos
+Character voice:=Voz do personagem=substr
+Sound:=som=substr
+Set voicechat quality=Definir qualidade do chat de voz
+Select quality=Selecione a qualidade
+Low quality=Baixa qualidade
+Medium quality=Qualidade média
+High quality (Recommended)=Alta qualidade (recomendado)
+Very high quality (may cause choppiness/lag)=Qualidade muito alta (pode causar instabilidade/atraso)
+Back to settings=Voltar às configurações
+Set voicechat volume=Definir volume do bate-papo por voz
+Use the arrow keys to adjust the volume and press the OK button to confirm. Use home and end to set it to 0% and 100%, and use the page up and page down keys to adjust it by 10%.=Use as teclas de seta para ajustar o volume e pressione o botão OK para confirmar. Use home e end para defini-lo como 0% e 100% e use as teclas page up e page down para ajustá-lo em 10%.
+back to game menu=voltar ao menu do jogo
+Friend menu, Send a friend request, View Pending Friend Requests, Remove Friend.=Menu de amigo, Enviar um pedido de amizade, Ver pedidos de amizade pendentes, Remover amigo.
+add friend=adicionar amigo
+Select player to add as friend=Selecione o jogador para adicionar como amigo
+Done, friend request sent successfully.=Pronto, solicitação de amizade enviada com sucesso.
+Pending friend requests sent to you=Solicitações de amizade pendentes enviadas para você
+Pending friend requests you sent=Solicitações de amizade pendentes que você enviou
+Remove friend=Remover amigo
+Select player to remove from friend list=Selecione o jogador para remover da lista de amigos
+No friend requests found.=Nenhum pedido de amizade encontrado.
+ accepted your friend request!= aceitou seu pedido de amizade!=substr
+Group menu, Start a new group for collaboration, View Group Invitations, Manage Group Members.=Menu Grupo, Iniciar um novo grupo para colaboração, Ver convites de grupo, Gerenciar membros do grupo.
+Make suggestions, leave feedback, report bugs.=Faça sugestões, deixe comentários, relate bugs.
+view scoreboard=ver placar
+View rules, View the game rules, read the rules to avoid making mistakes in the game.=Veja as regras, veja as regras do jogo, leia as regras para evitar cometer erros no jogo.
+view all groups, View groups created in the game, view how many kills and how many deaths they have, send a request to join a group.=visualizar todos os grupos, visualizar grupos criados no jogo, visualizar quantas mortes e quantas mortes eles tiveram, enviar uma solicitação para ingressar em um grupo.
+View destroyed groups history=Ver histórico de grupos destruídos
+View timed item expiry times=Ver tempos de expiração de itens cronometrados
+View Latest Additions=Novidades
+View game readme file, learn the game about.=Veja o arquivo readme do jogo e aprenda sobre o jogo.
+languages, Manage Languages, Switch to a Language, Get syntax and usage tips for creating languages, Create New Language.=idiomas, Gerenciar idiomas, Mudar para um idioma, Obter dicas de sintaxe e uso para criar idiomas, Criar novo idioma.
+languages menu=menu de idiomas
+Create language=Criar idioma
+Manage languages=Gerenciar idiomas
+Select language to manage=Selecione o idioma para gerenciar
+Select an option=Selecione uma opção
+switch to a language=mudar para um idioma
+Select language to switch=Selecione o idioma para mudar
+View language syntax help=Veja a ajuda da sintaxe do idioma
+go back=voltar
+Change owner=Alterar proprietário
+Select player to make owner=Selecione o jogador para tornar-se proprietário
+Add contributor=Adicionar contribuidor
+Select player to add as contributor=Selecione o jogador para adicionar como contribuidor
+Remove contributor=Remover contribuidor
+Select player to remove from contributor list=Selecione o jogador a ser removido da lista de contribuidores
+delete language=excluir idioma
+Staff List, View All Staff Members.=Lista de membros, ver todos os membros da equipe.
+Staff list.=Lista de funcionários.
+Developers: Has the ability to view or edit the game's code.=Desenvolvedores: Tem a capacidade de visualizar ou editar o código do jogo.
+Administrators: resolving player issues, crafting maps, and other duties.=Administradores: resolver problemas dos jogadores, criar mapas e outras tarefas.=substr
+Moderators: Responsible for players, tickets, assisting administrators, and helping people in the game.=Moderadores: Responsáveis ​​pelos jogadores, ingressos, auxiliar os administradores e ajudar as pessoas no jogo.=substr
+Builders: Capable of constructing maps and integrating them into the game.=Construtores: Capazes de construir mapas e integrá-los ao jogo.=substr
+Server Status.=Status do servidor.
+notification settings, Customize Notification Alerts.=configurações de notificação, personalizar alertas de notificação.
+disable=desabilitar=substr
+enable=abilitar=substr
+receiving map messages=receber mensagens de mapa=substr
+receiving group messages=receber mensagems de grupos=substr
+receiving group invitations=o recebimento de convites de grupo=substr
+receiving private messages=o recebimento de mensagens privadas=substr
+hearing voice chat=ouvir bate-papo por voz=substr
+receiving friend request from players=receber solicitação de amizade de jogadores=substr
+receiving new match notification=o recebimento de notificação de nova partida=substr
+receiving team messages in matches=o recebimento de mensagens do time nas partidas=substr
+online/offline messages when your friends enter/exit to the game=mensagens online/offline quando seus amigos entrarem/saírem do jogo=substr
+ticket update mails=e-mails de atualização de tickets=substr
+receiving zero token transfers=o recebimento de zero transferências de token=substr
+ticket menu, Submit a new support request, View Your Previous Tickets.=Suporte, Enviar uma nova solicitação de suporte, Visualizar seus tickets anteriores.
+contributors.=contribuidores.=substr
+Amount of jogadores required is=Quantidade de jogadores necessária é=substr
+They are:=Eles são:=substr
+Please select an option.=Selecione uma opção.
+faster=mais rápido
+default=default
+slower=Mais devagar
+Select player to send private message=Selecione um player para enviar mensagem privada
+all.=todos=substr
+General_Chats.=chats gerais=substr
+match messages.=mensagens da partida=substr
+map messages.=mensagens do mapa=substr
+group messages.=mensagens do grupo=substr
+Empty.=vasio=substr
+team messages.=mensagens de equipe=substr
+friend messages.=mensagens de amigos=substr
+notifications=notificações=substr
+group =grupos=substr
+misc.=diversos=substr
+near =de jogadores perto=substr
+admin messages.=mensagens de adimins=substr
+Enter something to search for=Digite algo para pesquisar
+Friend=Amigo=substr
+went offline=ficou off-line=substr
+The player=o jogador=substr
+north=norte =substr
+northeast=noroeste =substr
+east=lest=substr
+southeast=sudeste =substr
+south=sul =substr
+southwest=sudoeste =substr
+west=oeste =substr
+northwest=noroeste =substr
+degrees=graus =substr
+feet=passos =substr
+behind and a fair distance off to the left=atrás e a uma boa distância para a esquerda=substr
+streight off to the left=reto a esquerda=substr
+and=e=substr
+very slightly to the=muito ligeiramente para=substr
+slightly behind and far off to the right=um pouco atrás e bem à direita=substr
+and a little ways off to the =e um pouco à =substr
+behind and slightly to the right=behind and slightly to the right
+streight=logo=substr
+behind=atrás=substr
+right=direita=substr
+left=esquerda=substr
+Current area:=área atual =substr
+not helmetted=sem capacete=substr
+not shielded=não blindado=substr
+No items on this category=Nenhum item nesta categoria
+No items=Nenhum item
+The ping took=O ping demorou=substr
+Beacons=bipes=substr
+Select a channel to switch.=Selecione um canal para mudar.
+Cancel the match = canselar a partida =substr
+Match canceled by =partida canselada por=substr
+has been killed by =foi morto por =substr
+at coordinates =nas coordenadas =substr
+Get your daily zero token=Obtenha seu token zero diário
+Type your message here.=digite sua mensagem aqui.=substr
+Type a map message here.=digite uma mensagem no mapa aqui=substr
+You are not on any match.=Você não está em nenhuma partida.
+You are not in a group=Você não está em um grupo
+was last active =esteve online pela última vez =substr
+ hours, = horas, =substr
+ minutes, = minutos, =substr
+ seconds ago.= segundos atrás.=substr
+You are looking =você está olhando para =substr

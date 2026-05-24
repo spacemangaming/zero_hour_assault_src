@@ -1,0 +1,16 @@
+mapname:main2
+maxx:500
+maxy:500
+maxz:0
+src:0:500:0:250:0:10:birds.ogg
+zone:0:500:0:500:0:10:Zero Hour player's battleground
+platform:0:500:0:250:0:0:dirt
+platform:0:500:250:500:0:0:concrete
+src:0:500:250:500:0:10:nbmambience4.ogg
+zone:0:500:250:500:0:10:Zero hour street
+platform:45:65:45:65:0:0:mud
+platform:50:70:50:70:0:0:water
+src:50:70:50:70:0:10:amb1.ogg
+travelpoint:0:0:0:0:0:0:main:1000:1000:0:done
+zone:0:0:0:0:0:0:back to main
+zone:0:0:0:0:0:0:back to main

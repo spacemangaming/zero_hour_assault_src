@@ -1,0 +1,106 @@
+mapname:battlefield1
+maxx:500
+maxy:500
+maxz:500
+platform:0:500:0:500:0:grass
+zone:0:500:0:500:0:500:Inside the abandon battlefield
+src:0:500:0:500:0:500:desertnight.ogg:-5
+platform:50:100:70:100:0:0:gravel4
+platform:50:100:80:99:0:0:concrete9
+platform:50:100:100:100:0:50:wallwooddoor
+platform:50:50:100:150:0:50:wallwooddoor
+platform:50:100:150:150:0:50:wallwooddoor
+platform:100:100:100:150:0:50:wallwooddoor
+platform:51:99:101:149:0:0:cement4
+reverb:51:99:101:149:0:100:1.0:1.0:0.35:0.90:1.50:0.85:0.05:0.010:1.25:0.015:0.995:0.0
+zone:51:99:101:149:0:100:Inside the abandon tower
+amb:51:99:101:149:0:100:generic.ogg:-4
+platform:55:60:115:120:0:5:wallstone
+platform:55:60:115:120:5:5:concrete8
+zone:54:61:114:121:0:20:A short  pole
+platform:51:70:148:148:0:4:wallrocks3
+platform:51:70:148:148:5:5:concrete7
+zone:51:70:148:148:0:20:on a short wall
+platform:70:70:148:149:0:20:wallair
+zone:51:69:149:149:0:20:behind the wall
+door:65:65:149:149:0:0:65:151:0:1000:dooropen2.ogg:doorclose2.ogg
+zone:65:65:149:149:0:20:a secret door leading out here, note, if you go out, you can't come back in from here.
+zone:65:65:150:150:0:0:moving
+platform:55:65:135:145:0:10:wallstone2
+platform:55:65:135:145:10:10:dirt5
+zone:54:66:134:146:0:20:Statue covered in dust
+platform:80:90:125:125:0:20:wallrocks3
+platform:80:80:110:115:0:20:wallrocks3
+platform:80:80:119:124:0:20:wallrocks3
+platform:90:90:110:125:0:20:wallrocks3
+platform:70:89:110:110:0:20:wallrocks3
+zone:81:89:110:124:0:30:Inside a room without a door
+platform:80:80:116:118:0:0:broken_glass
+zone:80:80:116:118:0:20:broken door
+platform:86:86:115:120:0:5:wallrocks2
+platform:86:86:115:120:5:5:concrete28
+platform:86:89:115:115:0:10:wallrocks2
+platform:86:89:115:115:10:10:cement
+platform:89:89:116:120:0:15:wallrocks2
+platform:89:89:116:119:15:15:concrete8
+platform:89:89:120:120:16:16:wood3
+platform:90:90:110:124:20:20:metal11
+platform:70:89:110:110:20:20:metal11
+platform:80:90:125:125:20:20:metal11
+platform:80:80:119:124:20:20:metal11
+platform:80:80:111:115:20:20:metal11
+zone:80:90:110:125:20:35:top of the wall
+zone:89:89:120:120:16:25:near the walltop
+
+door:80:80:101:101:0:0:80:99:0:1000:dooropen2.ogg:doorclose2.ogg
+door:80:80:99:99:0:0:80:101:0:1000:dooropen2.ogg:doorclose2.ogg
+zone:80:80:101:101:0:10:exit door
+platform:120:120:85:85:0:30:branch
+platform:120:140:85:105:30:30:wood6
+platform:120:140:84:84:30:60:walltile
+platform:119:119:84:105:30:60:walltile
+platform:120:140:106:106:30:60:walltile
+platform:141:141:85:106:30:60:walltile
+zone:120:140:85:105:30:60:A small treehouse
+zone:120:120:85:85:0:30:tree/stairs leading up to a treehouse:trackable
+zone:120:120:85:85:30:60:tree leading you down
+
+platform:150:200:100:150:0:0:water
+zone:150:200:100:150:0:30:Shallow stream with no water flowing:trackable
+
+
+platform:120:130:120:130:0:0:metal5
+platform:120:130:119:119:0:30:wallwoodcrate
+platform:119:119:119:131:0:30:wallwoodcrate
+platform:119:131:131:131:0:30:wallwoodcrate
+platform:131:131:119:130:0:30:wallwoodcrate
+zone:120:130:120:130:0:30:Explosive warehouse
+platform:125:128:123:126:0:4:wallmedaldebris
+platform:125:128:123:126:5:5:metal13
+zone:125:128:123:126:0:30:explosive shelf
+door:124:124:120:120:0:0:124:118:0:1000:dooropen.ogg:doorclose.ogg
+door:124:124:118:118:0:0:124:120:0:1000:dooropen.ogg:doorclose.ogg
+zone:124:124:120:120:0:30:exit door
+platform:119:131:114:118:0:0:cement4
+zone:119:131:100:118:0:30:infront of the explosive warehouse
+zone:124:124:119:119:0:0:moving through
+
+zone:124:124:118:118:0:30:explosive warehouse door:trackable
+zone:50:100:70:99:0:30:infrontn of an abandon tower
+zone:80:80:99:99:0:10:abandon tower door:trackable
+zone:80:80:100:100:0:0:moving through
+platform:124:124:119:119:0:10:wallwooddoor
+platform:145:149:100:150:0:0:mud
+zone:145:149:100:150:0:30:muddy edge of the stream:trackable
+platform:119:131:100:114:0:0:dirt8
+
+platform:65:65:185:185:0:15:branch
+zone:65:65:185:185:0:30:tree:trackable
+platform:88:88:181:181:0:5:branch
+zone:88:88:181:181:0:15:a small ungrown tree:trackable
+platform:150:200:200:200:0:200:wallwood16
+platform:150:150:200:250:0:200:wallwood16
+platform:200:200:200:250:0:200:wallwood16
+platform:150:200:250:250:0:200:wallwood15
+platform:151:199:201:249:0:0:concrete26
+zone:151:199:201:249:0:30:a small base

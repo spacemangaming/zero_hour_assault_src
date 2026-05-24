@@ -1,0 +1,23 @@
+mapname:zombie
+maxx:500
+maxy:500
+maxz:500
+platform:0:500:0:500:0:grass
+
+platform:0:500:0:500:0:0:concrete
+src:0:500:0:500:0:500:nbmambience2.ogg
+zone:0:500:0:500:0:500:zombie survival
+platform:120:150:120:150:0:0:grass
+zone:120:150:120:150:0:10:a patch of grass
+platform:150:150:150:150:0:15:metal
+zone:150:150:150:150:0:15:stairs
+platform:140:160:140:160:15:15:metal
+zone:140:160:140:160:15:25:on top of a tower
+zone:0:50:0:50:0:50:zone alfa
+platform:0:50:0:50:0:0:dirt
+
+
+zone:200:249:0:249:0:14:zone bravo
+platform:200:249:0:249:0:0:concrete5
+
+reverb:140:160:140:160:0:20:1.1:1.1:0.51:0.94:1.54:0.94:0.07:0.1:1.45:0.1:0.994:0.1

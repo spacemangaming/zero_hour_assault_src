@@ -1,0 +1,577 @@
+Welcome to zero_hour_assault!=Chào mừng đã đến với zero_hour_assault!
+came online= đã trực tuyến =substr
+went offline= đã ngoại tuyến =substr
+Current area: =Khu vực hiện tại: =substr
+Are you sure to leave the game, press escape or the left D-pad button of the joystick to cancel, press enter or the right D-pad button of the joystick to disconnect.=Bạn có chắc chắn muốn thoát khỏi trò chơi không, nhấn escape để hủy, nhấn enter để ngắt kết nối.
+Sign in as %s=Đăng nhập với tư cách là %s
+setup an existing account=Thiết lập vào tài khoản đã tồn tại
+Create An Account=Tạo tài khoản mới
+settings=Cài đặt
+View ranking list.=Xem danh sách xếp hạng.
+Make us a small donation. If you like the game and if you can, a small donation would be appreciated.=Hãy cho trò chơi một khoản đóng góp nhỏ. Nếu bạn thích trò chơi và nếu có thể, một khoản đóng góp nhỏ sẽ rất được biết ơn. Mà hãy nhớ rằng, Bản dịch này được đưa đến bạn từ Đào Đức Trung, Đóng góp cho Đào Đức Trung từ dự án ddt chấm one nữa nhé. Truy cập ddt.one để tìm hiểu thêm về dự án tuyệt vời này của Đức Trung.
+Exit the game.=Thoát khỏi trò chơi.
+zero hour assault settings. Please select an option.=cài đặt zero hour assault. Vui lòng chọn một tùy chọn.
+connecting to the server, please wait...=đang kết nối với máy chủ, Vui lòng chờ...
+connected to the server.=Đã kết nối với máy chủ.
+loading=Đang tải
+zero hour assault Main Menu. Please select an option using the up and down arrow keys and press enter to confirm. Use the page up and page down keys to adjust the music volume.= Menu chính zero hour assault. Vui lòng chọn một tùy chọn bằng cách sử dụng phím mũi tên lên hoặc xuống và nhấn enter để xác nhận. Sử dụng phím page up hoặc page down để điều chỉnh âm lượng nhạc nền.
+Change language=Thay đổi ngôn ngữ
+connecting=Đang kết nối
+Successfully connected. Requesting scoreboard table...=Kết nối thành công. Đang yêu cầu bảng điểm...
+scores menu=Menu bảng điểm
+, score point=, Số điểm=substr
+, score rank=, Xếp hạng điểm=substr
+Back to main menu=Quay lại menu chính
+Type your username=Nhập tên người dùng của bạn
+you can not leave this input blank=bạn không thể để trống dòng này
+please enter your password=Vui lòng nhập mật khẩu của bạn
+oops, something went wrong. Please try again.=Ôi, Có gì đó lỗi, hãy thử lại.
+zero hour assault settings. Please select an option.=Cài đặt zero hour assault, Vui lòng chọn một tùy chọn.
+Disable logo play at startup=Tắt phát logo khi mở trò chơi
+Enable logo play at startup=Bật phát logo khi mở trò chơi
+Disable announcement of near players=Tắt thông báo khi có người chơi khác ở gần
+Enable announcement of near players=Bật thông báo khi có người chơi khác ở gần
+Disable speech interrupt=Tắt ngắt lời nói
+Enable speech interrupt=Bật ngắt lời nói
+enable hrtf=bật hrtf
+the game has to be restarted for this change. Please restart your client.=Để thay đổi thiết lập này, Bạn cần đóng và mở lại trò chơi.
+disable hrtf=tắt hrtf
+Enable Save buffer messages to the log.txt=Bật lưu thông báo đệm vào log.txt
+Disable Save buffer messages to the log.txt=Tắt lưu thông báo đệm vào log.txt
+Disable turning and shooting with mouse=Tắt quay và bắn bằng chuột, Không còn là cao thủ nữa mà về làm gà
+Enable turning and shooting with mouse=Bật quay và bắn bằng chuột, Chơi như thể là một cao thủ trò chơi
+Disable online and offline messages=Tắt thông báo khi ai đó Trực tuyến hoặc ngoại tuyến
+Enable online and offline messages=Bật thông báo khi ai đó Trực tuyến hoặc ngoại tuyến
+disable kill counter notification=Tắt thông báo số lượng giết chết
+Enable kill counter notification=Bật thông báo số lượng giết chết
+Enable classic walking style=Kích hoạt kiểu đi bộ cổ điển
+Disable classic walking style=Bỏ kích hoạt phong cách đi bộ cổ điển
+Disable muting of speech and audio when the game window is not in focus=Tắt khi không trong cửa sổ của trò chơi sẽ không có âm thanh hoặc thông báo
+Enable muting of speech and audio when the game window is not in focus=Bật khi không trong cửa sổ của trò chơi sẽ không có âm thanh hoặc thông báo
+Enter the username you would like. No spaces.=Nhập tên người dùng bạn muốn. Không có khoảng trắng.
+Enter the password you would like. No spaces.=Nhập mật khẩu bạn muốn. Không có khoảng trắng.
+success=Thành công
+Please select a language.=Nào, hãy chọn một ngôn ngữ
+English=Tiếng Anh
+Turkish=tiếng Thổ Nhĩ Kỳ
+Vietnamese=Tiếng Việt
+Spanish=Tiếng Tây Ban Nha
+português=Tiếng Bồ Đào Nha
+Lobby. To leave from lobby, press shift enter. =Sảnh. Để rời khỏi sảnh, nhấn shift enter. =substr
+Lobby. To leave from lobby, press shift enter. =Sảnh. Để rời khỏi sảnh, nhấn shift enter. 
+Please select an option.=Hãy chọn một tùy chọn
+create a match=tạo một trận đấu
+join or spectate a match=tham gia hoặc xem một trận đấu
+No match created yet=Chưa có trận đấu nào đã được tạo, Hãy cân nhắc về việc bạn tự làm cái cho máu
+The ping took=Ping là khoảng =substr
+milliseconds.=mili giây.=substr
+Beacons enabled.=Đã bật đèn hiệu.
+Beacons disabled.=Đã tắt đèn hiệu.
+Select match visibility=Chọn mức độ hiển thị trận đấu
+canceled=Đã hủy
+Cancel.=Hủy
+Type your message here.=Gõ tin nhắn của bạn ở đây.
+Message copied=Tin nhắn đã được sao chép
+Developer = Nhà phát triển =substr
+ says: = Nói: =substr
+ players, and = Người chơi, và =substr
+ bots online= bot trực tuyến=substr
+Players: =Người chơi: =substr
+bots: =bots: =substr
+Welcome dear admin!=Chào mừng quản trị viên thân yêu!
+Space=Khoảng trắng
+Zero hour battlegrounds =chiến trường Zero hour =substr
+knife=dao=substr
+this weapon =vũ khí này =substr
+does not take ammo=Không dùng đạn=substr
+You already draw this weapon.=Bạn đã rút vũ khí này rồi còn gì nữa.
+Nobody near you=Không ai ở gần bạn
+Say “cap” in front of the capital letters=Nói “cap” trước chữ in hoa
+Cap =Chữ hoa =substr
+Treat capital letters no different.=Xử lý chữ in hoa không khác nhau.
+Beep for capital letters=Âm thanh Bíp cho chữ in hoa
+character repeat off=Nói lại chữ cái tắt
+character repeat on=Nói lại chữ cái bật
+Public match=Trận đấu công khai
+Private match=Trận đấu Riêng tư
+Please enter a match password=Nhập mật khẩu của trận đấu vào đây để nó còn được Riêng tư
+You choosed to be private match. Select match type=Bạn đã chọn trận đấu riêng tư. Chọn loại đối sánh
+Select the match type=Chọn loại đối sánh
+Select match mode=Chọn mức độ trận đấu
+Team dead match=Đội chiến
+Knife fight match=Dao chiến
+Zombie survival mode=Chế độ sinh tồn zombie
+Zombie vs player=Zombie đấu với người chơi
+Explosive battle teamed=Đội trận chiến bùng nổ
+Explosive battle not teamed=Trận chiến bùng nổ không đội
+Abyss Clash teamed=Đội Abyss Clash 
+Abyss Clash not teamed=Abyss Clash không đội
+Sword duel not teamed=Đấu kiếm không đội
+Sword duel teamed=Đội đấu kiếm
+Capture the flag=Cướp cờ
+Last man standing=Người còn tồn tại Cuối cùng
+Would you like to add bot in this match=Bạn có muốn thêm bot vào trận đấu này không?
+yes, i want to add bot in this match=Có, Cho Bot vào đi, Hỏi lắm
+no, i dont want to add bot in this match=Không có bot bủng gì nhá, Hỏi vớ vẩn
+The player =Người chơi =substr
+ created a new match!= Đã tạo một trận đấu=substr
+Select an option=Chọn một tùy chọn
+start match=bắt đầu trận đấu
+go!=Đi!
+kick player=đá người chơi
+ban player=cấm người chơi
+unban player=bỏ cấm người chơi
+cancel match=hủy trận đấu
+Helicopters flying area =Khu vực bay trực thăng 
+Helicopters flying area =Khu vực bay trực thăng =substr
+Match ended. Red team won!=Trận đấu kết thúc. Đội đỏ đã thắng!
+Match ended. Blue team won!=Trận đấu kết thúc. Đội xanh đã thắng!
+Match ended. No one won!=Trận đấu kết thúc. Trả có ai thắng!
+ won!= Thắng!=substr
+go back=quay lại
+You are looking %s at %d degrees=Bạn đang nhìn về %s ở %d độ
+There is no one on this map.=Không có ai ở đây cả.
+The tracked player may be disconnected. Try to track someone else=Người bạn đang theo dõi có vẻ là ngắt kết nối rồi, Thử theo người khác đi.
+north=bắc
+northeast=đông bắc
+east=đông
+southeast=đông nam
+south=nam
+southwest=tây nam
+west=tây
+northwest=tây bắc
+you not tracking someone=Bạn đang không theo dõi ai
+streight in front=thẳng phía trước=substr
+in front and very slightly to the right= phía trước và hơi lệch về bên phải=substr
+in front and slightly off to the right= phía trước và hơi lệch về bên phải=substr
+in front a little ways off to the right= phía trước cách một chút về phía bên phải=substr
+slightly in front and a fair distance off to the right=hơi phía trước và cách khá xa về bên phải=substr
+streight off to the right=thẳng bên phải=substr
+slightly behind and far off to the right=hơi phía sau và xa về bên phải=substr
+behind and a little ways off to the right=phía sau và cách một chút về phía bên phải=substr
+behind and slightly to the right=phía sau và hơi lệch về bên phải=substr
+behind and very slightly to the right=phía sau và hơi lệch về bên phải=substr
+streight behind=thẳng phía sau=substr
+behind and very slightly to the left=phía sau và hơi lệch về bên trái=substr
+behind and slightly to the left=phía sau và hơi lệch về bên trái=substr
+behind and a little ways off to the left=phía sau và cách một chút về bên trái=substr
+behind and a fair distance off to the left=phía sau và cách một khoảng khá xa về phía bên trái=substr
+slightly behind and far off to the left=hơi phía sau và xa về bên trái=substr
+streight off to the left=thẳng bên trái=substr
+in front and a ways off to the left=phía trước và khá xa về bên trái=substr
+in front and a little ways off to the left= phía trước và cách một chút về bên trái=substr
+in front and slightly off to the left=phía trước và hơi lệch về bên trái=substr
+in front and very slightly off to the left= phía trước và hơi lệch về bên trái=substr
+is near you! They're =đang ở gần bạn! Họ là =substr
+is no longer near you!=không còn ở gần bạn!=substr
+Attention! The server will restart now!=Chú ý! Máy chủ sẽ khởi động lại ngay bây giờ!
+The server is rebooting. Please  press enter to return to the main menu.=Máy chủ đang khởi động lại. Vui lòng nhấn enter để quay lại menu chính.
+You haven't selected any weapons yet.=Bạn chưa chọn bất kỳ loại vũ khí nào.
+all. =Tất cả. =substr
+chats. =cuộc trò chuyện. =substr
+misc. =linh tinh. =substr
+notifications. =Thông báo. =substr
+private messages. =tin nhắn riêng tư. =substr
+Empty.=Trống. =substr
+You're score point is: =Điểm số của bạn là =substr
+can_of_cola: =Kola: =substr
+Maximum health=Đầy máu
+store=cửa hàng
+Select category=Chọn danh mục
+Select an item to buy=Chọn một mặt hàng để mua
+Purchase success.=Mua hàng thành công.
+blank=trống
+, requires =, Yêu cầu =substr
+How many =Bao nhiêu =substr
+would you like to buy?=bạn muốn mua?=substr
+Not enough zero tokens=Không đủ zero token
+you are dead.=bạn đã chết.
+Please select a match to join.=Hãy chọn một trận đấu để tham gia.
+Error, Server lost=Lỗi, Máy chủ không được bật.
+Manage languages=Quản lý ngôn ngữ
+Create language=Tạo ngôn ngữ
+switch to a language=chuyển sang một ngôn ngữ
+Select language to switch=Chọn ngôn ngữ để chuyển đổi
+Select language to manage=Chọn ngôn ngữ để quản lý
+Language was updated successfully.=Ngôn ngữ đã được cập nhật thành công.
+copy data=sao chép dữ liệu
+copyed=Đã sao chép
+drinks= Uống
+done=Xong
+View contributors=Xem cộng tác viên
+update data=cập nhật dữ liệu
+add line=Thêm dòng mới
+Switch to this language=Chuyển sang ngôn ngữ này
+Change owner=Thay đổi Chủ sở hữu
+Add contributor=Thêm cộng tác viên
+Remove contributor=Xóa cộng tác viên
+delete language=Xóa
+Please paste language data=Vui lòng dán dữ liệu ngôn ngữ
+Please input language name=Vui lòng nhập tên ngôn ngữ
+can_of_cola=Kola
+Disable listening your own voice while voicechatting=Tắt việc nghe giọng nói của chính bạn trong khi trò chuyện thoại
+Enable listening your own voice while voicechatting=Bật việc nghe giọng nói của chính bạn trong khi trò chuyện thoại
+Enable push to talk for voicechat=Bật tính năng Bấm để nói chuyện cho trò chuyện thoại
+Disable push to talk for voicechat=Tắt tính năng Bấm để nói chuyện cho trò chuyện thoại
+Stop aiming when key is not held down=Dừng nhắm khi không giữ phím
+Do not stop aiming when key is not held down=Không Dừng nhắm khi không giữ phím
+Disable Play match-specific music in the game=Tắt Phát nhạc dành riêng cho trận đấu trong trò chơi
+Enable Play match-specific music in the game=Bật Phát nhạc dành riêng cho trận đấu trong trò chơi
+Disable scope=Tắt phạm vi
+Enable scope=Bật phạm vi
+Set voicechat volume=Đặt âm lượng trò chuyện thoại
+Set voicechat quality=Đặt chất lượng trò chuyện thoại
+Set who you want to voicechat with=Đặt người bạn muốn trò chuyện thoại cùng
+Select input device for voicechat=Chọn thiết bị đầu vào cho trò chuyện thoại
+Set turning speed. Currently default=Đặt tốc độ quay. Hiện tại mặc định
+Set turning speed. Currently faster=Đặt tốc độ quay. Hiện tại nhanh hơn
+Set turning speed. Currently slower=Đặt tốc độ quay. Hiện tại chậm hơn
+Back to settings=Quay lại
+Back to game=Quay lại trò chơi
+Game menu=Menu trò chơi
+View timed item expiry time	s=Xem thời gian hết hạn của mục được tính thời gian 	s
+View timed item expiry times=Xem thời gian hết hạn của mục được tính thời gian
+ticket menu=Menu ticket
+create ticket=Tạo ticket mới
+Return to game=Trở lại trò chơi
+Type an admin command here.=Nhập lệnh quản trị viên tại đây.
+Login Options=tùy chọn đăng nhập
+Learn game sounds=Tìm hiểu âm thanh
+View game readme file=Xem file hướng dẫn trò chơi
+View game's rules.=Xem quy tắc trò chơi.
+join the official telegram group of Zero Hour Assault.=tham gia kênh telegram chính thức của Zero hour assault.
+Recover your password=Khôi phục mật khẩu của bạn
+Logging in ...=Đang đăng nhập ...
+Game settings, Change your game settings.=Cài đặt trò chơi, thay đổi cài đặt trò chơi của bạn.
+Server Status.=Trạng thái server.
+Exiting ...=Đang thoát ...
+back=quay lại
+not enough players=không đủ người chơi
+select player to kick=chọn người chơi để đá
+No banned player found=không có người chơi bị cấm
+select player to ban=chọn người chơi để cấm
+Please enter a valid email address. If you enter an incorrect e-mail address, you will have no chance of recovering your account. No spaces.=Vui lòng nhập địa chỉ email hợp lệ. Nếu bạn nhập địa chỉ email không chính xác, bạn sẽ không có cơ hội khôi phục tài khoản của mình. Không có khoảng trắng.
+Retype the mail. If you enter an incorrect e-mail address, you will have no chance of recovering your account. No spaces.=Nhập lại mail. Nếu bạn nhập địa chỉ email không chính xác, bạn sẽ không có cơ hội khôi phục tài khoản của mình. Không có khoảng trắng.
+Retype the password. No spaces.=Nhập lại mật khẩu không có khoảng trắng.
+Choose a gender for your character.=Chọn giới tính từ nhân vật của bạn.
+Male=Nam
+Female=Nữ
+Type the account mail=Nhập mail cho tài khoản
+Select player to send private message=Chọn người chơi để gửi tin nhắn riêng tư
+Change password=Thay đổi mật khẩu
+Change email address=Thay đổi địa chỉ email
+View computers you logged into the game from, and block their accesses=Xem các máy tính đã đăng nhập vào trò chơi và chặn quyền truy cập của họ
+Select a computer=Chọn một máy tính
+add friend=thêm bạn
+Remove friend=Xóa bạn
+create group=tạo nhóm
+View group invitations=Xem lời mời tham gia nhóm
+No group invitations=Không có lời mời nào
+You have no timed items.=Không có mục nào được tính thời gian.
+languages and options menu=ngôn ngữ và tùy chọn menu
+View language syntax help=xem hướng dẫn về cú pháp ngôn ngữ
+Staff List, View All Staff Members.=Danh sách nhân viên, Xem tất cả nhân viên.
+server status=trạng thái của server
+View tickets you've created=Xem ticket mà bạn đã tạo
+character stats menu.=thống kê nhân vật menu
+current character, default=nhân vật hiện tại, mặc định
+Your gender, Male=giới tính của bạn, nam
+Score Rank, Bronze=Xếp hạng điểm, đồng
+Select character to switch=Chọn nhân vật để chuyển đổi
+default=mặc định
+characters=nhân vật
+weapons=vũ khí
+ammos=đạn dược
+equipments=thiết bị
+Get your daily zero token=Lấy zero token hằng ngày
+write your text here.=viết văn bản của bạn tại đây.
+Rules.=Quy tắc.
+Latest Additions.=bổ sung mới nhất
+View Latest Additions=Xem những bổ sung mới nhất
+readme=hướng dẫn
+Staff list.=Danh sách nhân viên.
+Use up and down arrows to read help, escape to go back=Sử dụng mũi tên lên và xuống để đọc hướng dẫn, escape để quay lại
+Select ticket to view=Chọn ticket để xem
+enter the mail of this account.=Nhập mail của tài khoản này.
+Type the e-mail of the username . If you type the e-mail correctly, the password will be sent. Otherwise, it is impossible to recover the password.=Nhập e-mail của tên người dùng. Nếu bạn gõ đúng email, mật khẩu sẽ được gửi, nếu không thì không thể lấy lại được mật khẩu.
+You have not equipped a weapon right now.=Hiện tại bạn chưa trang bị vũ khí.
+you are not tracking anything=bạn chưa theo dõi bất kì điều nào
+there is nothing around=không có gì xung quanh
+Select a zone to track.=Chọn vùng để theo dõi.
+stop tracking=dừng theo dõi
+Stopped tracking=Đã dừng theo dõi
+forward=phía trước
+This item is already your favorite item. Please select another item=Phần này đã được thêm vào phần yêu thích của bạn. vui lòng chọn phần khác.
+Type your team message here.=Hãy nhập tin nhắn nhóm tại đây.
+Enter something to search for=Nhập một nội dung mà bạn cần tìm kiếm
+yes=có
+no=không
+Please wait ...=Vui lòng chờ ...
+max volume=âm lượng tối đa
+muted=tắt tiếng
+game sounds muted=tắt tiếng âm thanh trò chơi
+Type a map message here.=Nhập tin nhắn bản đồ tại đây.
+No friends online=Không có bạn trực tuyến
+You are not in a group=Bạn không ở trong nhóm
+You are not on any match.=bạn không tham gia bất kì trận đấu nào.
+Use up and down arrows to select a sound then press enter to listen to it.=Sử dụng mũi tên lên hoặc xuống để chọn một âm thanh sau đó nhấn enter để nghe.
+No items=Không có mục nào
+No items on this category=Không có danh mục nào trong danh sách này
+You have no weapon equipped.=Bạn không có vũ khí để trang bị
+Connection lost from the server.=Mất kết nối từ máy chủ.
+Are you sure you want to return to lobby? You will lose all the items you got in this map.=Bạn có muốn trở về sảnh không? Bạn sẽ mất tất cả đồ vật khi bạn đã ở trong bản đồ.
+Leave from freedom fight map=Rời khỏi bản đồ chiến đấu tự do
+Select a channel to switch.=Hãy chọn một kênh để chuyển đổi.
+Disable_chat=Vô hiệu hóa trò chuyện
+chat disabled=trò chuyện đã bị vô hiệu hóa
+You cannot send messages because you have disabled chat. Please select a channel by pressing F11=Bạn không thể gửi tin nhắn vì bạn đã vô hiệu hóa trò chuyện. Vui lòng chọn một kênh bằng cách nhấn F11
+Watch the match=Theo dõi bản đồ
+Go back to lobby=Quay lại sảnh
+Watching the match=Đang theo dõi bản đồ
+You choosed to be private match. Select match mode=Bạn đã lựa chọn trận đấu riêng tư. Chọn chế độ trận đấu
+You are dead.=Bạn đã chết.
+select team=chọn đội
+red=đỏ
+blue=xanh
+you can not drop an item right now!=bạn không thể bỏ một mục ngay bây giờ!
+Done, friend request sent successfully.=Xong, lời mời kết bạn đã được gửi thành công.
+The server is rebooting. An attempt will be made to log in shortly. Please wait.=Server đang khởi động. Một nỗ lực sẽ được thực hiện để đăng nhập trong thời gian ngắn. Vui lòng chờ.
+Reconnecting...=Đang kết nối lại.
+Thank you for waiting. Connecting in few seconds...=Cảm ơn bạn đã chờ. Kết nối sau vài giây.
+Attention. The game has now been frozen by a staff member. Please be patiently.=Chú ý. Trò chơi đã bị đóng băng bởi một nhân viên. Vui lòng kiên nhẫn.
+Attention. The game has now been unfrozen!=Chú ý. Trò chơi đã mở đóng băng!
+Unknown area=khu vực không xác định
+See members=Xem thành viên
+Send joining request=Gửi yêu cầu tham gia
+Join request sent.=đã gửi yêu cầu tham gia.
+Cancel the match=Hủy bỏ trận đấu
+Are you sure you want to cancel this match?=Bạn có thật sự muốn hủy bỏ trận đấu này?
+View stats=Xem nhân viên
+change voicechat volume=Thay đổi âm lượng trò chuyện
+Transfer zero token=Chuyển zero token
+Please enter the amount of zero tokens you want to transfer.=Vui lòng nhập số lượng zero token mà bạn muốn chuyển.
+you can not transfer token to yourself=Bạn không thể chuyển zero token cho chính mình
+Please enter a group name=Vui lòng nhập tên nhóm
+Enter the base=Vào cơ sở
+Close the door=Đóng cửa
+Put all your inventory to chest=Bỏ tất cả mặt hàng vào rư
+Get all items from chest=Lấy tất cả mặt hàng từ rư
+Enter amount=Nhập số lượng
+No one near you=Không một ai ở gần bạn
+group members=thành viên nhóm
+group admins=quản trị nhóm
+kick a member=đá một thành viên
+invite a player to this group=mời một người chơi vào nhóm
+View group join requests=Xem yêu cầu tham gia nhóm
+make a member the group administrator=đặt một thành viên làm quản trị nhóm
+remove a member's group administrator role=xóa vai trò quản trị viên đối với thành viên
+change group owner=thay đổi chủ sở hữu nhóm
+rename this group=đổi tên nhóm
+delete this group=xóa nhóm
+View group base location=Xem vị trí căn cứ nhóm
+No players found that you can kick.=Không có người chơi để đá.
+Select a member to invite.=Chọn một người để mời.
+No requests found.=Không có lời mời nào.
+No players found that you can make admin.=Không có người chơi nào để làm quản trị viên.
+No players found that you can remove admin.=Không có người chơi nào để xóa quản trị viên.
+No players found that you can make owner.=Không có người chơi nào để làm chủ sở hữu.
+Are you sure you want to delete this group?=Bạn có chắc chắn muốn xóa nhóm?
+No groups=Không có nhóm
+Donate with using card.=Đóng góp với thẻ tín dụng
+Donate with PayPal.=Đóng góp với PayPal
+Loading the browser...=Đang tải trình duyệt
+enabled=bật
+disabled=tắt
+Disable saving of buffer items when exiting the game=Tắt lưu các mục đệm khi thoát khỏi trò chơi
+Enable saving of buffer items when exiting the game=Bật lưu các mục khi thoát khỏi trò chơi
+Enable Stop aiming when key is not held down=bật dừng nhắm khi không giữ phím
+Disable Stop aiming when key is not held down=Tắt dừng nhắm khi không giữ phím
+Disable hearing map sign sound=Tắt nghe âm thanh kí hiệu bản đồ
+Enable hearing map sign sound=Bật âm thanh nghe kí hiệu bản đồ
+Configure joystick buttons=Cấu hình điều khiển nút
+test voicechat=kiểm tra trò chuyện giọng nói
+OK  button=ĐồngÝ  nút
+Error, no joystick found. Waiting for joysticks ... Press escape to cancel.=Lỗi, không có điều khiển. Đang chờ điều khiển ... nhấn escape để hủy bỏ
+faster=nhanh hơn
+slower=chậm hơn
+Please select the device you want to use.=Vui lòng chọn thiết bị bạn muốn sử dụng.
+Press escape to return.=Nhấn escape để quay về
+With friends: enabled=với bạn: đã bật
+With friends: disabled=Với bạn: đã tắt
+With players on the same map as me: enabled=Với những người chơi trên bản đồ cùng tôi: đã bật
+With players on the same map as me: disabled=Với những người chơi trên bản đồ cùng tôi: đã tắt
+With players who are in the same team as me: enabled=Với những người chơi trong đội cùng tôi: đã bặt
+With players who are in the same team as me: disabled=với những người chơi trong đội cùng tôi: đã tăt
+Select quality=Chọn chất lượng
+Low quality=Chất lượng thấp
+Medium quality=chất lượng trung bình
+High quality (Recommended)=Chất lượng cao (được khuyến nghị)
+Very high quality (may cause choppiness/lag)=Chất lượng rất cao (có thể giật/lag)
+back to game menu=quay lại menu trò chơi
+support=hỗ trợ
+report a bug=báo cáo lỗi
+game suggestion=gợi ý cho trò chơi
+report a player=báo lỗi người chơi
+other=khác
+By checking this box, I understand that this ticket I am making is for serious inquiries only, doesn't violate the games rules and that misuse of the ticket system in any way including but not limited to spam or misinformation of any kind could result in severe punishments to my account  check box  not checked=Bằng cách chọn hộp kiểm này, tôi hiểu rằng vé tôi đang tạo chỉ dành cho những vấn đề nghiêm túc, không vi phạm quy tắc trò chơi và sự lạm dụng của hệ thống vé bằng mọi cách nhưng không được phép spam hoặc thông tin sai lệch của bất kì lịa nào sẽ dẫn đến những hình phạt nghiêm khắc với tài khoản của tôi  hộp kiểm chưa chọn
+checked=đã chọn
+By checking this box, I understand that this ticket I am making is for serious inquiries only, doesn't violate the games rules and that misuse of the ticket system in any way including but not limited to spam or misinformation of any kind could result in severe punishments to my account  check box  checked=Bằng cách chọn hộp kiểm này, tôi hiểu rằng vé tôi đang tạo chỉ dành cho những vấn đề nghiêm túc, không vi phạm quy tắc trò chơi và sự lạm dụng của hệ thống vé bằng mọi cách nhưng không được phép spam hoặc thông tin sai lệch của bất kì lịa nào sẽ dẫn đến những hình phạt nghiêm khắc với tài khoản của tôi  hộp kiểm đã chọn
+not checked=chưa chọn
+submit ticket=gửi vé
+Return to previous menu=quay về menu trước đó
+Send message=gửi tin nhắn
+Send new message=Gửi tin nhắn mới
+Title=Tiêu đề
+Message=tin nhắn
+Department=Phần
+exiting...=đang thoát...
+You are dead.=bạn đã chết.
+Are you sure you want to go to freedom fight map? You will lose all the items you have.=Bạn có chắc chắn muốn đi đến freedom fight map? Bạn sẽ có tất cả các mục.
+do you want to drop?=bạn có muốn thả không?
+Error, you need to enter a number.=Lỗi, bạn cần nhập một số.
+Character Stats, Check the properties of your account, your score points, rank, amount of tokens, etc.=Thống kê nhân vật, Kiểm tra thuộc tính tài khoản của bạn, điểm số, thứ hạng, số lượng mã thông báo, v.v.
+Change character, View the characters you have and switch to those characters. Notes. You can only change your character in the lobby and waiting part of the match.=Thay đổi ký tự, Xem các ký tự bạn có và chuyển sang các ký tự đó. Ghi chú. Bạn chỉ có thể thay đổi nhân vật của mình ở sảnh và chờ một phần của trận đấu.
+Store, Spend the zero tokens you have, view the packages you have purchased, or buy tokens from the virtual store.=Lưu trữ, Chi tiêu số 0 mà bạn có, xem các gói bạn đã mua hoặc mua mã thông báo từ cửa hàng ảo.
+events, Daily Rewards, Upcoming Events.=sự kiện, Phần thưởng hàng ngày, Sự kiện sắp tới.
+Friend menu, Send a friend request, View Pending Friend Requests, Remove Friend.=Kết bạn, Gửi yêu cầu kết bạn, Xem các yêu cầu kết bạn đang chờ xử lý, Xóa bạn bè menu.
+Group menu, Start a new group for collaboration, View Group Invitations, Manage Group Members.=Nhóm, Bắt đầu nhóm mới để cộng tác, Xem lời mời nhóm, Quản lý thành viên nhóm menu.
+Make suggestions, leave feedback, report bugs.=Đưa ra đề xuất, để lại phản hồi, báo cáo lỗi.
+View rules, View the game rules, read the rules to avoid making mistakes in the game.=Xem luật chơi, Xem luật chơi, đọc luật chơi để tránh mắc lỗi trong trò chơi.
+view all groups, View groups created in the game, view how many kills and how many deaths they have, send a request to join a group.=xem tất cả các nhóm, Xem các nhóm được tạo trong trò chơi, xem họ có bao nhiêu kill và bao nhiêu người chết, gửi yêu cầu tham gia một nhóm.
+View game readme file, learn the game about.=Xem file hướng dẫn của trò chơi, tìm hiểu về trò chơi.
+notification settings, Customize Notification Alerts.=cài đặt thông báo, Tùy chỉnh cảnh báo thông báo.
+ticket menu, Submit a new support request, View Your Previous Tickets.=vé, Gửi yêu cầu hỗ trợ mới, Xem các vé trước đây của bạn menu.
+vehicles=xe cộ
+potions=thuốc sức khỏe
+explosives=thiết bị nổ
+View packs you bought from the shop and open them=Xem các gói bạn đã mua từ cửa hàng và mở chúng
+Go to online store website to buy zero token packs.=Truy cập trang web cửa hàng trực tuyến để mua gói mã thông báo bằng không.
+Copy the link of the online store web page to buy zero token packs.=Sao chép liên kết của trang web cửa hàng trực tuyến để mua gói mã thông báo bằng không.
+Pending friend requests sent to you=Đang chờ yêu cầu kết bạn gửi đến bạn
+Pending friend requests you sent=đang chờ lời mời kết bạn đã gửi
+Select player to remove from friend list=Chọn người chơi để xóa khỏi danh sách bạn bè
+No friend requests found.=Không tìm thấy yêu cầu kết bạn.
+Select player to add as friend=Chọn người chơi để thêm vào danh sách bạn bè
+Developers: Has the ability to view or edit the game's code.=Nhà phát triển: Có khả năng xem hoặc chỉnh sửa mã của trò chơi.
+Administrators: resolving player issues, crafting maps, and other duties.=Quản trị viên: giải quyết các vấn đề của người chơi, tạo bản đồ và các nhiệm vụ khác.
+Builders: Capable of constructing maps and integrating them into the game.=Nhà xây dựng: Có khả năng xây dựng bản đồ và tích hợp chúng vào trò chơi.
+disable receiving map messages=tắt nhận tin nhắn bản đồ
+disable receiving group messages=tắt nhận tin nhắn từ nhóm
+disable receiving group invitations=tắt nhận lời mời nhóm
+disable receiving private messages=tắt nhận tin nhắn riêng tư
+disable receiving friend request from players=tắt nhận yêu cầu kết bạn từ người chơi
+disable receiving new match notification=tắt nhận thông báo trận đấu mới
+disable receiving team messages in matches=tắt nhận tin nhắn của đội trong các trận đấu
+disable online/offline messages when your friends enter/exit to the game=tắt tin nhắn trực tuyến/ngoại tuyến khi bạn bè của bạn vào/thoát trò chơi
+enable receiving map messages=bật nhận tin nhắn từ bản đồ
+enable receiving group messages=bật nhận tin nhắn từ nhóm
+enable receiving group invitations=bật nhận lời mời nhóm
+enable receiving private messages=bật nhận tin nhắn riêng tư
+enable receiving friend request from players=bật nhận yêu cầu kết bạn từ người chơi
+enable receiving new match notification=bật nhận thông báo trận đấu mới
+enable receiving team messages in matches=bật tin nhắn của đội trong các trận đấu
+enable online/offline messages when your friends enter/exit to the game=bật tin nhắn trực tuyến/ngoại tuyến khi bạn bè của bạn vào/thoát trò chơi
+Use the up and down arrow keys to read the readme, escape to go back.=Sử dụng phím mũi tên lên xuống để đọc hướng dẫn, escape để quay lại.
+Use the up and down arrow keys to read the rules, escape to go back.Sử dụng phím mũi tên lên xuống để đọc quy tắc trò chơi, escape để quay lại.
+Please enter to password of this match=Vui lòng nhập mật khẩu của trận đấu này
+Incorrect password=Mật khẩu không hợp lệ
+Block this player from sending you private messages=Chặn người chơi này gửi tin nhắn riêng tư cho bạn
+Send friend request=Gửi yêu cầu kết bạn
+Unblock this player from sending you private messages=Bỏ chặn người chơi này gửi tin nhắn riêng tư cho bạn
+The last changes section has been updated, please take a look.=Phần thay đổi cuối cùng đã được cập nhật, vui lòng xem qua.
+Logo. Press enter to continue.=Logo nhấn enter để tiếp tục.
+I have read and not accept the above rules.=Tôi đã đọc và không chấp nhận các quy định trên.
+I have read and accept the above rules.=Tôi đã đọc và chấp nhận các quy định trên.
+Unfortunately, you cannot play the game because you do not accept the rules. Exiting the game...=Thật không may, bạn không thể chơi trò chơi vì bạn không chấp nhận các quy tắc. Đang thoát khỏi trò chơi...
+Welcome to Zero Hour Assault. The rules of the game are presented below. Read the rules and indicate whether you agree or disagree. At the bottom there is a button to accept or reject the rules.=Chào mừng đến với Cuộc tấn công không giờ. Các quy tắc của trò chơi được trình bày dưới đây. Đọc các quy tắc và cho biết bạn đồng ý hay không đồng ý. Ở phía dưới có một nút để chấp nhận hoặc từ chối các quy tắc.
+You accepted the rules. Welcome to the game.=Bạn đã chấp nhận các quy tắc. Chào mừng đến với trò chơi.
+this is the first time you are playing this game, do you want to view the readme?=đây là lần đầu tiên bạn chơi trò chơi này, bạn có muốn xem readme không?
+Yes, show me the readme, I want to read.=Có, cho tôi xem readme, tôi muốn đọc.
+No, Thanks.=Không, Cảm ơn
+Readme file is opening...=Tệp Readme đang mở...
+oops, something went wrong. Please try again.Rất tiếc, đã xảy ra lỗi. Vui lòng thử lại.
+Enter new email=Nhập email mới
+Enter new password=Nhập mật khẩu mới
+Update available  dialog  There's an update available for the game, would you like to download?=Hộp thoại cập nhật có sẵn Có bản cập nhật cho trò chơi, bạn có muốn tải xuống không?
+Update not chosen  dialog  You didn't choose to update. The game will now exit=Hộp thoại cập nhật chưa được chọn Bạn chưa chọn cập nhật. Trò chơi bây giờ sẽ thoát
+Extracting update package ...=Đang trích xuất gói cập nhật ...
+Update complete! The game will now restart.=Cập nhật hoàn tất! Trò chơi bây giờ sẽ khởi động lại.
+Update available  dialog  There's an update available for the game sounds, would you like to download?=Hộp thoại cập nhật có sẵn Có bản cập nhật cho âm thanh của trò chơi, bạn có muốn tải xuống không?
+Update complete! Please restart the game.=Cập nhật hoàn tất! Vui lòng khởi động lại trò chơi.
+Account settings, Update your account password, rename your character, see your rename history, Modify your registered email, View Login History and See which devices have accessed your account and block unauthorized devices.=Cài đặt tài khoản, Cập nhật mật khẩu tài khoản, đổi tên nhân vật, xem lịch sử đổi tên, Sửa đổi email đã đăng ký, Xem lịch sử đăng nhập và Xem thiết bị nào đã truy cập tài khoản của bạn và chặn các thiết bị trái phép.
+rename your character=đổi tên nhân vật của bạn
+Rename history=Đổi tên lịch sử
+See your motors=Xem động cơ của bạn
+You have no motors=Bạn không có động cơ
+Enable Improved 3d audio=Bật âm thanh 3d cải tiến
+Enable Turning with q and e=Bật Xoay bằng q và e
+Disable Speak degrees when turning in 1 degree increments=Tắt Nói độ khi tăng dần 1 độ
+Disable Speak facing direction when turning in 45 degree increments=Tắt Nói hướng đối diện khi xoay theo gia số 45 độ
+Disable Auto running=Vô hiệu hóa Tự động chạy
+Set who's near notifications you want to receive=Đặt ai ở gần thông báo bạn muốn nhận
+Set what indicators you want to hear for near players/bots=Đặt những chỉ báo bạn muốn nghe cho người chơi/bot ở gần
+Disable Improved 3d audio=Tắt âm thanh 3d cải tiến
+Disable Turning with q and e=Tắt Xoay bằng q và e
+Enable Speak degrees when turning in 1 degree increments=Bật Nói độ khi tăng dần 1 độ
+Enable Speak facing direction when turning in 45 degree increments=Bật Nói hướng đối diện khi xoay theo gia số 45 độ
+Enable Auto running=Bật Tự động chạy
+disable hearing voice chat=tắt tính năng nghe trò chuyện bằng giọng nói
+enable hearing voice chat=bật nghe trò chuyện thoại
+No one on freedom fight map=Không có ai trên bản đồ đấu tranh tự do
+Select an object to track=Chọn đối tượng để theo dõi
+Select the source language you want to use for translating sent messages=Chọn ngôn ngữ nguồn bạn muốn sử dụng để dịch tin nhắn đã gửi
+Select the target language you want to use for translating sent messages=Chọn ngôn ngữ đích bạn muốn sử dụng để dịch tin nhắn đã gửi
+There is no private message to reply to.=Không có tin nhắn riêng tư để trả lời.
+Bots in same team: enabled=Bot trong cùng một nhóm: đã bật
+Bots in different team: enabled=Bot ở nhóm khác: đã bật
+players in same team: enabled=người chơi trong cùng một đội: đã bật
+players in different team: enabled=người chơi ở đội khác: đã bật
+players in same group: enabled=người chơi trong cùng một nhóm: đã bật
+players in different group: enabled=người chơi ở nhóm khác: đã bật
+Bots in same team: disabled=Bot trong cùng một nhóm: bị vô hiệu hóa
+Bots in different team: disabled=Bot ở nhóm khác: bị vô hiệu hóa
+players in same team: disabled=người chơi trong cùng một đội: bị vô hiệu hóa
+players in different team: disabled=người chơi ở đội khác: bị vô hiệu hóa
+players in same group: disabled=người chơi trong cùng một nhóm: bị vô hiệu hóa
+players in different group: disabled=người chơi ở nhóm khác: bị vô hiệu hóa
+Character voice: enabled=Giọng nói nhân vật: đã bật
+Sound: enabled=Âm thanh: đã bật
+Character voice: disabled=Giọng nói nhân vật: bị vô hiệu hóa
+Sound: disabled=Âm thanh: đã tắt
+With players on the same group as me: enabled=Với những người chơi cùng nhóm với tôi: đã bật
+With players on the same group as me: disabled=Với những người chơi cùng nhóm với tôi: bị vô hiệu hóa
+No one talking=Không ai nói chuyện
+Are you sure you want to block this computer from logging into your account? to remove the block, you will have to verify your email access.=Bạn có chắc chắn muốn chặn máy tính này đăng nhập vào tài khoản của mình không? để xóa khối, bạn sẽ phải xác minh quyền truy cập email của mình.
+Character repeat disabled=Đã tắt tính năng lặp lại ký tự 
+Character repeat enabled=Đã bật tính năng lặp lại ký tự
+View destroyed groups history=Xem lịch sử nhóm bị phá hủy
+Group base destroy history=Lịch sử phá hủy căn cứ nhóm
+Welcome to Zero Hour Assault. The privacy policy of the game is presented below. Please read the privacy policy and indicate whether you agree or disagree. At the bottom, there is a button to accept or reject the privacy policy.=Chào mừng đến với Cuộc tấn công không giờ. Chính sách bảo mật của trò chơi được trình bày dưới đây. Vui lòng đọc chính sách bảo mật và cho biết bạn đồng ý hay không đồng ý. Ở phía dưới có nút chấp nhận hoặc từ chối chính sách quyền riêng tư.
+I have read and do not accept the privacy policy above.=Tôi đã đọc và không chấp nhận chính sách quyền riêng tư ở trên.
+I have read and accept the privacy policy above.=Tôi đã đọc và chấp nhận chính sách quyền riêng tư ở trên.
+View privacy.=Xem sự riêng tư.
+Use the up and down arrow keys to read the privacy, escape to go back.=Sử dụng phím mũi tên lên xuống để đọc phần riêng tư, thoát để quay lại.
+were going to update=đang định cập nhật
+disable hearing voice chat=tắt tính năng nghe trò chuyện bằng giọng nói
+enable hearing voice chat=bật nghe trò chuyện thoại
+You do not have any other account=Bạn không có tài khoản nào khác
+view scoreboard=xem bảng điểm
+Done, switched to the default character.=Xong, chuyển về ký tự mặc định.
+languages menu=ngôn ngữ trình đơn
+languages, Manage Languages, Switch to a Language, Get syntax and usage tips for creating languages, Create New Language.=ngôn ngữ, Quản lý ngôn ngữ, Chuyển sang ngôn ngữ, Nhận cú pháp và mẹo sử dụng cho các ngôn ngữ khác nhau, Tạo ngôn ngữ mới.
+Account settings, Update your account password, rename your character, set a status message, see your rename history, Modify your registered email, delete your account, View Login History and See which devices have accessed your account and block unauthorized devices.=Cài đặt tài khoản, Cập nhật mật khẩu tài khoản, đổi tên nhân vật, Đặt trạng thái, xem lịch sử đổi tên, Sửa đổi email đã đăng ký, xóa tài khoản, Xem lịch sử đăng nhập và Xem thiết bị nào đã truy cập tài khoản của bạn và chặn các thiết bị trái phép.
+Set a status message=Đặt thông báo trạng thái
+Delete your account=Xóa tài khoản của bạn
+Type your text here. A maximum of 1000 characters is allowed.=Nhập văn bản của bạn ở đây. Cho phép tối đa 1000 ký tự.
+Status set!=Đã đặt trạng thái!
+Are you sure you want to delete your account? You cannot get it back if you delete it.=Bạn có chắc chắn muốn xóa tài khoản của mình không? Bạn không thể lấy lại nó nếu bạn xóa nó.
+Use up and down arrows to see players within 120 steps, escape to close the binoculars=Sử dụng mũi tên lên xuống để xem người chơi trong vòng 120 bước, thoát ra để đóng ống nhòm
+You can only change characters in lobby or in the waiting area of a match!=Bạn chỉ có thể thay đổi nhân vật ở sảnh hoặc trong khu vực chờ của trận đấu!
+You have to wait 1 minutes to be able to exit after hit=Bạn phải đợi 1 phút mới có thể thoát ra sau khi đánh
+This language is exists=Ngôn ngữ này đã tồn tại
+Language was created successfully.=Ngôn ngữ đã được tạo thành công.
+No contributors=Không có người đóng góp
+release=chính thức
+Language released=Ngôn ngữ chính thức
+Select player to make owner=Chọn người chơi để làm chủ sở hữu
+Are you sure you want to delete this language?=Bạn có chắc chắn muốn xóa ngôn ngữ này?

@@ -1,0 +1,39 @@
+mapname:battle_field
+maxx:500
+maxy:500
+maxz:500
+
+
+platform:0:500:0:500:0:0:grass3
+platform:0:500:0:500:0:0:gravel2
+zone:0:500:0:500:0:50:Abandoned city
+platform:0:30:0:30:0:0:cement3
+src:0:30:0:30:0:15:nbmambience2.ogg
+zone:0:30:0:30:0:25:An abandoned bus station. It seems it has not been used for a long time due to the old buses parked there.
+platform:31:500:10:30:0:0:concrete3
+zone:31:500:10:30:0:15:Maplewood Avenue
+
+platform:31:500:0:9:0:0:concrete
+zone:31:500:0:9:0:25:sidewalk
+src:30:500:0:30:0:25:street2.ogg
+platform:10:30:31:500:0:0:concrete3
+zone:10:30:31:500:0:25:Victory Avenue
+platform:0:9:31:500:0:0:concrete
+zone:0:9:31:500:0:25:sidewalk
+zone:31:40:31:40:0:25:Crossroads
+src:0:30:31:500:0:25:nbmambience5.ogg
+platform:50:70:40:60:0:0:carpet3
+platform:50:50:40:60:0:20:walldoor3
+zone:50:70:40:60:0:25:cafe, nearly destroyed
+platform:70:70:40:60:0:20:walldoor3
+platform:100:115:40:50:0:0:concrete7
+zone:100:115:40:50:0:25:a small shop, it seems empty
+platform:99:99:40:50:0:20:walldoor3
+platform:115:115:40:50:0:20:walldoor3
+platform:100:150:100:150:0:0:concrete8
+zone:100:150:100:150:0:30:City center
+src:100:150:100:150:0:30:desert ambience day 1.ogg
+platform:120:123:120:123:0:20:wallrail
+platform:120:125:120:125:0:20:metal12
+zone:120:125:120:125:0:30:Tower, you can see the city more clearly if you climb it
+src:0:500:0:500:0:7:nbmambience2.ogg

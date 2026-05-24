@@ -1,0 +1,1638 @@
+New in 17/02/2026:
+Fixed deleting a group sometimes does not remove all of its bases from the map.
+
+New in 09/02/2026:
+Added a new character, lord. This character has 55 ms walktime, 300 health, 180 ms jumptime, and 25 plus damage! to purchase lord character, If you are using web, go to https://nbmstudios.com/zhashop.php , If you use android, go to purchases and purchase it via google play, If you want to purchase via ios, the ios players must wait to the new update. Ios players please check is lord came in to store in several durings time.
+
+New in 04/02/2026:
+Fixed the corpse cannot be opened if it is in same coordinates as a base entrance or exit.
+
+New in 23/01/2026:
+Increased chests amount in freedom fight map, and added roofs on houses.
+
+New in 11/01/2026:
+Fixed timed items timers restart if you change your name.
+
+New in 08/01/2026:
+Now deleting account and changing password requires email verification.
+
+New in 06/01/2026:
+Fixed the right hand weapon or the feet can be fired while sitting.
+
+New in 01/01/2026:
+Fixed grenade cannot be thrown in abyss clash match.
+
+New in 17/12/2025:
+Fixed players can use base gun when game is frozen.
+
+New in 16/12/2025:
+Fixed community and group owner change sound play with every player in to the game.
+
+New in 14/12/2025:
+Fixed a bug where when the group name is changed, all players inside any of the bases of the group would be moved to the lobby.
+Increased walktime and health of characters, except of hex and supreme.
+
+New in 13/12/2025:
+Changed binoculars again to old style
+fixed Account-switching bug for used to escape from fight.
+
+New in 03/12/2025:
+Fixed wrong adrenaline shot end time display when a player checks another player's character stats.
+
+New in 27/11/2025:
+Now when you create group, you will spend 1000 zero tokens, to puting base in extra, you have to pay 2000 token.
+
+New in 23/11/2025:
+Now the most recent poll will be in top.
+Fixed walking speed increase bug if you reload or select new gun while ducking.
+
+New in 21/11/2025:
+Increased prices in event and store in game.
+Added razeon in character list in normaly store.
+
+New in 17/11/2025:
+a new weapon added in online zero store! Name: KelTecP318. The weapon is stronger than other weapons with more speed fire. It will remain with you two weeks. To purchase KelTecP318, token packs, or character, go to https://nbmstudios.com/zhashop.php
+
+New in 13/11/2025:
+Now tickets will close after 2 days if there aren't any activity.
+
+New in 09/11/2025:
+Fixed a bug where you can place spatial amplifier on a player if they are in the same coordinates as you but on a different map.
+
+New in 06/10/2025:
+Fixed a bug where the base entry logs are not added if someone who is not on the group enters the base.
+
+New in 05/10/2025:
+Fixed base creating in building entrances.
+
+New in 04/10/2025:
+Fixed ladder placing on lobby.
+
+New in 21/09/2025:
+Fixed a bug where it watches a player which is not on your friend list in freedom fight map if the player you are watching exits the game or map.
+
+New in 09/09/2025:
+Fixed you can't see your old tickets if you rename your character.
+
+New in 06/09/2025:
+Fixed barricade placing on lobby.
+
+New in 02/09/2025:
+Fixed molotof rmeoving base chest.
+
+New in 29/08/2025:
+Now you can press enter on a player in binoculars and the e key will show only the location of that player.
+
+New in 28/08/2025:
+Now e key will show players within 120 steps also if you have a binoculars so you don't have to constantly open and close it.
+
+New in 25/08/2025:
+Fixed players can send message to communities when their all chat feature is disabled.
+
+New in 24/08/2025:
+Make fire slow to beretta9
+Shift control won't work in match waiting area.
+
+New in 03/08/2025:
+Fixed a bug where you don't get 2 score points if you are paid account when you kill someone even though it says you got 2 score points.
+Fixed a bug where you cannot walk if you die while in the bike.
+
+New in version 1.5.9
+Now you cannot draw weapons while ducked.
+
+New in 31/07/2025:
+Fixed a bug in capture the flag match where when someone holding a flag dies, the spawned flag belongs to the wrong team.
+
+New in version 1.5.7:
+Fixed cheat engine blocking.
+
+New in 25/07/2025:
+Fixed capture the flag falling bug.
+The S&WMODEL66 gun is not as good as before.
+Added a new gun berettaM9. You can find it in chests.
+
+New in 23/07/2025:
+Old health  is returned back
+The paid accounts were increased from 20 to 30 health.
+
+New in 22/07/2025:
+Increased ammo giving when you enter first freedom map
+Removed snipers that you get when you go freedom map
+Added new character shadow on zero online shop. A formidable character with 50 milliseconds walktime, 120 milliseconds jumptime, 13 plus damage, and 200 health.
+Increased health of characters, walk speed, jumptime, and dammages.
+
+New in 17/07/2025:
+Added spam protection for chat messages.
+
+New in 13/07/2025:
+Community member count changed 15 to 50.
+
+New in version 1.5.5:
+updated readme so it mentions touch gestures also for each keyboard key.
+added gestures for melee attack and melee-weapon throwing.
+added report option to action menu so non-keyboard users can use this feature too.
+fixed ticket creation issue
+Now you cannot watch players on freedom fight map if they are not your friends because players were watching others and telling other players in which houses other players are and abusing it. Z key wasn't telling them the house name, but they were memorized tile sounds of each house and was able to abuse this, so its removed.
+Now when a corpse with corpse bomb explodes it will tell you what items the corpse contained.
+Fixed remove friend.
+Fixed others jump/land sounds weren't hearable.
+default character is removed, you'll use tristan character now for default.
+
+New in 22/06/2025:
+Fixed shield breaking sound doesn't play.
+Added mine detector which shows all the mines within 50 steps.
+backpacks_level2 is added in to equipments store, just backpacks_level3 will only at online zero shop.
+A new explosive called ZK91 has been added! When you use the ZK91 item, you’ll be required to enter a 4-digit code. Once the code is entered, a bomb will be planted at your current location. You can later detonate the bomb using the zk91_controller item by entering the same code. Other players can also guess the code and detonate it! Each ZK91 deals 50 damage, explodes within 3 seconds, and has a range of 15 steps. You can get both the bomb and its remote from the event_store.
+MKEK_MPT76K's range was increased from 25 to 40.
+
+New in version 1.5.3:
+Fixed a bug where group and community join requests sent do not appear when the requesters are offline.
+Now you cannot hear others walking and jumping sounds while in lobby.
+Fixed you cannot hear others weapon turn sound.
+Fixed bugs in freedom fight map watching when who you watch exits the game or map.
+Fixed you can see cordinates of who you watch in freedom fight map if that person is in helicopter.
+Now base passwords must be greater than or equal to 6 characters, and they can contain letters as well. All current bases will be set a new random password which can be changed.
+Now if you enter the base password wrong, if you are the member of that group, you will need to wait 20 seconds to try again. If you're not member, you have to wait 1 minute.
+Now there are 2 aiming modes you can switch betweeen with alt f. Angle-based aiming, which is the default, will allow you to aim half up, streight up, half down and streight down. If you aim streight up/down and fire, the bullet will only move around the z axis, so it won't go in the your facing direction. If you fire while in the half aiming state, it will go both in the z axis and in your facing direction. The other mode is step-based aiming. Here you can aim from 1 steps to your weapon's spread amount steps up/down. The weapon won't always go in the z axis, it will start from the amount you aimed. If you aim 2 steps up and fire, it will go 2 steps up in the z axis, but it will don't go further up, it will go in your facing direction, same also works for downwards.
+
+New in version 1.5.2:
+Fixed an issue where bike gets stuck after reboot.
+
+New in 17/06/2025:
+Healing about loud rain sound is now decreased.
+Fixed bike not able to move in negative coordinates.
+Fixed a bug where you can get event points by killing yourself in survive for 10 minutes event.
+
+New in 15/06/2025:
+Now you will receive kill notifications on freedom fight map while in the base.
+Added base gun. You can fire it from base computer and it will hit everything within 75 tiles to the base, it will deal 30 damage. To fill the ammo, use base ammo gun pack while near to base outside.
+Fixed scope sound playing while in the base while fighting in freedom map is off.
+Fixed machineguns firing slower in right hand.
+Added see your bikes option in game menu.
+Fixed fire suppressant item.
+Fixed you can get bike on helicopter.
+
+New in version 1.5.0:
+added a new weapon S&WModel66! you can collect them from chests, or you can purchase it with ammo in event store.
+Fixed alt b showing people not on your community as talking.
+Now Bases health will now be 20000000 when create a group.
+Fixed shift f not shows aim status of who you watch.
+Changed ducking system. Now you have to press alt x to duck and unduck, you don't hold it to stay ducked.
+Now you cannot hear other peoples turning and inventory sounds in lobby.
+Now when you throw a molotov, it creates an area with fire. If you step in the fire, you will lose some health each 1 to 2 second. Fire will be gone after 30 seconds.
+Added item fire supperssant to destroy molotov's fire.
+Added num pad enter support in addition to normal enter.
+Fixed a bug where you cannot send private message if your public chat is disabled.
+Added numpad 7 and numpad 9 keys as alternate keys to climb.
+Now base chest log shows items put to chest too.
+The possibility of dying with corpse Bomb is raised more.
+Added progress bar beep sound in file downloader, affects updater and sounds updater.
+Now you can't get event points from eliminate 20 eenemies and headshots events in capture the flag match because people were abusing it by killing their friends or letting their friends kill them to get unlimited event points.
+Added auto tracking feature you can toggle with shift e. This will play beeps for near players in their positions when enabled.
+Added bike, which you can purchase from event store. When you purchase it, you can press shift enter to ride it and hold the up arrow to drive it, others can ride your bike too, but they cannot drive it. The first person who rided is always the driver, and like in the motors, people can steal your bike if they ride it while you are not rided. Its android gestures are in main menu touch screen gestures section.
+Changed aiming system. Instead of aiming verticaly step-by-step, you now can aim half up, streight up, half down, streight down. When you aim half up or half down, weapons range will be divided by 2.
+Fixed it saying you are not in community a bunch of times if push to talk is on and you hold down b.
+Now people you blocked cannot send you friend requests.
+Fixed binoculars not taking the account of z coordinate of players when calculating their distances.
+Fixed paid accounts weren't showing as * in community messages.
+Fixed an issue where some players wasn't seeing their computers on authorized computers list.
+Fixed you can hit group members in bases even while fighting in freedom map is off.
+Fixed silencer not silencing weapon on right hand.
+Now when you destroy an item a message will appear in the items buffer informing you about what item you destroyed.
+
+New in 08/06/2025:
+Fixed a bug where if you press e while watching a bot it would say that the bot you watch is near you.
+
+New in version 1.4.8:
+Now the game cannot run in virtual machines.
+
+New in 07/06/2025:
+Added confirmation dialog when rmeoving a friend.
+
+New in version 1.4.7:
+Readded steam audio to settings as a toggle, it's off by default.
+
+New in version 1.4.5:
+removed steam audio completely from the game. Although it works, it causes lag on some computers even if it works for others, we can add a warning that it may cause lag in the menu, but some people still don't read it and asking us, so even if it works on your computer without lag you wont be able to use this feature anymore.
+Added a setting to settings where you can make game use more cpu so as not to lag, or use less cpu but it can lag sometimes. If you leave it in the default, game will use more cpu. If you enable it, game will use less-cpu but can occasionaly lag.
+
+New in 03/06/2025:
+Fixed shield remoing bug.
+Fixed bug where if your client lags and you press control too fast it firest bullets fast.
+
+New in 02/06/2025:
+New Character Available: Razeon! We're excited to introduce a brand-new character to Zero Hour Assault: Razeon! This powerful character is now available for purchase in our virtual market.
+Razeon Details:
+Description: A formidable character with 90 milliseconds walktime, 100 milliseconds jumptime, 8 plus damage, and 160 health.
+Price: GBP 20.0
+Important: Razeon is a one-time purchase. There's no monthly subscription or level to maintain. Once you buy Razeon, the character is yours to keep!
+How to Purchase:
+You can acquire Razeon through two convenient methods:
+1. 
+In-Game: Navigate to the Lobby, then select "Store" > "Go to Online Shop".
+2. 
+Directly: Visit our online shop at https://nbmstudios.com/zhashop.php
+Don't miss out on the opportunity to add this amazing character to your roster! Head to the shop and claim Razeon today!
+
+New in 31/05/2025:
+When you take an item from the chest, it will no longer just play a sound — you'll also hear the item's name and quantity.
+
+New in 30/05/2025:
+Now punch and feet are more faster than before.
+
+New in version 1.4.3:
+Fixed a bug where you can learn coordinates of who you watch in freedom fight map by disconnecting and reconnecting the internet while watching.
+Added shift z as alternate key to sit/stand.
+Now when you try to walk while sitting you will be told that you need to stand up.
+Fixed alt shift i opening input box also, now it just opens online players list in community.
+
+New in 29/05/2025:
+Fixed bug where sometimes language used of players is shown empty in player menu.
+changed chat tone of community chat.
+
+New in 27/05/2025:
+Paid accounts will not affected by item take time in chest whenthey take items.
+Paid accounts will not be affected by the waiting time when they draw weapons.
+
+New in 26/05/2025:
+Limited max items on sword duel matches to 10.
+Fixed backpacks level display in player menu.
+Fixed shift control hits group members in freedom fight even when group members fight on freedom fight map is off.
+
+New in 25/05/2025:
+Fixed a bug where sending a map message while spectating sends it both to lobby and the match, now it sends only to match.
+Added option to disable receeiving community messages in notification settings.
+Added option to disable receiving match invitations in notification settings.
+Now you can only send match invitations every 1 minute.
+Reverted freedom fight map to old map, so store is once again accessed at 500 463 0, no separate coordinates for each category.
+
+New in 23/05/2025:
+Now you can write comments on polls.
+Now admins will be notified about how many new tickets have been created when they login .
+Now admins can see how many open, closed and pending tickets are on the server.
+Fixed a problem in talking players menu where pressing escape still asks for volume.
+Fixed event store problem when pressing escape.
+Now admins an developers can make polls sticky. This will make them show in the top in list and they will never end automaticaly unless administration ends them.
+
+New in 22/05/2025:
+Now you can see online players in your group with alt apostrophe, and online players in your community with alt shift apostrophe.
+Now you can see how many people are using each language in switch language section.
+Now you can wake everyone up with t even if they are not your teammates and faint.
+Fixed grenades hitting you even if shield is on.
+Fixed faint bots coming to your side if you use come commands.
+Now flag matches can have up to 15 max items on ground and explosive matches 10.
+Now you won't get is typing notifications if you disabled receiving pms.
+Now you will automaticaly wake up if faint in 1 minutes.
+Fixed faint players coordinates showing as floats.
+Fixed electric poles hitting you even if your z is far away from it but your x and y is same with its position.
+Fixed poll create sound playing even if you turned off poll notifications.
+
+New in 21/05/2025:
+Fixed bug where even if weapon hits shield it plays characters hit sound.
+Now you will not get tokens and score points each time you kill a bot, you need to wait 5 minutes. The logic is same for players, see the relevant changelog entry for v1.4 for more info.
+
+New in version 1.4.1:
+Renamed kado character to kade.
+Fixed electric poles reappearing quickly.
+Fixed client errors and crashes.
+Now more weapons can be silenced.
+Added sound to wall holding.
+Fixed game freezing temporarily while near sound sources in freedom fight map.
+Fixed lag in input boxes.
+
+New in version 1.4:
+Now you can jump when using mkek jng90.
+Rewrote rules.
+Increased ithica weapon damage and range.
+Added paid account, which you can purchase from the zero hour assault shop from 1 to 12 months. Paid accounts have a * Title when sending messages, they do not get effected by inventory item limits so they can hold as many items as they want, they will have +20 extra max health, and they will get double score points and zero tokens from the match and freedom fight map. Also, free accounts require 1000 zero tokens to create a community, but paid accounts can create for free.
+Now is typing notifications won't appear if someone you blocked tries to send you pm or when administration disabled pm feature.
+Fixed you can change your name to white space characters like newlines etc.
+Fixed match save issue when only 2 players in match.
+Added new match collector's arena. In this match, you cannot fight, you have to collect the golds in the ground for 10 minutes. After 10 minutes, the team/player which collected the most items wins. And winner gets 10 zero tokens.
+Aded new item corpse bomb. You can turn it on or off. If you die while it is on, and if someone tries to open your corpse, it will explode and near players and the player trying to open it will get dammaged and corpse will disappear and you will receive a zero token.
+Added new item boom box. When you use it, it will spawn a random item on the ground, but if anyone tries to get it with shift enter, it will explode and near players including the person pressed shift enter will get damage and you will get a zero token.
+Because of latency issues on some computers, usage of steam audio is now off by default, a dedicated option has been added if you want to enable it.
+Converted readme to html.
+Fixed item lag
+Added new item corpse scanner, which will show you all corpses in your map with their coordinates, when they will be gone, and owner.
+Now if you exit the game while parachuted, when you reenter, you will still be parachuted.
+Fixed beacon setting not saving when you exit the game.
+Fixed sounds cutting out.
+Fixed a bug where if a player is near you and switches to different map, it would not tell you the player is no longer near untill the player reenters to your map.
+Added option to disable event notifications in notification settings.
+Fixed a bug where if you assign parachute to a favorite item, you can open it with the key you set it to, but can't close it.
+Fixed motor crashing sometimes when climbing down staircases.
+Fixed motor climbing staircases wrong in reverse staircases.
+Now e key tells whether players are above or below also.
+Added new item, adrenaline shot, which speed ups your weapon firetime for 2 minutes.
+Added backpack level 1, backpack level 2 and backpack level 3. These increase the maximum amounts of items you can hold in your inventory, they expire after 1 week and you can see when they will expire in timed items.
+Added new item jammer. When you use it, people nearby cannot use binoculars and cannot see players with the letter e for 2 minutes. Their scope will also not work.
+Now you can throw the knife and the swords with shift and alt space depending on which hand you have them. They will deal more damage when thrown, but you will lose the item. If you miss, they will fall to ground as item, but if they hit, they'll be gone. Knife's range is 20, and sword's 15 when thrown. They will also play a sound as they move in the air.
+Added new item spatial amplifier. When you near to a player 5 tiles, you can press enter to put the item on the player. After this, with the spatial amplifier controller, for 10 minutes you can see the players coordinates You can also destroy the item, in which the player will hear an explosionn sound with all the map players they will hear distant sound and players 20-tiles near and the player will get damage.
+Changed binoculars sound.
+Changed store purchase sound.
+Now in freedom fight map, store is not at 500 463 0, each category is accessed with shift enter in different locations. equipments  1901, 775, 0, weapons  1450, 774, 0, explosives  111, 775, 0, potions  300, 775, 0, vehicles  400, 775, 0, ammos  1660, 775, 0
+Now you cannot walk and jump inside helicopter.
+Now corpses will disappear in 10 minutes instead of 2.
+Added events, which change every 24 hours. You can see from events menu. The option to get daily zero tokens is removed.
+Added event points, which you get by doing events. There's a event store where you can use these points.
+Changed aiming sound.
+Changed inventory navigation sound.
+Now you'll able to see the item silencer in alt 5
+Fixed motor sound not playing if you watch someone and if that person is running a motor, it would auto fix after they rerun engine.
+Fixed it says wrong password if you enter wrong email.
+now match start notifications and match create notifications will only be sent to players in lobby.
+Fixed you cannot send group message while watching someone.
+Now you can send map message when watching, and the receivers will see that you are a spectator.
+Now when you exit the game and relogin while inside base, you will be inside the map of the base.
+Now h key will also tell health of motor if who you watch is using motor.
+Fixed a bug where you stay in the air if you open a ticket dialog while jumping.
+Now everyone will be notified when someone's match starts.
+Now when weapons hit something the bullet fall sound will play 1 seconds after.
+Now you will hear a sound when you hit a motor or the player you watch hits a motor.
+Now when you get items they will be shown in items buffer which is new.
+Now if someone has flag and when they exit it will be spawned in their position.
+Fixed a bug where bullet falling sound comes from the air if the bullet was fired while the player was jumping, now it will always come from the ground like it would be for real.
+Changed menu sounds and music.
+Now wall hitting sound will not play each time you hit the wall, it has time limit.
+Changedl loby map and added map music.
+Rewrote freedom fight map.
+Changed the dead effect sound.
+Changed jump sound.
+Added sound that plays when launching the game.
+Changed some weapon sounds.
+Fixed a bug where even if you lose your shield in inventory, if you had the shield worn before, you are still shielded.
+Now the weapon you are holding on hands saves when you exit.
+Now a sound will play when someone enters or exits the map you are in. You can disable this from notification settings.
+Fixed a bug where the helmet damage resistance resets to 100 if you took off your helmet and re-wear it after you exit and reenter to the game.
+Fixed a bug where when you stop spectating, you still get death notifications from the match you were watching and when the match ends, you would be returned to the lobby.
+Fixed bug in suggest section where if you open the edit box and cancel, even though you didn't send anything, if you try sending suggestion before 1 minutes elapse, it would tell you that you need to wait 1 minutes between each suggestion.
+Fixed a bug where it says you can only send friend requests in 20 seconds when you first login but you hadn't send request.
+Now a sound will play when you turn and if you have a weapon equipped which uses ammo.
+Now when a bullet hits the wall, bullet fall sound will also play with the current wall hitting sound.
+Now you won't always fall down when you get a headshot, it will happen sometimes.
+Now when you look at talking players, it will open a menu, and you can also set their volume from there. You can still set in f6 player menu if you want to set the volume of someone who is not talking.
+Fixed bug in corpses where it says 1 items in the letter m but it shows no items when you open the corpse.
+Fixed barricade's dirt platform above do not remove when destroyed.
+Fixed nenu multi letter navigation bugs.
+Fixed your parachute stays on even if you die if you die while it is on.
+Fixed spelling error in death message, "hit the ground" -> "hitting the ground"
+Fixed step sound plays when you land in other players, so they'd hear both land and step sound, now they'll hear only land sound like you do.
+Now you can also hear parachute open and close  sound when a player opens or closes it while near you.
+Fixed bug where you cannot see your tickets if you rename your account. If you cannot still see, rename your character to your old name then back to the new name again.
+Fixed put the flag notifications do not appear in match messages buffer in capture the flag.
+Now is typing notifications will be in friend messages buffer.
+Now you can't see/hear players inside houses if you are not in the houses or vice versa. Also, you cannot hear chests' sounds when outside houses.
+Now in switch a language section, it will show only official languages, and there'll be another option to show unofficial languages.
+Now you can see size of each language file in switch a language menu.
+Now you cannot use grenades in matches where you are limited to certain weapons.
+Now when you exit the game while inside a base, when you relogin to the game, you will be in the freedom fight map in the coordinates where the base is.
+Now binoculars shows when players and npcs are faint or not.
+Fixed scope sound playing when faint.
+Fixed a bug where it says you are killed even if you faint.
+Fixed a bug where it says there are 1 members in match team info when the team you selected has no members.
+Now you won't heal while faint and sitting.
+Fixed your facing on the server stays in norht when you relogin until you change facing.
+Fixed a bug where chest menu closes if you take the last item and press enter again.
+Fixed a bug where your character stays in the game for some time if you exit with alt f4.
+Changed computer ID generation, so if you saw accounts listed but they weren't yours in shift p, this should be fixed. Also, you cannot see your other account if you have it in shift p, for it to be visible, you have to login to it from setup account section, then it will be visible.
+Fixed character's hit sound not playing when using weapons which do not use ammo.
+Now the 5-minute token receiving limits will be for the each account, that is, if a player kills different people, they will still get tokens, but for example, if they killed 2 people and killed a third different player before 5 minutes passed, they will still get tokens, but if they kill one of those two people, which they killed before, they will not get tokens, 5 minutes will start separately for each player they kill.
+Now grave key shows your weapon's actual damage plus your character's plus damage.
+Fixed a bug where when joining a private match, it asks for team even if the match is not teamed.
+Fixed network events wren't receiving when testing voicechat in the game.
+Now when you die, your currently drawn weapon won't appear inside the corpse, it will appear as an item, and a sound will be played.
+Now shift f will announce the aiming status of the player you are watching when you are watching.
+Fixed a bug where when your ticket is closed within 24 hours due to inactivity, the mail wouldn't show all messages like it does when the ticket is closed by an admin.
+Added communities, which are similar to groups but without a base. And also you can use shift apostrophe to send community message, all other community-related things are managed in game menu.
+Now when you are not in a community, the voicechat will be positional, and it will be sent to all players in your map but they will hear your voice from your position when they are 30 tiles or more near. So the setting of voicechatting with who is removed. In a community, you can send voice chat to the community with b, and all the members in the community will hear it, so voicechat on communities is not positional. And also you can disable receiving community voice chats from notification settings.
+Fixed group renaming chest problem
+Now group renaming will get 200 token.
+Fixed a bug where feet can be fired very fast if you had a weapon in your right hand and died.
+Added sonar which you can toggle with F7. It will play the wall's sound high-pitched in the wall's position if a wall is 20 tiles or more near.
+Added silencer, which you can use to silence your weapon. However, your weapons range will decrease 50%. You can insert and remove the silencer to any weapons you want. When you use it, it won't disappear from your inventory so you can remove it from the weapons. But let's say you have 2 silencers, you won't be able to insert to more than 2 weapons. When you die, all the weapons will be not silenced. Also, when you use silencer, only who are 30 tiles near you can hear your weapon's distant sound. It only works in weapons that take ammo. When you press grave or shift grave, it will tell you if your weapon has silencer inserted or not. Also for range, it will tell the actual range with silencer when it is decreased 50%. You can have up to 2 in your inventory. Also, if you have a silencer on any weapon, you can only drop your other silencers, so if you have 2 silencers on 2 weapons, you can't drop any, but if you have silencer on 1 weapon, you can drop 1 silencer to ground and your other weapon will be normal weapon. And if you drop a weapon which has a silencer inserted, silencer will be removed from it, and when someone gets it or you get it, it will be normal weapon.
+Added output device selection in settings menu.
+Fixed a bug where chests on bases disappear when renaming the group.
+Now only admins and owner can change base password and view base info.
+Added new option to notification settings for disabling poll notifications.
+When you press enter on a weapon in the inventory, you can select to draw it in your left or right hand.
+Now freedom fight map also has helicopter system like some matches.
+In the group menu, admins and owner can see items got from base chest and who.
+When you are died, pressing h will now say that you are died, it's the same when watching.
+Now you will also hear parachute loop sound when the player you watch uses parachute.
+Now you can mute buffers with shift backslash, new items added to the buffer will not be spoken but will be added to the buffer.
+Now when a new match is created, you will be told whether its public or private.
+the base life max health has been increased to 200000000.
+Now you can see your destroyed motors also from see your motors section with timestamps.
+Now when you use a shield, you can't move until the sound finishes.
+Now you will get tokens between 3 and 5 when killing players in matches instead of 1.
+Added invitation support to private matches, so players can join without entering the password if owner invites them to a match.
+When a team puts a flag in capture the flag match, it will tell how many more flags that team must put to be the winner.
+When you rename your character, all references to your name on all tickets will be updated to your new name, and a new message indicating your old and new names will be added as a message to the tickets.
+Now everyone will be notified when a new account is created.
+Added poll system. You can create polls with a specific title and message, and players can vote yes and no. Poll will end within 24 hours.
+Added new character stats. Amount of head and leg shots and hits.
+Added electric poles. You can destroy them with weapon, and all players who near the pole 40 steps will get damage including you, and will fall and need to stand up. It has a wall and platform like chests,motors,etc., but if you jump to its platform, you will instantly die.
+Now destroyed groups history will show the most recent destroyed group in the top.
+Added raining.
+Now corpses will make bleeding sound.
+Now you can see how many seconds ago each buffer item is added.
+Now when there are more than 1 corpse in your coordinates and when you press shift enter, it will ask you which corpse to open.
+Now when you hit a wall, the wall sound will come from which direction the wall is in.
+Fixed you were able to fire the weapon in your right hand while sitting.
+Now you cannot fire or draw another weapon before the draw sound of your current weapon finishes.
+Now when your tickets are closed, you can rate them between 1 and 10 to indicate whether you are satisfied with the staff assistance or not. Also, you can no longer open new tickets if you didn't rate any of your previous tickets and if they are closed.
+Added two options to notification settings, you can disable typing notifications and computer authorization requirement when loggig in the game from a different computer.
+Fixed a bug where voicechats still come through for 3-5 seconds when you disable receiving voice chats.
+Fixed a bug where you can use the steel helmet multiple times while wearing it.
+Fixed you cannot hear beacons of others while watching someone.
+When you press l while watching a player in freedom fight map, it will show you players in freedom fight map.
+Fixed you can hit other players with shift control even if they are behind a wall.
+When watching someone, you will also now get the kill notifications on the map which the player is in.
+Now it is less likely you will hit the player's legs when aiming down.
+Fixed motor horn not working.
+In the friend menu, you can view the statistics of a player with shift enter. This works even if they are offline.
+Added cheat protection.
+Now chests will refill even if they are not empty, they will refill after you get some items and after some time has elapsed.
+Now you can also hear when players or bots die in the match you watch.
+Now you can exit the game if who near you is someone you cannot hit, eg group members in freedom fight map when group members fight on freedom fight map is off, or people in jail if you are jailed.
+Fixed a bug where you still fall down if you have shield on and you get a headshot.
+
+New in 28/12/2024:
+Fixed corpses weren't moving when the map shrinks if they are in the boundary.
+Fixed a bug where if you join a match with a player, then after the match ends, you create a new match and be in the same player you were before with the player and when you send a message to the team, the other player would receive the message even if they didn't join your new match.
+
+New in version 1.3.2:
+Fixed you can hit dead players with shift control.
+Now you will stand up a little quicker.
+Fixed your health increasing if you die while sitting untill you respawn.
+Now you will receive 1 vitality potion and 1 revival nectar when entering freedom fight map.
+Now you cannot duck while in motor.
+Fixed it do not take zero tokens from you when putting a second base.
+Now languages in the client are encrypted.
+Changed sitting key to alt z.
+Now when you drop an item and no more items left on the inventory, it will automaticaly close.
+In the match menu, it will show how many matchs are available and which of them are public and private.
+Fixed you are respawning too late and it lags the server when someone dies.
+Fixed scope beeping for players who have 0 health.
+Fixed you are returning to lobby with your items when capture the flag match ends.
+Fixed it showing the red flag count as blue flag count and vice versa when pressing l in capture the flag mode.
+Now you cannot duck while sitting and cannot sit down while ducking.
+Now you will get 100 tokens for destroying a base.
+Decreased volume of friend online and offline sound.
+Fixed you can climb with page up and down while sitting.
+Fixed an error sometimes received when opening the inventory.
+Now you can have up to 4 ladder and 2 barricade in inventory.
+Now you can disable receiving token transfers in notification settings.
+If you press the left arrow in a weapon on the inventory menu, you will get it to your left hand, and when you press right arrow, you will get it into your right hand.
+Now you cannot change facing direction when stunned
+
+New in version 1.3.1:
+Changed sitting key to alt e because on some keyboards alt+r wasn't working.
+Fixed it saying the player had punch even if they had another weapon drawn.
+Now when someone dies, it will show weapons in both their left and right hands.
+Fixed sometimes distant weapon sounds in other maps heared in lobby.
+Fixed you can press alt f4 multiple times and it would say exiting each time you press.
+Fixed beep sound do not stop when died until you respawn.
+Increased shift control range to 15.
+Now the updater will download the updates faster
+Fixed you had to press the right control key multiple times if you get machine guns on your right hand.
+Fixed error when dropping items.
+Fixed a bug where the weapon on the right hand couldn't be unloaded.
+You will automaticaly stand up if you die while sitting.
+You will sit down automatically if you fall over a long distance
+You can no longer move in the inventory and stand up or sit down while dying.
+Fixed a bug where when you press r, even if reloading not happens, your walktime slows down.
+180 degrees turning won't work while watching someone.
+Shift p won't work while watching someone.
+Now you cannot place ladder or barricade if there's already a ladder or barricade in the same position.
+Now you cannot hit players' legs if they have a shield on.
+Fixed it showing helmet resistance as floats sometimes.
+Now punch and feet can still hit the player even if they have a shield on.
+Fixed a bug where if you remove and re-wear the helmet, its resistance resets.
+Now ladder will be removed before the sound finishes when you press shift enter, but you will be stunned.
+Now tracking will stop when moving in maps.
+Fixed a bug where if you are an admin on a group, and if you rename your character, your name on the group admin list do not change to your new name.
+Fixed corpses do not delete in hand-to-hand combat match after match ends.
+Fixed a bug where if you open a menu or input box while holding the mouse to walk, then if you release the mouse button while the menu or input box is open and if you close it, you continue to walk untill you press and release the button again.
+Now while sitting, you will heal automaticaly, 2 to 3 health every second.
+Now the items can be destroyed with weapons.
+Fixed weapons hitting the behind object sometimes.
+Now alt r won't work when stunned.
+Changed sound when bullets hit the walls.
+
+New in version 1.3:
+added a new weapon! fnhfnp45
+Fixed aiming won't reset to forward when you die on freedom fight map.
+Now your walktime will be slowed down while reloading, and will back to normal once reload completes.
+Now you cannot create group base if a base is 20 steps or more near.
+Removed heart sound when your health is low and replaced with another sound which its volume will increase as your health decreases and will play in loop, it will not play periodicaly.
+Now you cannot jump in staircases climbable with page up.
+Changed online and offline sound.
+Now you cannot place timebomb or mine in lobby.
+Fixed a bug where you get removed from your current group if you rename your character, because it wasn't changing your name on the group member list.
+Fixed a bug in base chest where if you try to take an item more than the amount your inventory can hold, it would only give you up to the amount your inventory can hold but but others would be lost. Now if you enter amount and the total exceeds the amount your inventory can hold, it will give an error.
+Increased maximum item amount on chests to 10.
+If you exit the game while a timebomb is near you within 50 steps, your character will stay in the game and get damaged from explosion.
+Added invisibility shield. When you use it, you will be invisible for 15 seconds. People cannot see you in the letter e or in binocularsa and cannot hear your beacon, only they can hear your step sounds. Scope won't also beep for invisible players. They can hit you with a weapon.
+Added steel helmet, which protects you from headshots. You can see your helmet's damage resistance with the letter h when you wear one.
+Fixed a bug where if you have a corpse menu open, you can get items from the corpse even if it is gone while you had the menu open.
+Now shift with the aiming keys changes it by 2 steps instead of 5.
+Changed ping sound.
+Fixed a bug where you would stay in the air if you open parachute while jumping.
+Now the notification sent when enabling or disabling players to hit other members in freedom fight map will be in the group notifications buffer.
+Now you have to press shift enter to pick up items on the ground.
+Now you can also access the inventory via a menu with the letter I. You can press backspace while in the menu to drop the item, and pressing enter will close the inventory and make the inventory positiong point to the item you select, so you need to press enter again to use it.
+Fixed a bug where the winning team hears the lost sound in capture the flag match and vice versa.
+Now when someone explores through the inventory, you will hear the inventory moving sound in their position.
+Now group bases need to be have passwords for them to be unlockable. The previous groups have been assigned a random password. This also means even players not from the same group can open the base door if they guess the password. Also, now when the base door is opened, it will be closed after 2 seconds, and pressing shift enter while its on will move you to the base, so you cannot close it. The password cannot be less than or greater than 4 characters, and it must be only consist of digits.
+Now when a player dies, the death message will also show their weapon.
+Added barricade. When you place it, it creates a wall which is 10 tiles in height, with a platform above. It can be destroyed by weapons.
+Added ladder, which creates a climbable ladder going up 20 tiles. It can also be destroyed with weapons. Owner can also get the ladder back by pressing shift enter.
+Now you can remove invitations you send to groups before they are accepted or refused.
+Now you can do headshot by aiming. You need to aim upwards the amount of your weapon's spread, which you can learn with grave. For example, if the spread is 2, you need to aim 2 steps up.
+Fixed fall sound playing when stopping watching.
+In the group menu, admins and owner can put 4 additional bases. Group will be deleted if all the bases are destroyed. Putting 1 base requires 200 tokens.
+Added base computer in the 30 30 0 coordinates. Here, you can see near players to the base, open the base door and change the base password. In the group menu, admins and owner can see when and who changed the group passwords to what in the group actions history for each base.
+Now weapons limit how many steps you can aim up and down.
+Added sitting and standing system. Press alt r to sit down or stand up.
+Now when you aim down the amount of your weapon's spread, like 2 steps down if its spread is 2, there is a possibility that you can hit the player's legs. When you do this, the player will fall and will need to stand up. Player cannot draw or use weapons while sitting.
+Added feet and punch. Now the knife is an item. 1 will use the punch, and alt shift 1 the feet. Left control and right control will fire punch and feet.
+Added new match where you can only use punch and feet.
+By hitting the any control key with shift, you can hit the player with your weapon if they are near 10 steps or more. This works only in weapons that require ammo, but you won't lose ammo. The player will fall and will need to stand up. They will also drop their weapon.
+Now bases health will be 1000000 initialy.
+Fixed a bug where the weapons hit the chest if there's both and a player in the weapon's range, now it hits the player.
+Now motor will be damaged if you crash to someone.
+Added a new option to groups for admins and owner. It displays in a small list, which could be cleared by the group owner, showing the following. Recent members who joined the group. Recent members who left the group. Promotions to administrators, removal of administrative roles, and general rank changes. Times and moments when players opened and closed the group's base doors.
+In group donation history, it will also display when the owner withdraws tokens.
+When you login, it will tell you since your last login, how many times the server rebooted, how many new changes were added and how many times the message of the day changed.
+
+New in 14/12/2024:
+Now you will move to lobby when you die inside a base.
+Fixed rename this group option.
+
+New in 13/12/2024:
+Fixed you getting stuck inside wall if your motor crashes inside a house.
+Fixed a bug where the group's owner do not change to your new name when you rename your character if you are owner of a group.
+
+New in 12/12/2024:
+Now if you write 0 when dropping items to amount field, it tells you to enter a number higher than 0, rather than playing drop sound but not dropping anything.
+Fixed a bug where if you drop more than 1 of an item to achest, only 1 of the item adds to the chest while you lose all the others if the chest already had at least 1 of that item.
+Now when watching someone, you will also hear their bullet hit sound when they hit something.
+
+New in 11/12/2024:
+Fixed you can fire the knife fast after dead if you had a machine gun equipped.
+Increased group max member count to 15.
+Fixed flag zone.
+Fixed motor beep sound not playing for air.
+Fixed a bug where if a player joins someone's match then exits the game, then if the match ends and the owner creates a match with the same match mode, when the exited player reenters the game, they would be in the new match created.
+
+New in 10/12/2024:
+Fixed a bug where even if you have 5 tickets but all of them are closed, you cannot open new tickets.
+
+New in 07/12/2024:
+Now aiming won't let you do headshots.
+Fixed friend list bugs when renaming your character.
+
+New in 06/12/2024:
+Now you can see total token amount in group when getting donated tokens.
+Now group owner can publish announcements to groups.
+
+New in 05/12/2024:
+Fixed group max member count bugs.
+Now you can donate zero tokens to your group. You can also see all donations made in the donate history, but only admins and owner can see total amount of tokens, and owner can get tokens.
+Now in ranking list, player names is shown first.
+Added a different sound when a group member is near you in freedom fight map. This sound will also play when a teammate is near you in teamed matches, and in matches, even if a group member is near you, the old sound will play and the player will be referred to as an enemy.
+Fixed a bug where if you have a weapon that slows down your walking on your hand, you can walk faster by opening and closing the parachute.
+Added 2 missing ammos to matches.
+Now weapons will deal more damage to group bases.
+
+New in 04/12/2024:
+Now, instead of being spawned across the entire map when you die on the Freedom Map, you will randomly spawn between 0 and 500.
+
+New in 01/12/2024:
+Now you cannot use timed weapons in matches where you are limited to certain weapons.
+
+New in 30/11/2024:
+Fixed a bug where your walktime doesn't reset to normal after match ends.
+Now weapons will deal 5 times more damage to group bases than they would deal damage to other things.
+Now faint players will be shown as faint when pressing e.
+Now faint players won't have beacon sound.
+Now faint players cannot use items.
+
+New in 28/11/2024:
+2 new weapons added! MosinNagant and maverick88. You can buy these weapons from the store, when you die, the weapon does not go out of your bag, these 2 weapons have a duration of 1 week. The 1-week period starts after you draw the weapon. You can buy the weapon again after 1 week, or you can buy 2 or 3 of them. If you buy more, let's say you have 3 guns, after 1 week, all 3 of them will not be gone, only 1 will be gone.
+
+New in version 1.2.4:
+Fixed shift q and shift e keys.
+Now clicking the mouse wheel reloads the weapon.
+Now you can send message to tickets even if they are pending, and it will become not pending.
+Now you can turn by 90 degrees by pressing the turning keys with alt. You can also turn by 180 degrees with alt w and alt s if using classic walking mode, and alt up and alt down arrows in normal walking mode, and alt a and alt d if using q and e turning mode.
+Now if there is a wall above and if you jump, you will hit it and start landing, so you will not be able to jump above it.
+Fixed a bug where if you are in a platform which is 1 tiles high from the other platform and if you step into the air, you would not fall 1 steps but directly step to the below platform.
+Now you won't get zero tokens if you win a match, instead you and your team in teamed matches gets 1 zero token for kills, but not for each kill, the kills should be 5 minutes apart, then you will get zero tokens. This aplies to score points as well. You will also be notified for each time you get a token.
+Now scope won't beep for things behind a wall.
+Added an option to group menu where you can learn base health.
+Fixed you can wake yourself up with t.
+
+New in 25/11/2024:
+Now you won't receive map messages from people you block and they cannot see your map messages if they blocked you or if you blocked them.
+
+New in 23/11/2024:
+Fixed notification settings weren't saving.
+Now you won't be emailed for your tickets being answered and made pending.
+Now when your ticket is closed, the sent mail includes all previous messages
+Now you can have 5 open tickets.
+
+New in 22/11/2024:
+Now you can delete your account from account settings. However, it must be created one week ago or more.
+Added sounds when you open a corpse and when a corpse disappears.
+Now when your ticket is closed, opened, made pending or not pending, you will be told the action, not just updated.
+Now you can disable receiving mail for ticket updates in notification settings.
+
+New in version 1.2.3:
+You will now be able to change the language in the game, it has been removed from the main menu
+Fixed lag when machineguns fire.
+Fixed a bug where if you press escape while watching someone on freedom fight map, you move to their coordinates in lobby.
+Fixed mouse.
+Fixed a bug where it says that someone is near you when you try to exit even if there is no near player.
+Now you cannot create a new ticket if you have previously open tickets.
+Now you cannot create languages with same names where the casing is different.
+Now you can put mines to chests. When someone opens the chest, it will explode and the chest will be destroyed with all the items.
+Fixed bugs when two or more corpses are at the same position.
+Now when your rank changes, you will be notified about which rank it is.
+Added unofficial and official languages. When you release a language, it will be unofficial, administrators/moderators can make them official. Also you no longer need to ask permission to create a language.
+
+New in 20/11/2024:
+Now you can authorize a new computer every 2 hours instead of 24.
+Now even if you enter the verify code incorrect, you cannot get a new verify code, you have to wait 2 hours.
+Now it will send email to you when any of your tickets are updated.
+Now tickets that are not pending and not answered in 24 hours will be closed automaticaly.
+
+New in 18/11/2024:
+Limit amounts of limited items have been increased. For more information, you can check the read_me section in the game menu.
+Fixed playeyrs' and bots' step sounds weren't playing after the player count fix.
+Now corpses will disappear after 2 minutes. In the letter m, you can see when will they disappear.
+Fixed bullets hitting more than 1 zombie at the same time.
+Fixed sometimes it says you are not in group even if you are in a group, you had to wait it for it to fix.
+Fixed scope sound playing more than 1 time for each object, now it plays 1 time.
+
+New in 17/11/2024:
+Fixed critical bug that limited the amount of players can connect to game to 20.
+Now you can jump with snipers, but you can't run too fast, but it's still enough.
+Fixed you can fire with knife on explosive battle.
+There'll be no grenade limit in explosive match.
+Fixed players sometimes fall to negative coordinates in bases.
+Fixed a bug where you can walk fast if you get sniper and normal weapon to your both hands.
+Fixed a bug where if you make a group in the mountain, you can't enter its base and it always tries to get snowflakes.
+Now you cannot jump over mines.
+Fixed scope beeps even if the group has disabled members to fight with eachother even though weapon wouldn't hit group members.
+Fixed shield not removing when died if it was on.
+Fixed the bug where if you get a weapon that limits your jump/walk, after you die, until you get a new weapon that do not have limit, the limit won't remove.
+
+New in version 1.2.2:
+Now some weapons can limit your jumping, ducking and walking speed.
+2 new characters added, kado and aria.
+Fixed a bug where you can learn coordinates of who you watch in freedom fight map by pressing c after you press escape and before the game puts you back in the lobby.
+Decreased default menu music volume.
+Now you cannot exit the game or the freedom fight map if someone near you within 50 steps.
+Fixed errors some people got when launching the game.
+Now if you didn't select a translation language and try to translate text, it will tell you to select a language, instead of saying "none"
+Now all sounds will stop when you die until your respawn
+Now only those who are joined to agroup can attack other group bases.
+Added a new option to group menu, you can disable/enable players' ability to hit group members in freedom fight map.
+Added limits to the amount of items you can have on your inventory. The full list is in the readme.
+Removed get all items option from base chest.
+Added a new item, metal shield. This will protect you from hits until its broken when you use it. However, it won't protect from headshots. You can get it from items, chests or store. Also, in the abyss clash and explosive battle matches, you will get 2 shields by default.
+You will now be able to see the penalties of those whose chats have been closed and those who have been banned from the game in the server status section.
+I made some changes to the grenade, let's see if it's good now.
+A clear status option has been added to the account menu for those who do not want to remove a status message you have previously set and set a status message.
+You will now be able to set a status message from the account menu section. When you look at the view status message section on a player from the f6 players menu, you will be able to see the status message set by the other player.
+Added mine, named tm62. When you place it, and if someone steps to it, it will explode and everything within 15 steps will  get damage. It can also be exploded by hitting it a couple times with a weapon however, there is no sound that indicates you there is a mine.
+Timebomb added! You can get it from chests, items or  from the store. Once you arm it, it explodes within 20 seconds and damages anything within 50 feet. You can see how many seconds are left until it explodes from the letter M.
+Increased health from default 30000 to 100000 when you initially group base.
+The base life amplifier item in the chests has now been increased, and will give 3000 to 4000 health, and the base life max health has been increased to 20000000.
+
+New in 08/11/2024:
+You will now be able to see the scoreboard from the game menu without logging out of the game.
+
+New in 05/11/2024:
+Fixed a bug where if a corpse and chest are near to each other, both of them open when pressing shift enter.
+
+New in 04/11/2024:
+Fixed remove join request option in groups.
+Now remove join request option is only visible if you send joining request to the group.
+Now corpses will disappear when they are empty.
+
+New in version 1.2.1:
+Now delete key will open a menu where you can also report a message to the staff or quote it.
+Added privacy policy.
+Fixed motor wind sound playing at a very low volume after you exit the motor.
+Fixed a bug where if you open an input box while falling, your falling stops until you close the input box.
+Fixed you can hold down to fire the knife after dead if you had a machine gun before dead.
+Now you can also get the knife on your right hand with alt shift 1 if your right hand is empty.
+Now you cannot drop claw with shift 1 in zombie vs player mode.
+Now audio is not downmixed to mono when 3d-positioned as steam audio can even 3d-position stereo data.
+Removed improved 3d audio setting.
+Made all sounds in the game use steam audio's hrtf, so better 3d audio for all sounds.
+Fixed running won't work with page up and down.
+Fixed steam audio lag on some pcs.
+Now control enter also works in delete key.
+Now you can login to your other accounts with shift p.
+
+New in 02/11/2024:
+Fixed a bug where the motor cannot be hit or driven by someone else if the driver dies.
+Now corpses will go after 4 minutes instead of 10.
+Now corpses cannot spawn in lobby.
+Removed the ability to hit corpses per player request.
+Now corpses will be in the ground even if a player dies while in the air.
+Fixed a bug where you can get the same weapon on both hands by assigning it to a number, getting it to your right with alt shift and the number, then also clicking it from your inventory.
+Now m key also shows corpses' owners.
+Fixed chest hit sound not playing when grenades hit chests.
+
+New in 01/11/2024:
+A mountain has been added to the freedom fight map. By going up to the mountain, you can collect snowflakes, freeze players and kill players. You can follow the mountain by pressing the Shift m key combination, but remember that the mountain is on an overpass.
+Fixed matches sometimes end when they are started.
+Added corpse system. So when a player is dead, their inventory's items won't directly spawn like normal items, instead, a corpse will spawn. You can open it with shift enter and get the items from the corpse like you do on chests. The corpse can also be hit and destroyed, and it will disappear after 10 minutes.
+Now you can also take your motor to the base.
+Fixed you can collect snowflakes when dead.
+
+New in 30/10/2024:
+Fixed the letter e key does not announce direction if the player is ducked.
+Fixed scope won't play if you duck but the other side is also ducked.
+Fixed it saying you have weapon on both hands when trying to reload if you die.
+
+New in 29/10/2024:
+Fixed match watching do not stop if match ends sometimes.
+Fixed you sometimes start to watch another match if who you watch in freedom fight map returns to lobby.
+Fixed it saying sometimes teammate in freedom fight map to dead players
+Fixed bullets passing walls.
+
+New in 28/10/2024:
+You will now receive random weapons instead of the Yavuz16 weapon.
+Fixed you are sometimes respawning too late when dead on freedom fight map.
+
+New in 27/10/2024:
+Fixed people sometimes moving to lobby in freedom fight map.
+Now you can also remove joining requests you send to groups.
+Added group base destroy history.
+Fixed a bug where if you leave the chest menu open in freedom fight map and if you die, you still can get the items from chest after respawning.
+Fixed sniper duel matches showing 2 times in join match menu.
+
+New in 26/10/2024:
+Fixed beacon sound not playing for players near to the player you watch.
+Fixed match sometimes starts twice, like 2 countdowns happening at a time.
+Fixed it saying -1 players needed in sniper duel match.
+Now m key won't work when watching.
+Fixed a bug where players watching the freedom map not visible in f6 menu.
+Fixed players cannot hit players in sniper duel match.
+Fixed it saying match full in sniper duel match.
+Fixed group bases has no chest.
+Fixed snowflake survival match mode.
+
+New in version 1.2:
+Now you can get weapons on your left and right hands. When you get the weapon from your inventory or from numbers you assigned to them, they will be on your left hand. To get them on your right hand, assign the weapon to a number, then press alt+shift+a number. Then you can get another weapon to your left hand with just pressing a number or selecting it from your inventory. Left controll fire the weapon on your left hand, while right control will fire the weapon on your right hand. If you have weapons on your both hands, reload and unload will not be possible. X will tell you the ammo info on your left hand, shift x will tell you ammo information on your right hand. Grave will tell you weapon info on your left hand, shift grave will tlel you weapon info on your right hand. For right hand, it will play a different scope sound to indicate you which weapon to fire.
+In team dead match and zombie vs player modes, now you can faint 50% when you die. If this happens, you will still be in the match, and a team member can wake you up by pressing t when they are 3 steps or more near. You will wake up with 20 health.
+Now you can watch players in freedom fight map also. C and Z won't work on freedom fight map when watching someone., If the person you watch enters the base, you will stop watching them and switch to next available person in freedom fight map. This will also happen if the person returns to lobby. Like watching the matches, right and left arrow moves between available players in freedom fight map, escape stops watching the freedom fight map and puts you back in the lobby.
+Now you can put a favorite item to the letter y also.
+Now you can quote any message with delete.
+Now you can reply to last private message with k.
+Now when someone stops typing pm it will say is not typing.
+Now you have to wait 1 minute to exit after you hit.
+Added 2 new options to options menu where you can select for which players/bots you want to hear near notifications and select whether you want to hear character's voice, sound, or both.
+Now you will also hear other people running into walls.
+Added wind sound when driving motor.
+Now a sound will play when you change facing and aiming.
+Now when you press m, instead of just telling you nearby objects, it will open a menu where you can see all nearby objects and track any of them. Press n to learn where the tracked object is.
+When authorizing a new computer, now it will send the mail when you confirm that you want to authorize.
+Set the game's working directory to its own path after launch, as the game is not intended to be run from other working directories.
+Now it will send only 1 packet even if you drop more than 1 of an item, rather than sending packets for each amount of same item.
+Now you can also send voice messages to your current group.
+Now aiming will reset to forward when you die.
+Added steamaudio 3d audio support.
+Fixed your walktime becomes extremly fast sometimes if you fall from motor platform.
+Fixed camera can pass through walls with page up/down.
+Added multi-letter navigation to menus.
+Fixed a bug where the letter n doesn't say streight even if it is streight.
+Added an option in the options menu which allows you to turn with q and e no matter what walking mode you use. Also, if q and e turning mode is enabled, the p key is used for checking nearby players.
+Now if a menu has only 1 item, pressing up and down will read the item.
+Added translation support when sending and receiving messages. When sending a group chat, general chat, map chat, pm, team chat etc., control enter will send the message by translating it into the language you selectw ith alt l. You can also translate a buffer message with control enter to a language which you can set with shift l.
+Now it will automaticaly select the first item in menus when they open.
+Now in input boxes you can enable/disable character repeating with f2.
+Now you can eanble auto running from options. If its on, you will auto run even if not holding alt.
+Fixed push to talk setting not savin when changed with shift v.
+Fixed connection getting lost in yes no menus.
+Now shift m will sort the zones where the nearest zone is in the top.
+Fixed 2 hard land sounds playing when you fall.
+Fixed the game lagging on big menus like the changelog or readme if other than english language used.
+Fixed an empty language named .lng creating in lang folder.
+Fixed a bug where motor sound is heard in lobby until you relogin if you enter to a map where there is a motor or if you get a motor.
+Now you can disable or enable speaking of facing direction when turning.
+Fixed shift d and a not working on classic walk mode.
+Now you can't run when using parachute.
+Fixed a bug where if there's a wall above or below you, pressing page up or page down moving you to inside the wall.
+Fixed a bug where some people got error when trying to use joystick.
+Made game open faster.
+Removed wmic.exe requirement.
+Fixed it saying entermail 2 times in password recovery.
+Now when you ping, you will not be able to ping again and again until you get the ping value.
+Fixed connection getting lost in some submenus in game settings.
+Changed duck key to alt+x.
+Now classic walking mode is enabled by default.
+
+New in 24/10/2024:
+added two weapons
+Added rename history where you can see previous renames you made.
+Now in team dead match, last man standing and zombie vs player modes, the map will gradualy shrink as match continues.
+Added snowflake survival match mode where hitting the player with only 1 snowflake shard kills them.
+Added sniper duel match mode where you can only use snipers.
+Added not teamed knife match mode.
+
+New in 22/10/2024:
+Now it will throw you to air if someone with motor crashes to you.
+Each time you kill someone in freedom fight map, you will receive 1 zero token 50% possibility.
+Now when group bases' health is less than 2000, everyone can enter it and door opening and closing won't be available.
+Now groups will get 2 zero tokens for every 100 kills.
+When watching someone, now you can also hear their scope sound.
+Now you can create 2 accounts per computer, not just 1.
+
+New in 21/10/2024:
+You will not be able to access the store from the game menu while inside a base.
+Now you can also track houses in zombie survival mode with m.
+Now you can rename your character from game menu. You need 150 zero tokens for this.
+Changed the sound when a bullet hits a wall.
+Added an option to game menu where you can see all your motors.
+
+New in 20/10/2024:
+Now when you want to change your email address, it will send a code to your old and new emails. Also you can only change your email 1 time each day.
+You will no longer be able to see a player's token amount in the f6 menu.
+Now if you remove your current computers from authorized computers list, you will automaticaly log out.
+Now group base name will also be changed if you rename a group.
+
+New in 19/10/2024:
+Now when you kill a player or bot, their loaded ammos will also spawn as item.
+
+New in 18/10/2024:
+Fixed a bug in capture the flag match mode where if you get a flag but haven't put it, and if the match ends in an unusual way such as the members exiting the game or you exiting the game, when you reenter the game and press shift enter in the coordinates you would normaly put the flag on any map, it would put the flag even if you are not in the capture the flag match anymore.
+
+New in 17/10/2024:
+Fixed base life amplifier item.
+Fixed all groups deleting if only one group base destroys.
+
+New in 16/10/2024:
+Added confirmation question when going to freedom fight map about losing your items.
+Now you cannot move while the base door is opening.
+There will be more items in the chests
+You can now increase the health of a base called base_life_amplifier by 300 from the chests.
+Now, when you go to the freedom map from the lobby, your items will be deleted.
+
+New in 14/10/2024:
+Fixed your facing direction not saving when you reenter to the game if you exit the client.
+Now in freedom fight map, store is accessed by pressing shift enter in 500 463 0.
+now if you press l while in a base, it will show players in the freedom fight map.
+Now you can also see base door status when pressing m.
+Fixed weapon reload sound playing again if you reload a weapon then exit.
+Fixed a bug where players do not lose their items they got in the match if match cancels.
+
+New in 13/10/2024:
+Fixed grenade drops in front of a teammate in teamed matches.
+Fixed a bug where if you get an error while creating a group, it still takes zero tokens from you.
+
+New in 07/10/2024:
+You will now be able to see the rank of admin / developer / builder in the f6 menu.
+You won't be able to block yourself anymore.
+Fixed a bug where motor cannot be run again if crashes and more than 1 players are riding.
+
+New in 06/10/2024:
+Now creating groups requires 100 zero tokens.
+Increased chest health.
+Now the grave key also shows weapons' fire time.
+Changed group system. Now each group must be created in the freedom fight map and each group has a base. This base has a chest that members can use to store items. To put items to chest, enter the base and drop the item with backspace when you are near to chest, or use shift backspace to drop a specific amount of that item. When someone creates a group, the group base will spawn next to the player, and there'll be wall. Group members can open the door only, however if the door is left out open, others can also enter the base. In the outside, if the door is closed, a group member can open it by shift enter. When it is on, when anyone presses shift enter, a menu will show which will allow to close the door and enter the base. In the inside in coordinates 0 0 0, pressing shift enter will do these: If the door is on, it will allow anyone to exit the base or to close the door. If the door is closed, anyone inside the base can open it. The base can also be destroyed, and if it happens, the group asociated with it will be permanently deleted. The items put on the base's chest will also be lost.
+Now your loaded ammos will reset when you die.
+Decreased motor decelaration speed.
+Now item names will be shown first in chests.
+Now cartridges will also be visible in inventory ammos categories.
+Now grenade will explode after 50 steps.
+Changed motor beep to 50 steps and 500 ms.
+Changed motor health to 500, and made it go a bit faster.
+Now group administrators can resign from administrating the group.
+
+New in 05/10/2024:
+Now you can take items from chests every 1 seconds.
+Now scope won't play when you're dead.
+
+New in 04/10/2024:
+Now you cannot buy motor in water.
+Fixed a bug where motor cannot be run for 2-3 seconds if you fall from it.
+Fixed beacon bugs in freedom fight map.
+Fixed motor's tile not spawning if you enter to freedom fight map and if there are motors in the map.
+Fixed bullets not moving when their x or y is 0
+Fixed your health is always 100 when you respawn in freedom fight map, now it will be your max health.
+
+New in 03/10/2024:
+Added server status to game menu.
+Now e letter will say dead for dead players and won't play beep sound for them.
+Now in binoculars and chests, it will open a menu to show that no items are in chest or no one near.
+Now you can't use shift enter when dead in freedom fight match.
+Now if motor gets to air tile, you will fall from it.
+Fixed respawning bugs in freedom fight map.
+Now you can't hear dead players' beacons.
+Now you can't crash to dead players with motor.
+Now binoculars won't show dead players.
+Fixed sometimes people are not hittable in freedom fight map.
+Fixed a bug where you can get your items in freedom map by quickly pressing walking keys after you die.
+Fixed motor's platform not removing when its destroyed.
+
+New in 02/10/2024:
+Now you can't invite someone to group if the person is already joined to another group.
+Now you can't fire with a weapon if you don't have it anymore.
+Added confirmation question to leave from freedom fight option.
+Fixed bots distant sounds sometimes coming in lobby.
+Now the letter e will play different beep sound for players in the same group as you if you are in freedom fight map.
+Now in team selection menu in join match section, it will tell you how many players in each team and their names.
+Fixed beacon sound not playing on freedom fight map.
+Now it will tell how many players are there in freedom fight map in the match menu.
+Now chest timer will also save when server reboots.
+Fixed sometimes the leave match option would appear if you press shift enter in freedom fight map even if you are not on waiting are of a match.
+Fixed bots weren't playing land sound.
+Now it will give you items again if you die in freedom fight match, but you will lose your other items you get from chests, you will be in your starting inventory in this map.
+Fixed there were no spaces after each object in the letter e.
+Now grenade can also hit chests.
+
+New in 01/10/2024:
+Added a map where you can fight against other players without creating a match. There are no bots in this map. You can access it via the match menu. Additionaly, there are no items, but there are chests in the map at fixed coordinates and they contain items. You can open the chest with shift enter and get items from it. Each chest will refill with new items after 5 minutes if it is empty. Chests are also breakable. IF you break them, they will respawn after 5 minutes with new items in their fixed coordinates. Also, if you are in the same group as another player, in this mode the beacon of that player will be different sound, and it will play another beep sound if you hit a player which is in the same group with you. You can leave this map from game menu. Also, motors you buy while in this map will always stay in this map.
+Fixed a bug where grenades play a bunch of wall destroy sounds
+
+New in 30/09/2024:
+You will no longer be able to transfer tokens to yourself.
+Now a beep sound will play when zero token transferred.
+
+New in 29/09/2024:
+Now you can find binoculars in items on the ground.
+Added new match mode, sword duel. You can use 3 sword types only, diamond sword, wooden sword and stone sword. You'll have wooden sword at the beginning, and you can find other sword types inside items. You can do this match both as teamed and not teamed.
+Now you can't use items in match waiting area.
+Now grenades will drop if an object is near to them 3 steps.
+
+New in 28/09/2024:
+Fixed a bug where people can leave the match by leaving the leave match menu open before the match starts and clicking leave when it is started.
+Added sounds for group events.
+Fixed the bug where when someone accepts a group request, it tells that the person who accepted is joined the group.
+Reduced item spawn time.
+Fixed binoculars showing coordinates as floats.
+Added new match mode abyss clash. Its similar to explosive battle but you can only use grenades and no weapons and no molotovs. Also, there is a pit in the map so if you fall there, you will die. Also, there are metal cases you can climb to, but grenades can also destroy these.
+Fixed a bug where players sometimes shown as participants in matches even if they die.
+Fixed beacons still play for dead players until they respawn.
+Fixed f6 key sometimes does not show what players are doing
+Fixed sometimes the grenade drops in front of you even if you throw it away.
+Now e key won't play beep sound for players in the same team as you.
+Fixed items weren't removing if you cancel a match.
+Now it will tell the total amount of groups in all groups menu.
+
+New in 27/09/2024:
+Now, if someone starts writing you a private message, you will hear a keyboard key sound and you will see the notification of that person is typing a message to you in the buffer.
+Now, when you close your parachute, your parachute will not gone.
+Fixed a bug in last man standing mode and other nonteamed modes where it says the match full even if it isn't.
+Changed modes to 5 vs 5 for teamed and 10 members for not teamed maximum.
+Fixed jump sound not playing for other players you can hear.
+Added beep sound when pressing e.
+Lag fixes.
+Added non teamed explosive battle mode.
+Now zombie players can't pick up items on the ground.
+
+New in 26/09/2024:
+Reduced maximum items on the map.
+Fixed bug where players can join a match 2 times.
+Now f6 key will also tell when people are in helicopter.
+Fixed bot kills always 0 in stats menu
+Changed kill sound when someone dies on the match.
+Now items will spawn every 10 seconds in capture the flag mode.
+Fixed you can add yourself as friend.
+Changed match creating sound.
+Now alt v key won't work if you disabled receiving ovice chats.
+Now you can see which language the player is using from f6 stats menu.
+Hand Grenades will now explode in 2.30 seconds.
+To make bots more human-like, now they have 50% chance to miss when firing.
+Fixed a bug where people can sometimes fire in lobby.
+Now you can cancel your matches at any time from game menu even if it is started.
+Now if you have no tickets and if you try to look at your tickets, it will tell you that you don't have any tickets rather than simply closing the menu.
+Fixed a bug where you can write negative numbers when transfering zero tokens.
+Now you can't hear beacon in waiting area of a match.
+Fixed a bug where players sometimes stuck in helicopter.
+
+New in 25/09/2024:
+You will now be able to see which channel the player is on in the F6 menu.
+Added sounds when someone joins/leaves a match.
+Fixed a bug where people fall to negative z sometimes.
+Fixed matches getting stuck sometimes.
+Now you won't receive general chats from people you blocked.
+Fixed a bug where you receive messages from differen language channesl even if you are not selected them.
+Now it won't open the menu when you die in capture the flag match mode, you will continue to be in the match.
+Fixed a bug in last man standing mode where you can create a match that requires only 1 member then win instantly.
+Fixed the bug where you can't move if you get kicked or banned from a match.
+Now in the join match menu, not started matches will be in the top.
+Fixed h key showing health as float like 100.0, now it just says 100.
+Fixed a bug where grenades explode in lobby if the match ends right after you throw them.
+Now you can hear beacons of other players when watching someone.
+Now you can also decline a friend request from f6 player menu.
+Fixed you are seeing yourself in friend requests you sent menu.
+Now molotovs bots throw will miss sometimes.
+If you have a particular voicechat setting off and someone has it that setting on, you won't hear their voice.
+Now switch a language section shows each language's owner and amount of contributors.
+Public beta release.
+
+New in 24/09/2024:
+Rules added. Before accessing the main menu, the game will ask you to read the rules and accept them. If you do not accept the rules, you will not be able to enter the game. After accepting the rules, you can continue the game. When the rules section opens, there will be agree or dont agree buttons at the bottom.
+An option has been added to the main menu to see the rules.
+Added a new option to main menu to join to the official telegram group of the game.
+Now banned players can't recover their passwords.
+There is now a suggestion section in the game menu section. You can leave any bugs, suggestions or feedback you find in the game there. For more urgent matters, please create a ticket, as you will not receive a message back from this section.
+Now you can adjust players' voicechat volume from f6 player menu.
+Now you can learn who is talking in voice chat with alt v, it wil only tell the talking players that you can hear.
+
+New in 22/09/2024:
+Now you can change the master volume in the menus with shift home and shift end.
+Added a sound when update available.
+Now you can collect  snowflake shards in knife fight match by pressing shift enter. You can collect up to 5. When you throw these, they will stun the enemy for 3 seconds.
+When you block someone, you will no longer hear their voice in the voice chat.
+Now, in the Recover Your Password section, you will not only be asked for your username, but you will also need to enter the correct e-mail address of that account. This strategy is a little better to prevent people from spamming a little more.
+Now you will able to access game's documentation in the game menu.
+
+New in 20/09/2024:
+Added sound when you change master volume.
+Now master volume changes will be saved when you restart the game.
+Now it will tell you when the master volume is fully muted or when it is 100%.
+Fixed a minor issue with muting or unmuting the game's volume.
+Fixed accept friend request option not working in player menu.
+Now if you send a join request to a group then join to a different group or create a new group, the other group won't be able to accept your request.
+Fixed a bug where you can send multiple join requests to a group.
+Now motor can crash to walls. It will lose 30 health, its engine will turn off and all players who in the motor will fall from it.
+Added sound to notify you when the motor is close to a wall.
+
+New in 19/09/2024:
+Now you can't buy motor in the map boundary.
+Now the motor will be put in the facing direction, not always north.
+
+New in 12/09/2024:
+Now it won't reload the options menu when you change a setting, so your cursor will not move out of the item which you clicked to and you won't hear the options menu each time you change a setting.
+Now you can choose multiple options for who you want to voicechat.
+
+New in 11/09/2024:
+Added learn game sounds menu.
+Fixed bots walking sounds not coming low-pitched when they are zombie in zombie vs player
+Added new match mode explosive battle, where you only get explosives like grenades and molotov cocktails.
+Now you can also accept friend requests from players in the player menu rather than friend menu in the game menu. You can still use the friend menu though, so both of them are valid.
+Added language channels and public chat system.
+Changed game menu key to o, slash is now for chat.
+Now when you die, you will be presented with a menu with options where you can watch the match or return to the lobby, rather than directly starting to watch the match.
+Added new sound that plays when you die.
+Fixed motor horn not playing.
+Now you can't send friend request to someone if they already sent you request which is pending.
+
+New in 07/09/2024:
+Now the f5 key sorts offline players where the last active player is in the top.
+
+New in 06/09/2024:
+Changed pm sound
+Now l key also works when you watch a match.
+Now the F6 key shows what each player is doing or where are they.
+Now you can see yourself in f6 menu also.
+Added a help option to the language menu.
+Added a new option to options menu which saves your buffers each time you exit the game if enabled, so you can view them in the game again even if logging is disabled.
+Changed menu sounds
+Added ping sound.
+
+New in 05/09/2024:
+Added jaws support.
+Added send private message option to player menu if the player you choose is in your friend list. You can also use the old way with the f5 key.
+Fixed a bug where it shows the manage languages option more than 1 time if you are contributor of multiple languages.
+
+New in 04/09/2024:
+Added a sound that plays when you hit a player, zombie or bot. It will be a different sound if you do a headshot or not.
+Added headshot system. If you jump  and hit a player which is 2 or more tiles below you, it will damage 2 times more.
+Now the group list menu sorts groups based on their kill counts, where the group with the most kills is in the top.
+Now you can also see which group the player is joined in player menu.
+
+New in 01/09/2024:
+Now you can get a random amount of zero tokens between 1 and 5 every day from the game menu.
+
+New in 31/08/2024:
+Now you can only authorize 1 computer per day.
+Added a yes no question to the computer authorizing.
+Now the menu music will continue from where it last left of when you return to main menu from game.
+Fixed a bug where the sounds do not update properly when you stop aiming.
+
+New in 30/08/2024:
+Now to be able to login to your account from a different computer, you will have to verify your email, then this computer will be added to your authorized computers list. This is done to prevent a situation where someone finds your password and accesses your account. For each new computer, the email must be re-verified. You can manage your authorized computers and delete any of them in the account security menu in the game menu.
+Added a new option to game menu, account security, where you can change your email and password, and manage your authorized computers.
+Added the f6 key where you can view all players and view their stats and do actions for a player.
+Now you can transfer zero tokens to players from the f6 menu.
+Added a new staircase system. You can climb the stairs without using the page up or down keys.
+Added new stats to character stats menu: player kills, bot kills, player deaths, bot deaths.
+Now it will play a sound when you buy items from store.
+Now you will not lose score points when you die.
+Fixed a bug where you can buy items less than 1 in store.
+Fixed a bug where hand grenade and the bullets can go over map boundaries.
+Fixed a bug where bots continuously jump in the same position if you call them.
+You will now be able to choose gender when you create an account.
+We added verifications to the account creation section to prevent you from typing incorrect information so that you can open your account correctly.
+can_of_cola has been removed, there are now different items to increase health. Small potion will fill the character's 20% health, vitality potion will fill the character's 50% health, and revival_nectar will fill the character's 100% health.
+Now you dont need to give one zero token for create match
+The object's beep sound has been changed
+Added more ambiances / sound sources.
+Added  more platforms and wall sounds
+
+New in 29/08/2024:
+Now the motor is like a real object, you can bump into it and to ride it, you must jump onto the platform first, then press shift enter.
+
+New in 28/08/2024:
+Added inventory categories. You can use alt and the number keys to move items on a category.
+Fixed a bug where reverb on sounds starts to glitch after playing the game for a while.
+Changed running key from shift to alt, and changed duck key from alt to shift + alt.
+Now left and right arrows (or a and d in classic walking mode) turns you in 45-degree increments, use shift and arrow keys or a and d for full 360-degree turning.
+Fixed a bug where motors moves people to sometimes invalid coordinates like 0 0 0 when they are destroyed.
+Now you can also send joining request to groups without the admins or owner requiring you to invite you, they can decline or accept your request from group menu.
+
+New in 24/08/2024:
+Now if you disable receiving voicechats and if your voicechat is on when you do this, it will be turned off automaticaly.
+Added labels to textboxes in ticket dialogs.
+
+New in 23/08/2024:
+added new weapons.
+Switched to a new speech library. SAPI is now more responsive, and the game can now output to narrator.
+
+New in 21/08/2024:
+Now you can disable or enable map sign beep sound.
+
+New in 20/08/2024:
+Rather than manualy downmixing audio data to mono with numpy for 3d spatialization, we now using the AL_SOFT_source_spatialize OpenAL extension, which automaticaly does this. This also fixed the bug where high-volume sounds would be choppy/distorted when downmixed/3d-positioned.
+
+New in 15/08/2024:
+Added hand grenade.
+
+New in 14/08/2024:
+Fixed a bug where the owner can start the match multiple times and multiple countdown sounds would play at the same time.
+
+New in 13/08/2024:
+Lag improvements.
+
+New in 12/08/2024:
+Now you can't use items and can't fire inside helicopter.
+
+New in 02/08/2024:
+Fixed a bug where reverb on sounds cuts off abruptly if you walk to the sound's position while its playing or if you walk away from the sound while its playing and you are in the same position with it.
+Now bots will escape when reloading weapons, they will not just jump in the same position.
+
+New in 31/07/2024:
+Added group system.
+
+New in 30/07/2024:
+Now bots will escape if they get too close to a bot/player.
+Now bots will move by jumping when tracking someone.
+Now bots will start moving towards that location if a weapon distant sound plays nearby.
+
+New in 29/07/2024:
+By pressing the grave key, you can see information about your current weapon like ammo type it uses, its range/damage, etc.
+
+New in 28/07/2024:
+Fixed a bug where bots sometimes fire their guns even if there is no player/bot nearby.
+Now when you die, you will not be moved to the lobby, you will be in the watching area for your match. You can watch players with right and left arrow keys, and you can press escape to return to lobby.
+Now you have to wait at least 10 seconds before jumping from helicopter to the map.
+
+New in 25/07/2024:
+Added test voicechat option to settings.
+
+New in 08/07/2024:
+Added binoculars with which you can see players and bots within 120 steps.
+
+New in 02/07/2024:
+motor health decreased to 100
+
+New in 01/07/2024:
+Fixed a bug where the lost sound wouldn't play in last man standing mode.
+
+New in 29/06/2024:
+Fixed a bug where players can circumvent the ban system by logging in to the game from the same account but from a different computer.
+
+New in 27/06/2024:
+Now you can send friend requests every 2 minutes.
+Now you can remove the friend requests you sent to people that are not accepted or refused.
+Now you can send 3 friend requests untill your requests are accepted/refused.
+
+New in 21/06/2024:
+When you fall to the ground and die, you will no longer be seen as dead by no one.
+
+New in 19/06/2024:
+You will no longer be able to draw a weapon while reloading another.
+Fixed a bug where closing the ambience menus with escape won't stop the current ambience being played.
+
+New in 18/06/2024:
+Now you can see your current aim with shift f.
+
+New in 17/06/2024:
+Added a menu in game menu where you can find the recent changes!
+Now you will hear beep sound when you track an zone.
+
+New in 16/06/2024:
+Fixed sometimes the f5 key showing a friend multiple times.
+Now pressing e key will also report where the nearest player is like in front, behind etc.
+
+New in 15/06/2024:
+Now you can track zones by pressing shift+m and selecting a zone. Press enter on one zone to start tracking, and press n to learn where it is.
+
+New in 13/06/2024:
+Fixed bots not playing jump sounds if they jump.
+
+New in 12/06/2024:
+Now the l key also shows dead players.
+
+New in 11/06/2024:
+Now pressing m will also show health of the motor.
+Added sign.
+The lobby map and the coordinates of the location where you can watch and create matches have been changed.
+Now there will be character stats menu, the character stats things moved to that menu.
+
+New in 09/06/2024:
+Fixed a bug where you won't stop watching when the match you watching ends if who you watch is a player.
+Fixed a bug where if you hold shift and walk to a wall continuously, your speed would increase even if you are not actualy moving but just running to the wall over and over.
+Fixed a bug where it tries to draw the previous weapon on that number if you try assign a new weapon to a number where there is already a weapon.
+Now, when someone dies, it will tell you whether the killed player is a teammate or an enemy.
+Added colt1911 weapon with 45 ACP ammo.
+Fixed a bug where you can hit your own motor in last man standing mode.
+Changed mkek_yavuz16 draw sound and claw hit sound.
+
+New in 08/06/2024:
+Fixed motor facing bugs.
+Fixed a bug where kill notifications on one match would be sent to all matches, now they only sent to the match where the kill occured.
+Changed motor hit sound.
+Now distant sound will play when a motor is destroyed.
+Replaced the volume setting for voicechat with a slider.
+Lag improvements.
+
+New in 07/06/2024:
+In l menu, if you try navigate in a team that has 0 members, it will tell you that there are no members.
+If you press l and you are not in any match, it will tell you that you are not in any match.
+Fixed camera can sometimes go to -1.
+Fixed spelling error in l menu, eky -> key.
+Fixed voice chat not working if you change the quality setting until you close and reopen your microphone.
+Fixed game loops working slow in input boxes.
+Fixed when someone gets throwed from the motor, their name would stay in motor's players list.
+Now the camera can't go inside walls.
+Added first letter navigation to the l menu.
+In the l menu, you will be in the last team when you exit and reopen the menu.
+
+New in 06/06/2024:
+Fixed motor bugs.
+Fixed moving sound bug where an non-looping sound would loop for 15 seconds before it is gone.
+Now default voicechat volume is 50% and 100% makes the voice louder than before. So now 50% is equal to 100%, and higher than 50% is louder.
+Fixed it telling the required playesr incorrect when someone joins the match.
+In F5 menu, you can see when your friends were last active if they are offline.
+Now, if you crash to a motor, both you and the driver of the other one will fall from the motor.
+Fixed bots trying to attack to the players that they've already killed for some time.
+
+New in 05/06/2024:
+Fixed edit line.
+Now you can't crash to your teammates with motor.
+Now you can't press j while watching someone.
+Fixed walking sounds playing on helicopter.
+Fixed a bug where teammates can hit your motor if you are not riding it.
+Changed menu music.
+Added ambience support.
+Changed the L key. Now it opens a menu for listing match members. You can use left and right keys to move between teams, and up and down keys to see the members in a team. Also, you can see the coordinates and weapon of the member if its in the same team as you. Also, you can copy someone's name to clipboard if you press enter.
+Now bots will move faster while they are jumping like players.
+Now you can call any bot on the same team as you to your coordinates. To do this, type come followed by the bot's name as a team message, and the bot will come to you. It will always follow you, until you type go followed by the bot's name, then it will continue as before. Also you can call all teammate bots to you, by typing come all, and you can send them back by typing go all. Also, after typing come all, you can also send a specific bot back by typing go and the bot's name. And you can call multiple bots by typing come and bot's name as different messages then you can use go all to send all them back at once, go all is not just works when you wrote come all, it also works if you called multiple bots in separate messages.
+
+New in 04/06/2024:
+Fixed sometimes other's can't hear your motor engine sound.
+Fixed sometimes after you die, you see yourself if you watch your match.
+Now if you exit the game and if you are in a match, you have 2 minutes to reenter the game and continue the match.
+Now, if there are multiple things in your weapon's range that it can hit to, you will only hear 1 beep sound for scope. Previously you would hear beep sound for each object your weapon can hit.
+Fixed the player's aren't taken out from the motor if the match ends.
+Now if there's a motor in your current coordinates, you won't be able to buy a motor.
+Now, the people who are in the same motor will not be able to attack each other.
+Fixed motor speed bug.
+Fixed players are still showing in match member list even if they die.
+
+New in 03/06/2024:
+Now moving sounds are reset when you exit the game and return to main menu.
+Fixed error after setupping an existing account.
+Fixed moving sounds not spawning to your client if you login after they've been added on the server.
+Now you can't buy the motor in the air or while inside the helicopter.
+Fixed your not getting out of the motor after died.
+Now motors saves when server reboots.
+Fixed sometimes shift enter key not riding to motors.
+Fixed a bug where if the server is rebooted while your inside a match, players would not be in the match and will be in the lobby. Now each player has 1 minute after server reboots to enter the game again, if they enter within 1 minute, tehy'lbe where they left off in the match, but if they don't, they will leave the match completely.
+
+New in 02/06/2024:
+Fixed bots can have more than 100 health.
+Fixed bots not picking up dropped items.
+Added motor, which you can buy it from the store inside matches. When you buy it, it will spawn right in front of you, press shift enter to ride it. In the motor, shift enter starts and stops the engine if its idle, holding up arrow accelerates speed, holding down arrow decelerates speed, and right and left arrows turns in 1-degree increments, and shift+right and shift+left turns in 45-degree increments. If you stop holding down arrow keys while motor is not idle, it will slowly decelerate, so you need to keep holding down up arrow to go in maximum speed. Escape exits the motor. But if you press escape while its moving, you will fall and lose some health. Others can also ride your motor by pressing shift enter when they are near to it, and always the first player who rides it is the driver, and the maximum people can ride to your motor is 3. So if you buy a motor and don't ride it, others can stole it. Your motor can also be hit and destroyed, and if your inside it when its destroyed, you will fall and lose health. When someone attacks you, the bullet can either hit you, or one of the members in the motor, or the motor itself. Also, if your motor gets closer to another motor or player, it will crash it and lose health. You can see both your motor's health and your health if you press h while inside the motor. You can press space to play the horn on the motor. Finaly, when the match ends, your motor will be gone.
+
+New in 01/06/2024:
+Now, even if you fall by being thrown downwards, there will be a falling sound without parachute also.
+Now if you drop an item and its the weapon you currently drawn, you will switch back to knife.
+Fixed a bug where if you join a new match after you get killed on a previous match and when the previous match ends, even if your not in that match and in a different match, you would be moved to the lobby and exit from your current match.
+
+New in 31/05/2024:
+Fixed machineguns firing slower than they should.
+If you try to change to the your current character, it will tell you that your already using the character.
+Fixed a bug where it would show the exit dialog if you close the youtube menu with escape.
+Now if you set the playback volume to 0% in youtube playback, it will tell you its muted.
+Now you can't increase the playback volume beyond 150% in youtube playback.
+Improved voice chat.
+Now you can choose from 2 members to 10 members in last man standing mode, not just the times of 2.
+Fixed a bug where if you leave a match and press shift enter in the lobby, 2 menus would open at the same time.
+Now when someone gets killed, their coordinates won't be shown as floats.
+Now if someone is near you and they're in the same team as you, it will tell you this.
+Fixed beacon sounds not playing on last man standing mode.
+Now everyone will be notified when someone's match starts.
+Fixed bots trying to fire towards items of a loot.
+Now the bots will attack if they see anything in their weapon's range even if they're moving towards an item.
+
+New in 30/05/2024:
+Now you can assign any item you want to the button as a favorite item. You can add any item you want with shift u, for example, you hover over can of cola, use shift tab or tab keys, when you shift u, it is added as your favorite item. Normally, you can also use your favorite item by pressing the letter u.
+Moved the login options to a separate menu.
+Now you can recover your password in the login options.
+
+New in 29/05/2024:
+Now you can not drop an item while jumping or falling.
+Now you can drop more than 1 of an item by pressing shift+backspace and entering how much you want to drop. The backspace key remains for dropping 1 of the item.
+Fixed lag when picking up multiple dropped items at the same time.
+Now you can unload your weapon by pressing shift+r.
+Fixed keyboard sounds not playing when typing non-ASCII characters.
+Now if multiple items are in the same coordinates, only 1 beep sound will be played, there will be no beep sound for each item.
+Added drop sound when dropping an item.
+You will no longer be able to run the game twice.
+
+New in 28/05/2024:
+Now, when you write a private message to someone, the other party will see that you are sending them a message.
+Now the menu music will also fadeout if you exit the game with alt+f4 in the main menu.
+
+New in 27/05/2024:
+Fixed door bugs.
+In the f5 private message sending menu, you can copy a player's name by pressing space on it.
+Added staff list to the game menu.
+
+New in 26/05/2024:
+Now your walktime will be slowed down when you duck.
+Added new sounds for when entering to the game and exiting.
+Pressing alt+f4 key will now save your game preferences and disconnect from the server properly before exiting the game.
+Now you can't jump and run while ducking, and can't duck while jumping.
+Fixed a bug where if you try joining a public match but the server has at least 1 private match, you would be asked for a match password.
+
+New in 25/05/2024:
+Now melee weapons won't play bullet sounds.
+Added new buffer: Death and kill notifications.
+Now members of the match can leave it by pressing shift+enter on the waiting area.
+Fixed offline pm system.
+In teamed matches, when someone jumps off the helicopter, it's notification will be in team messages buffer, not match messages buffer.
+
+New in 23/05/2024:
+Fixed bots continuously trying to reload their weapon even if they have no ammo sometimes.
+Now it will ask you for the match mode before asking for the amount of members required.
+Now the unhandled exception dialog doesn't redirect you to the error.log file, and doesn't write the error to the error.log file. It just tells you to send the error info in the next dialog to the developers. The reason we made it write to error.log before was we not being aware of the fact that PyInstaller shows the error even if it's unhandled, we thought it behaves like the regular Python interpreter, which directly exits the app when an unhandled exception occurs, so that's why we made it write to a .log file, because if PyInstaller were the same as regular Python and we didn't made it write the errors to a file, people wouldn't be able to see the errors, they would just get silent exit.
+
+New in 22/05/2024:
+Changed scope sound.
+Added new buffers: Online and offline notifications, match messages, team messages, map messages, admin messages, friend messages, near notifications.
+Removed the old chats buffer as the public chat feature was removed in V1.1.
+Removed private messages buffer, now all friend-related info including pms will appear in friend messages buffer.
+Improved voice chat.
+Fixed bullet moving sounds causing lag.
+Moved ducking sound to client.
+Fixed a bug where it won't return to previous menu if you press escape after editing a language.
+Fixed an item called -1 appearing in your inventory sometimes.
+Now if you have pending friend requests, you will be notified when you enter to the game.
+Fixed sound positioning bug where a sound's pitch wouldn't be lower unless you walk again after it started playing even if you are behind it.
+
+New in 21/05/2024:
+Fixed helicopter dist sound.
+Fixed pm system not working.
+Fixed a bug where if two people watch the same player or bot, they would receive that the other person is near to them.
+Fixed scope sound playing on lobby.
+Fixed a bug where even if you disable listening your own voice, you still hear your own voice.
+Now bots will continue to use their current weapon even if they have no ammo left in reserve until they use all the ammo currently loaded. Previously, they would switch weapons when they use all the ammo in reserve even if they had ammo loaded in the weapon.
+Added buffer sounds.
+Now when someone dies, it will tell you the coordinates of the died player/bot.
+Now if some member jumps from the helicopter before timer expires, other team members will be notified.
+Added timer to near checking.
+Slowed down the knife firetime for bots.
+Now when you exit and reenter to the game, your health will be set to your maxhealth.
+Now you can send pm to even those who are offline. They will see your messages when they login to the game.
+In f5 menu, it will order from the online players to offline players.
+When a loot spawns, all bots in the match will start moving towards it. This way, bots will no longer have to search each other on the map. Also, while they moving towards the loot, if they encounter someone or something they can hit, they will hit to them, so they will both move towards the loot and attack those they encounter across the way.
+
+New in 20/05/2024:
+Now going back from settings menu will also take you to previous menu if you access game settings from the game menu.
+Fixed a bug where switching to a language doesn't update the current menu items to the translation on the new language.
+
+New in 19/05/2024:
+Now going back from yesno prompts and closing ticket dialogs also returns you to previous menu.
+Now when you back to previous menu, the menu title and menu item name are spoken as seperate messages. This has been done to fix the issue of not translating menu items when going back.
+
+New in 18/05/2024:
+Bots will now reload their weapon if they are not near to someone even if they have ammo lower than their weapon's maximum ammo. When they're fighting, it will be same as before, that is, they will reload when they're out of ammo.
+
+Bots will now drink cola when their health goes below 80.
+Now bots will move by jumping when they have no colas left and they are going towards their team's house in zombie survival mode.
+
+New in 17/05/2024:
+Removed panel in ticket dialogs.
+Now when you change a setting in notification settings, the menu won't close.
+Fixed a bug where you can stay in the air if you open a ticket dialog while jumping.
+If a menu item you click opens an input box and you cancel the input box, you will be back in the same menu, and your cursor will be in the item which you clicked and opened an input box.
+
+New in 16/05/2024:
+Made input boxes close faster.
+Fixed sometimes the game not detecting some keys after closing an input box.
+Improved alt+tab behavior in input boxes.
+Now written characters in password input boxes will not be visible.
+In serverside menus, pressing escape key will now return you to previous menu, and you will be in the option which you clicked before in the previous menu. Also, some operations you do on menus will no longer close the menu, in case you may want to do another things inside the same menu.
+
+New in 15/05/2024:
+Fixed a bug where if the server gets rebooted while you watch someone, you wouldn't be able to move once you reconnect to the server again without restarting the client.
+Removed the dot spoken when opening input boxes.
+Now when you close an input field the game won't re-announce the it's window title as Zero hour assault version 1.1
+
+New in 14/05/2024:
+Fixed the bug where the game was causing a lot of lag in your pc when exiting.
+
+New in 12/05/2024:
+Worked on making input boxes even faster, they are near-instant now.
+
+New in 11/05/2024:
+Made input boxes open faster.
+
+New in 06/05/2024:
+Fixed an error in maps with reverb.
+
+New in 03/05/2024:
+Now you can't open the map message box, can't reload and can't duck while watching someone.
+Now all ammos are reset when you leave a match.
+Fixed a bug where you can go outside the map boundaries.
+
+New in 02/05/2024:
+Fixed the game lagging on lower-ram computers.
+Fixed the yes no prompts not working properly.
+Fixed map message not working on non-english keyboards.
+
+New in 01/05/2024:
+Added new option to game menu, notification settings, where you can adjust which type of notifications you want to receive.
+Added ability to send map message with the backslash key.
+Added confirmation to the delete language section.
+Now you can't create more than 1 account.
+Fixed item beeps not playing when watching players.
+Now if you press keys like h, e, x or m, you will hear information relative to the player you watch. For example, h key will tell you the health of who you watch, and e and m will tell you what's near to the player you watch, and x will give you their weapon ammo information.
+Now if the player you watch picks up an item, you will also be told what they picked up.
+Fixed zombies unhittable inside houses.
+Now you can't use tab shift tab keys while watching someone.
+Fixed a bug where walking sounds of the player you watch sometimes goes to left/right.
+Now you can't hear the beacon of the player you watch.
+Now you can't change your aim while watching someone.
+Fixed sometimes you receive 2 notifications from matches if you watch someone.
+Now you can't draw weapons while you watch someone.
+Now you can't use shift enter key while watching someone.
+Joystick fixes.
+
+New in 30/04/2024:
+Fixed a bug where you would start falling if the player/bot you watch jumps.
+Fixed a bug where if you open a menu or input box while watching someone, you would hear them going far away until you close whatever you opened.
+Changed the message when someone stops spectating a match.
+Fixed multiple walking sounds playing when watching bots.
+Fixed the alt+f4 key not closing the game correctly.
+Fixed friend system not working properly if players are offline.
+Now if you try to create a match before your previous match finishes, it will tell you that you can't do this, rather than simply closing the menu.
+
+New in 29/04/2024:
+Bots will no longer track players or other bots, they will randomly walk on the map and try to find players or bots. If they see someone in 30 steps, they will start moving towards it. Also, if their weapon is a long-ranged one and they see a player or bot far away that they can hit, they will fire towards it, but won't start tracking that until they get closer to it 30 steps. These were done to make bots and humans equal as much as possible.
+Now the tab character won't be inputted if you press tab in input boxes, instead it will re-read the input boxe's title
+We found out that some people wrote tab characters in their user names by mistake, and this was causing problems in the game. We renamed those users to the names without the tab key, so those users will need to re-setup their accounts in order to login to the game. So If you get an error like no such account found when you try to login, please re-setup your account with the same name as your original one.
+Fixed keyboard theme playing even if you press keys other than any letters/numbers/space/backspace.
+
+New in 21/04/2024:
+Recompiled the PyInstaller boot loader with MinGW W64/GCC to prevent false-positives from antiviruses.
+Added sounds for when toggling voicechat settings.
+Added keyboard theme sound, use f1 key to disable it or enable it in text boxes.
+Fixed joystick bugs.
+Added ability to decrease map music volume with shift page up shift page down keys.
+Fixed input boxes opening too slowly.
+
+New in version 1.1:
+Added new settings:
+1. Ability to walk with arrow keys rather than w, a, s and d.
+2. You can make the game mute the speech and audio when not in focus.
+3. You can disable the notification which tells you the near players/bots.
+4. You can disable speech interrupt.
+5. You can set the turning speed.
+6. You can turn on/off the music in the matches.
+7. You can turn on/off the scope sound on weapons.
+8. Various settings about the new voicechat system.
+9. You can turn on/off the feature which returns you to normal aiming after you release a key.
+10. An option to configure joystick buttons.
+Added parachute.
+Rewrote game updater, now the game can update itself without launching a seperate updater.
+Now you can also access game settings from the game menu, not just main menu. This has been added because you may want to change a setting, but you may not want to re-login to the game.
+Improved computer ID generation system.
+Added joystick/game controller support. Before using it, please configure what buttons you will use from the options menu. For walking and turning, the left stick and right stick is used respectively, and the up and down keys on the d-pad is used for switching weapons and navigating menus. The right key on the d-pad activates current menu item and closes a dialog, and the left key goes back to the previous menu and performs the equivalent of escape key in-game. To be able to do more with your joystick or game controller, please configure the buttons to use for actions from the options menu. Note: If you plug more than 1 joystick at the same time, you can use any of them in-game, there is no joystick selection section. Instead, you can just use the which one you want.
+Now you can copy what your screen reader said last to the clipboard with F10.
+Added aiming support. You can aim 20 steps upwards and downwards. If you use the normal walking mode, use up and down to aim upwards and downwards. If using classic walking system, use W and S. Add shift to those to aim 5 steps upwards or downwards.
+Added running support if you press the walking keys with shift. When you run, your speed will gradualy increase when you continue to hold shift while walking. The moment you release shift, you will be back to normal speed.
+Added reverb support to maps.
+Fixed scoreboard.
+Added support for playing youtube videos inside the game. Press f9. When playing a video, f6 pauses it, shitft f7 and shift f8 jumps to previous and next video respectively, F7 and F8 rewinds and fast forwards the current video respectively, and shift home and shift end controls the volume of the current video.
+Added breakable wall system, you can destroy them with your weapon.
+Added rank to scores.
+Fixed typo in the you are died message, it is now you are dead.
+Removed y key, now you see your score point and other stats in the game menu.
+Now shift+/ only shows friends online, not all players.
+Changed some sounds.
+Added persistent items, which doesn't disappear from your inventory even if you die. This doesn't mean you don't lose anything. You only do not lose the persistent items, which are the ones you buy from the store. You still lose the items you collect from the ground in matches. Some persistent items can be timed, where they will be taken off your inventory after they expire. To view the timed persistent items you have alongside their expiration times, you can use the game menu.
+Added ducking support with the alt key. When you duck, people can't hit you unless they also duck or aim downwards.
+Next to the category list in the store, there is now a zero token charging button, so you can easily buy zero tokens from the website. There is also another option to copy the URL to the zero token purchasing webpage, if you want to share it, etc.
+Now the game announces "Exiting..." before exiting.
+Added support for staircases.
+Now loaded ammos saves when you exit the game.
+Replaced virtual input boxes with the ones provided by the OS, which means your standard text editing functions are also usable in-game input boxes. But the only difference is shift enter is used for inserting new lines, not enter. This also means that languages using IME can also now enter text in their language, and you can use windows+period and windows+v keys to put emoticons or paste things from your clipboard history.
+Aded native widget support to some parts of the game like ticket management, we will add more things in the next updates, like we will replace the settings menu with a dialog with check boxes.
+Added characters, which can be bought from the store and switched to from the game menu. Each character has different properties and different sounds.
+Now you can add people as your friends, which allows you to send pm to them, and this is the only way you can send pm now, you cant use /pm command. Press f5 key to see your friend list and send pm, /pm command entirely removed. Also you can no longer see the people came online or offline, unless you add them as friends.
+Now only friends can see when players go offline or came online.
+Now you can create tickets and inform developers about an issue if you encounter one, or you can just ask for help.
+Removed public chat. Now the slash key opens the game menu, where you can change characters, buy things from the store, create, manage and swithc languages, manage tickets, and manage your friend list. In matches, you can press j key to send message to your teams members.
+You will hear a sound if a bullet passes you.
+Now you can drop items by pressing backspace. The dropped items' pitch will be slightly lower and players must press shift and enter to pick them up.
+Added voice chat system.
+Added important message system for if we want to say something from the game lauching.
+Now you need to provide your email when creating account, and you need to remember it to login if you use the setup account option.
+Added M key for seeing nearby objects.
+Changed P key to E.
+All accounts deleted because of significant changes made to the game, such as the introduction of matches and removal of free fights and the requirement for email when creating accounts. Please recreate your accounts.
+Upgraded to Python 3.12, which gives us 10 to 60% better performance.
+The audio subsystem has been drasticaly improved, which results in better performance when loading and playing audio files!
+Added dmulti language support. Refer to the readme for more details.
+Removed tracking feature per player request.
+Now the serverside played sounds moves with the object its associated with. Let's say a player reloaded a gun and walking, previously the reloading sound would be left in the coordinates the player started reloading, but now it will move with the player, that is, it will always be heard in the player's current position. Note: to prevent lag, not all server side sounds are moving with the object its associated with, only those sounds that are too long are moving, like the walking sounds, jumping sounds, weapon fire/draw sounds aren't moving, but the cola sound and weapon reload sounds are moving.
+Fixed the issue of stationary sounds getting low quality when HRTF is on.
+Made HRTF on by default as the stationary sounds quality issue is resolved, thanks to an OpenAL SOFT extension AL_SOFT_DIRECT_CHANNELS.
+Moved the internal files the game uses to a different folder named "_internal" to make the directory more clean, thanks to PyInstaller.
+Switched to Cython for code protection and PyInstaller for packaging the game to a standalone .exe. This also allows us to put the libraries in a different folder, Nuitka, the old compiler we were using, didn't had this feature as far as we knew.
+Added store.
+Fixed the issue where the speech was repeated two times for some buffer messages.
+Fixed the connection getting lost in the input boxes and serverside menues.
+Fixed the bug where the game would sometimes hardcrash with an os-level exception when going back from the scoreboard.
+Added scope to weapons. When your weapon is in the range of an object it can hit to, you will here a beep as an indicator.
+Added zero tokens, which you can either buy with real money or get by winning matches. You can use these to buy items and characters from the in-game store.
+Those with zero score points will no longer appear in the score list.
+Now we're changing the turning system. Now when you turn, it will not read the facing direction. You have to press f. Also f now tells you the degrees you turned to, not just direction. Also, you can turn by holding down the right and left arrow keys in 1-degree increments. If you use classic walking mode, you have to hold down a and d. Add shift to those keys for turning in 45-degree increments.
+Now the menu music saves across restarts.
+Stabilised the game.
+Fixed encoding issues in the buffer logger.
+Fixed the exiting mechanism, this should get rid of game not exiting sometimes on some systems!
+Fixed the error in the dlg where adjusting the music volume would crash the game.
+Improved bots.
+Added matches. See readme file for how they work.
+Removed teams as people already team up in matches.
+Now you can't go to the main map by pressing shift and enter in the lobby, so free fights are removed. You need to create/join a match to fight. When you press shift and enter, the match menu opens, where you can create and sjoin/spectate matches.
+You will no longer be thrown to the main menu when you're death. If you're in the capture the flag match mode, you will still be in the match, and in other modes, you will be in the lobby.
+Added pathfinding to bots so as to make them navigate around the walls, this may be buggy though, we will try fixing if we encounter bugs. If you notice bots moving inside walls, please report this to us with the in-game ticket system.
+Now the game copies the alsoft file to your computer, so the problem of sounds not playing sometimes is fixed!
+Now you can assign weapons to numbers between 2 and 0. To do this, hold down the shift key and press a number, and your currently drawn weapon will be assigned to that number. BY default, there are no weapons on the number row assigned. Only number you can use is 1, which is knife, but you can't assign a new weapon to number 1, its reserved for knife.
+Now you can toggle the beacon with F3. 
+Other misc bug Fixes.
+
+New in 31/10/2023:
+Fixed a bug causes to team leader not detectable after created a team
+fixed team beacon problems
+tried some optimizations to reduce lag in the game
+fixed the lag after killed someone, or when someone dies
+
+New in 30/10/2023:
+Added a team system
+fixed bullets not falling to right position after changing facings like northeast, southeast etc
+tried to Fix mouse sensivity problem
+fixed track appearing problems in players and bots after changing the map or many beacons with one bot.
+Fixed a problem causes to bot spawns two times and plays dead sounds etc twice, and also, fixed a problem causing to don't hear kills counter from bots some times.
+Now our lovely bots has gained their special names. Cheers!
+now bots can drink cola to gain health, collect items in the ground to get more power, and fire molotov to protect it self.
+now bots are much smarter about escaping or when to fire you, LOL!
+
+New in 29/10/2023:
+finally, after a much lazy moment, I decided to create a very detailed read me.
+Added mouse support. You can change your weapon by turning the wheel, walk by holding right mouse, turn your mouse to turn between facings, and left mouse to fire your weapon.
+Added bots to fight with you. They can make you ragequit, so go on.
+added some new footsteps and two ambiences to get more possibilities to build a map
+Added sound updater.
+Fixed that some times tracker doesn't able to get your near info when you're 50 tiles away or when you go far
+
+New in 28/10/2023:
+In this day I was fixed many bugs critical to very small that I don't really remember.
+I have a build menu now for my self and my future helper, to not messing up with the rawdata thing. Because I always too lazy, so why not?
+
+New in 27/10/2023:
+Added scoring system.
+added an option to donate me optionaly, to get new sounds, gain motivation, bring new updates to this game and create new lovely projects.
+
+New in 26/10/2023:
+added molotov
+removed grenade
+
+The changelog starts at october 26 because I forgot to make a change log until that date. Sorry about that.

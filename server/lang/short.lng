@@ -1,0 +1,143 @@
+streight in front=front=substr
+in front and very slightly to the right=front right=substr
+in front and slightly off to the right=front slight right=substr
+in front a little ways off to the right=front lil right=substr
+slightly in front and a fair distance off to the right=slight front lil right=substr
+streight off to the right=right=substr
+slightly behind and far off to the right=slight back far right=substr
+behind and a little ways off to the right=back lil right=substr
+behind and slightly to the right=back slight right=substr
+behind and very slightly to the right=back right=substr
+streight behind=back=substr
+behind and very slightly to the left=back left=substr
+behind and slightly to the left=back slight left=substr
+behind and a little ways off to the left=back lil left=substr
+behind and a fair distance off to the left=back far left=substr
+slightly behind and far off to the left=slight back far left=substr
+streight off to the left=left=substr
+in front and a ways off to the left=far front left=substr
+in front and a little ways off to the left=lil front left=substr
+in front and slightly off to the left=front slight left=substr
+in front and very slightly off to the left=front left=substr
+is near you! They're =near! =substr
+is no longer near you!=no longer near!=substr
+Administrators: resolving player issues, crafting maps, and other duties. =Administrators=substr
+Moderators: Responsible for players, tickets, assisting administrators, and helping people in the game. =Moderators=substr
+Builders: Capable of constructing maps and integrating them into the game. =Builders=substr
+Are you sure you want to return to lobby? You will lose all the items you got in this map.= you sure? you'll lose all items in this map.
+came online=online=substr
+went offline=offline=substr
+Are you sure to leave the game, press escape or the left D-pad button of the joystick to cancel, press enter or the right D-pad button of the joystick to disconnect.=exit?
+Character Stats, Check the properties of your account, your score points, rank, amount of tokens, etc.=my stats
+character stats menu.=stats
+current character, =character, =substr
+Your gender, =gender
+Change character, View the characters you have and switch to those characters. Notes. You can only change your character in the lobby and waiting part of the match.=change char
+Select character to switch=select char
+You can only change characters in lobby or in the waiting area of a match!=can't here
+Store, Spend the zero tokens you have, view the packages you have purchased, or buy tokens from the virtual store.=store
+Account settings, Update your account password, rename your character, set a status message, see your rename history, Modify your registered email, delete your account, View Login History and See which devices have accessed your account and block unauthorized devices.=manage account
+Change password=pass
+Change email address=mail
+rename your character=rename
+Set a status message=status
+View computers you logged into the game from, and block their accesses=View computers/block them
+Delete your account=delete
+events, Daily Rewards, Upcoming Events.=events, daily rewards, etc
+See your motors=your motors
+Game settings, Change your game settings.=options
+Friend menu, Send a friend request, View Pending Friend Requests, Remove Friend.=friend menu
+Group menu, Start a new group for collaboration, View Group Invitations, Manage Group Members.=group menu
+View rules, View the game rules, read the rules to avoid making mistakes in the game.=dissplay rules
+view all groups, View groups created in the game, view how many kills and how many deaths they have, send a request to join a group.=all groups
+View destroyed groups history=destroyed groups
+View timed item expiry times=timed items
+You have no timed items.=nothing
+View Latest Additions=changes
+View game readme file, learn the game about.=readme
+languages, Manage Languages, Switch to a Language, Get syntax and usage tips for creating languages, Create New Language.=languages
+Staff List, View All Staff Members.=staff list
+notification settings, Customize Notification Alerts.=notification settings
+ticket menu, Submit a new support request, View Your Previous Tickets.=ticket menu
+Current area: = : =substr
+Server Message: = : =substr
+
+Use up and down arrows to see players within 120 steps, escape to close the binoculars=binoculars player menu
+No one near you=no one
+does not take ammo=no need =substr
+this weapon = : =substr
+The weapon = : =substr
+It has a range of = , range, =substr
+and a spread of = , spred, =substr
+It can be fired every= , firetime, =substr
+Its damage is between =, damage between =substr
+You are looking = : =substr
+degrees= : =substr
+Select an object to track=tracking menu
+There is nothing around=nothing
+Select a zone to track.= track zones
+is a Developer of Zero Hour Assault=is a dev
+Nobody near you=noone
+You cannot exit because someone near you= can't do that
+Your inventory cannot hold more of this item=can't hold more
+donate to this group=donate
+view donation history=donation history
+view group action history=group actions
+clear group action history=clear action history
+kick a member=kick
+invite a player to this group=invite
+remove invitation of a player to this group=remove invitation
+View group join requests=join requests
+view zero token amount donated to this group=donated tokens
+View group base info=base info
+Players menu: = players" 
+There are =: =substr
+Type your team message here.=team chat
+push to talk on=PTT on
+push to talk off=PTT off
+Microphone activated=Microphone onn
+Microphone disabled=Microphone off
+players in the freedom fight map: =: =substr
+The ping took=:  =substr
+milliseconds.=.=substr
+Type your message here.=public chat
+Type a map message here.= map chat
+Type a group message here.= group chat
+Message copied=copied
+says: = : =substr
+Welcome dear admin!=Welcome Admin!
+You already draw this weapon.=Already draw
+Would you like to add bot in this match=Add bots?
+
+yes, i want to add bot in this match=Yes
+no, i dont want to add bot in this match=No
+The player = : =substr
+created a new match!= created a match!=substr
+Match ended. Red team won!=Match ended red won!
+Match ended. Blue team won!=Match ended Blue won!
+Match ended. No one won!=noone won!
+You haven't selected any weapons yet.=haven't selected
+
+Developers: Has the ability to view or edit the game's code.=Developers
+add friend=add
+Pending friend requests sent to you=received requests
+Pending friend requests you sent=sent requests
+Remove friend=remove
+You disabled receiving voice chats.=disabled
+You disabled receiving voicechats=disabled
+You have to wait 1 minutes to be able to exit after hit=can't after hit
+
+You already have a shield on=allready waring
+There is no private message to reply to.=no private messages.
+game sounds muted=game muted
+no private messages.=nothing
+You are not in a group=Not in group
+says to the map:= map chat :=substr
+Beacons disabled.=disabled
+Beacons enabled.=enabled
+says to the group: = group chat : =substr
+You are not member of any team.=can't
+friends online:=: : =substr
+in the lobby=lobby
+in the lobby=lobby=substr
+in the base of=base =substr

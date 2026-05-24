@@ -1,0 +1,30 @@
+mapname:sword
+maxx:50
+maxy:50
+maxz:50
+src:0:50:0:50:0:50:cave.ogg:-12
+src:20:30:20:30:-50:-20:water_ambience.ogg:0
+platform:0:50:0:19:0:0:cement4
+platform:0:50:30:50:0:0:cement4
+platform:0:50:0:19:-1000:-2:wallsilence
+platform:0:50:30:50:-1000:-2:wallsilence
+platform:20:30:20:30:-50:-50:deepwater
+platform:19:19:19:31:-1000:-2:wallsilence
+platform:31:31:19:31:-1000:-2:wallsilence
+platform:0:19:19:31:0:0:cement4
+platform:31:50:19:31:0:0:cement4
+
+
+staircase:0:5:30:40:0:10:concrete27:y
+platform:6:6:30:40:0:9:wallstone
+platform:0:50:40:50:10:10:concrete6
+platform:6:50:39:39:9:30:wallstone
+src:20:30:20:30:-50:10:under_water2.ogg:0
+zone:0:50:0:50:0:100:a great causeway
+zone:0:5:30:40:0:10:a stairs covered with sharp stones:trackable
+zone:0:50:41:50:10:20:rock looking down from above:trackable
+zone:6:50:40:50:10:20:rock looking down from above:trackable
+
+zone:20:30:20:30:-50:20:a swallowing swamp:trackable
+
+platform:0:1000:0:1000:-100:-100:deepwater

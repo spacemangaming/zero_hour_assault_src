@@ -1,0 +1,52 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.obj
+*.c
+
+# Local Virtual Environments (UV / Virtualenv)
+.venv/
+venv/
+ENV/
+
+# Game Extraction Directories (Extracted Audios)
+unpacked_sounds/
+packs/
+
+# Temporary / Build directories
+build/
+dist/
+release/
+*.spec
+cython_cache/
+converted/
+update_package.zip
+
+# Server Logs and Transient User/Character Databases
+*.log
+log.txt
+chats.log
+adminlog.txt
+server/*.log
+server/*.txt
+server/chars/
+server/maps/*.map.bak
+server/votes.dat
+
+# Operating System Files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# IDE and Project Editor directories
+.vscode/
+.idea/
+.vs/
+*.suo
+*.user
+*.userossc
+*.sln
+*.db

@@ -1,0 +1,5 @@
+mapname:knife_fight_ice
+maxx:100
+maxy:100
+maxz:100
+platform:0:25:0:25:0:0:ice

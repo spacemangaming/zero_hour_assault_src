@@ -1,0 +1,7 @@
+mapname:jail
+maxx:50
+maxy:50
+maxz:50
+platform:0:50:0:50:0:0:metal5
+
+zone:0:10000:0:10000:0:10000:This is a prison.

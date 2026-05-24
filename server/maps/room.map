@@ -1,0 +1,9 @@
+mapname:room
+maxx:50
+maxy:50
+maxz:50
+platform:0:50:0:50:0:0:carpet
+
+platform:0:50:0:50:0:50:concrete7
+platform:0:50:0:50:0:50:debris
+platform:0:50:0:50:0:50:bridge2

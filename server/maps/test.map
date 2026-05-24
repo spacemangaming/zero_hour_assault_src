@@ -1,0 +1,144 @@
+mapname:test
+maxx:500
+maxy:500
+maxz:1000
+
+platform:0:500:0:500:0:0:concrete14
+
+amb:0:500:0:500:-20:500:amb3.ogg:21
+amb:0:500:0:500:0:150:nbmambience6.ogg:0
+
+
+zone:0:500:0:500:0:500:a huge abandoned battlefield
+zone:32:78:32:78:0:20:near abandoned building:trackable
+platform:32:78:32:78:0:0:concrete5
+
+platform:40:70:40:70:0:0:wood7
+
+platform:40:70:39:39:0:20:wallbuilding
+platform:39:39:39:71:0:20:wallbuilding
+platform:39:71:71:71:0:20:wallbuilding
+platform:71:71:39:71:0:20:wallbuilding
+door:50:50:70:70:0:0:50:72:0:1500:dooropen.ogg:doorclose5.ogg
+door:50:50:72:72:0:0:50:70:0:1500:dooropen.ogg:doorclose5.ogg
+
+zone:40:70:40:70:0:20:abandoned house:trackable
+zone:50:50:70:72:0:10:rusted wooden door:trackable
+
+reverb:39:71:39:71:0:20:1.0:1.0:0.05:0.35:1.70:0.71:0.29:0.052:1.50:0.029:0.811:0.0
+platform:50:50:71:71:0:10:walldoor3
+platform:40:40:38:38:0:21:metal8
+zone:40:40:38:38:0:21:abandoned house roof ladder:trackable
+platform:39:71:39:71:21:21:metal2
+zone:39:71:39:71:20:50:roof of the house
+platform:40:43:55:65:0:0:cloth
+zone:40:43:55:65:0:10:couch
+platform:40:40:55:65:0:5:wallboard
+platform:40:40:55:65:5:5:carpet
+src:40:70:40:70:0:10:ship.ogg:-13
+platform:0:50:149:300:50:50:cement
+platform:0:10:101:150:0:48:wallwood15
+
+platform:11:11:101:150:0:48:wallwood15
+staircase:0:10:100:149:0:50:metal2:y
+
+platform:0:11:150:150:0:20:wallwood15
+platform:12:300:148:148:20:80:wallwood15
+platform:51:51:148:301:30:80:wallwood15
+platform:0:51:301:301:30:80:wallwood15
+zone:0:10:99:149:0:50:a stairs leading up:trackable
+zone:0:50:149:300:50:60:a wide open space
+zone:0:10:150:150:0:50:a stairs leading down:trackable
+zone:0:10:101:149:0:50:metal stairs:trackable
+
+platform:11:11:101:148:1:50:wallwood15
+platform:20:30:220:230:50:50:concrete6
+platform:25:25:225:225:50:70:bleacher2
+zone:25:25:225:225:50:80:a big pole:trackable
+platform:0:500:250:500:0:0:grass3
+platform:250:500:250:500:0:0:dirt3
+zone:250:500:250:500:0:20:large area of ​​dry land
+zone:0:500:250:500:0:20:a large grassland
+platform:50:100:350:400:0:0:wood2
+platform:49:49:349:401:0:50:wallrail
+platform:49:70:349:349:0:50:wallrail
+platform:49:101:401:401:0:50:wallrail
+platform:101:101:349:401:0:50:wallrail
+platform:80:101:349:349:0:50:wallrail
+
+platform:71:79:349:349:0:0:carpet3
+reverb:49:101:349:401:0:50:1.0:1.0:0.09:0.55:1.90:0.99:0.69:0.092:1.99:0.069:0.951:1.999
+
+platform:70:80:370:380:0:5:walltable
+platform:70:80:370:380:5:5:hardwood2
+zone:65:85:365:385:0:10:near the table
+zone:70:80:370:380:5:10:top of a large wooden table
+staircase:95:100:389:399:0:10:concrete:y
+platform:50:100:350:400:10:10:wood
+
+
+platform:0:500:280:320:-10:-10:deepwater
+platform:0:500:321:321:-10:-5:wallstone
+staircase:0:249:321:326:-5:0:grass3:y
+staircase:261:500:321:326:-5:0:grass3:y
+
+platform:0:500:279:279:-10:-5:wallstone
+staircase:0:249:274:279:-5:0:grass3:y:1
+staircase:261:500:274:279:-5:0:grass3:y:1
+
+platform:200:300:0:250:0:0:concrete6
+zone:200:300:0:250:0:20:a long street
+
+src:200:300:0:250:0:100:nbmambience5.ogg:-14
+staircase:200:300:100:110:0:10:bleacher2:y
+platform:200:300:110:190:10:10:concrete5
+staircase:200:300:190:200:0:10:bleacher2:y:1
+zone:0:500:280:320:-20:20:a moss covered stream
+zone:0:500:321:326:-5:20:grasses going down to the stream
+zone:0:500:274:279:-5:20:grasses going down to the stream
+src:0:500:280:320:-10:-3:amb1.ogg:0
+platform:350:350:0:30:0:50:walldoor3
+platform:350:400:0:0:0:50:walldoor3
+platform:400:400:0:30:0:50:walldoor3
+platform:350:370:30:30:0:50:walldoor3
+platform:375:400:30:30:0:50:walldoor3
+platform:351:399:1:29:0:0:carpet3
+platform:371:374:30:30:0:0:deck
+zone:371:374:30:30:0:10:door leading inside
+zone:351:399:1:29:0:50:house with walls painted in blood:trackable
+platform:380:380:1:15:0:10:wallmetal
+platform:380:380:19:29:0:10:wallmetal
+zone:380:380:16:18:0:10:a small entrance
+platform:380:380:16:18:0:0:concrete27
+platform:381:399:1:29:0:0:wood4
+zone:381:399:1:29:0:50:an empty room
+platform:385:390:10:15:0:2:walltable
+platform:385:390:10:15:2:2:wood10
+
+ignore_amb:351:399:1:29:0:50
+src:351:399:1:29:0:50:generic.ogg:-5
+reverb:350:400:0:30:0:50:1.0:1.0:0.20:0.99:1.69:0.83:0.05:0.007:1.60:0.011:0.994:0.0
+platform:250:260:273:327:0:0:hardwood2
+zone:250:260:273:327:0:10:a long water bridge crossing:trackable
+platform:250:250:273:327:0:20:wallchain
+platform:261:261:273:327:0:20:wallchain
+
+platform:480:500:480:500:0:30:wallbranch
+platform:480:500:479:479:0:30:branch
+zone:480:500:479:479:0:50:tall tree leading to tree house:trackable
+platform:480:500:480:500:30:30:wood8
+zone:480:500:480:500:30:50:tree house covered with wood
+platform:479:479:480:500:30:50:walltree
+zone:71:79:349:349:0:10:hut door:trackable
+zone:50:100:350:400:0:100:wooden hut:trackable
+platform:94:94:389:399:0:9:wallwood5
+platform:94:94:400:400:0:9:wallwood5
+platform:94:94:389:399:10:20:wallwood5
+platform:94:100:389:389:10:20:wallwood5
+zone:94:100:389:399:0:10:an old staircase:trackable
+ignore_amb:50:100:350:400:0:50
+src:50:100:350:400:0:50:src1.ogg:-13
+platform:0:5000:0:50000:-100:-1:wallsilence
+
+
+electric_pole:0:0:0

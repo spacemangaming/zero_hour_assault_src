@@ -1,0 +1,24 @@
+Zero Hour Assault Privacy Policy
+Effective Date: january 24, 2025
+This Privacy Policy explains how NBM Studios ("we," "us," or "our") collects, uses, and protects your data in relation to Zero Hour Assault. By playing the game, you agree to the data practices described in this policy. If you do not accept these terms, please refrain from launching or installing the game.
+1. Scope of Data Access
+We respect your privacy and limit our access to your personal data. Our direct interactions with your account are restricted to essential game management actions, including, but not limited to:
+Moving your in-game character
+Disabling voice chat
+Issuing bans, kicks (disconnections), or other disciplinary actions
+Data collected by the game for operational purposes is restricted and encrypted. This data is not visible to our administrators or developers and is accessed solely by automated systems as needed.
+2. Data We Collect
+To help manage game integrity and enforce our policies, Zero Hour Assault collects certain data from your device. This data enables us to establish a unique identifier associated with your device and includes:
+disk serial number
+Processor information (name and model)
+Total amount of RAM installed
+Number of processor cores
+3. Purpose of Data Collection
+The information collected is used to generate a "Unique Computer Identifier," a unique identifier that distinguishes your device from others. This identifier assists in maintaining the security of the game by:
+Preventing players who violate community standards from circumventing bans
+Ensuring a fair and safe gaming environment for all participants
+All data collected is encrypted, securely stored, and solely intended for ensuring compliance with community guidelines.
+On the server, we only store your username, email, password and gender.
+4. Data Protection
+We take your privacy seriously. All data collected is encrypted and is used only by our automated systems to facilitate community management and enforcement. No personal data is shared, sold, or disclosed to third parties without your consent, except where required by law.
+By continuing to use Zero Hour Assault, you acknowledge and accept these privacy terms. We are committed to safeguarding your privacy and invite you to reach out with any questions regarding this policy.

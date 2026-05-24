@@ -1,0 +1,2 @@
+guns = ["dragunov_psl", "mkek_jng90", "IthicaM37", "gsg5", "colt1911", "fnhfnp40", "mkek_mpt76k", "mkek_yavuz16", "m4","MosinNagant","maverick88","fnhfnp45","S&WModel66","berettaM9","KelTecP318"]
+guns2 = ["dragunov_psl", "mkek_jng90", "IthicaM37", "diamond_sword", "gsg5", "stone_sword", "colt1911", "wooden_sword", "fnhfnp40", "mkek_mpt76k", "mkek_yavuz16", "m4","MosinNagant","maverick88","fnhfnp45","S&WModel66","berettaM9","KelTecP318"]
