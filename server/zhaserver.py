@@ -105,6 +105,8 @@ class server_menu:
 g.server_menu=server_menu
 def find_directories(path):
 	l=my_list()
+	if not os.path.exists(path):
+		return l
 	for each in os.listdir(path):
 		if os.path.isdir(path+"/"+each):
 			l.append(each)
@@ -5244,14 +5246,17 @@ def netloop():
 					g.players[index].prevmenu()
 
 				if parsed[1]=="log":
-					r=open("adminlog.txt", "r")
-					changes=string_split(r.read(), "\n", True)
-					if len(changes)<=0 or not file_exists("adminlog.txt") or file_get_contents("adminlog.txt")=="":
+					if not file_exists("adminlog.txt") or file_get_contents("adminlog.txt")=="":
 						send_reliable(e.peer_id, "no logs", 0)
 						g.players[index].prevmenu()
-						r.close()
 						return
+					r=open("adminlog.txt", "r")
+					changes=string_split(r.read(), "\n", True)
 					r.close()
+					if len(changes)<=0:
+						send_reliable(e.peer_id, "no logs", 0)
+						g.players[index].prevmenu()
+						return
 					m=server_menu()
 					m.intro="Command logs."
 					m.initial_packet="latest"
@@ -5259,15 +5264,17 @@ def netloop():
 						m.add(string_replace(changes[i], ":", ".", True), string_replace(changes[i], ":", ".", True),False)
 					m.send(e.peer_id)
 				if parsed[1]=="adminhelp":
-					r=open("adminhelp.txt", "rb")
-#					changes=string_split(r.read(), "\n", True)
-					changes=string_split(r.read().decode("utf-8",errors="ignore"), "\n", True)
-					if len(changes)<=0 or not file_exists("adminhelp.txt") or file_get_contents("adminhelp.txt")=="":
+					if not file_exists("adminhelp.txt") or file_get_contents("adminhelp.txt")=="":
 						send_reliable(e.peer_id, "no help", 0)
 						g.players[index].prevmenu()
-						r.close()
 						return
+					r=open("adminhelp.txt", "rb")
+					changes=string_split(r.read().decode("utf-8",errors="ignore"), "\n", True)
 					r.close()
+					if len(changes)<=0:
+						send_reliable(e.peer_id, "no help", 0)
+						g.players[index].prevmenu()
+						return
 					m=server_menu()
 					m.intro="Admin help menu. Here you can view commands for admins."
 					m.initial_packet="latest"
@@ -5275,14 +5282,17 @@ def netloop():
 						m.add(string_replace(changes[i], ":", ".", True), string_replace(changes[i], ":", ".", True),False)
 					m.send(e.peer_id)
 				if parsed[1]=="moderatorhelp":
-					r=open("moderatorhelp.txt", "r")
-					changes=string_split(r.read(), "\n", True)
-					if len(changes)<=0 or not file_exists("moderatorhelp.txt") or file_get_contents("moderatorhelp.txt")=="":
+					if not file_exists("moderatorhelp.txt") or file_get_contents("moderatorhelp.txt")=="":
 						send_reliable(e.peer_id, "no help", 0)
 						g.players[index].prevmenu()
-						r.close()
 						return
+					r=open("moderatorhelp.txt", "r")
+					changes=string_split(r.read(), "\n", True)
 					r.close()
+					if len(changes)<=0:
+						send_reliable(e.peer_id, "no help", 0)
+						g.players[index].prevmenu()
+						return
 					m=server_menu()
 					m.intro="moderator help menu. Here you can view commands for moderators."
 					m.initial_packet="latest"
@@ -5291,14 +5301,17 @@ def netloop():
 					m.send(e.peer_id)
 
 				if parsed[1]=="builderhelp":
-					r=open("builderhelp.txt", "r")
-					changes=string_split(r.read(), "\n", True)
-					if len(changes)<=0 or not file_exists("builderhelp.txt") or file_get_contents("builderhelp.txt")=="":
+					if not file_exists("builderhelp.txt") or file_get_contents("builderhelp.txt")=="":
 						send_reliable(e.peer_id, "no help", 0)
 						g.players[index].prevmenu()
-						r.close()
 						return
+					r=open("builderhelp.txt", "r")
+					changes=string_split(r.read(), "\n", True)
 					r.close()
+					if len(changes)<=0:
+						send_reliable(e.peer_id, "no help", 0)
+						g.players[index].prevmenu()
+						return
 					m=server_menu()
 					m.intro="Builder help menu. Here you can view commands for builders."
 					m.initial_packet="latest"
@@ -5308,14 +5321,17 @@ def netloop():
 
 
 				if parsed[1]=="suggestion":
-					r=open("suggest.txt", "r")
-					changes=string_split(r.read(), "\n", True)
-					if len(changes)<=0 or not file_exists("suggest.txt") or file_get_contents("suggest.txt")=="":
+					if not file_exists("suggest.txt") or file_get_contents("suggest.txt")=="":
 						send_reliable(e.peer_id, "no suggestions", 0)
 						g.players[index].prevmenu()
-						r.close()
 						return
+					r=open("suggest.txt", "r")
+					changes=string_split(r.read(), "\n", True)
 					r.close()
+					if len(changes)<=0:
+						send_reliable(e.peer_id, "no suggestions", 0)
+						g.players[index].prevmenu()
+						return
 					m=server_menu()
 					m.intro="Suggestions."
 					m.initial_packet="latest"
@@ -5738,13 +5754,15 @@ here, since the player name is before the string "came online", we added =substr
 
 					m.send(e.peer_id)
 				if parsed[1]=="latest":
+					if not file_exists("changes.txt") or file_get_contents("changes.txt")=="":
+						send_reliable(e.peer_id, "no Latest Additions", 0)
+						return
 					r=open("changes.txt", "r")
 					changes=string_split(r.read(), "\n", True)
-					if len(changes)<=0 or not file_exists("changes.txt") or file_get_contents("changes.txt")=="":
-						send_reliable(e.peer_id, "no Latest Additions", 0)
-						r.close()
-						return
 					r.close()
+					if len(changes)<=0:
+						send_reliable(e.peer_id, "no Latest Additions", 0)
+						return
 					m=server_menu()
 					m.intro="Latest Additions."
 					m.initial_packet="latest"
@@ -5752,13 +5770,15 @@ here, since the player name is before the string "came online", we added =substr
 						m.add(string_replace(changes[i], ":", ".", True), string_replace(changes[i], ":", ".", True),False)
 					m.send(e.peer_id)
 				if parsed[1]=="rules":
+					if not file_exists("rules.txt"):
+						send_reliable(e.peer_id, "no rules.", 0)
+						return
 					r=open("rules.txt", "rb")
 					changes=string_split(r.read().decode("utf-8",errors="ignore"), "\n", True)
-					if len(changes)<=0 or not file_exists("rules.txt"):
-						send_reliable(e.peer_id, "no rules.", 0)
-						r.close()
-						return
 					r.close()
+					if len(changes)<=0:
+						send_reliable(e.peer_id, "no rules.", 0)
+						return
 					m=server_menu()
 					m.intro="Rules."
 					m.initial_packet="latest"
@@ -5767,13 +5787,15 @@ here, since the player name is before the string "came online", we added =substr
 					m.send(e.peer_id)
 
 				if parsed[1]=="readme":
+					if not file_exists("readme.txt") or file_get_contents("readme.txt")=="":
+						send_reliable(e.peer_id, "The file could be not found.", 0)
+						return
 					r=open("readme.txt", "r")
 					changes=string_split(r.read(), "\n", True)
-					if len(changes)<=0 or not file_exists("readme.txt") or file_get_contents("readme.txt")=="":
-						send_reliable(e.peer_id, "The file could be not found.", 0)
-						r.close()
-						return
 					r.close()
+					if len(changes)<=0:
+						send_reliable(e.peer_id, "The file could be not found.", 0)
+						return
 					m=server_menu()
 					m.intro="readme"
 					m.initial_packet="latest"

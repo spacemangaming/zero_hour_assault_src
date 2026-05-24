@@ -47,6 +47,8 @@ def file_exists(path):
 
 def find_files(path):
     l = []
+    if not os.path.exists(path):
+        return l
     for each in os.listdir(path):
         if os.path.isfile(path + "/" + each):
             l.append(each)
@@ -55,6 +57,8 @@ def find_files(path):
 
 def find_directories(path):
     l = []
+    if not os.path.exists(path):
+        return l
     for each in os.listdir(path):
         if os.path.isdir(path + "/" + each):
             l.append(each)
