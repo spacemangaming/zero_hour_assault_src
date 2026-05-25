@@ -20,6 +20,8 @@ sys.path.insert(0, os.path.join(script_dir, "src"))
 sys.path.insert(0, os.path.join(script_dir, "src", "zero_hour_assault"))
 
 # Add project root to DLL search paths on Windows
+if sys.platform == "win32":
+	os.environ["PATH"] = script_dir + os.pathsep + os.environ["PATH"]
 if hasattr(os, "add_dll_directory"):
 	try:
 		os.add_dll_directory(script_dir)

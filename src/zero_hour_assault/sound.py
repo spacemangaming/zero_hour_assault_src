@@ -5,11 +5,12 @@ import time
 from constants import DIRECTORY_TEMP
 import events
 
+ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+
 # Try FMOD first
 FMOD_ACTIVE = False
 try:
     import sys
-    ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
     FMOD_DLL_DIR = os.path.join(ROOT_DIR, "third_party", "fmod")
     os.environ["PYFMODEX_DLL_PATH"] = os.path.join(FMOD_DLL_DIR, "fmod.dll")
     os.environ["PYFMODEX_STUDIO_DLL_PATH"] = os.path.join(FMOD_DLL_DIR, "fmodstudio.dll")
@@ -53,7 +54,10 @@ from variable_management import *
 import globals as g
 
 pack = pack_file()
-pack.open("sounds.dat")
+try:
+    pack.open("sounds.dat")
+except Exception as e:
+    print(f"Warning: Could not open sounds.dat: {e}")
 
 if FMOD_ACTIVE:
     # ----------------------------------------------------
@@ -513,6 +517,20 @@ else:
             self.downmix = downmix
             if self.is_active:
                 self.close()
+
+            unpacked_path = os.path.join(ROOT_DIR, "unpacked_sounds", filename)
+            if os.path.exists(unpacked_path):
+                self.filename = unpacked_path
+                self.usingpack = False
+                try:
+                    self.source = LoadSound.from_file(self.filename, downmix)
+                    self.player = Player(downmix)
+                    self.player.add(self.source)
+                    self.player.position = (0, 0, 0)
+                    self.loading = False
+                    return self.is_active
+                except Exception as e:
+                    print(f"Failed to load from unpacked_sounds fallback: {e}")
 
             if 1 == 1:
                 if (fname, downmix) not in sound.cache:

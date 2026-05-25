@@ -3,10 +3,6 @@ import sys
 import time
 import math
 from constants import DIRECTORY_TEMP
-import globals as g
-from audio import *
-from pack_file import *
-from security import *
 
 # Resolve absolute path to the project root directory
 ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
@@ -52,6 +48,14 @@ def init_fmod():
         print(f"Failed to initialize FMOD system: {e}")
         return False
 
+# Initialize at module level if available
+init_fmod()
+
+import globals as g
+from audio import *
+from pack_file import *
+from security import *
+
 def update_fmod():
     if initialized and system:
         try:
@@ -67,9 +71,6 @@ def set_listener_position(x, y, z, facing_angle=0.0):
             system.set_3d_listener_attributes(0, pos=[x, y, z], forward=forward, up=[0.0, 0.0, 1.0])
         except Exception as e:
             pass
-
-# Initialize at module level if available
-init_fmod()
 
 class fmod_sound(object):
     def __init__(self):
@@ -87,6 +88,20 @@ class fmod_sound(object):
         
         self.internal_filename = filename
         
+        # First, check unpacked_sounds
+        unpacked_path = os.path.join(ROOT_DIR, "unpacked_sounds", filename)
+        if os.path.exists(unpacked_path):
+            file_path = unpacked_path
+            self.usingpack = False
+            try:
+                if is_stream:
+                    self.sound = system.create_stream(file_path)
+                else:
+                    self.sound = system.create_sound(file_path)
+                return True
+            except Exception as e:
+                print(f"FMOD failed to load from unpacked_sounds {filename}: {e}")
+
         # Import pack dynamically to avoid circular import issues
         from sound import pack
         

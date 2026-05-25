@@ -3269,7 +3269,7 @@ class LoadSound(object):
 				data = data.astype(np.float32)
 				if self.downmix:
 					try:
-						data = data[:, 0] + data[:, 1]
+						data = (data[:, 0] + data[:, 1]) / 2
 					except:
 						pass
 				buffer = data.tobytes()

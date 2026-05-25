@@ -5,4 +5,4 @@ maxz:500
 platform:0:1500:0:1500:0:metal
 
 zone:0:1500:0:1500:0:10:Helicopters flying area
-src:0:1500:0:1500:0:10:helicopter.ogg:0
+amb:0:1500:0:1500:0:10:helicopter.ogg:0
