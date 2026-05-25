@@ -19,7 +19,13 @@ os.environ["PYFMODEX_DLL_PATH"] = os.path.join(FMOD_DLL_DIR, "fmod.dll")
 os.environ["PYFMODEX_STUDIO_DLL_PATH"] = os.path.join(FMOD_DLL_DIR, "fmodstudio.dll")
 
 if sys.platform == "win32" and hasattr(os, "add_dll_directory"):
-    os.add_dll_directory(FMOD_DLL_DIR)
+    try:
+        if os.path.isdir(FMOD_DLL_DIR):
+            os.add_dll_directory(FMOD_DLL_DIR)
+        else:
+            print(f"FMOD DLL directory not found: {FMOD_DLL_DIR}")
+    except Exception as e:
+        print(f"Failed to add FMOD DLL directory: {e}")
 
 try:
     import pyfmodex

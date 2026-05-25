@@ -23,6 +23,13 @@ try:
     # Ensure FMOD is initialized successfully
     if fmod_audio.FMOD_AVAILABLE and fmod_audio.init_fmod():
         FMOD_ACTIVE = True
+    else:
+        reasons = []
+        if not fmod_audio.FMOD_AVAILABLE:
+            reasons.append("pyfmodex library is not available or failed to import")
+        else:
+            reasons.append("FMOD system failed to initialize (check fmod_audio initialization log)")
+        print(f"FMOD failed to activate in sound.py (Reason: {', '.join(reasons)}). Falling back to OpenAL backend.")
 except Exception as e:
     print(f"FMOD initialization failed in sound.py: {e}")
 
