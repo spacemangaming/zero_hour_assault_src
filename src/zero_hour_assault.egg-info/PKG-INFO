@@ -24,6 +24,7 @@ Requires-Dist: numpy>=1.26.0
 Requires-Dist: psutil>=5.9.8
 Requires-Dist: pyenet>=1.3.17
 Requires-Dist: PyNaCl>=1.5.0
+Requires-Dist: pyfmodex>=0.7.2
 
 # Zero Hour Assault
 

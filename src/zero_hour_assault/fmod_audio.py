@@ -38,7 +38,7 @@ def init_fmod():
     if initialized:
         return True
     try:
-        system = pyfmodex.System()
+        system = pyfmodex.System(header_version=0x00020313)
         system.init()
         initialized = True
         return True
@@ -216,7 +216,7 @@ class fmod_sound(object):
         if self.channel:
             try:
                 # Update mode to support 3D positioning
-                self.sound.mode = pyfmodex.flags.MODE.MODE_3D
+                self.channel.mode = pyfmodex.flags.MODE.THREED
                 self.channel.position = [sound_x, sound_y, sound_z]
                 return True
             except:

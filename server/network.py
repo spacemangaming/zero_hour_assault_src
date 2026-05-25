@@ -26,11 +26,14 @@ class network:
 
     def setup_server(self, port, maxchans, maxpeers):
         self.host = enet.Host(enet.Address(b"0.0.0.0", port), maxchans, maxpeers, 0, 0)
+        import os
+        server_dir = os.path.dirname(os.path.abspath(__file__))
+        key_path = os.path.join(server_dir, "server.private.key")
         try:
-            with open("server.private.key", "r") as f:
+            with open(key_path, "r") as f:
                 self.server_private_key = nacl.public.PrivateKey(f.read(), encoder=nacl.encoding.Base64Encoder)
         except FileNotFoundError:
-            raise RuntimeError("Sunucu özel anahtarı (server.private.key) bulunamadı!")
+            raise RuntimeError("Server private key (server.private.key) not found!")
         return self.host
 
     def destroy(self):

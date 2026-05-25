@@ -34,7 +34,12 @@ class SoundPoolItem:
         self.__init__()
 
     def update(self, listener_x, listener_y, listener_z, rotation, max_distance):
-        if self.handle is not None and max_distance==2000 and self.handle.player is not None: self.handle.player.rolloff=0.05
+        if self.handle is not None and self.handle.player is not None:
+            self.handle.player.max_distance = max_distance
+            if max_distance == 2000:
+                self.handle.player.rolloff = 0.05
+            else:
+                self.handle.player.rolloff = 1.0
         if max_distance > 0 and self.looping:
             total_distance = self.get_total_distance(listener_x, listener_y, listener_z)
 
@@ -81,44 +86,56 @@ class SoundPoolItem:
                 sound_positioning.position_sound_custom_3d(
                     self.handle,
                     listener_x,
-0,
-0,
+                    0,
+                    0,
                     listener_x,
-2,
-0,
+                    2,
+                    0,
+                    0.0,
                     self.pan_step,
                     self.volume_step,
+                    self.behind_pitch_decrease,
                     self.start_pan,
                     self.start_volume,
+                    self.start_pitch,
+                    False,
                 )
                 return
             if listener_x < delta_left:
                 sound_positioning.position_sound_custom_3d(
                     self.handle,
                     listener_x,
-0,
-0,
+                    0,
+                    0,
                     delta_left,
-2,
-0,
+                    2,
+                    0,
+                    0.0,
                     self.pan_step,
                     self.volume_step,
+                    self.behind_pitch_decrease,
                     self.start_pan,
                     self.start_volume,
+                    self.start_pitch,
+                    False,
                 )
             if listener_x > delta_right:
                 sound_positioning.position_sound_custom_3d(
                     self.handle,
                     listener_x,
-0,
-0,
+                    0,
+                    0,
                     delta_right,
-2,
-0,
+                    2,
+                    0,
+                    0.0,
                     self.pan_step,
                     self.volume_step,
+                    self.behind_pitch_decrease,
                     self.start_pan,
                     self.start_volume,
+                    self.start_pitch,
+                    False,
                 )
             return
 

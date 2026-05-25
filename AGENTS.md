@@ -83,3 +83,4 @@ Rules:
 5. Track heavy binaries (like sounds.dat) using Git LFS. Never commit raw directories containing raw audio assets.
 6. Before making any non-trivial modifications, verify existing server network ports (55918) and keep logging highly informative.
 ```
+Do not use   wev toolevery time. Also, do not commit in Git every time unless the user says. After making changes, only commit if the user tells you to commit, otherwise do not do it.

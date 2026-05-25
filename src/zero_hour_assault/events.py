@@ -19,6 +19,11 @@ clock=pygame.time.Clock()
 stickchecktimer=timer()
 def process_events():
 	global current_key_pressed, current_key_released
+	try:
+		import fmod_audio
+		fmod_audio.update_fmod()
+	except Exception:
+		pass
 	if g.yavaslat==1 or g.steam==1:
 		clock.tick(1000)
 	if stickchecktimer.elapsed>=1000:

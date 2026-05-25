@@ -1,3 +1,10 @@
+New in 25/05/2026:
+Integrated FMOD audio engine with automatic fallback to OpenAL on the client.
+Fixed client crash in sound_pool.py due to parameter count mismatch in position_sound_custom_3d.
+Resolved server directory path resolution issue dynamically on startup.
+Fixed server key loading path resolution and translated related error messages to English.
+Excluded third_party and untracked database .dat files from Git tracking.
+
 New in 17/02/2026:
 Fixed deleting a group sometimes does not remove all of its bases from the map.
 

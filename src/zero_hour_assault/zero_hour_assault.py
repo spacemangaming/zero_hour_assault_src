@@ -588,9 +588,10 @@ hq-mode=true""")
 		directory_create(DIRECTORY_APPDATA+"/nbm-studios/zero_hour_assault")
 	readprefs()
 
-	sound.listener.delete()
-	sound.listener=Listener()
-	sound.listener.hrtf=g.hrtf
+	if not sound.FMOD_ACTIVE:
+		sound.listener.delete()
+		sound.listener=Listener()
+		sound.listener.hrtf=g.hrtf
 	readprefs()
 	g.bnext=sound.sound();g.bpos=sound.sound()
 	g.bpos.load("buffer1.ogg")
@@ -3143,7 +3144,7 @@ def zeroloop():
 
 
 	msoundloop()
-	if g.rain and g.rainsnd is not None and g.rainsnd.loading==False and g.rainsnd.player is not None:
+	if not sound.FMOD_ACTIVE and g.rain and g.rainsnd is not None and g.rainsnd.loading==False and g.rainsnd.player is not None:
 		if 1:
 			r=g.get_reverb_at(g.me.x,g.me.y,g.me.z)
 			if r is not None and g.rainslot is None and g.raineffect is None:

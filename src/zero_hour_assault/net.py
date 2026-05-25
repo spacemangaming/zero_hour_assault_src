@@ -15,8 +15,8 @@ from input import get_input
 import updater
 import requests
 #netaddress=requests.get("https://nbmstudios.com/zero_hour_assault/ip.txt").text
-netport=55918
-netaddress="0user"
+netport=10000
+netaddress="titanium"
 m=menu()
 peer_id=0
 connectiontimer=timer()

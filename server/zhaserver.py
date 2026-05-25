@@ -478,6 +478,9 @@ from bike import bikeloop, bike
 from molotof import molotofloop
 def main():
 	global languages, store_data, event_store_data
+	import os
+	server_dir = os.path.dirname(os.path.abspath(__file__))
+	os.chdir(server_dir)
 	if file_exists("matches.dat"): load_matches()
 	if file_exists("chests.dat"): load_chests()
 	if file_exists("electrics.dat"): load_electrics()
@@ -529,7 +532,7 @@ def main():
 	f=open("motd.txt","r")
 	f.close()
 	setupserver()
-	port = 55918 if "android" not in os.getcwd() else 55919
+	port = 10000 if "android" not in os.getcwd() else 10001
 	
 	print("=" * 65)
 	print("                    ZERO HOUR ASSAULT GAME SERVER")
@@ -3929,15 +3932,13 @@ def netloop():
 				
 				rename_group(g.players[index].group,parsed[1])
 				
-				os.chdir("maps")
 				for base in g.group_bases:
 					if base.name==old_group_name: # Changed to check against old_group_name variable for safety
-						if file_exists("basement"+old_group_name+base.mapappend+".map"):
-							os.rename("basement"+old_group_name+base.mapappend+".map","basement"+parsed[1]+base.mapappend+".map")
+						if file_exists("maps/basement"+old_group_name+base.mapappend+".map"):
+							try: os.rename("maps/basement"+old_group_name+base.mapappend+".map","maps/basement"+parsed[1]+base.mapappend+".map")
+							except: pass
 						for chest in g.chests:
 							if chest.map=="basement"+old_group_name+base.mapappend: chest.map="basement"+parsed[1]+base.mapappend
-
-				os.chdir("..")
 				
 				for base in g.group_bases:
 					if base.name==old_group_name:
@@ -5200,14 +5201,12 @@ def netloop():
 				save_char(index)
 				notify_admins("zero hour assault, "+g.players[index].name+" changed their name to "+parsed[1]+"")
 				adminsend(""+g.players[index].name+" changed their name to "+parsed[1]+"")
-				os.chdir("chars")
 				g.n.send_reliable(e.peer_id,"Done",0)
 				oldname=g.players[index].name
 				remove_from_server(index)
 
-				try: os.rename(oldname,parsed[1])
+				try: os.rename("chars/"+oldname, "chars/"+parsed[1])
 				except: pass
-				os.chdir("..")
 		if parsed[0]=="eml3":
 			index=g.get_player_index(e.peer_id)
 			if(index>-1 and parsed[1]!="[cncel]"):
@@ -8494,6 +8493,9 @@ here, since the player name is before the string "came online", we added =substr
 					send_reliable(e.peer_id,"errored You can not recover your password right now. Please try in "+str(hours)+" hours, "+str(minutes)+" minutes, "+str(seconds)+" seconds. If you want to get your password faster, please contact us at contact@nbmstudios.com",0)
 					return
 
+				if not file_exists("chars/"+un+"/pass.usr") or not file_exists("chars/"+un+"/mail.usr"):
+					send_reliable(e.peer_id,"errored invalid account data",0)
+					return
 				eml=file_get_contents("chars/"+un+"/mail.usr")
 				f=open("chars/"+un+"/mailsent.usr","w")
 				f.close()
@@ -10900,13 +10902,9 @@ here, since the player name is before the string "came online", we added =substr
 				# Bu sırada save_char tekrar çalışır, sorun yok eski isme yazar.
 				remove_from_server(index, True) 
 
-				# 3. Klasörü işletim sistemi seviyesinde taşı (Eskiyi siler, yeniyi yaratır)
 				try:
-					os.chdir("chars")
-					os.rename(old_name, new_name)
-					os.chdir("..")
+					os.rename("chars/"+old_name, "chars/"+new_name)
 				except Exception as ex:
-					os.chdir("..") # Hata olsa bile ana dizine dön
 					adminsend(f"Rename error for {old_name}: {str(ex)}")
 		elif(parsed[0]=="spawn_player" and len(parsed) > 5):
 		
@@ -12337,7 +12335,14 @@ def login(user, password, mail, compid, peer_id):
 		#if str(g.n.get_peer_address(p.peer_id))==str(g.n.get_peer_address(peer_id)): g.n.send_reliable(peer_id,"banned error. You can't login to the game from the same network 2 or more times",0); return
 #	if file_exists("chars/"+user+"/beta.usr")==False and file_exists("chars/"+user+"/developer.usr")==False: g.n.send_reliable(peer_id,"banned you are not betatester of this version. Contact with developers for more assistance",0); return
 
-	if(not directory_exists("chars/"+user)):
+	if(not directory_exists("chars/"+user) or 
+		not file_exists("chars/"+user+"/pass.usr") or 
+		not file_exists("chars/"+user+"/mail.usr") or
+		not file_exists("chars/"+user+"/map.usr") or
+		not file_exists("chars/"+user+"/facing.usr") or
+		not file_exists("chars/"+user+"/x.usr") or
+		not file_exists("chars/"+user+"/y.usr") or
+		not file_exists("chars/"+user+"/z.usr")):
 	
 		g.n.send_reliable(peer_id,"doesnotexist",0)
 		return
@@ -12464,22 +12469,22 @@ g.get_player_index=get_player_index
 def get_player_index_from(name):
 	founds=[]
 	for i in range(len(g.players)):
-		if g.players[i].name==name: founds.append(i)
+		if g.players[i] is not None and g.players[i].name.lower()==name.lower(): founds.append(i)
 	try: return founds[-1]
 	except: return -1
 def get_player_index_fromnpc(name):
 	for i in range(len(g.players)):
-		if g.players[i].name==name: return i
+		if g.players[i] is not None and g.players[i].name.lower()==name.lower(): return i
 	for i in range(len(g.npcs)):
-		if g.npcs[i].name==name: return i
+		if g.npcs[i] is not None and g.npcs[i].name.lower()==name.lower(): return i
 
 	return -1
 g.get_player_index_fromnpc=get_player_index_fromnpc
 def getpc(name):
 	for i in range(len(g.players)):
-		if g.players[i].name==name: return g.players[i]
+		if g.players[i] is not None and g.players[i].name.lower()==name.lower(): return g.players[i]
 	for i in range(len(g.npcs)):
-		if g.npcs[i].name==name: return g.npcs[i]
+		if g.npcs[i] is not None and g.npcs[i].name.lower()==name.lower(): return g.npcs[i]
 
 	return None
 g.getpc=getpc
@@ -13065,8 +13070,12 @@ def remove_from_server(ind2=-1,force=False):
 				m.removeplayertimer.restart()
 		if not g.players[ind2].hidden:
 			for i in g.players:
-				if i.friendonlinemessage==1 and i.name in g.players[ind2].friendlist: g.n.send_reliable(i.peer_id,"offline "+str(g.players[ind2].x)+" "+str(g.players[ind2].y)+" "+str(g.players[ind2].z)+" "+g.players[ind2].name+" "+g.players[ind2].map,0)
-				else: g.n.send_reliable(i.peer_id,"offline2 "+str(g.players[ind2].x)+" "+str(g.players[ind2].y)+" "+str(g.players[ind2].z)+" "+g.players[ind2].name+" "+g.players[ind2].map,0)
+				if i is None:
+					continue
+				if getattr(i, "friendonlinemessage", 0) == 1 and g.players[ind2] is not None and getattr(g.players[ind2], "friendlist", None) is not None and i.name in g.players[ind2].friendlist:
+					g.n.send_reliable(i.peer_id,"offline "+str(g.players[ind2].x)+" "+str(g.players[ind2].y)+" "+str(g.players[ind2].z)+" "+g.players[ind2].name+" "+g.players[ind2].map,0)
+				else:
+					g.n.send_reliable(i.peer_id,"offline2 "+str(g.players[ind2].x)+" "+str(g.players[ind2].y)+" "+str(g.players[ind2].z)+" "+g.players[ind2].name+" "+g.players[ind2].map,0)
 	if ind2>-1:
 		g.players[ind2]=None
 		g.players.pop(ind2)
@@ -13403,7 +13412,7 @@ def convert_to_list(arr):
 	for name in arr:
 		index = get_player_index_from(name)
 		# Oyuncu sunucuda değilse VEYA sunucudaysa ama 'hidden' değeri True ise offline göster
-		if index == -1 or g.players[index].hidden:
+		if index == -1 or g.players[index] is None or g.players[index].hidden:
 			processed.append(name + ", offline")
 		else:
 			processed.append(name + ", online")

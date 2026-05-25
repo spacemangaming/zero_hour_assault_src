@@ -50,3 +50,10 @@ $RECYCLE.BIN/
 *.userossc
 *.sln
 *.db
+
+# FMOD/Steam Audio native library binaries
+third_party/
+
+# Ignore all .dat files
+*.dat
+!sounds.dat
