@@ -305,6 +305,54 @@ class mapdata:
 				temp=mwall(minx,maxx,miny,maxy,z,maxz,self.name,type)
 				g.mwalls.append(temp)
 				
+			elif parsed[0] == "waypoint" and len(parsed) >= 6:
+				path_id = parsed[1]
+				idx = int(parsed[2])
+				x = int(parsed[3])
+				y = int(parsed[4])
+				z = int(parsed[5])
+				is_stop = False
+				stop_duration = 0
+				if len(parsed) >= 8:
+					is_stop = (parsed[6].lower() == "true" or parsed[6] == "1")
+					stop_duration = int(parsed[7])
+				w = {
+					"path_id": path_id,
+					"index": idx,
+					"x": x,
+					"y": y,
+					"z": z,
+					"is_stop": is_stop,
+					"stop_duration": stop_duration
+				}
+				g.waypoints.append(w)
+				
+			elif parsed[0] == "transit" and len(parsed) >= 6:
+				vtype = parsed[1]
+				start_x = int(parsed[2])
+				start_y = int(parsed[3])
+				z = int(parsed[4])
+				config_str = parsed[5]
+				
+				# Parse semicolon-separated key-value configurations
+				config = {}
+				for pair in config_str.split(";"):
+					if "=" in pair:
+						k, v = pair.split("=", 1)
+						config[k.strip()] = v.strip()
+				
+				path_id = config.get("path", "")
+				interior_map = config.get("interior_map", "")
+				max_health = int(config.get("health", "500"))
+				speed = int(config.get("speed", "30"))
+				engine_sound = config.get("sound", "motorengine.ogg")
+				door_mode = config.get("door_mode", "always_open")
+				
+				from transit import OpenDoorBus
+				if door_mode == "always_open":
+					v = OpenDoorBus(vtype, start_x, start_y, z, self.name, path_id, interior_map, max_health, speed, engine_sound, door_mode)
+					g.transits.append(v)
+				
 			
 		
 	
@@ -600,6 +648,21 @@ def init_mapsystem():
 				walld[m.name].append(copy.deepcopy(w))
 	g.maps.clear()
 	g.mwalls.clear()
+	
+	# Clean up transit moving sounds and decouple passengers before clearing
+	for bus in g.transits:
+		if hasattr(bus, "engine_sound_id") and bus.engine_sound_id:
+			from moving_sound_serverside_handler import destroy_moving_sound
+			destroy_moving_sound(bus.engine_sound_id)
+			bus.engine_sound_id = None
+		for name in list(bus.players):
+			p = g.getpc(name)
+			if p is not None:
+				p.in_bus = False
+				p.bus_instance = None
+				
+	g.transits.clear()
+	g.waypoints.clear()
 	mapfiles=find_files("maps")
 	for i in range(len(mapfiles)):
 	

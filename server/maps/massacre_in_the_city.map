@@ -705,3 +705,39 @@ chest:400:733:121:
 chest:400:832:143:
 
 platform:8:10:25:30:0:100:balloon
+
+// ============================================================
+// CITY BUS ROUTE - Line 1 (city_line_1)
+// Runs along the main street (Y=112) from West End to East Terminal
+// Bus stops at three stations for 5 seconds each
+// Players physically walk onto the bus to board (proximity-based)
+// ============================================================
+
+// --- Bus Stop Signs & Zones ---
+// West End Bus Stop (X=100)
+zone:97:103:109:115:0:3:West End Bus Stop:trackable
+sign:100:112:1:City Bus Line 1 - West End Stop. The bus will arrive shortly. Stand near the road to board.
+
+// City Center Bus Stop (X=500)
+zone:497:503:109:115:0:3:City Center Bus Stop:trackable
+sign:500:112:1:City Bus Line 1 - City Center Stop. Stand near the road to board automatically.
+
+// East Terminal Bus Stop (X=900)
+zone:897:903:109:115:0:3:East Terminal Bus Stop:trackable
+sign:900:112:1:City Bus Line 1 - East Terminal. Final stop. Stand near the road to board.
+
+// --- Waypoints for city_line_1 route ---
+// Forward leg: West to East (stopping at each station)
+waypoint:city_line_1:0:50:112:0:0:0
+waypoint:city_line_1:1:100:112:0:1:5
+waypoint:city_line_1:2:500:112:0:1:5
+waypoint:city_line_1:3:900:112:0:1:5
+waypoint:city_line_1:4:950:112:0:0:0
+// Return leg: East to West (stopping at each station)
+waypoint:city_line_1:5:900:112:0:1:5
+waypoint:city_line_1:6:500:112:0:1:5
+waypoint:city_line_1:7:100:112:0:1:5
+
+// --- Transit Vehicle Spawn ---
+// open_door_bus spawns at west end of main street, runs city_line_1 loop
+transit:open_door_bus:50:112:0:path=city_line_1;interior_map=bus_interior;health=500;speed=25;sound=motorengine.ogg;door_mode=always_open

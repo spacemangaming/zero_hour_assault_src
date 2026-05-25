@@ -49,6 +49,12 @@ class player:
 		self.friendcount=0
 		self.binocularsplayer=""
 		self.bike=None
+		# Transit / vehicle system
+		self.in_bus=False
+		self.bus_instance=None
+		self.local_x=0
+		self.local_y=0
+		self.local_z=0
 		self.itembeep=1
 		self.aim_mode=1
 		self.pingtimer=timer()

@@ -1,0 +1,39 @@
+mapname:City Bus Interior
+maxx:8
+maxy:16
+maxz:6
+
+// Floor - wide central aisle
+platform:1:6:1:14:0:0:carpet3
+
+// Left seats (x=1 column)
+platform:1:2:2:13:0:1:wood4
+
+// Right seats (x=5 column)
+platform:5:6:2:13:0:1:wood4
+
+// Aisle floor between seats
+platform:3:4:1:14:0:0:carpet3
+
+// West wall (solid)
+platform:0:0:0:15:0:5:wallbuilding
+
+// East wall (solid)
+platform:7:7:0:15:0:5:wallbuilding
+
+// North wall (front of bus, with door gap at center x=3-4)
+platform:0:2:0:0:0:5:wallbuilding
+platform:5:7:0:0:0:5:wallbuilding
+
+// South wall (rear of bus, with door gap at center x=3-4)
+platform:0:2:15:15:0:5:wallbuilding
+platform:5:7:15:15:0:5:wallbuilding
+
+// Ceiling
+platform:0:7:0:15:5:5:wallbuilding
+
+// Driver area (front partition at y=1)
+platform:0:7:1:1:2:5:wallbuilding
+
+// Sign inside the bus
+sign:3:7:0:City Bus Line 1. Press Shift plus Enter to exit. Front door at y equals 0, rear door at y equals 15.
