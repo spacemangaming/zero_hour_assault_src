@@ -134,7 +134,6 @@ import updater
 from key_hold import key_holding
 from variable_management import string_left
 from speech import speak
-from oal import al
 import zero_hour_assault
 import sound_pool
 import sound_positioning

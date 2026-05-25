@@ -6,6 +6,7 @@ from map import get_tile_at
 from rotation import get_3d_distance
 from file_directories import file_exists
 from moving_sound_serverside_handler import spawn_moving_sound, update_moving_sound, destroy_moving_sound
+from performance_monitor import get_logger
 
 # Global sound ID allocator for moving engine sounds
 _global_sound_counter = 50000
@@ -14,10 +15,11 @@ _global_sound_counter = 50000
 _perf_log_timer = timer()
 _perf_tick_count = 0
 _perf_packet_count = 0
+_transit_logger = get_logger("transit", "transit.log")
 
 def _bus_perf_log(msg):
-	"""Log transit performance info to server console."""
-	print(f"[Transit] {msg}")
+	"""Log transit performance info without spamming the server console."""
+	_transit_logger.info(msg)
 
 def _bus_perf_tick():
 	"""Track tick count and periodically log performance stats."""

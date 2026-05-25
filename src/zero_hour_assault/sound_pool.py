@@ -1,5 +1,4 @@
 import sound, sound_positioning, traceback
-from oal import *
 import globals as g
 class SoundPoolItem:
     def __init__(self, **kwargs):
@@ -282,67 +281,6 @@ class SoundPool:
         sound_x=listener_x
         sound_y=listener_y
         sound_z=listener_z
-        if s.handle.player is not None and (g.get_reverb_at(sound_x,sound_y,sound_z) is not None or g.get_reverb_at(listener_x,listener_y,listener_z) is not None):
-            r = g.get_reverb_at(sound_x,sound_y,sound_z)
-            if r is None: r=g.get_reverb_at(listener_x,listener_y,listener_z)
-            s.handle.slot = EFXslot()
-            s.handle.effect = reverb()
-            s.handle.effect.density=r._density
-            s.handle.effect.diffusion=r._diffusion
-            s.handle.effect.gain=r._gain
-            s.handle.effect.gainhf=r._gainhf
-            s.handle.effect.decay_time=r._decay_time
-            s.handle.effect.hfratio=r._hfratio
-            s.handle.effect.reflections_gain=r._reflections_gain
-            s.handle.effect.reflections_delay=r._reflections_delay
-            s.handle.effect.late_reverb_gain=r._late_reverb_gain
-            s.handle.effect.late_reverb_delay=r._late_reverb_delay
-            s.handle.effect.air_absorption_gainhf=r._air_absorption_gainhf
-            s.handle.effect.room_rolloff_factor=r._room_rolloff_factor
-            s.handle.slot.set_effect(s.handle.effect)
-            s.handle.player.add_effect(s.handle.slot)
-        if s.handle.player is not None and (g.get_echo_at(sound_x,sound_y,sound_z) is not None or g.get_echo_at(listener_x,listener_y,listener_z) is not None):
-            r = g.get_echo_at(sound_x,sound_y,sound_z)
-            if r is None: r=g.get_echo_at(listener_x,listener_y,listener_z)
-            s.handle.slot = EFXslot()
-            s.handle.effect = echo()
-            s.handle.delay=r._delay
-            s.handle.LRdelay=r._LRdelay
-            s.handle.damping=r._damping
-            s.handle.feedback=r._feedback
-            s.handle.spread=r._spread
-            s.handle.slot.set_effect(s.handle.effect)
-            s.handle.player.add_effect(s.handle.slot)
-
-        if s.handle.player is not None and (g.get_eaxreverb_at(sound_x,sound_y,sound_z) is not None or g.get_eaxreverb_at(listener_x,listener_y,listener_z) is not None):
-            r = g.get_eaxreverb_at(sound_x,sound_y,sound_z)
-            if r is None: r=g.get_eaxreverb_at(listener_x,listener_y,listener_z)
-            s.handle.slot = EFXslot()
-            s.handle.effect = EAXreverb()
-            s.handle.effect.density=r._density
-            s.handle.effect.diffusion=r._diffusion
-            s.handle.effect.gain=r._gain
-            s.handle.effect.gainhf=r._gainhf
-            s.handle.effect.gainlf=r._gainlf
-            s.handle.effect.decay_time=r._decay_time
-            s.handle.effect.decay_hfratio=r._decay_hfratio
-            s.handle.effect.decay_lfratio=r._decay_lfratio
-            s.handle.effect.reflections_gain=r._reflections_gain
-            s.handle.effect.reflections_delay=r._reflections_delay
-            s.handle.effect.reflections_pan=r._reflections_pan
-            s.handle.effect.late_reverb_gain=r._late_reverb_gain
-            s.handle.effect.late_reverb_delay=r._late_reverb_delay
-            s.handle.effect.late_reverb_pan=r._late_reverb_pan
-            s.handle.effect.echo_time=r._echo_time
-            s.handle.effect.echo_depth=r._echo_depth
-            s.handle.effect.modulation_time=r._modulation_time
-            s.handle.effect.modulation_depth=r._modulation_depth
-            s.handle.effect.air_absorption_gainhf=r._air_absorption_gainhf
-            s.handle.effect.hfreference=r._hfreference
-            s.handle.effect.lfreference=r._lfreference
-            s.handle.effect.room_rolloff_factor=r._room_rolloff_factor
-            s.handle.slot.set_effect(s.handle.effect)
-            s.handle.player.add_effect(s.handle.slot)
         s.handle.player.stationary=True
         if looping == True:
             s.handle.play_looped()
@@ -655,69 +593,6 @@ class SoundPool:
         s.alhrtf=alhrtf
         if s.handle.player is not None: s.handle.player.alhrtf=alhrtf
         s.update(listener_x, listener_y, listener_z, rotation, self.max_distance)
-
-        if s.handle.player is not None and (g.get_reverb_at(sound_x,sound_y,sound_z) is not None or g.get_reverb_at(listener_x,listener_y,listener_z) is not None):
-            r = g.get_reverb_at(sound_x,sound_y,sound_z)
-            if r is None: r=g.get_reverb_at(listener_x,listener_y,listener_z)
-            s.handle.slot = EFXslot()
-            s.handle.effect = reverb()
-            s.handle.effect.density=r._density
-            s.handle.effect.diffusion=r._diffusion
-            s.handle.effect.gain=r._gain
-            s.handle.effect.gainhf=r._gainhf
-            s.handle.effect.decay_time=r._decay_time
-            s.handle.effect.hfratio=r._hfratio
-            s.handle.effect.reflections_gain=r._reflections_gain
-            s.handle.effect.reflections_delay=r._reflections_delay
-            s.handle.effect.late_reverb_gain=r._late_reverb_gain
-            s.handle.effect.late_reverb_delay=r._late_reverb_delay
-            s.handle.effect.air_absorption_gainhf=r._air_absorption_gainhf
-            s.handle.effect.room_rolloff_factor=r._room_rolloff_factor
-            s.handle.slot.set_effect(s.handle.effect)
-            s.handle.player.add_effect(s.handle.slot)
-        if s.handle.player is not None and (g.get_echo_at(sound_x,sound_y,sound_z) is not None or g.get_echo_at(listener_x,listener_y,listener_z) is not None):
-            r = g.get_echo_at(sound_x,sound_y,sound_z)
-            if r is None: r=g.get_echo_at(listener_x,listener_y,listener_z)
-            s.handle.slot = EFXslot()
-            s.handle.effect = echo()
-            s.handle.delay=r._delay
-            s.handle.LRdelay=r._LRdelay
-            s.handle.damping=r._damping
-            s.handle.feedback=r._feedback
-            s.handle.spread=r._spread
-            s.handle.slot.set_effect(s.handle.effect)
-            s.handle.player.add_effect(s.handle.slot)
-
-        if s.handle.player is not None and (g.get_eaxreverb_at(sound_x,sound_y,sound_z) is not None or g.get_eaxreverb_at(listener_x,listener_y,listener_z) is not None):
-            r = g.get_eaxreverb_at(sound_x,sound_y,sound_z)
-            if r is None: r=g.get_eaxreverb_at(listener_x,listener_y,listener_z)
-            s.handle.slot = EFXslot()
-            s.handle.effect = EAXreverb()
-            s.handle.effect.density=r._density
-            s.handle.effect.diffusion=r._diffusion
-            s.handle.effect.gain=r._gain
-            s.handle.effect.gainhf=r._gainhf
-            s.handle.effect.gainlf=r._gainlf
-            s.handle.effect.decay_time=r._decay_time
-            s.handle.effect.decay_hfratio=r._decay_hfratio
-            s.handle.effect.decay_lfratio=r._decay_lfratio
-            s.handle.effect.reflections_gain=r._reflections_gain
-            s.handle.effect.reflections_delay=r._reflections_delay
-            s.handle.effect.reflections_pan=r._reflections_pan
-            s.handle.effect.late_reverb_gain=r._late_reverb_gain
-            s.handle.effect.late_reverb_delay=r._late_reverb_delay
-            s.handle.effect.late_reverb_pan=r._late_reverb_pan
-            s.handle.effect.echo_time=r._echo_time
-            s.handle.effect.echo_depth=r._echo_depth
-            s.handle.effect.modulation_time=r._modulation_time
-            s.handle.effect.modulation_depth=r._modulation_depth
-            s.handle.effect.air_absorption_gainhf=r._air_absorption_gainhf
-            s.handle.effect.hfreference=r._hfreference
-            s.handle.effect.lfreference=r._lfreference
-            s.handle.effect.room_rolloff_factor=r._room_rolloff_factor
-            s.handle.slot.set_effect(s.handle.effect)
-            s.handle.player.add_effect(s.handle.slot)
-
 
         if looping:
             s.handle.play_looped()

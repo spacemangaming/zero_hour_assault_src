@@ -67,6 +67,7 @@ from map import linear
 
 import sys
 from player import playerloop
+from performance_monitor import PerformanceMonitor
 
 
 
@@ -556,12 +557,20 @@ def main():
 	for base in g.group_bases:
 		if not chest_at(20, 25, 0, "basement"+base.name+base.mapappend):
 			spawn_chest(20,25,0,"basement"+base.name+base.mapappend)
+	perf_monitor = PerformanceMonitor()
+	print("[*] Performance logs: logs/performance.log")
+	print("[*] Transit logs: logs/transit.log")
 	while(True):
+		loop_started = tm.perf_counter()
 		time.sleep(0.001)
 		try:
+			net_started = tm.perf_counter()
 			netloop()
+			net_elapsed_ms = (tm.perf_counter() - net_started) * 1000.0
 
+			game_started = tm.perf_counter()
 			gameloops()
+			game_elapsed_ms = (tm.perf_counter() - game_started) * 1000.0
 			if g.ttchecktimer.elapsed>1000 and file_exists("gift.txt"):
 				g.ttchecktimer.restart()
 				user=file_get_contents("gift.txt")
@@ -595,6 +604,7 @@ def main():
 
 				subprocess.Popen(["python3", "zhaserver.py"])
 				exit()
+			perf_monitor.sample((tm.perf_counter() - loop_started) * 1000.0, net_elapsed_ms, game_elapsed_ms, g)
 		except SystemExit:
 			os._exit(0)
 

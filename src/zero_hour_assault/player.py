@@ -3,10 +3,8 @@ import globals as g
 from map import get_tile_at
 from random import randint as random
 from rotation import calculate_theta
-from oal import al
 import math
 from rotation import calculate_theta
-from oal import al
 class player:
 
 	def __init__(self, px, py, pz, pmap,  pname,srate):
@@ -41,6 +39,8 @@ class player:
 		self.x=px
 		self.audio_buffer=[]
 		self.audio_buffer2=[]
+		self.voice_sound=None
+		self.voice_sound2=None
 		self.y=py
 		self.z=pz; self.map=pmap
 
@@ -81,10 +81,13 @@ class player:
 		x=delta_x
 		y=delta_y
 		z=delta_z
-		try:
-			al.alSourcei(self.alsrc, 4147, (x==0 and y==0 and z==0))
-			al.alSource3f(self.alsrc, al.AL_POSITION, x, z, -y)
-		except: pass
+		for handle_name in ("voice_sound", "voice_sound2"):
+			try:
+				handle=getattr(self, handle_name)
+				if handle is not None:
+					handle.player.stationary=(x==0 and y==0 and z==0)
+					handle.set_3dposition(x, y, z)
+			except: pass
 def spawn_player(x, y,z, map, name,srate):
 	if get_player_index(name)>-1: return
 	pl=player(x,y,z,map,name,srate)
@@ -96,15 +99,8 @@ def remove_player(username):
 	
 		if(i.name==username):
 			try:
-				al.alSourceUnqueueBuffers(i.alsrc, 1, i.albuf)
-				al.alSourcei(i.alsrc, al.AL_BUFFER, 0)
-				al.alDeleteSources(1, i.alsrc)
-				al.alDeleteBuffers(1, i.albuf)
-				al.alSourceUnqueueBuffers(i.alsrc2, 1, i.albuf)
-				al.alSourcei(i.alsrc2, al.AL_BUFFER, 0)
-				al.alDeleteSources(1, i.alsrc2)
-				al.alDeleteBuffers(1, i.albuf2)
-
+				if i.voice_sound is not None: i.voice_sound.close()
+				if i.voice_sound2 is not None: i.voice_sound2.close()
 			except: pass
 			g.players.remove(i)
 		

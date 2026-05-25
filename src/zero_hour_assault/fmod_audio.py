@@ -51,11 +51,6 @@ def init_fmod():
 # Initialize at module level if available
 init_fmod()
 
-import globals as g
-from audio import *
-from pack_file import *
-from security import *
-
 def update_fmod():
     if initialized and system:
         try:
@@ -118,6 +113,8 @@ class fmod_sound(object):
             else:
                 # Decrypt and write to temp directory
                 content = extracted.read() if hasattr(extracted, "read") else extracted
+                import globals as g
+                from security import string_decrypt
                 content = string_decrypt(content, g.sdeckey)
                 temp_path = os.path.join(DIRECTORY_TEMP, filename)
                 temp_dir = os.path.dirname(temp_path)

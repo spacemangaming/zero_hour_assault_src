@@ -285,8 +285,11 @@ def outputdevicemenu():
 	devices = sound.get_available_output_devices()
 	m.add_item_tts("default",None)
 	for device_name in devices:
-		#if not device_name.decode("utf-8","ignore").lower().startswith("openal soft on "): continue
-		if device_name.decode("utf-8","ignore")!="": m.add_item_tts(device_name.decode("utf-8","ignore").lower().replace("OpenAL soft on ".lower(),""), device_name)
+		if isinstance(device_name, bytes):
+			label=device_name.decode("utf-8","ignore")
+		else:
+			label=str(device_name)
+		if label!="": m.add_item_tts(label.lower(), device_name)
 	m.add_item_tts("Back to settings", "back")
 	if g.inthegame: m.callback2 = g.mainloop
 	mres = m.run("Please select the audio output device.", True)

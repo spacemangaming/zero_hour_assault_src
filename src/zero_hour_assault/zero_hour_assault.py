@@ -496,7 +496,6 @@ def delinear(a): return string_split(a,"\n",True)
 parachute_sound=None
 falling_sound=None
 
-from oal import al,efx,Listener
 from speech import speak
 from input import get_input
 from ticket_dialogs import ticket_dialog, create_ticket_dialog, ticket_dialog2
@@ -590,10 +589,6 @@ hq-mode=true""")
 		directory_create(DIRECTORY_APPDATA+"/nbm-studios/zero_hour_assault")
 	readprefs()
 
-	if not sound.FMOD_ACTIVE:
-		sound.listener.delete()
-		sound.listener=Listener()
-		sound.listener.hrtf=g.hrtf
 	readprefs()
 	g.bnext=sound.sound();g.bpos=sound.sound()
 	g.bpos.load("buffer1.ogg")
@@ -1165,6 +1160,48 @@ def play_for_voicechat2():
 		index=get_player_index(playername.decode())
 		if index>-1:
 			g.players[index].audio_buffer2.append(audio_data)
+
+voice_temp_counter=0
+def init_voicechat_player(pl):
+	pl.opus_decoder = opuslib.Decoder(pl.samplerate, CHANNELS)
+	pl.opus_decoder2 = opuslib.Decoder(pl.samplerate, CHANNELS)
+	if not hasattr(pl, "voice_sound"): pl.voice_sound=None
+	if not hasattr(pl, "voice_sound2"): pl.voice_sound2=None
+	Thread(target=handle_voicechat_data,args=(pl,)).start()
+	Thread(target=handle_voicechat_data2,args=(pl,)).start()
+
+def play_voice_pcm(pl, pcm_data, second=False):
+	global voice_temp_counter
+	if not pcm_data:
+		return
+	try:
+		os.makedirs(DIRECTORY_TEMP, exist_ok=True)
+	except: pass
+	voice_temp_counter+=1
+	filename=os.path.join(DIRECTORY_TEMP, "voice_"+str(voice_temp_counter)+".wav")
+	try:
+		with wave.open(filename, "wb") as wav:
+			wav.setnchannels(CHANNELS)
+			wav.setsampwidth(2)
+			wav.setframerate(pl.samplerate)
+			wav.writeframes(pcm_data)
+		handle_name="voice_sound2" if second else "voice_sound"
+		old=getattr(pl, handle_name, None)
+		if old is not None:
+			try: old.close()
+			except: pass
+		handle=sound.sound()
+		handle.load(filename)
+		handle._delete_on_close=filename
+		handle.player.stationary=False
+		handle.volume=0
+		if pl.name in g.playervolumes:
+			handle.volume=round(20*math.log10(max(g.playervolumes[pl.name], 1)/100))
+		setattr(pl, handle_name, handle)
+		pl.position_voicechat_sound()
+		handle.play()
+	except:
+		pass
 
 def netloop(events=False,request=True):
 	global parachute_sound,falling_sound
@@ -2255,26 +2292,7 @@ def netloop(events=False,request=True):
 				except: spawn_player(float(parsed[1]), float(parsed[2]), float(parsed[3]), parsed[4], parsed[5], 48000)
 				g.n.send_reliable(0,"resetfriends",0)
 				pl=g.players[len(g.players)-1]
-				pl.albuf=al.ALuint(0)
-				al.alGenBuffers(1, pl.albuf)
-				pl.alsrc=al.ALuint(0)
-				al.alGenSources(1, pl.alsrc)
-				al.alSourcef(pl.alsrc, al.AL_GAIN, g.volumeg/100)
-				al.alSourcei(pl.alsrc, 4147, 1) # disable hrtf
-				#al.alSourceQueueBuffers(pl.alsrc, 1, pl.albuf)
-				al.alSourcei(pl.alsrc, al.AL_BUFFER, pl.albuf.value)
-				pl.opus_decoder = opuslib.Decoder(pl.samplerate, CHANNELS)
-				Thread(target=handle_voicechat_data,args=(pl,)).start()
-				pl.albuf2=al.ALuint(0)
-				al.alGenBuffers(1, pl.albuf2)
-				pl.alsrc2=al.ALuint(0)
-				al.alGenSources(1, pl.alsrc2)
-				al.alSourcef(pl.alsrc2, al.AL_GAIN, g.volumeg/100)
-				al.alSourcei(pl.alsrc2, 4147, 1) # disable hrtf
-				#al.alSourceQueueBuffers(pl.alsrc2, 1, pl.albuf2)
-				al.alSourcei(pl.alsrc2, al.AL_BUFFER, pl.albuf2.value)
-				pl.opus_decoder2 = opuslib.Decoder(pl.samplerate, CHANNELS)
-				Thread(target=handle_voicechat_data2,args=(pl,)).start()
+				init_voicechat_player(pl)
 
 			elif(parsed[0]=="door_at" and len(parsed)==12):
 			
@@ -2312,26 +2330,7 @@ def netloop(events=False,request=True):
 				spawn_player(x, y, z, parsed[5], parsed[4], int(parsed[6]))
 				g.n.send_reliable(0,"resetfriends",0)
 				pl=g.players[len(g.players)-1]
-				pl.albuf=al.ALuint(0)
-				al.alGenBuffers(1, pl.albuf)
-				pl.alsrc=al.ALuint(0)
-				al.alGenSources(1, pl.alsrc)
-				al.alSourcef(pl.alsrc, al.AL_GAIN, g.volumeg/100)
-				al.alSourcei(pl.alsrc, 4147, 1) # disable hrtf
-#				al.alSourceQueueBuffers(pl.alsrc, 1, pl.albuf)
-				al.alSourcei(pl.alsrc, al.AL_BUFFER, pl.albuf.value)
-				pl.opus_decoder = opuslib.Decoder(g.samplerate, CHANNELS)
-				Thread(target=handle_voicechat_data,args=(pl,)).start()
-				pl.albuf2=al.ALuint(0)
-				al.alGenBuffers(1, pl.albuf2)
-				pl.alsrc2=al.ALuint(0)
-				al.alGenSources(1, pl.alsrc2)
-				al.alSourcef(pl.alsrc2, al.AL_GAIN, g.volumeg/100)
-				al.alSourcei(pl.alsrc2, 4147, 1) # disable hrtf
-				#al.alSourceQueueBuffers(pl.alsrc2, 1, pl.albuf2)
-				al.alSourcei(pl.alsrc2, al.AL_BUFFER, pl.albuf2.value)
-				pl.opus_decoder2 = opuslib.Decoder(pl.samplerate, CHANNELS)
-				Thread(target=handle_voicechat_data2,args=(pl,)).start()
+				init_voicechat_player(pl)
 
 			elif(parsed[0]=="online2"):
 			
@@ -2342,26 +2341,7 @@ def netloop(events=False,request=True):
 				except: spawn_player(x, y, z, parsed[5], parsed[4], 48000)
 				g.n.send_reliable(0,"resetfriends",0)
 				pl=g.players[len(g.players)-1]
-				pl.albuf=al.ALuint(0)
-				al.alGenBuffers(1, pl.albuf)
-				pl.alsrc=al.ALuint(0)
-				al.alGenSources(1, pl.alsrc)
-				al.alSourcef(pl.alsrc, al.AL_GAIN, g.volumeg/100)
-				al.alSourcei(pl.alsrc, 4147, 1) # disable hrtf
-#				al.alSourceQueueBuffers(pl.alsrc, 1, pl.albuf)
-				al.alSourcei(pl.alsrc, al.AL_BUFFER, pl.albuf.value)
-				pl.opus_decoder = opuslib.Decoder(g.samplerate, CHANNELS)
-				Thread(target=handle_voicechat_data,args=(pl,)).start()
-				pl.albuf2=al.ALuint(0)
-				al.alGenBuffers(1, pl.albuf2)
-				pl.alsrc2=al.ALuint(0)
-				al.alGenSources(1, pl.alsrc2)
-				al.alSourcef(pl.alsrc2, al.AL_GAIN, g.volumeg/100)
-				al.alSourcei(pl.alsrc2, 4147, 1) # disable hrtf
-				#al.alSourceQueueBuffers(pl.alsrc2, 1, pl.albuf2)
-				al.alSourcei(pl.alsrc2, al.AL_BUFFER, pl.albuf2.value)
-				pl.opus_decoder2 = opuslib.Decoder(pl.samplerate, CHANNELS)
-				Thread(target=handle_voicechat_data2,args=(pl,)).start()
+				init_voicechat_player(pl)
 
 			else:
 				speak(g.e.message)
@@ -2465,16 +2445,10 @@ def reset(resetpool=True):
 	g.pinging=False
 	for i in g.players:
 		try:
-			al.alSourceUnqueueBuffers(i.alsrc, 1, i.albuf)
-			al.alSourcei(i.alsrc, al.AL_BUFFER, 0)
-			al.alDeleteSources(1, i.alsrc)
-			al.alDeleteBuffers(1, i.albuf)
+			if i.voice_sound is not None: i.voice_sound.close()
 		except: pass
 		try:
-			al.alSourceUnqueueBuffers(i.alsrc2, 1, i.albuf2)
-			al.alSourcei(i.alsrc2, al.AL_BUFFER, 0)
-			al.alDeleteSources(1, i.alsrc2)
-			al.alDeleteBuffers(1, i.albuf2)
+			if i.voice_sound2 is not None: i.voice_sound2.close()
 		except: pass
 
 		g.players.remove(i)
@@ -2628,175 +2602,10 @@ def mainloop():
 				g.msounds.remove(self)
 	if altimer.elapsed>1000:
 		altimer.restart()
-		for pl in g.players:
-			if not hasattr(pl,"albuf"):
-				pl.albuf=al.ALuint(0)
-				al.alGenBuffers(1, pl.albuf)
-
-			if not hasattr(pl,"alsrc"):
-				pl.alsrc=al.ALuint(0)
-				al.alGenSources(1, pl.alsrc)
-				al.alSourcef(pl.alsrc, al.AL_GAIN, g.volumeg/100)
-				al.alSourcei(pl.alsrc, 4147, 1) # disable hrtf
-				al.alSourcei(pl.alsrc, al.AL_BUFFER, pl.albuf.value)
 		for pla in g.players:
 			if pla.clearbuffertimer.elapsed>5000: pla.audio_buffer.clear(); pla.clearbuffertimer.restart(); pla.alplayed=False
-			r=g.get_reverb_at(g.me.x,g.me.y,g.me.z)
-			if r is not None and pla.slot is None and pla.effect is None:
-				pla.slot=al.ALuint(0)
-				pla.effect=al.ALuint(0)
-				efx.alGenAuxiliaryEffectSlots(1, pla.slot)
-				efx.alGenEffects(1, pla.effect)
-				efx.alEffecti(pla.effect, efx.AL_EFFECT_TYPE, efx.AL_EFFECT_REVERB)
-				efx.alEffectf(pla.effect, efx.AL_REVERB_DENSITY, r._density)
-				efx.alEffectf(pla.effect, efx.AL_REVERB_DIFFUSION, r._diffusion)
-				efx.alEffectf(pla.effect, efx.AL_REVERB_GAIN, r._gain)
-				efx.alEffectf(pla.effect, efx.AL_REVERB_GAINHF, r._gainhf)
-				efx.alEffectf(pla.effect, efx.AL_REVERB_DECAY_TIME, r._decay_time)
-				efx.alEffectf(pla.effect, efx.AL_REVERB_DECAY_HFRATIO, r._hfratio)
-				efx.alEffectf(pla.effect, efx.AL_REVERB_REFLECTIONS_GAIN, r._reflections_gain)
-				efx.alEffectf(pla.effect, efx.AL_REVERB_REFLECTIONS_DELAY, r._reflections_delay)
-				efx.alEffectf(pla.effect, efx.AL_REVERB_LATE_REVERB_GAIN, r._late_reverb_gain)
-				efx.alEffectf(pla.effect, efx.AL_REVERB_LATE_REVERB_DELAY, r._late_reverb_delay)
-				efx.alEffectf(pla.effect, efx.AL_REVERB_AIR_ABSORPTION_GAINHF, r._air_absorption_gainhf)
-				efx.alEffectf(pla.effect, efx.AL_REVERB_ROOM_ROLLOFF_FACTOR, r._room_rolloff_factor)
-				efx.alAuxiliaryEffectSloti(pla.slot, efx.AL_EFFECTSLOT_EFFECT, pla.effect.value)
-				al.alSource3i(pla.alsrc, efx.AL_AUXILIARY_SEND_FILTER, pla.slot.value, 0, efx.AL_EFFECT_NULL)
-				pla.reverb=True
-				return
-			elif r is None and pla.slot is not None and pla.effect is not None and pla.reverb:
-				efx.alDeleteAuxiliaryEffectSlots(1, ctypes.byref(pla.slot))
-				pla.reverb=False
-				efx.alDeleteEffects(1, pla.effect)
-				al.alSource3i(pla.alsrc, efx.AL_AUXILIARY_SEND_FILTER, 0, efx.AL_EFFECT_NULL, 0)
-				pla.effect=None
-				pla.slot=None
-			r=g.get_echo_at(g.me.x,g.me.y,g.me.z)
-			if r is not None and pla.slot is None and pla.effect is None:
-				pla.slot=al.ALuint(0)
-				pla.effect=al.ALuint(0)
-				efx.alGenAuxiliaryEffectSlots(1, pla.slot)
-				efx.alGenEffects(1, pla.effect)
-				efx.alEffecti(pla.effect, efx.AL_EFFECT_TYPE, efx.AL_EFFECT_ECHO)
-				pla.echo=True
-				efx.alAuxiliaryEffectSloti(pla.slot, efx.AL_EFFECTSLOT_EFFECT, pla.effect.value)
-				al.alSource3i(pla.alsrc, efx.AL_AUXILIARY_SEND_FILTER, pla.slot.value, 0, efx.AL_EFFECT_NULL)
-				return
-			elif r is None and pla.slot is not None and pla.effect is not None and pla.echo:
-				efx.alDeleteAuxiliaryEffectSlots(1, ctypes.byref(pla.slot))
-				efx.alDeleteEffects(1, pla.effect)
-				al.alSource3i(pla.alsrc, efx.AL_AUXILIARY_SEND_FILTER, 0, efx.AL_EFFECT_NULL, 0)
-				pla.effect=None
-				pla.echo=False
-				pla.slot=None
-			r=g.get_eaxreverb_at(g.me.x,g.me.y,g.me.z)
-			if r is not None and pla.slot is None and pla.effect is None:
-				pla.slot=al.ALuint(0)
-				pla.effect=al.ALuint(0)
-				efx.alGenAuxiliaryEffectSlots(1, pla.slot)
-				efx.alGenEffects(1, pla.effect)
-				efx.alEffecti(pla.effect, efx.AL_EFFECT_TYPE, efx.AL_EFFECT_EAXREVERB)
-				efx.alEffectf(pla.effect, efx.AL_EAXREVERB_DENSITY, r._density)
-				efx.alEffectf(pla.effect, efx.AL_EAXREVERB_DIFFUSION, r._diffusion)
-				efx.alEffectf(pla.effect, efx.AL_EAXREVERB_GAIN, r._gain)
-				efx.alEffectf(pla.effect, efx.AL_EAXREVERB_GAINHF, r._gainhf)
-				efx.alEffectf(pla.effect, efx.AL_EAXREVERB_GAINLF, r._gainlf)
-				efx.alEffectf(pla.effect, efx.AL_EAXREVERB_DECAY_TIME, r._decay_time)
-				efx.alEffectf(pla.effect, efx.AL_EAXREVERB_DECAY_HFRATIO, r._decay_hfratio)
-				efx.alEffectf(pla.effect, efx.AL_EAXREVERB_DECAY_LFRATIO, r._decay_lfratio)
-				efx.alEffectf(pla.effect, efx.AL_EAXREVERB_REFLECTIONS_GAIN, r._reflections_gain)
-				efx.alEffectf(pla.effect, efx.AL_EAXREVERB_REFLECTIONS_DELAY, r._reflections_delay)
-				efx.alEffectf(pla.effect, efx.AL_EAXREVERB_REFLECTIONS_PAN, r._reflections_pan)
-				efx.alEffectf(pla.effect, efx.AL_EAXREVERB_LATE_REVERB_GAIN, r._late_reverb_gain)
-				efx.alEffectf(pla.effect, efx.AL_EAXREVERB_LATE_REVERB_DELAY, r._late_reverb_delay)
-				efx.alEffectf(pla.effect, efx.AL_EAXREVERB_LATE_REVERB_PAN, r._late_reverb_pan)
-				efx.alEffectf(pla.effect, efx.AL_EAXREVERB_ECHO_TIME, r._echo_time)
-				efx.alEffectf(pla.effect, efx.AL_EAXREVERB_ECHO_DEPTH, r._echo_depth)
-				efx.alEffectf(pla.effect, efx.AL_EAXREVERB_MODULATION_DEPTH, r._modulation_depth)
-				efx.alEffectf(pla.effect, efx.AL_EAXREVERB_MODULATION_TIME, r._modulation_time)
-				efx.alEffectf(pla.effect, efx.AL_EAXREVERB_AIR_ABSORPTION_GAINHF, r._air_absorption_gainhf)
-				efx.alEffectf(pla.effect, efx.AL_EAXREVERB_HFREFERENCE, r._hfreference)
-				efx.alEffectf(pla.effect, efx.AL_EAXREVERB_LFREFERENCE, r._lfreference)
-				efx.alEffectf(pla.effect, efx.AL_EAXREVERB_ROOM_ROLLOFF_FACTOR, r._room_rolloff_factor)
-
-				efx.alAuxiliaryEffectSloti(pla.slot, efx.AL_EFFECTSLOT_EFFECT, pla.effect.value)
-				pla.eaxreverb=True
-				al.alSource3i(pla.alsrc, efx.AL_AUXILIARY_SEND_FILTER, pla.slot.value, 0, efx.AL_EFFECT_NULL)
-				return
-			elif r is None and pla.slot is not None and pla.effect is not None and pla.eaxreverb:
-				efx.alDeleteAuxiliaryEffectSlots(1, ctypes.byref(pla.slot))
-				efx.alDeleteEffects(1, pla.effect)
-				pla.eaxreverb=False
-				al.alSource3i(pla.alsrc, efx.AL_AUXILIARY_SEND_FILTER, efx.AL_EFFECT_NULL, efx.AL_EFFECT_NULL, 0)
-				pla.effect=None
-				pla.slot=None
-		for pl in g.players:
-			if not hasattr(pl,"albuf2"):
-				pl.albuf2=al.ALuint(0)
-				al.alGenBuffers(1, pl.albuf2)
-
-			if not hasattr(pl,"alsrc2"):
-				pl.alsrc2=al.ALuint(0)
-				al.alGenSources(1, pl.alsrc2)
-				al.alSourcef(pl.alsrc2, al.AL_GAIN, g.volumeg/100)
-				al.alSourcei(pl.alsrc2, 4147, 1) # disable hrtf
-				al.alSourcei(pl.alsrc2, al.AL_BUFFER, pl.albuf2.value)
 		for pla in g.players:
 			if pla.clearbuffertimer2.elapsed>5000: pla.audio_buffer2.clear(); pla.clearbuffertimer2.restart(); pla.alplayed2=False
-			r=g.get_reverb_at(g.me.x,g.me.y,g.me.z)
-			if r is not None and pla.slot2 is None and pla.effect2 is None:
-				pla.slot2=al.ALuint(0)
-				pla.effect2=al.ALuint(0)
-				efx.alGenAuxiliaryEffectSlots(1, pla.slot2)
-				efx.alGenEffects(1, pla.effect2)
-				efx.alEffecti(pla.effect2, efx.AL_EFFECT_TYPE, efx.AL_EFFECT_REVERB)
-				efx.alAuxiliaryEffectSloti(pla.slot2, efx.AL_EFFECTSLOT_EFFECT, pla.effect2.value)
-				al.alSource3i(pla.alsrc2, efx.AL_AUXILIARY_SEND_FILTER, pla.slot2.value, 0, efx.AL_EFFECT_NULL)
-				pla.reverb2=True
-				return
-			elif r is None and pla.slot2 is not None and pla.effect2 is not None and pla.reverb2:
-				efx.alDeleteAuxiliaryEffectSlots(1, ctypes.byref(pla.slot2))
-				pla.reverb2=False
-				efx.alDeleteEffects(1, pla.effect2)
-				al.alSource3i(pla.alsrc2, efx.AL_AUXILIARY_SEND_FILTER, 0, efx.AL_EFFECT_NULL, 0)
-				pla.effect2=None
-				pla.slot2=None
-			r=g.get_echo_at(g.me.x,g.me.y,g.me.z)
-			if r is not None and pla.slot2 is None and pla.effect2 is None:
-				pla.slot2=al.ALuint(0)
-				pla.effect2=al.ALuint(0)
-				efx.alGenAuxiliaryEffectSlots(1, pla.slot2)
-				efx.alGenEffects(1, pla.effect2)
-				efx.alEffecti(pla.effect2, efx.AL_EFFECT_TYPE, efx.AL_EFFECT_ECHO)
-				pla.echo2=True
-				efx.alAuxiliaryEffectSloti(pla.slot2, efx.AL_EFFECTSLOT_EFFECT, pla.effect2.value)
-				al.alSource3i(pla.alsrc2, efx.AL_AUXILIARY_SEND_FILTER, pla.slot2.value, 0, efx.AL_EFFECT_NULL)
-				return
-			elif r is None and pla.slot2 is not None and pla.effect2 is not None and pla.echo2:
-				efx.alDeleteAuxiliaryEffectSlots(1, ctypes.byref(pla.slot2))
-				efx.alDeleteEffects(1, pla.effect2)
-				al.alSource3i(pla.alsrc2, efx.AL_AUXILIARY_SEND_FILTER, 0, efx.AL_EFFECT_NULL, 0)
-				pla.effect2=None
-				pla.echo2=False
-				pla.slot2=None
-			r=g.get_eaxreverb_at(g.me.x,g.me.y,g.me.z)
-			if r is not None and pla.slot2 is None and pla.effect2 is None:
-				pla.slot2=al.ALuint(0)
-				pla.effect2=al.ALuint(0)
-				efx.alGenAuxiliaryEffectSlots(1, pla.slot2)
-				efx.alGenEffects(1, pla.effect2)
-				efx.alEffecti(pla.effect2, efx.AL_EFFECT_TYPE, efx.AL_EFFECT_EAXREVERB)
-				efx.alAuxiliaryEffectSloti(pla.slot2, efx.AL_EFFECTSLOT_EFFECT, pla.effect2.value)
-				pla.eaxreverb2=True
-				al.alSource3i(pla.alsrc2, efx.AL_AUXILIARY_SEND_FILTER, pla.slot2.value, 0, efx.AL_EFFECT_NULL)
-				return
-			elif r is None and pla.slot2 is not None and pla.effect2 is not None and pla.eaxreverb2:
-				efx.alDeleteAuxiliaryEffectSlots(1, ctypes.byref(pla.slot2))
-				efx.alDeleteEffects(1, pla.effect2)
-				pla.eaxreverb2=False
-				al.alSource3i(pla.alsrc2, efx.AL_AUXILIARY_SEND_FILTER, efx.AL_EFFECT_NULL, efx.AL_EFFECT_NULL, 0)
-				pla.effect2=None
-				pla.slot2=None
 
 	netloop()
 	if g.awindow==1 and windowchecktimer.elapsed>500:
@@ -3146,24 +2955,6 @@ def zeroloop():
 
 
 	msoundloop()
-	if not sound.FMOD_ACTIVE and g.rain and g.rainsnd is not None and g.rainsnd.loading==False and g.rainsnd.player is not None:
-		if 1:
-			r=g.get_reverb_at(g.me.x,g.me.y,g.me.z)
-			if r is not None and g.rainslot is None and g.raineffect is None:
-				g.rainslot=al.ALuint(0)
-				g.raineffect=al.ALuint(0)
-				efx.alGenAuxiliaryEffectSlots(1, g.rainslot)
-				efx.alGenEffects(1, g.raineffect)
-				efx.alEffecti(g.raineffect, efx.AL_EFFECT_TYPE, efx.AL_EFFECT_REVERB)
-				efx.alAuxiliaryEffectSloti(g.rainslot, efx.AL_EFFECTSLOT_EFFECT, g.raineffect.value)
-				al.alSource3i(g.rainsnd.player.source, efx.AL_AUXILIARY_SEND_FILTER, g.rainslot.value, 0, efx.AL_EFFECT_NULL)
-				return
-			elif r is None and g.rainslot is not None and g.raineffect is not None:
-				efx.alDeleteAuxiliaryEffectSlots(1, ctypes.byref(g.rainslot))
-				efx.alDeleteEffects(1, g.raineffect)
-				al.alSource3i(g.rainsnd.player.source, efx.AL_AUXILIARY_SEND_FILTER, 0, efx.AL_EFFECT_NULL, 0)
-				g.raineffect=None
-				g.rainslot=None
 	if key_pressed(K_F7):
 		if g.sonar==0:
 			g.sonar=1
@@ -4929,18 +4720,10 @@ def play_audio(p,data,decode=True):
 			try: data[i] = p.opus_decoder.decode(data[i],CHUNK_SIZE)
 			except: return
 	data=b"".join(data)
-	#al.alSourceUnqueueBuffers(p.alsrc, 1, p.albuf)
 	if p.name in g.playervolumes:
 		volume=g.playervolumes[p.name]
 		data=amplify_audio_data(data, volume/100)
-
-		#al.alSourcef(p.alsrc, al.AL_GAIN, volume/100)
-	al.alSourcei(p.alsrc, al.AL_BUFFER, 0)
-	al.alBufferData(p.albuf, al.AL_FORMAT_MONO16, data, len(data), p.samplerate)
-	al.alSourcei(p.alsrc, al.AL_BUFFER, p.albuf.value)
-	#al.alSourceQueueBuffers(p.alsrc, 1, p.albuf)
-	#al.alSourcef(p.alsrc, al.AL_GAIN, g.volumeg/100)
-	al.alSourcePlay(p.alsrc)
+	play_voice_pcm(p, data, False)
 	p.audio_buffer.clear()
 def record_voice2():
 	while g.recording2:
@@ -4957,18 +4740,10 @@ def play_audio2(p,data,decode=True):
 			try: data[i] = p.opus_decoder2.decode(data[i],CHUNK_SIZE)
 			except: return
 	data=b"".join(data)
-	#al.alSourceUnqueueBuffers(p.alsrc, 1, p.albuf)
 	if p.name in g.playervolumes:
 		volume=g.playervolumes[p.name]
 		data=amplify_audio_data(data, volume/100)
-
-		#al.alSourcef(p.alsrc, al.AL_GAIN, volume/100)
-	al.alSourcei(p.alsrc2, al.AL_BUFFER, 0)
-	al.alBufferData(p.albuf2, al.AL_FORMAT_MONO16, data, len(data), p.samplerate)
-	al.alSourcei(p.alsrc2, al.AL_BUFFER, p.albuf2.value)
-	#al.alSourceQueueBuffers(p.alsrc, 1, p.albuf)
-	#al.alSourcef(p.alsrc, al.AL_GAIN, g.volumeg/100)
-	al.alSourcePlay(p.alsrc2)
+	play_voice_pcm(p, data, True)
 	p.audio_buffer2.clear()
 
 
@@ -4994,9 +4769,7 @@ def handle_voicechat_data(p):
 
 	while p in g.players:
 		time.sleep(0.010)
-		playing=al.ALint(0)
-		al.alGetSourcei(p.alsrc, al.AL_SOURCE_STATE, playing)
-		playing=playing.value==al.AL_PLAYING
+		playing=p.voice_sound is not None and p.voice_sound.playing()
 		if len(p.audio_buffer)>=20 and not p.alplayed:
 			p.alplayed=True
 			play_audio(p,p.audio_buffer)
@@ -5566,9 +5339,7 @@ def handle_voicechat_data2(p):
 
 	while 1:
 		time.sleep(0.010)
-		playing=al.ALint(0)
-		al.alGetSourcei(p.alsrc2, al.AL_SOURCE_STATE, playing)
-		playing=playing.value==al.AL_PLAYING
+		playing=p.voice_sound2 is not None and p.voice_sound2.playing()
 		if len(p.audio_buffer2)>=20 and not p.alplayed2:
 			p.alplayed2=True
 			play_audio2(p,p.audio_buffer2)
