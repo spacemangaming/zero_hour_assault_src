@@ -199,3 +199,14 @@ staircase:3043:3053:1651:1701:0:50:cement3:y
 platform:3041:3041:1716:1716:50:50:appartment
 platform:3049:3049:1716:1716:50:50:appartment
 platform:3043:3053:1701:1750:50:50:cement3
+
+// Transit Waypoints and Vehicle Lines
+waypoint:highway_1:0:3036:650:80:0:0
+waypoint:highway_1:1:3036:900:80:1:5
+waypoint:highway_1:2:3036:1200:80:1:5
+waypoint:highway_1:3:3036:1500:80:1:5
+waypoint:highway_1:4:3036:1650:80:0:0
+waypoint:highway_1:5:3036:1500:80:1:5
+waypoint:highway_1:6:3036:1200:80:1:5
+waypoint:highway_1:7:3036:900:80:1:5
+transit:open_door_bus:3036:650:80:path=highway_1;interior_map=bus_interior;health=500;speed=30;sound=motorengine.ogg;door_mode=always_open

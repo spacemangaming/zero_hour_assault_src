@@ -113,6 +113,14 @@ def grenadeloop():
 					g.motors[i].health-=inpact
 					g.play("bulletmotorhit"+str(random(1,8)), g.motors[i].x, g.motors[i].y, g.motors[i].z, g.motors[i].map)
 					g.motors[i].hitby=j.owner.name
+			for i in range(len(g.transits)):
+				if g.transits[i].map!=j.map: continue
+				if not has_line_of_sight(j.x,j.y,j.z,g.transits[i].x,g.transits[i].y,g.transits[i].z,j.map): continue
+				dist_2d=get_3d_distance(j.x, j.y, 0, g.transits[i].x, g.transits[i].y, 0)
+				if dist_2d<=j.range and 0<=j.z<=g.transits[i].z+5 and g.transits[i].health>0:
+					inpact=random(j.mindammage, j.maxdammage)
+					g.transits[i].take_damage(inpact, j.owner)
+					g.play("bulletmotorhit"+str(random(1,8)), g.transits[i].x, g.transits[i].y, g.transits[i].z, g.transits[i].map)
 			for i in range(len(g.chests)):
 				if string_contains(j.map,"base",1)>-1: continue
 				if not has_line_of_sight(j.x,j.y,j.z,g.chests[i].x,g.chests[i].y,g.chests[i].z,j.map): continue

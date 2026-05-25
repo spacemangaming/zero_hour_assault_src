@@ -2,20 +2,220 @@ mapname:lobby
 maxx:100
 maxy:100
 maxz:100
-zone:0:100:0:100:0:100:the lobby, to access to match menu, go to 5 0 0.
 
+// ====================================================
+// 0. CATCH-ALL DEFAULT ZONE (resolves "unknown area" audio bug)
+// ====================================================
+zone:0:100:0:100:0:100:the Main Lobby Hall
 
-zone:4:6:0:4:0:10:match menu. Triple tap middle of screen to open it.
-zone:0:0:0:0:0:10:a sign
-sign:0:0:0:Welcome to zero hour assault. You can move to coordinates 5 0 0 to access the match menu. Also, if you have suggestions about the game, you can leave your message in the game menu, that is, the letter o, in the suggestion or report bug section, Enjoy!
-platform:0:100:0:100:0:0:wood4
+// ====================================================
+// 1. MAIN LOBBY CENTRAL HUB (x: 0-30, y: 0-30)
+// ====================================================
+// Floor - hardwood (premium wood footsteps)
+platform:0:100:0:100:0:0:hardwood
+
+// Match Menu Platform (raised carpet platform)
 platform:4:6:0:4:0:0:carpet3
-src:0:100:0:100:0:100:ceiling_fan2.ogg:-24
-src:0:100:0:100:0:100:menumusic4.ogg:-45
+zone:4:6:0:4:0:10:match menu. Triple tap middle of screen to open it.
 
-platform:0:0:0:0:0:0:cement4
-reverb:0:100:0:100:0:30:1.0:1.0:0.10:0.40:1.20:0.10:0.02:0.005:1.20:0.009:0.900:1.0
+// Big Wall Clock Stand
+platform:0:10:15:25:0:0:wood7
 zone:0:10:15:25:0:30:a big clock:trackable
 src:0:10:15:25:0:30:wallclock.ogg:0
-platform:0:10:15:25:0:0:wood7
+
+// Ambient Reverb & Echo (Large Premium Hall soundscape)
+reverb:0:100:0:100:0:100:1.0:1.0:0.32:0.89:1.49:0.83:0.05:0.007:1.26:0.011:0.994:0.1
+echo:0:100:0:100:0:100:0.10:0.10:0.30:0.20:-1.0
+
+// Main Lobby Ambience (3D humming ceiling fan and background lobby music)
+src:0:30:0:30:0:30:ceiling_fan2.ogg:-18
+src:0:100:0:100:0:100:menumusic4.ogg:-45
+
+// Welcome Sign
+sign:0:0:0:Welcome to Zero Hour Assault! Walk around to explore the new expanded interactive lobby. To the East (right) lies the Cozy Cafe and the VR Arcade. To the North (straight) lies the Mezzanine Balcony and the Tactical Shooting Range. To the West (left) lies the Outdoor Garden, Splash Pool, and the Rooftop Helipad. Keep an ear out for the hidden Developer Vault!
+
+// ====================================================
+// 2. COZY CAFE LOUNGE (x: 40-70, y: 0-30)
+// ====================================================
+// Cafe Floor - ceramic2 (tiled footsteps)
+platform:40:70:0:30:0:0:ceramic2
+
+// Separation Wall at x=35 (wallbuilding3 blocks)
+platform:35:35:0:14:0:10:wallbuilding3
+platform:35:35:16:30:0:10:wallbuilding3
+
+// Sliding Glass Doors at x=35, y=15
+door:34:34:15:15:0:0:36:15:0:150:dooropen4.ogg:doorclose5.ogg
+door:36:36:15:15:0:0:34:15:0:150:dooropen4.ogg:doorclose5.ogg
+zone:34:34:15:15:0:5:a sliding glass door leading into the Cozy Cafe.
+zone:36:36:15:15:0:5:a sliding glass door leading back to the Main Lobby.
+
+// Cafe Ambience & Zone
+zone:40:70:0:30:0:10:Cozy Cafe
+src:40:70:0:30:0:10:cafe.ogg:-8
+
+// Vending Machine
+platform:64:66:4:6:0:0:metal5
+platform:64:66:4:4:0:2:wallcomputer
+zone:64:66:4:6:0:2:a soda vending machine. It hums with electricity.
+src:64:66:4:6:0:2:electricty.ogg:-25
+
+// Seating Area
+platform:50:52:12:14:0:1:wood8
+platform:49:49:12:14:0:0:chair
+platform:53:53:12:14:0:0:chair
+zone:48:54:10:16:0:2:a coffee table set with wooden chairs.
+
+// Serving Bar & Menu
+platform:45:60:25:28:0:1:wallcounter
+platform:45:60:29:30:0:0:wood9
+src:50:52:27:28:0:1:beep4.ogg:-32
+sign:52:26:0:Cafe Menu: Fresh Espresso (5 ZH Tokens), Sparkling Soda (2 ZH Tokens), Tasty Cookie (1 ZH Token). Rest here, relax, and chat with other players!
+
+// ====================================================
+// 3. OUTDOOR GARDEN AND SPLASH POOL (x: 0-30, y: 41-80)
+// ====================================================
+// Garden Floor - grass2 (soft grassy stepping) and gravel2 path
+platform:0:30:41:80:0:0:grass2
+platform:12:18:41:80:0:0:gravel2
+
+// Separation Wall at y=40 (wallbuilding4 blocks) with archway open at x=13:17
+platform:0:12:40:40:0:10:wallbuilding4
+platform:18:30:40:40:0:10:wallbuilding4
+zone:13:17:40:40:0:10:the garden entrance archway.
+
+// Garden Ambience & Zone
+zone:0:30:41:80:0:10:the Outdoor Garden
+src:0:30:41:80:0:10:birds2.ogg:-12
+
+// Wading Splash Pool (x: 3-9, y: 55-65) - uses deepwater for splash step sounds!
+platform:3:9:55:65:0:0:deepwater
+platform:2:2:55:65:0:1:wallborder
+platform:10:10:55:65:0:1:wallborder
+platform:3:9:54:54:0:1:wallborder
+platform:3:9:66:66:0:1:wallborder
+zone:3:9:55:65:0:2:a shallow splash pool. The water is cool and refreshing!
+
+// Park Bench
+platform:22:24:60:62:0:0:wood8
+zone:22:24:60:62:0:2:a cozy park bench under a wooden canopy.
+
+// ====================================================
+// 4. MEZZANINE BALCONY - SECOND FLOOR (x: 0-20, y: 0-30, z: 5)
+// ====================================================
+// Staircase from y=31:39, x=5:5, z=0:5 (climbing wooden steps)
+staircase:5:5:31:39:0:4:woodenfloor:y:0
+
+// Balcony Floor
+platform:0:20:0:30:5:5:hardwood2
+zone:0:20:0:30:5:7:the Mezzanine Balcony. You can look down on the main lobby.
+
+// Safety Railings (wallbars)
+platform:20:20:0:30:5:6:wallbars
+platform:0:4:30:30:5:6:wallbars
+platform:6:20:30:30:5:6:wallbars
+platform:0:0:0:30:5:6:wallbars
+platform:0:20:0:0:5:6:wallbars
+
+// Telescope Point
+zone:10:10:2:2:5:7:a pair of mounted binoculars. You can gaze out over the entire lobby.
+
+// ====================================================
+// 5. SECRET DEVELOPER VAULT (x: 76-95, y: 71-95)
+// ====================================================
+// Vault Floor - industrial metal pipe grating
+platform:76:95:71:95:0:0:metalpipe
+
+// Separation Walls (wallbrick)
+platform:75:75:70:95:0:10:wallbrick
+platform:75:95:70:70:0:10:wallbrick
+
+// Hidden Vault Hatch Door at x=75, y=80
+door:74:74:80:80:0:0:76:80:0:200:dooropen10.ogg:doorclose2.ogg
+door:76:76:80:80:0:0:74:80:0:200:dooropen10.ogg:doorclose2.ogg
+zone:74:74:80:80:0:0:a hidden concrete door. It seems to open when you push it.
+zone:76:76:80:80:0:0:a heavy steel hatch leading back to the Main Lobby.
+
+// Vault Ambience & Zone
+zone:76:95:71:95:0:5:the Secret Developer Vault
+src:76:95:71:95:0:5:dungeon.ogg:-15
+
+// Vault Chest (interactive treasure spawned by server!)
+chest:85:85:0
+
+// Developer Honor Sign
+sign:85:84:0:Developer Vault. You found the secret stash! Here lie the legends of Zero Hour Assault. Enjoy!
+
+// ====================================================
+// 6. ROOFTOP HELIPAD LANDING ZONE (x: 0-15, y: 85-99, z: 5)
+// ====================================================
+// Concrete staircase leading up from the Garden: y=80:85, x=10:10, z=0:5
+staircase:10:10:80:85:0:5:concrete3:y:0
+
+// Helipad Floor - concrete14 platform at Z=5
+platform:0:15:85:99:5:5:concrete14
+zone:0:15:85:99:5:7:the Rooftop Helipad landing pad.
+
+// Safety Railings (wallbars)
+platform:15:15:85:99:5:6:wallbars
+platform:0:9:84:84:5:6:wallbars
+platform:11:15:84:84:5:6:wallbars
+platform:0:15:99:99:5:6:wallbars
+platform:0:0:85:99:5:6:wallbars
+
+// Helipad Ambience (overhead spinning rotor sound source)
+src:0:15:85:99:5:10:ceiling_fan.ogg:-15
+
+// Helipad Sign
+sign:5:90:5:Rooftop Helipad. A rescue helicopter is currently parked here, preparing for tactical dispatch.
+
+// ====================================================
+// 7. HIGH-TECH VR ARCADE / GAMING CENTER (x: 75-95, y: 0-25)
+// ====================================================
+// Arcade Floor - premium glowing diamond tiles
+platform:75:95:0:25:0:0:diamond
+
+// Separation Wall at x=74 (wallbuilding3 blocks) with high tech slide door at x=74, y=10
+platform:74:74:0:9:0:10:wallbuilding3
+platform:74:74:11:25:0:10:wallbuilding3
+door:73:73:10:10:0:0:75:10:0:150:dooropen2.ogg:doorclose3.ogg
+door:75:75:10:10:0:0:73:10:0:150:dooropen2.ogg:doorclose3.ogg
+zone:73:73:10:10:0:5:a futuristic sliding glass door leading into the VR Arcade.
+zone:75:75:10:10:0:5:a sliding glass door leading back to the Cafe.
+
+// VR Arcade Ambience & Zone
+zone:75:95:0:25:0:10:the Virtual Reality Arcade
+src:75:95:0:25:0:5:beep3.ogg:-15
+
+// High-Tech Sign
+sign:85:12:0:VR Terminal: Experience virtual battlefields. Insert ZH Tokens to initialize training simulation.
+
+// ====================================================
+// 8. TACTICAL SHOOTING RANGE & TRAINING GROUNDS (x: 40-70, y: 40-70)
+// ====================================================
+// Separation Walls (wallbigmetal blocks) to prevent gunfire leaks
+platform:39:39:35:75:0:10:wallbigmetal
+platform:71:71:35:75:0:10:wallbigmetal
+platform:40:70:34:34:0:10:wallbigmetal
+platform:40:70:71:71:0:10:wallbigmetal
+
+// Open Archway from the Main Lobby: y=34, x=53:57 (carpet4 entry path)
+platform:53:57:34:34:0:0:carpet4
+zone:53:57:34:34:0:10:the Shooting Range entrance archway.
+
+// Range Floor - heavy industrial steel plates (metal3) and pipe grates
+platform:40:70:35:70:0:0:metal3
+platform:40:70:60:62:0:0:metalpipe
+
+// Range Ambience & Zone
+zone:40:70:35:70:0:10:the Tactical Shooting Range
+src:40:70:35:70:0:5:aiming.ogg:-20
+
+// Target Practice Sign
+sign:55:36:0:Target Practice Range. Pick up weapons inside matches to test accuracy. Do not fire weapons outside the designated lanes!
+
+// ====================================================
+// 9. FAST TRAVEL PORTAL
+// ====================================================
 door:63:1:77:1:0:5:5:0:100:1:dooropen5.ogg:doorclose6.ogg
+zone:63:63:77:77:0:2:a fast travel portal. It leads directly back to the Match Area.
