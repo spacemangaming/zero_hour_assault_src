@@ -12,6 +12,7 @@ src/zero_hour_assault/downloader.py
 src/zero_hour_assault/enet_ping.py
 src/zero_hour_assault/events.py
 src/zero_hour_assault/file_directories.py
+src/zero_hour_assault/fmod_audio.py
 src/zero_hour_assault/getfiles.py
 src/zero_hour_assault/globals.py
 src/zero_hour_assault/input.py

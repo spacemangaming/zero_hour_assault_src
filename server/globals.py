@@ -100,3 +100,5 @@ bikes=[]
 molotofs=[]
 ttchecktimer=timer()
 mailbans=[]
+transits=[]
+waypoints=[]

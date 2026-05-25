@@ -29,6 +29,7 @@ from compid_handler import load_compids, compid_handlercheck, add_compid
 from compban import is_compbanned
 from match import matchloop
 from map import get_tile_at, mwallloop
+import transit
 
 
 
@@ -774,6 +775,7 @@ def gameloops(match_loop=True,npc_loop=True):
 	timeditemloop()
 #	motorloop()
 	bikeloop()
+	if hasattr(g, "busloop"): g.busloop()
 	molotofloop()
 	if len(g.bodyfalls)>0: bodyfallloop()
 	if len(g.grenades)>0: grenadeloop()
@@ -9169,6 +9171,24 @@ here, since the player name is before the string "came online", we added =substr
 							return
 						g.players[index].playsound("snowhit3")
 						g.players[index].give("snowflake_shard",1)
+				# --- Transit Bus Boarding (Enter key) ---
+				if not g.players[index].in_bus and not g.players[index].dead:
+					for bus in g.transits:
+						if bus.map == g.players[index].map and bus.running:
+							dist = get_3d_distance(g.players[index].x, g.players[index].y, g.players[index].z, bus.x, bus.y, bus.z)
+							if dist <= 8:
+								bus.add_passenger(g.players[index])
+								g.n.send_reliable(e.peer_id, "Boarded City Bus Line 1. Seated in cabin. Press Shift+Enter to exit.", 2)
+								return
+				elif g.players[index].in_bus and g.players[index].bus_instance is not None:
+					bus = g.players[index].bus_instance
+					if not bus.is_stopped:
+						g.n.send_reliable(e.peer_id, "You jumped off the moving bus!", 2)
+					else:
+						g.n.send_reliable(e.peer_id, "Exited City Bus Line 1.", 2)
+					bus.remove_passenger(g.players[index], fell_off=(not bus.is_stopped))
+					return
+				# --- End Transit Boarding ---
 				if g.players[index].vi>-1: g.n.send_reliable(e.peer_id,"echo motorengine",0); return
 				if g.players[index].specplayer!="": return
 				while True:
@@ -9294,6 +9314,10 @@ here, since the player name is before the string "came online", we added =substr
 							m.add("No items","no",False)
 						if len(m.menuids)==0: g.n.send_reliable(e.peer_id,"no items",0); return
 						else: m.send(e.peer_id); return
+					for transit in g.transits:
+						if transit.map == g.players[index].map and get_3d_distance(g.players[index].x, g.players[index].y, g.players[index].z, transit.x, transit.y, transit.z) <= 5:
+							transit.add_passenger(g.players[index])
+							return
 					for b in g.bikes:
 						if round(g.players[index].x)==round(b.x) and round(g.players[index].y)==round(b.y) and round(g.players[index].z)==round(b.z) and g.players[index].map==b.map:
 							b.add_player(index); return
@@ -12159,9 +12183,22 @@ here, since the player name is before the string "came online", we added =substr
 					g.players[index].weapon_rays=None
 					g.players[index].weapon_rays2=None
 					charname=g.players[index].name
-					g.players[index].x=float(parsed[1])
-					g.players[index].y=float(parsed[2])
-					g.players[index].z=float(parsed[3])
+					if g.players[index].in_bus and g.players[index].bus_instance is not None:
+						bus = g.players[index].bus_instance
+						g.players[index].local_x = int(float(parsed[1])) - bus.x
+						g.players[index].local_y = int(float(parsed[2])) - bus.y
+						g.players[index].local_z = int(float(parsed[3])) - bus.z
+						if g.players[index].local_x < 1: g.players[index].local_x = 1
+						if g.players[index].local_x > 4: g.players[index].local_x = 4
+						if g.players[index].local_y < 1: g.players[index].local_y = 1
+						if g.players[index].local_y > 9: g.players[index].local_y = 9
+						g.players[index].x = bus.x + g.players[index].local_x
+						g.players[index].y = bus.y + g.players[index].local_y
+						g.players[index].z = bus.z + g.players[index].local_z
+					else:
+						g.players[index].x=float(parsed[1])
+						g.players[index].y=float(parsed[2])
+						g.players[index].z=float(parsed[3])
 					if not g.players[index].hidden:
 						for p in g.players:
 							if g.get_hidden_area_at(p.x, p.y, p.z, p.map)!=g.get_hidden_area_at(g.players[index].x, g.players[index].y, g.players[index].z, g.players[index].map): continue
@@ -12183,9 +12220,22 @@ here, since the player name is before the string "came online", we added =substr
 					g.players[index].weapon_rays2=None
 
 					name=g.players[index].name
-					g.players[index].x=float(parsed[1])
-					g.players[index].y=float(parsed[2])
-					g.players[index].z=float(parsed[3])
+					if g.players[index].in_bus and g.players[index].bus_instance is not None:
+						bus = g.players[index].bus_instance
+						g.players[index].local_x = int(float(parsed[1])) - bus.x
+						g.players[index].local_y = int(float(parsed[2])) - bus.y
+						g.players[index].local_z = int(float(parsed[3])) - bus.z
+						if g.players[index].local_x < 1: g.players[index].local_x = 1
+						if g.players[index].local_x > 4: g.players[index].local_x = 4
+						if g.players[index].local_y < 1: g.players[index].local_y = 1
+						if g.players[index].local_y > 9: g.players[index].local_y = 9
+						g.players[index].x = bus.x + g.players[index].local_x
+						g.players[index].y = bus.y + g.players[index].local_y
+						g.players[index].z = bus.z + g.players[index].local_z
+					else:
+						g.players[index].x=float(parsed[1])
+						g.players[index].y=float(parsed[2])
+						g.players[index].z=float(parsed[3])
 					if float(parsed[3])!=0 and not g.players[index].hidden:
 						for p in g.players:
 							if g.get_hidden_area_at(p.x, p.y, p.z, p.map)!=g.get_hidden_area_at(g.players[index].x, g.players[index].y, g.players[index].z, g.players[index].map): continue
@@ -12215,9 +12265,22 @@ here, since the player name is before the string "came online", we added =substr
 					g.players[index].weapon_rays=None
 					g.players[index].weapon_rays2=None
 
-					g.players[index].x=float(parsed[1])
-					g.players[index].y=float(parsed[2])
-					g.players[index].z=float(parsed[3])
+					if g.players[index].in_bus and g.players[index].bus_instance is not None:
+						bus = g.players[index].bus_instance
+						g.players[index].local_x = int(float(parsed[1])) - bus.x
+						g.players[index].local_y = int(float(parsed[2])) - bus.y
+						g.players[index].local_z = int(float(parsed[3])) - bus.z
+						if g.players[index].local_x < 1: g.players[index].local_x = 1
+						if g.players[index].local_x > 4: g.players[index].local_x = 4
+						if g.players[index].local_y < 1: g.players[index].local_y = 1
+						if g.players[index].local_y > 9: g.players[index].local_y = 9
+						g.players[index].x = bus.x + g.players[index].local_x
+						g.players[index].y = bus.y + g.players[index].local_y
+						g.players[index].z = bus.z + g.players[index].local_z
+					else:
+						g.players[index].x=float(parsed[1])
+						g.players[index].y=float(parsed[2])
+						g.players[index].z=float(parsed[3])
 					if float(parsed[3])!=0 and not g.players[index].hidden:
 						for p in g.players:
 
@@ -12250,9 +12313,15 @@ here, since the player name is before the string "came online", we added =substr
 				if g.players[index].move4timer.elapsed>=0:
 					g.players[index].move4timer.restart()
 					name=g.players[index].name
-					g.players[index].wx=float(parsed[1])
-					g.players[index].wy=float(parsed[2])
-					g.players[index].wz=float(parsed[3])
+					if g.players[index].in_bus and g.players[index].bus_instance is not None:
+						bus = g.players[index].bus_instance
+						g.players[index].wx = bus.x + g.players[index].local_x
+						g.players[index].wy = bus.y + g.players[index].local_y
+						g.players[index].wz = bus.z + g.players[index].local_z
+					else:
+						g.players[index].wx=float(parsed[1])
+						g.players[index].wy=float(parsed[2])
+						g.players[index].wz=float(parsed[3])
 				
 			
 		
@@ -12762,6 +12831,7 @@ def send_plus2(excluding_name,packet,channel,r=True):
 	
 
 g.send_plus=send_plus
+g.send_plus2=send_plus2
 def play(sound, x, y, z, map, index=None, reliable=True, channel=3,pitch=100):
 	if index is not None and hasattr(index,'hidden') and index.hidden: return
 	x=round(x)

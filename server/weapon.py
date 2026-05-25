@@ -597,6 +597,19 @@ def weaponloop():
 
 					g.motors[i].hitby=g.weapons[j].owner.name
 					break
+			for i in range(len(g.transits)):
+				if g.transits[i].map!=g.weapons[j].map: continue
+				dist_2d=get_3d_distance(rx, ry, 0, g.transits[i].x, g.transits[i].y, 0)
+				if dist_2d<=g.weapons[j].spread and 0<=g.weapons[j].z<=g.transits[i].z+5 and g.transits[i].health>0:
+					if hit==False:
+						hit=True
+					inpact=random(g.weapons[j].mindammage, g.weapons[j].maxdammage)
+					g.transits[i].take_damage(inpact, g.weapons[j].owner)
+					if(g.weapons[j].bullet):
+						g.play("bulletmotorhit"+str(random(1,8)), g.transits[i].x, g.transits[i].y, g.transits[i].z, g.transits[i].map)
+						try: g.n.send_reliable(g.weapons[j].owner.peer_id,"play_s bullethit"+str(random(1,4))+".ogg",0)
+						except: pass
+					break
 			for x in range(len(g.players)):
 				if g.players[x].hidden: continue
 				if (g.players[x].map=="massacre_in_the_city" or "basement" in g.players[x].map) and g.get_group(g.players[x].group) is not None and g.players[x].group==g.weapons[j].owner.group and g.get_group(g.players[x].group).freedomhit==0: continue
