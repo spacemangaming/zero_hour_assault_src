@@ -32,6 +32,7 @@ except Exception as e:
 
 system = None
 initialized = False
+_sound_cache = {}
 
 def init_fmod():
     global system, initialized
@@ -41,7 +42,7 @@ def init_fmod():
         return True
     try:
         system = pyfmodex.System(header_version=0x00020313)
-        system.init()
+        system.init(maxchannels=1024)
         initialized = True
         return True
     except Exception as e:
@@ -75,6 +76,7 @@ class fmod_sound(object):
         self.filename = ""
         self.usingpack = False
         self.paused = False
+        self.cached = False
 
     def load(self, filename, is_stream=False):
         if not initialized:
@@ -82,6 +84,13 @@ class fmod_sound(object):
                 return False
         
         self.internal_filename = filename
+        
+        # Check cache
+        if not is_stream and filename in _sound_cache:
+            self.sound = _sound_cache[filename]
+            self.usingpack = False
+            self.cached = True
+            return True
         
         # First, check unpacked_sounds
         unpacked_path = os.path.join(ROOT_DIR, "unpacked_sounds", filename)
@@ -93,6 +102,8 @@ class fmod_sound(object):
                     self.sound = system.create_stream(file_path)
                 else:
                     self.sound = system.create_sound(file_path)
+                    _sound_cache[filename] = self.sound
+                    self.cached = True
                 return True
             except Exception as e:
                 print(f"FMOD failed to load from unpacked_sounds {filename}: {e}")
@@ -111,11 +122,28 @@ class fmod_sound(object):
             elif isinstance(extracted, str):
                 file_path = os.path.join(DIRECTORY_TEMP, extracted)
             else:
-                # Decrypt and write to temp directory
+                # Decrypt in memory
                 content = extracted.read() if hasattr(extracted, "read") else extracted
                 import globals as g
                 from security import string_decrypt
                 content = string_decrypt(content, g.sdeckey)
+                
+                # Check if it is a stream. If so, FMOD requires a temp file on disk (streams read dynamically).
+                # But if it is NOT a stream, we can load it directly from memory!
+                if not is_stream:
+                    try:
+                        exinfo = pyfmodex.structures.CREATESOUNDEXINFO()
+                        exinfo.cbsize = pyfmodex.structures.sizeof(exinfo)
+                        exinfo.length = len(content)
+                        self.sound = system.create_sound(content, mode=pyfmodex.flags.MODE.OPENMEMORY, exinfo=exinfo)
+                        self.usingpack = False
+                        _sound_cache[filename] = self.sound
+                        self.cached = True
+                        return True
+                    except Exception as e:
+                        print(f"FMOD failed to load sound from memory {filename}: {e}")
+                        # Fallback to temp file if memory loading fails
+                
                 temp_path = os.path.join(DIRECTORY_TEMP, filename)
                 temp_dir = os.path.dirname(temp_path)
                 if not os.path.exists(temp_dir):
@@ -131,6 +159,8 @@ class fmod_sound(object):
                 self.sound = system.create_stream(file_path)
             else:
                 self.sound = system.create_sound(file_path)
+                _sound_cache[filename] = self.sound
+                self.cached = True
             return True
         except Exception as e:
             print(f"FMOD failed to load sound {filename}: {e}")
@@ -243,14 +273,14 @@ class fmod_sound(object):
 
     def close(self):
         self.stop()
-        if self.sound:
+        if self.sound and not getattr(self, "cached", False):
             try:
                 self.sound.release()
             except:
                 pass
             self.sound = None
         self.channel = None
-        if self.usingpack and self.internal_filename:
+        if self.usingpack and self.internal_filename and not getattr(self, "cached", False):
             temp_path = os.path.join(DIRECTORY_TEMP, self.internal_filename)
             if os.path.exists(temp_path):
                 try:
@@ -261,3 +291,12 @@ class fmod_sound(object):
     @property
     def is_active(self):
         return self.sound is not None
+
+def clear_sound_cache():
+    global _sound_cache
+    for filename, sound_obj in list(_sound_cache.items()):
+        try:
+            sound_obj.release()
+        except:
+            pass
+    _sound_cache.clear()

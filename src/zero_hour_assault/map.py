@@ -151,7 +151,12 @@ def load_map(mdata):
 	#g.mapready=True
 	g.jumping=False
 	g.tile_cache={}
-	g.p.destroy_all
+	try:
+		g.p.destroy_all()
+	except:
+		pass
+	import fmod_audio
+	fmod_audio.clear_sound_cache()
 	if mdata.find("mapname:"+g.mapname)==-1: g.mapmusic.close()
 
 	destroy_all_doors()

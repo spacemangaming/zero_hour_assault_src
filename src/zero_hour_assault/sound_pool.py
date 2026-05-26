@@ -167,6 +167,16 @@ class SoundPoolItem:
             self.start_pitch,
             False,
         )
+        # Raycast occlusion check in absolute world coordinates
+        try:
+            occlusion = sound.get_raycast_occlusion(
+                listener_x, listener_y, listener_z,
+                True_x, True_y, True_z
+            )
+            self.handle.direct_occlusion = occlusion
+            self.handle.reverb_occlusion = occlusion
+        except Exception:
+            pass
 
     def get_total_distance(self, listener_x, listener_y, listener_z):
         if self.stationary:
@@ -676,6 +686,27 @@ class SoundPool:
         self.update_listener_3d(listener_x, listener_y, 0, 0)
 
     def update_listener_3d(self, listener_x, listener_y, listener_z, rotation):
+        # Dynamic FMOD Reverb Update
+        try:
+            from map import get_reverb_at
+            import fmod_audio
+            import sound
+            
+            r = get_reverb_at(listener_x, listener_y, listener_z)
+            props = fmod_audio.system.get_reverb_properties(0)
+            if r is not None:
+                props.DecayTime = int(r._decay_time * 1000)
+                props.Density = float(r._density * 100)
+                props.Diffusion = float(r._diffusion * 100)
+                props.EarlyDelay = float(r._reflections_delay * 1000)
+                props.LateDelay = float(r._late_reverb_delay * 1000)
+                props.WetLevel = float(sound._to_db_volume(r._gain))
+            else:
+                props.WetLevel = -80.0 # Bypass reverb outside reverb zones
+            fmod_audio.system.set_reverb_properties(0, props)
+        except Exception:
+            pass
+
         listener_z+=g.aim
         if len(self.items) == 0:
             return
@@ -774,7 +805,7 @@ class SoundPool:
     def clean_unused(self):
         if len(self.items) == 0:
             return
-        for i in self.items:
+        for i in list(self.items):
             if not i.looping and (i.handle == None or i.handle.player==None or not (i.handle.player is not None and (i.handle.player.playing()))) and not i.paused:
                 try:
                     if i.handle.player is not None:

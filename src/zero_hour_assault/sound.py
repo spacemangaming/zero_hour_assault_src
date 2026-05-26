@@ -35,6 +35,46 @@ except Exception as e:
 	print(f"Warning: Could not open sounds.dat: {e}")
 
 
+
+def get_raycast_occlusion(listener_x, listener_y, listener_z, source_x, source_y, source_z):
+	try:
+		from map import get_tile_at
+	except Exception:
+		return 0.0
+
+	dx = source_x - listener_x
+	dy = source_y - listener_y
+	dz = source_z - listener_z
+	distance = math.sqrt(dx*dx + dy*dy + dz*dz)
+
+	# If listener and source are extremely close, no occlusion is possible
+	if distance < 1.5:
+		return 0.0
+
+	steps = int(distance)
+	wall_count = 0
+
+	for i in range(1, steps):
+		t = i / distance
+		check_x = listener_x + dx * t
+		check_y = listener_y + dy * t
+		check_z = listener_z + dz * t
+
+		# Probe the geometry at this step
+		tile = get_tile_at(round(check_x), round(check_y), round(check_z))
+		if tile and ("wall" in tile or tile.startswith("wall")):
+			wall_count += 1
+			# Early out if heavily occluded
+			if wall_count >= 3:
+				break
+
+	if wall_count > 0:
+		# Muffle high frequencies and volume based on wall thickness
+		return min(0.85, 0.45 + 0.15 * wall_count)
+	return 0.0
+
+
+
 def _to_linear_volume(db_value):
 	try:
 		volume = 10 ** (float(db_value) / 20)
@@ -360,6 +400,40 @@ class sound(object):
 	def pitch(self, value):
 		self._pitch = value
 		self._apply_properties()
+
+	@property
+	def direct_occlusion(self):
+		if self._fmod_sound and self._fmod_sound.channel:
+			try:
+				return self._fmod_sound.channel.direct_occlusion
+			except Exception:
+				pass
+		return 0.0
+
+	@direct_occlusion.setter
+	def direct_occlusion(self, value):
+		if self._fmod_sound and self._fmod_sound.channel:
+			try:
+				self._fmod_sound.channel.direct_occlusion = float(value)
+			except Exception:
+				pass
+
+	@property
+	def reverb_occlusion(self):
+		if self._fmod_sound and self._fmod_sound.channel:
+			try:
+				return self._fmod_sound.channel.reverb_occlusion
+			except Exception:
+				pass
+		return 0.0
+
+	@reverb_occlusion.setter
+	def reverb_occlusion(self, value):
+		if self._fmod_sound and self._fmod_sound.channel:
+			try:
+				self._fmod_sound.channel.reverb_occlusion = float(value)
+			except Exception:
+				pass
 
 	@property
 	def position(self):
