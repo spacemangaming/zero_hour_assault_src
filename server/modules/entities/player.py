@@ -1,4 +1,5 @@
 from map import get_tile_at, barricade, ladder, get_hidden_area_at
+from zh_nav_scanner import update_nav_scanner
 import os
 import time
 from rotation import getdir, north, northeast, east, southeast, south, southwest, west, northwest
@@ -365,7 +366,21 @@ class player:
 		self.peer_id=ppeer_id
 		self.friendtimer.elapsed=200000
 		self.matchinvitetimer.elapsed=200000
-		
+
+		# Navigation Assist – 6-direction wall proximity scanner state.
+		# Each entry stores (tiletype | None, distance | None) from the last scan.
+		# (None, None) means that direction was clear within SCAN_RANGE tiles.
+		self.nav_scan = {
+			"right": (None, None),
+			"left":  (None, None),
+			"front": (None, None),
+			"back":  (None, None),
+			"up":    (None, None),
+			"down":  (None, None),
+		}
+		# Integer (x, y, z) position at last nav scan; sentinel forces first scan.
+		self.last_scan_pos = (-99999, -99999, -99999)
+
 	@property
 	def firetime(self):
 		try:
@@ -1855,6 +1870,20 @@ def playerloop():
 						if t2.owner==g.players[i].name and t2.itemname==t: found=True; break
 					if not found: new_timeditem(g.players[i].name,g.players[i].weapon,get_timeditem_duration(g.players[i].weapon))
 		g.players[i].msoundloop()
+
+		# Navigation Assist: run the 6-direction wall scanner only when the
+		# player has moved to a different integer tile since the last scan.
+		_nav_pos = (round(g.players[i].x), round(g.players[i].y), round(g.players[i].z))
+		if _nav_pos != g.players[i].last_scan_pos:
+			g.players[i].last_scan_pos = _nav_pos
+			try:
+				update_nav_scanner(g.players[i])
+			except Exception as _nav_err:
+				try:
+					with open("errors.log", "a") as _f:
+						_f.write("nav_scanner error: {}\n".format(_nav_err))
+				except Exception:
+					pass
 
 		if g.players[i].rankchecktimer.elapsed>=2000:
 			g.players[i].rankchecktimer.restart()
