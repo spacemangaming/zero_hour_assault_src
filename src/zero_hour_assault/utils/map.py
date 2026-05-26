@@ -181,7 +181,8 @@ def get_tile_at(x, y, z):
 	
 	if cell_key in map_grid:
 		platforms = map_grid[cell_key]
-		for sd in platforms:
+		for i in range(len(platforms) - 1, -1, -1):
+			sd = platforms[i]
 			minx = sd[0]
 			maxx = sd[1]
 			miny = sd[2]
@@ -195,7 +196,8 @@ def get_tile_at(x, y, z):
 				return mt
 
 	# 2. Query global/massive platforms (extremely fast O(1) due to tiny list)
-	for sd in global_platforms:
+	for i in range(len(global_platforms) - 1, -1, -1):
+		sd = global_platforms[i]
 		minx = sd[0]
 		maxx = sd[1]
 		miny = sd[2]
