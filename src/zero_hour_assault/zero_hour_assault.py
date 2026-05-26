@@ -495,6 +495,7 @@ def delinear(a): return string_split(a,"\n",True)
 
 parachute_sound=None
 falling_sound=None
+inside_bus_handle=None
 
 from speech import speak
 from input import get_input
@@ -1204,7 +1205,7 @@ def play_voice_pcm(pl, pcm_data, second=False):
 		pass
 
 def netloop(events=False,request=True):
-	global parachute_sound,falling_sound
+	global parachute_sound,falling_sound,inside_bus_handle
 	try:
 		if request: g.e=g.n.request()
 		if g.e.channel==5: g.vcdata=g.e.message
@@ -1660,6 +1661,17 @@ def netloop(events=False,request=True):
 				#g.walktime-=100
 				g.p.destroy_sound(parachute_sound)
 				parachute_sound=None
+
+			elif parsed[0] == "play_inside_bus":
+				g.in_bus = True
+				if inside_bus_handle is None:
+					inside_bus_handle = g.p.play_stationary("inside_bus.ogg", True)
+
+			elif parsed[0] == "stop_inside_bus":
+				g.in_bus = False
+				if inside_bus_handle is not None:
+					g.p.destroy_sound(inside_bus_handle)
+					inside_bus_handle = None
 
 			elif(parsed[0]=="weaponlist" and len(parsed)>1):
 			
@@ -2405,6 +2417,11 @@ def netloop(events=False,request=True):
 
 g.netloop=netloop
 def reset(resetpool=True):
+	global inside_bus_handle
+	if inside_bus_handle is not None:
+		g.p.destroy_sound(inside_bus_handle)
+		inside_bus_handle = None
+	g.in_bus = False
 	g.pinging=False
 	g.inbike=False
 	g.rainsnd.close()
@@ -3880,6 +3897,10 @@ def zeroloop():
 	if g.mapname!="lobby" and not g.zombie:
 		if joystick_button_pressed(g.jcontrols.get("inv1",-1)): cycle_inv(1)
 		if joystick_button_pressed(g.jcontrols.get("inv2",-1)): cycle_inv(0)
+	if(key_pressed(K_PAGEUP) and not altdown() and not g.zombie):
+		if g.mapname != "lobby":
+			g.n.send_reliable(0, "bus_board", 0)
+
 	if(key_pressed(K_TAB) and not altdown() and not g.zombie):
 	
 		if(shift_is_down()):
@@ -3889,7 +3910,7 @@ def zeroloop():
 		
 	if(key_pressed(K_RETURN) or key_pressed(pygame.K_KP_ENTER)):
 	
-		if(shift_is_down()):
+		if(shift_is_down() or getattr(g, "in_bus", False)):
 		
 			if 1:
 				doorcheck()

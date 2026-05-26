@@ -53,6 +53,7 @@ class Vehicle:
 		self.speed = speed  # Movement interval in ms
 		self.engine_sound = engine_sound
 		self.door_mode = door_mode
+		self.spawn_params = (vtype, start_x, start_y, z, mapname, path_id, interior_map, max_health, speed, engine_sound, door_mode)
 		
 		self.players = []  # List of player names riding
 		self.is_stopped = False
@@ -75,7 +76,7 @@ class Vehicle:
 		self.load_interior_blueprint()
 		
 		# Spawn engine sound AFTER blueprint load, only if players exist on server
-		if self.running and not self.is_stopped:
+		if self.running and not self.is_stopped and len(self.players) > 0 and self.engine_sound is not None:
 			try:
 				self.engine_sound_id = spawn_moving_sound(self.engine_sound, self.x, self.y, self.z, self.map, "", 100)
 			except Exception as e:
@@ -148,13 +149,14 @@ class Vehicle:
 			self.players.append(player.name)
 			player.in_bus = True
 			player.bus_instance = self
+			player.sitting = False
 			
 			# Send initial platforms to passenger
 			self.send_initial_platforms(player)
 			
 			# Decouple coordinates into relative local offsets aligned with the bus template
 			player.local_x = 3
-			player.local_y = 7  # starts at the cabin center on carpet
+			player.local_y = 1  # starts at the doorway
 			player.local_z = 0
 			
 			# Sync physical coordinates on the main map
@@ -165,7 +167,8 @@ class Vehicle:
 			g.n.send_reliable(player.peer_id, "facing " + str(self.facing), 0)
 			g.n.send_reliable(player.peer_id, "move " + str(player.x) + " " + str(player.y) + " " + str(player.z), 0)
 			g.n.send_reliable(player.peer_id, "play_s misc280.ogg", 0)  # boarding sound
-			_count_packet(3)
+			g.n.send_reliable(player.peer_id, "play_inside_bus", 0)  # play inside bus loop
+			_count_packet(4)
 			_bus_perf_log(f"Passenger {player.name} boarded {self.type} at ({self.x},{self.y})")
 
 	def remove_passenger(self, player, fell_off=False):
@@ -173,24 +176,33 @@ class Vehicle:
 			self.players.remove(player.name)
 		player.in_bus = False
 		player.bus_instance = None
+		player.sitting = False
+		
+		# Stop inside bus loop on client
+		g.n.send_reliable(player.peer_id, "stop_inside_bus", 0)
 		
 		# Remove platforms for the passenger
 		self.remove_platforms_for(player)
 		
 		g.n.send_reliable(player.peer_id, "motorunspawn", 0)
-		_count_packet(1)
+		_count_packet(2)
 		
 		if fell_off:
-			# Passenger jumped out or fell off while moving
-			damage = random(40, 60)
-			player.health -= damage
-			player.hitby = f"falling off moving {self.type}"
-			g.play(get_tile_at(player.x, player.y, player.z, player.map) + "fall", player.x, player.y, player.z, player.map)
-			
-			if player.health <= 0:
-				player.health = 0
-				player.die()
+			if not self.is_stopped:
+				# Passenger jumped out or fell off while moving
+				damage = random(40, 60)
+				player.health -= damage
+				player.hitby = f"falling off moving {self.type}"
+				g.play(get_tile_at(player.x, player.y, player.z, player.map) + "fall", player.x, player.y, player.z, player.map)
+				
+				if player.health <= 0:
+					player.health = 0
+					player.die()
+				else:
+					g.n.send_reliable(player.peer_id, "move " + str(player.x) + " " + str(player.y) + " " + str(player.z), 0)
+					_count_packet(1)
 			else:
+				# Bus is stopped: safe exit, sync position
 				g.n.send_reliable(player.peer_id, "move " + str(player.x) + " " + str(player.y) + " " + str(player.z), 0)
 				_count_packet(1)
 		_bus_perf_log(f"Passenger {player.name} exited {self.type} (fell_off={fell_off})")
@@ -198,11 +210,21 @@ class Vehicle:
 	def take_damage(self, amount, attacker):
 		self.health -= amount
 		# Play muffled metallic impact inside passenger cabin
-		for name in self.players:
+		for name in list(self.players):
 			p = g.getpc(name)
-			if p is not None:
+			if p is not None and not p.dead:
 				g.n.send_reliable(p.peer_id, "play_s misc263.ogg", 0)  # metal impact sound
-				_count_packet(1)
+				# Blast impact damage to all passengers inside!
+				dmg = max(10, int(amount * 0.3))
+				p.health -= dmg
+				p.hitby = f"blast impact inside damaged {self.type}"
+				g.n.send_reliable(p.peer_id, "play_s bus_blast.ogg", 0)  # Play blast sound
+				g.n.send_reliable(p.peer_id, f"You suffered {dmg} damage from the blast impact!", 0)
+				_count_packet(3)
+				
+				if p.health <= 0:
+					p.health = 0
+					p.die()
 		
 		if self.health <= 0:
 			self.health = 0
@@ -223,12 +245,14 @@ class Vehicle:
 			if p is not None:
 				p.in_bus = False
 				p.bus_instance = None
+				p.sitting = False
+				g.n.send_reliable(p.peer_id, "stop_inside_bus", 0)
 				p.health -= 150
 				p.hitby = f"exploding {self.type}"
 				p.z += 10
 				g.n.send_reliable(p.peer_id, "motorunspawn", 0)
 				g.n.send_reliable(p.peer_id, f"move {p.x} {p.y} {p.z}", 0)
-				_count_packet(2)
+				_count_packet(3)
 				
 				if p.health <= 0:
 					p.health = 0
@@ -243,6 +267,21 @@ class Vehicle:
 			g.transits.remove(self)
 		_bus_perf_log(f"Vehicle {self.type} exploded at ({self.x},{self.y})")
 
+		# Schedule respawn
+		spawn_params = getattr(self, "spawn_params", None)
+		if spawn_params:
+			from threading import Thread
+			import time
+			def respawn_func():
+				time.sleep(15.0)  # Wait 15 seconds to respawn the bus
+				# Create a new bus
+				from transit import OpenDoorBus
+				v = OpenDoorBus(*spawn_params)
+				g.transits.append(v)
+				_bus_perf_log(f"Vehicle {spawn_params[0]} respawned at starting coordinates ({spawn_params[1]},{spawn_params[2]})")
+			
+			Thread(target=respawn_func).start()
+
 
 class OpenDoorBus(Vehicle):
 	def __init__(self, vtype, start_x, start_y, z, mapname, path_id, interior_map, max_health, speed, engine_sound, door_mode):
@@ -252,6 +291,13 @@ class OpenDoorBus(Vehicle):
 		self.waypoints = []
 		self.current_waypoint_idx = 0
 		self.load_waypoints()
+		
+		# Horn warning state
+		self.horn_warning_level = 0
+		self.horn_timer = None
+		self.horn_played = False
+		self.doors_open = True
+		
 		_bus_perf_log(f"Spawned {vtype} at ({start_x},{start_y},{z}) on {mapname}, path={path_id}, speed={speed}ms, waypoints={len(self.waypoints)}")
 
 	def load_waypoints(self):
@@ -262,24 +308,106 @@ class OpenDoorBus(Vehicle):
 		# Sort waypoints by index
 		self.waypoints.sort(key=lambda x: x["index"])
 
+		# Find the closest waypoint to our starting coordinates to align our index
+		if len(self.waypoints) > 0:
+			best_idx = 0
+			best_dist = 999999
+			for i, w in enumerate(self.waypoints):
+				dist = abs(w["x"] - self.x) + abs(w["y"] - self.y) + abs(w["z"] - self.z)
+				if dist < best_dist:
+					best_dist = dist
+					best_idx = i
+			
+			if best_dist < 5:  # Spawned close to a waypoint
+				self.current_waypoint_idx = (best_idx + 1) % len(self.waypoints)
+			else:
+				self.current_waypoint_idx = 0
+
+	def set_engine_sound(self, sound_name):
+		if self.engine_sound != sound_name or (sound_name is not None and self.engine_sound_id is None):
+			self.engine_sound = sound_name
+			if self.engine_sound_id:
+				try:
+					destroy_moving_sound(self.engine_sound_id)
+				except:
+					pass
+				self.engine_sound_id = None
+			if self.running and not self.is_stopped and self.engine_sound is not None:
+				try:
+					self.engine_sound_id = spawn_moving_sound(self.engine_sound, self.x, self.y, self.z, self.map, "", 100)
+				except Exception as e:
+					_bus_perf_log(f"Warning: Could not spawn engine sound: {e}")
+
 	def tick(self):
 		if not self.running:
 			return
 
+		if len(self.players) == 0:
+			self.is_stopped = True
+			self.doors_open = True
+			# Play quiet engine hum so players can locate the parked bus by audio
+			if self.engine_sound_id is None and self.engine_sound != "bus_engine.ogg":
+				try:
+					self.engine_sound_id = spawn_moving_sound("bus_engine.ogg", self.x, self.y, self.z, self.map, "", 50)
+					self.engine_sound = "bus_engine.ogg"
+				except Exception as e:
+					_bus_perf_log(f"Warning: Could not spawn idle sound for empty bus: {e}")
+			# Throttle position update for idle sound
+			if self.engine_sound_id and self.sound_update_timer.elapsed >= 500:
+				self.sound_update_timer.restart()
+				update_moving_sound(self.engine_sound_id, self.x, self.y, self.z)
+			return
+
+		# Check if any passengers are sitting on seats
+		any_sitting = False
+		for name in self.players:
+			p = g.getpc(name)
+			if p is not None and getattr(p, "sitting", False):
+				any_sitting = True
+				break
+
 		if self.is_stopped:
 			# Handle stopping for 5 seconds at station
 			if self.stop_timer.elapsed >= 5000:
-				self.is_stopped = False
-				g.play("doorclose", self.x, self.y, self.z, self.map)
-				g.play("bikestart", self.x, self.y, self.z, self.map)
-				if not self.engine_sound_id:
-					try:
-						self.engine_sound_id = spawn_moving_sound(self.engine_sound, self.x, self.y, self.z, self.map, "", 100)
-					except Exception as e:
-						_bus_perf_log(f"Warning: Could not respawn engine sound: {e}")
+				if any_sitting and not self.doors_open:
+					self.is_stopped = False
+					self.doors_open = False
+					g.play("bus_start", self.x, self.y, self.z, self.map)
+					self.horn_warning_level = 0
+					self.horn_timer = None
+					self.horn_played = False
+					# Reset engine sound to drive
+					self.set_engine_sound("bus_engine.ogg")
+				else:
+					# No passenger is sitting yet or doors are open, stay stopped
+					pass
 			return
 
-		# Handle autonomous waypoint movement
+		# Idle/start mode: if no passenger is sitting, do not move
+		if not any_sitting:
+			if not self.doors_open:
+				self.doors_open = True
+				g.play("bus_stop", self.x, self.y, self.z, self.map)
+				g.play("bus_doors_sound_effect", self.x, self.y, self.z, self.map)
+			self.set_engine_sound("bus_idle_to_drive_off.ogg")
+			# Throttle engine sound loop update
+			if self.engine_sound_id and self.sound_update_timer.elapsed >= 200:
+				self.sound_update_timer.restart()
+				update_moving_sound(self.engine_sound_id, self.x, self.y, self.z)
+			return
+
+		# If doors are open, do not move
+		if self.doors_open:
+			self.set_engine_sound("bus_idle_to_drive_off.ogg")
+			# Throttle engine sound loop update
+			if self.engine_sound_id and self.sound_update_timer.elapsed >= 200:
+				self.sound_update_timer.restart()
+				update_moving_sound(self.engine_sound_id, self.x, self.y, self.z)
+			return
+
+		# Driving mode: Proceed along waypoints
+		self.set_engine_sound("bus_engine.ogg")
+
 		if len(self.waypoints) == 0:
 			return
 
@@ -288,8 +416,6 @@ class OpenDoorBus(Vehicle):
 			
 			target = self.waypoints[self.current_waypoint_idx]
 			tx, ty, tz = target["x"], target["y"], target["z"]
-			
-			old_x, old_y, old_z = self.x, self.y, self.z
 			
 			# Step towards target waypoint
 			dx = tx - self.x
@@ -307,6 +433,69 @@ class OpenDoorBus(Vehicle):
 			step_z = 0
 			if dz > 0: step_z = 1
 			elif dz < 0: step_z = -1
+
+			# DETECT PLAYER IN FRONT OF THE BUS
+			player_in_front = None
+			if step_x != 0 or step_y != 0 or step_z != 0:
+				for p in g.players:
+					if p.map == self.map and not p.in_bus and not p.dead:
+						# Check 1 to 3 steps ahead
+						for k in range(1, 4):
+							cx = self.x + step_x * k
+							cy = self.y + step_y * k
+							cz = self.z + step_z * k
+							if abs(p.x - cx) <= 1 and abs(p.y - cy) <= 1 and abs(p.z - cz) <= 2:
+								player_in_front = p
+								break
+						if player_in_front:
+							break
+
+			if player_in_front is not None:
+				# Initialize horn timer if not set
+				if not hasattr(self, "horn_timer") or self.horn_timer is None:
+					self.horn_timer = timer()
+					self.horn_played = False
+					self.first_detection_time = time.time()
+				
+				# Wait 1.0 second after first detection before starting to honk
+				if time.time() - self.first_detection_time >= 1.0:
+					# Play horn sound periodically (every 1.5 seconds)
+					if not self.horn_played or self.horn_timer.elapsed >= 1500:
+						g.play("bus_horn", self.x, self.y, self.z, self.map)
+						self.horn_played = True
+						self.horn_timer.restart()
+				
+				# If warning duration reaches 50 seconds, crush and kill them!
+				if time.time() - self.first_detection_time >= 50.0:
+					g.play("bus_blast", player_in_front.x, player_in_front.y, player_in_front.z, player_in_front.map)
+					player_in_front.x += step_x * 10
+					player_in_front.y += step_y * 10
+					player_in_front.z += 2
+					# Instant death!
+					player_in_front.health = 0
+					player_in_front.hitby = "being crushed by a city bus"
+					
+					g.n.send_reliable(player_in_front.peer_id, "You were crushed by the bus!", 0)
+					player_in_front.die()
+					
+					# Reset warning parameters
+					self.horn_timer = None
+					self.horn_played = False
+				
+				# Halt the bus: return early so it doesn't move forward
+				return
+			else:
+				# Clear warning state when front is clear
+				self.horn_warning_level = 0
+				self.horn_timer = None
+				self.horn_played = False
+
+			# Warning of arrival: if 10 steps away from a stop waypoint
+			dist_to_wp = max(abs(dx), abs(dy))
+			if dist_to_wp == 10 and target.get("is_stop", False):
+				g.play("bus_is_coming_and_drive_thrue", self.x, self.y, self.z, self.map)
+
+			old_x, old_y, old_z = self.x, self.y, self.z
 			
 			# Move coordinates
 			self.x += step_x
@@ -314,7 +503,6 @@ class OpenDoorBus(Vehicle):
 			self.z += step_z
 			
 			# PERFORMANCE FIX: Throttle sound position updates to every 200ms
-			# instead of every movement step (which is every 25ms)
 			if self.engine_sound_id and self.sound_update_timer.elapsed >= 200:
 				self.sound_update_timer.restart()
 				update_moving_sound(self.engine_sound_id, self.x, self.y, self.z)
@@ -333,7 +521,6 @@ class OpenDoorBus(Vehicle):
 			self.update_platforms_for_passengers(old_x, old_y, old_z)
 			
 			# Sync passenger global coordinates
-			# PERFORMANCE FIX: Throttle passenger move packets to every 100ms
 			should_sync_move = self.passenger_sync_timer.elapsed >= 100
 			if should_sync_move:
 				self.passenger_sync_timer.restart()
@@ -347,7 +534,6 @@ class OpenDoorBus(Vehicle):
 				# Interior limits: x from 1 to 6, y from 1 to 14 (new 8x16 bus)
 				# Door gaps at y=0 (front) and y=15 (rear) — stepping out ejects
 				if p.local_x < 1 or p.local_x > 6 or p.local_y < 1 or p.local_y > 14:
-					# They jumped out / fell out of the open door gap!
 					self.remove_passenger(p, fell_off=True)
 					continue
 				
@@ -369,9 +555,10 @@ class OpenDoorBus(Vehicle):
 				# Is this waypoint flagged as a stop?
 				if target.get("is_stop", False):
 					self.is_stopped = True
+					self.doors_open = True
 					self.stop_timer.restart()
-					g.play("dooropen", self.x, self.y, self.z, self.map)
-					g.play("motorstop", self.x, self.y, self.z, self.map)
+					g.play("bus_stop", self.x, self.y, self.z, self.map)
+					g.play("bus_doors_sound_effect", self.x, self.y, self.z, self.map)
 					if self.engine_sound_id:
 						destroy_moving_sound(self.engine_sound_id)
 						self.engine_sound_id = None
@@ -421,3 +608,4 @@ def update_platform(p, minx, maxx, miny, maxy, minz, maxz, tile, minx2, maxx2, m
 
 def remove_platform(p, minx, maxx, miny, maxy, minz, maxz, tile):
 	g.n.send_reliable(p.peer_id, "removeplatform " + str(round(minx)) + " " + str(round(maxx)) + " " + str(round(miny)) + " " + str(round(maxy)) + " " + str(round(minz)) + " " + str(round(maxz)) + " " + tile, 4)
+

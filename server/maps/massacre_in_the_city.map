@@ -727,17 +727,33 @@ zone:897:903:109:115:0:3:East Terminal Bus Stop:trackable
 sign:900:112:1:City Bus Line 1 - East Terminal. Final stop. Stand near the road to board.
 
 // --- Waypoints for city_line_1 route ---
-// Forward leg: West to East (stopping at each station)
-waypoint:city_line_1:0:50:112:0:0:0
-waypoint:city_line_1:1:100:112:0:1:5
-waypoint:city_line_1:2:500:112:0:1:5
-waypoint:city_line_1:3:900:112:0:1:5
-waypoint:city_line_1:4:950:112:0:0:0
-// Return leg: East to West (stopping at each station)
-waypoint:city_line_1:5:900:112:0:1:5
-waypoint:city_line_1:6:500:112:0:1:5
-waypoint:city_line_1:7:100:112:0:1:5
+// Forward leg: West to East along Main Street (Y=112)
+waypoint:city_line_1:0:50:113:0:0:0
+waypoint:city_line_1:1:100:113:0:1:5
+waypoint:city_line_1:2:300:113:0:1:5
+waypoint:city_line_1:3:500:113:0:1:5
+waypoint:city_line_1:4:900:113:0:1:5
+waypoint:city_line_1:5:950:113:0:0:0
+// Travel North to Luxury Houses Street (Y=560)
+waypoint:city_line_1:6:950:560:0:0:0
+// Westward leg along Luxury Houses Street (Y=560)
+waypoint:city_line_1:7:900:560:0:1:5
+waypoint:city_line_1:8:500:560:0:1:5
+waypoint:city_line_1:9:111:560:0:1:5
+waypoint:city_line_1:10:50:560:0:0:0
+// Travel South back to Main Street (Y=112)
+waypoint:city_line_1:11:50:113:0:0:0
+
+// --- Luxury Houses Street Bus Stops ---
+zone:497:503:557:563:0:3:Luxury Center Bus Stop:trackable
+sign:500:560:1:City Bus Line 1 - Luxury Houses Center Stop. Stand near the road to board.
+zone:108:114:557:563:0:3:Luxury Entrance Bus Stop:trackable
+sign:111:560:1:City Bus Line 1 - Luxury Houses Entrance Stop. Stand near the road to board.
+
+// --- Main Street New Bus Stop ---
+zone:297:303:109:115:0:3:BarryAllen Bus Stop:trackable
+sign:300:112:1:City Bus Line 1 - BarryAllen Stop. Stand near the road to board.
 
 // --- Transit Vehicle Spawn ---
 // open_door_bus spawns at west end of main street, runs city_line_1 loop
-transit:open_door_bus:50:112:0:path=city_line_1;interior_map=bus_interior;health=500;speed=25;sound=motorengine.ogg;door_mode=always_open
+transit:open_door_bus:300:113:0:path=city_line_1;interior_map=bus_interior;health=500;speed=25;sound=motorengine.ogg;door_mode=always_open

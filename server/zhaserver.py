@@ -856,6 +856,49 @@ def bilet_cevapla(soru):
         return cevap
 
 
+def climb_bus_ladder(player, bus):
+	player.climbing = True
+	g.n.send_reliable(player.peer_id, "stopmoving", 0)
+	
+	def func():
+		try:
+			# Play 5 ladder step sounds while raising Z each step
+			step_sounds = ["misc77.ogg", "misc78.ogg", "misc79.ogg", "misc77.ogg", "misc78.ogg"]
+			for i, snd in enumerate(step_sounds):
+				if not player.dead and player.map == bus.map and bus.running and bus.is_stopped:
+					player.z += 1  # +1 Z per step = total +5 after 5 steps
+					g.n.send_reliable(player.peer_id, f"move {player.x} {player.y} {player.z}", 0)
+					# Play step sound directly to player (3D positioned)
+					g.n.send_reliable(player.peer_id, f"play_s {snd}", 0)
+					# Also play to nearby players as 3D sound
+					g.play("bulletmotorhit" + str(random(1, 3)), player.x, player.y, player.z, player.map)
+				time.sleep(0.22)
+			
+			if not player.dead and player.map == bus.map and bus.running and bus.is_stopped:
+				# Landing sound
+				g.n.send_reliable(player.peer_id, "play_s misc79.ogg", 0)
+				# Place player at the bus entrance — outside the door, on top of the bus body
+				# player.y is still bus.y - 1 (front of bus), z is now +5 higher
+				# Close the bus door so player must open it before entering
+				bus.doors_open = False
+				g.play("bus_doors_sound_effect", bus.x, bus.y, bus.z, bus.map)
+				# Now add as passenger: lands at local_y=0 (entrance, just outside cabin door)
+				bus.add_passenger(player)
+				# Override: place player at doorway threshold (local_y=1) facing inward
+				player.local_y = 0
+				player.y = bus.y + player.local_y
+				g.n.send_reliable(player.peer_id, f"move {player.x} {player.y} {player.z}", 0)
+				# Notify player about the door
+				g.n.send_reliable(player.peer_id, "The bus door is closed. Press Enter to open it, then step inside.", 0)
+		except Exception as ex:
+			pass
+		finally:
+			player.climbing = False
+			g.n.send_reliable(player.peer_id, "startmoving", 0)
+	
+	Thread(target=func).start()
+
+
 def netloop():
 	global languages,e
 	try:
@@ -4120,6 +4163,24 @@ def netloop():
 			if(index>-1):
 				g.players[index].playsound("sitstop",False)
 				g.players[index].sitting=False
+		if parsed[0] == "bus_board":
+			index = g.get_player_index(e.peer_id)
+			if index > -1:
+				player = g.players[index]
+				if getattr(player, "climbing", False): return
+				boarded = False
+				for bus in g.transits:
+					if bus.map == player.map and bus.running:
+						# Ladder covers entire front face of the bus
+						is_ladder = (bus.x <= player.x <= bus.x + 9) and (player.y == bus.y - 1) and abs(player.z - bus.z) <= 5
+						if is_ladder:
+							if bus.is_stopped:
+								climb_bus_ladder(player, bus)
+								boarded = True
+								break
+							else:
+								g.n.send_reliable(player.peer_id, "The bus is moving, wait for it to stop.", 0)
+								break
 
 
 		if parsed[0]=="groupinvite2":
@@ -9185,21 +9246,31 @@ here, since the player name is before the string "came online", we added =substr
 						g.players[index].playsound("snowhit3")
 						g.players[index].give("snowflake_shard",1)
 				# --- Transit Bus Boarding (Enter key) ---
-				if not g.players[index].in_bus and not g.players[index].dead:
-					for bus in g.transits:
-						if bus.map == g.players[index].map and bus.running:
-							dist = get_3d_distance(g.players[index].x, g.players[index].y, g.players[index].z, bus.x, bus.y, bus.z)
-							if dist <= 8:
-								bus.add_passenger(g.players[index])
-								g.n.send_reliable(e.peer_id, "Boarded City Bus Line 1. Seated in cabin. Press Shift+Enter to exit.", 2)
-								return
-				elif g.players[index].in_bus and g.players[index].bus_instance is not None:
+				if g.players[index].in_bus and g.players[index].bus_instance is not None:
 					bus = g.players[index].bus_instance
-					if not bus.is_stopped:
-						g.n.send_reliable(e.peer_id, "You jumped off the moving bus!", 2)
+					local_x = g.players[index].local_x
+					local_y = g.players[index].local_y
+					if local_x in (1, 2, 5, 6) and 2 <= local_y <= 13:
+						if not getattr(g.players[index], "sitting", False):
+							g.players[index].sitting = True
+							g.players[index].playsound("sitstart", True)
+							g.n.send_reliable(g.players[index].peer_id, "sitstart", 0)
+							g.n.send_reliable(g.players[index].peer_id, "You sat down on the seat.", 0)
+						else:
+							g.players[index].sitting = False
+							g.players[index].playsound("sitstart", True)
+							g.n.send_reliable(g.players[index].peer_id, "sitstop", 0)
+							g.n.send_reliable(g.players[index].peer_id, "You stood up.", 0)
 					else:
-						g.n.send_reliable(e.peer_id, "Exited City Bus Line 1.", 2)
-					bus.remove_passenger(g.players[index], fell_off=(not bus.is_stopped))
+						# Aisle/door area: Enter opens the doors if closed, or closes them if open!
+						if not bus.doors_open:
+							bus.doors_open = True
+							g.play("bus_doors_sound_effect", bus.x, bus.y, bus.z, bus.map)
+							g.n.send_reliable(g.players[index].peer_id, "Doors opened.", 0)
+						else:
+							bus.doors_open = False
+							g.play("bus_closing_door", bus.x, bus.y, bus.z, bus.map)
+							g.n.send_reliable(g.players[index].peer_id, "Doors closed.", 0)
 					return
 				# --- End Transit Boarding ---
 				if g.players[index].vi>-1: g.n.send_reliable(e.peer_id,"echo motorengine",0); return
@@ -12189,6 +12260,7 @@ here, since the player name is before the string "came online", we added =substr
 		
 			index=g.get_player_index(e.peer_id)
 			if(index > -1):
+				if getattr(g.players[index], "climbing", False): return
 			
 				if g.players[index].renaming: remove_from_server(index); return
 				if g.players[index].movetimer.elapsed>=0:
@@ -12198,20 +12270,81 @@ here, since the player name is before the string "came online", we added =substr
 					charname=g.players[index].name
 					if g.players[index].in_bus and g.players[index].bus_instance is not None:
 						bus = g.players[index].bus_instance
-						g.players[index].local_x = int(float(parsed[1])) - bus.x
-						g.players[index].local_y = int(float(parsed[2])) - bus.y
-						g.players[index].local_z = int(float(parsed[3])) - bus.z
-						if g.players[index].local_x < 1: g.players[index].local_x = 1
-						if g.players[index].local_x > 4: g.players[index].local_x = 4
-						if g.players[index].local_y < 1: g.players[index].local_y = 1
-						if g.players[index].local_y > 9: g.players[index].local_y = 9
-						g.players[index].x = bus.x + g.players[index].local_x
-						g.players[index].y = bus.y + g.players[index].local_y
-						g.players[index].z = bus.z + g.players[index].local_z
+						old_lx = getattr(g.players[index], "local_x", None)
+						old_ly = getattr(g.players[index], "local_y", None)
+						new_lx = int(float(parsed[1])) - bus.x
+						new_ly = int(float(parsed[2])) - bus.y
+						new_lz = int(float(parsed[3])) - bus.z
+						
+						# Cabin block check: if door is closed and player tries to enter cabin
+						if not bus.doors_open and ((old_ly == 1 and new_ly >= 2) or (old_ly == 14 and new_ly <= 13)):
+							new_ly = old_ly
+							g.play("doorhit", bus.x + new_lx, bus.y + new_ly, bus.z + new_lz, bus.map)
+							g.n.send_reliable(g.players[index].peer_id, "The door is closed. Press Enter to open it.", 0)
+						
+						if new_lx < 1: new_lx = 1
+						if new_lx > 6: new_lx = 6
+						if not bus.doors_open:
+							if new_ly < 1: new_ly = 1
+							if new_ly > 14: new_ly = 14
+						
+						g.players[index].local_x = new_lx
+						g.players[index].local_y = new_ly
+						g.players[index].local_z = new_lz
+						g.players[index].x = bus.x + new_lx
+						g.players[index].y = bus.y + new_ly
+						g.players[index].z = bus.z + new_lz
+						
+						if old_lx != new_lx or old_ly != new_ly:
+							if new_lx in (1, 2, 5, 6) and 2 <= new_ly <= 13:
+								g.n.send_reliable(g.players[index].peer_id, "Seat", 0)
 					else:
-						g.players[index].x=float(parsed[1])
-						g.players[index].y=float(parsed[2])
-						g.players[index].z=float(parsed[3])
+						new_x = float(parsed[1])
+						new_y = float(parsed[2])
+						new_z = float(parsed[3])
+						collided = False
+						at_ladder = False
+						
+						collided_bus = None
+						for bus in g.transits:
+							if bus.map == g.players[index].map and bus.running:
+								# Front-side ladder check (only when bus is stopped)
+								if bus.is_stopped and bus.x <= new_x <= bus.x + 9 and new_y == bus.y - 1 and abs(new_z - bus.z) <= 5:
+									at_ladder = True
+								
+								# Solid bounding box collision check
+								if bus.x <= new_x <= bus.x + 9 and bus.y <= new_y <= bus.y + 19 and abs(new_z - bus.z) <= 5:
+									collided = True
+									collided_bus = bus
+									break
+						
+						if collided:
+							if collided_bus is not None and collided_bus.is_stopped:
+								# Stationary bus: act like a wall. Play soft bump sound once, no pushback.
+								last_collision_time = getattr(g.players[index], "last_bus_collision_time", 0.0)
+								if tm.time() - last_collision_time >= 1.5:
+									g.players[index].last_bus_collision_time = tm.time()
+									g.play("wall1", g.players[index].x, g.players[index].y, g.players[index].z, g.players[index].map)
+								# Block movement but keep checking ladder
+							else:
+								# Moving bus: full impact — push player back
+								last_collision_time = getattr(g.players[index], "last_bus_collision_time", 0.0)
+								if tm.time() - last_collision_time >= 1.0:
+									g.players[index].last_bus_collision_time = tm.time()
+									g.play("wallcar2", g.players[index].x, g.players[index].y, g.players[index].z, g.players[index].map)
+								g.n.send_reliable(g.players[index].peer_id, f"move {g.players[index].x} {g.players[index].y} {g.players[index].z}", 0)
+								return
+						
+						if at_ladder:
+							if not getattr(g.players[index], "at_ladder", False):
+								g.players[index].at_ladder = True
+								g.n.send_reliable(g.players[index].peer_id, "ladder", 0)
+						else:
+							g.players[index].at_ladder = False
+						
+						g.players[index].x = new_x
+						g.players[index].y = new_y
+						g.players[index].z = new_z
 					if not g.players[index].hidden:
 						for p in g.players:
 							if g.get_hidden_area_at(p.x, p.y, p.z, p.map)!=g.get_hidden_area_at(g.players[index].x, g.players[index].y, g.players[index].z, g.players[index].map): continue
@@ -12226,6 +12359,7 @@ here, since the player name is before the string "came online", we added =substr
 		
 			index=g.get_player_index(e.peer_id)
 			if(index > -1):
+				if getattr(g.players[index], "climbing", False): return
 			
 				if g.players[index].move2timer.elapsed>=0:
 					g.players[index].move2timer.restart()
@@ -12235,20 +12369,81 @@ here, since the player name is before the string "came online", we added =substr
 					name=g.players[index].name
 					if g.players[index].in_bus and g.players[index].bus_instance is not None:
 						bus = g.players[index].bus_instance
-						g.players[index].local_x = int(float(parsed[1])) - bus.x
-						g.players[index].local_y = int(float(parsed[2])) - bus.y
-						g.players[index].local_z = int(float(parsed[3])) - bus.z
-						if g.players[index].local_x < 1: g.players[index].local_x = 1
-						if g.players[index].local_x > 4: g.players[index].local_x = 4
-						if g.players[index].local_y < 1: g.players[index].local_y = 1
-						if g.players[index].local_y > 9: g.players[index].local_y = 9
-						g.players[index].x = bus.x + g.players[index].local_x
-						g.players[index].y = bus.y + g.players[index].local_y
-						g.players[index].z = bus.z + g.players[index].local_z
+						old_lx = getattr(g.players[index], "local_x", None)
+						old_ly = getattr(g.players[index], "local_y", None)
+						new_lx = int(float(parsed[1])) - bus.x
+						new_ly = int(float(parsed[2])) - bus.y
+						new_lz = int(float(parsed[3])) - bus.z
+						
+						# Cabin block check: if door is closed and player tries to enter cabin
+						if not bus.doors_open and ((old_ly == 1 and new_ly >= 2) or (old_ly == 14 and new_ly <= 13)):
+							new_ly = old_ly
+							g.play("doorhit", bus.x + new_lx, bus.y + new_ly, bus.z + new_lz, bus.map)
+							g.n.send_reliable(g.players[index].peer_id, "The door is closed. Press Enter to open it.", 0)
+						
+						if new_lx < 1: new_lx = 1
+						if new_lx > 6: new_lx = 6
+						if not bus.doors_open:
+							if new_ly < 1: new_ly = 1
+							if new_ly > 14: new_ly = 14
+						
+						g.players[index].local_x = new_lx
+						g.players[index].local_y = new_ly
+						g.players[index].local_z = new_lz
+						g.players[index].x = bus.x + new_lx
+						g.players[index].y = bus.y + new_ly
+						g.players[index].z = bus.z + new_lz
+						
+						if old_lx != new_lx or old_ly != new_ly:
+							if new_lx in (1, 2, 5, 6) and 2 <= new_ly <= 13:
+								g.n.send_reliable(g.players[index].peer_id, "Seat", 0)
 					else:
-						g.players[index].x=float(parsed[1])
-						g.players[index].y=float(parsed[2])
-						g.players[index].z=float(parsed[3])
+						new_x = float(parsed[1])
+						new_y = float(parsed[2])
+						new_z = float(parsed[3])
+						collided = False
+						at_ladder = False
+						
+						collided_bus = None
+						for bus in g.transits:
+							if bus.map == g.players[index].map and bus.running:
+								# Front-side ladder check (only when bus is stopped)
+								if bus.is_stopped and bus.x <= new_x <= bus.x + 9 and new_y == bus.y - 1 and abs(new_z - bus.z) <= 5:
+									at_ladder = True
+								
+								# Solid bounding box collision check
+								if bus.x <= new_x <= bus.x + 9 and bus.y <= new_y <= bus.y + 19 and abs(new_z - bus.z) <= 5:
+									collided = True
+									collided_bus = bus
+									break
+						
+						if collided:
+							if collided_bus is not None and collided_bus.is_stopped:
+								# Stationary bus: act like a wall. Play soft bump sound once, no pushback.
+								last_collision_time = getattr(g.players[index], "last_bus_collision_time", 0.0)
+								if tm.time() - last_collision_time >= 1.5:
+									g.players[index].last_bus_collision_time = tm.time()
+									g.play("wall1", g.players[index].x, g.players[index].y, g.players[index].z, g.players[index].map)
+								# Block movement but keep checking ladder
+							else:
+								# Moving bus: full impact — push player back
+								last_collision_time = getattr(g.players[index], "last_bus_collision_time", 0.0)
+								if tm.time() - last_collision_time >= 1.0:
+									g.players[index].last_bus_collision_time = tm.time()
+									g.play("wallcar2", g.players[index].x, g.players[index].y, g.players[index].z, g.players[index].map)
+								g.n.send_reliable(g.players[index].peer_id, f"move {g.players[index].x} {g.players[index].y} {g.players[index].z}", 0)
+								return
+						
+						if at_ladder:
+							if not getattr(g.players[index], "at_ladder", False):
+								g.players[index].at_ladder = True
+								g.n.send_reliable(g.players[index].peer_id, "ladder", 0)
+						else:
+							g.players[index].at_ladder = False
+						
+						g.players[index].x = new_x
+						g.players[index].y = new_y
+						g.players[index].z = new_z
 					if float(parsed[3])!=0 and not g.players[index].hidden:
 						for p in g.players:
 							if g.get_hidden_area_at(p.x, p.y, p.z, p.map)!=g.get_hidden_area_at(g.players[index].x, g.players[index].y, g.players[index].z, g.players[index].map): continue
@@ -12271,6 +12466,7 @@ here, since the player name is before the string "came online", we added =substr
 		
 			index=g.get_player_index(e.peer_id)
 			if(index > -1):
+				if getattr(g.players[index], "climbing", False): return
 			
 				if g.players[index].move3timer.elapsed>=0:
 					g.players[index].move3timer.restart()
@@ -12280,20 +12476,81 @@ here, since the player name is before the string "came online", we added =substr
 
 					if g.players[index].in_bus and g.players[index].bus_instance is not None:
 						bus = g.players[index].bus_instance
-						g.players[index].local_x = int(float(parsed[1])) - bus.x
-						g.players[index].local_y = int(float(parsed[2])) - bus.y
-						g.players[index].local_z = int(float(parsed[3])) - bus.z
-						if g.players[index].local_x < 1: g.players[index].local_x = 1
-						if g.players[index].local_x > 4: g.players[index].local_x = 4
-						if g.players[index].local_y < 1: g.players[index].local_y = 1
-						if g.players[index].local_y > 9: g.players[index].local_y = 9
-						g.players[index].x = bus.x + g.players[index].local_x
-						g.players[index].y = bus.y + g.players[index].local_y
-						g.players[index].z = bus.z + g.players[index].local_z
+						old_lx = getattr(g.players[index], "local_x", None)
+						old_ly = getattr(g.players[index], "local_y", None)
+						new_lx = int(float(parsed[1])) - bus.x
+						new_ly = int(float(parsed[2])) - bus.y
+						new_lz = int(float(parsed[3])) - bus.z
+						
+						# Cabin block check: if door is closed and player tries to enter cabin
+						if not bus.doors_open and ((old_ly == 1 and new_ly >= 2) or (old_ly == 14 and new_ly <= 13)):
+							new_ly = old_ly
+							g.play("doorhit", bus.x + new_lx, bus.y + new_ly, bus.z + new_lz, bus.map)
+							g.n.send_reliable(g.players[index].peer_id, "The door is closed. Press Enter to open it.", 0)
+						
+						if new_lx < 1: new_lx = 1
+						if new_lx > 6: new_lx = 6
+						if not bus.doors_open:
+							if new_ly < 1: new_ly = 1
+							if new_ly > 14: new_ly = 14
+						
+						g.players[index].local_x = new_lx
+						g.players[index].local_y = new_ly
+						g.players[index].local_z = new_lz
+						g.players[index].x = bus.x + new_lx
+						g.players[index].y = bus.y + new_ly
+						g.players[index].z = bus.z + new_lz
+						
+						if old_lx != new_lx or old_ly != new_ly:
+							if new_lx in (1, 2, 5, 6) and 2 <= new_ly <= 13:
+								g.n.send_reliable(g.players[index].peer_id, "Seat", 0)
 					else:
-						g.players[index].x=float(parsed[1])
-						g.players[index].y=float(parsed[2])
-						g.players[index].z=float(parsed[3])
+						new_x = float(parsed[1])
+						new_y = float(parsed[2])
+						new_z = float(parsed[3])
+						collided = False
+						at_ladder = False
+						
+						collided_bus = None
+						for bus in g.transits:
+							if bus.map == g.players[index].map and bus.running:
+								# Front-side ladder check (only when bus is stopped)
+								if bus.is_stopped and bus.x <= new_x <= bus.x + 9 and new_y == bus.y - 1 and abs(new_z - bus.z) <= 5:
+									at_ladder = True
+								
+								# Solid bounding box collision check
+								if bus.x <= new_x <= bus.x + 9 and bus.y <= new_y <= bus.y + 19 and abs(new_z - bus.z) <= 5:
+									collided = True
+									collided_bus = bus
+									break
+						
+						if collided:
+							if collided_bus is not None and collided_bus.is_stopped:
+								# Stationary bus: act like a wall. Play soft bump sound once, no pushback.
+								last_collision_time = getattr(g.players[index], "last_bus_collision_time", 0.0)
+								if tm.time() - last_collision_time >= 1.5:
+									g.players[index].last_bus_collision_time = tm.time()
+									g.play("wall1", g.players[index].x, g.players[index].y, g.players[index].z, g.players[index].map)
+								# Block movement but keep checking ladder
+							else:
+								# Moving bus: full impact — push player back
+								last_collision_time = getattr(g.players[index], "last_bus_collision_time", 0.0)
+								if tm.time() - last_collision_time >= 1.0:
+									g.players[index].last_bus_collision_time = tm.time()
+									g.play("wallcar2", g.players[index].x, g.players[index].y, g.players[index].z, g.players[index].map)
+								g.n.send_reliable(g.players[index].peer_id, f"move {g.players[index].x} {g.players[index].y} {g.players[index].z}", 0)
+								return
+						
+						if at_ladder:
+							if not getattr(g.players[index], "at_ladder", False):
+								g.players[index].at_ladder = True
+								g.n.send_reliable(g.players[index].peer_id, "ladder", 0)
+						else:
+							g.players[index].at_ladder = False
+						
+						g.players[index].x = new_x
+						g.players[index].y = new_y
+						g.players[index].z = new_z
 					if float(parsed[3])!=0 and not g.players[index].hidden:
 						for p in g.players:
 
