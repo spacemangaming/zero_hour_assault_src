@@ -2,8 +2,6 @@ import os
 import sys
 import time
 import math
-from constants import DIRECTORY_TEMP
-
 # Resolve absolute path to the project root directory
 ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 
@@ -127,66 +125,10 @@ class fmod_sound(object):
             self.cached = True
             return True
         
-        # First, check unpacked_sounds
-        unpacked_path = os.path.join(ROOT_DIR, "unpacked_sounds", filename)
-        if os.path.exists(unpacked_path):
-            file_path = unpacked_path
-            self.usingpack = False
-            try:
-                if is_stream:
-                    self.sound = system.create_stream(file_path)
-                else:
-                    self.sound = system.create_sound(file_path)
-                    _sound_cache[filename] = self.sound
-                    self.cached = True
-                return True
-            except Exception as e:
-                print(f"FMOD failed to load from unpacked_sounds {filename}: {e}")
-
-        # Import pack dynamically to avoid circular import issues
-        from sound import pack
-        
-        if not pack.file_exists(filename) and not os.path.exists(filename):
+        # Runtime uses the real loose `sounds/` folder only.
+        file_path = os.path.join(ROOT_DIR, "sounds", filename)
+        if not os.path.exists(file_path):
             return False
-            
-        file_path = filename
-        if pack.file_exists(filename):
-            extracted = pack.get_file(filename)
-            if extracted == False:
-                file_path = filename
-            elif isinstance(extracted, str):
-                file_path = os.path.join(DIRECTORY_TEMP, extracted)
-            else:
-                # Decrypt in memory
-                content = extracted.read() if hasattr(extracted, "read") else extracted
-                import globals as g
-                from security import string_decrypt
-                content = string_decrypt(content, g.sdeckey)
-                
-                # Check if it is a stream. If so, FMOD requires a temp file on disk (streams read dynamically).
-                # But if it is NOT a stream, we can load it directly from memory!
-                if not is_stream:
-                    try:
-                        exinfo = pyfmodex.structures.CREATESOUNDEXINFO()
-                        exinfo.cbsize = pyfmodex.structures.sizeof(exinfo)
-                        exinfo.length = len(content)
-                        self.sound = system.create_sound(content, mode=pyfmodex.flags.MODE.OPENMEMORY, exinfo=exinfo)
-                        self.usingpack = False
-                        _sound_cache[filename] = self.sound
-                        self.cached = True
-                        return True
-                    except Exception as e:
-                        print(f"FMOD failed to load sound from memory {filename}: {e}")
-                        # Fallback to temp file if memory loading fails
-                
-                temp_path = os.path.join(DIRECTORY_TEMP, filename)
-                temp_dir = os.path.dirname(temp_path)
-                if not os.path.exists(temp_dir):
-                    os.makedirs(temp_dir)
-                with open(temp_path, "wb") as f:
-                    f.write(content)
-                file_path = temp_path
-                self.usingpack = True
         
         try:
             # Set 3D mode on creation if positioning is needed

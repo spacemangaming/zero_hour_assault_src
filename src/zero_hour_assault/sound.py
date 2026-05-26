@@ -19,7 +19,6 @@ if sys.platform == "win32" and hasattr(os, "add_dll_directory"):
 
 import fmod_audio
 import pyfmodex
-from pack_file import *
 
 FMOD_ACTIVE = False
 
@@ -27,14 +26,6 @@ if fmod_audio.FMOD_AVAILABLE and fmod_audio.init_fmod():
 	FMOD_ACTIVE = True
 else:
 	raise RuntimeError("FMOD is required but failed to initialize. Check third_party/fmod DLLs and pyfmodex.")
-
-pack = pack_file()
-try:
-	pack.open("sounds.dat")
-except Exception as e:
-	print(f"Warning: Could not open sounds.dat: {e}")
-
-
 
 def get_raycast_occlusion(listener_x, listener_y, listener_z, source_x, source_y, source_z):
 	try:

@@ -56,5 +56,6 @@ third_party/
 
 # Ignore all .dat files
 *.dat
-!sounds.dat
+sounds.dat
 src/zero_hour_assault.egg-info/
+/sounds

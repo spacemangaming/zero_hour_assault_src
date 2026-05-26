@@ -45,10 +45,6 @@ if hasattr(os, "add_dll_directory"):
 
 
 import os
-if os.path.isfile("sounds1.dat"):
-	os.remove("sounds.dat")
-	os.rename("sounds1.dat","sounds.dat")
-
 import pyaudio
 from threading import Thread
 import os

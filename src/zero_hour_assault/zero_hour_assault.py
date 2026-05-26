@@ -34,9 +34,6 @@ import psutil
 import math
 import os
 import traceback
-if os.path.isfile("sounds1.dat"):
-	os.remove("sounds.dat")
-	os.rename("sounds1.dat","sounds.dat")
 while os.path.isfile("zero_hour_assault1.exe"):
 	try: os.remove("zero_hour_assault1.exe")
 	except: pass
@@ -571,7 +568,6 @@ hq-mode=true""")
 		dlg("You cannot open the game twice")
 		pygame.quit()
 		ctypes.windll.kernel32.ExitProcess(0)
-	set_sound_storage("sounds.dat")
 	set_sound_decryption_key("asdasdasdasasdasdsa1231232132112321321$$1231231231221321312%*]9CfY%!yfo?3.m]C16(VW:?DB:70v4n7d`tht}jiylhC%L&;ix(Y;9BB?`k-hYhR^=n%C;#kykxV?)GFbzC5x6R<-W?o<c|xQw")
 
 	try:
