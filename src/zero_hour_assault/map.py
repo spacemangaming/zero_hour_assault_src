@@ -21,6 +21,76 @@ from events import key_down
 import pygame
 from sound_pool import SoundPool
 from sound import sound
+global_platforms = []
+map_grid = {}
+GRID_SIZE = 10
+
+def add_platform_to_grid(platform):
+	minx, maxx, miny, maxy, minz, maxz, plattype = platform
+	
+	# Normalize coordinate bounds to handle reverse-ordered coordinate entries safely!
+	real_minx = min(minx, maxx)
+	real_maxx = max(minx, maxx)
+	real_miny = min(miny, maxy)
+	real_maxy = max(miny, maxy)
+	real_minz = min(minz, maxz)
+	real_maxz = max(minz, maxz)
+	
+	start_x = int(real_minx // GRID_SIZE)
+	end_x = int(real_maxx // GRID_SIZE)
+	start_y = int(real_miny // GRID_SIZE)
+	end_y = int(real_maxy // GRID_SIZE)
+	start_z = int(real_minz // GRID_SIZE)
+	end_z = int(real_maxz // GRID_SIZE)
+	
+	dx = end_x - start_x + 1
+	dy = end_y - start_y + 1
+	dz = end_z - start_z + 1
+	cells_count = dx * dy * dz
+	
+	# If a platform covers a massive coordinate range (e.g. global floor/skybox),
+	# place it in the global list to prevent nested loop explosions at map load!
+	if cells_count > 125:
+		print(f"[MapLoader] Note: platform '{plattype}' spans {cells_count} grid cells. Registered as GLOBAL platform to prevent lags.")
+		global_platforms.append(platform)
+		return
+		
+	for gx in range(start_x, end_x + 1):
+		for gy in range(start_y, end_y + 1):
+			for gz in range(start_z, end_z + 1):
+				cell_key = (gx, gy, gz)
+				if cell_key not in map_grid:
+					map_grid[cell_key] = []
+				map_grid[cell_key].append(platform)
+
+def remove_platform_from_grid(platform):
+	if platform in global_platforms:
+		global_platforms.remove(platform)
+		return
+	minx, maxx, miny, maxy, minz, maxz, plattype = platform
+	
+	real_minx = min(minx, maxx)
+	real_maxx = max(minx, maxx)
+	real_miny = min(miny, maxy)
+	real_maxy = max(miny, maxy)
+	real_minz = min(minz, maxz)
+	real_maxz = max(minz, maxz)
+	
+	start_x = int(real_minx // GRID_SIZE)
+	end_x = int(real_maxx // GRID_SIZE)
+	start_y = int(real_miny // GRID_SIZE)
+	end_y = int(real_maxy // GRID_SIZE)
+	start_z = int(real_minz // GRID_SIZE)
+	end_z = int(real_maxz // GRID_SIZE)
+	for gx in range(start_x, end_x + 1):
+		for gy in range(start_y, end_y + 1):
+			for gz in range(start_z, end_z + 1):
+				cell_key = (gx, gy, gz)
+				if cell_key in map_grid and platform in map_grid[cell_key]:
+					map_grid[cell_key].remove(platform)
+					if not map_grid[cell_key]:
+						del map_grid[cell_key]
+
 def clear_map():
 	g.map.clear()
 	g.mapstairs.clear()
@@ -30,12 +100,19 @@ def clear_map():
 	g.mapmusic.close()
 	g.mapzones.clear()
 	g.mapignore_ambiences.clear()
+	map_grid.clear()
+	global_platforms.clear()
+	print("[MapLoader] Cleared spatial partition grid and global platforms.")
 
 def spawn_platform(minx, maxx, miny, maxy, minz, maxz, plattype):
-	g.map.append((round(minx), round(maxx), round(miny), round(maxy), round(minz), round(maxz), plattype))
+	platform = (round(minx), round(maxx), round(miny), round(maxy), round(minz), round(maxz), plattype)
+	g.map.append(platform)
+	add_platform_to_grid(platform)
 
 def spawn_staircase(minx, maxx, miny, maxy, minz, maxz, plattype, type, reverse):
-	g.map.append((round(minx), round(maxx), round(miny), round(maxy), round(minz), round(maxz), plattype))
+	platform = (round(minx), round(maxx), round(miny), round(maxy), round(minz), round(maxz), plattype)
+	g.map.append(platform)
+	add_platform_to_grid(platform)
 	g.mapstairs.append(""+str(minx)+":"+str(maxx)+":"+str(miny)+":"+str(maxy)+":"+str(minz)+":"+str(maxz)+":"+plattype+":"+type+":"+reverse)
 
 
@@ -96,22 +173,43 @@ def get_tile_at(x, y, z):
 	if not g.rain and (x, y, z) in g.tile_cache:
 		return g.tile_cache[(x, y, z)]
 
-	for i in range(len(g.map)):
-		sd=g.map[i]
-		minx=string_to_number(sd[0])
-		maxx=string_to_number(sd[1])
-		miny=string_to_number(sd[2])
-		maxy=string_to_number(sd[3])
-		minz=string_to_number(sd[4])
-		maxz=string_to_number(sd[5])
-		tile=sd[6]
-		if(minx<=x and maxx>=x and miny<=y and maxy>=y and minz<=z and maxz>=z):
-			mt=tile
-			g.tile_cache[(x, y, z)] = mt
+	# 1. Query local grid cell (extremely fast O(1))
+	gx = int(x // GRID_SIZE)
+	gy = int(y // GRID_SIZE)
+	gz = int(z // GRID_SIZE)
+	cell_key = (gx, gy, gz)
+	
+	if cell_key in map_grid:
+		platforms = map_grid[cell_key]
+		for sd in platforms:
+			minx = sd[0]
+			maxx = sd[1]
+			miny = sd[2]
+			maxy = sd[3]
+			minz = sd[4]
+			maxz = sd[5]
+			tile = sd[6]
+			if minx <= x and maxx >= x and miny <= y and maxy >= y and minz <= z and maxz >= z:
+				mt = tile
+				g.tile_cache[(x, y, z)] = mt
+				return mt
 
+	# 2. Query global/massive platforms (extremely fast O(1) due to tiny list)
+	for sd in global_platforms:
+		minx = sd[0]
+		maxx = sd[1]
+		miny = sd[2]
+		maxy = sd[3]
+		minz = sd[4]
+		maxz = sd[5]
+		tile = sd[6]
+		if minx <= x and maxx >= x and miny <= y and maxy >= y and minz <= z and maxz >= z:
+			mt = tile
+			g.tile_cache[(x, y, z)] = mt
+			return mt
 
 	if (g.rain or g.rainfinish) and (g.get_rain_sound_camera()=="rainext.ogg") and "wall" not in mt and mt!="" and mt!="air" and mt in g.nomudtiles: mt="mud"
-    #No need to cache mud, because rain is dynamic
+	#No need to cache mud, because rain is dynamic
 	return mt
 def get_staircase_at(x, y, z):
 	mt=""
@@ -148,17 +246,22 @@ def delinear(a):
 	return string_split(a, "\n", False)
 
 def load_map(mdata):
-	#g.mapready=True
+	print("\n[MapLoader] --- Starting load_map ---")
 	g.jumping=False
 	g.tile_cache={}
 	try:
+		print("[MapLoader] Destroying all active sounds...")
 		g.p.destroy_all()
-	except:
-		pass
+	except Exception as e:
+		print(f"[MapLoader] Warning during destroy_all: {e}")
 	import fmod_audio
+	print("[MapLoader] Clearing FMOD sound cache...")
 	fmod_audio.clear_sound_cache()
-	if mdata.find("mapname:"+g.mapname)==-1: g.mapmusic.close()
+	if mdata.find("mapname:"+g.mapname)==-1: 
+		print("[MapLoader] Closing map music...")
+		g.mapmusic.close()
 
+	print("[MapLoader] Clearing old doors, signs, and sources...")
 	destroy_all_doors()
 	g.signs=[]
 	destroy_all_sources()
@@ -167,10 +270,14 @@ def load_map(mdata):
 	g.mapzones.clear()
 	g.mapignore_ambiences.clear()
 
+	print("[MapLoader] Running clear_map grids...")
 	clear_map()
-	ldata=delinear(mdata)
+	ldata = delinear(mdata)
+	print(f"[MapLoader] Total map lines to parse: {len(ldata)}")
 	for i in range(len(ldata)):
-		try: # Add try-except block here
+		line_str = ldata[i].strip()
+		print(f"[MapLoader] [{i+1}/{len(ldata)}] Parsing: '{line_str}'")
+		try:
 			parsed=string_split(ldata[i], ":", True)
 			if(parsed[0]=="mapname"):
 
@@ -365,6 +472,7 @@ def load_map(mdata):
 		except Exception as e: # Catch general exceptions during parsing
 			print(f"Error parsing line {i+1}: {ldata[i]}. Skipping line. Error: {e}") # Print error message for debugging
 			pass # Skip the current line and continue to the next
+	print(f"[MapLoader] --- Completed load_map successfully! Total Platforms: {len(g.map)}, Stairs: {len(g.mapstairs)} ---\n")
 
 def playstep():
 	if g.jumping: return
@@ -775,6 +883,7 @@ def remove_platform(minx, maxx, miny, maxy, minz, maxz, plattype):
 	platform_to_remove = (round(minx), round(maxx), round(miny), round(maxy), round(minz), round(maxz), plattype)
 	if platform_to_remove in g.map:
 		g.map.remove(platform_to_remove)
+		remove_platform_from_grid(platform_to_remove)
 def remove_zone(minx, maxx, miny, maxy, minz, maxz, plattype):
 	zone_to_remove = (round(minx), round(maxx), round(miny), round(maxy), round(minz), round(maxz), plattype)
 	if zone_to_remove in g.mapzones:
@@ -788,8 +897,11 @@ def update_platform(old_minx, old_maxx, old_miny, old_maxy, old_minz, old_maxz, 
 	if old_platform in g.map:
 		index = g.map.index(old_platform)
 		g.map[index] = new_platform
+		remove_platform_from_grid(old_platform)
+		add_platform_to_grid(new_platform)
 	else:
 		g.map.append(new_platform)
+		add_platform_to_grid(new_platform)
 def is_staircase_reverse(x, y, z):
 	mt=""
 	x=round(x)
