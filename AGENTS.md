@@ -53,10 +53,10 @@ os.environ["PAFY_BACKEND"] = "internal"
 To prevent the client from overwriting modified development source code with production compiled binaries:
 - Keep the `updater.check()` and `updater.sndcheck()` calls safely commented out or bypassed inside client game loops.
 
-### E. ENet UDP Networking Patterns
-The networking is powered by `pyenet` (wrapper for the reliable ENet UDP library).
-- **Default Listening Port:** Both client and server must connect/listen on UDP port `55918`. Do not change this port without explicit authorization from the Lead Architect.
-- **Client Module:** Always configure IP and Port properties within `src/zero_hour_assault/net.py` dynamically, defaulting to `localhost` and `55918` respectively.
+### E. WebSocket Networking Patterns
+The networking is powered by high-performance **WebSockets** running over TCP.
+- **Default Listening Port:** Both client and server connect/listen on WebSocket port `10000` (over unencrypted `ws://` locally, or secure `wss://` when hosted on Render).
+- **Client Module:** Always configure IP and Port properties within `src/zero_hour_assault/net.py` dynamically, defaulting to `localhost` and `10000` respectively.
 
 ---
 
@@ -124,15 +124,15 @@ Each line in a `.map` file defines a specific asset, collider, or zone. Comments
 When you are invoked on this codebase, inject this instruction set into your execution model:
 
 ```text
-You are an expert audio-game developer agent specializing in standard Python packaging, ctypes DLL configuration, ENet socket programming, and text-based coordinate map design.
+You are an expert audio-game developer agent specializing in standard Python packaging, ctypes DLL configuration, WebSocket socket programming, and text-based coordinate map design.
 
 Rules:
-1. Keep pathing environment-agnostic using dynamic parent paths relative to __file__.
-2. Always call `os.add_dll_directory` on Windows before wrapping native libraries.
-3. Manage all dependencies using the `uv` build manager and pyproject.toml.
+1. Always use the `uv` tool for package operations and script executions. Strictly use `uv run <script>` to execute scripts and `uv add <package>` to manage dependencies. Do NOT run raw python commands directly.
+2. Keep pathing environment-agnostic using dynamic parent paths relative to __file__.
+3. Always call `os.add_dll_directory` on Windows before wrapping native libraries.
 4. Maintain active safety bypasses (disabled hardware/email verifications) to prevent developer lockout.
 5. Track heavy binaries (like sounds.dat) using Git LFS. Never commit raw directories containing raw audio assets.
-6. Before making any non-trivial modifications, verify existing server network ports (55918) and keep logging highly informative.
+6. Before making any non-trivial modifications, verify existing server network ports (10000) and keep logging highly informative.
 7. Always check coordinate integrity and OpenAL asset references when designing, editing, or validating text-based map layouts.
 ```
-Do not use   wev toolevery time. Also, do not commit in Git every time unless the user says. After making changes, only commit if the user tells you to commit, otherwise do not do it.
+Do not use wev tool every time. Also, do not commit in Git every time unless the user says. After making changes, only commit if the user tells you to commit, otherwise do not do it.

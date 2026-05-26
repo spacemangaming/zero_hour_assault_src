@@ -1,4 +1,4 @@
-import json # Import json for storing comments
+﻿import json # Import json for storing comments
 
 import importlib
 import zhaserver
@@ -537,20 +537,23 @@ def main():
 	port = 10000 if "android" not in os.getcwd() else 10001
 	
 	print("=" * 65)
+	port = 10000 if "android" not in os.getcwd() else 10001
+	
+	print("=" * 65)
 	print("                    ZERO HOUR ASSAULT GAME SERVER")
 	print("=" * 65)
 	print("[*] Initializing server systems...")
 	print("[*] Loaded maps system.")
 	print("[*] Loaded computer bans & tempmail lists.")
 	print("[*] Compiled weapon statistics configuration.")
-	print(f"[*] Binding ENet host to port {port}...")
+	print(f"[*] Binding WebSocket server to port {port}...")
 	
 	g.n.setup_server(port, 100, 100)
 	
 	print(f"[OK] Server successfully bound to port: {port}")
 	print("[*] Network interface: 0.0.0.0 (All incoming connections allowed)")
 	print("=" * 65)
-	print("STATUS: [RUNNING] Listening for reliable UDP incoming connections...")
+	print("STATUS: [RUNNING] Listening for secure WebSocket (TCP) incoming connections...")
 	print("Press Ctrl+C to terminate the server at any time.")
 	print("=" * 65)
 

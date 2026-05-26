@@ -148,7 +148,7 @@ import pack_file
 import timer
 import savedata
 import input
-import enet
+import websocket
 import menu_system
 import net
 import cid
