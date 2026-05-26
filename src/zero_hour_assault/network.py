@@ -27,6 +27,7 @@ class network:
     def __init__(self):
         self.ws = None
         self.secure_peer = None
+        self.peer = None
         self.client_private_key = None
         self.event_queue = queue.Queue()
         self.thread = None
@@ -105,6 +106,7 @@ class network:
                 self.secure_peer.box = nacl.public.Box(self.client_private_key, server_public_key)
                 self.secure_peer.secure = True
                 self.secure_peer.handshake_complete = True
+                self.peer = self.secure_peer
 
                 self.connected = True
 
@@ -165,6 +167,7 @@ class network:
                 traceback.print_exc()
             finally:
                 self.connected = False
+                self.peer = None
                 evt = network_event()
                 evt.type = event_disconnect
                 evt.peer_id = self.secure_peer
@@ -182,6 +185,7 @@ class network:
             except:
                 pass
             self.ws = None
+        self.peer = None
         return True
 
     def broadcast(self, message, channel):

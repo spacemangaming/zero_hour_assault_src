@@ -112,6 +112,16 @@ class Vehicle:
 					except:
 						tile = parsed[6]
 					self.relative_platforms.append((minx, maxx, miny, maxy, z, maxz, tile))
+			if self.interior_map == "bus_interior":
+				# Reinforce the shell so the bus behaves like a closed vehicle interior.
+				self.relative_platforms.extend([
+					(0, 0, 0, 15, 0, 5, "wallbuilding"),
+					(7, 7, 0, 15, 0, 5, "wallbuilding"),
+					(0, 7, 0, 0, 0, 5, "wallbuilding"),
+					(0, 7, 15, 15, 0, 5, "wallbuilding"),
+					(0, 7, 0, 15, 5, 5, "wallbuilding"),
+					(0, 7, 1, 1, 2, 5, "wallbuilding"),
+				])
 			_bus_perf_log(f"Loaded {len(self.relative_platforms)} interior platforms from {blueprint_path}")
 		except Exception as e:
 			_bus_perf_log(f"Error loading vehicle interior blueprint {blueprint_path}: {e}")
@@ -301,6 +311,13 @@ class OpenDoorBus(Vehicle):
 		
 		_bus_perf_log(f"Spawned {vtype} at ({start_x},{start_y},{z}) on {mapname}, path={path_id}, speed={speed}ms, waypoints={len(self.waypoints)}")
 
+	def _engine_pitch(self):
+		# Convert route speed into a vehicle-like pitch. Faster route timing should not
+		# sound like a human voice or a slow footstep loop.
+		base = 95 if self.is_stopped else 110
+		speed_bonus = max(0, min(55, int((100 - min(self.speed, 100)) * 0.9)))
+		return base + speed_bonus
+
 	def load_waypoints(self):
 		# We find waypoints matching our path_id
 		for w in g.waypoints:
@@ -349,14 +366,14 @@ class OpenDoorBus(Vehicle):
 			# Play quiet engine hum so players can locate the parked bus by audio
 			if self.engine_sound_id is None and self.engine_sound != "bus_engine.ogg":
 				try:
-					self.engine_sound_id = spawn_moving_sound("bus_engine.ogg", self.x, self.y, self.z, self.map, "", 50)
+					self.engine_sound_id = spawn_moving_sound("bus_engine.ogg", self.x, self.y, self.z, self.map, "", self._engine_pitch())
 					self.engine_sound = "bus_engine.ogg"
 				except Exception as e:
 					_bus_perf_log(f"Warning: Could not spawn idle sound for empty bus: {e}")
 			# Throttle position update for idle sound
 			if self.engine_sound_id and self.sound_update_timer.elapsed >= 500:
 				self.sound_update_timer.restart()
-				update_moving_sound(self.engine_sound_id, self.x, self.y, self.z)
+				update_moving_sound(self.engine_sound_id, self.x, self.y, self.z, self._engine_pitch())
 			return
 
 		# Check if any passengers are sitting on seats
@@ -394,7 +411,7 @@ class OpenDoorBus(Vehicle):
 			# Throttle engine sound loop update
 			if self.engine_sound_id and self.sound_update_timer.elapsed >= 200:
 				self.sound_update_timer.restart()
-				update_moving_sound(self.engine_sound_id, self.x, self.y, self.z)
+				update_moving_sound(self.engine_sound_id, self.x, self.y, self.z, self._engine_pitch())
 			return
 
 		# If doors are open, do not move
@@ -403,7 +420,7 @@ class OpenDoorBus(Vehicle):
 			# Throttle engine sound loop update
 			if self.engine_sound_id and self.sound_update_timer.elapsed >= 200:
 				self.sound_update_timer.restart()
-				update_moving_sound(self.engine_sound_id, self.x, self.y, self.z)
+				update_moving_sound(self.engine_sound_id, self.x, self.y, self.z, self._engine_pitch())
 			return
 
 		# Driving mode: Proceed along waypoints
@@ -506,7 +523,7 @@ class OpenDoorBus(Vehicle):
 			# PERFORMANCE FIX: Throttle sound position updates to every 200ms
 			if self.engine_sound_id and self.sound_update_timer.elapsed >= 200:
 				self.sound_update_timer.restart()
-				update_moving_sound(self.engine_sound_id, self.x, self.y, self.z)
+				update_moving_sound(self.engine_sound_id, self.x, self.y, self.z, self._engine_pitch())
 			
 			# Update facing direction dynamically based on movement vector
 			if step_x == 0 and step_y > 0: self.facing = 0

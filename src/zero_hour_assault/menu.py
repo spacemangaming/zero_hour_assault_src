@@ -455,7 +455,9 @@ def invmenu():
 		
 	
 def serverside_menu(sndtxt, menu, menuitems, store=False):
-	g.n.disconnect_peer(g.n.peer)
+	peer = getattr(g.n, "peer", None) or getattr(g.n, "secure_peer", None)
+	if peer is not None:
+		g.n.disconnect_peer(peer)
 	g.n.destroy()
 	setupmenu(False, False,True)
 	m.enter_sound=""

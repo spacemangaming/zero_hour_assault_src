@@ -2493,7 +2493,10 @@ def reset(resetpool=True):
 	g.connected=False
 	g.weaponauto=False
 	g.w=-1
-	if resetpool: g.n.disconnect_peer(g.n.peer)
+	if resetpool:
+		peer = getattr(g.n, "peer", None) or getattr(g.n, "secure_peer", None)
+		if peer is not None:
+			g.n.disconnect_peer(peer)
 	destroy_all_sources()
 	g.recording=False
 	try: g.n.send_reliable(0,"voiceoff",0)
@@ -4544,7 +4547,13 @@ def checkloc():
 def doorcheck():
 	for i in range(len(g.doors)):
 	
-		if (round(g.me.x)==g.doors[i].dx and round(g.me.y)==g.doors[i].dy and round(g.me.z==g.doors[i].dz) and g.dmoving==False):
+		if (
+			getattr(g.doors[i], "map", g.mapname) == g.mapname
+			and round(g.me.x) == g.doors[i].dx
+			and round(g.me.y) == g.doors[i].dy
+			and round(g.me.z) == g.doors[i].dz
+			and g.dmoving == False
+		):
 		
 			g.can_move=False
 			g.p.play_extended_3d(g.doors[i].ds3, g.me.x, g.me.y, g.me.z, g.me.x, g.me.y, g.me.z, calculate_theta(g.facing), 0, 0, 0, 0, 0, 0, False, 0.0, 0.0, 0.0, 100.0, False)

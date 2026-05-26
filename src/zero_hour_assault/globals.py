@@ -104,6 +104,7 @@ onlinemsg=1
 killcounter=1
 old_x=0; old_y=0; old_z=0; old_facing=0
 usesub=1
+oldusesub=usesub
 awindow=1
 muted=False
 near=1

@@ -862,8 +862,9 @@ def climb_bus_ladder(player, bus):
 	
 	def func():
 		try:
-			# Play 5 ladder step sounds while raising Z each step
+			# Play a realistic step-by-step ladder climb instead of a sudden snap upward.
 			step_sounds = ["misc77.ogg", "misc78.ogg", "misc79.ogg", "misc77.ogg", "misc78.ogg"]
+			time.sleep(0.18)
 			for i, snd in enumerate(step_sounds):
 				if not player.dead and player.map == bus.map and bus.running and bus.is_stopped:
 					player.z += 1  # +1 Z per step = total +5 after 5 steps
@@ -872,7 +873,7 @@ def climb_bus_ladder(player, bus):
 					g.n.send_reliable(player.peer_id, f"play_s {snd}", 0)
 					# Also play to nearby players as 3D sound
 					g.play("bulletmotorhit" + str(random(1, 3)), player.x, player.y, player.z, player.map)
-				time.sleep(0.22)
+				time.sleep(0.28)
 			
 			if not player.dead and player.map == bus.map and bus.running and bus.is_stopped:
 				# Landing sound
@@ -4171,9 +4172,11 @@ def netloop():
 				boarded = False
 				for bus in g.transits:
 					if bus.map == player.map and bus.running:
-						# Ladder covers entire front face of the bus
-						is_ladder = (bus.x <= player.x <= bus.x + 9) and (player.y == bus.y - 1) and abs(player.z - bus.z) <= 5
+						# Narrow ladder contact zone at the front of the bus.
+						is_ladder = (bus.x <= player.x <= bus.x + 9) and (player.y == bus.y - 1) and abs(player.z - bus.z) <= 2
 						if is_ladder:
+							g.play("misc263", player.x, player.y, player.z, player.map)
+							g.play("misc77", player.x, player.y, player.z, player.map)
 							if bus.is_stopped:
 								climb_bus_ladder(player, bus)
 								boarded = True
@@ -9250,6 +9253,9 @@ here, since the player name is before the string "came online", we added =substr
 					bus = g.players[index].bus_instance
 					local_x = g.players[index].local_x
 					local_y = g.players[index].local_y
+					player = g.players[index]
+					if player.map != bus.map:
+						return
 					if local_x in (1, 2, 5, 6) and 2 <= local_y <= 13:
 						if not getattr(g.players[index], "sitting", False):
 							g.players[index].sitting = True
@@ -9262,15 +9268,20 @@ here, since the player name is before the string "came online", we added =substr
 							g.n.send_reliable(g.players[index].peer_id, "sitstop", 0)
 							g.n.send_reliable(g.players[index].peer_id, "You stood up.", 0)
 					else:
-						# Aisle/door area: Enter opens the doors if closed, or closes them if open!
-						if not bus.doors_open:
-							bus.doors_open = True
-							g.play("bus_doors_sound_effect", bus.x, bus.y, bus.z, bus.map)
-							g.n.send_reliable(g.players[index].peer_id, "Doors opened.", 0)
+						# Door control only works while the player is at the bus threshold.
+						at_front_door = player.local_x in (3, 4) and player.local_y == 1
+						at_rear_door = player.local_x in (3, 4) and player.local_y == 14
+						if at_front_door or at_rear_door:
+							if not bus.doors_open:
+								bus.doors_open = True
+								g.play("bus_doors_sound_effect", bus.x, bus.y, bus.z, bus.map)
+								g.n.send_reliable(g.players[index].peer_id, "Doors opened.", 0)
+							else:
+								bus.doors_open = False
+								g.play("bus_closing_door", bus.x, bus.y, bus.z, bus.map)
+								g.n.send_reliable(g.players[index].peer_id, "Doors closed.", 0)
 						else:
-							bus.doors_open = False
-							g.play("bus_closing_door", bus.x, bus.y, bus.z, bus.map)
-							g.n.send_reliable(g.players[index].peer_id, "Doors closed.", 0)
+							g.n.send_reliable(g.players[index].peer_id, "Move to the door threshold before pressing Enter.", 0)
 					return
 				# --- End Transit Boarding ---
 				if g.players[index].vi>-1: g.n.send_reliable(e.peer_id,"echo motorengine",0); return
