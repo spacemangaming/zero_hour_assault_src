@@ -240,6 +240,26 @@ def get_available_output_devices():
 	return ["FMOD Default Device"]
 
 
+def is_short_movement_or_combat_sound(filename):
+	if not filename:
+		return False
+	if isinstance(filename, bytes):
+		filename = filename.decode("utf-8", errors="ignore")
+	fn = filename.lower()
+	if "music" in fn or "ambient" in fn or "stream" in fn or "song" in fn:
+		return False
+	
+	# Movement keywords
+	movement_keywords = ["step", "foot", "walk", "run", "jump", "land", "tile", "wood", "grass", "gravel", "concrete", "ceramic", "dirt", "stone", "floor", "sand", "snow", "water"]
+	# Combat keywords
+	combat_keywords = ["shoot", "fire", "shot", "gun", "ak47", "m4a1", "awp", "pistol", "glock", "usp", "deagle", "shotgun", "grenade", "explosion", "rpg", "knife"]
+	
+	for kw in movement_keywords + combat_keywords:
+		if kw in fn:
+			return True
+	return False
+
+
 class sound(object):
 	cache = {}
 
@@ -260,6 +280,7 @@ class sound(object):
 		self._position = [0.0, 0.0, 0.0]
 		self._looping = False
 		self._delete_on_close = None
+		self._randomized_pitch_offset = None
 		self.player = FMODPlayer(self)
 		self.source = self
 
@@ -330,6 +351,14 @@ class sound(object):
 			mode |= pyfmodex.flags.MODE.TWOD if self.player.stationary else pyfmodex.flags.MODE.THREED
 			self._fmod_sound.channel = self._fmod_sound.sound.play(paused=True)
 			self._fmod_sound.channel.mode = mode
+			
+			# Generate micro-pitch randomizer offset for one-shot movement/combat sounds
+			if not self._looping and is_short_movement_or_combat_sound(self.internal_filename):
+				import random
+				self._randomized_pitch_offset = random.uniform(0.96, 1.04)
+			else:
+				self._randomized_pitch_offset = None
+				
 			self._apply_properties()
 			self._fmod_sound.channel.paused = False
 			return True
@@ -479,7 +508,13 @@ class sound(object):
 			return
 		try:
 			self._fmod_sound.channel.volume = _to_linear_volume(self._volume)
-			self._fmod_sound.channel.pitch = float(self._pitch) / 100
+			
+			# Check and apply randomized micro-pitch offset
+			pitch_val = self._pitch
+			if getattr(self, "_randomized_pitch_offset", None) is not None:
+				pitch_val = self._pitch * self._randomized_pitch_offset
+			self._fmod_sound.channel.pitch = float(pitch_val) / 100
+			
 			if self.player.stationary:
 				self._fmod_sound.channel.pan = float(self._pan) / 100.0
 			else:

@@ -33,16 +33,51 @@ except Exception as e:
 system = None
 initialized = False
 _sound_cache = {}
+echo_dsp = None
+lowpass_dsp = None
 
 def init_fmod():
-    global system, initialized
+    global system, initialized, echo_dsp, lowpass_dsp
     if not FMOD_AVAILABLE:
         return False
     if initialized:
         return True
     try:
         system = pyfmodex.System(header_version=0x00020313)
+        
+        # Configure Stereo Software Format for Binaural HRTF Spatialization over Headphones
+        from pyfmodex.enums import SPEAKERMODE
+        from pyfmodex.structobject import Structobject
+        try:
+            system.software_format = Structobject(sample_rate=48000, speaker_mode=SPEAKERMODE.STEREO, raw_speakers=0)
+        except Exception as e:
+            print(f"FMOD software format config warning: {e}")
+            
         system.init(maxchannels=1024)
+        
+        # Configure natural global 3D settings
+        try:
+            system.threed_settings.doppler_scale = 1.0
+            system.threed_settings.distance_factor = 1.0
+            system.threed_settings.rolloff_scale = 1.0
+        except Exception as e:
+            print(f"FMOD 3D settings config warning: {e}")
+            
+        # Create and Register Master DSPs
+        try:
+            echo_dsp = system.create_dsp_by_type(pyfmodex.enums.DSP_TYPE.ECHO)
+            echo_dsp.bypass = True
+            system.master_channel_group.add_dsp(0, echo_dsp)
+        except Exception as e:
+            print(f"FMOD Echo DSP registration failed: {e}")
+            
+        try:
+            lowpass_dsp = system.create_dsp_by_type(pyfmodex.enums.DSP_TYPE.LOWPASS)
+            lowpass_dsp.bypass = True
+            system.master_channel_group.add_dsp(1, lowpass_dsp)
+        except Exception as e:
+            print(f"FMOD Lowpass DSP registration failed: {e}")
+            
         initialized = True
         return True
     except Exception as e:

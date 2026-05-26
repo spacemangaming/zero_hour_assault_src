@@ -707,6 +707,39 @@ class SoundPool:
         except Exception:
             pass
 
+        # Dynamic FMOD Echo Zone Update
+        try:
+            from map import get_echo_at
+            import fmod_audio
+            import sound
+            if fmod_audio.initialized and fmod_audio.echo_dsp is not None:
+                echo = get_echo_at(listener_x, listener_y, listener_z)
+                if echo is not None:
+                    fmod_audio.echo_dsp.bypass = False
+                    fmod_audio.echo_dsp.set_parameter_float(0, float(echo._delay * 1000.0))
+                    fmod_audio.echo_dsp.set_parameter_float(1, float(echo._feedback * 100.0))
+                    # Map the initial echo reflection volume (WetLevel) dynamically in dB based on feedback depth
+                    wet_vol = float(sound._to_db_volume(echo._feedback))
+                    fmod_audio.echo_dsp.set_parameter_float(3, wet_vol)
+                else:
+                    fmod_audio.echo_dsp.bypass = True
+        except Exception:
+            pass
+
+        # Dynamic FMOD Water Immersion Lowpass Filter Update
+        try:
+            from map import get_tile_at
+            import fmod_audio
+            if fmod_audio.initialized and fmod_audio.lowpass_dsp is not None:
+                tile = get_tile_at(listener_x, listener_y, listener_z)
+                if tile and "water" in tile.lower():
+                    fmod_audio.lowpass_dsp.bypass = False
+                    fmod_audio.lowpass_dsp.set_parameter_float(0, 1200.0) # Muffle cutoff frequency at 1.2 kHz
+                else:
+                    fmod_audio.lowpass_dsp.bypass = True
+        except Exception:
+            pass
+
         listener_z+=g.aim
         if len(self.items) == 0:
             return
