@@ -169,10 +169,30 @@ class SoundPoolItem:
         )
         # Raycast occlusion check in absolute world coordinates
         try:
-            occlusion = sound.get_raycast_occlusion(
-                listener_x, listener_y, listener_z,
-                True_x, True_y, True_z
-            )
+            # Check if listener or source has moved significantly since last check
+            last_l = getattr(self, "_last_occlusion_listener", None)
+            last_s = getattr(self, "_last_occlusion_source", None)
+            current_l = (listener_x, listener_y, listener_z)
+            current_s = (True_x, True_y, True_z)
+            
+            if (last_l is None or last_s is None or
+                abs(last_l[0] - current_l[0]) > 0.8 or
+                abs(last_l[1] - current_l[1]) > 0.8 or
+                abs(last_l[2] - current_l[2]) > 0.8 or
+                abs(last_s[0] - current_s[0]) > 0.8 or
+                abs(last_s[1] - current_s[1]) > 0.8 or
+                abs(last_s[2] - current_s[2]) > 0.8):
+                
+                occlusion = sound.get_raycast_occlusion(
+                    listener_x, listener_y, listener_z,
+                    True_x, True_y, True_z
+                )
+                self._last_occlusion_val = occlusion
+                self._last_occlusion_listener = current_l
+                self._last_occlusion_source = current_s
+            else:
+                occlusion = getattr(self, "_last_occlusion_val", 0.0)
+                
             self.handle.direct_occlusion = occlusion
             self.handle.reverb_occlusion = occlusion
         except Exception:

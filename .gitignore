@@ -59,3 +59,4 @@ third_party/
 sounds.dat
 src/zero_hour_assault.egg-info/
 /sounds
+*.log
