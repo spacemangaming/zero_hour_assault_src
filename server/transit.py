@@ -168,6 +168,7 @@ class Vehicle:
 			g.n.send_reliable(player.peer_id, "move " + str(player.x) + " " + str(player.y) + " " + str(player.z), 0)
 			g.n.send_reliable(player.peer_id, "play_s misc280.ogg", 0)  # boarding sound
 			g.n.send_reliable(player.peer_id, "play_inside_bus", 0)  # play inside bus loop
+			g.n.send_reliable(player.peer_id, f"bus_audio {1 if self.is_stopped else 0} {1 if self.doors_open else 0} {1 if self.running and not self.is_stopped else 0} {int(abs(self.speed))}", 0)
 			_count_packet(4)
 			_bus_perf_log(f"Passenger {player.name} boarded {self.type} at ({self.x},{self.y})")
 
@@ -549,6 +550,8 @@ class OpenDoorBus(Vehicle):
 					if not p.hidden:
 						g.send_plus2(p.name, f"update_player2 {p.x} {p.y} {p.z} {p.map} {p.name} {self.facing}", 20, True)
 						_count_packet(1)
+					g.n.send_unreliable(p.peer_id, f"bus_audio {1 if self.is_stopped else 0} {1 if self.doors_open else 0} {1 if self.running and not self.is_stopped else 0} {int(abs(self.speed))}", 0)
+					_count_packet(1)
 			
 			# Check if waypoint reached
 			if self.x == tx and self.y == ty and self.z == tz:

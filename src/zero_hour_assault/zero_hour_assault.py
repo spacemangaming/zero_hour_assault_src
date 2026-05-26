@@ -496,6 +496,7 @@ def delinear(a): return string_split(a,"\n",True)
 parachute_sound=None
 falling_sound=None
 inside_bus_handle=None
+bus_audio_state={"stopped":False,"doors_open":False,"moving":False,"speed":0}
 
 from speech import speak
 from input import get_input
@@ -1666,12 +1667,34 @@ def netloop(events=False,request=True):
 				g.in_bus = True
 				if inside_bus_handle is None:
 					inside_bus_handle = g.p.play_stationary("inside_bus.ogg", True)
+				try:
+					inside_bus_handle.volume = -25
+					inside_bus_handle.pitch = 100
+				except Exception:
+					pass
 
 			elif parsed[0] == "stop_inside_bus":
 				g.in_bus = False
 				if inside_bus_handle is not None:
 					g.p.destroy_sound(inside_bus_handle)
 					inside_bus_handle = None
+
+			elif parsed[0] == "bus_audio" and len(parsed) >= 5:
+				bus_audio_state["stopped"] = parsed[1] == "1"
+				bus_audio_state["doors_open"] = parsed[2] == "1"
+				bus_audio_state["moving"] = parsed[3] == "1"
+				bus_audio_state["speed"] = stn(parsed[4])
+				if inside_bus_handle is not None:
+					try:
+						if bus_audio_state["doors_open"]:
+							inside_bus_handle.volume = -18
+						elif bus_audio_state["stopped"]:
+							inside_bus_handle.volume = -28
+						else:
+							inside_bus_handle.volume = -22
+						inside_bus_handle.pitch = 90 + min(35, max(0, bus_audio_state["speed"] // 2))
+					except Exception:
+						pass
 
 			elif(parsed[0]=="weaponlist" and len(parsed)>1):
 			
