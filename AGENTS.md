@@ -119,6 +119,73 @@ Each line in a `.map` file defines a specific asset, collider, or zone. Comments
 
 ---
 
+## 5. Codebase Modularization & Dual-Binder System (Critical)
+
+To prevent flat-directory clutter (where directories hold 50+ files) and avoid monolithic files over 100 KB, both the Client (`src/zero_hour_assault/`) and Server (`server/modules/`) have been organized into specialized subdirectories, using a **Dynamic Path Resolution** and a **Dual-Binder Namespace** system.
+
+### A. Directory Restructuring
+Modules are organized into functional subdirectories to make navigating the project clean and intuitive:
+*   **Client Subdirectories (`src/zero_hour_assault/`)**:
+    *   `core/`: Lifecycle modules, coordinate loops (`zh_client_core.py`, `zh_client_net.py`, `zh_client_gameplay.py`, `zh_client_ui.py`).
+    *   `audio/`: HRTF audio engines, OpenAL, sound pools (`sound.py`, `oal.py`...).
+    *   `ui/`: Menu systems, dialog inputs (`menu.py`, `dlg.py`...).
+    *   `net/`: Network updaters, ping systems (`net.py`, `network.py`...).
+    *   `utils/`: Shared files, map variables, inventory (`map.py`, `inventory.py`...).
+*   **Server Subdirectories (`server/modules/`)**:
+    *   `core/`: Core engine, persistence, auth (`zh_core.py`, `zh_persistence.py`, `zh_auth.py`...).
+    *   `net/`: Network handlers, chat channels (`network.py`, `zh_net_chat.py`, `zh_net_gameplay_*`...).
+    *   `entities/`: Active gameplay entities (`player.py`, `zombie.py`, `weapon.py`...).
+    *   `utils/`: Shared mathematical formulas, logging handlers (`zh_utils.py`, `rotation.py`...).
+
+### B. Dynamic Subfolder Resolution
+On startup, the entry points (`zero_hour_assault.py` for client and `zhaserver.py` for server) dynamically detect all these subdirectories and register them in `sys.path`. This enables standard, flat-style imports (`import player`, `import sound`) to continue compiling perfectly across all subdirectories with **zero import refactoring required**:
+```python
+# Inserted at the top of zhaserver.py / zero_hour_assault.py
+import sys
+import os
+ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
+subdirs = ['core', 'net', 'entities', 'utils', 'audio', 'ui']
+for subdir in subdirs:
+    p = os.path.join(ROOT_DIR, subdir)
+    if os.path.isdir(p) and p not in sys.path:
+        sys.path.insert(0, p)
+```
+
+### C. The Dual-Binder Namespace System
+To support massive code splitting while keeping all functions and global variables synchronized across separate modules at runtime, a **Dual-Binder namespace mapping** is executed by the entry coordinators:
+
+1.  **Top Binder (Before local assignments)**:
+    It imports all split modules and merges their internal functions/classes directly into the coordinator's module dictionary. This ensures that compiler and runtime checks in the main files successfully locate split functions without raising `NameError`.
+    ```python
+    import types
+    import zh_client_core
+    ...
+    submodules = [zh_client_core, ...]
+    shared_globals_top = {}
+    for mod in submodules:
+        for name, val in mod.__dict__.items():
+            if not name.startswith('__') and not isinstance(val, types.ModuleType):
+                shared_globals_top[name] = val
+    sys.modules[__name__].__dict__.update(shared_globals_top)
+    ```
+
+2.  **Bottom Binder (At the end of the entry point)**:
+    It extracts the final, fully-resolved global namespace of the coordinator (including all local variables, global parameters, parsed structures, and native imports) and dynamically pushes it back into the submodules' dicts.
+    ```python
+    shared_globals_bottom = {}
+    for name, val in sys.modules[__name__].__dict__.items():
+        if not name.startswith('__') and not isinstance(val, types.ModuleType):
+            shared_globals_bottom[name] = val
+    for mod in submodules:
+        mod.__dict__.update(shared_globals_bottom)
+    ```
+
+### D. Critical Guidelines for Developer Agents
+*   **Write Code Normally**: When you are editing or adding logic in submodules (e.g. `zh_client_gameplay.py` or `zh_auth.py`), you can call any coordinator global variable (`g`), external package (`pygame`, `opuslib`), or other submodule functions (`speak()`, `send_reliable()`) directly exactly as if you were in a single flat file. The Dual-Binder automatically guarantees it resolves at runtime!
+*   **Do Not Manually Circular Import**: Never introduce direct circular imports (e.g., trying to do `import zero_hour_assault` inside a client submodule). Defer entirely to the Dual-Binder to sync the scopes.
+
+---
+
 ## 🤖 Agent System Prompt Context Override
 
 When you are invoked on this codebase, inject this instruction set into your execution model:
@@ -135,4 +202,4 @@ Rules:
 6. Before making any non-trivial modifications, verify existing server network ports (10000) and keep logging highly informative.
 7. Always check coordinate integrity and OpenAL asset references when designing, editing, or validating text-based map layouts.
 ```
-Do not use wev tool every time. Also, do not commit in Git every time unless the user says. After making changes, only commit if the user tells you to commit, otherwise do not do it.
+do not commit in Git every time unless the user says. After making changes, only commit if the user tells you to commit, otherwise do not do it.

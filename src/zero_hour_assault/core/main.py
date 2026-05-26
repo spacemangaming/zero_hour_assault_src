@@ -20,7 +20,9 @@ if getattr(sys, 'frozen', False):
 	script_dir = os.path.dirname(sys.executable)
 else:
 	current_dir = os.path.dirname(os.path.abspath(__file__))
-	if os.path.basename(current_dir) == "zero_hour_assault":
+	if os.path.basename(current_dir) == "core":
+		script_dir = os.path.dirname(os.path.dirname(os.path.dirname(current_dir)))
+	elif os.path.basename(current_dir) == "zero_hour_assault":
 		script_dir = os.path.dirname(os.path.dirname(current_dir))
 	elif os.path.basename(current_dir) == "src":
 		script_dir = os.path.dirname(current_dir)

@@ -50,7 +50,7 @@ class network:
         self.port = port
         
         # Load the asymmetric private key
-        server_dir = os.path.dirname(os.path.abspath(__file__))
+        server_dir = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".."))
         key_path = os.path.join(server_dir, "server.private.key")
         try:
             with open(key_path, "r") as f:

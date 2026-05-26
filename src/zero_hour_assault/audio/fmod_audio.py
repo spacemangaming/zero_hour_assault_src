@@ -3,7 +3,7 @@ import sys
 import time
 import math
 # Resolve absolute path to the project root directory
-ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
 
 # Resolve absolute path to the third_party/fmod directory
 FMOD_DLL_DIR = os.path.join(ROOT_DIR, "third_party", "fmod")
