@@ -68,7 +68,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          uv pip install --system pyinstaller cython .
+          uv pip install --system pyinstaller cython setuptools .
 
       - name: Run packaging script
         run: |

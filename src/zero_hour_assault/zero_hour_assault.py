@@ -798,9 +798,9 @@ except ImportError:
 # --- AUTOMATIC BOTTOM MODULE BINDER ---
 shared_globals_bottom = {}
 for name, val in sys.modules[__name__].__dict__.items():
-    if not name.startswith('__'):
-        shared_globals_bottom[name] = val
+	if not name.startswith('__'):
+		shared_globals_bottom[name] = val
 for mod in submodules:
-    mod.__dict__.update(shared_globals_bottom)
+	mod.__dict__.update(shared_globals_bottom)
 
 if __name__=="__main__": main()
