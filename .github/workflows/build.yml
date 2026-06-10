@@ -52,6 +52,7 @@ jobs:
         run: |
           export PATH=$PATH:~/.local/bin
           export MAKEFLAGS="-j$(nproc)"
+          export GRADLE_OPTS="-Xmx4g -XX:MaxMetaspaceSize=1g"
           buildozer android debug
 
       - name: Upload APK

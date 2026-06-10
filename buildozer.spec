@@ -13,10 +13,10 @@ package.domain = com.spacemangaming
 source.dir = .
 
 # (list) Source files to include (let empty to include all the files)
-source.include_exts = py,png,jpg,jpeg,ttf,ogg,wav,txt,json,dat,lng,jkm,dll,so,mhr
+source.include_exts = py,png,jpg,jpeg,ttf,ogg,wav,txt,json,lng,jkm,dll,so,mhr
 
 # (list) List of exclusions using pattern matching
-source.exclude_dirs = tests, bin, server, .venv, .git, cython_cache, release, build, dist
+source.exclude_dirs = tests, bin, server, .venv, .git, cython_cache, release, build, dist, logs, scratch
 
 # (str) Application version
 version = 1.6.0
