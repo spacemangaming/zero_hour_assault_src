@@ -19,7 +19,7 @@ source.include_exts = py,png,jpg,jpeg,ttf,ogg,wav,txt,json,dat,lng,jkm,dll,so,mh
 source.exclude_dirs = tests, bin, server, .venv, .git, cython_cache, release, build, dist
 
 # (str) Application version
-version = 1.5.9.6
+version = 1.6.0
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
