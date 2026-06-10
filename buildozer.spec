@@ -62,6 +62,9 @@ android.ndk = 25b
 # (bool) Use --private data directory (True) or public (False)
 android.private_storage = True
 
+# (bool) Accept SDK license without prompting (needed for CI)
+android.accept_sdk_license = True
+
 # (str) Android NDK directory (if empty, it will be automatically downloaded)
 #android.ndk_path =
 

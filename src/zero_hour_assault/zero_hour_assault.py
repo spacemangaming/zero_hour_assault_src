@@ -27,9 +27,9 @@ if hasattr(os, "add_dll_directory"):
 
 subdirs = ['core', 'audio', 'ui', 'net', 'utils']
 for subdir in subdirs:
-    p = os.path.join(CLIENT_DIR, subdir)
-    if os.path.isdir(p) and p not in sys.path:
-        sys.path.insert(0, p)
+	p = os.path.join(CLIENT_DIR, subdir)
+	if os.path.isdir(p) and p not in sys.path:
+		sys.path.insert(0, p)
 
 # --- AUTOMATIC TOP MODULE BINDER ---
 import types
@@ -39,13 +39,13 @@ import zh_client_gameplay
 import zh_client_ui
 
 submodules = [
-    zh_client_core, zh_client_net, zh_client_gameplay, zh_client_ui
+	zh_client_core, zh_client_net, zh_client_gameplay, zh_client_ui
 ]
 shared_globals_top = {}
 for mod in submodules:
-    for name, val in mod.__dict__.items():
-        if not name.startswith('__') and not isinstance(val, types.ModuleType):
-            shared_globals_top[name] = val
+	for name, val in mod.__dict__.items():
+		if not name.startswith('__') and not isinstance(val, types.ModuleType):
+			shared_globals_top[name] = val
 sys.modules[__name__].__dict__.update(shared_globals_top)
 
 os.chdir(script_dir)
