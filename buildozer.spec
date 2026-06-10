@@ -85,7 +85,8 @@ android.enable_androidx = True
 p4a.bootstrap = sdl2
 
 # (str) python-for-android branch to use (defaults to master)
-p4a.branch = master
+p4a.branch = v2024.01.21
+
 
 # (list) List of Java files to add to the android project
 #android.add_src =
