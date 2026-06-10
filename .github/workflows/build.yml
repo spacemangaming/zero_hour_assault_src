@@ -1,0 +1,81 @@
+name: Build Game Clients
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build-android:
+    name: Build Android APK
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Get numbers of CPU cores
+        id: cpu-cores
+        run: echo "cores=$(nproc)" >> $GITHUB_OUTPUT
+
+      - name: Cache Buildozer global directory
+        uses: actions/cache@v4
+        with:
+          path: ~/.buildozer
+          key: ${{ runner.os }}-buildozer-${{ hashFiles('buildozer.spec') }}
+          restore-keys: |
+            ${{ runner.os }}-buildozer-
+
+      - name: Cache Android SDK/NDK
+        uses: actions/cache@v4
+        with:
+          path: ~/.android
+          key: ${{ runner.os }}-android-sdk
+
+      - name: Build with Buildozer
+        uses: ArtemSBulgakov/buildozer-action@v1
+        id: buildozer
+        with:
+          workdir: .
+          buildozer_version: stable
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: zero-hour-assault-apk
+          path: ${{ steps.buildozer.outputs.filename }}
+
+  build-windows:
+    name: Build Windows PC Client
+    runs-on: windows-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Install dependencies
+        run: |
+          uv pip install --system pyinstaller cython .
+
+      - name: Run packaging script
+        run: |
+          python build_pc.py
+
+      - name: Upload PC Release Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: zero-hour-assault-pc-release
+          path: |
+            update_package.zip
+            update_package.zip.sha256
+            zero_hour_assault.zip

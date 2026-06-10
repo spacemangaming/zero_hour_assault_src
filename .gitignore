@@ -64,3 +64,4 @@ src/zero_hour_assault.egg-info/
 compid.cache
 login_timing.txt
 src/zero_hour_assault/net/compid.cache
+!buildozer.spec

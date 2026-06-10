@@ -11,7 +11,7 @@ from speech import speak
 import globals as g
 import time
 APP_VERSION = g.ver
-VERSION_URL = "https://nbmstudios.com/zero_hour_assault/version.txt"
+VERSION_URL = "https://spacemangaming.vineyard.haus/zero/version.txt"
 
 def check():
     with requests.get(VERSION_URL, timeout=5) as response:
@@ -32,7 +32,7 @@ def check():
                 os.rename("_internal\\"+pyd,"_internal\\"+pyd+".1")
             os.rename("zero_hour_assault.exe","zero_hour_assault1.exe")
             speak("Downloading update package ...")
-            download_file("https://nbmstudios.com/zero_hour_assault/update_package.zip")
+            download_file("https://spacemangaming.vineyard.haus/zero/update_package.zip")
             speak("Extracting update package ...")
             unzip("update_package.zip")
             os.remove("update_package.zip")
@@ -43,8 +43,8 @@ def check():
         else:
             user32.MessageBoxW(0, "You didn't choose to update. The game will now exit", "Update not chosen", 0)
             os._exit(0)
-SND_VERSION = file_get_contents("sndver.txt")
-SND_VERSION_URL = "https://nbmstudios.com/zero_hour_assault/sndversion.txt"
+SND_VERSION = file_get_contents("sndversion.txt")
+SND_VERSION_URL = "https://spacemangaming.vineyard.haus/zero/sndversion.txt"
 
 def sndcheck():
     remote_version = requests.get(SND_VERSION_URL).text.strip()
@@ -61,7 +61,7 @@ def sndcheck():
         )
 
         if response == 6:
-            download_file("https://nbmstudios.com/zero_hour_assault/sounds1.dat")
+            download_file("https://spacemangaming.vineyard.haus/zero/sounds1.dat")
             file_put_contents("sndver.txt", remote_version)
             dlg("Update complete! Please restart the game.")
             os._exit(0)

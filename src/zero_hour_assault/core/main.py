@@ -1,6 +1,104 @@
-import urllib.request,os,sys
-import hashlib
+import sys
 import os
+import types
+
+if sys.platform != "win32":
+    import ctypes
+    class DummyFunc:
+        def __call__(self, *args, **kwargs):
+            return 0
+        def __getattr__(self, name):
+            return self
+            
+    class WindllMock:
+        def __getattr__(self, name):
+            return DummyFunc()
+            
+    ctypes.windll = WindllMock()
+
+    if "wx" not in sys.modules:
+        mock_wx = types.ModuleType("wx")
+        mock_wx.App = type("App", (object,), {"MainLoop": lambda self: None, "OnInit": lambda self: True})
+        mock_wx.Frame = type("Frame", (object,), {})
+        mock_wx.Panel = type("Panel", (object,), {})
+        mock_wx.TextEntryDialog = type("TextEntryDialog", (object,), {"ShowModal": lambda self: 5101, "GetValue": lambda self: ""})
+        mock_wx.MessageDialog = type("MessageDialog", (object,), {"ShowModal": lambda self: 5101})
+        mock_wx.Timer = type("Timer", (object,), {"Start": lambda self, *args: None, "Bind": lambda self, *args: None, "Destroy": lambda self: None})
+        mock_wx.EVT_TIMER = None
+        mock_wx.EVT_KEY_DOWN = None
+        mock_wx.EVT_CHAR = None
+        mock_wx.ID_OK = 5100
+        mock_wx.ID_CANCEL = 5101
+        sys.modules["wx"] = mock_wx
+
+    if "wmi" not in sys.modules:
+        mock_wmi = types.ModuleType("wmi")
+        mock_wmi.WMI = lambda *args, **kwargs: DummyFunc()
+        sys.modules["wmi"] = mock_wmi
+
+    if "pyaudio" not in sys.modules:
+        mock_pyaudio = types.ModuleType("pyaudio")
+        class PyAudioMock:
+            def __init__(self, *args, **kwargs): pass
+            def open(self, *args, **kwargs): return DummyFunc()
+            def get_default_input_device_info(self): return {"name": "Default"}
+            def get_device_count(self): return 0
+            def terminate(self): pass
+        mock_pyaudio.PyAudio = PyAudioMock
+        sys.modules["pyaudio"] = mock_pyaudio
+
+    if "opuslib" not in sys.modules:
+        mock_opus = types.ModuleType("opuslib")
+        mock_opus.Encoder = type("Encoder", (object,), {})
+        mock_opus.Decoder = type("Decoder", (object,), {})
+        sys.modules["opuslib"] = mock_opus
+
+    if "soundfile" not in sys.modules:
+        mock_sf = types.ModuleType("soundfile")
+        mock_sf.read = lambda *args, **kwargs: (None, 44100)
+        mock_sf.write = lambda *args, **kwargs: None
+        sys.modules["soundfile"] = mock_sf
+
+    if "cffi" not in sys.modules:
+        mock_cffi = types.ModuleType("cffi")
+        class FFI:
+            def cdef(self, *args, **kwargs): pass
+            def dlopen(self, *args, **kwargs): return DummyFunc()
+        mock_cffi.FFI = FFI
+        sys.modules["cffi"] = mock_cffi
+
+    if "pycparser" not in sys.modules:
+        sys.modules["pycparser"] = types.ModuleType("pycparser")
+
+    if "pyperclip" not in sys.modules:
+        mock_pc = types.ModuleType("pyperclip")
+        mock_pc.copy = lambda text: None
+        mock_pc.paste = lambda: ""
+        sys.modules["pyperclip"] = mock_pc
+
+    if "psutil" not in sys.modules:
+        mock_psutil = types.ModuleType("psutil")
+        class ProcessMock:
+            def __init__(self, pid=None):
+                self.pid = pid
+            def name(self):
+                return "mock_process"
+        class VirtualMemoryMock:
+            def __init__(self):
+                self.total = 8589934592
+        mock_psutil.Process = ProcessMock
+        mock_psutil.process_iter = lambda *args, **kwargs: []
+        mock_psutil.net_if_addrs = lambda: {}
+        mock_psutil.AF_LINK = 17
+        mock_psutil.NoSuchProcess = type("NoSuchProcess", (Exception,), {})
+        mock_psutil.AccessDenied = type("AccessDenied", (Exception,), {})
+        mock_psutil.ZombieProcess = type("ZombieProcess", (Exception,), {})
+        mock_psutil.cpu_count = lambda *args, **kwargs: 4
+        mock_psutil.virtual_memory = lambda: VirtualMemoryMock()
+        sys.modules["psutil"] = mock_psutil
+
+import urllib.request
+import hashlib
 os.environ["PAFY_BACKEND"] = "internal"
 
 if hasattr(sys,"frozen"):

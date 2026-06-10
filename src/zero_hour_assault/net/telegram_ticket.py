@@ -1,7 +1,7 @@
 import requests
 
-BOT_KEY = "8358511609:AAEtEE3Dvp4zVxfGzbT4XnF9fl8yu8qwnEE"   # kendi bot token'iniz
-ADMIN_IDS = ["1577175242"]   # birden fazla admin id buraya eklenebilir
+BOT_KEY = "8657640809:AAEUZLTpNXH7KUMYrssZqXlgO_QI84X-PWw"   # kendi bot token'iniz
+ADMIN_IDS = ["7810113372"]   # birden fazla admin id buraya eklenebilir
 API_ENDPOINT = f"https://api.telegram.org/bot{BOT_KEY}/sendMessage"
 
 def make_request(endpoint, payload):
