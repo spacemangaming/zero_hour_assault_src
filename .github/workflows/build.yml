@@ -38,10 +38,11 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Install system dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y git zip unzip openjdk-17-jdk python3-pip python3-virtualenv autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo6 cmake libffi-dev libssl-dev automake autopoint gettext
+      # System dependencies are pre-installed on the VPS runner
+      # - name: Install system dependencies
+      #   run: |
+      #     sudo apt-get update
+      #     sudo apt-get install -y git zip unzip openjdk-17-jdk python3-pip python3-virtualenv autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo6 cmake libffi-dev libssl-dev automake autopoint gettext
 
       - name: Install Python build tools
         run: |
