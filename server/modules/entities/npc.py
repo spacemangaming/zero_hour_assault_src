@@ -12,6 +12,7 @@ from random import choice
 
 from variable_management import string_contains, string_split
 from rotation import get_3d_distance, calculate_x_y_angle
+import data_loader
 
 
 from timer import timer
@@ -210,29 +211,19 @@ class npc:
 		self.y=random(miny,maxy)
 		self.inv=dict()
 		self.ammo={}
-		if self.matchmode!="teamcollect" and self.matchmode!="snow" and self.matchmode!="sniper" and self.matchmode!="teamsnow" and self.matchmode!="teamsniper" and self.matchmode!="teamk2" and self.matchmode!="teamf2" and self.matchmode!="sword" and self.matchmode!="collect" and self.matchmode!="teamsword" and self.matchmode!="teamcollect" and self.matchmode!="teamg" and self.matchmode!="g" and self.matchmode!="g2" and self.matchmode!="teamk" and self.matchmode!="teamf" and self.matchmode!="teamg2" and self.matchmode!="teamminecraft" and self.matchmode!="minecraft":
-			self.randomweapongive()
-			self.give("small_potion",3)
-			self.give("vitality_potion",2)
-			self.give("revival_nectar",1)
-		elif self.matchmode=="sniper" or self.matchmode=="teamsniper":
-			self.give("mkek_jng90",1)
-			self.give("dragunov_psl",1)
-
-			self.give("7.62x51mm",10000)
-		elif self.matchmode=="sword" or self.matchmode=="teamsword":
-			self.give("wooden_sword",1)
-			self.give("vitality_potion",2)
-		elif self.matchmode=="teamk2" or self.matchmode=="teamk":
-			self.give("vitality_potion",3)
-			self.give("knife",1)
-		elif self.matchmode=="teamf2" or self.matchmode=="teamf":
-			self.give("revival_nectar",2)
-		elif self.matchmode=="teamminecraft" or self.matchmode=="minecraft": self.give("vitality_potion",3)
-		elif self.matchmode=="g" or self.matchmode=="teamg" or self.matchmode=="g2" or self.matchmode=="teamg2":
-			self.give("vitality_potion",5)
-			if self.matchmode!="g2" and self.matchmode!="teamg2": self.give("molotov_cocktail",5)
-			self.give("hand_grenade",20)
+		loadout = data_loader.get_npc_loadout(self.matchmode)
+		if loadout.get("weapons"):
+			if loadout["weapons"] == ["random"]:
+				self.randomweapongive()
+			else:
+				for w in loadout["weapons"]:
+					self.give(w, 1)
+					wdata = data_loader.get_weapon(w)
+					if wdata.get("ammo_type"):
+						self.give(wdata["ammo_type"], wdata.get("mag_size", 0) * 4)
+		if loadout.get("items"):
+			for item, count in loadout["items"].items():
+				self.give(item, count)
 
 		g.n.broadcast("update_player " + str(self.x) + " " + str(self.y) + " " + str(self.z) + " " + self.map+" "+self.name+" "+str(self.facing), 20)
 	def send_bulletbody(self):
@@ -432,15 +423,11 @@ class npc:
 		
 	
 	def randomweapongive(self):
-		takerandom=random(1,8)
-		if takerandom==1: self.give("dragunov_psl",1); self.give("7.62x51mm",10)
-		if takerandom==2: self.give("mkek_mpt76k",1); self.give("5.56x45mm",40)
-		if takerandom==3: self.give("m4",1); self.give("5.56x45mm",60)
-		if takerandom==4: self.give("mkek_yavuz16",1); self.give("9mm",30)
-		if takerandom==5: self.give("gsg5",1); self.give("22_LR_Long_Rifle",30)
-		if takerandom==6: self.give("colt1911",1); self.give("45_ACP",21)
-		if takerandom==7: self.give("fnhfnp40",1); self.give("40S&W",28)
-		if takerandom==8: self.give("mkek_jng90",1); self.give("7.62x51mm",15)
+		loadouts = data_loader.get_npc_random_loadouts()
+		chosen = loadouts[random(0, len(loadouts)-1)]
+		self.give(chosen["weapon"], 1)
+		if chosen.get("ammo_type") and chosen.get("ammo_count"):
+			self.give(chosen["ammo_type"], chosen["ammo_count"])
 
 
 	def give(self, item, amount):
@@ -683,21 +670,19 @@ class npc:
 				if step_2:
 					lp.exithouse=False
 
-		if self.colatimer.elapsed>5000 and self.health<=80 and self.get_item_count("small_potion")>=1 and not self.zombie:
-			self.health+=20
-			self.colatimer.restart()
-			self.playsound("cola2")
-			self.give("small_potion",-1)
-		if self.colatimer.elapsed>5000 and self.health<=50 and self.get_item_count("vitality_potion")>=1 and not self.zombie:
-			self.health+=50
-			self.colatimer.restart()
-			self.playsound("cola2")
-			self.give("vitality_potion",-1)
-		if self.colatimer.elapsed>10000 and self.health<=40 and self.get_item_count("revival_nectar")>=1 and not self.zombie:
-			self.health=100
-			self.colatimer.restart()
-			self.playsound("cola2")
-			self.give("revival_nectar",-1)
+		for _heal in data_loader.get_npc_healing():
+			_item = _heal["item"]
+			_cooldown = _heal.get("cooldown", 5000)
+			_threshold = _heal.get("use_below_hp", 80)
+			if self.colatimer.elapsed > _cooldown and self.health <= _threshold and self.get_item_count(_item) >= 1 and not self.zombie:
+				if _heal.get("heal_to"):
+					self.health = _heal["heal_to"]
+				else:
+					self.health += _heal.get("heal_amount", 0)
+				self.colatimer.restart()
+				self.playsound("cola2")
+				self.give(_item, -1)
+				break
 		if self.itemchecktimer.elapsed>0 and (self.get_item_count("small_potion")<=0 or self.get_item_count("vitality_potion")<=0 or self.get_item_count("revival_nectar")<=0):
 			self.itemchecktimer.restart()
 			if not self.dontenterhouse and self.health<=80 and self.m.mode=="teamz" and not self.looting:

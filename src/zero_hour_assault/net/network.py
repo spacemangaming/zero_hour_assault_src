@@ -47,6 +47,9 @@ class network:
     def connect(self, address, port):
         if isinstance(address, bytes):
             address = address.decode("utf-8")
+        # Force IPv4 for localhost — Windows tries ::1 first, times out, then falls back (~2s delay)
+        if address == "localhost":
+            address = "127.0.0.1"
 
         # Use ws:// for local/dev connections, wss:// for production domain names
         is_local = (
@@ -65,6 +68,11 @@ class network:
             url = f"{protocol}://{address}:{port}"
 
         self.connected = False
+
+        # Capture the queue by value so this thread always fires events into
+        # *this* connection's queue, even if setup_client() later replaces
+        # self.event_queue for a new connection attempt.
+        _queue = self.event_queue
 
         def ws_thread_target():
             try:
@@ -114,7 +122,7 @@ class network:
                 evt = network_event()
                 evt.type = event_connect
                 evt.peer_id = self.secure_peer
-                self.event_queue.put(evt)
+                _queue.put(evt)
 
                 # The timeout=10 we passed to ws.connect() applies to ALL socket
                 # operations including recv(). Now that the handshake is done we
@@ -159,7 +167,7 @@ class network:
                     else:
                         evt.message = decrypted_data
 
-                    self.event_queue.put(evt)
+                    _queue.put(evt)
 
             except Exception as e:
                 import traceback
@@ -171,7 +179,7 @@ class network:
                 evt = network_event()
                 evt.type = event_disconnect
                 evt.peer_id = self.secure_peer
-                self.event_queue.put(evt)
+                _queue.put(evt)
 
         self.thread = threading.Thread(target=ws_thread_target, daemon=True, name="ws-client")
         self.thread.start()

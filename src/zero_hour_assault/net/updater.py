@@ -14,7 +14,7 @@ APP_VERSION = g.ver
 VERSION_URL = "https://nbmstudios.com/zero_hour_assault/version.txt"
 
 def check():
-    with requests.get(VERSION_URL) as response:
+    with requests.get(VERSION_URL, timeout=5) as response:
         remote_version = response.content.decode().strip()
 
     if remote_version > APP_VERSION:

@@ -1,0 +1,19 @@
+{
+  "npc": [
+    {"weapon": "dragunov_psl", "ammo_type": "7.62x51mm", "ammo_count": 10},
+    {"weapon": "mkek_mpt76k",  "ammo_type": "5.56x45mm",  "ammo_count": 40},
+    {"weapon": "m4",           "ammo_type": "5.56x45mm",  "ammo_count": 60},
+    {"weapon": "mkek_yavuz16", "ammo_type": "9mm",         "ammo_count": 30},
+    {"weapon": "gsg5",         "ammo_type": "22_LR_Long_Rifle", "ammo_count": 30},
+    {"weapon": "colt1911",     "ammo_type": "45_ACP",      "ammo_count": 21},
+    {"weapon": "fnhfnp40",     "ammo_type": "40S&W",       "ammo_count": 28},
+    {"weapon": "mkek_jng90",   "ammo_type": "7.62x51mm",   "ammo_count": 15}
+  ],
+  "player": [
+    {"weapon": "mkek_mpt76k", "ammo_type": "5.56x45mm",  "ammo_count": 140},
+    {"weapon": "m4",          "ammo_type": "5.56x45mm",  "ammo_count": 160},
+    {"weapon": "gsg5",        "ammo_type": "22_LR_Long_Rifle", "ammo_count": 100},
+    {"weapon": "colt1911",    "ammo_type": "45_ACP",      "ammo_count": 100},
+    {"weapon": "fnhfnp40",    "ammo_type": "40S&W",       "ammo_count": 140}
+  ]
+}

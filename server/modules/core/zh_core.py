@@ -10,6 +10,7 @@ import urllib.parse
 import requests
 from threading import Thread
 from timer import timer
+import data_loader
 
 def iositemdo(fn="ioszitemdata.txt"):
 	SECONDS_IN_ONE_MONTH = 2592000 
@@ -374,8 +375,21 @@ def main():
 	if file_exists("flags.dat"): load_flags()
 	if file_exists("language_data.dat"):
 		f=open("language_data.dat","rb")
-		languages=pickle.loads(f.read())
+		languages.clear()
+		languages.update(pickle.loads(f.read()))
 		f.close()
+	import os
+	if os.path.isdir("lang"):
+		for fname in os.listdir("lang"):
+			if fname.endswith(".lng"):
+				lang_name = fname[:-4]
+				if lang_name and lang_name not in languages:
+					languages[lang_name] = {
+						"owner": "Server",
+						"official": False,
+						"released": True,
+						"contributors": []
+					}
 	for lang in languages.keys():
 		if "official" not in languages[lang].keys(): languages[lang]["official"]=languages[lang]["released"]
 	store_data=load_store_data()
@@ -579,7 +593,10 @@ def gameloops(match_loop=True,npc_loop=True):
 		Thread(target=backup).start()
 	if chesttimer.elapsed>60000:
 		chesttimer.restart()
-		chestitemlist={"silencer":1,"berettaM9":1,"357_magnum":10,"S&WModel66":1,"fire_suppressant":1,"invisibility_shield":1,"fnhfnp45":1,"knife":1,"barricade":1,"ladder":1,"tm62":1,"7.62x54mmR":10,"metal_shield":1,"steel_helmet":1,"vitality_potion":1,"timebomb":1,"22_LR_Long_Rifle":30,"gsg5":1,"base_life_amplifier":9,"dragunov_psl":1,"fnhfnp40":1,"40S&W":40,"parachute":1,"mkek_jng90":1,"mkek_mpt76k":1,"m4":1,"mkek_yavuz16":1,"colt1911":1,"IthicaM37":1,"wooden_sword":1,"stone_sword":1,"diamond_sword":1,"molotov_cocktail":4,"7.62x51mm":20,"5.56x45mm":50,"9mm":20,"45_ACP":20,"12_gauge":15,"40S&W":50,"revival_nectar":1,"small_potion":2,"binoculars":1,"hand_grenade":3}
+		chestitemlist = data_loader.get_chest_pool()
+		chest_cfg = data_loader.get_chest_config()
+		chest_min = chest_cfg.get("items_per_chest_min", 3)
+		chest_max = chest_cfg.get("items_per_chest_max", 10)
 #		if not chest_at(0, 0, 0, "massacre_in_the_city"):
 #			spawn_chest(0,0,0,"massacre_in_the_city")
 #			chest=g.chests[len(g.chests)-1]
@@ -594,7 +611,7 @@ def gameloops(match_loop=True,npc_loop=True):
 					chest = get_chest_at(mapchest.x, mapchest.y, mapchest.z, map.name)
 				if len(chest.items)==0 or chest.fill:
 					chest.fill=False
-					for i in range(random(3,10)-len(chest.items)):
+					for i in range(random(chest_min, chest_max)-len(chest.items)):
 						item=choice(list(chestitemlist.keys()))
 						while item in chest.items:
 							item=choice(list(chestitemlist.keys()))

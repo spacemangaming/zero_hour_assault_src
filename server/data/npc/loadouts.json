@@ -1,0 +1,62 @@
+{
+  "default": {
+    "weapons": ["random"],
+    "items": {"small_potion": 3, "vitality_potion": 2, "revival_nectar": 1}
+  },
+  "sniper": {
+    "weapons": ["mkek_jng90", "dragunov_psl"],
+    "items": {"7.62x51mm": 10000}
+  },
+  "teamsniper": {
+    "weapons": ["mkek_jng90", "dragunov_psl"],
+    "items": {"7.62x51mm": 10000}
+  },
+  "sword": {
+    "weapons": ["wooden_sword"],
+    "items": {"vitality_potion": 2}
+  },
+  "teamsword": {
+    "weapons": ["wooden_sword"],
+    "items": {"vitality_potion": 2}
+  },
+  "teamk2": {
+    "weapons": ["knife"],
+    "items": {"vitality_potion": 3}
+  },
+  "teamk": {
+    "weapons": ["knife"],
+    "items": {"vitality_potion": 3}
+  },
+  "teamf2": {
+    "weapons": [],
+    "items": {"revival_nectar": 2}
+  },
+  "teamf": {
+    "weapons": [],
+    "items": {"revival_nectar": 2}
+  },
+  "teamminecraft": {
+    "weapons": [],
+    "items": {"vitality_potion": 3}
+  },
+  "minecraft": {
+    "weapons": [],
+    "items": {"vitality_potion": 3}
+  },
+  "g": {
+    "weapons": ["random"],
+    "items": {"vitality_potion": 5, "molotov_cocktail": 5, "hand_grenade": 20}
+  },
+  "teamg": {
+    "weapons": ["random"],
+    "items": {"vitality_potion": 5, "molotov_cocktail": 5, "hand_grenade": 20}
+  },
+  "g2": {
+    "weapons": ["random"],
+    "items": {"vitality_potion": 5, "hand_grenade": 20}
+  },
+  "teamg2": {
+    "weapons": ["random"],
+    "items": {"vitality_potion": 5, "hand_grenade": 20}
+  }
+}

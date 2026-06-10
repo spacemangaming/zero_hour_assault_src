@@ -8,9 +8,16 @@ import urllib.parse
 import requests
 from threading import Thread
 from timer import timer
+from zh_net_data_editor import handle_data_editor
 
 def handle_gameplay_2(e, parsed, index):
 	global languages
+
+	# --- Data editor (admin/dev only) ---
+	if len(parsed) > 0 and parsed[0].startswith("de_"):
+		if handle_data_editor(e, parsed, index):
+			return True
+
 	cmds = {"ammocheck", "communityrequest2", "changestatus", "eml", "rename2", "addfriend", "friendstats", "createvote2", "communityrequest", "staffmenu", "communityinfoselect", "removefriend", "addfriendchoose", "groupmakeadmin", "serverstatus", "tokentransfer", "groupinvite", "groupremoveadmin", "confirmdelete", "confirmpasswdcode", "vote2", "cinvitation2", "createvote", "communitymakeowner", "ticketviewchoose", "groupdonate2", "addfriend3", "ticket_create_department", "bus_board", "addfriendchoose2", "groupinfoselect", "communitykick", "eml2", "serverviewchoose", "invitation", "handselect", "lchannelset", "addfriendchoose3", "grouprequest", "groupmakeowner", "cinvitation", "group2", "editmap", "grouprename", "communityinfoselect2", "communityremoveadmin", "compid", "serverviewcategory", "langoption", "groupinfoselect2", "groupannounce", "sitstop", "invitation2", "adminlog", "communityinvite", "addfriend2", "communityannounce", "eventschoose", "eml3", "sitstart", "grouprequest2", "groupinvite2", "ticket2", "ammocheck2", "friend2", "addfriend4", "communityrename", "changepasswd", "communitycreate", "securitychoose", "gamemenuopt", "groupcreate", "char", "communitymakeadmin", "groupkick", "groupdonate", "communityinvite2", "notifys", "community2"}
 	subs = {}
 	matched = False
@@ -1778,6 +1785,13 @@ def handle_gameplay_2(e, parsed, index):
 				for i in range(len(changes)):
 					m.add(string_replace(changes[i], ":", ".", True), string_replace(changes[i], ":", ".", True),False)
 				m.send(e.peer_id)
+
+			if parsed[1]=="dataeditor":
+				if not (g.players[index].is_admin() or g.players[index].dev):
+					g.n.send_reliable(e.peer_id,"You don't have permission to use the data editor.",0)
+					g.players[index].prevmenu()
+					return
+				handle_data_editor(e, ["de_main"], index)
 	if parsed[0]=="confirmdelete":
 		index=g.get_player_index(e.peer_id)
 		if(index>-1):
@@ -2144,6 +2158,9 @@ here, since the player name is before the string "came online", we added =substr
 
 					if g.players[index].is_admin()==True or g.players[index].builder==True or g.players[index].dev==True:
 						m.add("View builder Help","builderhelp")
+
+					if g.players[index].is_admin()==True or g.players[index].dev==True:
+						m.add("Data Editor - edit game balance configs live","dataeditor")
 
 					m.send(e.peer_id)
 			if parsed[1]=="security":
@@ -2776,8 +2793,3 @@ here, since the player name is before the string "came online", we added =substr
 			ammoamount=index.ammocheck(index.weapon2)
 			ra=index.get_item_count(get_ammotype(index.weapon2)+"")
 			g.n.send_reliable(e.peer_id,("no ammo loaded for " + index.weapon2 + ". and also you have " + str(ra) + " " + get_ammotype(index.weapon2) + " ammo" if ammoamount <= 0 else str(ammoamount) + " ammo for " + index.weapon2 + " loaded, and also you have " + str(ra) + " " + get_ammotype(index.weapon2) + " ammo"),0)
-				
-			
-
-
-	return True

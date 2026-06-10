@@ -1,0 +1,8 @@
+{
+  "bronze_token_pack":   1000,
+  "silver_token_pack":   1400,
+  "gold_token_pack":     2600,
+  "platinum_token_pack": 3000,
+  "diamond_token_pack":  6200,
+  "master_token_pack":   13000
+}

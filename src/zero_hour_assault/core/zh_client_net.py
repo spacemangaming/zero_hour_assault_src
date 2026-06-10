@@ -245,6 +245,14 @@ def netloop(events=False,request=True):
 				else:
 					process_events()
 					return
+			elif parsed[0] == "deinput":
+				# Data editor text input: deinput <field_key> <prompt text>
+				field_key = parsed[1] if len(parsed) > 1 else "_unknown"
+				prompt = " ".join(parsed[2:]) if len(parsed) > 2 else "Enter value"
+				value = get_input(prompt)
+				if value != "":
+					g.n.send_reliable(0, "de_setval " + field_key + " " + value, 0)
+				process_events()
 			elif parsed[0] == "addline":
 				addlinelan=get_input("Enter the new LINE")
 				if addlinelan != "":

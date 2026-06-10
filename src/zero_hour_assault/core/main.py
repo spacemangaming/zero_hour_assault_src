@@ -155,7 +155,12 @@ import wx
 
 import joystick
 import ticket_dialogs
-import vlc,pafy
+try:
+	import vlc, pafy
+except Exception:
+	vlc = None
+	pafy = None
+	print("[main] WARNING: vlc/pafy not available (libvlc.dll missing?). YouTube audio player disabled.")
 import psutil
 import zipfile
 import unicodedata

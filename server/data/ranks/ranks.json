@@ -1,0 +1,158 @@
+[
+  {
+    "score": 0,
+    "name": "Bronze"
+  },
+  {
+    "score": 100,
+    "name": "Bronze V"
+  },
+  {
+    "score": 200,
+    "name": "Bronze IV"
+  },
+  {
+    "score": 300,
+    "name": "Bronze III"
+  },
+  {
+    "score": 400,
+    "name": "Bronze II"
+  },
+  {
+    "score": 500,
+    "name": "Bronze I"
+  },
+  {
+    "score": 600,
+    "name": "Silver"
+  },
+  {
+    "score": 700,
+    "name": "Silver V"
+  },
+  {
+    "score": 800,
+    "name": "Silver IV"
+  },
+  {
+    "score": 900,
+    "name": "Silver III"
+  },
+  {
+    "score": 1000,
+    "name": "Silver II"
+  },
+  {
+    "score": 1100,
+    "name": "Silver I"
+  },
+  {
+    "score": 1200,
+    "name": "Gold"
+  },
+  {
+    "score": 1300,
+    "name": "Gold V"
+  },
+  {
+    "score": 1400,
+    "name": "Gold IV"
+  },
+  {
+    "score": 1500,
+    "name": "Gold III"
+  },
+  {
+    "score": 1600,
+    "name": "Gold II"
+  },
+  {
+    "score": 1700,
+    "name": "Gold I"
+  },
+  {
+    "score": 1800,
+    "name": "Platinum"
+  },
+  {
+    "score": 1900,
+    "name": "Platinum V"
+  },
+  {
+    "score": 2000,
+    "name": "Platinum IV"
+  },
+  {
+    "score": 2100,
+    "name": "Platinum III"
+  },
+  {
+    "score": 2200,
+    "name": "Platinum II"
+  },
+  {
+    "score": 2300,
+    "name": "Platinum I"
+  },
+  {
+    "score": 2400,
+    "name": "Diamond"
+  },
+  {
+    "score": 2500,
+    "name": "Diamond V"
+  },
+  {
+    "score": 2600,
+    "name": "Diamond IV"
+  },
+  {
+    "score": 2700,
+    "name": "Diamond III"
+  },
+  {
+    "score": 2800,
+    "name": "Diamond II"
+  },
+  {
+    "score": 2900,
+    "name": "Diamond I"
+  },
+  {
+    "score": 3000,
+    "name": "Crown"
+  },
+  {
+    "score": 3100,
+    "name": "Crown V"
+  },
+  {
+    "score": 3200,
+    "name": "Crown IV"
+  },
+  {
+    "score": 3300,
+    "name": "Crown III"
+  },
+  {
+    "score": 3400,
+    "name": "Crown II"
+  },
+  {
+    "score": 3500,
+    "name": "Crown I"
+  },
+  {
+    "score": 4000,
+    "name": "Ace"
+  },
+  {
+    "score": 5000,
+    "name": "Conqueror"
+  },
+  {
+    "score": 10000,
+    "name": "god"
+  }
+]

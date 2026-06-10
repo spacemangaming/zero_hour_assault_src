@@ -1194,19 +1194,25 @@ def zeroloop():
 			g.media_player.stop()
 			g.media_player.release()
 			if g.video_index==-len(g.video_urls)-1: g.video_index=1
-			g.media_player=vlc.MediaPlayer(pafy.new(g.video_urls[g.video_index-1]).getbestaudio().url)
-			g.video_index-=1
-			g.media_player.set_hwnd(0)
-			g.media_player.play()
+			if vlc and pafy:
+				g.media_player=vlc.MediaPlayer(pafy.new(g.video_urls[g.video_index-1]).getbestaudio().url)
+				g.video_index-=1
+				g.media_player.set_hwnd(0)
+				g.media_player.play()
+			else:
+				speak("YouTube player not available (VLC not installed)")
 
 		if shift_is_down() and key_pressed(K_F8):
 			g.media_player.stop()
 			g.media_player.release()
 			if g.video_index==len(g.video_urls)-1: g.video_index=-1
-			g.media_player=vlc.MediaPlayer(pafy.new(g.video_urls[g.video_index+1]).getbestaudio().url)
-			g.video_index+=1
-			g.media_player.set_hwnd(0)
-			g.media_player.play()
+			if vlc and pafy:
+				g.media_player=vlc.MediaPlayer(pafy.new(g.video_urls[g.video_index+1]).getbestaudio().url)
+				g.video_index+=1
+				g.media_player.set_hwnd(0)
+				g.media_player.play()
+			else:
+				speak("YouTube player not available (VLC not installed)")
 
 
 		if not shift_is_down() and key_pressed(K_F7): g.media_player.set_time(g.media_player.get_time()-10000)
@@ -1241,9 +1247,12 @@ def zeroloop():
 					if g.media_player is not None:
 						g.media_player.stop()
 						g.media_player.release()
-					g.media_player=vlc.MediaPlayer(pafy.new(m.get_item_name(mres)).getbestaudio().url)
-					g.video_index=0
-					g.media_player.play()
+					if vlc and pafy:
+						g.media_player=vlc.MediaPlayer(pafy.new(m.get_item_name(mres)).getbestaudio().url)
+						g.video_index=0
+						g.media_player.play()
+					else:
+						speak("YouTube player not available (VLC not installed)")
 		process_events()
 	if key_pressed(K_k):
 		if g.reply=="":

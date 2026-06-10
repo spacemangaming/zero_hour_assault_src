@@ -458,7 +458,12 @@ def handle_gameplay_6(e, parsed, index):
 				f.close()
 			except: pass
 			try:
-				g.n.send_reliable(e.peer_id,"updatelang "+g.players[index].lang+" "+file_get_contents("lang/"+g.players[index].lang+".lng"),0)
+				if os.path.isdir("lang"):
+					for fname in os.listdir("lang"):
+						if fname.endswith(".lng"):
+							lang_name = fname[:-4]
+							if lang_name:
+								g.n.send_reliable(e.peer_id, "updatelang " + lang_name + " " + file_get_contents("lang/" + fname), 0)
 			except: pass
 			#if(file_exists("chars/"+g.players[index].name+"/maldied.usr")==True):
 				#file_delete("chars/"+g.players[index].name+"/maldied.usr")

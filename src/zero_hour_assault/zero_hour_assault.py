@@ -495,7 +495,12 @@ recordvoicetimer=timer()
 opus_encoder=None
 import copy
 windowchecktimer=timer()
-import vlc,pafy
+try:
+	import vlc, pafy
+except Exception:
+	vlc = None
+	pafy = None
+	print("[game] WARNING: vlc/pafy not available (libvlc.dll missing?). YouTube audio player disabled.")
 import requests
 from net import login, create
 from net import login, netaddress

@@ -9,6 +9,8 @@ import globals as g
 from random import randint as random
 from item import spawn_item
 from molotof import spawn_molotof
+import data_loader
+
 class weapon:
 	def __init__(self, bx, by, bz, bdir, btype, bmap,p):
 		self.x=0;self.y=0;self.z=0
@@ -46,333 +48,57 @@ class weapon:
 		self.owner=p
 		if "thrown" not in self.type and p.aim_mode==0: self.z+=p.aim
 		self.map=bmap
-		if(self.type=="molotov_cocktail"):
-		
-			self.bullet=False
-			self.range=2+15
-			self.speedtime=1
-			self.mindammage=0
-			self.maxdammage=0
-			self.spread=5
-			
-		elif(self.type=="mkek_jng90"):
-		
-			self.bullet=True
-			self.speedtime=1
-			self.range=70
-			self.mindammage=50
-			self.maxdammage=95
 
+		# ── data-driven stat lookup ───────────────────────────────────────────
+		base_type = self.type.replace("thrown_", "") if "thrown" in self.type else self.type
+		wdata = data_loader.get_weapon(base_type)
 
-			self.spread=4
-			
-		elif(self.type=="base_gun"):
-		
-			self.bullet=True
-			self.speedtime=1
-			self.range=1
-			self.mindammage=30
-			self.maxdammage=30
+		if wdata:
+			self.bullet = wdata.get("bullet", False)
+			self.range = wdata.get("range", 0)
+			self.mindammage = wdata.get("min_damage", 0)
+			self.maxdammage = wdata.get("max_damage", 0)
+			self.spread = wdata.get("spread", 3)
+			self.speedtime = 1  # default; overridden below for special cases
 
+			# thrown-weapon overrides
+			if "thrown" in self.type and wdata.get("thrown"):
+				td = wdata["thrown"]
+				self.bullet = False
+				self.range = td.get("range", 20)
+				self.mindammage = td.get("min_damage", 50)
+				self.maxdammage = td.get("max_damage", 130)
+				self.speedtime = td.get("speedtime", 37)
+				self.spread = td.get("spread", 3)
 
-			self.spread=75
-			
+			# snowflake shard: map-dependent damage
+			if self.type == "snowflake_shard":
+				if "snow" not in bmap:
+					self.mindammage = 0
+					self.maxdammage = 0
+				self.speedtime = 4
 
+			# feet / punch have speedtime=5 in original code
+			if self.type in ("feet", "punch"):
+				self.speedtime = 5
 
-		elif(self.type=="dragunov_psl"):
-		
-			self.bullet=True
-			self.speedtime=1
-			self.range=100
-			self.mindammage=80
-			self.maxdammage=99
+			# test weapon speedtime=5
+			if self.type == "test":
+				self.speedtime = 5
+		else:
+			# Unknown weapon — safe defaults
+			self.bullet = False
+			self.range = 0
+			self.mindammage = 0
+			self.maxdammage = 0
+			self.spread = 3
+			self.speedtime = 1
 
-
-			self.spread=2
-			
-
-		elif(self.type=="test"):
-		
-			self.bullet=True
-			self.speedtime=5
-			self.range=500
-			self.mindammage=0
-			self.maxdammage=0
-
-
-			self.spread=5
-			
-
-
-
-		elif(self.type=="mkek_mpt76k"):
-		
-			self.bullet=True
-			self.speedtime=1
-			self.range=40
-			self.mindammage=10
-			self.maxdammage=15
-			self.spread=3
-			
-		elif(self.type=="m4"):
-		
-			self.bullet=True
-			self.speedtime=1
-			self.range=50
-			self.mindammage=5
-			self.maxdammage=10
-			self.spread=3
-			
-
-		elif(self.type=="mkek_yavuz16"):
-		
-			self.bullet=True
-			self.speedtime=1
-			self.range=20
-			self.mindammage=10
-			self.maxdammage=15
-			self.spread=2
-			
-		elif(self.type=="gsg5"):
-		
-			self.bullet=True
-			self.speedtime=1
-			self.range=60
-			self.mindammage=40
-			self.maxdammage=45
-			self.spread=5
-			
-
-		elif(self.type=="colt1911"):
-		
-			self.bullet=True
-			self.speedtime=1
-			self.range=30
-			self.mindammage=25
-			self.maxdammage=30
-			self.spread=3
-			
-
-		elif(self.type=="fnhfnp40"):
-		
-			self.bullet=True
-			self.speedtime=1
-			self.range=40
-			self.mindammage=10
-			self.maxdammage=20
-			self.spread=4
-			
-
-
-		elif(self.type=="fnhfnp45"):
-		
-			self.bullet=True
-			self.speedtime=1
-			self.range=50
-			self.mindammage=15
-			self.maxdammage=25
-			self.spread=4
-			
-
-		elif(self.type=="berettaM9"):
-		
-			self.bullet=True
-			self.speedtime=1
-			self.range=70
-			self.mindammage=25
-			self.maxdammage=35
-			self.spread=4
-			
-
-		elif(self.type=="KelTecP318"):
-		
-			self.bullet=True
-			self.speedtime=1
-			self.range=100
-			self.mindammage=35
-			self.maxdammage=45
-			self.spread=5
-			
-
-		elif(self.type=="S&WModel66"):
-		
-			self.bullet=True
-			self.speedtime=1
-			self.range=60
-			self.mindammage=50
-			self.maxdammage=60
-			self.spread=5
-			
-
-
-
-		elif(self.type=="IthicaM37"):
-		
-			self.bullet=True
-			self.speedtime=1
-			self.range=15
-			self.mindammage=60
-			self.maxdammage=155
-			self.spread=4
-			
-		elif(self.type=="MosinNagant"):
-		
-			self.bullet=True
-			self.speedtime=1
-			self.range=60
-			self.mindammage=80
-			self.maxdammage=99
-			self.spread=3
-			
-
-
-		elif(self.type=="maverick88"):
-		
-			self.bullet=True
-			self.speedtime=1
-			self.range=80
-			self.mindammage=20
-			self.maxdammage=25
-			self.spread=5
-			
-
-
-		elif(self.type=="knife"):
-		
-			self.bullet=False
-			self.speedtime=1
-			self.range=8
-			self.mindammage=40
-			self.maxdammage=65
-			self.spread=2
-			
-		
-	
-		elif(self.type=="wooden_sword"):
-		
-			self.bullet=False
-			self.speedtime=1
-			self.range=5
-			self.mindammage=30
-			self.maxdammage=35
-			self.spread=3
-			
-		
-	
-		elif(self.type=="stone_sword"):
-		
-			self.bullet=False
-			self.speedtime=1
-			self.range=7
-			self.mindammage=40
-			self.maxdammage=45
-			self.spread=3
-			
-		
-	
-		elif(self.type=="feet"):
-		
-			self.bullet=False
-			self.speedtime=5
-			self.range=9
-			self.mindammage=10
-			self.maxdammage=20
-			self.spread=2
-			
-
-		elif(self.type=="punch"):
-		
-			self.bullet=False
-			self.speedtime=5
-			self.range=7
-			self.mindammage=10
-			self.maxdammage=15
-			self.spread=2
-			
-
-		elif(self.type=="diamond_sword"):
-		
-			self.bullet=False
-			self.speedtime=1
-			self.range=8
-			self.mindammage=50
-			self.maxdammage=55
-			self.spread=3
-			
-		
-	
-
-
-
-		elif(self.type=="snowflake_shard"):
-		
-			self.bullet=False
-			self.speedtime=4
-			self.range=20
-			if "snow" not in bmap:
-				self.mindammage=0
-				self.maxdammage=0
-			else:
-				self.mindammage=1000
-				self.maxdammage=1000
-
-			self.spread=4
-			
-		
-	
-
-		elif(self.type=="stick"):
-		
-			self.bullet=False
-			self.speedtime=1
-			self.range=4
-			self.mindammage=10
-			self.maxdammage=15
-			self.spread=4
-			
-		
-	
-
-		elif(self.type=="admin_grenade"):
-		
-			self.bullet=False
-			self.speedtime=1
-			self.range=100
-			self.mindammage=100000
-			self.maxdammage=150000
-			self.spread=4
-			
-		
-	
-
-		elif(self.type=="claw"):
-		
-			self.bullet=False
-			self.speedtime=1
-			self.range=8
-			self.mindammage=10
-			self.maxdammage=15
-			self.spread=3
-			
-		if "thrown" in self.type:
-			self.bullet=False
-			if "sword" in self.type: self.speedtime=750//15
-			if "knife" in self.type: self.speedtime=750//20
-			if "sword" not in self.type: self.range=20
-			if "sword" in self.type: self.range=15
-			if "knife" in self.type:
-				self.mindammage=50
-				self.maxdammage=130
-			if "sword" in self.type:
-				self.mindammage=70
-				self.maxdammage=120
-			self.spread=3
-
-		self.mindammage+=self.owner.plusdammage
-		self.maxdammage+=self.owner.plusdammage
-		if "thrown" not in self.type and self.type in self.owner.silenced: self.range//=2
-		if "thrown" in self.type: g.playmoving(self.x,self.y,self.z,self.map,"misc299",self)
-		if self.owner.aim_mode==1 and self.owner.aim==1 or self.owner.aim_mode==1 and self.owner.aim==-1: self.range//=2; self.spread-=1
+		self.mindammage += self.owner.plusdammage
+		self.maxdammage += self.owner.plusdammage
+		if "thrown" not in self.type and self.type in self.owner.silenced: self.range //= 2
+		if "thrown" in self.type: g.playmoving(self.x, self.y, self.z, self.map, "misc299", self)
+		if self.owner.aim_mode==1 and self.owner.aim==1 or self.owner.aim_mode==1 and self.owner.aim==-1: self.range //= 2; self.spread -= 1
 
 	def msoundloop(self):
 		for i in range(len(self.msoundtimers)):
@@ -393,6 +119,20 @@ class weapon:
 		ret=self.z
 		while ret>-1000 and g.get_tile_at(self.x,self.y,ret,self.map)=="": ret-=1
 		return ret
+def _play_bulletfall(weapon_obj):
+	"""Play the bullet-fall sound for weapon_obj based on its configured bulletfall range."""
+	base_type = weapon_obj.type.replace("thrown_", "") if "thrown" in weapon_obj.type else weapon_obj.type
+	wdata = data_loader.get_weapon(base_type)
+	bf_min = wdata.get("bulletfall_min") if wdata else None
+	bf_max = wdata.get("bulletfall_max") if wdata else None
+	if bf_min is not None and bf_max is not None:
+		g.play_delay(
+			"bulletfall" + str(random(bf_min, bf_max)),
+			weapon_obj.x, weapon_obj.y, weapon_obj.get_ground_z(),
+			weapon_obj.map, 1000
+		)
+
+
 def weaponloop():
 	for j in range(len(g.weapons)):
 		g.weapons[j].msoundloop()
@@ -424,43 +164,7 @@ def weaponloop():
 					g.play("bullet_to_wall"+str(random(1, 4)), wr.x, wr.y, g.weapons[j].z, g.weapons[j].map)
 				else:
 					g.play(g.weapons[j].type+"rico", wr.x, wr.y, g.weapons[j].z, g.weapons[j].map)
-				if g.weapons[j].type=="mkek_jng90":
-					g.play_delay("bulletfall"+str(random(7,9))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-				if g.weapons[j].type=="dragunov_psl":
-					g.play_delay("bulletfall"+str(random(7,9))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-				if g.weapons[j].type=="mkek_mpt76k":
-					g.play_delay("bulletfall"+str(random(5,6))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-				if g.weapons[j].type=="m4":
-					g.play_delay("bulletfall"+str(random(5,6))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-				if g.weapons[j].type=="mkek_yavuz16":
-					g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-				if g.weapons[j].type=="gsg5":
-					g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-				if g.weapons[j].type=="colt1911":
-					g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-				if g.weapons[j].type=="fnhfnp40":
-					g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-				if g.weapons[j].type=="fnhfnp45":
-					g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-				if g.weapons[j].type=="S&WModel66":
-					g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-				if g.weapons[j].type=="IthicaM37":
-					g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-				if g.weapons[j].type=="berettaM9":
-					g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-				if g.weapons[j].type=="KelTecP318":
-					g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-				if g.weapons[j].type=="MosinNagant":
-					g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-				if g.weapons[j].type=="maverick88":
-					g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
+				_play_bulletfall(g.weapons[j])
 				if "thrown" in g.weapons[j].type:
 					if "sword" in g.weapons[j].type: g.play("sworddrop"+str(random(1,3)),g.weapons[j].x,g.weapons[j].y,g.weapons[j].z,g.weapons[j].map)
 					if "knife" in g.weapons[j].type: g.play("knifedrop",g.weapons[j].x,g.weapons[j].y,g.weapons[j].z,g.weapons[j].map)
@@ -480,43 +184,7 @@ def weaponloop():
 					g.play("molotovexplode",g.weapons[j].x,g.weapons[j].y,g.weapons[j].z,g.weapons[j].map)
 					g.n.broadcast("distsound molotovexplode "+str(g.weapons[j].x)+" "+str(g.weapons[j].y)+" "+str(g.weapons[j].z)+" "+g.weapons[j].map+"",0)
 					spawn_molotof(g.weapons[j].x,g.weapons[j].y,g.weapons[j].z,g.weapons[j].map,g.weapons[j].owner.name)
-				if g.weapons[j].type=="mkek_jng90":
-					g.play_delay("bulletfall"+str(random(7,9))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-				if g.weapons[j].type=="dragunov_psl":
-					g.play_delay("bulletfall"+str(random(7,9))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-				if g.weapons[j].type=="mkek_mpt76k":
-					g.play_delay("bulletfall"+str(random(5,6))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-				if g.weapons[j].type=="m4":
-					g.play_delay("bulletfall"+str(random(5,6))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-				if g.weapons[j].type=="mkek_yavuz16":
-					g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-				if g.weapons[j].type=="gsg5":
-					g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-				if g.weapons[j].type=="colt1911":
-					g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-				if g.weapons[j].type=="fnhfnp40":
-					g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-				if g.weapons[j].type=="fnhfnp45":
-					g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-				if g.weapons[j].type=="S&WModel66":
-					g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-				if g.weapons[j].type=="IthicaM37":
-					g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-				if g.weapons[j].type=="berettaM9":
-					g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-				if g.weapons[j].type=="KelTecP318":
-					g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-				if g.weapons[j].type=="MosinNagant":
-					g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-				if g.weapons[j].type=="maverick88":
-					g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
+				_play_bulletfall(g.weapons[j])
 				if "thrown" in g.weapons[j].type:
 					if "sword" in g.weapons[j].type: g.play("sworddrop"+str(random(1,3)),g.weapons[j].x,g.weapons[j].y,g.weapons[j].z,g.weapons[j].map)
 					if "knife" in g.weapons[j].type: g.play("knifedrop",g.weapons[j].x,g.weapons[j].y,g.weapons[j].z,g.weapons[j].map)
@@ -550,45 +218,12 @@ def weaponloop():
 						for p in g.players:
 							if p.specplayer==g.weapons[j].owner.name:
 								g.n.send_reliable(p.peer_id,"play_s bullethit"+str(random(1,4))+".ogg",0)
-						if g.weapons[j].type=="mkek_jng90":
-							g.play_delay("bulletfall"+str(random(7,9))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="dragunov_psl":
-							g.play_delay("bulletfall"+str(random(7,9))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-						if g.weapons[j].type=="mkek_mpt76k":
-							g.play_delay("bulletfall"+str(random(5,6))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="m4":
-							g.play_delay("bulletfall"+str(random(5,6))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-						if g.weapons[j].type=="mkek_yavuz16":
-							g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="gsg5":
-							g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-						if g.weapons[j].type=="colt1911":
-							g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="fnhfnp40":
-							g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="fnhfnp45":
-							g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="S&WModel66":
-							g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
+						_play_bulletfall(g.weapons[j])
 
 					if g.weapons[j].type=="molotov_cocktail":
 						g.play("molotovexplode",g.motors[i].x,g.motors[i].y,g.motors[i].z,g.motors[i].map)
 						g.n.broadcast("distsound molotovexplode "+str(g.motors[i].x)+" "+str(g.motors[i].y)+" "+str(g.motors[i].z)+" "+g.motors[i].map+"",0)
-						if g.weapons[j].type=="IthicaM37":
-							g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="berettaM9":
-							g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-						if g.weapons[j].type=="KelTecP318":
-							g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-						if g.weapons[j].type=="MosinNagant":
-							g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="maverick88":
-							g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
+						_play_bulletfall(g.weapons[j])
 
 #						g.play("bulletfall"+str(random(1,12))+"",g.motors[i].x,g.motors[i].y,g.motors[i].z,g.motors[i].map)
 					else: 						g.play("bulletmotorhit"+str(random(1,8)), g.motors[i].x, g.motors[i].y, g.motors[i].z, g.motors[i].map)
@@ -648,42 +283,7 @@ def weaponloop():
 								g.play("bullet_to_wall"+str(random(1, 4)), temp.x, temp.y, g.weapons[j].z, g.weapons[j].map)
 							else:
 								g.play(g.weapons[j].type+"rico", temp.x, temp.y, g.weapons[j].z, g.weapons[j].map)
-							if g.weapons[j].type=="mkek_jng90":
-								g.play_delay("bulletfall"+str(random(7,9))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-							if g.weapons[j].type=="dragunov_psl":
-								g.play_delay("bulletfall"+str(random(7,9))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-							if g.weapons[j].type=="mkek_mpt76k":
-								g.play_delay("bulletfall"+str(random(5,6))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-							if g.weapons[j].type=="m4":
-								g.play_delay("bulletfall"+str(random(5,6))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-							if g.weapons[j].type=="mkek_yavuz16":
-								g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-							if g.weapons[j].type=="gsg5":
-								g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-							if g.weapons[j].type=="colt1911":
-								g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-							if g.weapons[j].type=="fnhfnp40":
-								g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-							if g.weapons[j].type=="fnhfnp45":
-								g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-							if g.weapons[j].type=="S&WModel66":
-								g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-							if g.weapons[j].type=="IthicaM37":
-								g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-							if g.weapons[j].type=="berettaM9":
-								g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-							if g.weapons[j].type=="KelTecP318":
-								g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-							if g.weapons[j].type=="MosinNagant":
-								g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-							if g.weapons[j].type=="maverick88":
-								g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
+							_play_bulletfall(g.weapons[j])
 							if "thrown" in g.weapons[j].type:
 								if "sword" in g.weapons[j].type: g.play("sworddrop"+str(random(1,3)),g.weapons[j].x,g.weapons[j].y,g.weapons[j].z,g.weapons[j].map)
 								if "knife" in g.weapons[j].type: g.play("knifedrop",g.weapons[j].x,g.weapons[j].y,g.weapons[j].z,g.weapons[j].map)
@@ -767,10 +367,7 @@ def weaponloop():
 							if not helmet and (not g.players[x].shielded or (g.players[x].shielded and (g.weapons[j].type=="punch" or g.weapons[j].type=="feet"))): g.players[x].play_hit_sound()
 						else:
 							g.players[x].playsound("metal_shield"+str(random(1,2)))
-						if g.weapons[j].type=="mkek_jng90":
-							g.play_delay("bulletfall"+str(random(7,9))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="dragunov_psl":
-							g.play_delay("bulletfall"+str(random(7,9))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
+						_play_bulletfall(g.weapons[j])
 					if headshot or not g.players[x].shielded or (g.players[x].shielded and (g.weapons[j].type=="punch" or g.weapons[j].type=="feet")):
 						if g.weapons[j].type=="snowflake_shard":
 							g.players[x].playsound("snowhit"+str(random(1,2)))
@@ -779,37 +376,7 @@ def weaponloop():
 							g.players[x].stuntimer.restart()
 							g.n.send_reliable(g.players[x].peer_id,"stopmoving",0)
 					if g.weapons[j].bullet:
-						if g.weapons[j].type=="mkek_mpt76k":
-							g.play_delay("bulletfall"+str(random(5,6))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="m4":
-							g.play_delay("bulletfall"+str(random(5,6))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-						if g.weapons[j].type=="mkek_yavuz16":
-							g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="gsg5":
-							g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-						if g.weapons[j].type=="colt1911":
-							g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="fnhfnp40":
-							g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="fnhfnp45":
-							g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="S&WModel66":
-							g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-						if g.weapons[j].type=="IthicaM37":
-							g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="berettaM9":
-							g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-						if g.weapons[j].type=="KelTecP318":
-							g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-						if g.weapons[j].type=="MosinNagant":
-							g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="maverick88":
-							g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
+						_play_bulletfall(g.weapons[j])
 
 
 					if g.weapons[j].type=="molotov_cocktail":
@@ -863,42 +430,7 @@ def weaponloop():
 								g.play("bullet_to_wall"+str(random(1, 4)), temp.x, temp.y, g.weapons[j].z, g.weapons[j].map)
 							else:
 								g.play(g.weapons[j].type+"rico", temp.x, temp.y, g.weapons[j].z, g.weapons[j].map)
-							if g.weapons[j].type=="mkek_jng90":
-								g.play_delay("bulletfall"+str(random(7,9))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-							if g.weapons[j].type=="dragunov_psl":
-								g.play_delay("bulletfall"+str(random(7,9))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-							if g.weapons[j].type=="mkek_mpt76k":
-								g.play_delay("bulletfall"+str(random(5,6))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-							if g.weapons[j].type=="m4":
-								g.play_delay("bulletfall"+str(random(5,6))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-							if g.weapons[j].type=="mkek_yavuz16":
-								g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-							if g.weapons[j].type=="gsg5":
-								g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-							if g.weapons[j].type=="colt1911":
-								g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-							if g.weapons[j].type=="fnhfnp40":
-								g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-							if g.weapons[j].type=="fnhfnp45":
-								g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-							if g.weapons[j].type=="S&WModel66":
-								g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-							if g.weapons[j].type=="IthicaM37":
-								g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-							if g.weapons[j].type=="berettaM9":
-								g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-							if g.weapons[j].type=="KelTecP318":
-								g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-							if g.weapons[j].type=="MosinNagant":
-								g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-							if g.weapons[j].type=="maverick88":
-								g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
+							_play_bulletfall(g.weapons[j])
 
 							if "thrown" in g.weapons[j].type:
 								if "sword" in g.weapons[j].type: g.play("sworddrop"+str(random(1,3)),g.weapons[j].x,g.weapons[j].y,g.weapons[j].z,g.weapons[j].map)
@@ -918,45 +450,12 @@ def weaponloop():
 
 					if(g.weapons[j].bullet):
 						g.play("bulletmotorhit"+str(random(1,8)), g.chests[i].x, g.chests[i].y, g.chests[i].z, g.chests[i].map)
-						if g.weapons[j].type=="mkek_jng90":
-							g.play_delay("bulletfall"+str(random(7,9))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="dragunov_psl":
-							g.play_delay("bulletfall"+str(random(7,9))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-						if g.weapons[j].type=="mkek_mpt76k":
-							g.play_delay("bulletfall"+str(random(5,6))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="m4":
-							g.play_delay("bulletfall"+str(random(5,6))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-						if g.weapons[j].type=="mkek_yavuz16":
-							g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="gsg5":
-							g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-						if g.weapons[j].type=="colt1911":
-							g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="fnhfnp40":
-							g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="fnhfnp45":
-							g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="S&WModel66":
-							g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
+						_play_bulletfall(g.weapons[j])
 
 					if g.weapons[j].type=="molotov_cocktail":
 						g.play("molotovexplode",g.chests[i].x,g.chests[i].y,g.chests[i].z,g.chests[i].map)
 						g.n.broadcast("distsound molotovexplode "+str(g.chests[i].x)+" "+str(g.chests[i].y)+" "+str(g.chests[i].z)+" "+g.chests[i].map+"",0)
-						if g.weapons[j].type=="IthicaM37":
-							g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="berettaM9":
-							g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-						if g.weapons[j].type=="KelTecP318":
-							g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-						if g.weapons[j].type=="MosinNagant":
-							g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="maverick88":
-							g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
+						_play_bulletfall(g.weapons[j])
 
 #						g.play("bulletfall"+str(random(1,12))+"",g.chests[i].x,g.chests[i].y,g.chests[i].z,g.chests[i].map)
 					else: 						g.play("bulletmotorhit"+str(random(1,8)), g.chests[i].x, g.chests[i].y, g.chests[i].z, g.chests[i].map)
@@ -986,42 +485,7 @@ def weaponloop():
 								g.play("bullet_to_wall"+str(random(1, 4)), temp.x, temp.y, g.weapons[j].z, g.weapons[j].map)
 							else:
 								g.play(g.weapons[j].type+"rico", temp.x, temp.y, g.weapons[j].z, g.weapons[j].map)
-							if g.weapons[j].type=="mkek_jng90":
-								g.play_delay("bulletfall"+str(random(7,9))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-							if g.weapons[j].type=="dragunov_psl":
-								g.play_delay("bulletfall"+str(random(7,9))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-							if g.weapons[j].type=="mkek_mpt76k":
-								g.play_delay("bulletfall"+str(random(5,6))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-							if g.weapons[j].type=="m4":
-								g.play_delay("bulletfall"+str(random(5,6))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-							if g.weapons[j].type=="mkek_yavuz16":
-								g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-							if g.weapons[j].type=="gsg5":
-								g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-							if g.weapons[j].type=="colt1911":
-								g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-							if g.weapons[j].type=="fnhfnp40":
-								g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-							if g.weapons[j].type=="fnhfnp45":
-								g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-							if g.weapons[j].type=="S&WModel66":
-								g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-							if g.weapons[j].type=="IthicaM37":
-								g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-							if g.weapons[j].type=="berettaM9":
-								g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-							if g.weapons[j].type=="KelTecP318":
-								g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-							if g.weapons[j].type=="MosinNagant":
-								g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-							if g.weapons[j].type=="maverick88":
-								g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
+							_play_bulletfall(g.weapons[j])
 
 							if "thrown" in g.weapons[j].type:
 								if "sword" in g.weapons[j].type: g.play("sworddrop"+str(random(1,3)),g.weapons[j].x,g.weapons[j].y,g.weapons[j].z,g.weapons[j].map)
@@ -1036,45 +500,12 @@ def weaponloop():
 					g.electrics[i].health-=inpact
 					if(g.weapons[j].bullet):
 						g.play("h"+str(random(1,6)), g.electrics[i].x, g.electrics[i].y, g.electrics[i].z, g.electrics[i].map)
-						if g.weapons[j].type=="mkek_jng90":
-							g.play_delay("bulletfall"+str(random(7,9))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="dragunov_psl":
-							g.play_delay("bulletfall"+str(random(7,9))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-						if g.weapons[j].type=="mkek_mpt76k":
-							g.play_delay("bulletfall"+str(random(5,6))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="m4":
-							g.play_delay("bulletfall"+str(random(5,6))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-						if g.weapons[j].type=="mkek_yavuz16":
-							g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="gsg5":
-							g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-						if g.weapons[j].type=="colt1911":
-							g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="fnhfnp40":
-							g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="fnhfnp45":
-							g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="S&WModel66":
-							g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
+						_play_bulletfall(g.weapons[j])
 
 					if g.weapons[j].type=="molotov_cocktail":
 						g.play("molotovexplode",g.electrics[i].x,g.electrics[i].y,g.electrics[i].z,g.electrics[i].map)
 						g.n.broadcast("distsound molotovexplode "+str(g.electrics[i].x)+" "+str(g.electrics[i].y)+" "+str(g.electrics[i].z)+" "+g.electrics[i].map+"",0)
-						if g.weapons[j].type=="IthicaM37":
-							g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="berettaM9":
-							g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-						if g.weapons[j].type=="KelTecP318":
-							g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-						if g.weapons[j].type=="MosinNagant":
-							g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="maverick88":
-							g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
+						_play_bulletfall(g.weapons[j])
 
 #						g.play("bulletfall"+str(random(1,12))+"",g.electrics[i].x,g.electrics[i].y,g.electrics[i].z,g.electrics[i].map)
 					else: 						g.play("bulletmotorhit"+str(random(1,8)), g.electrics[i].x, g.electrics[i].y, g.electrics[i].z, g.electrics[i].map)
@@ -1107,45 +538,12 @@ def weaponloop():
 					g.group_bases[i].hitby2=g.weapons[j].owner.name+"'s "+g.weapons[j].type
 					if(g.weapons[j].bullet):
 						g.play("bulletmotorhit"+str(random(1,8)), g.group_bases[i].x, g.group_bases[i].y, g.group_bases[i].z, g.group_bases[i].map)
-						if g.weapons[j].type=="mkek_jng90":
-							g.play_delay("bulletfall"+str(random(7,9))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="dragunov_psl":
-							g.play_delay("bulletfall"+str(random(7,9))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-						if g.weapons[j].type=="mkek_mpt76k":
-							g.play_delay("bulletfall"+str(random(5,6))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="m4":
-							g.play_delay("bulletfall"+str(random(5,6))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-						if g.weapons[j].type=="mkek_yavuz16":
-							g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="gsg5":
-							g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-						if g.weapons[j].type=="colt1911":
-							g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="fnhfnp40":
-							g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="fnhfnp45":
-							g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="S&WModel66":
-							g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
+						_play_bulletfall(g.weapons[j])
 
 					if g.weapons[j].type=="molotov_cocktail":
 						g.play("molotovexplode",g.group_bases[i].x,g.group_bases[i].y,g.group_bases[i].z,g.group_bases[i].map)
 						g.n.broadcast("distsound molotovexplode "+str(g.group_bases[i].x)+" "+str(g.group_bases[i].y)+" "+str(g.group_bases[i].z)+" "+g.group_bases[i].map+"",0)
-						if g.weapons[j].type=="IthicaM37":
-							g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="berettaM9":
-							g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-						if g.weapons[j].type=="KelTecP318":
-							g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-						if g.weapons[j].type=="MosinNagant":
-							g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="maverick88":
-							g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
+						_play_bulletfall(g.weapons[j])
 
 #						g.play("bulletfall"+str(random(1,12))+"",g.group_bases[i].x,g.group_bases[i].y,g.group_bases[i].z,g.group_bases[i].map)
 					else: 						g.play("bulletmotorhit"+str(random(1,8)), g.group_bases[i].x, g.group_bases[i].y, g.group_bases[i].z, g.group_bases[i].map)
@@ -1171,45 +569,12 @@ def weaponloop():
 					g.mines[i].health-=inpact
 					if(g.weapons[j].bullet):
 						g.play("corpsehit"+str(random(1,3)), g.mines[i].x, g.mines[i].y, g.mines[i].z, g.mines[i].map)
-						if g.weapons[j].type=="mkek_jng90":
-							g.play_delay("bulletfall"+str(random(7,9))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="dragunov_psl":
-							g.play_delay("bulletfall"+str(random(7,9))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-						if g.weapons[j].type=="mkek_mpt76k":
-							g.play_delay("bulletfall"+str(random(5,6))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="m4":
-							g.play_delay("bulletfall"+str(random(5,6))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-						if g.weapons[j].type=="mkek_yavuz16":
-							g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="gsg5":
-							g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-						if g.weapons[j].type=="colt1911":
-							g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="fnhfnp40":
-							g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="fnhfnp45":
-							g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="S&WModel66":
-							g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
+						_play_bulletfall(g.weapons[j])
 
 					if g.weapons[j].type=="molotov_cocktail":
 						g.play("molotovexplode",g.mines[i].x,g.mines[i].y,g.mines[i].z,g.mines[i].map)
 						g.n.broadcast("distsound molotovexplode "+str(g.mines[i].x)+" "+str(g.mines[i].y)+" "+str(g.mines[i].z)+" "+g.mines[i].map+"",0)
-						if g.weapons[j].type=="IthicaM37":
-							g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="berettaM9":
-							g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-						if g.weapons[j].type=="KelTecP318":
-							g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-						if g.weapons[j].type=="MosinNagant":
-							g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="maverick88":
-							g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
+						_play_bulletfall(g.weapons[j])
 
 #						g.play("bulletfall"+str(random(1,12))+"",g.mines[i].x,g.mines[i].y,g.mines[i].z,g.mines[i].map)
 					else: 						g.play("corpsehit"+str(random(1,3)), g.mines[i].x, g.mines[i].y, g.mines[i].z, g.mines[i].map)
@@ -1254,10 +619,7 @@ def weaponloop():
 						g.play(g.npcs[i].painsound, g.npcs[i].x, g.npcs[i].y, g.npcs[i].z, g.npcs[i].map)
 					if(g.weapons[j].bullet):
 						g.play("bullet_impact_body"+str(random(1,16)),g.npcs[i].x,g.npcs[i].y,g.npcs[i].z,g.npcs[i].map,g.npcs[i])
-						if g.weapons[j].type=="mkek_jng90":
-							g.play_delay("bulletfall"+str(random(7,9))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="dragunov_psl":
-							g.play_delay("bulletfall"+str(random(7,9))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
+						_play_bulletfall(g.weapons[j])
 
 					if g.weapons[j].type=="snowflake_shard":
 						g.play("snowhit"+str(random(1,2))+"",g.npcs[i].x,g.npcs[i].y,g.npcs[i].z,g.npcs[i].map)
@@ -1265,37 +627,7 @@ def weaponloop():
 						g.npcs[i].stuntime=3000
 						g.npcs[i].stuntimer.restart()
 					if(g.weapons[j].bullet):
-						if g.weapons[j].type=="mkek_mpt76k":
-							g.play_delay("bulletfall"+str(random(5,6))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="m4":
-							g.play_delay("bulletfall"+str(random(5,6))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-						if g.weapons[j].type=="mkek_yavuz16":
-							g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="gsg5":
-							g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-						if g.weapons[j].type=="colt1911":
-							g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="fnhfnp40":
-							g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="fnhfnp45":
-							g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="S&WModel66":
-							g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-						if g.weapons[j].type=="IthicaM37":
-							g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="berettaM9":
-							g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-						if g.weapons[j].type=="KelTecP318":
-							g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-						if g.weapons[j].type=="MosinNagant":
-							g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="maverick88":
-							g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
+						_play_bulletfall(g.weapons[j])
 
 					if g.weapons[j].type=="molotov_cocktail":
 						g.play("molotovexplode",g.npcs[i].x,g.npcs[i].y,g.npcs[i].z,g.npcs[i].map)
@@ -1343,45 +675,12 @@ def weaponloop():
 					#g.weapons[j].owner.send_bulletbody2()
 					if(g.weapons[j].bullet):
 						g.play("bullet_impact_body"+str(random(1,16)),g.zombies[i].x,g.zombies[i].y,g.zombies[i].z,g.zombies[i].map,g.zombies[i])
-						if g.weapons[j].type=="mkek_jng90":
-							g.play_delay("bulletfall"+str(random(7,9))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="dragunov_psl":
-							g.play_delay("bulletfall"+str(random(7,9))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-						if g.weapons[j].type=="mkek_mpt76k":
-							g.play_delay("bulletfall"+str(random(5,6))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="m4":
-							g.play_delay("bulletfall"+str(random(5,6))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-						if g.weapons[j].type=="mkek_yavuz16":
-							g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="gsg5":
-							g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-						if g.weapons[j].type=="colt1911":
-							g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="fnhfnp40":
-							g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="fnhfnp45":
-							g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="S&WModel66":
-							g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
+						_play_bulletfall(g.weapons[j])
 
 					if g.weapons[j].type=="molotov_cocktail":
 						g.play("molotovexplode",g.zombies[i].x,g.zombies[i].y,g.zombies[i].z,g.zombies[i].map)
 						g.n.broadcast("distsound molotovexplode "+str(g.zombies[i].x)+" "+str(g.zombies[i].y)+" "+str(g.zombies[i].z)+" "+g.zombies[i].map+"",0)
-						if g.weapons[j].type=="IthicaM37":
-							g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="berettaM9":
-							g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-						if g.weapons[j].type=="KelTecP318":
-							g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-						if g.weapons[j].type=="MosinNagant":
-							g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-						if g.weapons[j].type=="maverick88":
-							g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
+						_play_bulletfall(g.weapons[j])
 
 #						g.play("bulletfall"+str(random(1,12))+"",g.zombies[i].x,g.zombies[i].y,g.zombies[i].z,g.zombies[i].map)
 					else:
@@ -1409,45 +708,12 @@ def weaponloop():
 								if wall.health<=0: g.play("walldestroy",g.weapons[j].x,g.weapons[j].y,g.weapons[j].z,g.weapons[j].map)
 								if(g.weapons[j].bullet):
 
-									if g.weapons[j].type=="mkek_jng90":
-										g.play_delay("bulletfall"+str(random(7,9))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-									if g.weapons[j].type=="dragunov_psl":
-										g.play_delay("bulletfall"+str(random(7,9))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-									if g.weapons[j].type=="mkek_mpt76k":
-										g.play_delay("bulletfall"+str(random(5,6))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-									if g.weapons[j].type=="m4":
-										g.play_delay("bulletfall"+str(random(5,6))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-									if g.weapons[j].type=="mkek_yavuz16":
-										g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-									if g.weapons[j].type=="gsg5":
-										g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-									if g.weapons[j].type=="colt1911":
-										g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-									if g.weapons[j].type=="fnhfnp40":
-										g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-									if g.weapons[j].type=="fnhfnp45":
-										g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-									if g.weapons[j].type=="S&WModel66":
-										g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
+									_play_bulletfall(g.weapons[j])
 
 								if g.weapons[j].type=="molotov_cocktail":
 									g.play("molotovexplode",g.weapons[j].x,g.weapons[j].y,g.weapons[j].z,g.weapons[j].map)
 									g.n.broadcast("distsound molotovexplode "+str(wx)+" "+str(wy)+" "+str(wz)+" "+g.weapons[j].map+"",0)
-									if g.weapons[j].type=="IthicaM37":
-										g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-									if g.weapons[j].type=="berettaM9":
-										g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-									if g.weapons[j].type=="KelTecP318":
-										g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-									if g.weapons[j].type=="MosinNagant":
-										g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-									if g.weapons[j].type=="maverick88":
-										g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
+									_play_bulletfall(g.weapons[j])
 
 #						g.play("bulletfall"+str(random(1,12))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].z,g.weapons[j].map)
 								else: g.play(g.weapons[j].type+"hit"+str(random(1,3))+"",wx,wy,wz,g.weapons[j].map,wall)
@@ -1472,45 +738,12 @@ def weaponloop():
 								if mwall.health<=0: g.play2("walldestroy",mwall.minx,mwall.maxx,mwall.miny,mwall.maxy,mwall.minz,mwall.maxz,mwall.map)
 								if(g.weapons[j].bullet):
 
-									if g.weapons[j].type=="mkek_jng90":
-										g.play_delay("bulletfall"+str(random(7,9))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-									if g.weapons[j].type=="dragunov_psl":
-										g.play_delay("bulletfall"+str(random(7,9))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-									if g.weapons[j].type=="mkek_mpt76k":
-										g.play_delay("bulletfall"+str(random(5,6))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-									if g.weapons[j].type=="m4":
-										g.play_delay("bulletfall"+str(random(5,6))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-									if g.weapons[j].type=="mkek_yavuz16":
-										g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-									if g.weapons[j].type=="gsg5":
-										g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-									if g.weapons[j].type=="colt1911":
-										g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-									if g.weapons[j].type=="fnhfnp40":
-										g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-									if g.weapons[j].type=="fnhfnp45":
-										g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-									if g.weapons[j].type=="S&WModel66":
-										g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
+									_play_bulletfall(g.weapons[j])
 
 								if g.weapons[j].type=="molotov_cocktail":
 									g.play("molotovexplode",g.weapons[j].x,g.weapons[j].y,g.weapons[j].z,g.weapons[j].map)
 									g.n.broadcast("distsound molotovexplode "+str(wx)+" "+str(wy)+" "+str(wz)+" "+g.weapons[j].map+"",0)
-									if g.weapons[j].type=="IthicaM37":
-										g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-									if g.weapons[j].type=="berettaM9":
-										g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-									if g.weapons[j].type=="KelTecP318":
-										g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-									if g.weapons[j].type=="MosinNagant":
-										g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-									if g.weapons[j].type=="maverick88":
-										g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
+									_play_bulletfall(g.weapons[j])
 
 								else: g.play(g.weapons[j].type+"hit"+str(random(1,3))+"",wx,wy,wz,g.weapons[j].map)
 					
@@ -1537,45 +770,12 @@ def weaponloop():
 								if barricade.health<=0: g.play2("walldestroy5",barricade.minx,barricade.maxx,barricade.miny,barricade.maxy,barricade.minz,barricade.maxz,barricade.map); barricade.remove_platform(); g.barricades.remove(barricade)
 								if(g.weapons[j].bullet):
 
-									if g.weapons[j].type=="mkek_jng90":
-										g.play_delay("bulletfall"+str(random(7,9))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-									if g.weapons[j].type=="dragunov_psl":
-										g.play_delay("bulletfall"+str(random(7,9))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-									if g.weapons[j].type=="mkek_mpt76k":
-										g.play_delay("bulletfall"+str(random(5,6))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-									if g.weapons[j].type=="m4":
-										g.play_delay("bulletfall"+str(random(5,6))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-									if g.weapons[j].type=="mkek_yavuz16":
-										g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-									if g.weapons[j].type=="gsg5":
-										g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-									if g.weapons[j].type=="colt1911":
-										g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-									if g.weapons[j].type=="fnhfnp40":
-										g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-									if g.weapons[j].type=="fnhfnp45":
-										g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-									if g.weapons[j].type=="S&WModel66":
-										g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
+									_play_bulletfall(g.weapons[j])
 
 								if g.weapons[j].type=="molotov_cocktail":
 									g.play("molotovexplode",g.weapons[j].x,g.weapons[j].y,g.weapons[j].z,g.weapons[j].map)
 									g.n.broadcast("distsound molotovexplode "+str(wx)+" "+str(wy)+" "+str(wz)+" "+g.weapons[j].map+"",0)
-									if g.weapons[j].type=="IthicaM37":
-										g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-									if g.weapons[j].type=="berettaM9":
-										g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-									if g.weapons[j].type=="KelTecP318":
-										g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-									if g.weapons[j].type=="MosinNagant":
-										g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-									if g.weapons[j].type=="maverick88":
-										g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
+									_play_bulletfall(g.weapons[j])
 
 								else: g.play(g.weapons[j].type+"hit"+str(random(1,3))+"",wx,wy,wz,g.weapons[j].map)
 					
@@ -1600,45 +800,12 @@ def weaponloop():
 								if ladder.health<=0: g.play2("ladder_collapse",ladder.minx,ladder.maxx,ladder.miny,ladder.maxy,ladder.minz,ladder.maxz,ladder.map); ladder.remove_platform(); g.ladders.remove(ladder)
 								if(g.weapons[j].bullet):
 
-									if g.weapons[j].type=="mkek_jng90":
-										g.play_delay("bulletfall"+str(random(7,9))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-									if g.weapons[j].type=="dragunov_psl":
-										g.play_delay("bulletfall"+str(random(7,9))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-									if g.weapons[j].type=="mkek_mpt76k":
-										g.play_delay("bulletfall"+str(random(5,6))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-									if g.weapons[j].type=="m4":
-										g.play_delay("bulletfall"+str(random(5,6))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-									if g.weapons[j].type=="mkek_yavuz16":
-										g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-									if g.weapons[j].type=="gsg5":
-										g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-									if g.weapons[j].type=="colt1911":
-										g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-									if g.weapons[j].type=="fnhfnp40":
-										g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-									if g.weapons[j].type=="fnhfnp45":
-										g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-									if g.weapons[j].type=="S&WModel66":
-										g.play_delay("bulletfall"+str(random(1,2))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
+									_play_bulletfall(g.weapons[j])
 
 								if g.weapons[j].type=="molotov_cocktail":
 									g.play("molotovexplode",g.weapons[j].x,g.weapons[j].y,g.weapons[j].z,g.weapons[j].map)
 									g.n.broadcast("distsound molotovexplode "+str(wx)+" "+str(wy)+" "+str(wz)+" "+g.weapons[j].map+"",0)
-									if g.weapons[j].type=="IthicaM37":
-										g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-									if g.weapons[j].type=="berettaM9":
-										g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-									if g.weapons[j].type=="KelTecP318":
-										g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-
-									if g.weapons[j].type=="MosinNagant":
-										g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
-									if g.weapons[j].type=="maverick88":
-										g.play_delay("bulletfall"+str(random(10,13))+"",g.weapons[j].x,g.weapons[j].y,g.weapons[j].get_ground_z(),g.weapons[j].map,1000)
+									_play_bulletfall(g.weapons[j])
 
 								else: g.play(g.weapons[j].type+"hit"+str(random(1,3))+"",wx,wy,wz,g.weapons[j].map)
 					
@@ -1661,152 +828,33 @@ def spawn_weapon(x, y, z, dir, type, map, owner):
 	w1=weapon(x, y, z, dir, type, map, owner)
 	g.weapons.append(w1)
 	
-def get_weapon_range(gun,silenced=[],index=-1):
-	ranges={
-		"molotov_cocktail":30,
-		"hand_grenade":15,
-		"snowflake_shard":20,
-		"mkek_jng90":70,
-		"dragunov_psl":100,
+def get_weapon_range(gun, silenced=[], index=-1):
+	"""Data-driven weapon range lookup."""
+	w = data_loader.get_weapon(gun)
+	if not w:
+		return 0
+	r = w.get("range", 0)
+	if gun in silenced:
+		return r // 2
+	if index != -1 and g.players[index].aim_mode == 1 and (g.players[index].aim == 1 or g.players[index].aim == -1):
+		return r // 2
+	return r
 
-		"mkek_mpt76k":40,
-		"m4":50,
-		"gsg5":60,
-
-		"mkek_yavuz16":20,
-		"colt1911":30,
-		"fnhfnp40":40,
-		"fnhfnp45":50,
-		"berettaM9":70,
-		"KelTecP318":100,
-
-		"S&WModel66":25,
-
-		"maverick88":80,
-
-		"MosinNagant":60,
-
-		"IthicaM37":15,
-		"claw":8,
-		"knife":8,
-		"wooden_sword":5,
-		"stone_sword":7,
-		"punch":7,
-		"feet":9,
-		"diamond_sword":8,
-
-		"stick":4
-
-	}
-	if gun in ranges:
-		if gun not in silenced:
-			if index!=-1 and g.players[index].aim_mode==1 and (g.players[index].aim==1 or g.players[index].aim==-1): return ranges[gun]//2
-			else: return ranges[gun]
-		if gun in silenced: return ranges[gun]//2
-	else: return 0
 def get_weapon_spread(gun):
-	ranges={
-		"molotov_cocktail":3,
-		"mkek_jng90":4,
-		"dragunov_psl":2,
+	"""Data-driven weapon spread lookup."""
+	w = data_loader.get_weapon(gun)
+	return w.get("spread", 0) if w else 0
 
-		"snowflake_shard":4,
-		"mkek_mpt76k":3,
-		"m4":3,
+def get_mindamage(gun):
+	"""Data-driven min damage lookup."""
+	w = data_loader.get_weapon(gun)
+	return w.get("min_damage", -1) if w else -1
 
-		"mkek_yavuz16":2,
-		"gsg5":5,
+def get_maxdamage(gun):
+	"""Data-driven max damage lookup."""
+	w = data_loader.get_weapon(gun)
+	return w.get("max_damage", -1) if w else -1
 
-		"colt1911":3,
-		"fnhfnp40":4,
-		"fnhfnp45":4,
-		"berettaM9":4,
-		"KelTecP318":5,
-
-		"S&WModel66":3,
-
-		"IthicaM37":4,
-		"MosinNagant":4,
-		"maverick88":5,
-
-		"claw":3,
-		"knife":4,
-		"wooden_sword":3,
-		"stone_sword":3,
-		"punch":2,
-		"feet":2,
-		"diamond_sword":3,
-
-		"stick":4,
-
-	}
-	if gun in ranges: return ranges[gun]
-	return 0
-def get_mindamage(w):
-	if w=="mkek_jng90": return 50
-	if w=="dragunov_psl": return 80
-
-	if w=="m4": return 5
-	if w=="mkek_mpt76k": return 10
-
-	if w=="mkek_yavuz16": return 10
-	if w=="gsg5": return 40
-
-	if w=="colt1911": return 25
-	if w=="fnhfnp40": return 10
-	if w=="fnhfnp45": return 15
-	if w=="berettaM9": return 25
-	if w=="KelTecP318": return 35
-
-	if w=="S&WModel66": return 40
-
-	if w=="IthicaM37": return 60
-	if w=="MosinNagant": return 100
-	if w=="maverick88": return 20
-
-	if w=="knife": return 10
-	if w=="diamond_sword": return 50
-	if w=="stone_sword": return 40
-	if w=="punch": return 10
-	if w=="feet": return 10
-	if w=="wooden_sword": return 30
-
-	if w=="stick": return 10
-	if w=="claw": return 10
-	return -1
-def get_maxdamage(w):
-	if w=="mkek_jng90": return 90
-	if w=="dragunov_psl": return 99
-
-	if w=="mkek_mpt76k": return 15
-	if w=="m4": return 10
-
-	if w=="mkek_yavuz16": return 15
-	if w=="gsg5": return 45
-
-	if w=="colt1911": return 30
-	if w=="fnhfnp40": return 20
-	if w=="fnhfnp45": return 25
-	if w=="berettaM9": return 35
-	if w=="KelTecP318": return 45
-
-	if w=="S&WModel66": return 55
-
-	if w=="IthicaM37": return 155
-	if w=="MosinNagant": return 130
-	if w=="maverick88": return 25
-
-	if w=="knife": return 15
-	if w=="wooden_sword": return 35
-	if w=="stone_sword": return 45
-	if w=="punch": return 15
-	if w=="feet": return 20
-
-	if w=="diamond_sword": return 55
-
-	if w=="stick": return 15
-	if w=="claw": return 15
-	return -1
 def get_max_values(mapname):
 	ind=g.get_map_index(mapname)
 	temp=vector()

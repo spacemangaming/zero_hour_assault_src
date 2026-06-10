@@ -8,6 +8,7 @@ import urllib.parse
 import requests
 from threading import Thread
 from timer import timer
+import data_loader
 
 def climb_bus_ladder(player, bus):
 	player.climbing = True
@@ -442,204 +443,28 @@ def get_nearest_npc2(px,py,pz,pmap):
 
 
 def setupserver():
-	g.wdata["mkek_jng90"]="2000 norm"
-	g.wdata["dragunov_psl"]="1000 norm"
-
-	g.wdata["knife"]="1000 norm"
-	g.wdata["stick"]="180 norm"
-	g.wdata["wooden_sword"]="1200 norm"
-	g.wdata["stone_sword"]="1000 norm"
-	g.wdata["feet"]="500 norm"
-	g.wdata["punch"]="300 norm"
-	g.wdata["diamond_sword"]="800 norm"
-
-	g.wdata["claw"]="800 norm"
-	g.wdata["mkek_mpt76k"]="130 auto"
-	g.wdata["m4"]="120 auto"
-
-	g.wdata["mkek_yavuz16"]="120 norm"
-	g.wdata["gsg5"]="1500 norm"
-
-	g.wdata["fnhfnp40"]="170 norm"
-	g.wdata["fnhfnp45"]="140 norm"
-	g.wdata["berettaM9"]="170 norm"
-	g.wdata["KelTecP318"]="120 norm"
-
-	g.wdata["S&WModel66"]="420 norm"
-
-	g.wdata["colt1911"]="270 norm"
-	g.wdata["IthicaM37"]="1500 norm"
-	g.wdata["maverick88"]="200 norm"
-
-	g.wdata["MosinNagant"]="1500 norm"
+	"""Populate g.wdata from weapon JSON configs."""
+	g.wdata.update(data_loader.build_wdata_dict())
 
 
 def requires_ammo(w):
-	try:
-		guns.index(w)
-		return True
-	except:
-		return False
+	w_data = data_loader.get_weapon(w)
+	return bool(w_data and w_data.get("ammo_type") is not None)
 
 
 def get_max_ammo(w):
-	if(w=="mkek_jng90"):
-		return 2
-	if(w=="dragunov_psl"):
-		return 3
-
-	if(w=="mkek_mpt76k"):
-		return 20
-	if(w=="m4"):
-		return 30
-
-	if(w=="mkek_yavuz16"):
-		return 10
-	if(w=="gsg5"):
-		return 15
-
-	if(w=="fnhfnp40"):
-		return 14
-	if(w=="fnhfnp45"):
-		return 15
-	if(w=="berettaM9"):
-		return 16
-	if(w=="KelTecP318"):
-		return 20
-
-
-	if(w=="S&WModel66"):
-		return 6
-
-	if(w=="colt1911"):
-		return 7
-
-	if(w=="IthicaM37"):
-		return 3
-	if(w=="maverick88"):
-		return 6
-
-	if(w=="MosinNagant"):
-		return 5
-
-	return -1
+	w_data = data_loader.get_weapon(w)
+	return w_data.get("mag_size", -1) if w_data else -1
 
 
 def get_ammotype(w):
-	if w=="mkek_jng90":
-		return "7.62x51mm"
-	if w=="dragunov_psl":
-		return "7.62x51mm"
-
-	if w=="mkek_mpt76k" or w=="m4":
-		return "5.56x45mm"
-	if w=="mkek_yavuz16":
-		return "9mm"
-	if w=="gsg5":
-		return "22_LR_Long_Rifle"
-
-	if w=="fnhfnp40":
-		return "40S&W"
-	if w=="fnhfnp45":
-		return "45_ACP"
-	if w=="KelTecP318":
-		return "45_ACP"
-
-	if w=="berettaM9":
-		return "9mm"
-
-	if w=="S&WModel66":
-		return "357_magnum"
-
-	if w=="colt1911":
-		return "45_ACP"
-
-	if w=="IthicaM37":
-		return "12_gauge"
-	if w=="maverick88":
-		return "12_gauge"
-
-	if w=="MosinNagant":
-		return "7.62x54mmR"
-
-	return -1
+	w_data = data_loader.get_weapon(w)
+	return w_data.get("ammo_type", -1) if w_data else -1
 
 
 def get_reloadtime(weapon):
-	if(weapon=="mkek_jng90"):
-	
-		return 3000
-		
-	if(weapon=="dragunov_psl"):
-	
-		return 5000
-		
-
-	if(weapon=="mkek_mpt76k"):
-	
-		return 3000
-		
-	if(weapon=="m4"):
-	
-		return 4000
-		
-
-	if(weapon=="mkek_yavuz16"):
-	
-		return 2000
-		
-	if(weapon=="gsg5"):
-	
-		return 3500
-		
-
-	if(weapon=="KelTecP318"):
-	
-		return 2000
-		
-
-	if(weapon=="fnhfnp40"):
-	
-		return 3000
-		
-	if(weapon=="fnhfnp45"):
-	
-		return 3000
-		
-	if(weapon=="berettaM9"):
-	
-		return 2200
-		
-
-
-	if(weapon=="S&WModel66"):
-	
-		return 2000
-		
-
-
-
-	if(weapon=="colt1911"):
-	
-		return 4000
-		
-
-	if(weapon=="IthicaM37"):
-	
-		return 4000
-		
-	if(weapon=="maverick88"):
-	
-		return 3200
-		
-
-	if(weapon=="MosinNagant"):
-	
-		return 4800
-		
-
-	else:
-		return -1
+	w_data = data_loader.get_weapon(weapon)
+	return w_data.get("reload_time", -1) if w_data else -1
 
 
 def playmoving(x,y,z,map,snd,obj):
@@ -734,12 +559,8 @@ def get_max_values(mapname):
 
 
 def get_zero_token_amount(pack):
-	if pack=="bronze_token_pack": return 1000
-	if pack=="silver_token_pack": return 1400
-	if pack=="gold_token_pack": return 2600
-	if pack=="platinum_token_pack": return 3000
-	if pack=="diamond_token_pack": return 6200
-	if pack=="master_token_pack": return 13000
+	"""Data-driven token pack lookup."""
+	return data_loader.get_token_pack_amount(pack)
 
 
 def match_exists(owner):

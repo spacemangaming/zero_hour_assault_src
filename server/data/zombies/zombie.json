@@ -1,0 +1,10 @@
+{
+  "health": 100,
+  "damage": 5,
+  "range": 3,
+  "walk_interval": 400,
+  "attack_interval": 800,
+  "voice_interval": 6500,
+  "door_break_damage_bonus": 5,
+  "door_break_range_bonus": 2
+}

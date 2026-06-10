@@ -26,13 +26,14 @@ import zh_net_gameplay_4
 import zh_net_gameplay_5
 import zh_net_gameplay_6
 import zh_nav_scanner
+import zh_net_data_editor
 
 submodules = [
     zh_utils, zh_auth, zh_persistence, zh_gameplay, zh_core,
     zh_net_chat, zh_net_others,
     zh_net_gameplay_1, zh_net_gameplay_2, zh_net_gameplay_3,
     zh_net_gameplay_4, zh_net_gameplay_5, zh_net_gameplay_6,
-    zh_nav_scanner
+    zh_nav_scanner, zh_net_data_editor
 ]
 shared_globals_top = {}
 for mod in submodules:
@@ -47,7 +48,8 @@ import importlib
 import zhaserver
 import os
 import time as tm
-charlist=["aria","kade","razeon","shadow","hex","supreme","lord"]
+import data_loader
+charlist=list(data_loader.get_all_characters().keys())
 from timer import timer
 from variable_management import string_contains
 import time

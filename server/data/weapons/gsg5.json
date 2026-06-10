@@ -1,0 +1,16 @@
+{
+  "bullet": true,
+  "fire_interval": 1500,
+  "auto": false,
+  "range": 60,
+  "min_damage": 40,
+  "max_damage": 45,
+  "spread": 5,
+  "mag_size": 15,
+  "ammo_type": "22_LR_Long_Rifle",
+  "reload_time": 3500,
+  "npc_priority": 5,
+  "bulletfall_min": 1,
+  "bulletfall_max": 2,
+  "thrown": null
+}

@@ -6,10 +6,12 @@ from moving_sound_serverside_handler import destroy_moving_sound, update_moving_
 from pathfinder import pathfind
 from rotation import get_3d_distance
 from variable_management import string_replace
+import data_loader
 class zombie:
 	def __init__(self, x, y, z, map, m):
-		self.health=100
-		self.damage=5
+		_zstats = data_loader.get_zombie_stats()
+		self.health = _zstats.get("health", 100)
+		self.damage = _zstats.get("damage", 5)
 		self.name="zombie"
 		self.path=None
 		self.x=x
@@ -31,7 +33,7 @@ class zombie:
 		self.walktimer=timer()
 		self.voicetimer=timer()
 		self.attacktimer=timer()
-		self.range=3
+		self.range = _zstats.get("range", 3)
 		self.housechecktimer=timer()
 		self.housechecktimer2=timer()
 		self.playerchecktimer=timer()
@@ -77,7 +79,7 @@ def zombieloop():
 				z.targety=-1
 				z.path=None
 				z.targetplayer=None
-		if z.voicetimer.elapsed>=6500:
+		if z.voicetimer.elapsed>=data_loader.get_zombie_stats().get("voice_interval", 6500):
 			z.voicetimer.restart()
 			g.play("zombievoice"+str(random(1,5)),z.x,z.y,z.z,z.map)
 		if z.housechecktimer2.elapsed>500 and z.targethouse=="":
@@ -115,7 +117,7 @@ def zombieloop():
 				z.targetz=p.z
 				z.targetplayer=p.name
 				#z.path=pathfind(z.x, z.y, z.targetx, z.targety, z.map)
-		if z.walktimer.elapsed>=400 and z.targetx!=-1 and z.targety!=-1:
+		if z.walktimer.elapsed>=data_loader.get_zombie_stats().get("walk_interval", 400) and z.targetx!=-1 and z.targety!=-1:
 			z.walktimer.restart()
 			if z.path is None or len(z.path)==0:
 				if z.x<z.targetx: z.x+=1; g.play(g.get_tile_at(z.x,z.y,z.z,z.map)+"step"+str(random(1,5)),z.x,z.y,z.z,z.map,80)
@@ -127,7 +129,7 @@ def zombieloop():
 				z.x=next_x
 				z.y=next_y
 				g.play(g.get_tile_at(z.x,z.y,z.z,z.map)+"step"+str(random(1,5)),z.x,z.y,z.z,z.map,80)
-			if z.targetx!=-1 and z.targety!=-1 and z.attacktimer.elapsed>=800:
+			if z.targetx!=-1 and z.targety!=-1 and z.attacktimer.elapsed>=data_loader.get_zombie_stats().get("attack_interval", 800):
 				z.attacktimer.restart()
 				if z.targetplayer is not None:
 					targetplayer=g.getpc(z.targetplayer)
@@ -143,9 +145,10 @@ def zombieloop():
 					g.n.broadcast("distsound doorhitdist "+str(z.x)+" "+str(z.y)+" "+str(z.z)+" "+z.map,0)
 					if m.reddoorhealth<=0:
 						g.play("doorbreak",z.x,z.y,z.z,z.map)
+						_zs = data_loader.get_zombie_stats()
 						for z2 in g.zombies:
-							z2.damage+=5
-							z2.range+=2
+							z2.damage += _zs.get("door_break_damage_bonus", 5)
+							z2.range += _zs.get("door_break_range_bonus", 2)
 						matchmap=string_replace(file_get_contents("maps/zombie.map"),"mapname:zombie","mapname:zombie"+m.owner,False)
 
 						matchmap+=f"""

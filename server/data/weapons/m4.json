@@ -1,0 +1,16 @@
+{
+  "bullet": true,
+  "fire_interval": 120,
+  "auto": true,
+  "range": 50,
+  "min_damage": 5,
+  "max_damage": 10,
+  "spread": 3,
+  "mag_size": 30,
+  "ammo_type": "5.56x45mm",
+  "reload_time": 4000,
+  "npc_priority": 12,
+  "bulletfall_min": 5,
+  "bulletfall_max": 6,
+  "thrown": null
+}

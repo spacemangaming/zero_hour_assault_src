@@ -15,8 +15,8 @@ from input import get_input
 import updater
 import requests
 #netaddress=requests.get("https://nbmstudios.com/zero_hour_assault/ip.txt").text
-netport=443
-netaddress="zero-hour-assault.onrender.com"
+netport=10000
+netaddress="localhost"
 m=menu()
 peer_id=0
 connectiontimer=timer()
@@ -29,14 +29,14 @@ from map import load_map
 import sys
 g.compid=generate_computer_id()
 def login():
-	try:
-		updater.check()
-	except: pass
+	if netaddress not in ("localhost", "127.0.0.1"):
+		try:
+			updater.check()
+		except: pass
 	if(g.name=="" or g.password=="") or g.savemail=="":
-	
+
 		dlg("An account is not established. Please set up or create an account if you have one.")
 		menu.login_settings()
-		
 	connectiontimer.restart()
 	g.n.setup_client(100, 100)
 	g.n.connect(netaddress,netport)
@@ -45,7 +45,7 @@ def login():
 		process_events()
 		g.e=g.n.request()
 		if (key_pressed(K_ESCAPE)):
-		
+			g.n.destroy()
 			menu.login_settings()
 			
 		if(connectiontimer.elapsed>connectiontime and g.connected==False):
@@ -57,7 +57,6 @@ def login():
 #			menu.login_settings()
 			
 		if(g.e.type==event_connect):
-		
 			g.peer_id=g.e.peer_id
 			g.n.send_reliable(0,"zero"*4,0)
 			g.n.send_reliable(0, "login "+g.name+" "+g.password+" "+g.savemail+" "+g.compid,0)
@@ -65,10 +64,10 @@ def login():
 			speak("Logging in ...")
 		elif g.e.type == event_receive and g.e.message.startswith("banned"):
 			dlg(g.e.message.replace("banned ",""))
-			menu.login_settings()		
+			g.n.destroy(); menu.login_settings()
 		elif g.e.type == event_receive and g.e.message=="verifyincorrect":
 			dlg("Invalid code")
-			menu.login_settings()		
+			g.n.destroy(); menu.login_settings()
 		elif g.e.type == event_receive and g.e.message=="verifycorrect":
 			speak("Logging in ...")
 			g.n.send_reliable(0, "login "+g.name+" "+g.password+" "+g.savemail+" "+g.compid,0)
@@ -84,55 +83,40 @@ def login():
 				code=get_input("Please enter the code sent to your mail.")
 				if code=="":
 					dlg("Code cannot be blank")
-					menu.login_settings()		
+					g.n.destroy(); menu.login_settings()
 				g.n.send_reliable(0,"verifycode "+g.name+" "+code+" "+g.compid,0)
 				speak("Verifying code ...")
-			else: menu.login_settings()
+			else: g.n.destroy(); menu.login_settings()
 		elif g.e.type == event_receive and g.e.message.startswith("message"):
 			dlg(g.e.message.replace("message ",""))
-			menu.login_settings()		
+			g.n.destroy(); menu.login_settings()		
 	
 
 		elif(g.e.type==event_receive and g.e.message=="loggedin"):
-		
 			m.kill_music()
 			g.game()
 			
 		elif(g.e.type==event_receive and g.e.message=="alreadyin"):
-		
 			dlg("This user is already loged in")
-			menu.login_settings()
-			
+			g.n.destroy(); menu.login_settings()
 		elif(g.e.type==event_receive and g.e.message=="doesnotexist"):
-		
 			dlg("No such account exists.")
-			menu.login_settings()
-			
+			g.n.destroy(); menu.login_settings()
 		elif(g.e.type==event_receive and g.e.message=="wrongpass"):
-		
 			dlg("The password provided for this account is not correct")
-			menu.login_settings()
-			
+			g.n.destroy(); menu.login_settings()
 		elif(g.e.type==event_receive and g.e.message=="wrongmail"):
-		
 			dlg("The eMail provided for this account is not correct")
-			menu.login_settings()
-			
-
+			g.n.destroy(); menu.login_settings()
 		elif(g.e.type==event_receive and g.e.message=="oldver"):
-		
 			dlg("Your version is an old version. Please re-download the game from the website.")
-			menu.login_settings()
-			
+			g.n.destroy(); menu.login_settings()
 		elif(g.e.type==event_receive and g.e.message=="banned"):
-		
 			dlg("You are currently banned from the game please try again later")
-			menu.login_settings()
-			
+			g.n.destroy(); menu.login_settings()
 		elif(g.e.type==event_receive and string_contains(g.e.message,"banned",1)>-1):
-		
 			dlg("you only have right to create one account per computer")
-			menu.login_settings()
+			g.n.destroy(); menu.login_settings()
 			
 
 		elif(g.e.type==event_receive):
@@ -151,7 +135,6 @@ def login():
 				g.me.z=float(parsed[1])
 				
 			elif(parsed[0]=="mapdata"):
-			
 				load_map(string_replace(g.e.message, "mapdata ", "", False))
 				#g.mapready=True
 			elif(parsed[0]=="facing"):
@@ -237,29 +220,4 @@ def create():
 		if g.e.type == event_receive and g.e.message.startswith("banned"):
 			dlg(g.e.message.replace("banned ",""))
 			menu.login_settings()
-		if g.e.type == event_receive and g.e.message.startswith("message"):
-			dlg(g.e.message.replace("message ",""))
-			menu.login_settings()
 
-		elif(g.e.type==event_receive and g.e.message=="alreadyexists"):
-
-			dlg("This account is exist")
-			menu.login_settings()
-
-		elif(g.e.type==event_receive and g.e.message=="created"):
-
-			g.p.play_stationary("success.ogg",False)
-			dlg("done! Account created successfully. Please press enter to log in")
-			g.delay(1000)
-			g.name=user
-			g.password=passwd
-			g.savemail=mail
-			g.writeprefs()
-			g.creating=False
-			login()
-			
-		
-	
-def netdummy():
-	try: g.n.request()
-	except: pass

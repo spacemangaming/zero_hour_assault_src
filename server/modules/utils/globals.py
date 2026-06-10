@@ -1,6 +1,7 @@
 from timer import timer
 from random import randint as random
 from network import network
+import data_loader
 players=[]
 bodyfalls=[]
 weapons=[]
@@ -48,32 +49,7 @@ zks=[]
 
 mwalls=[]
 mines=[]
-invlimits = {
-    'revival_nectar': 20,
-    'vitality_potion': 40,
-    'small_potion': 60,
-    'hand_grenade': 20,
-    'molotov_cocktail': 50,
-    'snowflake_shard': 50,
-    'timebomb': 20,
-    'tm62': 30,
-    'metal_shield': 15,
-    'steel_helmet': 2,
-    'invisibility_shield': 2,
-    'ladder': 4,
-    'barricade': 2,
-    '7.62x51mm': 500,
-    '5.56x45mm': 1500,
-    '9mm': 500,
-    '45_ACP': 700,
-    '12_gauge': 400,
-    '40S&W': 800,
-    '22_LR_Long_Rifle': 600,
-    'm4_ammo_cartrigges': 20,
-    'colt1911_ammo_cartrigges': 20,
-    'fnhfnp40_ammo_cartrigges': 20,
-    'silencer': 2
-}
+invlimits = data_loader.get_inventory_limits()
 barricades=[]
 ladders=[]
 rain=False

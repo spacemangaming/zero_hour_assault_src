@@ -34,20 +34,15 @@ def get_volume_hash():
     vol_hash = 0
     system_platform = platform.system()
     if system_platform == "Windows":
-        import wmi
-        c = wmi.WMI()
-        for drive in c.Win32_LogicalDisk():
-            if drive.Caption == 'C:': # Assuming C: is the system volume
-                if drive.VolumeSerialNumber:
-                    try:
-                        serial_num = int(drive.VolumeSerialNumber, 16) # Convert from hexadecimal
-                        vol_hash = (serial_num + (serial_num >> 16)) & 0xFFFF
-                        return vol_hash
-                    except ValueError:
-                        # Handle cases where VolumeSerialNumber is not convertible to int
-                        print(f"Warning: Could not convert VolumeSerialNumber '{drive.VolumeSerialNumber}' to integer.")
-                        return 0 # or some other default hash value
-        return 0 # if C: drive not found or no serial number
+        import ctypes
+        serial = ctypes.c_ulong(0)
+        ctypes.windll.kernel32.GetVolumeInformationW(
+            ctypes.c_wchar_p("C:\\"), None, 0,
+            ctypes.byref(serial), None, None, None, 0
+        )
+        serial_num = serial.value
+        vol_hash = (serial_num + (serial_num >> 16)) & 0xFFFF
+        return vol_hash
     elif system_platform == "Darwin": # macOS
         try:
             serial_number = get_system_serial_number_mac()

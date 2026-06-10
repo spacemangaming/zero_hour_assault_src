@@ -1,0 +1,16 @@
+{
+  "bullet": true,
+  "fire_interval": 120,
+  "auto": false,
+  "range": 100,
+  "min_damage": 35,
+  "max_damage": 45,
+  "spread": 5,
+  "mag_size": 20,
+  "ammo_type": "45_ACP",
+  "reload_time": 2000,
+  "npc_priority": 18,
+  "bulletfall_min": 10,
+  "bulletfall_max": 13,
+  "thrown": null
+}

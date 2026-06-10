@@ -1,0 +1,17 @@
+{
+  "bullet": true,
+  "fire_interval": 420,
+  "auto": false,
+  "range": 60,
+  "min_damage": 50,
+  "max_damage": 60,
+  "spread": 5,
+  "mag_size": 6,
+  "ammo_type": "357_magnum",
+  "reload_time": 2000,
+  "npc_priority": 16,
+  "bulletfall_min": 1,
+  "bulletfall_max": 2,
+  "weapon_key": "S&WModel66",
+  "thrown": null
+}

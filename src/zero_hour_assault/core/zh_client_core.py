@@ -216,6 +216,8 @@ def game(d=True):
 		g.x=False
 		g.xtimer.restart()
 		g.n.send_reliable(0, "spawn_player "+str(g.me.x)+" "+str(g.me.y)+" "+str(g.me.z)+" "+g.mapname+" "+g.name+" "+str(g.samplerate), 0)
+		if sys.platform == "android" or "ANDROID_ARGUMENT" in os.environ or "ANDROID_BOOTSTRAP" in os.environ:
+			g.n.send_reliable(0, "android", 0)
 		g.n.send_reliable(0,"aimmode "+str(g.aim_mode),0)
 		g.n.send_reliable(0,"juharjksjkadjknjk12n3kjnkjn1j23kjnkjn12k3nknkn123kjnkn12k3nknk5nknkn32knkn1n1k1k",0)
 		g.n.send_reliable(0,"drawsilent punch",0)
@@ -706,13 +708,16 @@ def exitfunction():
 			waitjoyhat()
 			speak("canceled")
 			return
-		if(key_pressed(K_RETURN) or key_pressed(pygame.K_KP_ENTER or g.stick is not None and g.stick.get_hat(0)==(1,0))):
-		
+		if(key_pressed(K_RETURN) or key_pressed(pygame.K_KP_ENTER) or (g.stick is not None and g.stick.get_hat(0)==(1,0))):
 			waitjoyhat()
-			speak("exiting...")
-			g.n.send_reliable(0, "close", 0)
-			g.x=True
+			speak("disconnecting")
+			peer = getattr(g.n, "peer", None) or getattr(g.n, "secure_peer", None)
+			if peer is not None:
+				try: g.n.disconnect_peer(peer)
+				except: pass
+			try: g.n.destroy()
+			except: pass
+			g.connected = False
+			g.x = True
 			g.xtimer.restart()
-
 			return
-

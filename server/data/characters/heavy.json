@@ -1,0 +1,8 @@
+{
+  "walk_time": 120,
+  "max_walk_time": 40,
+  "health": 500,
+  "plus_damage": 35,
+  "jump_time": 300,
+  "purchasable": true
+}

@@ -22,6 +22,7 @@ from random import randint as random
 from guns import guns
 from weapon import spawn_weapon
 from timer import timer
+import data_loader
 import globals as g
 from bodyfall import spawn_bodyfall
 from variable_management import string_contains
@@ -825,82 +826,7 @@ class player:
 		m.send(self.peer_id)
 	def check_rank(self):
 		oldrank=self.scorerank
-		if self.scorepoint<100:
-			self.scorerank="Bronze"
-		if self.scorepoint>=100:
-			self.scorerank="Bronze V"
-		if self.scorepoint>=200:
-			self.scorerank="Bronze IV"
-		if self.scorepoint>=300:
-			self.scorerank="Bronze III"
-		if self.scorepoint>=400:
-			self.scorerank="Bronze II"
-		if self.scorepoint>=500:
-			self.scorerank="Bronze I"
-		if self.scorepoint>=600:
-			self.scorerank="Silver"
-		if self.scorepoint>=700:
-			self.scorerank="Silver V"
-		if self.scorepoint>=800:
-			self.scorerank="Silver IV"
-		if self.scorepoint>=900:
-			self.scorerank="Silver III"
-		if self.scorepoint>=1000:
-			self.scorerank="Silver II"
-		if self.scorepoint>=1100:
-			self.scorerank="Silver I"
-		if self.scorepoint>=1200:
-			self.scorerank="Gold"
-		if self.scorepoint>=1300:
-			self.scorerank="Gold V"
-		if self.scorepoint>=1400:
-			self.scorerank="Gold IV"
-		if self.scorepoint>=1500:
-			self.scorerank="Gold III"
-		if self.scorepoint>=1600:
-			self.scorerank="Gold II"
-		if self.scorepoint>=1700:
-			self.scorerank="Gold I"
-		if self.scorepoint>=1800:
-			self.scorerank="Platinum"
-		if self.scorepoint>=1900:
-			self.scorerank="Platinum V"
-		if self.scorepoint>=2000:
-			self.scorerank="Platinum IV"
-		if self.scorepoint>=2100:
-			self.scorerank="Platinum III"
-		if self.scorepoint>=2200:
-			self.scorerank="Platinum II"
-		if self.scorepoint>=2300:
-			self.scorerank="Platinum I"
-		if self.scorepoint>=2400:
-			self.scorerank="Diamond"
-		if self.scorepoint>=2500:
-			self.scorerank="Diamond V"
-		if self.scorepoint>=2600:
-			self.scorerank="Diamond IV"
-		if self.scorepoint>=2700:
-			self.scorerank="Diamond III"
-		if self.scorepoint>=2800:
-			self.scorerank="Diamond II"
-		if self.scorepoint>=2900:
-			self.scorerank="Diamond I"
-		if self.scorepoint>=3000:
-			self.scorerank="Crown"
-		if self.scorepoint>=3100:
-			self.scorerank="Crown V"
-		if self.scorepoint>=3200:
-			self.scorerank="Crown IV"
-		if self.scorepoint>=3300:
-			self.scorerank="Crown III"
-		if self.scorepoint>=3400:
-			self.scorerank="Crown II"
-		if self.scorepoint>=3500:
-			self.scorerank="Crown I"
-		if self.scorepoint>=4000:
-			self.scorerank="Ace"
-		if self.scorepoint>=5000:
-			self.scorerank="Conqueror"
+		self.scorerank = data_loader.get_rank(self.scorepoint)
 		if oldrank!=self.scorerank and not self.firstrank:
 			g.n.send_reliable(self.peer_id,"play_s misc295.ogg",0)
 			g.n.send_reliable(self.peer_id,"Your score rank is changed to "+self.scorerank+" because you reached "+str(self.scorepoint)+" score points!",2)
@@ -911,85 +837,14 @@ class player:
 
 		else: return self.current_char
 	def get_plus_damage(self):
-		if self.current_char=="barry_allen": return 11
-		if self.current_char=="kade": return 15
-		if self.current_char=="aria": return 15
-		if self.current_char=="razeon": return 16
-		if self.current_char=="shadow": return 17
-		if self.current_char=="hex": return 21
-		if self.current_char=="supreme": return 21
-		if self.current_char=="lord": return 25
-
-		if self.current_char=="tristan": return 14
-		return 0
+		return data_loader.get_character(self.get_current_char()).get("plus_damage", 0)
 	def get_char_properties(self):
-		walktime=250
-		maxwalktime=150
-		health=100
-		plusdammage=0
-		jumptime=50
-		if self.current_char=="barry_allen":
-			walktime=220
-			maxwalktime=120
-			health=110
-			plusdammage=2
-			jumptime=60
-		if self.current_char=="kade":
-			walktime=205
-			maxwalktime=125
-			health=160
-			plusdammage=15
-			jumptime=100
-		if self.current_char=="razeon":
-			walktime=195
-			maxwalktime=105
-			health=180
-			plusdammage=16
-			jumptime=110
-		if self.current_char=="shadow":
-			walktime=165
-			maxwalktime=90
-			health=220
-			plusdammage=17
-			jumptime=120
-
-
-		if self.current_char=="hex":
-			walktime=165
-			maxwalktime=75
-			health=240
-			plusdammage=21
-			jumptime=140
-
-
-		if self.current_char=="supreme":
-			walktime=165
-			maxwalktime=75
-			health=240
-			plusdammage=21
-			jumptime=140
-
-
-		if self.current_char=="lord":
-			walktime=135
-			maxwalktime=55
-			health=300
-			plusdammage=25
-			jumptime=180
-
-
-		if self.current_char=="aria":
-			walktime=205
-			maxwalktime=125
-			health=160
-			plusdammage=15
-			jumptime=100
-		if self.current_char=="tristan":
-			walktime=235
-			maxwalktime=145
-			health=150
-			plusdammage=14
-			jumptime=90
+		cdata = data_loader.get_character(self.get_current_char())
+		walktime = cdata.get("walk_time", 250)
+		maxwalktime = cdata.get("max_walk_time", 150)
+		health = cdata.get("health", 100)
+		plusdammage = cdata.get("plus_damage", 0)
+		jumptime = cdata.get("jump_time", 50)
 		if self.paid: health+=30
 		g.n.send_reliable(self.peer_id,"walktime "+str(walktime),0)
 		g.n.send_reliable(self.peer_id,"maxwalktime "+str(maxwalktime),0)
@@ -1030,98 +885,14 @@ class player:
 			
 		
 	def randomweapongive(self):
-		takerandom=random(1,5)
-		if takerandom==1: self.give("mkek_mpt76k",1); self.give("5.56x45mm",140)
-		if takerandom==2: self.give("m4",1); self.give("5.56x45mm",160)
-		if takerandom==3: self.give("gsg5",1); self.give("22_LR_Long_Rifle",100)
-		if takerandom==4: self.give("colt1911",1); self.give("45_ACP",100)
-		if takerandom==5: self.give("fnhfnp40",1); self.give("40S&W",140)
-		self.give("knife",1)
+		loadouts = data_loader.get_player_random_loadouts()
+		chosen = loadouts[random(0, len(loadouts)-1)]
+		self.give(chosen["weapon"], 1)
+		if chosen.get("ammo_type") and chosen.get("ammo_count"):
+			self.give(chosen["ammo_type"], chosen["ammo_count"])
+		self.give("knife", 1)
 	def itemplay(self,item):
-		if item=="zero_token":
-			self.playsound("getpoints")
-
-		if item=="small_potion":
-			self.playsound("getcola2")
-		if item=="vitality_potion":
-			self.playsound("getcola2")
-		if item=="base_life_amplifier":
-			self.playsound("misc62")
-
-		if item=="revival_nectar":
-			self.playsound("getcola2")
-		elif item=="5.56x45mm":
-			self.playsound("getmachinegunammo")
-		elif item=="mkek_jng90":
-			self.playsound("mkek_jng90draw")
-		elif item=="dragunov_psl":
-			self.playsound("dragunov_psldraw")
-
-		elif item=="mkek_mpt76k":
-			self.playsound("mkek_mpt76kdraw")
-		elif item=="mkek_yavuz16":
-			self.playsound("mkek_yavuz16draw")
-		elif item=="gsg5":
-			self.playsound("gsg5draw")
-
-		elif item=="40S&W":
-			self.playsound("getshotgunammo")
-		elif item=="fnhfnp40":
-			self.playsound("fnhfnp40draw")
-		elif item=="fnhfnp45":
-			self.playsound("fnhfnp45draw")
-
-		elif item=="colt1911":
-			self.playsound("colt1911draw")
-
-		elif item=="IthicaM37":
-			self.playsound("IthicaM37draw")
-		elif item=="MosinNagant":
-			self.playsound("MosinNagantdraw")
-		elif item=="KelTecP318":
-			self.playsound("KelTecP318draw")
-
-		elif item=="maverick88":
-			self.playsound("maverick88draw")
-
-		elif item=="9mm":
-			self.playsound("getpistolammo")
-		elif item=="45_ACP":
-			self.playsound("getpistolammo")
-
-		elif item=="12_gauge":
-			self.playsound("getshotgunammo")
-		elif item=="7.62x51mm":
-			self.playsound("getsniperammo")
-		elif item=="molotov_cocktail":
-			self.playsound("getmoolotov")
-		elif item=="parachute":
-			self.playsound("getparachute")
-		elif item=="hand_grenade":
-			self.playsound("getgrenade")
-		elif item=="metal_shield":
-			self.playsound("getshield")
-		elif item=="steel_helmet":
-			self.playsound("gethelmet")
-
-		elif item=="tm62":
-			self.playsound("misc61")
-		elif item=="timebomb":
-			self.playsound("misc177")
-
-		elif item=="m4":
-			self.playsound("m4draw")
-
-		elif item=="binoculars":
-			self.playsound("binocularsclose")
-		elif item=="wooden_sword":
-			self.playsound("getwooden_sword")
-		elif item=="stone_sword":
-			self.playsound("getstone_sword")
-		elif item=="diamond_sword":
-			self.playsound("getdiamond_sword")
-		else:
-			self.playsound("itemget")
+		self.playsound(data_loader.get_item_sound(item))
 
 	def playsound(self,sound,include_me=True,SendReliable=False):
 	

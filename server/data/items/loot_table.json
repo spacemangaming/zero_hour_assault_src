@@ -1,0 +1,24 @@
+{
+  "interval_ms": 10000,
+  "drops": [
+    {"item": "9mm",              "min": 25, "max": 45},
+    {"item": "small_potion",     "min": 1,  "max": 5},
+    {"item": "vitality_potion",  "min": 1,  "max": 3},
+    {"item": "revival_nectar",   "min": 1,  "max": 2},
+    {"item": "colt1911",         "min": 1,  "max": 1},
+    {"item": "45_ACP",           "min": 10, "max": 30},
+    {"item": "fnhfnp40",         "min": 1,  "max": 1},
+    {"item": "fnhfnp45",         "min": 1,  "max": 1},
+    {"item": "40S&W",            "min": 20, "max": 50},
+    {"item": "mkek_jng90",       "min": 1,  "max": 1},
+    {"item": "7.62x51mm",        "min": 10, "max": 20},
+    {"item": "mkek_mpt76k",      "min": 1,  "max": 1},
+    {"item": "5.56x45mm",        "min": 20, "max": 30},
+    {"item": "IthicaM37",        "min": 1,  "max": 1},
+    {"item": "12_gauge",         "min": 1,  "max": 10},
+    {"item": "7.62x54mmR",       "min": 10, "max": 15},
+    {"item": "molotov_cocktail", "min": 1,  "max": 10},
+    {"item": "tm62",             "min": 1,  "max": 10},
+    {"item": "timebomb",         "min": 1,  "max": 10}
+  ]
+}

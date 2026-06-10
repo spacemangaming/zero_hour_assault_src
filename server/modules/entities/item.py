@@ -5,6 +5,7 @@ from variable_management import string_contains
 from rotation import get_3d_distance
 from timer import timer
 from file_directories import file_exists
+import data_loader
 class item:
 	def __init__(self,x,y,z,map,itemname,itemamount,dropped=False):
 		self.fake=False
@@ -60,67 +61,7 @@ def itemloop():
 
 				for p2 in g.players:
 					if p2.specplayer==g.players[p].name: g.n.send_reliable(p2.peer_id,""+str(amount)+" "+str(g.items[i].itemname)+"",2)
-				if g.items[i].itemname=="small_potion":
-					g.play("getcola2",g.items[i].x,g.items[i].y,g.items[i].z,g.items[i].map)
-				if g.items[i].itemname=="vitality_potion":
-					g.play("getcola2",g.items[i].x,g.items[i].y,g.items[i].z,g.items[i].map)
-				if g.items[i].itemname=="revival_nectar":
-					g.play("getcola2",g.items[i].x,g.items[i].y,g.items[i].z,g.items[i].map)
-
-				elif g.items[i].itemname=="5.56x45mm":
-					g.play("getmachinegunammo",g.items[i].x,g.items[i].y,g.items[i].z,g.items[i].map)
-				elif g.items[i].itemname=="mkek_jng90":
-					g.play("mkek_jng90draw",g.items[i].x,g.items[i].y,g.items[i].z,g.items[i].map)
-				elif g.items[i].itemname=="dragunov_psl":
-					g.play("dragunov_psldraw",g.items[i].x,g.items[i].y,g.items[i].z,g.items[i].map)
-
-				elif g.items[i].itemname=="mkek_mpt76k":
-					g.play("mkek_mpt76kdraw",g.items[i].x,g.items[i].y,g.items[i].z,g.items[i].map)
-				elif g.items[i].itemname=="mkek_yavuz16":
-					g.play("mkek_yavuz16draw",g.items[i].x,g.items[i].y,g.items[i].z,g.items[i].map)
-				elif g.items[i].itemname=="colt1911":
-					g.play("colt1911draw",g.items[i].x,g.items[i].y,g.items[i].z,g.items[i].map)
-				elif g.items[i].itemname=="fnhfnp40":
-					g.play("fnhfnp40draw",g.items[i].x,g.items[i].y,g.items[i].z,g.items[i].map)
-				elif g.items[i].itemname=="fnhfnp45":
-					g.play("fnhfnp45draw",g.items[i].x,g.items[i].y,g.items[i].z,g.items[i].map)
-				elif g.items[i].itemname=="berettaM9":
-					g.play("ks123shotgundraw",g.items[i].x,g.items[i].y,g.items[i].z,g.items[i].map)
-
-
-				elif g.items[i].itemname=="40S&W":
-					g.play("getshotgunammo",g.items[i].x,g.items[i].y,g.items[i].z,g.items[i].map)
-
-				elif g.items[i].itemname=="IthicaM37":
-					g.play("IthicaM37draw",g.items[i].x,g.items[i].y,g.items[i].z,g.items[i].map)
-
-				elif g.items[i].itemname=="9mm":
-					g.play("getpistolammo",g.items[i].x,g.items[i].y,g.items[i].z,g.items[i].map)
-				elif g.items[i].itemname=="45_ACP":
-					g.play("getpistolammo",g.items[i].x,g.items[i].y,g.items[i].z,g.items[i].map)
-
-				elif g.items[i].itemname=="12_gauge":
-					g.play("getshotgunammo",g.items[i].x,g.items[i].y,g.items[i].z,g.items[i].map)
-				elif g.items[i].itemname=="7.62x51mm":
-					g.play("getsniperammo",g.items[i].x,g.items[i].y,g.items[i].z,g.items[i].map)
-				elif g.items[i].itemname=="molotov_cocktail":
-					g.play("getmoolotov",g.items[i].x,g.items[i].y,g.items[i].z,g.items[i].map)
-				elif g.items[i].itemname=="hand_grenade":
-					g.play("getparachute",g.items[i].x,g.items[i].y,g.items[i].z,g.items[i].map)
-				elif g.items[i].itemname=="m4":
-					g.play("m4draw",g.items[i].x,g.items[i].y,g.items[i].z,g.items[i].map)
-
-				elif g.items[i].itemname=="binoculars":
-					g.play("binocularsclose",g.items[i].x,g.items[i].y,g.items[i].z,g.items[i].map)
-				elif g.items[i].itemname=="wooden_sword":
-					g.play("getwooden_sword",g.items[i].x,g.items[i].y,g.items[i].z,g.items[i].map)
-				elif g.items[i].itemname=="stone_sword":
-					g.play("getstone_sword",g.items[i].x,g.items[i].y,g.items[i].z,g.items[i].map)
-				elif g.items[i].itemname=="diamond_sword":
-					g.play("getdiamond_sword",g.items[i].x,g.items[i].y,g.items[i].z,g.items[i].map)
-
-				else:
-					g.play("itemget",g.items[i].x,g.items[i].y,g.items[i].z,g.items[i].map)
+				g.play(data_loader.get_item_sound(g.items[i].itemname),g.items[i].x,g.items[i].y,g.items[i].z,g.items[i].map)
 				if amount==g.items[i].itemamount: g.items.pop(i)
 				else: g.items[i].itemamount-=amount
 				return
@@ -139,67 +80,7 @@ def itemloop():
 				for p2 in g.players:
 					if p2.specplayer==g.npcs[p].soundname: g.n.send_reliable(p2.peer_id,""+str(g.items[i].itemamount)+" "+str(g.items[i].itemname)+"",2)
 
-				if g.items[i].itemname=="small_potion":
-					g.play("getcola2",g.items[i].x,g.items[i].y,g.items[i].z,g.items[i].map)
-				if g.items[i].itemname=="vitality_potion":
-					g.play("getcola2",g.items[i].x,g.items[i].y,g.items[i].z,g.items[i].map)
-				if g.items[i].itemname=="revival_nectar":
-					g.play("getcola2",g.items[i].x,g.items[i].y,g.items[i].z,g.items[i].map)
-
-				elif g.items[i].itemname=="5.56x45mm":
-					g.play("getmachinegunammo",g.items[i].x,g.items[i].y,g.items[i].z,g.items[i].map)
-				elif g.items[i].itemname=="mkek_jng90":
-					g.play("mkek_jng90draw",g.items[i].x,g.items[i].y,g.items[i].z,g.items[i].map)
-				elif g.items[i].itemname=="dragunov_psl":
-					g.play("dragunov_psldraw",g.items[i].x,g.items[i].y,g.items[i].z,g.items[i].map)
-
-				elif g.items[i].itemname=="mkek_mpt76k":
-					g.play("mkek_mpt76kdraw",g.items[i].x,g.items[i].y,g.items[i].z,g.items[i].map)
-				elif g.items[i].itemname=="mkek_yavuz16":
-					g.play("mkek_yavuz16draw",g.items[i].x,g.items[i].y,g.items[i].z,g.items[i].map)
-				elif g.items[i].itemname=="colt1911":
-					g.play("colt1911draw",g.items[i].x,g.items[i].y,g.items[i].z,g.items[i].map)
-				elif g.items[i].itemname=="fnhfnp40":
-					g.play("fnhfnp40draw",g.items[i].x,g.items[i].y,g.items[i].z,g.items[i].map)
-				elif g.items[i].itemname=="fnhfnp45":
-					g.play("fnhfnp45draw",g.items[i].x,g.items[i].y,g.items[i].z,g.items[i].map)
-
-				elif g.items[i].itemname=="berettaM9":
-					g.play("ks123shotgundraw",g.items[i].x,g.items[i].y,g.items[i].z,g.items[i].map)
-
-				elif g.items[i].itemname=="40S&W":
-					g.play("getshotgunammo",g.items[i].x,g.items[i].y,g.items[i].z,g.items[i].map)
-
-				elif g.items[i].itemname=="IthicaM37":
-					g.play("IthicaM37draw",g.items[i].x,g.items[i].y,g.items[i].z,g.items[i].map)
-
-				elif g.items[i].itemname=="9mm":
-					g.play("getpistolammo",g.items[i].x,g.items[i].y,g.items[i].z,g.items[i].map)
-				elif g.items[i].itemname=="45_ACP":
-					g.play("getpistolammo",g.items[i].x,g.items[i].y,g.items[i].z,g.items[i].map)
-
-				elif g.items[i].itemname=="12_gauge":
-					g.play("getshotgunammo",g.items[i].x,g.items[i].y,g.items[i].z,g.items[i].map)
-				elif g.items[i].itemname=="7.62x51mm":
-					g.play("getsniperammo",g.items[i].x,g.items[i].y,g.items[i].z,g.items[i].map)
-				elif g.items[i].itemname=="molotov_cocktail":
-					g.play("getmoolotov",g.items[i].x,g.items[i].y,g.items[i].z,g.items[i].map)
-				elif g.items[i].itemname=="hand_grenade":
-					g.play("getparachute",g.items[i].x,g.items[i].y,g.items[i].z,g.items[i].map)
-				elif g.items[i].itemname=="m4":
-					g.play("m4draw",g.items[i].x,g.items[i].y,g.items[i].z,g.items[i].map)
-
-				elif g.items[i].itemname=="binoculars":
-					g.play("binocularsclose",g.items[i].x,g.items[i].y,g.items[i].z,g.items[i].map)
-				elif g.items[i].itemname=="wooden_sword":
-					g.play("getwooden_sword",g.items[i].x,g.items[i].y,g.items[i].z,g.items[i].map)
-				elif g.items[i].itemname=="stone_sword":
-					g.play("getstone_sword",g.items[i].x,g.items[i].y,g.items[i].z,g.items[i].map)
-				elif g.items[i].itemname=="diamond_sword":
-					g.play("getdiamond_sword",g.items[i].x,g.items[i].y,g.items[i].z,g.items[i].map)
-
-				else:
-					g.play("itemget",g.items[i].x,g.items[i].y,g.items[i].z,g.items[i].map)
+				g.play(data_loader.get_item_sound(g.items[i].itemname),g.items[i].x,g.items[i].y,g.items[i].z,g.items[i].map)
 
 				g.items.pop(i)
 				return

@@ -61,3 +61,6 @@ sounds.dat
 src/zero_hour_assault.egg-info/
 /sounds
 *.log
+compid.cache
+login_timing.txt
+src/zero_hour_assault/net/compid.cache

@@ -51,7 +51,6 @@ def add_platform_to_grid(platform):
 	# If a platform covers a massive coordinate range (e.g. global floor/skybox),
 	# place it in the global list to prevent nested loop explosions at map load!
 	if cells_count > 125:
-		print(f"[MapLoader] Note: platform '{plattype}' spans {cells_count} grid cells. Registered as GLOBAL platform to prevent lags.")
 		global_platforms.append(platform)
 		return
 		
@@ -102,7 +101,6 @@ def clear_map():
 	g.mapignore_ambiences.clear()
 	map_grid.clear()
 	global_platforms.clear()
-	print("[MapLoader] Cleared spatial partition grid and global platforms.")
 
 def spawn_platform(minx, maxx, miny, maxy, minz, maxz, plattype):
 	platform = (round(minx), round(maxx), round(miny), round(maxy), round(minz), round(maxz), plattype)
@@ -248,22 +246,15 @@ def delinear(a):
 	return string_split(a, "\n", False)
 
 def load_map(mdata):
-	print("\n[MapLoader] --- Starting load_map ---")
 	g.jumping=False
 	g.tile_cache={}
 	try:
-		print("[MapLoader] Destroying all active sounds...")
 		g.p.destroy_all()
 	except Exception as e:
-		print(f"[MapLoader] Warning during destroy_all: {e}")
-	import fmod_audio
-	print("[MapLoader] Clearing FMOD sound cache...")
-	fmod_audio.clear_sound_cache()
+		pass
 	if mdata.find("mapname:"+g.mapname)==-1: 
-		print("[MapLoader] Closing map music...")
 		g.mapmusic.close()
 
-	print("[MapLoader] Clearing old doors, signs, and sources...")
 	destroy_all_doors()
 	g.signs=[]
 	destroy_all_sources()
@@ -272,13 +263,9 @@ def load_map(mdata):
 	g.mapzones.clear()
 	g.mapignore_ambiences.clear()
 
-	print("[MapLoader] Running clear_map grids...")
 	clear_map()
 	ldata = delinear(mdata)
-	print(f"[MapLoader] Total map lines to parse: {len(ldata)}")
 	for i in range(len(ldata)):
-		line_str = ldata[i].strip()
-		print(f"[MapLoader] [{i+1}/{len(ldata)}] Parsing: '{line_str}'")
 		try:
 			parsed=string_split(ldata[i], ":", True)
 			if(parsed[0]=="mapname"):
@@ -467,14 +454,9 @@ def load_map(mdata):
 				maxy=string_to_number(parsed[4])
 				minz=string_to_number(parsed[5])
 				maxz=string_to_number(parsed[6])
-				snd=sound()
-				snd.load(parsed[7]); snd.close()
-
 				spawn_source(lx, rx, miny, maxy, minz, maxz, parsed[7], False, -1, 0)
 		except Exception as e: # Catch general exceptions during parsing
-			print(f"Error parsing line {i+1}: {ldata[i]}. Skipping line. Error: {e}") # Print error message for debugging
 			pass # Skip the current line and continue to the next
-	print(f"[MapLoader] --- Completed load_map successfully! Total Platforms: {len(g.map)}, Stairs: {len(g.mapstairs)} ---\n")
 
 def playstep():
 	if g.jumping: return

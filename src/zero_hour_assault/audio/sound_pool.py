@@ -706,60 +706,6 @@ class SoundPool:
         self.update_listener_3d(listener_x, listener_y, 0, 0)
 
     def update_listener_3d(self, listener_x, listener_y, listener_z, rotation):
-        # Dynamic FMOD Reverb Update
-        try:
-            from map import get_reverb_at
-            import fmod_audio
-            import sound
-            
-            r = get_reverb_at(listener_x, listener_y, listener_z)
-            props = fmod_audio.system.get_reverb_properties(0)
-            if r is not None:
-                props.DecayTime = int(r._decay_time * 1000)
-                props.Density = float(r._density * 100)
-                props.Diffusion = float(r._diffusion * 100)
-                props.EarlyDelay = float(r._reflections_delay * 1000)
-                props.LateDelay = float(r._late_reverb_delay * 1000)
-                props.WetLevel = float(sound._to_db_volume(r._gain))
-            else:
-                props.WetLevel = -80.0 # Bypass reverb outside reverb zones
-            fmod_audio.system.set_reverb_properties(0, props)
-        except Exception:
-            pass
-
-        # Dynamic FMOD Echo Zone Update
-        try:
-            from map import get_echo_at
-            import fmod_audio
-            import sound
-            if fmod_audio.initialized and fmod_audio.echo_dsp is not None:
-                echo = get_echo_at(listener_x, listener_y, listener_z)
-                if echo is not None:
-                    fmod_audio.echo_dsp.bypass = False
-                    fmod_audio.echo_dsp.set_parameter_float(0, float(echo._delay * 1000.0))
-                    fmod_audio.echo_dsp.set_parameter_float(1, float(echo._feedback * 100.0))
-                    # Map the initial echo reflection volume (WetLevel) dynamically in dB based on feedback depth
-                    wet_vol = float(sound._to_db_volume(echo._feedback))
-                    fmod_audio.echo_dsp.set_parameter_float(3, wet_vol)
-                else:
-                    fmod_audio.echo_dsp.bypass = True
-        except Exception:
-            pass
-
-        # Dynamic FMOD Water Immersion Lowpass Filter Update
-        try:
-            from map import get_tile_at
-            import fmod_audio
-            if fmod_audio.initialized and fmod_audio.lowpass_dsp is not None:
-                tile = get_tile_at(listener_x, listener_y, listener_z)
-                if tile and "water" in tile.lower():
-                    fmod_audio.lowpass_dsp.bypass = False
-                    fmod_audio.lowpass_dsp.set_parameter_float(0, 1200.0) # Muffle cutoff frequency at 1.2 kHz
-                else:
-                    fmod_audio.lowpass_dsp.bypass = True
-        except Exception:
-            pass
-
         listener_z+=g.aim
         if len(self.items) == 0:
             return

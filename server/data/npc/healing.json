@@ -1,0 +1,5 @@
+[
+  {"item": "small_potion",    "heal_amount": 20, "use_below_hp": 80, "cooldown": 5000},
+  {"item": "vitality_potion", "heal_amount": 50, "use_below_hp": 50, "cooldown": 5000},
+  {"item": "revival_nectar",  "heal_to": 100,    "use_below_hp": 40, "cooldown": 10000}
+]
