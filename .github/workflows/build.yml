@@ -15,10 +15,6 @@ jobs:
         with:
           lfs: true
 
-      - name: Get numbers of CPU cores
-        id: cpu-cores
-        run: echo "cores=$(nproc)" >> $GITHUB_OUTPUT
-
       - name: Cache Buildozer global directory
         uses: actions/cache@v4
         with:
@@ -33,18 +29,25 @@ jobs:
           path: ~/.android
           key: ${{ runner.os }}-android-sdk
 
-      - name: Build with Buildozer
-        uses: ArtemSBulgakov/buildozer-action@v1
-        id: buildozer
-        with:
-          workdir: .
-          buildozer_version: stable
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y git zip unzip openjdk-17-jdk python3-pip python3-virtualenv autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo6 cmake libffi-dev libssl-dev automake autopoint gettext
+
+      - name: Install Python build tools
+        run: |
+          python3 -m pip install --user --upgrade pip setuptools cython buildozer
+
+      - name: Build Android debug APK
+        run: |
+          export PATH=$PATH:~/.local/bin
+          buildozer android debug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: zero-hour-assault-apk
-          path: ${{ steps.buildozer.outputs.filename }}
+          path: bin/*.apk
 
   build-windows:
     name: Build Windows PC Client
