@@ -23,7 +23,7 @@ version = 1.5.9.6
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-requirements = python3,pygame,websocket-client,pynacl,pycryptodomex,requests,urllib3,certifi,chardet,idna,numpy,deep-translator
+requirements = python3==3.10.12,hostpython3==3.10.12,pygame,websocket-client,pynacl,pycryptodomex,requests,urllib3,certifi,chardet,idna,numpy,deep-translator
 
 # (str) Custom source folders for requirements
 # Point to custom sources of requirements if needed

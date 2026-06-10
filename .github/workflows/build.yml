@@ -22,15 +22,15 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/.buildozer
-          key: ${{ runner.os }}-buildozer-${{ hashFiles('buildozer.spec') }}
+          key: ${{ runner.os }}-buildozer-v3-${{ hashFiles('buildozer.spec') }}
           restore-keys: |
-            ${{ runner.os }}-buildozer-
+            ${{ runner.os }}-buildozer-v3-
 
       - name: Cache Android SDK/NDK
         uses: actions/cache@v4
         with:
           path: ~/.android
-          key: ${{ runner.os }}-android-sdk
+          key: ${{ runner.os }}-android-sdk-v3
 
       - name: Install system dependencies
         run: |
