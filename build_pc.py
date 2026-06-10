@@ -71,7 +71,7 @@ def main():
             print(f"Warning: File {filepath} not found, skipping cythonization.")
 
     print("Building with pyinstaller...")
-    pyinstaller_args = [sys.executable, "-m", "pyinstaller", "--noupx", "main.py", "--windowed"]
+    pyinstaller_args = [sys.executable, "-m", "PyInstaller", "--noupx", "main.py", "--windowed"]
     
     # Add version file if it exists
     if os.path.exists("app_info.txt"):
