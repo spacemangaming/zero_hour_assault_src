@@ -17,6 +17,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           lfs: true
+          clean: false
 
       - name: Cache Buildozer global directory
         uses: actions/cache@v4
@@ -51,8 +52,8 @@ jobs:
       - name: Build Android debug APK
         run: |
           export PATH=$PATH:~/.local/bin
-          export MAKEFLAGS="-j$(nproc)"
-          export GRADLE_OPTS="-Xmx4g -XX:MaxMetaspaceSize=1g"
+          export MAKEFLAGS="-j2"
+          export GRADLE_OPTS="-Xmx2g -XX:MaxMetaspaceSize=512m -Dorg.gradle.daemon=false"
           buildozer android debug
 
       - name: Upload APK
