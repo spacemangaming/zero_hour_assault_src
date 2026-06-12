@@ -5,7 +5,10 @@ import time
 
 from constants import DIRECTORY_TEMP
 
-ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
+if getattr(sys, "frozen", False):
+	ROOT_DIR = os.path.dirname(sys.executable)
+else:
+	ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
 SOUNDS_DIR = os.path.join(ROOT_DIR, "sounds")
 
 # Initialize OpenAL bindings
