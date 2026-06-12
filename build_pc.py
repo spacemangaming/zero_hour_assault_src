@@ -132,7 +132,7 @@ def main():
     if os.path.exists("packs"):
         shutil.copytree("packs", os.path.join(release_dir, "packs"), dirs_exist_ok=True)
 
-    # Copy dlls to release/_internal
+    # Copy dlls to both release/ (root) and release/_internal/ (dependencies)
     internal_dir = os.path.join(release_dir, "_internal")
     os.makedirs(internal_dir, exist_ok=True)
     dll_files = [
@@ -141,6 +141,7 @@ def main():
     ]
     for dll in dll_files:
         if os.path.exists(dll):
+            shutil.copy(dll, os.path.join(release_dir, dll))
             shutil.copy(dll, os.path.join(internal_dir, dll))
 
     # Copy VC++ runtime DLLs from Python directory to prevent python312.dll loading crashes on clean systems
