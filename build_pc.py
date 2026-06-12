@@ -91,18 +91,18 @@ def main():
     run_cmd(pyinstaller_args)
 
     # Clean up cython generated files (.c files and .pyd files from source folders)
-    print("Cleaning up cython build files...")
-    for filename, filepath in cython_mappings.items():
-        dir_name = os.path.dirname(filepath)
-        name_no_ext = os.path.splitext(filename)[0]
-        # remove .c files
-        c_file = os.path.join(dir_name, name_no_ext + ".c")
-        if os.path.exists(c_file):
-            os.remove(c_file)
-        # remove build folders inside subdirectories
-        build_dir = os.path.join(dir_name, "build")
-        if os.path.exists(build_dir) and os.path.isdir(build_dir):
-            shutil.rmtree(build_dir)
+    # print("Cleaning up cython build files...")
+    # for filename, filepath in cython_mappings.items():
+    #     dir_name = os.path.dirname(filepath)
+    #     name_no_ext = os.path.splitext(filename)[0]
+    #     # remove .c files
+    #     c_file = os.path.join(dir_name, name_no_ext + ".c")
+    #     if os.path.exists(c_file):
+    #         os.remove(c_file)
+    #     # remove build folders inside subdirectories
+    #     build_dir = os.path.join(dir_name, "build")
+    #     if os.path.exists(build_dir) and os.path.isdir(build_dir):
+    #         shutil.rmtree(build_dir)
 
     # Rename the output executable to zero_hour_assault.exe
     dist_main_dir = os.path.join("dist", "main")
@@ -207,16 +207,16 @@ def main():
                 zipf.write(file_path, rel_path)
 
     # Clean up cython .pyd files from source folders to avoid cluttering git working tree
-    print("Removing temporary compiled .pyd files from source folders...")
-    for filename, filepath in cython_mappings.items():
-        dir_name = os.path.dirname(filepath)
-        name_no_ext = os.path.splitext(filename)[0]
-        for f in os.listdir(dir_name):
-            if f.startswith(name_no_ext) and f.endswith(".pyd"):
-                try:
-                    os.remove(os.path.join(dir_name, f))
-                except Exception as e:
-                    print(f"Could not remove temporary file {f}: {e}")
+    # print("Removing temporary compiled .pyd files from source folders...")
+    # for filename, filepath in cython_mappings.items():
+    #     dir_name = os.path.dirname(filepath)
+    #     name_no_ext = os.path.splitext(filename)[0]
+    #     for f in os.listdir(dir_name):
+    #         if f.startswith(name_no_ext) and f.endswith(".pyd"):
+    #             try:
+    #                 os.remove(os.path.join(dir_name, f))
+    #             except Exception as e:
+    #                 print(f"Could not remove temporary file {f}: {e}")
 
     print("Build complete!")
 
