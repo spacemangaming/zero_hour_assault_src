@@ -143,6 +143,25 @@ def main():
         if os.path.exists(dll):
             shutil.copy(dll, os.path.join(internal_dir, dll))
 
+    # Copy VC++ runtime DLLs from Python directory to prevent python312.dll loading crashes on clean systems
+    search_dirs = [
+        sys.base_exec_prefix,
+        sys.exec_prefix,
+        os.path.dirname(sys.executable),
+        os.path.join(sys.base_exec_prefix, "DLLs")
+    ]
+    for dll in ["vcruntime140.dll", "vcruntime140_1.dll"]:
+        found = False
+        for d in search_dirs:
+            python_dll = os.path.join(d, dll)
+            if os.path.exists(python_dll):
+                shutil.copy(python_dll, os.path.join(internal_dir, dll))
+                print(f"Bundled: {dll} from {d}")
+                found = True
+                break
+        if not found:
+            print(f"Warning: Could not find {dll} in any search directories.")
+
     # Copy other root files to release
     root_copy_files = [
         "sndver.txt", "sndversion.txt", "changelog.txt", "readme.html",
