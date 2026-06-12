@@ -16,7 +16,7 @@ C_RESET = "\033[0m"
 C_BOLD = "\033[1m"
 
 def print_header():
-    os.system("cls" if os.name == "nt" else "clear")
+    print("\033[H\033[2J", end="")
     print(f"{C_BLUE}{C_BOLD}==================================================={C_RESET}")
     print(f"{C_CYAN}{C_BOLD}        ZERO HOUR ASSAULT DEVELOPER TOOL          {C_RESET}")
     print(f"{C_BLUE}{C_BOLD}==================================================={C_RESET}")
