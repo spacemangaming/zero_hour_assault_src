@@ -16,4 +16,4 @@ sys.path.insert(0, os.path.join(app_root, "src", "zero_hour_assault"))
 os.chdir(app_root)
 
 # Import and run the actual main
-import zero_hour_assault.core.main
+import core.main
