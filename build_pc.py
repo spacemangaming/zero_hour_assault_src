@@ -132,6 +132,11 @@ def main():
     if os.path.exists("packs"):
         shutil.copytree("packs", os.path.join(release_dir, "packs"), dirs_exist_ok=True)
 
+    # Copy sounds folder if exists (required for sound playback in compiled client)
+    if os.path.exists("sounds"):
+        print("Copying sounds folder to release...")
+        shutil.copytree("sounds", os.path.join(release_dir, "sounds"), dirs_exist_ok=True)
+
     # Copy dlls to both release/ (root) and release/_internal/ (dependencies)
     internal_dir = os.path.join(release_dir, "_internal")
     os.makedirs(internal_dir, exist_ok=True)
@@ -183,7 +188,7 @@ def main():
     else:
         print("nbm_digital_ltd.pfx not found, skipping signing.")
 
-    # Package update_package.zip (WITHOUT sounds.dat)
+    # Package update_package.zip (WITHOUT sounds.dat and without raw sounds directory to keep size small)
     print("Packaging update_package.zip...")
     update_zip_path = "update_package.zip"
     if os.path.exists(update_zip_path):
@@ -191,6 +196,9 @@ def main():
     
     with zipfile.ZipFile(update_zip_path, 'w', zipfile.ZIP_DEFLATED) as zipf:
         for root, dirs, files in os.walk(release_dir):
+            rel_root = os.path.relpath(root, release_dir)
+            if rel_root == "sounds" or rel_root.replace("\\", "/").startswith("sounds/"):
+                continue
             for file in files:
                 file_path = os.path.join(root, file)
                 rel_path = os.path.relpath(file_path, release_dir)
