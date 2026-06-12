@@ -102,14 +102,25 @@ import hashlib
 os.environ["PAFY_BACKEND"] = "internal"
 
 if hasattr(sys,"frozen"):
-	for file in os.listdir("_internal"):
-		if file.endswith(".py"): os.remove("_internal/"+file)
-	if os.path.isfile("_internal/anticheat.dll"): os.remove("_internal/anticheat.dll")
-	urllib.request.urlretrieve("https://nbmstudios.com/anticheat.dll","_internal/anticheat.dll")
-	if not os.path.isfile("_internal/phonon.dll"): urllib.request.urlretrieve("https://nbmstudios.com/phonon.dll","_internal/phonon.dll")
-	if not os.path.isfile("_internal/nacl/_sodium.pyd"):
-		if not os.path.isdir("_internal/nacl"): os.mkdir("_internal/nacl")
-		urllib.request.urlretrieve("https://nbmstudios.com/_sodium.pyd","_internal/nacl/_sodium.pyd")
+	internal_dir = os.path.join(os.path.dirname(sys.executable), "_internal")
+	for file in os.listdir(internal_dir):
+		if file.endswith(".py"):
+			try: os.remove(os.path.join(internal_dir, file))
+			except Exception: pass
+	anticheat_dll = os.path.join(internal_dir, "anticheat.dll")
+	if os.path.isfile(anticheat_dll):
+		try: os.remove(anticheat_dll)
+		except Exception: pass
+	urllib.request.urlretrieve("https://nbmstudios.com/anticheat.dll", anticheat_dll)
+	phonon_dll = os.path.join(internal_dir, "phonon.dll")
+	if not os.path.isfile(phonon_dll):
+		urllib.request.urlretrieve("https://nbmstudios.com/phonon.dll", phonon_dll)
+	nacl_dir = os.path.join(internal_dir, "nacl")
+	sodium_pyd = os.path.join(nacl_dir, "_sodium.pyd")
+	if not os.path.isfile(sodium_pyd):
+		if not os.path.isdir(nacl_dir):
+			os.makedirs(nacl_dir, exist_ok=True)
+		urllib.request.urlretrieve("https://nbmstudios.com/_sodium.pyd", sodium_pyd)
 
 import os
 import sys
