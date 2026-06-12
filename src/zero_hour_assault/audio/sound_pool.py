@@ -657,6 +657,8 @@ class SoundPool:
             return True
 
     def resume_sound(self, s):
+        if isinstance(s, int):
+            return False
         if 1 == 1:
             if not s.paused:
                 return False
@@ -723,6 +725,8 @@ class SoundPool:
         return self.update_sound_3d(s, x, y, 0)
 
     def update_sound_3d(self, s, x, y, z):
+        if isinstance(s, int):
+            return False
         try:
             s.x = x
             s.y = y
@@ -739,6 +743,8 @@ class SoundPool:
             return False
 
     def update_sound_start_values(self, s, start_pan, start_volume, start_pitch):
+        if isinstance(s, int):
+            return False
         s.start_pan = start_pan
         s.start_volume = start_volume
         s.start_pitch = start_pitch
@@ -779,6 +785,8 @@ class SoundPool:
         upper_range,
         rotation,
     ):
+        if isinstance(s, int):
+            return False
         s.left_range = left_range
         s.right_range = right_range
         s.backward_range = backward_range
@@ -795,6 +803,8 @@ class SoundPool:
         return True
 
     def destroy_sound(self, s):
+        if isinstance(s, int):
+            return False
         try:
             s.reset()
             return True
