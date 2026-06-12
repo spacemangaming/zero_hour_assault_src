@@ -51,7 +51,8 @@ class network:
         if address == "localhost":
             address = "127.0.0.1"
 
-        # Use ws:// for local/dev connections, wss:// for production domain names
+        # Use ws:// for local/dev connections and raw IP addresses, wss:// for production domain names
+        is_ip = all(c.isdigit() or c == '.' for c in address)
         is_local = (
             "localhost" in address
             or "127.0.0.1" in address
@@ -59,6 +60,7 @@ class network:
             or address.startswith("10.")
             or address.startswith("100.")  # Tailscale IP range
             or not ("." in address)        # bare hostnames / test names like "0user"
+            or is_ip
         )
         protocol = "ws" if is_local else "wss"
 

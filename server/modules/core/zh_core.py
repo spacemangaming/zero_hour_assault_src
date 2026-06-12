@@ -408,10 +408,21 @@ def main():
 	f.close()
 	setupserver()
 	port = 10000 if "android" not in os.getcwd() else 10001
-	
-	print("=" * 65)
-	port = 10000 if "android" not in os.getcwd() else 10001
-	
+	if os.path.exists("server.conf"):
+		try:
+			with open("server.conf", "r") as f:
+				for line in f:
+					# Skip comments and empty lines
+					clean_line = line.strip()
+					if not clean_line or clean_line.startswith("#") or clean_line.startswith(";"):
+						continue
+					if "=" in clean_line:
+						k, v = clean_line.split("=", 1)
+						if k.strip().lower() == "port":
+							port = int(v.strip())
+		except Exception as ex:
+			print(f"[!] Error reading server.conf: {ex}")
+
 	print("=" * 65)
 	print("                    ZERO HOUR ASSAULT GAME SERVER")
 	print("=" * 65)

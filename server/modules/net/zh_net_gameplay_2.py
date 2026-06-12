@@ -2144,6 +2144,84 @@ here, since the player name is before the string "came online", we added =substr
 					g.players[index].prevmenu()
 					return
 
+			if parsed[1]=="announcements":
+				ann_dir = os.path.normpath(
+					os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "announcements")
+				)
+				os.makedirs(ann_dir, exist_ok=True)
+				anns = []
+				for f in os.listdir(ann_dir):
+					if f.endswith(".announcement"):
+						try:
+							with open(os.path.join(ann_dir, f), "r", encoding="utf-8") as file:
+								anns.append(json.load(file))
+						except Exception:
+							pass
+				anns.sort(key=lambda x: x.get("id", ""), reverse=True)
+
+				m = server_menu()
+				m.initial_packet = "gamemenuopt"
+				m.intro = "Announcements List"
+				if not anns:
+					m.add("No announcements available","ann_none",False)
+				else:
+					for ann in anns:
+						pinned_str = "[PINNED] " if ann.get("pinned") else ""
+						title = ann.get("title", "No Title")
+						m.add(f"{pinned_str}{title}", f"ann_view_{ann.get('id')}", True)
+				m.add("Back", "ann_back", True)
+				m.send(e.peer_id)
+				return
+
+			if parsed[1]=="ann_back":
+				g.players[index].prevmenu()
+				return
+
+			if parsed[1].startswith("ann_view_"):
+				ann_id = parsed[1].replace("ann_view_", "")
+				ann_dir = os.path.normpath(
+					os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "announcements")
+				)
+				path = os.path.join(ann_dir, f"{ann_id}.announcement")
+				if os.path.exists(path):
+					try:
+						with open(path, "r", encoding="utf-8") as f:
+							data = json.load(f)
+						title = data.get("title", "No Title")
+						content = data.get("content", "")
+						author = data.get("author", "Admin")
+						timestamp = data.get("timestamp", "")
+						msg = f"Announcement: {title}\nBy {author} ({timestamp})\n\n{content}"
+						g.n.send_reliable(e.peer_id, msg, 2)
+					except Exception:
+						g.n.send_reliable(e.peer_id, "Error loading announcement details.", 0)
+				
+				# Re-send announcements list menu to keep player in the menu
+				os.makedirs(ann_dir, exist_ok=True)
+				anns = []
+				for f in os.listdir(ann_dir):
+					if f.endswith(".announcement"):
+						try:
+							with open(os.path.join(ann_dir, f), "r", encoding="utf-8") as file:
+								anns.append(json.load(file))
+						except Exception:
+							pass
+				anns.sort(key=lambda x: x.get("id", ""), reverse=True)
+
+				m = server_menu()
+				m.initial_packet = "gamemenuopt"
+				m.intro = "Announcements List"
+				if not anns:
+					m.add("No announcements available","ann_none",False)
+				else:
+					for ann in anns:
+						pinned_str = "[PINNED] " if ann.get("pinned") else ""
+						title = ann.get("title", "No Title")
+						m.add(f"{pinned_str}{title}", f"ann_view_{ann.get('id')}", True)
+				m.add("Back", "ann_back", True)
+				m.send(e.peer_id)
+				return
+
 			if parsed[1]=="adminmenu":
 				if g.players[index].is_admin()==True or g.players[index].dev==True or g.players[index].moderator==True:
 					m=server_menu()

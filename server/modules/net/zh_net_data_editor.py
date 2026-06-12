@@ -2,6 +2,8 @@ import globals as g
 import json
 import os
 import sys
+import time
+import datetime
 import data_loader
 
 # ── Sound Scanner & Player Giver Helpers ────────────────────────────────────
@@ -192,6 +194,10 @@ def _send_give_player_list(index):
 DATA_DIR = os.path.normpath(
     os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "data")
 )
+ANN_DIR = os.path.normpath(
+    os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "announcements")
+)
+
 
 
 # Scalar-only skip: dict/list fields we handle specially below instead of skipping
@@ -305,11 +311,96 @@ def _send_main_menu(index):
     m.add("Chest pool & config", "chest", True)
     m.add("Loot table", "loot", True)
     m.add(f"Ranks ({len(data_loader._ranks)} entries)", "ranks", True)
+    m.add("Manage Announcements", "announcements", True)
     m.add("Scan sounds.dat", "scan_sounds", True)
     m.add("Give weapon/item/character to player", "give_player", True)
     m.add("Reload all configs from disk", "reload", True)
     m.add("Back", "back", True)
     m.send(g.players[index].peer_id)
+
+
+# ── Announcements Manager Helpers ───────────────────────────────────────────
+
+def _get_all_announcements():
+    os.makedirs(ANN_DIR, exist_ok=True)
+    list_ann = []
+    for f in os.listdir(ANN_DIR):
+        if f.endswith(".announcement"):
+            path = os.path.join(ANN_DIR, f)
+            try:
+                with open(path, "r", encoding="utf-8") as file:
+                    data = json.load(file)
+                    list_ann.append(data)
+            except Exception:
+                pass
+    list_ann.sort(key=lambda x: x.get("id", ""), reverse=True)
+    return list_ann
+
+def _send_announcements_main_menu(index):
+    m = server_menu()
+    m.initial_packet = "de_ann_main"
+    m.intro = "Announcements Manager"
+    m.add("List Announcements", "list", True)
+    m.add("Create New Announcement", "create", True)
+    m.add("Back", "back", True)
+    m.send(g.players[index].peer_id)
+
+def _send_announcements_list(index):
+    m = server_menu()
+    m.initial_packet = "de_ann_list"
+    m.intro = "Announcements List - select to edit"
+    anns = _get_all_announcements()
+    if not anns:
+        m.add("-- No announcements --", "__none__", True)
+    for ann in anns:
+        pinned_str = "[PINNED] " if ann.get("pinned") else ""
+        title = ann.get("title", "No Title")
+        author = ann.get("author", "Unknown")
+        label = f"{pinned_str}{title} (by {author})"
+        m.add(label, ann.get("id"), True)
+    m.add("Back", "back", True)
+    m.send(g.players[index].peer_id)
+
+def _send_announcement_fields(index, ann_id):
+    path = os.path.join(ANN_DIR, f"{ann_id}.announcement")
+    if not os.path.exists(path):
+        g.n.send_reliable(g.players[index].peer_id, "Announcement not found.", 0)
+        _send_announcements_list(index)
+        return
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+    except Exception as ex:
+        g.n.send_reliable(g.players[index].peer_id, f"Error loading announcement: {ex}", 0)
+        _send_announcements_list(index)
+        return
+
+    m = server_menu()
+    m.initial_packet = "de_ann_fields"
+    m.intro = f"Edit Announcement: {data.get('title')}"
+    m.add(f"Title: {data.get('title')}", f"title:{ann_id}", True)
+    content_preview = data.get("content", "")
+    if len(content_preview) > 30:
+        content_preview = content_preview[:27] + "..."
+    m.add(f"Content: {content_preview}", f"content:{ann_id}", True)
+    m.add(f"Pinned: {data.get('pinned', False)}", f"pinned:{ann_id}", True)
+    m.add("── Delete Announcement ──", f"delete:{ann_id}", True)
+    m.add("Back", "back", True)
+    m.send(g.players[index].peer_id)
+
+def _prompt_announcement_create_title(index):
+    ctx = _player_ctx(index)
+    ctx["field_key"] = "ann_create_title"
+    ctx["awaiting_input"] = True
+    _deinput(g.players[index].peer_id, "ann_create_title", "Enter announcement title:")
+
+def _prompt_announcement_create_content(index):
+    ctx = _player_ctx(index)
+    ctx["field_key"] = "ann_create_content"
+    ctx["awaiting_input"] = True
+    _deinput(g.players[index].peer_id, "ann_create_content", "Enter announcement content:")
+
+
 
 
 def _send_item_list(index, category):
@@ -452,6 +543,90 @@ def _apply_edit(index, new_value_str):
     field_key = ctx.get("field_key")
     pid = g.players[index].peer_id
     admin = g.players[index].name
+
+    # ── Announcements creation / editing ──────────────────────────────────
+    if field_key == "ann_create_title":
+        ctx["ann_temp_title"] = new_value_str.strip()
+        ctx["field_key"] = None
+        ctx["awaiting_input"] = False
+        _prompt_announcement_create_content(index)
+        return
+
+    if field_key == "ann_create_content":
+        title = ctx.get("ann_temp_title", "Untitled")
+        content = new_value_str.strip()
+        ctx["field_key"] = None
+        ctx["awaiting_input"] = False
+        ctx.pop("ann_temp_title", None)
+        
+        ann_id = str(int(time.time()))
+        import datetime as dt_mod
+        dt_class = dt_mod.datetime if hasattr(dt_mod, "datetime") else dt_mod
+        data = {
+            "id": ann_id,
+            "title": title,
+            "content": content,
+            "author": admin,
+            "timestamp": dt_class.now().strftime("%Y-%m-%d %H:%M:%S"),
+            "pinned": False
+        }
+        os.makedirs(ANN_DIR, exist_ok=True)
+        path = os.path.join(ANN_DIR, f"{ann_id}.announcement")
+        try:
+            with open(path, "w", encoding="utf-8") as f:
+                json.dump(data, f, indent=2)
+            g.n.send_reliable(pid, "Announcement created successfully.", 0)
+            
+            # Broadcast to all players that a new announcement is posted
+            try:
+                g.n.broadcast("play_s important.ogg", 0)
+                g.n.broadcast(f"New Announcement: {title}\nOpen game menu to read details.", 2)
+            except Exception:
+                pass
+                
+            _send_announcement_fields(index, ann_id)
+        except Exception as ex:
+            g.n.send_reliable(pid, f"Error creating announcement: {ex}", 0)
+            _send_announcements_main_menu(index)
+        return
+
+    if field_key and field_key.startswith("ann_edit_title:"):
+        ann_id = field_key.split(":")[1]
+        ctx["field_key"] = None
+        ctx["awaiting_input"] = False
+        
+        path = os.path.join(ANN_DIR, f"{ann_id}.announcement")
+        if os.path.exists(path):
+            try:
+                with open(path, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                data["title"] = new_value_str.strip()
+                with open(path, "w", encoding="utf-8") as f:
+                    json.dump(data, f, indent=2)
+                g.n.send_reliable(pid, "Announcement title updated.", 0)
+            except Exception as ex:
+                g.n.send_reliable(pid, f"Error updating announcement: {ex}", 0)
+        _send_announcement_fields(index, ann_id)
+        return
+
+    if field_key and field_key.startswith("ann_edit_content:"):
+        ann_id = field_key.split(":")[1]
+        ctx["field_key"] = None
+        ctx["awaiting_input"] = False
+        
+        path = os.path.join(ANN_DIR, f"{ann_id}.announcement")
+        if os.path.exists(path):
+            try:
+                with open(path, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                data["content"] = new_value_str.strip()
+                with open(path, "w", encoding="utf-8") as f:
+                    json.dump(data, f, indent=2)
+                g.n.send_reliable(pid, "Announcement content updated.", 0)
+            except Exception as ex:
+                g.n.send_reliable(pid, f"Error updating announcement: {ex}", 0)
+        _send_announcement_fields(index, ann_id)
+        return
 
     if field_key == "_soundquery":
         ctx["sound_query"] = new_value_str.strip()
@@ -721,9 +896,13 @@ def handle_data_editor(e, parsed, index):
     if cmd == "de_main":
         if _require_admin(index): return True
         choice = parsed[1] if len(parsed) > 1 else ""
-        if not choice or choice == "back":
+        if not choice:
             _player_ctx(index)["awaiting_input"] = False
             _send_main_menu(index); return True
+        if choice == "back":
+            _player_ctx(index)["awaiting_input"] = False
+            g.players[index].prevmenu()
+            return True
         if choice == "reload":
             _reload(index)
             g.n.send_reliable(g.players[index].peer_id, "All configs reloaded from disk.", 0)
@@ -741,6 +920,8 @@ def handle_data_editor(e, parsed, index):
             _send_field_list(index, choice, choice)
         elif choice in ("ranks", "weapons", "characters"):
             _send_item_list(index, choice)
+        elif choice == "announcements":
+            _send_announcements_main_menu(index)
         else:
             _send_main_menu(index)
         return True
@@ -802,7 +983,16 @@ def handle_data_editor(e, parsed, index):
                 "Usage: de_setval <field_name> <new_value>", 0)
             return True
         ctx = _player_ctx(index)
-        ctx["field_key"] = parsed[1]
+        field_name = parsed[1]
+        
+        # Intercept announcement edits
+        if field_name in ("ann_create_title", "ann_create_content") or field_name.startswith("ann_edit_title:") or field_name.startswith("ann_edit_content:"):
+            ctx["field_key"] = field_name
+            new_val_str = " ".join(parsed[2:])
+            _apply_edit(index, new_val_str)
+            return True
+
+        ctx["field_key"] = field_name
         new_val_str = " ".join(parsed[2:])
         _apply_edit(index, new_val_str)
         # _apply_edit handles all navigation internally
@@ -886,6 +1076,23 @@ def handle_data_editor(e, parsed, index):
     if cmd == "de_cancel":
         ctx = _player_ctx(index)
         prev_field = ctx.get("field_key")
+        
+        # Intercept announcement cancel
+        if prev_field in ("ann_create_title", "ann_create_content"):
+            ctx["awaiting_input"] = False
+            ctx["field_key"] = None
+            ctx.pop("ann_temp_title", None)
+            g.n.send_reliable(g.players[index].peer_id, "Edit cancelled.", 0)
+            _send_announcements_main_menu(index)
+            return True
+        elif prev_field and (prev_field.startswith("ann_edit_title:") or prev_field.startswith("ann_edit_content:")):
+            ctx["awaiting_input"] = False
+            ctx["field_key"] = None
+            ann_id = prev_field.split(":")[1]
+            g.n.send_reliable(g.players[index].peer_id, "Edit cancelled.", 0)
+            _send_announcement_fields(index, ann_id)
+            return True
+
         ctx["awaiting_input"] = False; ctx["field_key"] = None
         ctx.pop("_pending_score", None)
         g.n.send_reliable(g.players[index].peer_id, "Edit cancelled.", 0)
@@ -904,5 +1111,77 @@ def handle_data_editor(e, parsed, index):
             else:
                 _send_main_menu(index)
         return True
+
+    # ── Announcements manager packet handlers ────────────────────────────────
+    if cmd == "de_ann_main":
+        if _require_admin(index): return True
+        choice = parsed[1] if len(parsed) > 1 else "back"
+        if choice == "back":
+            _send_main_menu(index)
+        elif choice == "list":
+            _send_announcements_list(index)
+        elif choice == "create":
+            _prompt_announcement_create_title(index)
+        return True
+
+    if cmd == "de_ann_list":
+        if _require_admin(index): return True
+        choice = parsed[1] if len(parsed) > 1 else "back"
+        if choice == "back" or choice == "__none__":
+            _send_announcements_main_menu(index)
+        else:
+            _send_announcement_fields(index, choice)
+        return True
+
+    if cmd == "de_ann_fields":
+        if _require_admin(index): return True
+        choice = parsed[1] if len(parsed) > 1 else "back"
+        if choice == "back":
+            _send_announcements_list(index)
+            return True
+        
+        parts = choice.split(":")
+        field = parts[0]
+        ann_id = parts[1]
+        
+        if field == "title":
+            ctx = _player_ctx(index)
+            ctx["field_key"] = f"ann_edit_title:{ann_id}"
+            ctx["awaiting_input"] = True
+            _deinput(g.players[index].peer_id, f"ann_edit_title:{ann_id}", "Enter new title:")
+            return True
+            
+        elif field == "content":
+            ctx = _player_ctx(index)
+            ctx["field_key"] = f"ann_edit_content:{ann_id}"
+            ctx["awaiting_input"] = True
+            _deinput(g.players[index].peer_id, f"ann_edit_content:{ann_id}", "Enter new content:")
+            return True
+            
+        elif field == "pinned":
+            path = os.path.join(ANN_DIR, f"{ann_id}.announcement")
+            if os.path.exists(path):
+                try:
+                    with open(path, "r", encoding="utf-8") as f:
+                        data = json.load(f)
+                    data["pinned"] = not data.get("pinned", False)
+                    with open(path, "w", encoding="utf-8") as f:
+                        json.dump(data, f, indent=2)
+                    g.n.send_reliable(g.players[index].peer_id, f"Announcement pinned status set to {data['pinned']}.", 0)
+                except Exception as ex:
+                    g.n.send_reliable(g.players[index].peer_id, f"Error toggling pinned status: {ex}", 0)
+            _send_announcement_fields(index, ann_id)
+            return True
+            
+        elif field == "delete":
+            path = os.path.join(ANN_DIR, f"{ann_id}.announcement")
+            if os.path.exists(path):
+                try:
+                    os.remove(path)
+                    g.n.send_reliable(g.players[index].peer_id, "Announcement deleted successfully.", 0)
+                except Exception as ex:
+                    g.n.send_reliable(g.players[index].peer_id, f"Error deleting announcement: {ex}", 0)
+            _send_announcements_list(index)
+            return True
 
     return False

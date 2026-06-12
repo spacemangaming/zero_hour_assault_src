@@ -237,6 +237,7 @@ def handle_gameplay_1(e, parsed, index):
 				m.add("View destroyed groups history","groupinfo2")
 				m.add("View timed item expiry times","timed")
 				m.add("View Latest Additions","latest")
+				m.add("View Announcements, See latest news and updates from admins.","announcements")
 				#m.add("View game readme file, learn the game about.","readme")
 
 				m.add("languages, Manage Languages, Switch to a Language, Get syntax and usage tips for creating languages, Create New Language.","langg")

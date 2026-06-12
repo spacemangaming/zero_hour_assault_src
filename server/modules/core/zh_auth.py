@@ -9,6 +9,11 @@ import requests
 from threading import Thread
 from timer import timer
 
+ANN_DIR = os.path.normpath(
+	os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "announcements")
+)
+
+
 def login(user, password, mail, compid, peer_id):
 	compbanloop()
 	#for p in g.players:
@@ -128,6 +133,11 @@ def login(user, password, mail, compid, peer_id):
 	file_put_contents("chars/"+user+"/authorized_compids.usr","\n".join(auth_computers))
 
 	g.n.send_reliable(peer_id, "loggedin", 0)
+	try:
+		_send_pinned_announcements(peer_id)
+	except Exception as ex:
+		print(f"Error sending pinned announcements on login: {ex}")
+
 
 
 def getplayer_by_peer(id):
@@ -303,4 +313,25 @@ def remove_from_server(ind2=-1,force=False):
 	if ind2>-1:
 		g.players[ind2]=None
 		g.players.pop(ind2)
+
+
+def _send_pinned_announcements(peer_id):
+	if not os.path.exists(ANN_DIR):
+		return
+	for f in os.listdir(ANN_DIR):
+		if f.endswith(".announcement"):
+			try:
+				with open(os.path.join(ANN_DIR, f), "r", encoding="utf-8") as file:
+					data = json.load(file)
+				if data.get("pinned"):
+					title = data.get("title", "No Title")
+					content = data.get("content", "")
+					author = data.get("author", "Admin")
+					timestamp = data.get("timestamp", "")
+					msg = f"Announcement: {title}\nBy {author} ({timestamp})\n\n{content}"
+					g.n.send_reliable(peer_id, "play_s important.ogg", 0)
+					g.n.send_reliable(peer_id, msg, 2)
+			except Exception as ex:
+				print(f"Error loading/sending announcement {f}: {ex}")
+
 

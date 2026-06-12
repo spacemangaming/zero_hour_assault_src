@@ -1415,8 +1415,13 @@ def handle_gameplay_6(e, parsed, index):
 					# Cabin block check: if door is closed and player tries to enter cabin
 					if not bus.doors_open and ((old_ly == 1 and new_ly >= 2) or (old_ly == 14 and new_ly <= 13)):
 						new_ly = old_ly
-						g.play("doorhit", bus.x + new_lx, bus.y + new_ly, bus.z + new_lz, bus.map)
-						g.n.send_reliable(g.players[index].peer_id, "The door is closed. Press Enter to open it.", 0)
+						if not hasattr(g.players[index], "door_warn_timer") or g.players[index].door_warn_timer.elapsed >= 1500:
+							if not hasattr(g.players[index], "door_warn_timer"):
+								g.players[index].door_warn_timer = timer()
+							else:
+								g.players[index].door_warn_timer.restart()
+							g.play("doorhit", bus.x + new_lx, bus.y + new_ly, bus.z + new_lz, bus.map)
+							g.n.send_reliable(g.players[index].peer_id, "The door is closed. Press Enter to open it.", 0)
 					
 					if new_lx < 1: new_lx = 1
 					if new_lx > 6: new_lx = 6
@@ -1514,8 +1519,13 @@ def handle_gameplay_6(e, parsed, index):
 					# Cabin block check: if door is closed and player tries to enter cabin
 					if not bus.doors_open and ((old_ly == 1 and new_ly >= 2) or (old_ly == 14 and new_ly <= 13)):
 						new_ly = old_ly
-						g.play("doorhit", bus.x + new_lx, bus.y + new_ly, bus.z + new_lz, bus.map)
-						g.n.send_reliable(g.players[index].peer_id, "The door is closed. Press Enter to open it.", 0)
+						if not hasattr(g.players[index], "door_warn_timer") or g.players[index].door_warn_timer.elapsed >= 1500:
+							if not hasattr(g.players[index], "door_warn_timer"):
+								g.players[index].door_warn_timer = timer()
+							else:
+								g.players[index].door_warn_timer.restart()
+							g.play("doorhit", bus.x + new_lx, bus.y + new_ly, bus.z + new_lz, bus.map)
+							g.n.send_reliable(g.players[index].peer_id, "The door is closed. Press Enter to open it.", 0)
 					
 					if new_lx < 1: new_lx = 1
 					if new_lx > 6: new_lx = 6
@@ -1621,8 +1631,13 @@ def handle_gameplay_6(e, parsed, index):
 					# Cabin block check: if door is closed and player tries to enter cabin
 					if not bus.doors_open and ((old_ly == 1 and new_ly >= 2) or (old_ly == 14 and new_ly <= 13)):
 						new_ly = old_ly
-						g.play("doorhit", bus.x + new_lx, bus.y + new_ly, bus.z + new_lz, bus.map)
-						g.n.send_reliable(g.players[index].peer_id, "The door is closed. Press Enter to open it.", 0)
+						if not hasattr(g.players[index], "door_warn_timer") or g.players[index].door_warn_timer.elapsed >= 1500:
+							if not hasattr(g.players[index], "door_warn_timer"):
+								g.players[index].door_warn_timer = timer()
+							else:
+								g.players[index].door_warn_timer.restart()
+							g.play("doorhit", bus.x + new_lx, bus.y + new_ly, bus.z + new_lz, bus.map)
+							g.n.send_reliable(g.players[index].peer_id, "The door is closed. Press Enter to open it.", 0)
 					
 					if new_lx < 1: new_lx = 1
 					if new_lx > 6: new_lx = 6
