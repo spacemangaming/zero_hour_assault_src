@@ -77,7 +77,7 @@ def update_versions():
     if os.path.exists(globals_path):
         with open(globals_path, "r", encoding="utf-8") as f:
             content = f.read()
-        new_content = re.sub(r'(ver\s*=\s*["\'])([^"\']+)(["\'])', rf'\1{new_ver}\3', content)
+        new_content = re.sub(r'(ver\s*=\s*["\'])([^"\']+)(["\'])', rf'\g<1>{new_ver}\g<3>', content)
         with open(globals_path, "w", encoding="utf-8") as f:
             f.write(new_content)
         print(f"{C_GREEN}✓ Updated src/zero_hour_assault/core/globals.py{C_RESET}")
@@ -89,7 +89,7 @@ def update_versions():
     if os.path.exists(spec_path):
         with open(spec_path, "r", encoding="utf-8") as f:
             content = f.read()
-        new_content = re.sub(r'(version\s*=\s*)([^\s#]+)', rf'\1{new_ver}', content)
+        new_content = re.sub(r'(version\s*=\s*)([^\s#]+)', rf'\g<1>{new_ver}', content)
         with open(spec_path, "w", encoding="utf-8") as f:
             f.write(new_content)
         print(f"{C_GREEN}✓ Updated buildozer.spec{C_RESET}")
@@ -101,7 +101,7 @@ def update_versions():
     if os.path.exists(toml_path):
         with open(toml_path, "r", encoding="utf-8") as f:
             content = f.read()
-        new_content = re.sub(r'(version\s*=\s*["\'])([^"\']+)(["\'])', rf'\1{new_ver}\3', content)
+        new_content = re.sub(r'(version\s*=\s*["\'])([^"\']+)(["\'])', rf'\g<1>{new_ver}\g<3>', content)
         with open(toml_path, "w", encoding="utf-8") as f:
             f.write(new_content)
         print(f"{C_GREEN}✓ Updated pyproject.toml{C_RESET}")
