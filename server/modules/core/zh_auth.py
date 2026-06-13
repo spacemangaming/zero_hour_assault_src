@@ -281,6 +281,10 @@ def create(un,pw,mail,gender,compid,id):
 
 
 def remove_from_server(ind2=-1,force=False):
+	if ind2 > -1 and ind2 < len(g.players) and g.players[ind2] is not None:
+		if getattr(g.players[ind2], "controlled_turret", None) is not None:
+			g.players[ind2].controlled_turret.operator = None
+			g.players[ind2].controlled_turret = None
 
 	if g.players[ind2].flag>0:
 		for f in range(g.players[ind2].flag): spawn_flag(g.players[ind2].x, g.players[ind2].y, g.players[ind2].z, g.players[ind2].map, g.players[ind2].matchteam)

@@ -20,9 +20,30 @@ def get_compid_handler_index(c):
 			return i
 	return -1
 def load_compids():
-	chars=find_directories("chars")
-	for i in range(len(chars)):
-		if file_exists("chars/"+chars[i]+"/compid.usr")==False:
-			continue
-		compid=file_get_contents("chars/"+chars[i]+"/compid.usr")
-		add_compid(compid, chars[i])
+	import os
+	from concurrent.futures import ThreadPoolExecutor
+
+	if not os.path.exists("chars"):
+		return
+
+	char_names = [d for d in os.listdir("chars") if os.path.isdir(os.path.join("chars", d))]
+
+	def process_char(char_name):
+		path = os.path.join("chars", char_name, "compid.usr")
+		if os.path.exists(path):
+			try:
+				with open(path, "r", encoding="utf-8") as f:
+					compid = f.read().strip()
+				if compid:
+					return compid, char_name
+			except Exception:
+				pass
+		return None
+
+	with ThreadPoolExecutor(max_workers=32) as executor:
+		results = executor.map(process_char, char_names)
+
+	for res in results:
+		if res:
+			compid, char_name = res
+			add_compid(compid, char_name)

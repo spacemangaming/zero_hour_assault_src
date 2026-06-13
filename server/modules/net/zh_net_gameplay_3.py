@@ -11,7 +11,7 @@ from timer import timer
 
 def handle_gameplay_3(e, parsed, index):
 	global languages
-	cmds = {"langcontribadd", "langline", "store4", "watchadmin_select", "event_store3", "beacontoggle", "store3", "differentgroupplayers", "matchmenu", "enablenear", "voicechatgroup", "event_store2", "matchteamselect", "mitems", "matchwatch", "scoreboard", "kickmatch", "matchpassword2", "matchoption", "admchat", "sound", "disablelisten", "enablelisten", "store2", "enablescope", "matchmodepublic", "sameteambots", "differentteamplayers", "matchv", "mpacket", "langcreate", "matchwatchstop", "unbanmatch", "move_map", "voicechatwho", "langswitchoption", "voicechatteam", "exithouse", "disablescope", "invitematch", "joinmatch", "matchpublic", "charvoice", "event_store4", "enablekill", "matchteaminfo", "banmatch", "langcontribremove", "teammessage", "disablekill", "langmanageoption", "matchpassword", "sameteamplayers", "voicechatfriend", "voicechatmap", "langupdate", "langowneradd", "matchteamselect2", "differentteambots", "matchprivate", "disablenear", "samegroupplayers", "langmanageoption2"}
+	cmds = {"langcontribadd", "langline", "store4", "watchadmin_select", "event_store3", "beacontoggle", "store3", "differentgroupplayers", "matchmenu", "enablenear", "voicechatgroup", "event_store2", "matchteamselect", "mitems", "matchwatch", "scoreboard", "kickmatch", "matchpassword2", "matchoption", "admchat", "sound", "disablelisten", "enablelisten", "store2", "enablescope", "matchmodepublic", "sameteambots", "differentteamplayers", "matchv", "mpacket", "langcreate", "matchwatchstop", "unbanmatch", "move_map", "voicechatwho", "langswitchoption", "langswitchoptionunofficial", "voicechatteam", "exithouse", "disablescope", "invitematch", "joinmatch", "matchpublic", "charvoice", "event_store4", "enablekill", "matchteaminfo", "banmatch", "langcontribremove", "teammessage", "disablekill", "langmanageoption", "matchpassword", "sameteamplayers", "voicechatfriend", "voicechatmap", "langupdate", "langowneradd", "matchteamselect2", "differentteambots", "matchprivate", "disablenear", "samegroupplayers", "langmanageoption2"}
 	subs = {}
 	matched = False
 	if len(parsed) > 0 and parsed[0] in cmds:
@@ -827,6 +827,7 @@ def handle_gameplay_3(e, parsed, index):
 	
 		index=g.get_player_index(e.peer_id)
 		if(index>-1):
+			print(f"[debug_store] store2 packet received! store_data length: {len(store_data)}, list ID: {id(store_data)}, parsed[1]: {repr(parsed[1])}")
 			if parsed[1]=="back":
 				return
 			if parsed[1]=="storeview":

@@ -123,6 +123,7 @@ def handle_gameplay_5(e, parsed, index):
 				m.add("open the door","door")
 				m.add("fire the gun","gun")
 				m.add("see base gun ammo amount","ammo")
+				m.add("base upgrades","upgrades")
 				m.send(e.peer_id)
 			if round(g.players[index].x)==1901 and round(g.players[index].y)==775 and round(g.players[index].z)==0 and g.players[index].map=="massacre_in_the_city":
 				m=server_menu()
@@ -184,6 +185,20 @@ def handle_gameplay_5(e, parsed, index):
 				m.add("Go to online store website to buy zero token packs, paid account, event points, etc","onlinestore")
 				m.add("Copy the link of the online store web page to buy zero token packs, paid account, event points, etc","copyonlinestore")
 				m.send(e.peer_id)
+			# Turret mounting check
+			for base in g.group_bases:
+				if base.map == g.players[index].map:
+					for t in base.turrets:
+						if round(g.players[index].x) == round(t.x) and round(g.players[index].y) == round(t.y) and round(g.players[index].z) == round(t.z):
+							if t.operator is not None:
+								g.n.send_reliable(e.peer_id, "This turret is already operated by " + t.operator.name, 0)
+								return
+							t.operator = g.players[index]
+							g.players[index].controlled_turret = t
+							g.n.send_reliable(g.players[index].peer_id, "You are now operating the turret. Use left/right arrow keys to swivel, and the fire key to shoot. Walk to step off.", 0)
+							g.players[index].playsound("sitstart", True)
+							return
+
 			for base in g.group_bases:
 				if g.players[index].distancecheck(base.x,base.y,base.z)<=1 and g.players[index].map==base.map:
 					if base.health<2000:
@@ -1551,6 +1566,40 @@ def handle_gameplay_5(e, parsed, index):
 	
 		index=g.get_player_index(e.peer_id)
 		if(index>-1):
+			if getattr(g.players[index], "controlled_turret", None) is not None:
+				turret = g.players[index].controlled_turret
+				base = None
+				for b in g.group_bases:
+					if b.name == turret.base_name:
+						base = b
+						break
+				if base is None: return
+				# Check generator
+				if not base.generator_on or base.generator_fuel <= 0:
+					g.n.send_reliable(g.players[index].peer_id, "The generator is off! Turret requires power.", 0)
+					return
+				# Check base ammo
+				if base.ammo <= 0:
+					g.players[index].playsound("punchempty")
+					g.n.send_reliable(g.players[index].peer_id, "Turret has no ammo!", 0)
+					return
+				# Check turret cooldown
+				if turret.fire_timer.elapsed < turret.get_firetime():
+					return
+				turret.fire_timer.restart()
+				
+				# Fire!
+				base.ammo -= 1
+				spawn_weapon(turret.x, turret.y, turret.z, g.players[index].facing, turret.weapon_type, turret.map, g.players[index])
+				
+				# Play weapon firing sound at turret
+				g.play(turret.weapon_type + "fire" + str(random(1, 3)), turret.x, turret.y, turret.z, turret.map)
+				
+				# Play distant whiz/weapon sound to other players on map
+				for p in g.players:
+					if p.name != g.players[index].name and p.map == turret.map:
+						g.n.send_reliable(p.peer_id, "distsound " + turret.weapon_type + "dist" + str(random(1, 3)) + " " + str(turret.x) + " " + str(turret.y) + " " + str(turret.z) + " " + turret.map, 0)
+				return
 		
 			if "teamc" in g.players[index].map:
 				if g.players[index].matchteam=="" or g.players[index].joinedmatch=="" or g.players[index].matchmode=="": return
@@ -1684,6 +1733,8 @@ def handle_gameplay_5(e, parsed, index):
 		if(index>-1):
 		
 			g.players[index].facing=string_to_number(parsed[1])
+			if getattr(g.players[index], "controlled_turret", None) is not None:
+				g.players[index].playsound("misc327", True)
 			g.players[index].weapon_rays=None
 			g.players[index].weapon_rays2=None
 	

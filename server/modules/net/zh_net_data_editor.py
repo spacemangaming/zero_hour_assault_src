@@ -6,6 +6,12 @@ import time
 import datetime
 import data_loader
 
+# Lazy import — zh_bot_spawner is in modules/core/, which is in sys.path
+# by the time any handler is called (after the binder runs).
+def _bs():
+    import zh_bot_spawner as _m
+    return _m
+
 # ── Sound Scanner & Player Giver Helpers ────────────────────────────────────
 _cached_sounds = None
 
@@ -93,6 +99,53 @@ def _apply_give(admin_idx, target_idx):
         ctx["awaiting_input"] = True
         _deinput(admin_pid, "_give_amount", f"Enter amount of '{item}' to give (default: 1):")
 
+    elif cat == "paid_account":
+        if item == "Custom Duration":
+            ctx["give_target_idx"] = target_idx
+            ctx["field_key"] = "_give_custom_paid"
+            ctx["awaiting_input"] = True
+            _deinput(admin_pid, "_give_custom_paid", "Enter subscription duration in months (e.g. 5):")
+            return
+        import time as tm
+        durations = {
+            "1 Month": 30 * 24 * 3600,
+            "3 Months": 90 * 24 * 3600,
+            "6 Months": 180 * 24 * 3600,
+            "1 Year": 12 * 30 * 24 * 3600
+        }
+        seconds = durations.get(item, 30 * 24 * 3600)
+        target.paid = True
+        target.paidtime = int(tm.time())
+        target.paidmonths = seconds
+        
+        from file_directories import file_put_contents
+        file_put_contents("chars/" + target.name + "/paid.usr", "True")
+        file_put_contents("chars/" + target.name + "/paidtime.usr", str(target.paidtime))
+        file_put_contents("chars/" + target.name + "/paidmonths.usr", str(target.paidmonths))
+        
+        _log_edit(admin_name, "give", target.name, cat, item)
+        g.n.send_reliable(admin_pid, f"Successfully gave {item} paid subscription to {target.name}.", 0)
+        g.n.send_reliable(target.peer_id, f"An admin activated a {item} paid subscription for you.", 0)
+        _send_give_player_list(admin_idx)
+
+    elif cat == "token_pack":
+        if item == "Custom Amount":
+            ctx["give_target_idx"] = target_idx
+            ctx["field_key"] = "_give_custom_tokens"
+            ctx["awaiting_input"] = True
+            _deinput(admin_pid, "_give_custom_tokens", "Enter amount of tokens to give:")
+            return
+        
+        fn = "ioszitemdata.txt" if getattr(target, "ios", False) else "zitemdata.txt"
+        try:
+            with open(fn, "a") as f:
+                f.write(f"{target.name}={item}=1\n")
+            _log_edit(admin_name, "give", target.name, cat, f"{item} via /givepack")
+            g.n.send_reliable(admin_pid, f"Successfully queued pack '{item}' for {target.name} via /givepack.", 0)
+        except Exception as ex:
+            g.n.send_reliable(admin_pid, f"Error writing givepack data: {ex}", 0)
+        _send_give_player_list(admin_idx)
+
 def _send_sound_search_menu(index):
     m = server_menu()
     m.initial_packet = "de_sounds_main"
@@ -135,6 +188,8 @@ def _send_give_cat_menu(index):
     m.add("Weapon", "weapon", True)
     m.add("Item", "item", True)
     m.add("Character", "character", True)
+    m.add("Paid Account", "paid_account", True)
+    m.add("Token Pack", "token_pack", True)
     m.add("Back", "back", True)
     m.send(g.players[index].peer_id)
 
@@ -152,6 +207,10 @@ def _send_give_items_list(index):
         items = sorted(list(data_loader.get_all_characters().keys()))
     elif cat == "item":
         items = _get_all_items()
+    elif cat == "paid_account":
+        items = ["1 Month", "3 Months", "6 Months", "1 Year", "Custom Duration"]
+    elif cat == "token_pack":
+        items = list(data_loader._token_packs.keys()) + ["Custom Amount"]
     else:
         items = []
         
@@ -312,6 +371,7 @@ def _send_main_menu(index):
     m.add("Loot table", "loot", True)
     m.add(f"Ranks ({len(data_loader._ranks)} entries)", "ranks", True)
     m.add("Manage Announcements", "announcements", True)
+    m.add("Bot Spawners", "bot_spawners", True)
     m.add("Scan sounds.dat", "scan_sounds", True)
     m.add("Give weapon/item/character to player", "give_player", True)
     m.add("Reload all configs from disk", "reload", True)
@@ -544,6 +604,47 @@ def _apply_edit(index, new_value_str):
     pid = g.players[index].peer_id
     admin = g.players[index].name
 
+    # ── Bot Spawner: new map name prompt ──────────────────────────────────
+    if field_key == "_spawner_newmap":
+        map_name = new_value_str.strip()
+        ctx["field_key"] = None; ctx["awaiting_input"] = False
+        if not map_name:
+            g.n.send_reliable(pid, "Map name cannot be empty.", 0)
+            _spawner_main_menu(index); return
+        cfg = _bs().get_spawners_cache()
+        if map_name not in cfg:
+            cfg[map_name] = []
+            _bs().save_spawners()
+            _bs().load_spawners()
+        ctx["spawner_map"] = map_name
+        _spawner_list_for_map(index, map_name); return
+
+    # ── Bot Spawner: new spawner type prompt (type/npc/zombie) ────────────
+    if field_key == "_spawner_newtype":
+        bot_type = new_value_str.strip().lower()
+        ctx["field_key"] = None; ctx["awaiting_input"] = False
+        if bot_type not in ("npc", "zombie"):
+            g.n.send_reliable(pid, "Type must be 'npc' or 'zombie'.", 0)
+            map_name = ctx.get("spawner_map", "")
+            _spawner_list_for_map(index, map_name); return
+        import time as _t
+        map_name = ctx.get("spawner_map", "")
+        new_sid = f"sp_{int(_t.time())}"
+        new_sp = {
+            "id": new_sid, "type": bot_type, "enabled": False,
+            "max_count": 5, "schedule_ms": 30000,
+            "minx": 0, "maxx": 200, "miny": 0, "maxy": 200, "z": 0,
+            "mind": 30, "maxd": 50, "health": 100, "hitrange": 30,
+            "walktime": 150, "shoottime": 10, "voicesound": "botbeacon"
+        }
+        cfg = _bs().get_spawners_cache()
+        cfg.setdefault(map_name, []).append(new_sp)
+        _bs().save_spawners()
+        _bs().load_spawners()
+        g.n.send_reliable(pid, f"Created spawner '{new_sid}' on '{map_name}'.", 0)
+        ctx["spawner_id"] = new_sid
+        _spawner_fields_menu(index, map_name, new_sid); return
+
     # ── Announcements creation / editing ──────────────────────────────────
     if field_key == "ann_create_title":
         ctx["ann_temp_title"] = new_value_str.strip()
@@ -680,6 +781,74 @@ def _apply_edit(index, new_value_str):
         _send_give_player_list(index)
         return
 
+    if field_key == "_give_custom_paid":
+        target_idx = ctx.get("give_target_idx")
+        ctx["field_key"] = None
+        ctx["awaiting_input"] = False
+        ctx.pop("give_target_idx", None)
+        
+        if target_idx is None or g.players[target_idx] is None:
+            g.n.send_reliable(pid, "Target player no longer online.", 0)
+            _send_main_menu(index)
+            return
+            
+        try:
+            months = int(new_value_str.strip())
+        except ValueError:
+            months = 1
+            
+        if months <= 0:
+            months = 1
+            
+        seconds = months * 30 * 24 * 3600
+        target = g.players[target_idx]
+        import time as tm
+        target.paid = True
+        target.paidtime = int(tm.time())
+        target.paidmonths = seconds
+        
+        from file_directories import file_put_contents
+        file_put_contents("chars/" + target.name + "/paid.usr", "True")
+        file_put_contents("chars/" + target.name + "/paidtime.usr", str(target.paidtime))
+        file_put_contents("chars/" + target.name + "/paidmonths.usr", str(target.paidmonths))
+        
+        _log_edit(admin, "give", target.name, "paid_account", f"{months} Months")
+        g.n.send_reliable(pid, f"Successfully gave {months} Months paid subscription to {target.name}.", 0)
+        g.n.send_reliable(target.peer_id, f"An admin activated a {months} Months paid subscription for you.", 0)
+        _send_give_player_list(index)
+        return
+
+    if field_key == "_give_custom_tokens":
+        target_idx = ctx.get("give_target_idx")
+        ctx["field_key"] = None
+        ctx["awaiting_input"] = False
+        ctx.pop("give_target_idx", None)
+        
+        if target_idx is None or g.players[target_idx] is None:
+            g.n.send_reliable(pid, "Target player no longer online.", 0)
+            _send_main_menu(index)
+            return
+            
+        try:
+            amt = int(new_value_str.strip())
+        except ValueError:
+            amt = 100
+            
+        if amt <= 0:
+            amt = 100
+            
+        target = g.players[target_idx]
+        target.zhtoken += amt
+        
+        from zh_persistence import save_char
+        save_char(target_idx)
+        
+        _log_edit(admin, "give", target.name, "token_pack", f"{amt} Tokens")
+        g.n.send_reliable(pid, f"Successfully gave {amt} tokens to {target.name}.", 0)
+        g.n.send_reliable(target.peer_id, f"An admin gave you {amt} tokens.", 0)
+        _send_give_player_list(index)
+        return
+
     if not category or not field_key:
         g.n.send_reliable(pid, "No pending edit.", 0)
         return
@@ -688,16 +857,16 @@ def _apply_edit(index, new_value_str):
     if field_key == "_newkey":
         key = new_value_str.strip().replace(" ", "_")
         if not key:
-            g.n.send_reliable(pid, "Key cannot be empty."); _prompt_new_key(index, category); return
+            g.n.send_reliable(pid, "Key cannot be empty.", 0); _prompt_new_key(index, category); return
         if category == "weapons":
             rel = f"weapons/{key}.json"
             if os.path.exists(_data_path(rel)):
-                g.n.send_reliable(pid, f"Weapon '{key}' already exists."); _send_item_list(index, category); return
+                g.n.send_reliable(pid, f"Weapon '{key}' already exists.", 0); _send_item_list(index, category); return
             _save_json(rel, dict(_DEFAULT_WEAPON))
         elif category == "characters":
             rel = f"characters/{key}.json"
             if os.path.exists(_data_path(rel)):
-                g.n.send_reliable(pid, f"Character '{key}' already exists."); _send_item_list(index, category); return
+                g.n.send_reliable(pid, f"Character '{key}' already exists.", 0); _send_item_list(index, category); return
             _save_json(rel, dict(_DEFAULT_CHARACTER))
         _reload(index); _log_edit(admin, category, key, "(created)", "new")
         g.n.send_reliable(pid, f"Created '{key}' with default values.", 0)
@@ -883,6 +1052,118 @@ def _apply_edit(index, new_value_str):
 
 
 # ---------------------------------------------------------------------------
+# Bot Spawner UI helpers
+# ---------------------------------------------------------------------------
+
+def _spawner_main_menu(index):
+    """Top-level spawner screen: list maps that have spawners + add."""
+    cfg = _bs().get_spawners_cache()
+    m = server_menu()
+    m.initial_packet = "de_spawner_maps"
+    m.intro = "Bot Spawners - select a map"
+    if cfg:
+        for map_name, spawners in cfg.items():
+            active = sum(1 for s in spawners if s.get("enabled"))
+            m.add(f"{map_name} ({len(spawners)} spawners, {active} active)", map_name, True)
+    m.add("-- Add spawner for a new map --", "__newmap__", True)
+    m.add("Back", "back", True)
+    m.send(g.players[index].peer_id)
+
+
+def _spawner_list_for_map(index, map_name):
+    """List all spawners configured for map_name."""
+    cfg = _bs().get_spawners_cache()
+    spawners = cfg.get(map_name, [])
+    m = server_menu()
+    m.initial_packet = "de_spawner_list"
+    m.intro = f"Spawners on '{map_name}'"
+    for sp in spawners:
+        sid = sp.get("id", "?")
+        bot_type = sp.get("type", "npc")
+        enabled = "ON" if sp.get("enabled") else "OFF"
+        interval = sp.get("schedule_ms", 0)
+        sched = f"every {interval}ms" if interval > 0 else "manual"
+        label = f"[{enabled}] {sid} ({bot_type}, {sched}, max={sp.get('max_count',5)})"
+        m.add(label, sid, True)
+    m.add("-- Add new spawner --", "__add__", True)
+    m.add("Back", "back", True)
+    m.send(g.players[index].peer_id)
+
+
+def _spawner_fields_menu(index, map_name, spawner_id):
+    """Edit/action screen for a single spawner."""
+    cfg = _bs().get_spawners_cache()
+    sp = next((s for s in cfg.get(map_name, []) if s.get("id") == spawner_id), None)
+    if sp is None:
+        g.n.send_reliable(g.players[index].peer_id, f"Spawner '{spawner_id}' not found.", 0)
+        _spawner_list_for_map(index, map_name)
+        return
+    m = server_menu()
+    m.initial_packet = "de_spawner_fields"
+    enabled_label = "Disable" if sp.get("enabled") else "Enable"
+    m.intro = f"Spawner '{spawner_id}' on '{map_name}'"
+    # Actions
+    m.add(f"{enabled_label} spawner", "toggle_enabled", True)
+    m.add("Spawn one bot now (manual)", "spawn_now", True)
+    m.add("Kill all bots from this spawner", "kill_bots", True)
+    m.add("Delete this spawner", "delete", True)
+    # Editable fields
+    fields_npc = ["type", "max_count", "schedule_ms", "minx", "maxx", "miny", "maxy", "z",
+                  "mind", "maxd", "health", "hitrange", "walktime", "shoottime", "voicesound"]
+    fields_zombie = ["type", "max_count", "schedule_ms", "minx", "maxx", "miny", "maxy", "z"]
+    fields = fields_npc if sp.get("type", "npc") == "npc" else fields_zombie
+    m.add("── Fields ──", "__sep__", True)
+    for f in fields:
+        val = sp.get(f, "?")
+        m.add(f"  {f}: {val}", f"field:{f}", True)
+    m.add("Back", "back", True)
+    m.send(g.players[index].peer_id)
+
+
+def _apply_spawner_field_edit(index, new_value_str):
+    """Save a single field edit for a spawner."""
+    ctx = _player_ctx(index)
+    map_name = ctx.get("spawner_map", "")
+    spawner_id = ctx.get("spawner_id", "")
+    field_key = ctx.get("field_key", "").replace("spawner:", "")
+    pid = g.players[index].peer_id
+    admin = g.players[index].name
+
+    cfg = _bs().get_spawners_cache()
+    sp = next((s for s in cfg.get(map_name, []) if s.get("id") == spawner_id), None)
+    if sp is None:
+        g.n.send_reliable(pid, "Spawner not found.", 0)
+        ctx["awaiting_input"] = False
+        ctx["field_key"] = None
+        _spawner_list_for_map(index, map_name)
+        return
+
+    # Coerce value by existing type, or guess
+    old_val = sp.get(field_key, "")
+    if isinstance(old_val, bool):
+        sp[field_key] = new_value_str.lower() in ("true", "1", "yes")
+    elif isinstance(old_val, int):
+        try:
+            sp[field_key] = int(new_value_str)
+        except ValueError:
+            g.n.send_reliable(pid, f"Invalid integer: {new_value_str}", 0)
+            ctx["awaiting_input"] = False
+            ctx["field_key"] = None
+            _spawner_fields_menu(index, map_name, spawner_id)
+            return
+    else:
+        sp[field_key] = new_value_str.strip()
+
+    _bs().save_spawners()
+    _bs().load_spawners()
+    g.n.send_reliable(pid, f"Spawner '{spawner_id}': {field_key} = {sp[field_key]}", 0)
+    _log_edit(admin, "bot_spawners", spawner_id, field_key, new_value_str)
+    ctx["awaiting_input"] = False
+    ctx["field_key"] = None
+    _spawner_fields_menu(index, map_name, spawner_id)
+
+
+# ---------------------------------------------------------------------------
 # Main handler
 # ---------------------------------------------------------------------------
 
@@ -895,7 +1176,7 @@ def handle_data_editor(e, parsed, index):
     # ── Main menu / category select ──────────────────────────────────────────
     if cmd == "de_main":
         if _require_admin(index): return True
-        choice = parsed[1] if len(parsed) > 1 else ""
+        choice = " ".join(parsed[1:]) if len(parsed) > 1 else ""
         if not choice:
             _player_ctx(index)["awaiting_input"] = False
             _send_main_menu(index); return True
@@ -922,6 +1203,8 @@ def handle_data_editor(e, parsed, index):
             _send_item_list(index, choice)
         elif choice == "announcements":
             _send_announcements_main_menu(index)
+        elif choice == "bot_spawners":
+            _spawner_main_menu(index)
         else:
             _send_main_menu(index)
         return True
@@ -929,7 +1212,7 @@ def handle_data_editor(e, parsed, index):
     # ── Item list selection ──────────────────────────────────────────────────
     if cmd == "de_itemlist":
         if _require_admin(index): return True
-        choice = parsed[1] if len(parsed) > 1 else "back"
+        choice = " ".join(parsed[1:]) if len(parsed) > 1 else "back"
         ctx = _player_ctx(index)
         if choice == "back":
             _send_main_menu(index); return True
@@ -947,7 +1230,7 @@ def handle_data_editor(e, parsed, index):
     # ── Field list selection ─────────────────────────────────────────────────
     if cmd == "de_fieldlist":
         if _require_admin(index): return True
-        choice = parsed[1] if len(parsed) > 1 else "back"
+        choice = " ".join(parsed[1:]) if len(parsed) > 1 else "back"
         ctx = _player_ctx(index)
         cat = ctx.get("category", "")
 
@@ -985,6 +1268,13 @@ def handle_data_editor(e, parsed, index):
         ctx = _player_ctx(index)
         field_name = parsed[1]
         
+        # Intercept spawner field edits
+        if field_name.startswith("spawner:"):
+            ctx["field_key"] = field_name
+            new_val_str = " ".join(parsed[2:])
+            _apply_spawner_field_edit(index, new_val_str)
+            return True
+
         # Intercept announcement edits
         if field_name in ("ann_create_title", "ann_create_content") or field_name.startswith("ann_edit_title:") or field_name.startswith("ann_edit_content:"):
             ctx["field_key"] = field_name
@@ -1005,7 +1295,7 @@ def handle_data_editor(e, parsed, index):
     # ── Cancel ───────────────────────────────────────────────────────────────
     if cmd == "de_sounds_main":
         if _require_admin(index): return True
-        choice = parsed[1] if len(parsed) > 1 else "back"
+        choice = " ".join(parsed[1:]) if len(parsed) > 1 else "back"
         if choice == "back":
             _send_main_menu(index); return True
         ctx = _player_ctx(index)
@@ -1022,7 +1312,7 @@ def handle_data_editor(e, parsed, index):
 
     if cmd == "de_sounds_list":
         if _require_admin(index): return True
-        choice = parsed[1] if len(parsed) > 1 else "back"
+        choice = " ".join(parsed[1:]) if len(parsed) > 1 else "back"
         if choice == "back":
             _send_sound_search_menu(index); return True
         if choice == "__sep__":
@@ -1035,7 +1325,7 @@ def handle_data_editor(e, parsed, index):
 
     if cmd == "de_give_cat":
         if _require_admin(index): return True
-        choice = parsed[1] if len(parsed) > 1 else "back"
+        choice = " ".join(parsed[1:]) if len(parsed) > 1 else "back"
         if choice == "back":
             _send_main_menu(index); return True
         ctx = _player_ctx(index)
@@ -1046,7 +1336,7 @@ def handle_data_editor(e, parsed, index):
 
     if cmd == "de_give_item":
         if _require_admin(index): return True
-        choice = parsed[1] if len(parsed) > 1 else "back"
+        choice = " ".join(parsed[1:]) if len(parsed) > 1 else "back"
         if choice == "back":
             _send_give_cat_menu(index); return True
         ctx = _player_ctx(index)
@@ -1056,7 +1346,7 @@ def handle_data_editor(e, parsed, index):
 
     if cmd == "de_give_player":
         if _require_admin(index): return True
-        choice = parsed[1] if len(parsed) > 1 else "back"
+        choice = " ".join(parsed[1:]) if len(parsed) > 1 else "back"
         ctx = _player_ctx(index)
         if choice == "back":
             _send_give_items_list(index); return True
@@ -1096,13 +1386,22 @@ def handle_data_editor(e, parsed, index):
         ctx["awaiting_input"] = False; ctx["field_key"] = None
         ctx.pop("_pending_score", None)
         g.n.send_reliable(g.players[index].peer_id, "Edit cancelled.", 0)
-        
+
         if prev_field == "_soundquery":
             _send_sound_search_menu(index)
         elif prev_field == "_give_manual_player":
             _send_give_player_list(index)
-        elif prev_field == "_give_amount":
+        elif prev_field in ("_give_amount", "_give_custom_paid", "_give_custom_tokens"):
             _send_give_player_list(index)
+        elif prev_field == "_spawner_newmap":
+            _spawner_main_menu(index)
+        elif prev_field == "_spawner_newtype":
+            map_name = ctx.get("spawner_map", "")
+            _spawner_list_for_map(index, map_name)
+        elif prev_field and prev_field.startswith("spawner:"):
+            map_name = ctx.get("spawner_map", "")
+            spawner_id = ctx.get("spawner_id", "")
+            _spawner_fields_menu(index, map_name, spawner_id)
         else:
             cat = ctx.get("category", "")
             item = ctx.get("item_key", "")
@@ -1115,7 +1414,7 @@ def handle_data_editor(e, parsed, index):
     # ── Announcements manager packet handlers ────────────────────────────────
     if cmd == "de_ann_main":
         if _require_admin(index): return True
-        choice = parsed[1] if len(parsed) > 1 else "back"
+        choice = " ".join(parsed[1:]) if len(parsed) > 1 else "back"
         if choice == "back":
             _send_main_menu(index)
         elif choice == "list":
@@ -1126,7 +1425,7 @@ def handle_data_editor(e, parsed, index):
 
     if cmd == "de_ann_list":
         if _require_admin(index): return True
-        choice = parsed[1] if len(parsed) > 1 else "back"
+        choice = " ".join(parsed[1:]) if len(parsed) > 1 else "back"
         if choice == "back" or choice == "__none__":
             _send_announcements_main_menu(index)
         else:
@@ -1135,7 +1434,7 @@ def handle_data_editor(e, parsed, index):
 
     if cmd == "de_ann_fields":
         if _require_admin(index): return True
-        choice = parsed[1] if len(parsed) > 1 else "back"
+        choice = " ".join(parsed[1:]) if len(parsed) > 1 else "back"
         if choice == "back":
             _send_announcements_list(index)
             return True
@@ -1183,5 +1482,107 @@ def handle_data_editor(e, parsed, index):
                     g.n.send_reliable(g.players[index].peer_id, f"Error deleting announcement: {ex}", 0)
             _send_announcements_list(index)
             return True
+
+    # ── Bot Spawner: map list ────────────────────────────────────────────────
+    if cmd == "de_spawner_maps":
+        if _require_admin(index): return True
+        choice = " ".join(parsed[1:]) if len(parsed) > 1 else "back"
+        ctx = _player_ctx(index)
+        if choice == "back":
+            _send_main_menu(index); return True
+        if choice == "__newmap__":
+            ctx["field_key"] = "_spawner_newmap"
+            ctx["awaiting_input"] = True
+            _deinput(g.players[index].peer_id, "_spawner_newmap", "Enter map name for new spawner group (e.g. massacre_in_the_city):")
+            return True
+        ctx["spawner_map"] = choice
+        _spawner_list_for_map(index, choice)
+        return True
+
+    # ── Bot Spawner: spawner list for map ────────────────────────────────────
+    if cmd == "de_spawner_list":
+        if _require_admin(index): return True
+        choice = " ".join(parsed[1:]) if len(parsed) > 1 else "back"
+        ctx = _player_ctx(index)
+        map_name = ctx.get("spawner_map", "")
+        if choice == "back":
+            _spawner_main_menu(index); return True
+        if choice == "__add__":
+            ctx["field_key"] = "_spawner_newtype"
+            ctx["awaiting_input"] = True
+            _deinput(g.players[index].peer_id, "_spawner_newtype", "Enter bot type for new spawner (npc or zombie):")
+            return True
+        ctx["spawner_id"] = choice
+        _spawner_fields_menu(index, map_name, choice)
+        return True
+
+    # ── Bot Spawner: spawner field/action menu ────────────────────────────────
+    if cmd == "de_spawner_fields":
+        if _require_admin(index): return True
+        choice = " ".join(parsed[1:]) if len(parsed) > 1 else "back"
+        ctx = _player_ctx(index)
+        map_name = ctx.get("spawner_map", "")
+        spawner_id = ctx.get("spawner_id", "")
+        pid = g.players[index].peer_id
+        admin = g.players[index].name
+
+        if choice == "back":
+            _spawner_list_for_map(index, map_name); return True
+
+        if choice == "__sep__":
+            _spawner_fields_menu(index, map_name, spawner_id); return True
+
+        if choice == "toggle_enabled":
+            cfg = _bs().get_spawners_cache()
+            sp = next((s for s in cfg.get(map_name, []) if s.get("id") == spawner_id), None)
+            if sp:
+                sp["enabled"] = not sp.get("enabled", False)
+                _bs().save_spawners()
+                _bs().load_spawners()
+                state = "enabled" if sp["enabled"] else "disabled"
+                g.n.send_reliable(pid, f"Spawner '{spawner_id}' {state}.", 0)
+                _log_edit(admin, "bot_spawners", spawner_id, "enabled", str(sp["enabled"]))
+            _spawner_fields_menu(index, map_name, spawner_id); return True
+
+        if choice == "spawn_now":
+            cfg = _bs().get_spawners_cache()
+            sp = next((s for s in cfg.get(map_name, []) if s.get("id") == spawner_id), None)
+            if sp:
+                ok = _bs().spawn_bot_now(map_name, sp)
+                if ok:
+                    g.n.send_reliable(pid, f"Spawned one {sp.get('type','npc')} on '{map_name}'.", 0)
+                else:
+                    g.n.send_reliable(pid, f"Cap reached ({sp.get('max_count',5)}) — no bot spawned.", 0)
+            _spawner_fields_menu(index, map_name, spawner_id); return True
+
+        if choice == "kill_bots":
+            _bs().kill_spawner_bots(map_name, spawner_id)
+            g.n.send_reliable(pid, f"Killed all bots from spawner '{spawner_id}'.", 0)
+            _spawner_fields_menu(index, map_name, spawner_id); return True
+
+        if choice == "delete":
+            cfg = _bs().get_spawners_cache()
+            lst = cfg.get(map_name, [])
+            cfg[map_name] = [s for s in lst if s.get("id") != spawner_id]
+            if not cfg[map_name]:
+                del cfg[map_name]
+            _bs().kill_spawner_bots(map_name, spawner_id)
+            _bs().save_spawners()
+            _bs().load_spawners()
+            g.n.send_reliable(pid, f"Spawner '{spawner_id}' deleted.", 0)
+            _spawner_main_menu(index); return True
+
+        if choice.startswith("field:"):
+            field_key = choice[len("field:"):]
+            ctx["field_key"] = f"spawner:{field_key}"
+            ctx["awaiting_input"] = True
+            cfg = _bs().get_spawners_cache()
+            sp = next((s for s in cfg.get(map_name, []) if s.get("id") == spawner_id), None)
+            current = sp.get(field_key, "?") if sp else "?"
+            _deinput(pid, f"spawner:{field_key}", f"{field_key} (current: {current}):")
+            return True
+
+        _spawner_fields_menu(index, map_name, spawner_id)
+        return True
 
     return False

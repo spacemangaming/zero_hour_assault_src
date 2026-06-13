@@ -9,6 +9,39 @@ from variable_management import string_replace, string_contains, string_split
 import time
 import copy
 from motor import remove_platform, send_platform
+class base_turret:
+	def __init__(self, x, y, z, map, base_name):
+		self.x = x
+		self.y = y
+		self.z = z
+		self.map = map
+		self.base_name = base_name
+		self.weapon_type = "base_gun"
+		self.operator = None
+		self.fire_timer = timer()
+
+	def __getstate__(self):
+		state = self.__dict__.copy()
+		state["operator"] = None
+		return state
+
+	def __setstate__(self, state):
+		self.__dict__.update(state)
+		self.operator = None
+
+	def get_firetime(self):
+		import data_loader
+		w = data_loader.get_weapon(self.weapon_type)
+		return w.get("fire_time", 300) if w else 300
+
+def dismount_turret(player):
+	if hasattr(player, "controlled_turret") and player.controlled_turret is not None:
+		turret = player.controlled_turret
+		turret.operator = None
+		player.controlled_turret = None
+		g.n.send_reliable(player.peer_id, "You stepped off the turret.", 0)
+		player.playsound("sitstop", True)
+
 class group_base:
 	def __init__(self,bx,by,bz,bmap,bname,bowner,bmapappend=""):
 		self.mapappend=""
@@ -28,14 +61,41 @@ class group_base:
 		self.name=bname
 		self.owner=bowner
 		self.health=20000000
+		self.max_health=20000000
+		self.wall_level=1
+		self.turrets=[]
+		self.generator_on=False
+		self.generator_fuel=0.0
+		self.generator_timer=timer()
+		self.siren_timer=timer()
 		self.dooron=False
 		self.doorontimer=timer()
+	def get_door_tile(self):
+		if self.wall_level == 1:
+			return "wallglass6"
+		elif self.wall_level == 2:
+			return "wallmetal"
+		elif self.wall_level == 3:
+			return "wallstone2"
+		return "wallglass6"
+	def send_turrets_to(self,p):
+		for t in self.turrets:
+			send_platform(p,t.x,t.x,t.y,t.y,t.z,t.z,"metal")
+			send_zone(p,t.x,t.x,t.y,t.y,t.z,t.z,"turret_of_group_base_"+self.name)
+	def remove_turrets_from(self,p):
+		for t in self.turrets:
+			remove_platform(p,t.x,t.x,t.y,t.y,t.z,t.z,"metal")
+			remove_zone(p,t.x,t.x,t.y,t.y,t.z,t.z,"turret_of_group_base_"+self.name)
 	def send_platform_to(self,p):
-		send_platform(p,self.x,self.x,self.y,self.y,self.z,self.z+8,"wallglass6")
+		tile = self.get_door_tile()
+		send_platform(p,self.x,self.x,self.y,self.y,self.z,self.z+8,tile)
 		send_zone(p,self.x,self.x,self.y-1,self.y,self.z,self.z+8,"entrance_of_group_base_"+self.name)
+		self.send_turrets_to(p)
 	def remove_platform_to(self,p):
-		remove_platform(p,self.x,self.x,self.y,self.y,self.z,self.z+8,"wallglass6")
+		tile = self.get_door_tile()
+		remove_platform(p,self.x,self.x,self.y,self.y,self.z,self.z+8,tile)
 		remove_zone(p,self.x,self.x,self.y-1,self.y,self.z,self.z+8,"entrance_of_group_base_"+self.name)
+		self.remove_turrets_from(p)
 
 def group_baseloop():
 	for i in g.group_bases:
@@ -48,6 +108,32 @@ def group_baseloop():
 		if i.alarm==True and i.alarmtimer.elapsed>=20000:
 			i.alarmtimer.restart()
 			i.alarm=False
+
+		# Generator fuel logic
+		if i.generator_on:
+			elapsed_seconds = i.generator_timer.elapsed / 1000.0
+			i.generator_timer.restart()
+			if i.generator_fuel > 0:
+				i.generator_fuel -= elapsed_seconds
+				if i.generator_fuel <= 0:
+					i.generator_fuel = 0.0
+					i.generator_on = False
+					g.play("motorstop", i.x, i.y, i.z, i.map)
+					g.play("motorstop", 30, 30, 0, "basement" + i.name + i.mapappend)
+					for p in g.players:
+						if p.group == i.name:
+							g.n.send_reliable(p.peer_id, "groupnotification Generator has run out of fuel!", 0)
+			else:
+				i.generator_on = False
+		else:
+			i.generator_timer.restart()
+
+		# Siren Alarm logic
+		if i.alarm:
+			if i.siren_timer.elapsed >= 3000:
+				i.siren_timer.restart()
+				g.play("misc32", i.x, i.y, i.z, i.map)
+				g.play("misc32", 30, 30, 0, "basement" + i.name + i.mapappend)
 
 		if i.alarm==True and i.notifytimer.elapsed>=5000:
 			i.notifytimer.restart()

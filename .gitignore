@@ -59,7 +59,6 @@ third_party/
 *.dat
 sounds.dat
 src/zero_hour_assault.egg-info/
-/sounds
 *.log
 compid.cache
 login_timing.txt

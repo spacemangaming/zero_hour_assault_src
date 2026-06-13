@@ -447,6 +447,12 @@ def load_group_bases():
 		if not hasattr(base,"doorontimer"): base.doorontimer=timer()
 		if not hasattr(base,"dooropening"): base.dooropening=False
 		if not hasattr(base,"chestlog"): base.chestlog=""
+		if not hasattr(base,"wall_level"): base.wall_level=1
+		if not hasattr(base,"turrets"): base.turrets=[]
+		if not hasattr(base,"generator_on"): base.generator_on=False
+		if not hasattr(base,"generator_fuel"): base.generator_fuel=0.0
+		if not hasattr(base,"generator_timer"): base.generator_timer=timer()
+		if not hasattr(base,"siren_timer"): base.siren_timer=timer()
 
 
 def save_items():

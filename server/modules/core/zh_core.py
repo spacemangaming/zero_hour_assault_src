@@ -392,8 +392,10 @@ def main():
 					}
 	for lang in languages.keys():
 		if "official" not in languages[lang].keys(): languages[lang]["official"]=languages[lang]["released"]
-	store_data=load_store_data()
-	event_store_data=load_event_store_data()
+	store_data.clear()
+	store_data.extend(load_store_data())
+	event_store_data.clear()
+	event_store_data.extend(load_event_store_data())
 	if not file_exists("compbans.svr"): open("compbans.svr","wb").close()
 	init_mapsystem()
 	load_compids()
@@ -657,6 +659,7 @@ def gameloops(match_loop=True,npc_loop=True):
 						file_put_contents("maps/"+targetmap+".map",file_get_contents("maps/"+targetmap+".map").replace("platform:"+str(wall.minx)+":"+str(wall.maxx)+":"+str(wall.miny)+":"+str(wall.maxy)+":"+str(wall.minz)+":"+str(wall.maxz)+":"+str(wall.type),""))
 						update_map(targetmap)
 	if npc_loop: npcloop()
+	spawnerloop()
 
 	if len(g.zombies)>0: zombieloop()
 	timebombloop()

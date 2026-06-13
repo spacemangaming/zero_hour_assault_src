@@ -454,17 +454,20 @@ def requires_ammo(w):
 
 def get_max_ammo(w):
 	w_data = data_loader.get_weapon(w)
-	return w_data.get("mag_size", -1) if w_data else -1
+	val = w_data.get("mag_size", -1) if w_data else -1
+	return val if val is not None else -1
 
 
 def get_ammotype(w):
 	w_data = data_loader.get_weapon(w)
-	return w_data.get("ammo_type", -1) if w_data else -1
+	val = w_data.get("ammo_type", -1) if w_data else -1
+	return val if val is not None else -1
 
 
 def get_reloadtime(weapon):
 	w_data = data_loader.get_weapon(weapon)
-	return w_data.get("reload_time", -1) if w_data else -1
+	val = w_data.get("reload_time", -1) if w_data else -1
+	return val if val is not None else -1
 
 
 def playmoving(x,y,z,map,snd,obj):

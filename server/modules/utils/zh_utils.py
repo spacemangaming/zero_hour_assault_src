@@ -281,44 +281,54 @@ def get_leader_hit_player(b):
 
 def load_store_data(filename="store.txt"):
 	data = []
-
 	try:
-		with open(filename, 'r') as file:
+		if not os.path.exists(filename):
+			print(f"[store_loader] File not found: {filename}")
+			return []
+		with open(filename, 'r', encoding='utf-8', errors='ignore') as file:
 			for line in file:
-				item_info = line.strip().split(':')
+				clean_line = line.strip()
+				if not clean_line or clean_line.startswith("#"):
+					continue
+				item_info = clean_line.split(':', 3)
 				if len(item_info) == 4:
 					item_dict = {
-						"name": item_info[0],
-						"price": item_info[1],
-						"category": item_info[2],
-						"description": item_info[3]
+						"name": item_info[0].strip(),
+						"price": item_info[1].strip(),
+						"category": item_info[2].strip(),
+						"description": item_info[3].strip()
 					}
 					data.append(item_dict)
-
-	except FileNotFoundError:
-		return {}
-
+		print(f"[store_loader] Successfully loaded {len(data)} items from {filename}.")
+	except Exception as e:
+		print(f"[store_loader] Error loading {filename}: {e}")
+		return []
 	return data
 
 
 def load_event_store_data(filename="event_store.txt"):
 	data = []
-
 	try:
-		with open(filename, 'r') as file:
+		if not os.path.exists(filename):
+			print(f"[store_loader] File not found: {filename}")
+			return []
+		with open(filename, 'r', encoding='utf-8', errors='ignore') as file:
 			for line in file:
-				item_info = line.strip().split(':')
+				clean_line = line.strip()
+				if not clean_line or clean_line.startswith("#"):
+					continue
+				item_info = clean_line.split(':', 2)
 				if len(item_info) == 3:
 					item_dict = {
-						"name": item_info[0],
-						"price": item_info[1],
-						"description": item_info[2]
+						"name": item_info[0].strip(),
+						"price": item_info[1].strip(),
+						"description": item_info[2].strip()
 					}
 					data.append(item_dict)
-
-	except FileNotFoundError:
-		return {}
-
+		print(f"[store_loader] Successfully loaded {len(data)} items from {filename}.")
+	except Exception as e:
+		print(f"[store_loader] Error loading {filename}: {e}")
+		return []
 	return data
 
 
@@ -446,14 +456,15 @@ def make_request(endpoint, payload):
 
 
 def notify_admins(message_text):
-    feedback = []
-    for admin_uid in ADMIN_IDS:
-        answer = make_request(API_ENDPOINT, {
-            "chat_id": admin_uid,
-            "text": message_text
-        })
-        feedback.append(answer)
-    return feedback
+    from threading import Thread
+    def run():
+        for admin_uid in ADMIN_IDS:
+            make_request(API_ENDPOINT, {
+                "chat_id": admin_uid,
+                "text": message_text
+            })
+    Thread(target=run, daemon=True).start()
+    return []
 
 
 def make_request2(endpoint, payload):
@@ -465,22 +476,26 @@ def make_request2(endpoint, payload):
 
 
 def notify_admins2(message_text):
-    feedback = []
-    for admin_uid in ADMIN_IDS2:
-        answer = make_request2(API_ENDPOINT2, {
-            "chat_id": admin_uid,
-            "text": message_text
-        })
-        feedback.append(answer)
-    return feedback
+    from threading import Thread
+    def run():
+        for admin_uid in ADMIN_IDS2:
+            make_request2(API_ENDPOINT2, {
+                "chat_id": admin_uid,
+                "text": message_text
+            })
+    Thread(target=run, daemon=True).start()
+    return []
 
 
 def send_mail(user, sub, mailmess):
-	user=url_encode(user)
-	mailmess=url_encode(mailmess)
-	sub=url_encode(sub)
-	res = url_get("https://nbmstudios.com/mailsend.php?id=nbmcantsend&mail="+user+"&mess="+mailmess+"&sub="+sub)
-	return res
+	from threading import Thread
+	def run():
+		u = url_encode(user)
+		m = url_encode(mailmess)
+		s = url_encode(sub)
+		url_get("https://nbmstudios.com/mailsend.php?id=nbmcantsend&mail="+u+"&mess="+m+"&sub="+s)
+	Thread(target=run, daemon=True).start()
+	return ""
 
 
 def load_tempmail_domains():

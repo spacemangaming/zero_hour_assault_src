@@ -424,7 +424,7 @@ wheels = [
 
 [[package]]
 name = "zero-hour-assault"
-version = "1.5.9.6"
+version = "2.50"
 source = { editable = "." }
 dependencies = [
     { name = "cffi" },

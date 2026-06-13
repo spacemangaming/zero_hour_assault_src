@@ -458,13 +458,19 @@ def handle_gameplay_6(e, parsed, index):
 				f.close()
 			except: pass
 			try:
-				if os.path.isdir("lang"):
-					for fname in os.listdir("lang"):
-						if fname.endswith(".lng"):
-							lang_name = fname[:-4]
-							if lang_name:
-								g.n.send_reliable(e.peer_id, "updatelang " + lang_name + " " + file_get_contents("lang/" + fname), 0)
-			except: pass
+				lang = "English"
+				lang_file = dir + "/lang.usr"
+				if file_exists(lang_file):
+					lang = file_get_contents(lang_file).strip()
+				if not lang:
+					lang = "English"
+				if not file_exists("lang/" + lang + ".lng"):
+					lang = "en"
+				
+				if file_exists("lang/" + lang + ".lng"):
+					g.n.send_reliable(e.peer_id, "updatelang " + lang + " " + file_get_contents("lang/" + lang + ".lng"), 0)
+			except Exception as ex:
+				pass
 			#if(file_exists("chars/"+g.players[index].name+"/maldied.usr")==True):
 				#file_delete("chars/"+g.players[index].name+"/maldied.usr")
 				#g.players[index].x=random(0, 0)
@@ -1396,6 +1402,35 @@ def handle_gameplay_6(e, parsed, index):
 	
 		index=g.get_player_index(e.peer_id)
 		if(index > -1):
+			if getattr(g.players[index], "controlled_turret", None) is not None:
+				turret = g.players[index].controlled_turret
+				new_x = float(parsed[1])
+				new_y = float(parsed[2])
+				if new_x != turret.x or new_y != turret.y:
+					rel_angle = calculate_x_y_angle(turret.x, turret.y, new_x, new_y, g.players[index].facing)
+					if 45 <= rel_angle <= 135:
+						g.players[index].facing = (g.players[index].facing + 45) % 360
+						g.n.send_reliable(g.players[index].peer_id, "facing " + str(g.players[index].facing), 0)
+						g.players[index].playsound("misc327", True)
+						g.n.send_reliable(g.players[index].peer_id, "move " + str(turret.x) + " " + str(turret.y) + " " + str(turret.z), 0)
+						return
+					elif 225 <= rel_angle <= 315:
+						g.players[index].facing = (g.players[index].facing - 45) % 360
+						if g.players[index].facing < 0:
+							g.players[index].facing += 360
+						g.n.send_reliable(g.players[index].peer_id, "facing " + str(g.players[index].facing), 0)
+						g.players[index].playsound("misc327", True)
+						g.n.send_reliable(g.players[index].peer_id, "move " + str(turret.x) + " " + str(turret.y) + " " + str(turret.z), 0)
+						return
+					else:
+						turret.operator = None
+						g.players[index].controlled_turret = None
+						g.n.send_reliable(g.players[index].peer_id, "You stepped off the turret.", 0)
+						g.players[index].playsound("sitstop", True)
+				else:
+					g.n.send_reliable(g.players[index].peer_id, "move " + str(turret.x) + " " + str(turret.y) + " " + str(turret.z), 0)
+					return
+
 			if getattr(g.players[index], "climbing", False): return
 		
 			if g.players[index].renaming: remove_from_server(index); return

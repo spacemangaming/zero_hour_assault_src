@@ -2088,6 +2088,9 @@ def playerloop():
 				
 			
 		if g.players[i].health<=0 and g.players[i].dead==False:
+			if getattr(g.players[i], "controlled_turret", None) is not None:
+				g.players[i].controlled_turret.operator = None
+				g.players[i].controlled_turret = None
 			if g.players[i].bike is not None:
 				g.n.send_reliable(g.players[i].peer_id,"notinbike",0)
 				try: g.players[i].bike.players.remove(g.players[i].name)

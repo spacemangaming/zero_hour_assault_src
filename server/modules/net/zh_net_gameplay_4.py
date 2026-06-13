@@ -11,7 +11,7 @@ from timer import timer
 
 def handle_gameplay_4(e, parsed, index):
 	global languages
-	cmds = {"deleteline", "weaponinfo", "drawsilent", "unload", "cheat", "basecomp", "corpse", "baseopen", "weaponinfo2", "corpseselect", "communitymessage", "draw", "vdown", "pingr", "reload", "vup", "draw2silent", "playsnd", "checkaround", "addline", "matchmodepublicbot", "motorengine", "basepasswordchange", "sendverify", "draw2", "verifycode", "matchmodeprivatebot", "buildobj", "chest2", "mapmessage", "editlinemenu", "addinmap", "pr", "motorhorn", "chest", "playonmap", "build", "outmotor", "matchmodeprivate", "groupmessage", "login"}
+	cmds = {"deleteline", "weaponinfo", "drawsilent", "unload", "cheat", "basecomp", "corpse", "baseopen", "weaponinfo2", "corpseselect", "communitymessage", "draw", "vdown", "pingr", "reload", "vup", "draw2silent", "playsnd", "checkaround", "addline", "matchmodepublicbot", "motorengine", "basepasswordchange", "sendverify", "draw2", "verifycode", "matchmodeprivatebot", "buildobj", "chest2", "mapmessage", "editlinemenu", "addinmap", "pr", "motorhorn", "chest", "playonmap", "build", "outmotor", "matchmodeprivate", "groupmessage", "login", "baseupgrade", "base_wall_upgrade", "base_generator", "base_deposit_ammo", "base_turret_manage", "base_buy_turret", "base_select_turret", "base_select_weapon", "base_deconstruct_turret"}
 	subs = {"editlineSPLITS_THE_PARTS_OF_EDITLINE"}
 	matched = False
 	if len(parsed) > 0 and parsed[0] in cmds:
@@ -1373,6 +1373,10 @@ def handle_gameplay_4(e, parsed, index):
 			if parsed[1]=="password":
 				send_serverbox(g.players[index].peer_id, 0, -1, 0, -1, "basepasswordchange", "enter new password")
 			if parsed[1]=="near":
+				if not base.generator_on or base.generator_fuel <= 0:
+					g.n.send_reliable(e.peer_id, "Scanner offline: generator requires fuel and power.", 0)
+					g.players[index].prevmenu()
+					return
 				m=server_menu()
 				m.intro="near players"
 				m.initial_packet="basenear"
@@ -1384,6 +1388,306 @@ def handle_gameplay_4(e, parsed, index):
 						if not p.shielded and p.vi==-1: m.add(p.name,p.name,False)
 				if len(m.menuids)==0: g.n.send_reliable(e.peer_id,"no near players within 100 steps",0); g.players[index].prevmenu(); return
 				m.send(e.peer_id)
+			if parsed[1]=="upgrades":
+				grp=get_group(base.name)
+				if grp is None: return
+				if g.players[index].name!=grp.owner and g.players[index].name not in grp.admins:
+					g.n.send_reliable(e.peer_id,"only owner and admins can access upgrades",0)
+					g.players[index].prevmenu()
+					return
+				m=server_menu()
+				m.intro="Base Upgrades Menu"
+				m.initial_packet="baseupgrade"
+				wall_names={1:"Wood", 2:"Iron", 3:"Titanium"}
+				curr_wall=wall_names.get(base.wall_level, "Unknown")
+				m.add("Wall Reinforcement (Current: "+curr_wall+")", "wall")
+				gen_status="On" if base.generator_on else "Off"
+				m.add("Generator Options (Generator: "+gen_status+", Fuel: "+str(round(base.generator_fuel))+"s)", "generator")
+				m.add("Deposit Ammo (Current: "+str(base.ammo)+" rounds)", "ammo")
+				m.add("Manage Turrets (Turrets built: "+str(len(base.turrets))+"/3)", "turrets")
+				m.send(e.peer_id)
+	elif parsed[0]=="baseupgrade":
+		index=g.get_player_index(e.peer_id)
+		if index>-1:
+			base=get_current_base(g.players[index])
+			if base is None: return
+			grp=get_group(base.name)
+			if grp is None: return
+			if g.players[index].name!=grp.owner and g.players[index].name not in grp.admins:
+				g.n.send_reliable(e.peer_id,"only owner and admins can manage base upgrades",0)
+				g.players[index].prevmenu()
+				return
+			if parsed[1]=="wall":
+				m=server_menu()
+				m.intro="Wall Upgrades"
+				m.initial_packet="base_wall_upgrade"
+				if base.wall_level==1:
+					m.add("Upgrade to Iron Walls (Costs 1,000 zero tokens) (reduces dmg taken to 70%)", "2")
+				elif base.wall_level==2:
+					m.add("Upgrade to Titanium Walls (Costs 2,500 zero tokens) (reduces dmg taken to 40%)", "3")
+				else:
+					m.add("Walls are fully upgraded (Titanium)", "max", False)
+				m.send(e.peer_id)
+			elif parsed[1]=="generator":
+				m=server_menu()
+				m.intro="Generator Options (Fuel: "+str(round(base.generator_fuel))+" seconds)"
+				m.initial_packet="base_generator"
+				gen_action="Turn Off" if base.generator_on else "Turn On"
+				m.add(gen_action+" Generator", "toggle")
+				m.add("Deposit Fuel (Costs 100 zero tokens for 30 min of fuel)", "deposit")
+				m.send(e.peer_id)
+			elif parsed[1]=="ammo":
+				m=server_menu()
+				m.intro="Deposit Ammo (Base Ammo: "+str(base.ammo)+" rounds)"
+				m.initial_packet="base_deposit_ammo"
+				m.add("Buy 50 rounds of base ammo (Costs 50 zero tokens)", "buy_50")
+				m.add("Buy 100 rounds of base ammo (Costs 90 zero tokens)", "buy_100")
+				has_any=False
+				for a_type in ["5.56x45mm", "7.62x51mm", "7.62x39mm", "12gauge"]:
+					amt=g.players[index].get_ammo_count(a_type)
+					if amt>0:
+						m.add("Deposit "+str(amt)+" rounds of "+a_type, "dep_"+a_type)
+						has_any=True
+				if not has_any:
+					m.add("No physical ammo in your inventory to deposit", "no_phys", False)
+				m.send(e.peer_id)
+			elif parsed[1]=="turrets":
+				m=server_menu()
+				m.intro="Turret Management"
+				m.initial_packet="base_turret_manage"
+				m.add("Buy/Build Turret (Costs 500 zero tokens, Max 3)", "buy")
+				if len(base.turrets)>0:
+					m.add("Upgrade Turret Weapon", "upgrade")
+					m.add("Deconstruct Turret (Get 200 zero tokens back)", "deconstruct")
+				else:
+					m.add("No turrets built yet", "none", False)
+				m.send(e.peer_id)
+
+	elif parsed[0]=="base_wall_upgrade":
+		index=g.get_player_index(e.peer_id)
+		if index>-1:
+			base=get_current_base(g.players[index])
+			if base is None: return
+			if parsed[1]=="2":
+				if g.players[index].zhtoken<1000:
+					g.n.send_reliable(e.peer_id,"You do not have enough zero tokens.",0)
+				else:
+					g.players[index].zhtoken-=1000
+					base.wall_level=2
+					g.n.send_reliable(e.peer_id,"Walls upgraded to Iron! Platforms refreshed.",0)
+					g.play("misc147", base.x, base.y, base.z, base.map)
+					for p in g.players:
+						if p.map==base.map:
+							base.remove_platform_to(p)
+							base.send_platform_to(p)
+			elif parsed[1]=="3":
+				if g.players[index].zhtoken<2500:
+					g.n.send_reliable(e.peer_id,"You do not have enough zero tokens.",0)
+				else:
+					g.players[index].zhtoken-=2500
+					base.wall_level=3
+					g.n.send_reliable(e.peer_id,"Walls upgraded to Titanium! Platforms refreshed.",0)
+					g.play("misc147", base.x, base.y, base.z, base.map)
+					for p in g.players:
+						if p.map==base.map:
+							base.remove_platform_to(p)
+							base.send_platform_to(p)
+			g.players[index].prevmenu()
+
+	elif parsed[0]=="base_generator":
+		index=g.get_player_index(e.peer_id)
+		if index>-1:
+			base=get_current_base(g.players[index])
+			if base is None: return
+			if parsed[1]=="toggle":
+				if base.generator_on:
+					base.generator_on=False
+					g.play("motorstop", base.x, base.y, base.z, base.map)
+					g.play("motorstop", 30, 30, 0, "basement"+base.name+base.mapappend)
+					g.n.send_reliable(e.peer_id,"Generator turned off.",0)
+				else:
+					if base.generator_fuel<=0:
+						g.n.send_reliable(e.peer_id,"Cannot turn on generator: out of fuel.",0)
+					else:
+						base.generator_on=True
+						base.generator_timer.restart()
+						g.play("motorstart", base.x, base.y, base.z, base.map)
+						g.play("motorstart", 30, 30, 0, "basement"+base.name+base.mapappend)
+						g.n.send_reliable(e.peer_id,"Generator turned on.",0)
+			elif parsed[1]=="deposit":
+				if g.players[index].zhtoken<100:
+					g.n.send_reliable(e.peer_id,"You do not have enough zero tokens.",0)
+				else:
+					g.players[index].zhtoken-=100
+					base.generator_fuel+=1800.0
+					g.n.send_reliable(e.peer_id,"Deposited 30 minutes of fuel.",0)
+					g.play("getcola2", 30, 30, 0, "basement"+base.name+base.mapappend)
+			g.players[index].prevmenu()
+
+	elif parsed[0]=="base_deposit_ammo":
+		index=g.get_player_index(e.peer_id)
+		if index>-1:
+			base=get_current_base(g.players[index])
+			if base is None: return
+			if parsed[1]=="buy_50":
+				if g.players[index].zhtoken<50:
+					g.n.send_reliable(e.peer_id,"You do not have enough zero tokens.",0)
+				else:
+					g.players[index].zhtoken-=50
+					base.ammo+=50
+					g.n.send_reliable(e.peer_id,"Purchased 50 base ammo rounds.",0)
+					g.play("ammo_crate", 30, 30, 0, "basement"+base.name+base.mapappend)
+			elif parsed[1]=="buy_100":
+				if g.players[index].zhtoken<90:
+					g.n.send_reliable(e.peer_id,"You do not have enough zero tokens.",0)
+				else:
+					g.players[index].zhtoken-=90
+					base.ammo+=100
+					g.n.send_reliable(e.peer_id,"Purchased 100 base ammo rounds.",0)
+					g.play("ammo_crate", 30, 30, 0, "basement"+base.name+base.mapappend)
+			elif parsed[1].startswith("dep_"):
+				ammo_type=parsed[1].replace("dep_", "")
+				amt=g.players[index].get_ammo_count(ammo_type)
+				if amt>0:
+					g.players[index].ammogive(ammo_type, -amt)
+					base.ammo+=amt
+					g.n.send_reliable(e.peer_id,"Deposited "+str(amt)+" rounds of "+ammo_type+".",0)
+					g.play("ammo_crate", 30, 30, 0, "basement"+base.name+base.mapappend)
+				else:
+					g.n.send_reliable(e.peer_id,"You do not have that ammo.",0)
+			g.players[index].prevmenu()
+
+	elif parsed[0]=="base_turret_manage":
+		index=g.get_player_index(e.peer_id)
+		if index>-1:
+			base=get_current_base(g.players[index])
+			if base is None: return
+			if parsed[1]=="buy":
+				if len(base.turrets)>=3:
+					g.n.send_reliable(e.peer_id,"You have reached the limit of 3 turrets.",0)
+					g.players[index].prevmenu()
+					return
+				if g.players[index].zhtoken<500:
+					g.n.send_reliable(e.peer_id,"You do not have enough zero tokens (500 needed).",0)
+					g.players[index].prevmenu()
+					return
+				send_serverbox(g.players[index].peer_id, 0, -1, 0, -1, "base_buy_turret", "Enter placement coordinates on outer map near base ("+str(round(base.x))+", "+str(round(base.y))+"). Format: x,y")
+			elif parsed[1]=="upgrade":
+				m=server_menu()
+				m.intro="Select Turret to Upgrade"
+				m.initial_packet="base_select_turret"
+				for i, t in enumerate(base.turrets):
+					w_names={"base_gun":"Rifle Sentry", "m4":"Machine Gun", "dragunov_psl":"Sniper", "maverick88":"Shotgun"}
+					curr_w=w_names.get(t.weapon_type, t.weapon_type)
+					m.add("Turret #"+str(i+1)+" at ("+str(round(t.x))+", "+str(round(t.y))+") - Weapon: "+curr_w, str(i))
+				m.send(e.peer_id)
+			elif parsed[1]=="deconstruct":
+				m=server_menu()
+				m.intro="Select Turret to Deconstruct"
+				m.initial_packet="base_deconstruct_turret"
+				for i, t in enumerate(base.turrets):
+					w_names={"base_gun":"Rifle Sentry", "m4":"Machine Gun", "dragunov_psl":"Sniper", "maverick88":"Shotgun"}
+					curr_w=w_names.get(t.weapon_type, t.weapon_type)
+					m.add("Deconstruct Turret #"+str(i+1)+" at ("+str(round(t.x))+", "+str(round(t.y))+") - Weapon: "+curr_w, str(i))
+				m.send(e.peer_id)
+
+	elif parsed[0]=="base_buy_turret":
+		index=g.get_player_index(e.peer_id)
+		if index>-1:
+			base=get_current_base(g.players[index])
+			if base is None: return
+			try:
+				parts=parsed[1].split(",")
+				tx=float(parts[0])
+				ty=float(parts[1])
+			except Exception:
+				g.n.send_reliable(e.peer_id,"Invalid coordinate format. Use x,y (e.g. 500,450).",0)
+				g.players[index].prevmenu()
+				return
+			if abs(tx - base.x)>30 or abs(ty - base.y)>30:
+				g.n.send_reliable(e.peer_id,"Placement is too far from base entrance. Must be within 30 steps.",0)
+				g.players[index].prevmenu()
+				return
+			if g.players[index].zhtoken<500:
+				g.n.send_reliable(e.peer_id,"You do not have enough zero tokens.",0)
+				g.players[index].prevmenu()
+				return
+			g.players[index].zhtoken-=500
+			from base import base_turret
+			new_t=base_turret(tx, ty, base.z, base.map, base.name)
+			base.turrets.append(new_t)
+			g.play("misc147", base.x, base.y, base.z, base.map)
+			for p in g.players:
+				if p.map==base.map:
+					base.remove_turrets_from(p)
+					base.send_turrets_to(p)
+			g.n.send_reliable(e.peer_id,"Turret built successfully at "+str(round(tx))+", "+str(round(ty))+"!",0)
+			g.players[index].prevmenu()
+
+	elif parsed[0]=="base_select_turret":
+		index=g.get_player_index(e.peer_id)
+		if index>-1:
+			base=get_current_base(g.players[index])
+			if base is None: return
+			try: idx=int(parsed[1])
+			except: return
+			g.players[index].selected_turret_idx=idx
+			m=server_menu()
+			m.intro="Select Weapon Upgrade"
+			m.initial_packet="base_select_weapon"
+			m.add("Rifle Sentry (base_gun, free)", "base_gun")
+			m.add("Machine Gun (m4, Costs 800 zero tokens)", "m4")
+			m.add("Sniper Turret (dragunov_psl, Costs 1,200 zero tokens)", "dragunov_psl")
+			m.add("Shotgun Turret (maverick88, Costs 1,000 zero tokens)", "maverick88")
+			m.send(e.peer_id)
+
+	elif parsed[0]=="base_select_weapon":
+		index=g.get_player_index(e.peer_id)
+		if index>-1:
+			base=get_current_base(g.players[index])
+			if base is None: return
+			t_idx=getattr(g.players[index], "selected_turret_idx", None)
+			if t_idx is None or t_idx>=len(base.turrets):
+				g.n.send_reliable(e.peer_id,"No turret selected.",0)
+				g.players[index].prevmenu()
+				return
+			turret=base.turrets[t_idx]
+			weapon_type=parsed[1]
+			weapon_costs={"base_gun":0, "m4":800, "dragunov_psl":1200, "maverick88":1000}
+			cost=weapon_costs.get(weapon_type, 0)
+			if g.players[index].zhtoken<cost:
+				g.n.send_reliable(e.peer_id,"You do not have enough zero tokens ("+str(cost)+" needed).",0)
+			else:
+				g.players[index].zhtoken-=cost
+				turret.weapon_type=weapon_type
+				g.n.send_reliable(e.peer_id,"Turret #"+str(t_idx+1)+" weapon upgraded to "+weapon_type+"!",0)
+				g.play("misc147", base.x, base.y, base.z, base.map)
+			g.players[index].prevmenu()
+
+	elif parsed[0]=="base_deconstruct_turret":
+		index=g.get_player_index(e.peer_id)
+		if index>-1:
+			base=get_current_base(g.players[index])
+			if base is None: return
+			try: t_idx=int(parsed[1])
+			except: return
+			if t_idx>=len(base.turrets):
+				g.n.send_reliable(e.peer_id,"Invalid turret choice.",0)
+				g.players[index].prevmenu()
+				return
+			t=base.turrets[t_idx]
+			if t.operator is not None:
+				from base import dismount_turret
+				dismount_turret(t.operator)
+			for p in g.players:
+				if p.map==base.map:
+					remove_platform(p, t.x, t.x, t.y, t.y, t.z, t.z, "metal")
+					remove_zone(p, t.x, t.x, t.y, t.y, t.z, t.z, "turret_of_group_base_"+base.name)
+			base.turrets.pop(t_idx)
+			g.players[index].zhtoken+=200
+			g.n.send_reliable(e.peer_id,"Turret deconstructed. 200 zero tokens refunded.",0)
+			g.play("misc18", base.x, base.y, base.z, base.map)
+			g.players[index].prevmenu()
 	elif parsed[0]=="corpseselect":
 		index=g.get_player_index(e.peer_id)
 		if index>-1:

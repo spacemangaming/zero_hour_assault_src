@@ -2646,6 +2646,7 @@ here, since the player name is before the string "came online", we added =substr
 
 			elif parsed[1]=="setting": g.n.send_reliable(e.peer_id,"opensettings",0)
 			elif parsed[1]=="store":
+				print(f"[debug_store] store_data length in gameplay_2: {len(store_data)}, list ID: {id(store_data)}")
 				m=server_menu()
 				m.intro="Select category"
 				g.players[index].playsound("storeenter")

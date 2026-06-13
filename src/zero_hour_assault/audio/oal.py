@@ -52,7 +52,8 @@ import wave
 import sys
 import os
 
-os.add_dll_directory(os.getcwd())
+if hasattr(os, 'add_dll_directory'):
+	os.add_dll_directory(os.getcwd())
 
 
 # add al_distance_model to listener

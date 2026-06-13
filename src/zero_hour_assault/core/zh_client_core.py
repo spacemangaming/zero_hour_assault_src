@@ -30,15 +30,18 @@ def main():
 	speak("loading")
 #	time.sleep(2)
 	global opus_encoder,pstream
-	if not file_exists(os.getenv("appdata")+"/alsoft.ini"):
-		f=open(os.getenv("appdata")+"/alsoft.ini","w")
-		f.write("""[General]
+	_appdata = os.getenv("appdata") or os.getenv("HOME") or ""
+	if _appdata and not file_exists(_appdata+"/alsoft.ini"):
+		try:
+			f=open(_appdata+"/alsoft.ini","w")
+			f.write("""[General]
 sources=100000
 slots=100000
 
 [decoder]
 hq-mode=true""")
-		f.close()
+			f.close()
+		except Exception: pass
 	if 1:
 		langs=os.listdir("lang")
 		for lang in langs:

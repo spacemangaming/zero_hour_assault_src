@@ -1067,18 +1067,28 @@ def netloop(events=False,request=True):
 			elif parsed[0]=="switchlang":
 				filename="lang/"+parsed[1]+".lng"
 				content=g.e.message.replace(parsed[0]+" "+parsed[1]+" ","")
-				with open(filename,"w",encoding="utf-8") as f: f.write(content)
+				try:
+					import os
+					os.makedirs("lang", exist_ok=True)
+					with open(filename,"w",encoding="utf-8") as f: f.write(content)
+					file_encrypt(filename,g.langkey)
+				except Exception as ex:
+					pass
 				g.lngdata=content
 				g.transcache.clear()
 				g.lang=parsed[1]
-				file_encrypt(filename,g.langkey)
 			elif parsed[0]=="updatelang":
 				filename="lang/"+parsed[1]+".lng"
 				content=g.e.message.replace(parsed[0]+" "+parsed[1]+" ","")
-				with open(filename,"w",encoding="utf-8") as f: f.write(content)
+				try:
+					import os
+					os.makedirs("lang", exist_ok=True)
+					with open(filename,"w",encoding="utf-8") as f: f.write(content)
+					file_encrypt(filename,g.langkey)
+				except Exception as ex:
+					pass
 				if g.lang==parsed[1]: g.lngdata=content
 				g.transcache.clear()
-				file_encrypt(filename,g.langkey)
 			elif parsed[0] == "createmsound" and len(parsed)>=8:
 				createmsound(parsed[1], parsed[2], stn(parsed[3]), stn(parsed[4]), stn(parsed[5]), parsed[6], stn(parsed[7]))
 			elif parsed[0] == "updatemsound" and len(parsed)>=6:

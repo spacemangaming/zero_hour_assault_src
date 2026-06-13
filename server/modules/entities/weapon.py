@@ -528,7 +528,13 @@ def weaponloop():
 					if hit==False:
 						hit=True
 					inpact=random(g.weapons[j].mindammage, g.weapons[j].maxdammage)
-					g.group_bases[i].health-=inpact*35
+					damage_mult = 1.0
+					if hasattr(g.group_bases[i], "wall_level"):
+						if g.group_bases[i].wall_level == 2:
+							damage_mult = 0.7
+						elif g.group_bases[i].wall_level == 3:
+							damage_mult = 0.4
+					g.group_bases[i].health-=int(inpact*35*damage_mult)
 					if g.group_bases[i].health<=0:
 						g.n.send_reliable(g.weapons[j].owner.peer_id,"you got 100 zero tokens for destroying a base",2)
 						g.weapons[j].owner.zhtoken+=100
@@ -536,8 +542,14 @@ def weaponloop():
 						g.group_bases[i].alarm=True
 					g.group_bases[i].hitby=g.weapons[j].owner.name
 					g.group_bases[i].hitby2=g.weapons[j].owner.name+"'s "+g.weapons[j].type
+					hit_sound = "bulletmotorhit" + str(random(1,8))
+					if hasattr(g.group_bases[i], "wall_level"):
+						if g.group_bases[i].wall_level == 1:
+							hit_sound = "wallhit" + str(random(1,3))
+						elif g.group_bases[i].wall_level == 3:
+							hit_sound = "wallhit" + str(random(4,6))
 					if(g.weapons[j].bullet):
-						g.play("bulletmotorhit"+str(random(1,8)), g.group_bases[i].x, g.group_bases[i].y, g.group_bases[i].z, g.group_bases[i].map)
+						g.play(hit_sound, g.group_bases[i].x, g.group_bases[i].y, g.group_bases[i].z, g.group_bases[i].map)
 						_play_bulletfall(g.weapons[j])
 
 					if g.weapons[j].type=="molotov_cocktail":
@@ -546,7 +558,7 @@ def weaponloop():
 						_play_bulletfall(g.weapons[j])
 
 #						g.play("bulletfall"+str(random(1,12))+"",g.group_bases[i].x,g.group_bases[i].y,g.group_bases[i].z,g.group_bases[i].map)
-					else: 						g.play("bulletmotorhit"+str(random(1,8)), g.group_bases[i].x, g.group_bases[i].y, g.group_bases[i].z, g.group_bases[i].map)
+					else: 						g.play(hit_sound, g.group_bases[i].x, g.group_bases[i].y, g.group_bases[i].z, g.group_bases[i].map)
 					
 				
 

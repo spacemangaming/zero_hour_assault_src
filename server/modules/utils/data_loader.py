@@ -26,9 +26,15 @@ _inventory_limits: dict = {}
 _token_packs: dict = {}
 _item_sounds: dict = {}
 
-_DATA_DIR = os.path.normpath(
+# Try to locate data/ folder relative to the script location first.
+# If it doesn't exist, fall back to "data" in the current working directory.
+_relative_data_dir = os.path.normpath(
     os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "data")
 )
+if os.path.isdir(_relative_data_dir):
+    _DATA_DIR = _relative_data_dir
+else:
+    _DATA_DIR = os.path.abspath("data")
 
 
 
@@ -116,7 +122,27 @@ def _load_chest():
 
 def _load_economy():
     global _token_packs
-    _token_packs = _load_json(os.path.join(_DATA_DIR, "economy", "token_packs.json"))
+    paths_to_try = [
+        os.path.join(_DATA_DIR, "economy", "token_packs.json"),
+        os.path.join("data", "economy", "token_packs.json"),
+        "token_packs.json"
+    ]
+    for path in paths_to_try:
+        if os.path.exists(path):
+            try:
+                _token_packs = _load_json(path)
+                return
+            except Exception as e:
+                print(f"[data_loader] Error loading {path}: {e}")
+    # Default fallback if not found or failed to load
+    _token_packs = {
+        "bronze_token_pack": 1000,
+        "silver_token_pack": 1400,
+        "gold_token_pack": 2600,
+        "platinum_token_pack": 3000,
+        "diamond_token_pack": 6200,
+        "master_token_pack": 13000
+    }
 
 
 def reload_all():
