@@ -5322,7 +5322,10 @@ import traceback
 import sys
 import pygame
 
-phonon = ctypes.CDLL("./phonon.dll")
+try:
+	phonon = ctypes.CDLL("./phonon.dll")
+except OSError:
+	phonon = None
 
 class IPLVector3(ctypes.Structure):
 	_fields_ = [("x", ctypes.c_float),
@@ -5374,6 +5377,8 @@ def create_audio_buffer(num_channels, num_samples):
 	return buffer
 
 def initialize_phonon():
+	if phonon is None:
+		return
 	global phonon_context, phonon_audio_settings
 	if phonon_context is None:
 		phonon_context = ctypes.c_void_p()

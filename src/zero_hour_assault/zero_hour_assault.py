@@ -742,9 +742,9 @@ import ctypes
 import os
 import time
 
-anticheat_lib = ctypes.CDLL("anticheat.dll")
+try:
+	anticheat_lib = ctypes.CDLL("anticheat.dll")
 
-if 1:
 	anticheat_lib.anticheat_init.argtypes = []
 	anticheat_lib.anticheat_init.restype = None
 
@@ -760,12 +760,16 @@ if 1:
 	anticheat_lib.anticheat_deinit.argtypes = []
 	anticheat_lib.anticheat_deinit.restype = None
 
+	anticheat_lib.anticheat_init()
 
-anticheat_lib.anticheat_init()
-
-is_memory_scan_detected = anticheat_lib.is_memory_scan_detected
-is_speed_hack_detected = anticheat_lib.is_speed_hack_detected
-anticheat_check=anticheat_lib.anticheat_check
+	is_memory_scan_detected = anticheat_lib.is_memory_scan_detected
+	is_speed_hack_detected = anticheat_lib.is_speed_hack_detected
+	anticheat_check = anticheat_lib.anticheat_check
+except OSError:
+	anticheat_lib = None
+	is_memory_scan_detected = lambda: False
+	is_speed_hack_detected = lambda: False
+	anticheat_check = lambda: None
 import hashlib
 
 import os

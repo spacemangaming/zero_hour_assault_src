@@ -4,10 +4,19 @@ from Miscellaneous import is_game_window_active
 import pygame
 import globals as g
 import ctypes
-sral=ctypes.CDLL("SRAL.dll")
-g.sral=sral
-sral.SRAL_Initialize()
+import sys
+try:
+    sral=ctypes.CDLL("SRAL.dll")
+    g.sral=sral
+    sral.SRAL_Initialize()
+    _sral_available = True
+except OSError:
+    sral = None
+    _sral_available = False
+
 def speak(text, interrupt=True, forceinterrupt=True):
+    if not _sral_available:
+        return False
     text = str(text)
     if text=="prevmenu": return
     if g.lang!="en": text = translate(text)
