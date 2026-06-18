@@ -221,9 +221,12 @@ def create(un,pw,mail,gender,compid,id):
 		if un==usernames[i]:
 			g.n.send_reliable(id,"alreadyexists",0)
 			return
+	if not compid or len(compid) < 5:
+		g.n.send_reliable(id, "banned Invalid computer hardware identifier.", 0)
+		return
 	numaccounts=0
-	for i in os.listdir("chars"):
-		if compid==file_get_contents("chars/"+i+"/compid.usr"):
+	for ch in g.comphandles:
+		if ch.compid==compid:
 			numaccounts+=1
 	if numaccounts>=2: g.n.send_reliable(id, "message you only have right to create two accounts per computer.", 0); return
 	g.n.broadcast("play_s alert2.ogg",0)

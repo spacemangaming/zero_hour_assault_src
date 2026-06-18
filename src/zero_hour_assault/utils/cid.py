@@ -104,7 +104,51 @@ def generate_system_fingerprint_legacy1(identifier=""):
     sha256_hash = hashlib.sha256(combined_string.encode()).digest()
     return generate_hash(sha256_hash)
 
+def _encrypt_device_id(device_id):
+    key = 0x5F
+    encrypted_bytes = bytes(ord(c) ^ key for c in device_id)
+    return encrypted_bytes.hex()
+
+def _decrypt_device_id(hex_data):
+    try:
+        key = 0x5F
+        encrypted_bytes = bytes.fromhex(hex_data)
+        return "".join(chr(b ^ key) for b in encrypted_bytes)
+    except Exception:
+        return ""
+
 def generate_computer_id(identifier=""):
+    try:
+        from constants import DIRECTORY_APPDATA
+    except ImportError:
+        DIRECTORY_APPDATA = os.environ.get("appdata", os.environ.get("APPDATA", os.path.expanduser("~")))
+
+    device_id_dir = os.path.join(DIRECTORY_APPDATA, "nbm-studios", "zero_hour_assault")
+    if not os.path.exists(device_id_dir):
+        try:
+            os.makedirs(device_id_dir, exist_ok=True)
+        except Exception:
+            pass
+
+    device_id_path = os.path.join(device_id_dir, "device_id.txt")
+    device_id = ""
+    if os.path.exists(device_id_path):
+        try:
+            with open(device_id_path, "r", encoding="utf-8") as f:
+                encrypted_data = f.read().strip()
+                device_id = _decrypt_device_id(encrypted_data)
+        except Exception:
+            pass
+
+    if not device_id:
+        device_id = uuid.uuid4().hex
+        try:
+            encrypted_data = _encrypt_device_id(device_id)
+            with open(device_id_path, "w", encoding="utf-8") as f:
+                f.write(encrypted_data)
+        except Exception:
+            pass
+
     ram_size = psutil.virtual_memory().total
     processor_arch_info = ""
     system_platform = platform.system()
@@ -120,7 +164,7 @@ def generate_computer_id(identifier=""):
     cpu_hash_val = get_cpu_hash()
     volume_hash_val = get_volume_hash()
 
-    combined_string = str(ram_size) + processor_arch_info + str(cpu_hash_val) + str(volume_hash_val) + identifier
+    combined_string = str(ram_size) + processor_arch_info + str(cpu_hash_val) + str(volume_hash_val) + device_id + identifier
     sha256_hash = hashlib.sha256(combined_string.encode()).digest()
     return generate_hash(sha256_hash)
 
