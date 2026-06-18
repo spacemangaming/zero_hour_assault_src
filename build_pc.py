@@ -132,10 +132,6 @@ def main():
     if os.path.exists("packs"):
         shutil.copytree("packs", os.path.join(release_dir, "packs"), dirs_exist_ok=True)
 
-    # Copy sounds folder if exists (required for sound playback in compiled client)
-    if os.path.exists("sounds"):
-        print("Copying sounds folder to release...")
-        shutil.copytree("sounds", os.path.join(release_dir, "sounds"), dirs_exist_ok=True)
 
     # Copy dlls to both release/ (root) and release/_internal/ (dependencies)
     internal_dir = os.path.join(release_dir, "_internal")
