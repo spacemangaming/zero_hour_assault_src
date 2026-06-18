@@ -558,7 +558,10 @@ def zonemenu():
 
 
 def get_installed_jaws_versions():
-	jaws_path = os.path.join(os.getenv("APPDATA"), "Freedom Scientific", "JAWS")
+	_appdata = os.getenv("APPDATA")
+	if not _appdata:
+		return []
+	jaws_path = os.path.join(_appdata, "Freedom Scientific", "JAWS")
 	try:
 		return [folder for folder in os.listdir(jaws_path) if os.path.isdir(os.path.join(jaws_path, folder))]
 	except OSError:
@@ -566,7 +569,10 @@ def get_installed_jaws_versions():
 
 
 def get_user_languages(jaws_version):
-	settings_path = os.path.join(os.getenv("APPDATA"), "Freedom Scientific", "JAWS", jaws_version, "Settings")
+	_appdata = os.getenv("APPDATA")
+	if not _appdata:
+		return []
+	settings_path = os.path.join(_appdata, "Freedom Scientific", "JAWS", jaws_version, "Settings")
 	try:
 		return [folder for folder in os.listdir(settings_path) if folder not in ["VoiceProfiles", "Notifications"]]
 	except OSError:
@@ -574,8 +580,11 @@ def get_user_languages(jaws_version):
 
 
 def install_language(language, jaws_version):
+	_appdata = os.getenv("APPDATA")
+	if not _appdata:
+		return
 	source_file = "zero_hour_assault.jkm"
-	target_path = os.path.join(os.getenv("APPDATA"), "Freedom Scientific", "JAWS", jaws_version, "Settings", language)
+	target_path = os.path.join(_appdata, "Freedom Scientific", "JAWS", jaws_version, "Settings", language)
 
 	if os.path.exists(target_path):
 		try:
