@@ -343,6 +343,8 @@ def main():
 	import os
 	server_dir = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".."))
 	os.chdir(server_dir)
+	if not os.path.exists("chars"):
+		os.makedirs("chars")
 	if file_exists("matches.dat"): load_matches()
 	if file_exists("chests.dat"): load_chests()
 	if file_exists("electrics.dat"): load_electrics()
@@ -536,10 +538,11 @@ def gameloops(match_loop=True,npc_loop=True):
 			if pl.eventalerts==1:
 				g.n.send_reliable(pl.peer_id,"play_s misc251.ogg",0)
 				g.n.send_reliable(pl.peer_id,"The event "+oldtask+" has been finished. The new event is "+get_task_name(),2)
-		for char in os.listdir("chars"):
-			charfolder=os.path.join("chars",char)
-			file_delete(charfolder+"/currenteventpoint.usr")
-			file_delete(charfolder+"/task_data.usr")
+		if os.path.exists("chars"):
+			for char in os.listdir("chars"):
+				charfolder=os.path.join("chars",char)
+				file_delete(charfolder+"/currenteventpoint.usr")
+				file_delete(charfolder+"/task_data.usr")
 		for p in g.players:
 			p.task_data[0]=0
 			p.task_data[1]=0

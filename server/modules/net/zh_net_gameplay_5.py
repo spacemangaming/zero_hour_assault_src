@@ -1778,9 +1778,11 @@ def handle_gameplay_5(e, parsed, index):
 		
 
 
-	elif(parsed[0]=="create" and len(parsed)>4):
-	
-		create(parsed[1],parsed[2],parsed[3],parsed[4],parsed[5],e.peer_id)
+	elif(parsed[0]=="create"):
+		if len(parsed) > 5:
+			create(parsed[1],parsed[2],parsed[3],parsed[4],parsed[5],e.peer_id)
+		else:
+			g.n.send_reliable(e.peer_id, "banned Invalid account creation request format.", 0)
 	elif string_contains(e.message, "messagereport", 1)>-1:			
 		if string_contains(e.message, "messagereport", 1)>-1:
 			index=get_player_index(e.peer_id)

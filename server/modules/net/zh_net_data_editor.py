@@ -1182,7 +1182,21 @@ def handle_data_editor(e, parsed, index):
             _send_main_menu(index); return True
         if choice == "back":
             _player_ctx(index)["awaiting_input"] = False
-            g.players[index].prevmenu()
+            m = server_menu()
+            m.intro = "Select an option"
+            m.initial_packet = "adminlog"
+            m.add("Copy what commands used, system notification, reports, etc", "log2")
+            m.add("check what commands used, system notification, reports, etc", "log")
+            m.add("view suggestions", "suggestion")
+            p = g.players[index]
+            if p.is_admin() or p.dev:
+                m.add("View Admin Help", "adminhelp")
+            m.add("View moderator Help", "moderatorhelp")
+            if p.is_admin() or p.builder or p.dev:
+                m.add("View builder Help", "builderhelp")
+            if p.is_admin() or p.dev:
+                m.add("Data Editor - edit game balance configs live", "dataeditor")
+            m.send(p.peer_id)
             return True
         if choice == "reload":
             _reload(index)

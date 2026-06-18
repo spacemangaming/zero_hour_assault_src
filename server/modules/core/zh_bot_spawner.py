@@ -181,7 +181,7 @@ def spawnerloop():
             if sid not in _spawner_timers:
                 t = timer()
                 # Force the timer so the first spawn happens immediately
-                t.force(schedule_ms)
+                t.elapsed = schedule_ms
                 _spawner_timers[sid] = t
             t = _spawner_timers[sid]
             if t.elapsed < schedule_ms:

@@ -221,5 +221,22 @@ def create():
 			g.n.send_reliable(0,"create "+user+" "+passwd+" "+mail+" "+gender+" "+g.compid,0)
 		if g.e.type == event_receive and g.e.message.startswith("banned"):
 			dlg(g.e.message.replace("banned ",""))
+			g.n.destroy()
+			menu.login_settings()
+		elif g.e.type == event_receive and g.e.message == "alreadyexists":
+			dlg("This account name already exists.")
+			g.n.destroy()
+			menu.login_settings()
+		elif g.e.type == event_receive and g.e.message.startswith("message"):
+			dlg(g.e.message.replace("message ",""))
+			g.n.destroy()
+			menu.login_settings()
+		elif g.e.type == event_receive and g.e.message == "created":
+			dlg("Your account has been successfully created!")
+			g.name = user
+			g.password = passwd
+			g.savemail = mail
+			g.writeprefs()
+			g.n.destroy()
 			menu.login_settings()
 

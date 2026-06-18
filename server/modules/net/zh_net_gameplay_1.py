@@ -11,7 +11,7 @@ from timer import timer
 
 def handle_gameplay_1(e, parsed, index):
 	global languages
-	cmds = {"talking", "talking2", "gamemenu", "playermenu", "admin_ticket_action_menu", "is_typing", "wakeup", "ticket_create_message", "suggestsomething", "friendpm", "selectchannel", "resetfriends", "playermenuchoose", "voiceoff2", "packopen", "pollcomment_submit", "ticketview_select_action", "voiceon", "voicechatvolume", "ticket_create_title", "admin_ticket_action_chosen", "friendpmsend", "ticket_add_message_submit", "voteview", "vote", "ticket_action_chosen", "voiceon2", "voiceoff", "is_not_typing", "playermenuchoose2", "getdate", "writeitemdata", "ticket_rate_submit"}
+	cmds = {"talking", "talking2", "gamemenu", "playermenu", "admin_ticket_action_menu", "is_typing", "wakeup", "ticket_create_message", "suggestsomething", "friendpm", "selectchannel", "resetfriends", "playermenuchoose", "voiceoff2", "packopen", "pollcomment_submit", "ticketview_select_action", "voiceon", "voicechatvolume", "ticket_create_title", "admin_ticket_action_chosen", "friendpmsend", "ticket_add_message_submit", "voteview", "vote", "ticket_action_chosen", "voiceon2", "voiceoff", "is_not_typing", "playermenuchoose2", "getdate", "writeitemdata", "ticket_rate_submit", "trackobj"}
 	subs = {}
 	matched = False
 	if len(parsed) > 0 and parsed[0] in cmds:
