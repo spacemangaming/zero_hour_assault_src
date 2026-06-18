@@ -110,6 +110,22 @@ def update_versions():
         
     print(f"\n{C_GREEN}Success! Version bumped to {new_ver} across all files.{C_RESET}")
 
+    # Stage the version changes automatically
+    print(f"\n{C_YELLOW}Staging versioned files in Git...{C_RESET}")
+    staged_files = []
+    if os.path.exists(globals_path):
+        staged_files.append(globals_path)
+    if os.path.exists(spec_path):
+        staged_files.append(spec_path)
+    if os.path.exists(toml_path):
+        staged_files.append(toml_path)
+    if staged_files:
+        files_str = " ".join(f'"{f}"' for f in staged_files)
+        if run_command(f"git add {files_str}"):
+            print(f"{C_GREEN}✓ Automatically staged updated files in Git.{C_RESET}")
+        else:
+            print(f"{C_RED}✗ Failed to stage updated files in Git.{C_RESET}")
+
 def run_client():
     print(f"\n{C_YELLOW}Launching game client...{C_RESET}")
     python_exe = os.path.join(".venv", "Scripts", "python.exe")

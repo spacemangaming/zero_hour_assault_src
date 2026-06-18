@@ -1,27 +1,339 @@
-# FMOD has been removed. This stub exists solely to prevent import errors
-# in any code that still references fmod_audio.
-FMOD_AVAILABLE = False
-initialized = False
+import os
+import sys
+import time
+import math
+from constants import DIRECTORY_TEMP
+
+# Resolve absolute path to the project root directory / FMOD DLL directory
+if getattr(sys, "frozen", False):
+    ROOT_DIR = os.path.dirname(sys.executable)
+    FMOD_DLL_DIR = ROOT_DIR
+else:
+    ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
+    FMOD_DLL_DIR = os.path.join(ROOT_DIR, "third_party", "fmod")
+
+# Set FMOD paths before importing pyfmodex
+os.environ["PYFMODEX_DLL_PATH"] = os.path.join(FMOD_DLL_DIR, "fmod.dll")
+os.environ["PYFMODEX_STUDIO_DLL_PATH"] = os.path.join(FMOD_DLL_DIR, "fmodstudio.dll")
+
+if sys.platform == "win32" and hasattr(os, "add_dll_directory"):
+    try:
+        if os.path.isdir(FMOD_DLL_DIR):
+            os.add_dll_directory(FMOD_DLL_DIR)
+        else:
+            print(f"FMOD DLL directory not found: {FMOD_DLL_DIR}")
+    except Exception as e:
+        print(f"Failed to add FMOD DLL directory: {e}")
+
+try:
+    import pyfmodex
+    FMOD_AVAILABLE = True
+except Exception as e:
+    FMOD_AVAILABLE = False
+    print(f"pyfmodex import failed: {e}")
+
 system = None
+initialized = False
+_sound_cache = {}
 echo_dsp = None
 lowpass_dsp = None
 
-def init_fmod(): return False
-def update_fmod(): pass
-def set_listener_position(*a, **kw): pass
-def get_output_devices(): return []
-def set_output_device(name): return False
-def clear_sound_cache(): pass
+def init_fmod():
+    global system, initialized, echo_dsp, lowpass_dsp
+    if not FMOD_AVAILABLE:
+        return False
+    if initialized:
+        return True
+    try:
+        system = pyfmodex.System(header_version=0x00020313)
+        
+        # Configure Stereo Software Format for Binaural HRTF Spatialization over Headphones
+        from pyfmodex.enums import SPEAKERMODE
+        from pyfmodex.structobject import Structobject
+        try:
+            system.software_format = Structobject(sample_rate=48000, speaker_mode=SPEAKERMODE.STEREO, raw_speakers=0)
+        except Exception as e:
+            print(f"FMOD software format config warning: {e}")
+            
+        system.init(maxchannels=1024)
+        
+        # Configure natural global 3D settings
+        try:
+            system.threed_settings.doppler_scale = 1.0
+            system.threed_settings.distance_factor = 1.0
+            system.threed_settings.rolloff_scale = 1.0
+        except Exception as e:
+            print(f"FMOD 3D settings config warning: {e}")
+            
+        # Create and Register Master DSPs
+        try:
+            echo_dsp = system.create_dsp_by_type(pyfmodex.enums.DSP_TYPE.ECHO)
+            echo_dsp.bypass = True
+            system.master_channel_group.add_dsp(0, echo_dsp)
+        except Exception as e:
+            print(f"FMOD Echo DSP registration failed: {e}")
+            
+        try:
+            lowpass_dsp = system.create_dsp_by_type(pyfmodex.enums.DSP_TYPE.LOWPASS)
+            lowpass_dsp.bypass = True
+            system.master_channel_group.add_dsp(1, lowpass_dsp)
+        except Exception as e:
+            print(f"FMOD Lowpass DSP registration failed: {e}")
+            
+        initialized = True
+        return True
+    except Exception as e:
+        print(f"Failed to initialize FMOD system: {e}")
+        return False
 
-class fmod_sound:
+# Initialize at module level if available
+init_fmod()
+
+def update_fmod():
+    if initialized and system:
+        try:
+            system.update()
+        except:
+            pass
+
+def set_listener_position(x, y, z, facing_angle=0.0):
+    if initialized and system:
+        try:
+            rad = math.radians(facing_angle)
+            forward = [math.sin(rad), math.cos(rad), 0.0]
+            system.set_3d_listener_attributes(0, pos=[x, y, z], forward=forward, up=[0.0, 0.0, 1.0])
+        except Exception as e:
+            pass
+
+class fmod_sound(object):
     def __init__(self):
         self.sound = None
         self.channel = None
+        self.internal_filename = None
+        self.filename = ""
         self.usingpack = False
-    def load(self, *a, **kw): return False
-    def play(self): return False
-    def play_looped(self): return False
-    def stop(self): return False
-    def close(self): pass
+        self.paused = False
+        self.cached = False
+
+    def load(self, filename, is_stream=False):
+        if not initialized:
+            if not init_fmod():
+                return False
+        
+        self.internal_filename = filename
+        
+        # Check cache
+        if not is_stream and filename in _sound_cache:
+            self.sound = _sound_cache[filename]
+            self.usingpack = False
+            self.cached = True
+            return True
+        
+        # First, check unpacked_sounds
+        unpacked_path = os.path.join(ROOT_DIR, "unpacked_sounds", filename)
+        if os.path.exists(unpacked_path):
+            file_path = unpacked_path
+            self.usingpack = False
+            try:
+                if is_stream:
+                    self.sound = system.create_stream(file_path)
+                else:
+                    self.sound = system.create_sound(file_path)
+                    _sound_cache[filename] = self.sound
+                    self.cached = True
+                return True
+            except Exception as e:
+                print(f"FMOD failed to load from unpacked_sounds {filename}: {e}")
+
+        # Import pack dynamically to avoid circular import issues
+        from sound import pack
+        
+        if not pack.file_exists(filename) and not os.path.exists(filename):
+            return False
+            
+        file_path = filename
+        if pack.file_exists(filename):
+            extracted = pack.get_file(filename)
+            if extracted == False:
+                file_path = filename
+            elif isinstance(extracted, str):
+                file_path = os.path.join(DIRECTORY_TEMP, extracted)
+            else:
+                # Decrypt in memory
+                content = extracted.read() if hasattr(extracted, "read") else extracted
+                import globals as g
+                from security import string_decrypt
+                content = string_decrypt(content, g.sdeckey)
+                
+                # Check if it is a stream. If so, FMOD requires a temp file on disk (streams read dynamically).
+                # But if it is NOT a stream, we can load it directly from memory!
+                if not is_stream:
+                    try:
+                        exinfo = pyfmodex.structures.CREATESOUNDEXINFO()
+                        exinfo.cbsize = pyfmodex.structures.sizeof(exinfo)
+                        exinfo.length = len(content)
+                        self.sound = system.create_sound(content, mode=pyfmodex.flags.MODE.OPENMEMORY, exinfo=exinfo)
+                        self.usingpack = False
+                        _sound_cache[filename] = self.sound
+                        self.cached = True
+                        return True
+                    except Exception as e:
+                        print(f"FMOD failed to load sound from memory {filename}: {e}")
+                        # Fallback to temp file if memory loading fails
+                
+                temp_path = os.path.join(DIRECTORY_TEMP, filename)
+                temp_dir = os.path.dirname(temp_path)
+                if not os.path.exists(temp_dir):
+                    os.makedirs(temp_dir)
+                with open(temp_path, "wb") as f:
+                    f.write(content)
+                file_path = temp_path
+                self.usingpack = True
+        
+        try:
+            # Set 3D mode on creation if positioning is needed
+            if is_stream:
+                self.sound = system.create_stream(file_path)
+            else:
+                self.sound = system.create_sound(file_path)
+                _sound_cache[filename] = self.sound
+                self.cached = True
+            return True
+        except Exception as e:
+            print(f"FMOD failed to load sound {filename}: {e}")
+            return False
+
+    def play(self):
+        if not self.sound:
+            return False
+        try:
+            self.channel = self.sound.play()
+            self.paused = False
+            return True
+        except Exception as e:
+            print(f"FMOD failed to play sound: {e}")
+            return False
+
+    def play_looped(self):
+        if not self.sound:
+            return False
+        try:
+            # Configure sound to loop infinitely
+            self.sound.mode = pyfmodex.flags.MODE.LOOP_NORMAL
+            self.sound.loop_count = -1
+            self.channel = self.sound.play()
+            self.paused = False
+            return True
+        except Exception as e:
+            print(f"FMOD failed to play looped sound: {e}")
+            return False
+
+    def stop(self):
+        if self.channel:
+            try:
+                self.channel.stop()
+                return True
+            except:
+                pass
+        return False
+
+    def pause(self):
+        if self.channel:
+            try:
+                self.channel.paused = True
+                self.paused = True
+                return True
+            except:
+                pass
+        return False
+
+    def resume(self):
+        if self.channel:
+            try:
+                self.channel.paused = False
+                self.paused = False
+                return True
+            except:
+                pass
+        return False
+
     @property
-    def is_active(self): return False
+    def volume(self):
+        if self.channel:
+            try:
+                vol = self.channel.volume
+                if vol <= 0.0:
+                    return -100
+                return round(math.log10(vol) * 20)
+            except:
+                pass
+        return 0
+
+    @volume.setter
+    def volume(self, value):
+        if self.channel:
+            try:
+                vol = 10 ** (float(value) / 20)
+                if vol > 1.0:
+                    vol = 1.0
+                self.channel.volume = vol
+            except:
+                pass
+
+    @property
+    def pitch(self):
+        if self.channel:
+            try:
+                return self.channel.pitch * 100
+            except:
+                pass
+        return 100
+
+    @pitch.setter
+    def pitch(self, value):
+        if self.channel:
+            try:
+                self.channel.pitch = float(value) / 100
+            except:
+                pass
+
+    def set_3dposition(self, sound_x, sound_y, sound_z):
+        if self.channel:
+            try:
+                # Update mode to support 3D positioning
+                self.channel.mode = pyfmodex.flags.MODE.THREED
+                self.channel.position = [sound_x, sound_y, sound_z]
+                return True
+            except:
+                pass
+        return False
+
+    def close(self):
+        self.stop()
+        if self.sound and not getattr(self, "cached", False):
+            try:
+                self.sound.release()
+            except:
+                pass
+            self.sound = None
+        self.channel = None
+        if self.usingpack and self.internal_filename and not getattr(self, "cached", False):
+            temp_path = os.path.join(DIRECTORY_TEMP, self.internal_filename)
+            if os.path.exists(temp_path):
+                try:
+                    os.remove(temp_path)
+                except:
+                    pass
+
+    @property
+    def is_active(self):
+        return self.sound is not None
+
+def clear_sound_cache():
+    global _sound_cache
+    for filename, sound_obj in list(_sound_cache.items()):
+        try:
+            sound_obj.release()
+        except:
+            pass
+    _sound_cache.clear()

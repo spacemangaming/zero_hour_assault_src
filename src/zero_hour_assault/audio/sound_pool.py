@@ -715,6 +715,39 @@ class SoundPool:
         self.last_listener_y = listener_y
         self.last_listener_z = listener_z
         self.last_rotation = rotation
+
+        # Dynamic FMOD Echo Zone Update
+        try:
+            from map import get_echo_at
+            import fmod_audio
+            import sound
+            if fmod_audio.initialized and fmod_audio.echo_dsp is not None:
+                echo = get_echo_at(listener_x, listener_y, listener_z)
+                if echo is not None:
+                    fmod_audio.echo_dsp.bypass = False
+                    fmod_audio.echo_dsp.set_parameter_float(0, float(echo._delay * 1000.0))
+                    fmod_audio.echo_dsp.set_parameter_float(1, float(echo._feedback * 100.0))
+                    wet_vol = float(sound._to_db_volume(echo._feedback))
+                    fmod_audio.echo_dsp.set_parameter_float(3, wet_vol)
+                else:
+                    fmod_audio.echo_dsp.bypass = True
+        except Exception:
+            pass
+
+        # Dynamic FMOD Water Immersion Lowpass Filter Update
+        try:
+            from map import get_tile_at
+            import fmod_audio
+            if fmod_audio.initialized and fmod_audio.lowpass_dsp is not None:
+                tile = get_tile_at(listener_x, listener_y, listener_z)
+                if tile and "water" in tile.lower():
+                    fmod_audio.lowpass_dsp.bypass = False
+                    fmod_audio.lowpass_dsp.set_parameter_float(0, 1200.0) # Muffle cutoff frequency at 1.2 kHz
+                else:
+                    fmod_audio.lowpass_dsp.bypass = True
+        except Exception:
+            pass
+
         for i in self.items:
             i.update(listener_x, listener_y, listener_z, rotation, self.max_distance)
 

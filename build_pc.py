@@ -149,6 +149,18 @@ def main():
             shutil.copy(dll, os.path.join(release_dir, dll))
             shutil.copy(dll, os.path.join(internal_dir, dll))
 
+    # Copy FMOD DLLs from third_party/fmod/
+    fmod_src_dir = os.path.join("third_party", "fmod")
+    fmod_dlls = ["fmod.dll", "fmodstudio.dll"]
+    for dll in fmod_dlls:
+        src_dll = os.path.join(fmod_src_dir, dll)
+        if os.path.exists(src_dll):
+            shutil.copy(src_dll, os.path.join(release_dir, dll))
+            shutil.copy(src_dll, os.path.join(internal_dir, dll))
+            print(f"Bundled FMOD DLL: {dll}")
+        else:
+            print(f"Warning: FMOD DLL {src_dll} not found.")
+
     # Copy VC++ runtime DLLs from Python directory to prevent python312.dll loading crashes on clean systems
     search_dirs = [
         sys.base_exec_prefix,

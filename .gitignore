@@ -53,7 +53,8 @@ $RECYCLE.BIN/
 *.db
 
 # FMOD/Steam Audio native library binaries
-third_party/
+third_party/*
+!third_party/fmod/
 
 # Ignore all .dat files
 *.dat
