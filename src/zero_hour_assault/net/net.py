@@ -29,10 +29,12 @@ from map import load_map
 import sys
 g.compid=generate_computer_id()
 def login():
-	if netaddress not in ("localhost", "127.0.0.1"):
+	import os
+	if getattr(sys, "frozen", False) or os.environ.get("FORCE_UPDATE_CHECK") == "1":
 		try:
 			updater.check()
-		except: pass
+		except Exception:
+			pass
 	if(g.name=="" or g.password=="") or g.savemail=="":
 
 		dlg("An account is not established. Please set up or create an account if you have one.")

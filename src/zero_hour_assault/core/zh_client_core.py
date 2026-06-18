@@ -52,12 +52,12 @@ hq-mode=true""")
 		ctypes.windll.kernel32.ExitProcess(0)
 	set_sound_decryption_key("asdasdasdasasdasdsa1231232132112321321$$1231231231221321312%*]9CfY%!yfo?3.m]C16(VW:?DB:70v4n7d`tht}jiylhC%L&;ix(Y;9BB?`k-hYhR^=n%C;#kykxV?)GFbzC5x6R<-W?o<c|xQw")
 
-	try:
-		# Disabled for clean public source distribution
-		# updater.check()
-		# updater.sndcheck()
-		pass
-	except: pass
+	if getattr(sys, "frozen", False) or os.environ.get("FORCE_UPDATE_CHECK") == "1":
+		try:
+			updater.check()
+			updater.sndcheck()
+		except Exception:
+			pass
 	g.distpool.behind_pitch_decrease=5
 	g.distpool.max_distance=2000
 	g.p.behind_pitch_decrease=-5
