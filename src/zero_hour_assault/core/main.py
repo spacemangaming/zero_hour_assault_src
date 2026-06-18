@@ -6,7 +6,7 @@ if sys.platform != "win32":
     import ctypes
     class DummyFunc:
         def __call__(self, *args, **kwargs):
-            return 0
+            return self
         def __getattr__(self, name):
             return self
             
@@ -18,15 +18,25 @@ if sys.platform != "win32":
 
     if "wx" not in sys.modules:
         mock_wx = types.ModuleType("wx")
+        class MockWXClass(object):
+            def __init__(self, *args, **kwargs): pass
+            def __getattr__(self, name): return DummyFunc()
+            def __call__(self, *args, **kwargs): return self
         mock_wx.App = type("App", (object,), {"MainLoop": lambda self: None, "OnInit": lambda self: True})
-        mock_wx.Frame = type("Frame", (object,), {})
-        mock_wx.Panel = type("Panel", (object,), {})
+        mock_wx.Frame = MockWXClass
+        mock_wx.Panel = MockWXClass
+        mock_wx.StaticText = MockWXClass
+        mock_wx.TextCtrl = MockWXClass
         mock_wx.TextEntryDialog = type("TextEntryDialog", (object,), {"ShowModal": lambda self: 5101, "GetValue": lambda self: ""})
         mock_wx.MessageDialog = type("MessageDialog", (object,), {"ShowModal": lambda self: 5101})
         mock_wx.Timer = type("Timer", (object,), {"Start": lambda self, *args: None, "Bind": lambda self, *args: None, "Destroy": lambda self: None})
         mock_wx.EVT_TIMER = None
         mock_wx.EVT_KEY_DOWN = None
         mock_wx.EVT_CHAR = None
+        mock_wx.TE_PASSWORD = 0
+        mock_wx.TE_MULTILINE = 0
+        mock_wx.WXK_ESCAPE = 0
+        mock_wx.WXK_RETURN = 0
         mock_wx.ID_OK = 5100
         mock_wx.ID_CANCEL = 5101
         sys.modules["wx"] = mock_wx
@@ -101,7 +111,7 @@ import urllib.request
 import hashlib
 os.environ["PAFY_BACKEND"] = "internal"
 
-if hasattr(sys,"frozen"):
+if hasattr(sys,"frozen") and sys.platform == "win32":
 	internal_dir = os.path.join(os.path.dirname(sys.executable), "_internal")
 	for file in os.listdir(internal_dir):
 		if file.endswith(".py"):

@@ -30,7 +30,7 @@ import sys
 g.compid=generate_computer_id()
 def login():
 	import os
-	if getattr(sys, "frozen", False) or os.environ.get("FORCE_UPDATE_CHECK") == "1":
+	if (getattr(sys, "frozen", False) or os.environ.get("FORCE_UPDATE_CHECK") == "1") and sys.platform == "win32":
 		try:
 			updater.check()
 		except Exception:

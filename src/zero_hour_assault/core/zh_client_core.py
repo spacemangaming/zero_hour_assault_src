@@ -49,10 +49,13 @@ hq-mode=true""")
 	if compiled and check_if_already_running():
 		dlg("You cannot open the game twice")
 		pygame.quit()
-		ctypes.windll.kernel32.ExitProcess(0)
+		if sys.platform == "win32":
+			ctypes.windll.kernel32.ExitProcess(0)
+		else:
+			sys.exit(0)
 	set_sound_decryption_key("asdasdasdasasdasdsa1231232132112321321$$1231231231221321312%*]9CfY%!yfo?3.m]C16(VW:?DB:70v4n7d`tht}jiylhC%L&;ix(Y;9BB?`k-hYhR^=n%C;#kykxV?)GFbzC5x6R<-W?o<c|xQw")
 
-	if getattr(sys, "frozen", False) or os.environ.get("FORCE_UPDATE_CHECK") == "1":
+	if (getattr(sys, "frozen", False) or os.environ.get("FORCE_UPDATE_CHECK") == "1") and sys.platform == "win32":
 		try:
 			updater.check()
 			updater.sndcheck()
@@ -133,10 +136,11 @@ hq-mode=true""")
 	opus_encoder.complexity=0
 
 
-	if is_vm():
-		ctypes.windll.user32.MessageBoxW(None,"This game cannot run in virtual machines.","Error",16); sys.exit()
-	if file_get_hash_sha256(("anticheat.dll" if not hasattr(sys,"frozen") else "_internal/anticheat.dll"))!="bff167f0933774f2de3e9f408ed119dd050ec0dfbebda5354dc6ea9be5ea1141":
-		ctypes.windll.user32.MessageBoxW(None,"Game files have been tampered with. Please redownload the game.","Error",16); ctypes.windll.kernel32.ExitProcess(0)
+	if sys.platform == "win32":
+		if is_vm():
+			ctypes.windll.user32.MessageBoxW(None,"This game cannot run in virtual machines.","Error",16); sys.exit()
+		if file_get_hash_sha256(("anticheat.dll" if not hasattr(sys,"frozen") else "_internal/anticheat.dll"))!="bff167f0933774f2de3e9f408ed119dd050ec0dfbebda5354dc6ea9be5ea1141":
+			ctypes.windll.user32.MessageBoxW(None,"Game files have been tampered with. Please redownload the game.","Error",16); ctypes.windll.kernel32.ExitProcess(0)
 	getmotd()
 	#get_input(" ","",True,False)
 	pygame.display.set_caption("Zero hour assault "+g.ver)

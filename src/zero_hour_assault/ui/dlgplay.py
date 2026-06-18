@@ -1,4 +1,4 @@
-﻿from sound import sound
+from sound import sound
 from events import process_events, key_pressed
 from pygame.locals import *
 dlgaudio=sound()

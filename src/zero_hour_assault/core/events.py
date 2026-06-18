@@ -445,7 +445,10 @@ def process_events():
 			g.writeprefs(); g.reset()
 
 			pygame.quit()
-			ctypes.windll.kernel32.ExitProcess(0)
+			if sys.platform == "win32":
+				ctypes.windll.kernel32.ExitProcess(0)
+			else:
+				sys.exit(0)
 			break
 		if event.type == pygame.KEYDOWN:
 			#g.sral.SRAL_StopSpeech()

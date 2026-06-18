@@ -25,9 +25,14 @@ def exit():
     g.exiting=True
     speech.speak("Exiting ...")
     g.delay(1700)
-    ctypes.windll.kernel32.ExitProcess(0)
+    if sys.platform == "win32":
+        ctypes.windll.kernel32.ExitProcess(0)
+    else:
+        sys.exit(0)
 
 def is_game_window_active():
+    if sys.platform != "win32":
+        return True
     if g.window_handle is None: g.window_handle=pygame.display.get_wm_info()["window"]
     return ctypes.windll.user32.GetForegroundWindow()==g.window_handle
 
