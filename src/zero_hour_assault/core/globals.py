@@ -60,7 +60,7 @@ w2=0
 creating=False
 x=False
 connected=False
-ver="3.01"
+ver="beta1"
 name=""
 password=""
 facing=0
@@ -302,3 +302,6 @@ font=None
 title_font=None
 tile_count=0
 tiletimer=timer()
+tracked_boss=None   # set by boss_pos packet; used by visual_hud minimap
+ambs=[]             # populated by source.py on map load
+visual_mode=0       # 1 = sighted mode: TTS disabled, minimap always on

@@ -1,6 +1,6 @@
 [project]
 name = "zero-hour-assault"
-version = "3.01"
+version = "beta1"
 description = "Zero Hour Assault - Cleaned public source release"
 readme = "README.md"
 requires-python = ">=3.12,<3.13"
@@ -29,6 +29,8 @@ dependencies = [
     "py-spy>=0.4.2",
     "websockets>=12.0",
     "websocket-client>=1.8.0",
+    "scp>=0.16.0",
+    "flask>=3.0.0",
 ]
 
 [tool.setuptools]
