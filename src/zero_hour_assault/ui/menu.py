@@ -173,6 +173,7 @@ def option():
 		("windowa", "awindow", "muting of speech and audio when the game window is not in focus"),
 		("mapmusicarea", "musicplayinthemap", "Play match-specific music in the game"),
 		("weaponscope", "scope", "scope"),
+		("visualmode", "visual_mode", "Visual Mode (disables TTS, always shows minimap — for sighted players)"),
 	]
 
 	for option_name, attribute, description in toggle_options:
@@ -234,6 +235,7 @@ def toggle_option(option_name):
 		"windowa": "awindow",
 		"mapmusicarea": "musicplayinthemap",
 		"weaponscope": "scope",
+		"visualmode": "visual_mode",
 	}
 
 	if option_name in option_map:
@@ -243,6 +245,19 @@ def toggle_option(option_name):
 		setattr(g, attribute, new_value)
 		action = "enabled" if new_value == 1 else "disabled"
 		speak(action)
+		# Show on-screen confirmation for visual_mode (TTS may now be silenced)
+		if option_name == "visualmode" and g.screen is not None:
+			try:
+				g.screen.fill((10, 20, 40))
+				_f = pygame.font.SysFont("segoeui", 32, bold=True)
+				_msg = "Visual Mode enabled!" if new_value == 1 else "Visual Mode disabled — audio mode active."
+				_s = _f.render(_msg, True, (79, 195, 247) if new_value == 1 else (251, 146, 60))
+				_sw, _sh = g.screen.get_size()
+				g.screen.blit(_s, ((_sw - _s.get_width()) // 2, (_sh - _s.get_height()) // 2))
+				pygame.display.flip()
+				pygame.time.wait(1200)
+			except Exception:
+				pass
 		g.writeprefs()
 		update_menu_item(option_name, new_value)
 

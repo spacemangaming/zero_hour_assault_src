@@ -316,9 +316,8 @@ def _reload(index):
 def _log_edit(admin_name, category, item_key, field_key, new_value):
     line = f"[DATA_EDIT] {admin_name} set {category}/{item_key}.{field_key} = {new_value}"
     try:
-        with open("data_edits.log", "a") as f:
-            import datetime
-            f.write(f"{datetime.datetime.now().isoformat()}  {line}\n")
+        import datetime
+        file_put_contents("data_edits.log", f"{datetime.datetime.now().isoformat()}  {line}\n", "a")
     except Exception:
         pass
     for p in g.players:
@@ -354,6 +353,8 @@ def _get_data(category, item_key):
     if category == "ranks":
         try: return data_loader._ranks[int(item_key)]
         except Exception: return {}
+    if category == "match_modes":
+        return data_loader.get_match_mode(item_key)
     return {}
 
 # ---------------------------------------------------------------------------
@@ -366,6 +367,7 @@ def _send_main_menu(index):
     m.intro = "Data Editor - choose a category"
     m.add(f"Weapons ({len(data_loader._weapons)} entries)", "weapons", True)
     m.add(f"Characters ({len(data_loader._characters)} entries)", "characters", True)
+    m.add(f"Match Modes ({len(data_loader.get_all_match_modes())} entries)", "match_modes", True)
     m.add("Zombie stats", "zombie", True)
     m.add("Chest pool & config", "chest", True)
     m.add("Loot table", "loot", True)
@@ -476,6 +478,11 @@ def _send_item_list(index, category):
         for key in sorted(data_loader._characters.keys()):
             m.add(key, key, True)
         m.add("-- Add new character --", "__add__", True)
+    elif category == "match_modes":
+        m.intro = "Match Modes - select one to edit, or add new"
+        for key in sorted(data_loader.get_all_match_modes().keys()):
+            m.add(key, key, True)
+        m.add("-- Add new match mode --", "__add__", True)
     elif category == "ranks":
         m.intro = "Ranks - select one to edit, or add new"
         for i, r in enumerate(data_loader._ranks):
@@ -563,7 +570,7 @@ def _prompt_new_key(index, cat):
     ctx = _player_ctx(index)
     ctx["field_key"] = "_newkey"
     ctx["awaiting_input"] = True
-    label = "weapon" if cat == "weapons" else "character"
+    label = "weapon" if cat == "weapons" else ("character" if cat == "characters" else "match mode")
     _deinput(g.players[index].peer_id, "_newkey", f"Enter key name for new {label} (no spaces)")
 
 def _prompt_new_rank_score(index):
@@ -868,6 +875,23 @@ def _apply_edit(index, new_value_str):
             if os.path.exists(_data_path(rel)):
                 g.n.send_reliable(pid, f"Character '{key}' already exists.", 0); _send_item_list(index, category); return
             _save_json(rel, dict(_DEFAULT_CHARACTER))
+        elif category == "match_modes":
+            rel = "match_modes.json"
+            obj = _load_json(rel)
+            if obj is None:
+                g.n.send_reliable(pid, "Error loading match_modes.json", 0); return
+            if key in obj:
+                g.n.send_reliable(pid, f"Match mode '{key}' already exists.", 0); _send_item_list(index, category); return
+            obj[key] = {
+                "display_name": key.replace("_", " "),
+                "map": "main",
+                "team_based": True,
+                "allow_bots": True,
+                "use_helicopter": False,
+                "min_size": 1,
+                "max_size": 5
+            }
+            _save_json(rel, obj)
         _reload(index); _log_edit(admin, category, key, "(created)", "new")
         g.n.send_reliable(pid, f"Created '{key}' with default values.", 0)
         ctx["item_key"] = key; ctx["field_key"] = None; ctx["awaiting_input"] = False
@@ -1008,6 +1032,16 @@ def _apply_edit(index, new_value_str):
         if obj is None:
             g.n.send_reliable(pid, f"Error loading {rel}", 0); return
         obj[field_key] = _coerce(new_value_str, obj.get(field_key)); _save_json(rel, obj)
+
+    elif category == "match_modes":
+        rel = "match_modes.json"
+        obj = _load_json(rel)
+        if obj is None:
+            g.n.send_reliable(pid, "Error loading match_modes.json", 0); return
+        if item_key not in obj:
+            g.n.send_reliable(pid, f"Unknown match mode: {item_key}", 0); return
+        obj[item_key][field_key] = _coerce(new_value_str, obj[item_key].get(field_key))
+        _save_json(rel, obj)
 
     elif category == "zombie":
         rel = "zombies/zombie.json"
@@ -1213,7 +1247,7 @@ def handle_data_editor(e, parsed, index):
         if choice in ("zombie", "chest", "loot"):
             ctx["item_key"] = choice
             _send_field_list(index, choice, choice)
-        elif choice in ("ranks", "weapons", "characters"):
+        elif choice in ("ranks", "weapons", "characters", "match_modes"):
             _send_item_list(index, choice)
         elif choice == "announcements":
             _send_announcements_main_menu(index)

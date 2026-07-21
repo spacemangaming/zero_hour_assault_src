@@ -635,7 +635,7 @@ def get_base_count(grp):
 
 
 def update_char_counter(file):
-	chars=os.listdir("chars")
+	chars=find_directories("chars")
 	for char in chars:
 		charfolder=os.path.join("chars",char)
 		if get_player_index_from(char)!=-1: continue

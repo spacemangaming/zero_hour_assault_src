@@ -930,6 +930,37 @@ def handle_gameplay_3(e, parsed, index):
 		if(index>-1):
 			g.players[index].in_match_menu=False
 			name=g.players[index].name
+			if parsed[1]=="megaboss":
+				if not getattr(g, "mega_boss_alive", False):
+					g.n.send_reliable(e.peer_id, "The Mega Boss has already been defeated!", 0)
+					return
+				g.players[index].matchmode=""
+				# Keep dontlose items, clear the rest
+				j = g.players[index]
+				item_map = {item: j.get_item_count(item) for item in g.dontlose if j.get_item_count(item) > 0}
+				j.inv = dict()
+				for item, amt in item_map.items():
+					j.give(item, amt)
+				g.n.send_reliable(e.peer_id, "stopmoving", 0)
+				g.n.send_reliable(e.peer_id, "play_s important.ogg", 0)
+				delay(1000)
+				index = g.get_player_index_from(name)
+				if index > -1:
+					move_player(index, 100, 100, 0, "megaboss", True)
+					g.n.send_reliable(g.players[index].peer_id, "startmoving", 0)
+					# Give loadout for the boss fight
+					p = g.players[index]
+					p.give("dragunov_psl", 1)       # 80-99 dmg, range 100 — primary damage dealer
+					p.give("mkek_jng90", 1)          # 50-95 dmg, range 70 — secondary sniper
+					p.give("7.62x51mm", 250)          # shared ammo for both snipers
+					p.give("mkek_mpt76k", 1)          # 10-15 dmg auto — sustained fire
+					p.give("5.56x45mm", 400)
+					p.give("berettaM9", 1)            # sidearm
+					p.give("9mm", 150)
+					p.give("vitality_potion", 8)
+					p.give("revival_nectar", 4)
+					g.n.send_reliable(g.players[index].peer_id, "You've been given a combat loadout. Good luck! Hit the boss 5 times to earn a weapon_spawner!", 2)
+				return
 			if parsed[1]=="watch":
 				if get_player_count_in_freedom()<=0:
 					g.n.send_reliable(e.peer_id,"No one on freedom fight map",0); g.players[index].prevmenu(); return
@@ -1108,30 +1139,10 @@ def handle_gameplay_3(e, parsed, index):
 				m=server_menu()
 				m.intro="Select match mode"
 				m.initial_packet="matchpublic"
-				m.add("Team dead match","teamd")
-				m.add("Knife fight match teamed","teamk")
-				m.add("Knife fight match not teamed","teamk2")
-				m.add("hand to hand combat teamed","teamf")
-				m.add("hand to hand combat not teamed","teamf2")
-
-				m.add("Snowflake survival teamed","teamsnow")
-				m.add("Snowflake survival not teamed","snow")
-				m.add("Sniper duel teamed","teamsniper")
-				m.add("Sniper duel not teamed","sniper")
-				m.add("Zombie survival","teamz")
-				m.add("Zombie vs player","teamz2")
-				m.add("Explosive battle teamed","teamg")
-				m.add("Explosive battle not teamed","g")
-				m.add("Abyss Clash teamed","teamg2")
-				m.add("Abyss Clash not teamed","g2")
-				m.add("Sword duel teamed","teamsword")
-				m.add("Sword duel not teamed","sword")
-				m.add("Collector's arena teamed","teamcollect")
-				m.add("Collector's arena not teamed","collect")
-				m.add("Capture the flag","teamc")
-				m.add("Last man standing","teaml")
-				#m.add("Medieval combat teamed","teamminecraft")
-				#m.add("Medieval combat not teamed","minecraft")
+				import data_loader
+				modes = data_loader.get_all_match_modes()
+				for mode_key, mode_conf in sorted(modes.items()):
+					m.add(mode_conf.get("display_name", mode_key), mode_key)
 				m.send(e.peer_id)
 				return
 	elif parsed[0]=="matchpublic" and len(parsed)>1:
@@ -1147,15 +1158,18 @@ def handle_gameplay_3(e, parsed, index):
 		m.intro="Select the match type"
 		m.initial_packet="matchmodepublic"
 
-		member_based_modes = {"snow", "sniper", "teamk2", "teamf2", "sword", "collect", "g2", "g", "teaml", "minecraft"}
-		team_based_modes = {"teamminecraft", "teamg2", "teamg"}
-
-		if g.players[index].mmode in member_based_modes:
-			for i in range(2,11):
-				m.add(f"{i} members", str(i))
-		elif g.players[index].mmode in team_based_modes:
-			for i in range(1,6):
-				m.add(f"{i} vs {i}", str(i))
+		import data_loader
+		mode_config = data_loader.get_match_mode(g.players[index].mmode)
+		if mode_config:
+			is_team = mode_config.get("team_based", True)
+			min_size = mode_config.get("min_size", 1 if is_team else 2)
+			max_size = mode_config.get("max_size", 5 if is_team else 10)
+			if is_team:
+				for i in range(min_size, max_size + 1):
+					m.add(f"{i} vs {i}", str(i))
+			else:
+				for i in range(min_size, max_size + 1):
+					m.add(f"{i} members", str(i))
 		else:
 			for i in range(1,6):
 				m.add(f"{i} vs {i}", str(i))
@@ -1175,11 +1189,16 @@ def handle_gameplay_3(e, parsed, index):
 				g.n.send_reliable(g.players[index].peer_id,"canceled",0)
 				return
 			g.players[index].matchtypeamount=parsed[1]
-			if g.players[index].mmode=="teamc":
+			
+			import data_loader
+			mode_config = data_loader.get_match_mode(g.players[index].mmode)
+			allow_bots = mode_config.get("allow_bots", True) if mode_config else True
+			if not allow_bots:
 				for m in g.matches:
 					if m.owner==g.players[index].name: send_reliable(e.peer_id,"The match you created before didn't end yet, please wait for it to end before you can create a new match.",0); return
 				newmatch(g.players[index].name,g.players[index].matchtypeamount,g.players[index].mmode,"",0)
 				return
+
 			m=server_menu()
 			m.initial_packet="matchmodepublicbot"
 			m.intro="Would you like to add bot in this match"
@@ -1197,30 +1216,10 @@ def handle_gameplay_3(e, parsed, index):
 			m=server_menu()
 			m.intro="You choosed to be private match. Select match mode"
 			m.initial_packet="matchprivate"
-			m.add("Team dead match","teamd")
-			m.add("hand to hand combat teamed","teamf")
-			m.add("hand to hand combat not teamed","teamf2")
-
-			m.add("Knife fight match teamed","teamk")
-			m.add("Knife fight match not teamed","teamk2")
-			m.add("Snowflake survival teamed","teamsnow")
-			m.add("Snowflake survival not teamed","snow")
-			m.add("Sniper duel teamed","teamsniper")
-			m.add("Sniper duel not teamed","sniper")
-			m.add("Zombie survival","teamz")
-			m.add("Zombie vs player","teamz2")
-			m.add("Explosive battle teamed","teamg")
-			m.add("Explosive battle not teamed","g")
-			m.add("Abyss Clash teamed","teamg2")
-			m.add("Abyss Clash not teamed","g2")
-			m.add("Sword duel teamed","teamsword")
-			m.add("Sword duel not teamed","sword")
-			m.add("Collector's arena teamed","teamcollect")
-			m.add("Collector's arena not teamed","collect")
-			m.add("Capture the flag","teamc")
-			m.add("Last man standing","teaml")
-			#m.add("Medieval combat teamed","teamminecraft")
-			#m.add("Medieval combat not teamed","minecraft")
+			import data_loader
+			modes = data_loader.get_all_match_modes()
+			for mode_key, mode_conf in sorted(modes.items()):
+				m.add(mode_conf.get("display_name", mode_key), mode_key)
 			m.send(e.peer_id)
 			return
 	elif parsed[0]=="matchprivate" and len(parsed)>1:
@@ -1237,18 +1236,21 @@ def handle_gameplay_3(e, parsed, index):
 		m.intro="Select the match type"
 		m.initial_packet="matchmodeprivate"
 
-		member_based_modes = {"snow", "sniper", "teamk2", "teamf2", "sword", "g2", "g", "teaml", "collect", "minecraft"}
-		team_based_modes = {"teamminecraft", "teamg2", "teamg"}
-
-		if g.players[index].mmode in member_based_modes:
-			for i in range(2,11):
-				m.add(f"{i} members",str(i))
-		elif g.players[index].mmode in team_based_modes:
-			for i in range(1,6):
-				m.add(f"{i} vs {i}",str(i))
+		import data_loader
+		mode_config = data_loader.get_match_mode(g.players[index].mmode)
+		if mode_config:
+			is_team = mode_config.get("team_based", True)
+			min_size = mode_config.get("min_size", 1 if is_team else 2)
+			max_size = mode_config.get("max_size", 5 if is_team else 10)
+			if is_team:
+				for i in range(min_size, max_size + 1):
+					m.add(f"{i} vs {i}", str(i))
+			else:
+				for i in range(min_size, max_size + 1):
+					m.add(f"{i} members", str(i))
 		else:
 			for i in range(1,6):
-				m.add(f"{i} vs {i}",str(i))
+				m.add(f"{i} vs {i}", str(i))
 
 		m.send(e.peer_id)
 		return

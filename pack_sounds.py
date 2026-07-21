@@ -6,6 +6,7 @@ import os
 script_dir = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(script_dir, "src"))
 sys.path.insert(0, os.path.join(script_dir, "src", "zero_hour_assault"))
+sys.path.insert(0, os.path.join(script_dir, "src", "zero_hour_assault", "utils"))
 
 from pack_file import pack_file
 from security import file_encrypt

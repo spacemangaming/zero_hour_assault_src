@@ -89,12 +89,9 @@ def bilet_cevapla(soru):
 
 
 def adminsend(mesaj):
-	if file_exists("adminlog.txt")==False:
-		f=open("adminlog.txt","w")
-		f.close()
-	f=open("adminlog.txt","a")
-	f.write(""+mesaj+", "+get_date()+", "+get_time(True, True)+"\n")
-	f.close()
+	import db as _db
+	existing = _db.sv_read_text("adminlog.txt", "")
+	_db.sv_write_text("adminlog.txt", existing + ""+mesaj+", "+get_date()+", "+get_time(True, True)+"\n")
 	for i in g.players:
 		if i.is_admin()==True or i.dev==True or i.moderator==True:
 			g.n.send_reliable(i.peer_id,"play_s misc205.ogg",0)
@@ -102,12 +99,9 @@ def adminsend(mesaj):
 
 
 def adminsend2(mesaj):
-	if file_exists("adminlog.txt")==False:
-		f=open("adminlog.txt","w")
-		f.close()
-	f=open("adminlog.txt","a")
-	f.write(""+mesaj+", "+get_date()+", "+get_time(True, True)+"\n")
-	f.close()
+	import db as _db
+	existing = _db.sv_read_text("adminlog.txt", "")
+	_db.sv_write_text("adminlog.txt", existing + ""+mesaj+", "+get_date()+", "+get_time(True, True)+"\n")
 	for i in g.players:
 		if i.is_admin()==True or i.dev==True or i.moderator==True:
 			g.n.send_reliable(i.peer_id,"play_s misc205.ogg",0)
@@ -131,9 +125,7 @@ def get_time(twelvehour=True, include_seconds=True):
 def developersend(mesaj):
 	if 1:
 		data=file_get_contents("error.log")
-		f=open("error.log","a")
-		if not string_contains(data,mesaj,1)>-1: f.write(""+mesaj+"")
-		f.close()
+		if not string_contains(data,mesaj,1)>-1: file_put_contents("error.log", ""+mesaj+"", "a")
 		for i in range(len(g.players)):
 			if g.players[i].dev==True:
 #				g.n.send_reliable(g.players[i].peer_id,"play_s admchat.ogg",0)
@@ -282,23 +274,23 @@ def get_leader_hit_player(b):
 def load_store_data(filename="store.txt"):
 	data = []
 	try:
-		if not os.path.exists(filename):
+		raw = file_get_contents(filename)
+		if not raw:
 			print(f"[store_loader] File not found: {filename}")
 			return []
-		with open(filename, 'r', encoding='utf-8', errors='ignore') as file:
-			for line in file:
-				clean_line = line.strip()
-				if not clean_line or clean_line.startswith("#"):
-					continue
-				item_info = clean_line.split(':', 3)
-				if len(item_info) == 4:
-					item_dict = {
-						"name": item_info[0].strip(),
-						"price": item_info[1].strip(),
-						"category": item_info[2].strip(),
-						"description": item_info[3].strip()
-					}
-					data.append(item_dict)
+		for line in raw.splitlines():
+			clean_line = line.strip()
+			if not clean_line or clean_line.startswith("#"):
+				continue
+			item_info = clean_line.split(':', 3)
+			if len(item_info) == 4:
+				item_dict = {
+					"name": item_info[0].strip(),
+					"price": item_info[1].strip(),
+					"category": item_info[2].strip(),
+					"description": item_info[3].strip()
+				}
+				data.append(item_dict)
 		print(f"[store_loader] Successfully loaded {len(data)} items from {filename}.")
 	except Exception as e:
 		print(f"[store_loader] Error loading {filename}: {e}")
@@ -309,22 +301,22 @@ def load_store_data(filename="store.txt"):
 def load_event_store_data(filename="event_store.txt"):
 	data = []
 	try:
-		if not os.path.exists(filename):
+		raw = file_get_contents(filename)
+		if not raw:
 			print(f"[store_loader] File not found: {filename}")
 			return []
-		with open(filename, 'r', encoding='utf-8', errors='ignore') as file:
-			for line in file:
-				clean_line = line.strip()
-				if not clean_line or clean_line.startswith("#"):
-					continue
-				item_info = clean_line.split(':', 2)
-				if len(item_info) == 3:
-					item_dict = {
-						"name": item_info[0].strip(),
-						"price": item_info[1].strip(),
-						"description": item_info[2].strip()
-					}
-					data.append(item_dict)
+		for line in raw.splitlines():
+			clean_line = line.strip()
+			if not clean_line or clean_line.startswith("#"):
+				continue
+			item_info = clean_line.split(':', 2)
+			if len(item_info) == 3:
+				item_dict = {
+					"name": item_info[0].strip(),
+					"price": item_info[1].strip(),
+					"description": item_info[2].strip()
+				}
+				data.append(item_dict)
 		print(f"[store_loader] Successfully loaded {len(data)} items from {filename}.")
 	except Exception as e:
 		print(f"[store_loader] Error loading {filename}: {e}")
@@ -755,7 +747,7 @@ def convert_size_bit(size, return_long_unit=False):
 
 def get_language_used_count(lng):
 	ret=0
-	for char in os.listdir("chars"):
+	for char in find_directories("chars"):
 		if file_get_contents("chars/"+char+"/lang.usr")==lng: ret+=1
 		if file_get_contents("chars/"+char+"/lang.usr")=="" and lng=="English": ret+=1
 	return str(ret)

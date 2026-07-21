@@ -199,6 +199,7 @@ class npc:
 
 		self.range = hitrange
 		self.health = maxhealth
+		self.maxhealth = maxhealth
 		self.deathsound = deathsound
 		self.deathsoundamount = deathsoundamount
 		self.attacktime = shoottime
@@ -1284,6 +1285,30 @@ def npcloop(npc_loop=""):
 						g.players[p].fivecount=True
 
 			g.n.broadcast("offline2 "+str(g.npcs[i].x)+" "+str(g.npcs[i].y)+" "+str(g.npcs[i].z)+" "+g.npcs[i].soundname,0)
+			if g.npcs[i].matchmode == "teamc":
+				g.npcs[i].health = g.npcs[i].maxhealth
+				g.npcs[i].dying = False
+				g.npcs[i].fulldied = False
+				g.npcs[i].x = random(0, 100)
+				g.npcs[i].y = random(0, 100)
+				g.npcs[i].z = 0
+				g.npcs[i].inv = dict()
+				g.npcs[i].ammo = {}
+				loadout = data_loader.get_npc_loadout(g.npcs[i].matchmode)
+				if loadout.get("weapons"):
+					if loadout["weapons"] == ["random"]:
+						g.npcs[i].randomweapongive()
+					else:
+						for w in loadout["weapons"]:
+							g.npcs[i].give(w, 1)
+							wdata = data_loader.get_weapon(w)
+							if wdata.get("ammo_type"):
+								g.npcs[i].give(wdata["ammo_type"], wdata.get("mag_size", 0) * 4)
+				if loadout.get("items"):
+					for item, count in loadout["items"].items():
+						g.npcs[i].give(item, count)
+				g.n.broadcast("update_player " + str(g.npcs[i].x) + " " + str(g.npcs[i].y) + " " + str(g.npcs[i].z) + " " + g.npcs[i].map+" "+g.npcs[i].name+" "+str(g.npcs[i].facing), 20)
+				return
 			g.npcs.remove(g.npcs[i])
 			return
 def destroy_all_npcs():

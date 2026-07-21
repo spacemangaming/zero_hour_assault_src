@@ -15,6 +15,8 @@ except OSError:
     _sral_available = False
 
 def speak(text, interrupt=True, forceinterrupt=True):
+    if getattr(g, "visual_mode", 0):
+        return False   # TTS silenced in visual mode
     if not _sral_available:
         return False
     text = str(text)

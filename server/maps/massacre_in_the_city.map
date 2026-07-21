@@ -1,119 +1,488 @@
 mapname:massacre_in_the_city
-maxx:1000
+maxx:2000
 maxy:1000
 maxz:10000
 
-platform:0:1000:0:249:0:0:grass3
-zone:300:400:731:731:121:143:Hospital stairs:trackable
-zone:0:1000:0:1000:0:10000:a huge city
-amb:0:1000:0:1000:-20:10000:birds7.ogg:-10
-platform:0:1000:100:125:0:0:concrete6
-zone:0:1000:100:125:0:10:main street of city:trackable
-platform:0:1000:126:130:0:0:concrete9
-zone:0:1000:126:130:0:10:front of houses:trackable
-platform:45:55:131:141:0:0:hardwood4
-zone:45:55:131:141:0:10:james's_house:trackable
-platform:44:44:131:141:0:10:wallbuilding3
-platform:56:56:131:141:0:10:wallbuilding3
-platform:44:56:142:142:0:10:wallbuilding3
-platform:45:55:131:141:10:10:walldoor3
-platform:86:96:131:141:0:0:carpet
-zone:86:96:131:141:0:10:Olivia's_house:trackable
-platform:85:85:131:141:0:10:wallbuilding
-platform:97:97:131:141:0:10:wallbuilding
-platform:85:97:142:142:0:10:wallbuilding
-platform:86:96:131:141:10:10:wallbars
-platform:150:160:131:141:0:0:carpet2
-zone:150:160:131:141:0:10:Benjamin's_house:trackable
-platform:149:149:131:141:0:10:wallbuilding
-platform:161:161:131:141:0:10:wallbuilding
-platform:149:161:142:142:0:10:wallbuilding
-platform:150:160:131:141:10:10:wallcar2
-platform:200:210:131:141:0:0:carpet4
-zone:200:210:131:141:0:10:Emily's_house:trackable
-platform:199:199:131:141:0:10:wallbuilding
-platform:211:211:131:141:0:10:wallbuilding
-platform:199:211:142:142:0:10:wallbuilding
-platform:200:210:131:141:10:10:wallbuilding3
-platform:236:246:131:141:0:0:cloth
-zone:236:246:131:141:0:10:Michael's house:trackable
-platform:235:235:131:141:0:10:wallbigmetal2
-platform:247:247:131:141:0:10:wallbigmetal2
-platform:235:247:142:142:0:10:wallbigmetal2
-platform:236:246:131:141:10:10:wallboard
-platform:270:280:131:141:0:0:concrete26
-zone:270:280:131:141:0:10:William's_house:trackable
-platform:269:269:131:141:0:10:wallbuilding
-platform:281:281:131:141:0:10:wallbuilding
-platform:269:281:142:142:0:10:wallbuilding
-platform:270:280:131:141:10:10:wallboard
-platform:300:310:131:141:0:0:cement4
-zone:300:310:131:141:0:10:BarryAllen's_house:trackable
-platform:299:299:131:141:0:10:wallbuilding3
-platform:311:311:131:141:0:10:wallbuilding3
-platform:299:311:142:142:0:10:wallbuilding3
-platform:300:310:131:141:10:10:wallbigmetal2
-platform:336:346:131:141:0:0:carpet2
-zone:336:346:131:141:0:10:metehan's_house:trackable
-platform:335:335:131:141:0:10:wallboard
-platform:347:347:131:141:0:10:wallboard
-platform:335:347:142:142:0:10:wallboard
-platform:336:346:131:141:10:10:wallbars
-platform:370:385:131:146:0:0:concrete7
-platform:369:369:131:146:0:10:wallboard
-platform:386:386:131:146:0:10:wallboard
-platform:369:386:147:147:0:10:wallboard
-zone:370:386:131:146:0:10:tavern:trackable
-platform:400:410:131:141:0:0:concrete6
-platform:370:380:131:146:10:10:wallbars
-zone:400:410:131:141:0:10:It's an abandoned, ruined nightclub with some dead bodies around, all of them holding beer bottles in their hands, hmm, that's interesting.:trackable
-platform:399:399:131:141:0:10:wallbarrel
-platform:411:411:131:141:0:10:wallbarrel
-platform:399:411:142:142:0:10:wallbarrel
-platform:400:410:131:141:10:10:walldebris3
-platform:440:450:131:141:0:0:concrete
-zone:440:450:131:141:0:10:Grace's_house, this is a killer's house:trackable
-platform:439:439:131:141:0:10:walldebris4
-platform:451:451:131:142:0:10:walldebris4
-platform:439:451:142:142:0:10:walldebris4
-platform:440:450:131:141:10:10:walldebris3
-platform:500:1000:131:134:0:0:concrete28
-zone:500:1000:131:134:0:10:bike path:trackable
-platform:0:1000:260:1000:0:0:grass3
-platform:0:1000:250:259:-5:-5:water
-platform:0:1000:249:249:-5:-1:wallstone
-platform:0:1000:260:260:-5:-1:wallstone
-zone:0:1000:250:259:-5:-1:A liquid city stream made of raindrops:trackable
-src:0:1000:250:260:-5:0:water_ambience2.ogg:-5
-platform:36:40:250:259:0:0:concrete7
-zone:36:40:250:259:0:10:driveway, 1:trackable
-platform:60:70:250:259:0:0:concrete7
-zone:60:70:250:259:0:10:driveway, 2:trackable
-platform:100:110:250:259:0:0:concrete7
-zone:100:110:250:259:0:10:driveway, 3:trackable
-platform:150:160:250:259:0:0:concrete7
-zone:150:160:250:259:0:10:driveway, 4:trackable
-platform:200:210:250:259:0:0:concrete7
-zone:200:210:250:259:0:10:driveway, 5:trackable
-platform:250:260:250:260:0:0:concrete7
-zone:250:260:250:259:0:10:driveway, 6:trackable
-platform:300:310:250:259:0:0:concrete7
-zone:300:310:250:259:0:10:driveway, 7:trackable
-platform:350:360:250:259:0:0:concrete7
-zone:350:360:250:259:0:10:driveway, 7:trackable
-platform:400:410:250:259:0:0:concrete7
-zone:400:410:250:259:0:10:driveway, 8:trackable
-platform:450:460:250:259:0:0:concrete7
-zone:450:460:250:259:0:10:driveway, 9:trackable
-amb:0:1000:0:1000:-5:10000:amb3.ogg:0
+// ============================================================
+// GLOBAL AMBIANCES & REVERB ZONES
+// ============================================================
+zone:0:2000:0:1000:0:10000:a huge supreme cyberpunk metropolis
+amb:0:2000:0:1000:0:120:birds7.ogg:-15
+amb:0:2000:0:1000:121:10000:amb3.ogg:-10
+
+// Subterranean Sewers Reverb (Z=-100 to -50)
+eaxreverb:0:2000:0:1000:-100:-50:1.0:1.0:0.32:0.89:1.0:1.49:0.83:1.0:0.05:0.007:0.0:1.26:0.011:0.0:0.25:0.0:0.25:0.0:0.994:5000.0:250.0:0.0
+zone:0:2000:0:1000:-100:-50:A massive echoing sewer network under the city:trackable
+src:0:2000:0:1000:-100:-50:cave.ogg:-6
+
+// Supermarket Reverb (X=490 to 540, Y=420 to 470, Z=0 to 40)
+reverb:490:540:420:470:0:40:1.0:1.0:0.40:0.49:1.10:0.59:0.05:0.007:1.20:0.011:0.894:0.0
+zone:490:540:420:470:0:40:inside the supermarket:trackable
+src:490:540:420:470:0:40:supermarket.ogg:-10
+src:490:540:420:470:0:40:ceiling_fan2.ogg:-5
+
+// ============================================================
+// STREETS & BASIC FLOORS (Z=0) - MATERIAL TRANSITIONS
+// ============================================================
+
+// Sector 1: The Corporate Core (X=0 to 600) - Polished Tile Avenues
+platform:0:600:100:200:0:0:ceramic3
+platform:0:600:750:800:0:0:ceramic3
+platform:0:600:0:99:0:0:concrete26
+platform:0:600:201:749:0:0:concrete26
+platform:0:600:801:1000:0:0:concrete26
+
+// Sector 2: The Creaky Slums (X=601 to 1100) - Squeaky Wood Planks
+platform:601:1100:100:200:0:0:wood5
+platform:601:1100:750:800:0:0:wood5
+platform:601:1100:0:99:0:0:wood9
+platform:601:1100:201:749:0:0:wood9
+platform:601:1100:801:1000:0:0:wood9
+
+// Sector 3: The Industrial Docks (X=1101 to 1600) - Metallic Grates & Plates
+platform:1101:1600:100:200:0:0:grate
+platform:1101:1600:750:800:0:0:grate
+platform:1101:1600:0:99:0:0:metal12
+platform:1101:1600:201:749:0:0:metal12
+platform:1101:1600:801:1000:0:0:metal12
+
+// Sector 4: The Ruined Wasteland (X=1601 to 2000) - Crunching Broken Glass & Gravel
+platform:1601:2000:100:200:0:0:broken_glass
+platform:1601:2000:750:800:0:0:broken_glass
+platform:1601:2000:0:99:0:0:gravel3
+platform:1601:2000:201:749:0:0:gravel3
+platform:1601:2000:801:1000:0:0:gravel3
+
+// ============================================================
+// LUXURY RESIDENTIAL DISTRICT (Z=0)
+// ============================================================
+
+// James's House - Slums (Floor: wood9, Walls: wallbuilding3, Ceiling: walldoor3)
+platform:530:545:130:145:0:0:wood9
+platform:529:529:130:145:0:10:wallbuilding3
+platform:546:546:130:145:0:10:wallbuilding3
+platform:529:546:146:146:0:10:wallbuilding3
+platform:529:535:130:130:0:10:wallbuilding3
+platform:539:546:130:130:0:10:wallbuilding3
+platform:530:545:130:145:10:10:walldoor3
+zone:530:545:130:145:0:10:james's house:trackable
+zone:536:538:130:130:0:10:entrance to james's house:trackable
+ignore_amb:530:545:130:145:0:10
+chest:537:137:0
+
+// Olivia's House - Slums (Floor: wood9, Walls: wallbuilding, Ceiling: wallbars)
+platform:580:595:130:145:0:0:wood9
+platform:579:579:130:145:0:10:wallbuilding
+platform:596:596:130:145:0:10:wallbuilding
+platform:579:596:146:146:0:10:wallbuilding
+platform:579:585:130:130:0:10:wallbuilding
+platform:589:596:130:130:0:10:wallbuilding
+platform:580:595:130:145:10:10:wallbars
+zone:580:595:130:145:0:10:olivia's house:trackable
+zone:586:588:130:130:0:10:entrance to olivia's house:trackable
+ignore_amb:580:595:130:145:0:10
+chest:587:137:0
+
+// Benjamin's House - Slums (Floor: wood9, Walls: wallbuilding, Ceiling: wallcar2)
+platform:630:645:130:145:0:0:wood9
+platform:629:629:130:145:0:10:wallbuilding
+platform:646:646:130:145:0:10:wallbuilding
+platform:629:646:146:146:0:10:wallbuilding
+platform:629:635:130:130:0:10:wallbuilding
+platform:639:646:130:130:0:10:wallbuilding
+platform:630:645:130:145:10:10:wallcar2
+zone:630:645:130:145:0:10:benjamin's house:trackable
+zone:636:638:130:130:0:10:entrance to benjamin's house:trackable
+ignore_amb:630:645:130:145:0:10
+chest:637:137:0
+
+// Emily's House - Slums (Floor: wood9, Walls: wallbuilding, Ceiling: wallbuilding3)
+platform:680:695:130:145:0:0:wood9
+platform:679:679:130:145:0:10:wallbuilding
+platform:696:696:130:145:0:10:wallbuilding
+platform:679:696:146:146:0:10:wallbuilding
+platform:679:685:130:130:0:10:wallbuilding
+platform:689:696:130:130:0:10:wallbuilding
+platform:680:695:130:145:10:10:wallbuilding3
+zone:680:695:130:145:0:10:emily's house:trackable
+zone:686:688:130:130:0:10:entrance to emily's house:trackable
+ignore_amb:680:695:130:145:0:10
+chest:687:137:0
+
+// Michael's House - Slums (Floor: wood9, Walls: wallbigmetal2, Ceiling: wallboard)
+platform:730:745:130:145:0:0:wood9
+platform:729:729:130:145:0:10:wallbigmetal2
+platform:746:746:130:145:0:10:wallbigmetal2
+platform:729:746:146:146:0:10:wallbigmetal2
+platform:729:735:130:130:0:10:wallbigmetal2
+platform:739:746:130:130:0:10:wallbigmetal2
+platform:730:745:130:145:10:10:wallboard
+zone:730:745:130:145:0:10:michael's house:trackable
+zone:736:738:130:130:0:10:entrance to michael's house:trackable
+ignore_amb:730:745:130:145:0:10
+chest:737:137:0
+
+// William's House - Slums (Floor: wood9, Walls: wallbuilding, Ceiling: wallboard)
+platform:780:795:130:145:0:0:wood9
+platform:779:779:130:145:0:10:wallbuilding
+platform:796:796:130:145:0:10:wallbuilding
+platform:779:796:146:146:0:10:wallbuilding
+platform:779:785:130:130:0:10:wallbuilding
+platform:789:796:130:130:0:10:wallbuilding
+platform:780:795:130:145:10:10:wallboard
+zone:780:795:130:145:0:10:william's house:trackable
+zone:786:788:130:130:0:10:entrance to william's house:trackable
+ignore_amb:780:795:130:145:0:10
+chest:787:137:0
+
+// BarryAllen's House - Slums (Floor: wood9, Walls: wallbuilding3, Ceiling: wallbigmetal2)
+platform:830:845:130:145:0:0:wood9
+platform:829:829:130:145:0:10:wallbuilding3
+platform:846:846:130:145:0:10:wallbuilding3
+platform:829:846:146:146:0:10:wallbuilding3
+platform:829:835:130:130:0:10:wallbuilding3
+platform:839:846:130:130:0:10:wallbuilding3
+platform:830:845:130:145:10:10:wallbigmetal2
+zone:830:845:130:145:0:10:barryallen's house:trackable
+zone:836:838:130:130:0:10:entrance to barryallen's house:trackable
+ignore_amb:830:845:130:145:0:10
+chest:837:137:0
+
+// metehan's House - Slums (Floor: wood9, Walls: wallboard, Ceiling: wallbars)
+platform:880:895:130:145:0:0:wood9
+platform:879:879:130:145:0:10:wallboard
+platform:896:896:130:145:0:10:wallboard
+platform:879:896:146:146:0:10:wallboard
+platform:879:885:130:130:0:10:wallboard
+platform:889:896:130:130:0:10:wallboard
+platform:880:895:130:145:10:10:wallbars
+zone:880:895:130:145:0:10:metehan's house:trackable
+zone:886:888:130:130:0:10:entrance to metehan's house:trackable
+ignore_amb:880:895:130:145:0:10
+chest:887:137:0
+
+// Grace's House - Ruined Center (Floor: broken_glass, Walls: walldebris4, Ceiling: walldebris3)
+platform:1530:1545:130:145:0:0:broken_glass
+platform:1529:1529:130:145:0:10:walldebris4
+platform:1546:1546:130:145:0:10:walldebris4
+platform:1529:1546:146:146:0:10:walldebris4
+platform:1529:1535:130:130:0:10:walldebris4
+platform:1539:1546:130:130:0:10:walldebris4
+platform:1530:1545:130:145:10:10:walldebris3
+zone:1530:1545:130:145:0:10:grace's ruined house:trackable
+zone:1536:1538:130:130:0:10:entrance to grace's house:trackable
+ignore_amb:1530:1545:130:145:0:10
+chest:1537:137:0
+
+// Sado's House - Slums (Floor: wood9, Walls: wallboard, Ceiling: wallbars)
+platform:470:485:130:145:0:0:wood9
+platform:469:469:130:145:0:10:wallboard
+platform:486:486:130:145:0:10:wallboard
+platform:469:486:146:146:0:10:wallboard
+platform:469:475:130:130:0:10:wallboard
+platform:479:486:130:130:0:10:wallboard
+platform:470:485:130:145:10:10:wallbars
+zone:470:485:130:145:0:10:sado's house:trackable
+zone:476:478:130:130:0:10:entrance to sado's house:trackable
+ignore_amb:470:485:130:145:0:10
+chest:477:137:0
+
+// la_brea's House - Slums (Floor: wood9, Walls: wallbuilding, Ceiling: wallbigmetal)
+platform:510:525:130:145:0:0:wood9
+platform:509:509:130:145:0:10:wallbuilding
+platform:526:526:130:145:0:10:wallbuilding
+platform:509:526:146:146:0:10:wallbuilding
+platform:509:515:130:130:0:10:wallbuilding
+platform:519:526:130:130:0:10:wallbuilding
+platform:510:525:130:145:10:10:wallbigmetal
+zone:510:525:130:145:0:10:la_brea's house:trackable
+zone:516:518:130:130:0:10:entrance to la_brea's house:trackable
+ignore_amb:510:525:130:145:0:10
+chest:517:137:0
+
+// Veronica's House - Slums (Floor: wood9, Walls: wallbigmetal2, Ceiling: wallbars)
+platform:550:565:130:145:0:0:wood9
+platform:549:549:130:145:0:10:wallbigmetal2
+platform:566:566:130:145:0:10:wallbigmetal2
+platform:549:566:146:146:0:10:wallbigmetal2
+platform:549:555:130:130:0:10:wallbigmetal2
+platform:559:566:130:130:0:10:wallbigmetal2
+platform:550:565:130:145:10:10:wallbars
+zone:550:565:130:145:0:10:veronica's house:trackable
+zone:556:558:130:130:0:10:entrance to veronica's house:trackable
+ignore_amb:550:565:130:145:0:10
+chest:557:137:0
+
+// Lucas's House - Ruined Center (Floor: gravel3, Walls: wallboard, Ceiling: wallboard)
+platform:1630:1650:130:150:0:0:gravel3
+platform:1629:1629:130:150:0:10:wallboard
+platform:1651:1651:130:150:0:10:wallboard
+platform:1629:1651:151:151:0:10:wallboard
+platform:1629:1637:130:130:0:10:wallboard
+platform:1643:1651:130:130:0:10:wallboard
+platform:1630:1650:130:150:10:10:wallboard
+zone:1630:1650:130:150:0:10:lucas's house:trackable
+zone:1638:1642:130:130:0:10:entrance to lucas's house:trackable
+ignore_amb:1630:1650:130:150:0:10
+chest:1640:140:0
+
+// Riley's House - Ruined Center (Floor: gravel3, Walls: wallbars, Ceiling: wallbars)
+platform:1680:1700:130:150:0:0:gravel3
+platform:1679:1679:130:150:0:10:wallbars
+platform:1701:1701:130:150:0:10:wallbars
+platform:1679:1701:151:151:0:10:wallbars
+platform:1679:1687:130:130:0:10:wallbars
+platform:1693:1701:130:130:0:10:wallbars
+platform:1680:1700:130:150:10:10:wallbars
+zone:1680:1700:130:150:0:10:riley's house:trackable
+zone:1688:1692:130:130:0:10:entrance to riley's house:trackable
+ignore_amb:1680:1700:130:150:0:10
+chest:1690:140:0
+
+// Amluk's House - Corporate (Floor: ceramic4, Walls: wallbuilding, Ceiling: concrete26) - Height: 30
+platform:30:55:130:145:0:0:ceramic4
+platform:29:29:130:145:0:30:wallbuilding
+platform:56:56:130:145:0:30:wallbuilding
+platform:29:56:146:146:0:30:wallbuilding
+platform:29:39:130:130:0:30:wallbuilding
+platform:45:56:130:130:0:30:wallbuilding
+platform:30:55:130:145:30:30:concrete26
+zone:30:55:130:145:0:30:amluk's high-tech house:trackable
+zone:40:44:130:130:0:30:entrance to amluk's house:trackable
+ignore_amb:30:55:130:145:0:30
+chest:42:137:0
+
+// Supreme's House - Corporate (Floor: ceramic4, Walls: wallbuilding3, Ceiling: concrete26) - Height: 30
+platform:80:105:130:145:0:0:ceramic4
+platform:79:79:130:145:0:30:wallbuilding3
+platform:106:106:130:145:0:30:wallbuilding3
+platform:79:106:146:146:0:30:wallbuilding3
+platform:79:89:130:130:0:30:wallbuilding3
+platform:95:106:130:130:0:30:wallbuilding3
+platform:80:105:130:145:30:30:concrete26
+zone:80:105:130:145:0:30:supreme's high-tech house:trackable
+zone:90:94:130:130:0:30:entrance to supreme's house:trackable
+ignore_amb:80:105:130:145:0:30
+chest:92:140:0
+
+// Dragon's House - Corporate (Floor: ceramic4, Walls: wallwood13, Ceiling: concrete26) - Height: 30
+platform:130:155:130:145:0:0:ceramic4
+platform:129:129:130:145:0:30:wallwood13
+platform:156:156:130:145:0:30:wallwood13
+platform:129:156:146:146:0:30:wallwood13
+platform:129:139:130:130:0:30:wallwood13
+platform:145:156:130:130:0:30:wallwood13
+platform:130:155:130:145:30:30:concrete26
+zone:130:155:130:145:0:30:dragon's house:trackable
+zone:140:144:130:130:0:30:entrance to dragon's house:trackable
+ignore_amb:130:155:130:145:0:30
+chest:142:140:0
+
+// Ali's House - Corporate (Floor: ceramic4, Walls: wallboard, Ceiling: concrete26) - Height: 30
+platform:180:205:130:145:0:0:ceramic4
+platform:179:179:130:145:0:30:wallboard
+platform:206:206:130:145:0:30:wallboard
+platform:179:206:146:146:0:30:wallboard
+platform:179:189:130:130:0:30:wallboard
+platform:195:206:130:130:0:30:wallboard
+platform:180:205:130:145:30:30:concrete26
+zone:180:205:130:145:0:30:ali's house:trackable
+zone:190:194:130:130:0:30:entrance to ali's house:trackable
+ignore_amb:180:205:130:145:0:30
+chest:192:140:0
+
+// ============================================================
+// METROPOLITAN SHOPPING DISTRICT (Z=0, Y=775)
+// ============================================================
+
+// Explosives Shop - Corporate (X=111)
+platform:105:117:765:785:0:0:ceramic3
+platform:104:104:765:785:0:10:wallbigmetal
+platform:118:118:765:785:0:10:wallbigmetal
+platform:104:118:786:786:0:10:wallbigmetal
+platform:104:109:765:765:0:10:wallbigmetal
+platform:113:118:765:765:0:10:wallbigmetal
+platform:105:117:765:785:10:10:wallbigmetal
+sign:111:775:1:Explosives Shop - Press enter to open shop.
+zone:110:112:775:775:0:5:near the explosives shop:trackable
+chest:111:770:0
+
+// Potions Shop - Corporate (X=300)
+platform:295:305:765:785:0:0:ceramic3
+platform:294:294:765:785:0:10:wallbigmetal
+platform:306:306:765:785:0:10:wallbigmetal
+platform:294:306:786:786:0:10:wallbigmetal
+platform:294:298:765:765:0:10:wallbigmetal
+platform:302:306:765:765:0:10:wallbigmetal
+platform:295:305:765:785:10:10:wallbigmetal
+sign:300:775:1:Potions Shop - Press enter to open shop.
+zone:299:301:775:775:0:5:near the potions shop:trackable
+chest:300:770:0
+
+// Vehicles Shop - Corporate (X=400)
+platform:395:405:765:785:0:0:ceramic3
+platform:394:394:765:785:0:10:wallbigmetal
+platform:406:406:765:785:0:10:wallbigmetal
+platform:394:406:786:786:0:10:wallbigmetal
+platform:394:398:765:765:0:10:wallbigmetal
+platform:402:406:765:765:0:10:wallbigmetal
+platform:395:405:765:785:10:10:wallbigmetal
+sign:400:775:1:Vehicles Shop - Press enter to open shop.
+zone:399:401:775:775:0:5:near the vehicles shop:trackable
+chest:400:770:0
+
+// Weapons Shop - Industrial (X=1450, Y=774)
+platform:1445:1455:765:785:0:0:grate
+platform:1444:1444:765:785:0:10:wallbigmetal
+platform:1456:1456:765:785:0:10:wallbigmetal
+platform:1444:1456:786:786:0:10:wallbigmetal
+platform:1444:1448:765:765:0:10:wallbigmetal
+platform:1452:1456:765:765:0:10:wallbigmetal
+platform:1445:1455:765:785:10:10:wallbigmetal
+sign:1450:774:1:Weapons Shop - Press enter to open shop.
+zone:1449:1451:774:774:0:5:near the weapons shop:trackable
+chest:1450:770:0
+
+// Ammo Shop - Ruined Center (X=1660)
+platform:1655:1665:765:785:0:0:broken_glass
+platform:1654:1654:765:785:0:10:wallbigmetal
+platform:1666:1666:765:785:0:10:wallbigmetal
+platform:1654:1666:786:786:0:10:wallbigmetal
+platform:1654:1658:765:765:0:10:wallbigmetal
+platform:1662:1666:765:765:0:10:wallbigmetal
+platform:1655:1665:765:785:10:10:wallbigmetal
+sign:1660:775:1:Ammos Shop - Press enter to open shop.
+zone:1659:1661:775:775:0:5:near the ammos shop:trackable
+chest:1660:770:0
+
+// Equipment Shop - Ruined Center (X=1901)
+platform:1895:1907:765:785:0:0:broken_glass
+platform:1894:1894:765:785:0:10:wallbigmetal
+platform:1908:1908:765:785:0:10:wallbigmetal
+platform:1894:1908:786:786:0:10:wallbigmetal
+platform:1894:1899:765:765:0:10:wallbigmetal
+platform:1903:1908:765:765:0:10:wallbigmetal
+platform:1895:1907:765:785:10:10:wallbigmetal
+sign:1901:775:1:Equipments Shop - Press enter to open shop.
+zone:1900:1902:775:775:0:5:near the equipments shop:trackable
+chest:1901:770:0
+
+// Supermarket Building - Slums (X=500, Y=463)
+platform:490:540:420:470:0:0:wood9
+platform:489:489:420:471:0:40:wallscreen
+platform:541:541:420:471:0:40:wallscreen
+platform:489:541:471:471:0:40:wallscreen
+platform:489:515:420:420:0:40:wallscreen
+platform:525:541:420:420:0:40:wallscreen
+zone:516:524:420:420:0:10:supermarket entrance:trackable
+zone:490:540:421:470:0:40:inside the store:trackable
+sign:500:463:1:Supermarket Order Machine - Press enter to buy items.
+zone:500:500:463:463:0:10:store order machine:trackable
+chest:500:430:0
+chest:520:440:0
+chest:530:460:0
+
+// ============================================================
+// COOPERATIVE GROUP BASES FLOORS
+// ============================================================
+platform:115:125:575:585:47:47:ceramic3
+zone:120:120:580:580:47:47:entrance of group base Zero:trackable
+platform:395:405:615:630:-20:-20:ceramic3
+zone:400:400:622:622:-20:-20:entrance of group base أساطير:trackable
+platform:145:155:845:855:-100:-100:metal5
+zone:150:150:850:850:-100:-100:entrance of group base ChocolateChipCookie:trackable
+platform:345:355:345:355:100:100:ceramic3
+zone:350:350:351:351:100:100:entrance of group base sem:trackable
+platform:595:605:330:340:183:183:wood5
+zone:599:599:335:335:183:183:entrance of group base dragon-knight:trackable
+platform:575:585:330:340:155:155:wood5
+zone:580:580:335:335:155:155:entrance of group base عائدون:trackable
+
+// Glass indicator panels for visual navigation
+platform:579:579:335:335:155:163:wallglass6
+platform:174:174:956:956:121:129:wallglass6
+platform:410:410:901:901:121:129:wallglass6
+platform:833:833:612:612:121:129:wallglass6
+
+// ============================================================
+// INDUSTRIAL DISTRICT: THE LONG FACTORY (Sector 3: X=1100 to 1300)
+// ============================================================
+platform:1100:1300:621:671:0:0:grate
+platform:1099:1099:621:672:0:40:wallboard
+platform:1301:1301:621:672:0:40:wallboard
+platform:1099:1301:672:672:0:40:wallboard
+platform:1100:1150:621:621:0:40:wallboard
+platform:1152:1300:621:621:0:40:wallboard
+zone:1151:1151:621:621:0:10:entrance to a big long factory:trackable
+zone:1100:1300:621:671:0:50:a big long factory:trackable
+ignore_amb:1100:1300:621:671:-20:49
+
+// Factory Basement (heavy metal clanging)
+platform:1100:1300:621:671:-20:-20:metal5
+platform:1100:1100:671:671:-20:0:grate
+zone:1100:1300:621:671:-20:-1:factory basement:trackable
+zone:1100:1100:671:671:-20:0:stairs leading to basement:trackable
+chest:1110:650:0
+chest:1150:660:0
+chest:1250:630:0
+chest:1280:650:-20
+chest:1120:640:-20
+
+// ============================================================
+// SNOWY WASTELAND / GLACIER PEAK ON THE OVERPASS (Sector 3)
+// ============================================================
+platform:1200:1400:300:300:121:200:deepsnow
+platform:1200:1400:301:500:200:200:ice1
+platform:1200:1400:301:500:121:199:wallstone
+zone:1200:1400:300:300:121:200:stairs to climb snowy mountain:trackable
+zone:1200:1400:301:500:200:250:There's a snowy mountain on the overpass:trackable
+src:1200:1400:301:500:190:250:desert.ogg:0
+
+// ============================================================
+// RUIN RECREATION DISTRICT (Sector 4: X=1700 to 1850)
+// ============================================================
+
+// Cozy Tavern (Floor: wood8, Walls: wallwood13, Ceiling: wallboard)
+platform:1750:1775:130:150:0:0:wood8
+platform:1749:1749:130:150:0:15:wallwood13
+platform:1776:1776:130:150:0:15:wallwood13
+platform:1749:1776:151:151:0:15:wallwood13
+platform:1749:1760:130:130:0:15:wallwood13
+platform:1765:1776:130:130:0:15:wallwood13
+platform:1750:1775:130:150:15:15:wallboard
+zone:1750:1775:130:150:0:15:cozy wood-paneled tavern:trackable
+zone:1761:1764:130:130:0:15:entrance to tavern:trackable
+ignore_amb:1750:1775:130:150:0:15
+chest:1762:140:3
+
+// Ransacked Nightclub (Floor: broken_glass, Walls: wallbarrel, Ceiling: walldebris3)
+platform:1800:1825:130:150:0:0:broken_glass
+platform:1799:1799:130:150:0:15:wallbarrel
+platform:1826:1826:130:150:0:15:wallbarrel
+platform:1799:1826:151:151:0:15:wallbarrel
+platform:1799:1810:130:130:0:15:wallbarrel
+platform:1815:1826:130:130:0:15:wallbarrel
+platform:1800:1825:130:150:15:15:walldebris3
+zone:1800:1825:130:150:0:15:abandoned neon nightclub:trackable
+zone:1811:1814:130:130:0:15:entrance to nightclub:trackable
+ignore_amb:1800:1825:130:150:0:15
+chest:1812:140:0
+
+// ============================================================
+// TOWER OF DEFENSE (Z=0 to 110)
+// ============================================================
 platform:300:350:350:400:0:0:concrete14
 platform:299:299:350:400:0:110:wallboard
-platform:299:351:401:401:0:110:wallboard
-zone:300:350:350:400:0:110:tower of the defense soldiers of the city:trackable
 platform:351:351:350:400:0:110:wallboard
+platform:299:351:401:401:0:110:wallboard
+platform:299:351:349:349:20:110:wallboard
+zone:300:350:350:400:0:110:tower of the defense soldiers:trackable
+ignore_amb:300:350:350:401:20:130
+eaxreverb:299:351:349:401:20:130:1.0:1.0:0.32:0.89:1.0:1.49:0.83:1.0:0.05:0.007:0.0:1.26:0.011:0.0:0.25:0.0:0.25:0.0:0.994:5000.0:250.0:0.0
+
+// Intermediate floors and staircases
 platform:300:300:400:400:0:20:cement4
 platform:300:350:350:400:20:20:concrete
-platform:299:351:349:349:20:110:wallboard
 platform:300:300:400:400:20:40:cement4
 platform:300:350:350:400:40:40:cement3
 platform:300:300:400:400:40:60:cement4
@@ -122,156 +491,91 @@ platform:300:300:400:400:60:80:cement4
 platform:300:350:350:400:80:80:concrete26
 platform:300:300:400:400:80:100:cement4
 platform:300:350:350:400:100:100:concrete7
-platform:0:1000:402:422:0:0:concrete7
-zone:0:1000:402:422:0:10:Fifth Avenue street:trackable
-platform:100:110:423:433:0:0:cement4
-zone:100:110:423:433:0:10:a ruined candy store:trackable
-platform:99:99:423:433:0:10:walldebris4
-platform:111:111:423:433:0:10:walldebris4
-platform:99:111:434:434:0:10:walldebris4
-platform:100:110:423:433:10:10:walldebris3
-platform:200:210:423:433:0:0:concrete5
-zone:200:210:423:433:0:10:This is a jewelery store. You remember that it used to be very fashionable. Well, what if it was fashionable now?:trackable
-platform:199:199:423:433:0:10:walldebris4
-platform:211:211:423:433:0:10:walldebris4
-platform:199:211:434:434:0:10:walldebris4
-platform:200:210:423:433:10:10:walldebris3
-platform:300:310:423:433:0:0:concrete8
-zone:300:310:423:433:0:10:pet shop, but, all the animals in here are dead and there's another human corpse:trackable
-platform:299:299:423:433:0:10:walldebris4
-platform:311:311:423:433:0:10:walldebris4
-platform:299:311:434:434:0:10:walldebris4
-platform:300:310:423:433:10:10:walldebris3
-platform:400:410:423:433:0:0:carpet2
-zone:400:410:423:433:0:10:clothes shops, women's shoes, men's shoes and more:trackable
-platform:399:399:423:433:0:10:walldebris4
-platform:411:411:423:433:0:10:walldebris4
-platform:399:411:434:434:0:10:walldebris4
-platform:400:410:423:433:10:10:walldebris3
-platform:45:49:131:131:0:10:wallbuilding3
-platform:51:55:131:131:0:10:wallbuilding3
-platform:85:90:131:131:0:10:wallbuilding
-platform:92:96:131:131:0:10:wallbuilding
-platform:150:155:131:131:0:10:wallbuilding
-platform:157:160:131:131:0:10:wallbuilding
-platform:200:205:131:131:0:10:wallbuilding
-platform:207:210:131:131:0:10:wallbuilding
-platform:236:240:131:131:0:10:wallbigmetal2
-platform:242:246:131:131:0:10:wallbigmetal2
-platform:270:275:131:131:0:10:wallbuilding
-platform:277:280:131:131:0:10:wallbuilding
-platform:300:305:131:131:0:10:wallbuilding3
-platform:307:310:131:131:0:10:wallbuilding3
-platform:336:340:131:131:0:10:wallboard
-platform:342:346:131:131:0:10:wallboard
-platform:370:375:131:131:0:10:wallboard
-platform:377:385:131:131:0:10:wallboard
-platform:400:405:131:131:0:10:wallbarrel
-platform:407:410:131:131:0:10:wallbarrel
-platform:440:445:131:131:0:10:walldebris4
-platform:447:450:131:131:0:10:walldebris4
-platform:100:105:423:423:0:10:walldebris4
-platform:107:110:423:423:0:10:walldebris4
-platform:200:205:423:423:0:10:walldebris4
-platform:207:210:423:423:0:10:walldebris4
-platform:300:305:423:423:0:10:walldebris4
-platform:307:310:423:423:0:10:walldebris4
+chest:320:375:0
+chest:320:375:20
+chest:320:375:40
+chest:320:375:60
+chest:320:375:80
+chest:320:375:100
 
-ignore_amb:236:246:132:141:0:49
-ignore_amb:440:450:131:141:0:49
-ignore_amb:45:55:131:141:0:10
-ignore_amb:86:96:131:141:0:49
-ignore_amb:150:160:131:141:0:49
-ignore_amb:200:210:131:141:0:49
-ignore_amb:270:280:131:141:0:49
-ignore_amb:300:310:131:141:0:10
-ignore_amb:336:346:131:141:0:49
-platform:400:405:423:423:0:10:walldebris4
-platform:407:410:423:423:0:10:walldebris4
-zone:106:106:423:423:0:10:entrance to a ruined candy store  :trackable
-zone:206:206:423:423:0:10:entrance too jewelery store:trackable
-zone:306:306:423:423:0:10:entrance too pet shop:trackable
-zone:406:406:423:423:0:10:entrance too clothes shops:trackable
-zone:50:50:131:131:0:10:entrance too james's_house  :trackable
-zone:91:91:131:131:0:10:entrance too Olivia's_house  :trackable
-zone:156:156:131:131:0:10:entrance too Benjamin's_house  :trackable
-zone:206:206:131:131:0:10:entrance too Emily's_house  :trackable
-zone:241:241:131:131:0:10:entrance too Michael's house  :trackable
-zone:276:276:131:131:0:10:entrance too William's_house  :trackable
-zone:306:306:131:131:0:10:entrance too BarryAllen's_house  :trackable
-zone:341:341:131:131:0:10:entrance too metehan's_house  :trackable
-zone:376:376:131:131:0:10:entrance too tavern  :trackable
-zone:406:406:131:131:0:10:entrance too nightclub:trackable
-zone:446:446:131:131:0:10:entrance too Grace's_house:trackable
-platform:0:1000:550:570:0:0:concrete6
-zone:0:1000:550:570:0:10:luxury houses street:trackable
-platform:100:120:571:591:0:0:cement4
-platform:121:121:571:591:-20:46:wallbuilding
-platform:99:99:571:591:-20:46:wallbuilding
-platform:99:121:592:592:-20:46:wallbuilding
-zone:100:120:571:591:0:20:kitchen of luxury house 1
-platform:100:110:571:571:0:46:wallbuilding
-platform:112:120:571:571:0:46:wallbuilding
-zone:111:111:571:571:0:20:entrance too luxury house 1:trackable
-platform:100:100:591:591:-20:0:cement2
-platform:100:120:571:591:-20:-20:carpet2
-platform:100:120:571:571:-20:-1:wallbuilding
-zone:100:120:571:591:-20:-1:basement of luxury house 1
-zone:100:100:591:591:-20:-1:stairs leading up
-zone:100:100:591:591:0:10:stairs leading to basement
-platform:120:120:591:591:0:20:cement4
-zone:120:120:591:591:0:19:stairs leading to upper floor
-zone:100:120:571:591:20:30:living room and several rooms
-platform:100:120:571:591:20:20:carpet2
-platform:100:120:571:571:20:40:wallbuilding
-platform:100:105:572:576:20:20:cement2
-zone:100:105:100:105:572:576:20
-zone:120:120:591:591:20:30:stairs leading down
-zone:100:105:572:576:20:30:Toilet of luxury house 1:trackable
-platform:100:105:577:577:20:30:wallwood15
-platform:110:120:572:582:20:20:carpet4
-zone:110:120:572:582:20:30:Bedroom of luxury house 1.:trackable
-platform:110:120:582:582:20:30:wallwood15
-platform:100:120:571:591:46:46:wallboard
-platform:99:121:571:592:47:47:bleacher2
-platform:115:115:593:593:0:47:cement2
-zone:99:121:571:592:46:56:roof of luxury house 1
-zone:115:115:593:593:0:46:stairs to the roof of the house
-zone:115:115:593:593:47:47:stairs leading down
-platform:455:465:131:141:0:0:carpet3
-zone:455:465:131:141:0:10:sado's_house:trackable
-platform:454:454:131:141:0:10:wallboard
-platform:454:466:142:142:0:10:wallboard
-platform:466:466:131:141:0:10:wallboard
-platform:455:465:131:141:10:10:wallbars
-platform:455:460:131:131:0:10:wallboard
-platform:462:465:131:131:0:10:wallboard
-zone:461:461:131:131:0:10:entrance too sado's_house:trackable
-ignore_amb:455:465:131:141:0:49
-ignore_amb:400:410:131:141:0:49
-ignore_amb:370:385:131:146:0:49
-ignore_amb:300:350:350:401:20:130
-ignore_amb:100:120:571:591:-20:46
-ignore_amb:100:110:423:433:0:49
-ignore_amb:200:210:423:433:0:49
-ignore_amb:300:310:423:433:0:49
-ignore_amb:400:410:423:433:0:49
-platform:473:483:131:141:0:0:concrete7
-zone:473:483:131:141:0:10:la_brea's_house:trackable
-platform:472:472:131:141:0:10:wallbuilding
-platform:472:484:142:142:0:10:wallbuilding
-platform:484:484:131:141:0:10:wallbuilding
-platform:473:476:131:131:0:10:wallbuilding
-platform:478:483:131:131:0:10:wallbuilding
-zone:477:477:131:131:0:10:entrance too la_brea's_house:trackable
-ignore_amb:473:483:131:141:0:49
+// ============================================================
+// ELEVATED OVERPASS LEVEL (Z=121)
+// ============================================================
+platform:0:2000:0:1000:121:121:concrete26
+zone:0:2000:0:1000:121:200:An overpass that covers the entire city:trackable
 
+// Pedestrian Stairs and Teleporters
+staircase:10:10:110:120:0:121:concrete26:z:0
+zone:10:10:110:120:0:121:stairs leading up to the overpass:trackable
+platform:720:720:136:145:0:121:cement4
+zone:720:720:136:145:0:121:stairs leading up to the overpass:trackable
+platform:550:550:135:145:0:121:concrete26
+zone:550:550:135:145:0:121:stairs leading down to ground:trackable
+door:549:549:135:145:0:0:550:135:121:1000:dooropen3.ogg:doorclose4.ogg
 
+// ============================================================
+// GOVERNMENTS BUILDINGS ON OVERPASS (Z=121)
+// ============================================================
 
-platform:0:1000:0:1000:-100:-100:metal2
-eaxreverb:0:1000:0:1000:-100:-50:1.0:1.0:0.32:0.89:1.0:1.49:0.83:1.0:0.05:0.007:0.0:1.26:0.011:0.0:0.25:0.0:0.25:0.0:0.994:5000.0:250.0:0.0
-zone:0:1000:0:1000:-100:-50:A huge secret canarization under the city
-src:0:1000:0:1000:-100:-50:cave.ogg:-6
+// Police Station (Floor: ceramic, Walls: wallstone2, Basement: Z=121 to 130)
+platform:300:330:500:500:121:131:ceramic
+zone:300:330:500:500:121:131:stairs to the police station:trackable
+platform:300:330:502:532:131:131:ceramic
+platform:299:299:501:533:131:145:wallstone2
+platform:331:331:501:533:131:145:wallstone2
+platform:299:331:533:533:131:145:wallstone2
+platform:300:315:501:501:131:145:wallstone2
+platform:317:330:501:501:131:145:wallstone2
+platform:316:316:501:501:131:131:concrete26
+zone:300:330:501:532:131:145:A magnificent and large police station:trackable
+zone:316:316:501:501:131:131:entrance to police station:trackable
+ignore_amb:300:330:501:532:121:150
+
+// Police Station Basement
+platform:300:330:502:532:121:121:ceramic
+platform:300:300:532:532:121:131:concrete26
+zone:300:330:502:532:121:130:basement of police station:trackable
+zone:300:300:532:532:121:131:stairs leading to basement:trackable
+platform:300:330:534:554:121:121:concrete9
+zone:300:330:534:554:121:131:motor parking area of the police station:trackable
+chest:310:532:131
+chest:320:531:131
+chest:330:531:131
+chest:300:502:131
+chest:310:502:131
+chest:320:502:131
+chest:330:502:131
+
+// Hospital (Floor: ceramic2, Walls: wallstone2, Basement: Z=121 to 142)
+platform:300:400:731:731:121:143:ceramic2
+zone:300:400:731:731:121:143:hospital stairs:trackable
+platform:300:400:732:832:143:143:ceramic2
+platform:299:299:732:833:143:171:wallstone2
+platform:401:401:732:833:143:171:wallstone2
+platform:299:401:833:833:143:171:wallstone2
+platform:300:350:732:732:143:171:wallstone2
+platform:352:400:732:732:143:171:wallstone2
+zone:300:400:732:832:143:171:hospital above the city:trackable
+zone:351:351:732:732:143:143:entrance to hospital:trackable
+ignore_amb:300:400:732:832:121:171
+
+// Hospital Basement
+platform:301:301:831:831:121:143:ceramic2
+zone:300:400:732:832:121:142:basement of the hospital:trackable
+zone:301:301:831:831:121:143:stairs leading to basement:trackable
+chest:301:832:143
+chest:321:832:143
+chest:352:832:143
+chest:381:832:143
+chest:301:733:121
+chest:321:733:121
+chest:351:733:121
+chest:381:733:121
+
+// ============================================================
+// SUBTERRANEAN SEWER PATHWAYS (Z=-100) - SQUISHY WET MUD
+// ============================================================
+platform:0:2000:0:1000:-100:-100:mud
 platform:45:55:141:141:-100:0:metal5
 platform:87:96:141:141:-100:0:metal5
 platform:150:160:141:141:-100:0:metal5
@@ -288,472 +592,57 @@ platform:447:450:141:141:-100:0:metal5
 platform:456:464:141:141:-100:0:metal5
 platform:474:482:141:141:-100:0:metal5
 platform:101:119:591:591:-100:0:metal5
-
-zone:50:50:130:130:0:10:near the entrance
-zone:91:91:130:130:0:10:near the entrance
-zone:156:156:130:130:0:10:near the entrance
-zone:206:206:130:130:0:10:near the entrance
-zone:241:241:130:130:0:10:near the entrance
-zone:276:276:130:130:0:10:near the entrance
-zone:306:306:130:130:0:10:near the entrance
-zone:341:341:130:130:0:10:near the entrance
-zone:376:376:130:130:0:10:near the entrance
-zone:406:406:130:130:0:10:near the entrance
-zone:446:446:130:130:0:10:near the entrance
-zone:461:461:130:130:0:10:near the entrance
-zone:477:477:130:130:0:10:near the entrance
-zone:106:106:422:422:0:10:near the entrance
-zone:206:206:422:422:0:10:near the entrance
-zone:306:306:422:422:0:10:near the entrance
-zone:406:406:422:422:0:10:near the entrance
-zone:111:111:570:570:0:10:near the entrance
-platform:108:108:574:574:47:55:wallglass6
-platform:473:483:131:141:10:10:wallbigmetal
-
-platform:200:400:600:620:0:0:concrete6
-zone:200:400:600:620:0:10:front of long factory:trackable
-platform:200:400:621:671:0:0:concrete24
-zone:200:400:621:671:-20:50:a big long factory:trackable
-ignore_amb:200:400:621:671:-20:49
-platform:200:400:621:671:-20:-20:concrete28
-platform:199:199:621:671:-20:40:wallboard
-platform:200:250:621:621:-20:40:wallboard
-platform:252:400:621:621:-20:40:wallboard
-zone:251:251:621:621:0:10:entrance too a big long factory:trackable
-zone:251:251:620:620:0:10:near the entrance
-platform:401:401:621:671:-20:40:wallboard
-platform:199:401:672:672:-20:40:wallboard
-eaxreverb:199:401:621:672:-20:40:1.0:1.0:0.32:0.89:1.0:1.49:0.83:1.0:0.05:0.007:0.0:1.26:0.011:0.0:0.25:0.0:0.25:0.0:0.994:5000.0:250.0:0.0
-platform:200:200:671:671:-20:0:cement2
-platform:251:251:621:621:-20:-1:wallboard
-platform:200:400:621:671:20:20:concrete24
-platform:201:201:671:671:0:20:cement4
-zone:201:201:671:671:20:30:stairs leading downstairs
-zone:201:201:671:671:0:19:stairs leading up
-zone:200:200:671:671:0:10:stairs leading to basement
-zone:200:200:671:671:-20:-1:stairs leading up
-eaxreverb:299:351:349:401:20:130:1.0:1.0:0.32:0.89:1.0:1.49:0.83:1.0:0.05:0.007:0.0:1.26:0.011:0.0:0.25:0.0:0.25:0.0:0.994:5000.0:250.0:0.0
-zone:120:120:580:580:47:47:entrance of group base Zero
-
-zone:251:251:622:622:0:10:near the exit
-zone:111:111:572:572:0:10:near the exit
-zone:106:106:424:424:0:10:near the exit
-zone:206:206:424:424:0:10:near the exit
-zone:306:306:424:424:0:10:near the exit
-zone:406:406:424:424:0:10:near the exit
-zone:477:477:132:132:0:10:near the exit
-zone:461:461:132:132:0:10:near the exit
-zone:446:446:132:132:0:10:near the exit
-zone:406:406:132:132:0:10:near the exit
-zone:376:376:132:132:0:10:near the exit
-zone:341:341:132:132:0:10:near the exit
-zone:306:306:132:132:0:10:near the exit
-zone:276:276:132:132:0:10:near the exit
-zone:241:241:132:132:0:10:near the exit
-zone:206:206:132:132:0:10:near the exit
-zone:156:156:132:132:0:10:near the exit
-zone:91:91:132:132:0:10:near the exit
-zone:50:50:132:132:0:10:near the exit
-
-platform:500:540:423:463:0:0:wood6
-platform:499:499:423:464:0:40:wallscreen
-platform:499:541:464:464:0:40:wallscreen
-platform:541:541:423:464:0:40:wallscreen
-platform:499:520:423:423:0:40:wallscreen
-platform:526:541:423:423:0:40:wallscreen
-
-zone:521:525:423:423:0:10:store entrance:trackable
-zone:500:540:424:463:0:50:inside the store:trackable
-ignore_amb:500:540:423:464:0:50
-src:500:540:423:464:0:50:supermarket.ogg
-
-src:500:540:423:464:0:50:ceiling_fan2.ogg:-5
-zone:500:500:463:463:0:10:store order machine:trackable
-reverb:500:541:423:564:0:50:1.0:1.0:0.40:0.49:1.10:0.59:0.05:0.007:1.20:0.011:0.894:0.0
-
-
-
-
-
-zone:521:525:424:424:0:10:near exit
-zone:521:525:422:422:0:10:near the entrance
-zone:215:215:593:593:47:47:stairs leading downzone:215:215:593:593:47:47:stairs leading down
-platform:50:50:131:131:0:0:concrete26
-platform:91:91:131:131:0:0:concrete26
-platform:156:156:131:131:0:0:concrete26
-platform:206:206:131:131:0:0:concrete26
-platform:241:241:131:131:0:0:concrete26
-platform:306:306:131:131:0:0:concrete26
-platform:341:341:131:131:0:0:concrete26
-platform:376:376:131:131:0:0:concrete26
-platform:406:406:131:131:0:0:concrete26
-platform:446:446:131:131:0:0:concrete26
-platform:461:461:131:131:0:0:concrete26
-platform:477:477:131:131:0:0:concrete26
-platform:500:510:250:259:0:0:concrete7
-zone:500:510:250:259:0:10:driveway, 10:trackable
-platform:550:560:250:259:0:0:concrete7
-zone:550:560:250:259:0:10:driveway, 11:trackable
-platform:600:610:250:259:0:0:concrete7
-zone:600:610:250:259:0:10:driveway, 12:trackable
-platform:650:660:250:259:0:0:concrete7
-zone:650:660:250:259:0:10:driveway, 13:trackable
-platform:106:106:423:423:0:0:concrete26
-platform:206:206:423:423:0:0:concrete26
-platform:306:306:423:423:0:0:concrete26
-platform:406:406:423:423:0:0:concrete26
-platform:521:525:423:423:0:0:concrete26
-platform:111:111:571:571:0:0:concrete26
-platform:251:251:621:621:0:0:concrete26
-
-
-
-
-
-
-platform:505:515:135:145:0:0:carpet3
-zone:505:515:135:145:0:10:veronica's_house:trackable
-platform:504:504:135:145:0:10:wallbigmetal2
-platform:516:516:135:145:0:10:wallbigmetal2
-platform:504:516:146:146:0:10:wallbigmetal2
-platform:505:510:135:135:0:10:wallbigmetal2
-platform:512:515:135:135:0:10:wallbigmetal2
-zone:511:511:136:136:0:10:near exit
-zone:511:511:135:135:0:10:entrance too veronica's_house:trackable
-zone:511:511:134:134:0:10:near the entrance
 platform:506:514:145:145:-100:0:metal5
-platform:511:511:135:135:0:0:concrete26
-ignore_amb:505:515:135:145:0:49
-platform:504:516:135:146:10:10:wallbars
-
-platform:0:1000:0:1000:121:121:cement3
-platform:550:550:135:145:0:121:concrete26
-zone:0:1000:0:1000:121:200:An overpass that covers the entire city:trackable
-
-platform:300:330:500:500:121:131:cement4
-platform:300:330:501:501:121:129:wallstone2
-zone:300:330:500:500:121:130:stairs leading to the police station:trackable
-zone:300:330:500:500:131:131:stairs leading downstairs
-platform:300:315:501:501:130:145:wallstone2
-platform:317:330:501:501:130:145:wallstone2
-platform:300:330:502:532:131:131:concrete6
-platform:299:299:501:532:121:145:wallstone2
-platform:299:331:533:533:121:145:wallstone2
-platform:331:331:501:532:121:145:wallstone2
-platform:316:316:501:501:131:131:concrete26
-zone:300:330:501:532:131:145:A magnificent and large police station above the city:trackable
-zone:316:316:502:502:131:141:exit
-zone:316:316:500:500:131:141:entrance too police station:trackable
-ignore_amb:300:330:501:532:121:150
-platform:300:330:502:532:121:121:concrete6
-platform:300:300:532:532:121:131:concrete26
-zone:300:330:502:532:121:130:basement of police station
-zone:300:300:532:532:121:130:stairs leading up
-zone:300:300:532:532:131:131:stairs leading to basement
-platform:300:330:534:554:121:121:concrete9
-zone:300:330:534:554:121:131:motor parking area of ​​the police station:trackable
-
-platform:330:330:532:532:0:131:concrete26
-zone:330:330:532:532:0:130:stairs to police station
-zone:330:330:532:532:131:141:stairs leading down
-door:329:329:532:532:0:0:330:532:131:1000:dooropen8.ogg:doorclose.ogg
-door:549:549:135:145:0:0:550:135:121:1000:dooropen3.ogg:doorclose4.ogg
-platform:500:600:335:335:121:200:sand
-platform:500:600:336:636:200:200:ice1
-src:500:600:335:636:190:250:desert.ogg:0
-platform:500:600:336:636:121:199:wallstone
-zone:500:600:335:335:121:199:stairs to climb snowy mountain:trackable
-zone:500:600:335:335:200:210:stairs going down the mountain
-zone:500:600:336:636:200:250:There's a snowy mountain on the overpass, maybe you can do something with the snow here:trackable
-
-
-platform:0:100000000:0:10000000:-500:-600:balloon
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-platform:674:674:419:419:-100.0:-92.0:wallglass6
-
-platform:530:550:135:155:0:0:cement2
-zone:530:550:135:155:0:10:lucas's_house:trackable
-ignore_amb:530:550:135:155:0:50
-platform:529:529:135:155:0:10:wallboard
-platform:529:550:156:156:0:10:wallboard
-platform:551:551:135:156:0:10:wallboard
-platform:530:540:135:135:0:10:wallboard
-platform:542:550:135:135:0:10:wallboard
-zone:550:550:135:145:121:121:stairs leading down to ground:trackable
-zone:550:550:135:145:0:120:stairs to go up to the overpass:trackable
-zone:541:541:134:134:0:10:near the entrance
-zone:541:541:135:135:0:10:entrance too lucas's_house:trackable
-zone:541:541:136:136:0:10:near the exit
-platform:580:600:135:155:0:0:cloth
-ignore_amb:580:600:135:155:0:50
-zone:580:600:135:155:0:10:riley's_house:trackable
-platform:579:579:135:155:0:10:wallbars
-platform:579:601:156:156:0:10:wallbars
-platform:601:601:135:155:0:10:wallbars
-platform:580:590:135:135:0:10:wallbars
-platform:592:600:135:135:0:10:wallbars
-zone:591:591:134:134:0:10:near the entrance
-zone:591:591:135:135:0:10:entrance too riley's_house:trackable
-zone:591:591:136:136:0:10:near the exit
 platform:530:550:155:155:-100:0:metal5
 platform:580:600:155:155:-100:0:metal5
-
-
-
-
-platform:300:400:700:730:121:121:concrete9
-zone:300:400:700:730:121:131:hospital car parking area:trackable
-
-platform:300:400:732:732:121:141:wallstone2
-platform:300:400:731:731:121:143:cement2
-platform:300:400:732:832:143:143:cement4
-platform:300:300:733:832:121:171:wallstone2
-platform:300:400:833:833:121:171:wallstone2
-ignore_amb:300:400:732:832:121:171
-platform:401:401:732:833:121:171:wallstone2
-platform:300:350:732:732:143:171:wallstone2
-platform:352:400:732:732:143:171:wallstone2
-zone:300:400:732:832:143:171:hospital above the city where soldiers and citizens were treated:trackable
-zone:351:351:731:731:143:153:near the entrance
-zone:351:351:732:732:143:153:entrance too hospital:trackable
-zone:351:351:733:733:143:153:near the exit
-platform:301:301:831:831:121:143:cement
-zone:300:400:732:832:121:142:basement of the hospital
-zone:301:301:831:831:121:121:stairs leading up
-zone:301:301:831:831:122:143:stairs leading to basement
-platform:0:0:0:0:10000:11000:balloon
-platform:376:376:140:140:0:3:metal4
-zone:376:376:140:140:0:10:a small staircase:trackable
-platform:410:410:901:901:121.0:129.0:wallglass6
-zone:400:400:622:622:-20:-20:entrance of group base أساطير
-platform:833:833:612:612:121.0:129.0:wallglass6
-zone:150:150:850:850:-100:-100:entrance of group base ChocolateChipCookie
-zone:350:350:351:351:100:100:entrance of group base sem
-zone:599:599:335:335:183:183:entrance of group base dragon-knight
-
-zone:580:580:335:335:155:155:entrance of group base عائدون
-platform:579:579:335:335:155.0:163.0:wallglass6
-platform:174:174:956:956:121.0:129.0:wallglass6
-chest:50:139:0
-chest:86:141:0
-chest:473:141:0
-chest:515:145:0
-chest:310:532:121
-chest:320:531:121
-chest:330:531:121
-chest:300:502:121
-chest:310:502:121
-chest:320:502:121
-chest:330:502:121
-chest:505:145:0
-chest:483:141:0
-chest:106:575:47
-chest:465:141:0
-chest:455:141:0
-chest:151:134:0
-chest:206:134:0
-chest:238:141:0
-chest:280:133:0
-chest:300:141:0
-chest:310:141:0
-chest:341:133:0
-chest:337:135:0
-chest:376:141:3
-chest:401:137:0
-chest:446:141:0
-chest:104:432:0
-chest:203:425:0
-chest:303:433:0
-chest:402:427:0
-chest:350:365:0
-chest:349:399:0
-chest:300:387:20
-chest:300:352:20
-chest:338:377:40
-chest:331:350:40
-chest:304:388:60
-chest:340:371:60
-chest:318:375:80
-chest:312:353:80
-chest:120:582:0
-chest:101:580:20
-chest:120:590:-20
-chest:108:579:-20
-chest:110:580:47
-chest:530:154:0:
-chest:550:154:0:
-chest:580:154:0:
-chest:600:154:0:
-platform:620:640:135:154:0:0:concrete26
-platform:619:619:136:155:0:30:wallbuilding
-platform:619:631:135:135:0:30:wallbuilding
-platform:633:640:135:135:0:30:wallbuilding
-platform:641:641:135:155:0:30:wallbuilding
-platform:619:640:156:156:0:30:wallbuilding
 platform:620:640:155:155:-100:0:metal5
-zone:620:640:135:155:0:30:amluk's house
-zone:632:632:134:134:0:30:near the entrance 
-zone:632:632:136:136:0:30:near the exit 
-zone:632:632:135:135:0:30:entrance too amluk's house:trackable
-chest:620:154:0:
-chest:640:154:0:
-ignore_amb:620:640:135:155:0:30
-platform:660:680:135:154:0:0:hardwood3
-platform:659:659:136:155:0:30:wallbuilding3
-platform:659:671:135:135:0:30:wallbuilding3
-platform:673:680:135:135:0:30:wallbuilding3
-platform:681:681:135:155:0:30:wallbuilding3
-platform:659:680:156:156:0:30:wallbuilding3
 platform:660:680:155:155:-100:0:metal5
-zone:660:680:135:155:0:30:Supreme's house
-zone:672:672:134:134:0:30:near the entrance 
-zone:672:672:136:136:0:30:near the exit 
-zone:672:672:135:135:0:30:entrance too Supreme's house:trackable
-chest:660:154:0:
-chest:680:154:0:
-ignore_amb:660:680:135:155:0:30
-
-
-
-platform:0:0:0:0:100000:100000:chair
-platform:0:1:1:1:100000:1000010:wallbank
-
-
-platform:2:22:131:154:0:0:metal15
-platform:1:1:131:155:0:30:wallwood13
-platform:1:13:131:131:0:30:wallwood13
-platform:15:22:131:131:0:30:wallwood13
-platform:23:23:131:155:0:30:wallwood13
-platform:1:22:156:156:0:30:wallwood13
 platform:2:22:155:155:-100:0:metal5
-zone:2:22:131:155:0:30:Dragon's house
-zone:14:14:130:130:0:30:near the entrance 
-zone:14:14:132:132:0:30:near the exit 
-zone:14:14:131:131:0:30:entrance too Dragon's house:trackable
-chest:2:154:0:
-chest:22:154:0:
-ignore_amb:2:22:131:155:0:30
-
-
-
-
-
-platform:700:720:135:154:0:0:cement2
-platform:699:699:136:155:0:30:wallboard
-platform:699:710:135:135:0:30:wallboard
-platform:712:720:135:135:0:30:wallboard
-platform:721:721:135:155:0:30:wallboard
-platform:699:720:156:156:0:30:wallboard
 platform:700:720:155:155:-100:0:metal5
-zone:700:720:135:155:0:30:Ali's house
-zone:711:711:134:134:0:30:near the entrance 
-zone:711:711:136:136:0:30:near the exit 
-zone:711:711:135:135:0:30:entrance too Ali's house:trackable
-chest:700:154:0:
-chest:720:154:0:
-ignore_amb:700:720:135:155:0:30
-
-platform:720:720:136:145:0:121:cement4
-zone:720:720:136:145:0:130:another stairs to go up to the overpass  :trackable
-chest:301:832:143:
-chest:311:832:143:
-chest:321:832:143:
-chest:331:832:143:
-chest:341:832:143:
-chest:352:832:143:
-chest:361:832:143:
-chest:371:832:143:
-chest:381:832:143:
-chest:391:832:143:
-
-chest:301:733:121:
-chest:311:733:121:
-chest:321:733:121:
-chest:331:733:121:
-chest:341:733:121:
-chest:351:733:121:
-chest:361:733:121:
-chest:371:733:121:
-chest:381:733:121:
-chest:391:733:121:
-
-chest:400:733:121:
-chest:400:832:143:
-
-platform:8:10:25:30:0:100:balloon
 
 // ============================================================
-// CITY BUS ROUTE - Line 1 (city_line_1)
-// Runs along the main street (Y=112) from West End to East Terminal
-// Bus stops at three stations for 5 seconds each
-// Players physically walk onto the bus to board (proximity-based)
+// METROPOLITAN TRANSIT & WAYPOINTS (city_line_1)
 // ============================================================
 
-// --- Bus Stop Signs & Zones ---
-// West End Bus Stop (X=100)
+// West End Stop (X=100)
 zone:97:103:109:115:0:3:West End Bus Stop:trackable
-sign:100:112:1:City Bus Line 1 - West End Stop. The bus will arrive shortly. Stand near the road to board.
+sign:100:112:1:City Bus Line 1 - West End Stop. Stand near the road to board.
 
-// City Center Bus Stop (X=500)
+// City Center Stop (X=500)
 zone:497:503:109:115:0:3:City Center Bus Stop:trackable
-sign:500:112:1:City Bus Line 1 - City Center Stop. Stand near the road to board automatically.
+sign:500:112:1:City Bus Line 1 - City Center Stop. Stand near the road to board.
 
-// East Terminal Bus Stop (X=900)
-zone:897:903:109:115:0:3:East Terminal Bus Stop:trackable
-sign:900:112:1:City Bus Line 1 - East Terminal. Final stop. Stand near the road to board.
+// East Terminal Stop (X=1900)
+zone:1897:1903:109:115:0:3:East Terminal Bus Stop:trackable
+sign:1900:112:1:City Bus Line 1 - East Terminal Stop. Stand near the road to board.
 
-// --- Waypoints for city_line_1 route ---
-// Forward leg: West to East along Main Street (Y=112)
+// East Luxury Stop (X=1900, Y=560)
+zone:1897:1903:557:563:0:3:East Luxury Bus Stop:trackable
+sign:1900:560:1:City Bus Line 1 - East Luxury Houses Stop. Stand near the road to board.
+
+// Center Luxury Stop (X=500, Y=560)
+zone:497:503:557:563:0:3:Center Luxury Bus Stop:trackable
+sign:500:560:1:City Bus Line 1 - Center Luxury Houses Stop. Stand near the road to board.
+
+// West Luxury Stop (X=100, Y=560)
+zone:97:103:557:563:0:3:West Luxury Bus Stop:trackable
+sign:100:560:1:City Bus Line 1 - West Luxury Houses Stop. Stand near the road to board.
+
+// Waypoints Loop covering Neon Shopping Boulevard and Luxury residential lines
 waypoint:city_line_1:0:50:113:0:0:0
 waypoint:city_line_1:1:100:113:0:1:5
-waypoint:city_line_1:2:300:113:0:1:5
-waypoint:city_line_1:3:500:113:0:1:5
-waypoint:city_line_1:4:900:113:0:1:5
-waypoint:city_line_1:5:950:113:0:0:0
-// Travel North to Luxury Houses Street (Y=560)
-waypoint:city_line_1:6:950:560:0:0:0
-// Westward leg along Luxury Houses Street (Y=560)
-waypoint:city_line_1:7:900:560:0:1:5
-waypoint:city_line_1:8:500:560:0:1:5
-waypoint:city_line_1:9:111:560:0:1:5
-waypoint:city_line_1:10:50:560:0:0:0
-// Travel South back to Main Street (Y=112)
-waypoint:city_line_1:11:50:113:0:0:0
+waypoint:city_line_1:2:500:113:0:1:5
+waypoint:city_line_1:3:1000:113:0:1:5
+waypoint:city_line_1:4:1500:113:0:1:5
+waypoint:city_line_1:5:1900:113:0:1:5
+waypoint:city_line_1:6:1950:113:0:0:0
+waypoint:city_line_1:7:1950:560:0:0:0
+waypoint:city_line_1:8:1900:560:0:1:5
+waypoint:city_line_1:9:1000:560:0:1:5
+waypoint:city_line_1:10:500:560:0:1:5
+waypoint:city_line_1:11:100:560:0:1:5
+waypoint:city_line_1:12:50:560:0:0:0
+waypoint:city_line_1:13:50:113:0:0:0
 
-// --- Luxury Houses Street Bus Stops ---
-zone:497:503:557:563:0:3:Luxury Center Bus Stop:trackable
-sign:500:560:1:City Bus Line 1 - Luxury Houses Center Stop. Stand near the road to board.
-zone:108:114:557:563:0:3:Luxury Entrance Bus Stop:trackable
-sign:111:560:1:City Bus Line 1 - Luxury Houses Entrance Stop. Stand near the road to board.
-
-// --- Main Street New Bus Stop ---
-zone:297:303:109:115:0:3:BarryAllen Bus Stop:trackable
-sign:300:112:1:City Bus Line 1 - BarryAllen Stop. Stand near the road to board.
-
-// --- Transit Vehicle Spawn ---
-// open_door_bus spawns at west end of main street, runs city_line_1 loop
-transit:open_door_bus:300:113:0:path=city_line_1;interior_map=bus_interior;health=500;speed=25;sound=motorengine.ogg;door_mode=always_open
+// Transit vehicle spawn
+transit:open_door_bus:100:113:0:path=city_line_1;interior_map=bus_interior;health=500;speed=25;sound=motorengine.ogg;door_mode=always_open

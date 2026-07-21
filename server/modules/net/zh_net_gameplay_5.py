@@ -8,10 +8,12 @@ import urllib.parse
 import requests
 from threading import Thread
 from timer import timer
+from weapon import spawn_weapon
+import data_loader as _data_loader_gp5
 
 def handle_gameplay_5(e, parsed, index):
 	global languages
-	cmds = {"xplay", "zkusecode", "spatial_amplifier_remote", "itemdisable", "setversion", "character_selected", "throwweaponleft", "zkplacecode", "grouponline", "motd", "useitem", "weaponfire2", "aimmode", "bikehorn", "binoculars", "aim", "fire", "backup_selected", "duck", "android", "juharjksjkadjknjk12n3kjnkjn1j23kjnkjn12k3nknkn123kjnkn12k3nknk5nknkn32knkn1n1k1k", "unequip", "enter", "throwweaponright", "spatial_amplifier_choose", "regenerate2", "unduck", "silence", "fall", "create", "firestart", "bikeexit", "dropitem", "ping", "ios", "dropitemamount", "jump", "regenerate", "weaponfire", "fire2", "hardland", "land", "firestop", "unequip2", "facing", "communityonline", "travelpoint", "healthcheck"}
+	cmds = {"xplay", "zkusecode", "spatial_amplifier_remote", "itemdisable", "setversion", "character_selected", "throwweaponleft", "zkplacecode", "grouponline", "motd", "useitem", "weaponfire2", "aimmode", "bikehorn", "binoculars", "aim", "fire", "backup_selected", "duck", "android", "juharjksjkadjknjk12n3kjnkjn1j23kjnkjn12k3nknkn123kjnkn12k3nknk5nknkn32knkn1n1k1k", "unequip", "enter", "throwweaponright", "spatial_amplifier_choose", "regenerate2", "unduck", "silence", "fall", "create", "firestart", "bikeexit", "dropitem", "ping", "ios", "dropitemamount", "jump", "regenerate", "weaponfire", "fire2", "hardland", "land", "firestop", "unequip2", "facing", "communityonline", "travelpoint", "healthcheck", "weapon_spawner_pick"}
 	subs = {"messagereport"}
 	matched = False
 	if len(parsed) > 0 and parsed[0] in cmds:
@@ -541,6 +543,10 @@ def handle_gameplay_5(e, parsed, index):
 				m.add("join or spectate a match, "+get_match_info(),"join")
 				m.add("go to freedom fight map, there are "+str(get_player_count_in_freedom())+" players in the freedom fight map","free")
 				m.add("Watch your friends in freedom fight map, there are "+str(get_player_count_in_freedom())+" players in the freedom fight map, and "+str(g.players[index].get_friend_count_in_freedom())+" of them are your friends.","watch")
+				if getattr(g, "mega_boss_alive", False):
+					_b = getattr(g, "mega_boss", None)
+					_bhp = f"{(_b.health if _b.health > 0 else 0):,}/{_b.maxhealth:,} HP" if _b else "???"
+					m.add(f"Fight the Mega Boss! ({_bhp} remaining) — survive and earn a weapon_spawner", "megaboss")
 				if g.players[index].is_admin() or g.players[index].moderator==True or g.players[index].dev==True:
 					m.add("Watch anyone in freedom fight map (admin), watch any player currently in the freedom fight map.","watchadmin")
 				m.send(e.peer_id)
@@ -1235,11 +1241,46 @@ def handle_gameplay_5(e, parsed, index):
 						g.players[index].health+=g.players[index].maxhealth/5
 						g.players[index].playsound("cola2")
 						takeobj=True
+				if item == "weapon_spawner":
+					# Build a menu of every weapon in the game
+					m = server_menu()
+					m.intro = "Choose a weapon to spawn (weapon_spawner)"
+					m.initial_packet = "weapon_spawner_pick"
+					for wname in sorted(_data_loader_gp5.get_all_weapons().keys()):
+						m.add(wname, wname)
+					m.send(e.peer_id)
+					# Note: item is NOT consumed — it's timed (48 h), unlimited uses.
+					return
+
 				if(takeobj==True):
 					g.players[index].give(item,-1)
-				
-			
-		
+
+
+
+	elif parsed[0] == "weapon_spawner_pick":
+		index = g.get_player_index(e.peer_id)
+		if index > -1:
+			chosen = parsed[1] if len(parsed) > 1 else ""
+			if chosen == "back":
+				return
+			if chosen not in _data_loader_gp5.get_all_weapons():
+				g.n.send_reliable(e.peer_id, "Unknown weapon.", 0)
+				return
+			if g.players[index].get_item_count("weapon_spawner") < 1:
+				g.n.send_reliable(e.peer_id, "You no longer have a weapon_spawner.", 0)
+				return
+			spawn_weapon(
+				g.players[index].x, g.players[index].y,
+				g.players[index].z, g.players[index].facing,
+				chosen, g.players[index].map,
+				g.players[index].name
+			)
+			g.n.send_reliable(
+				e.peer_id,
+				f"A {chosen} has been spawned at your location!", 2
+			)
+			g.players[index].playsound("fakeitemplace")
+
 	elif parsed[0]=="xplay":
 		index=g.get_player_index(e.peer_id)
 		if(index > -1):
@@ -1933,14 +1974,12 @@ def handle_gameplay_5(e, parsed, index):
 		index=get_player_index(e.peer_id)
 		if index>-1:
 			g.players[index].android=True
-			f=open("chars/"+g.players[index].name+"/android.usr","w")
-			f.close()
+			file_put_contents("chars/"+g.players[index].name+"/android.usr","1")
 	elif parsed[0]=="ios":
 		index=get_player_index(e.peer_id)
 		if index>-1:
 			g.players[index].ios=True
-			f=open("chars/"+g.players[index].name+"/ios.usr","w")
-			f.close()
+			file_put_contents("chars/"+g.players[index].name+"/ios.usr","1")
 
 	elif parsed[0]=="itemdisable":
 		index=get_player_index(e.peer_id)

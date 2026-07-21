@@ -341,46 +341,68 @@ def itemdo(fn="zitemdata.txt"):
 def main():
 	global languages, store_data, event_store_data
 	import os
+	import db as _db
 	server_dir = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".."))
 	os.chdir(server_dir)
 	if not os.path.exists("chars"):
 		os.makedirs("chars")
-	if file_exists("matches.dat"): load_matches()
-	if file_exists("chests.dat"): load_chests()
-	if file_exists("electrics.dat"): load_electrics()
-	if file_exists("corpses.dat"): load_corpses()
 
-	if file_exists("groups.dat"): load_groups()
-	if file_exists("communitys.dat"): load_communitys()
+	# ── Read server.conf and init DB first — everything below may touch SQLite ──
+	port = 10000 if "android" not in os.getcwd() else 10001
+	db_path = "zha_players.db"
+	dashboard_port = 8080
+	dashboard_password = "changeme"
+	if os.path.exists("server.conf"):
+		try:
+			with open("server.conf", "r") as f:
+				for line in f:
+					clean_line = line.strip()
+					if not clean_line or clean_line.startswith("#") or clean_line.startswith(";"):
+						continue
+					if "=" in clean_line:
+						k, v = clean_line.split("=", 1)
+						key = k.strip().lower()
+						val = v.strip()
+						if key == "port":
+							port = int(val)
+						elif key == "db_path":
+							db_path = val
+						elif key == "dashboard_port":
+							dashboard_port = int(val)
+						elif key == "dashboard_password":
+							dashboard_password = val
+		except Exception as ex:
+			print(f"[!] Error reading server.conf: {ex}")
 
-	if file_exists("group_bases.dat"): load_group_bases()
+	_db.init_db(db_path)
 
-	if file_exists("tickets.dat"): load_tickets()
-	if file_exists("votes.dat"): load_votes()
-	if file_exists("barricades.dat"): load_barricades()
-	if file_exists("ladders.dat"): load_ladders()
-	if file_exists("rain.dat"): load_rain()
-	if file_exists("mines.dat"): load_mines()
-	if file_exists("bikes.dat"): load_bikes()
-	if file_exists("timebombs.dat"): load_timebombs()
-	if file_exists("zks.dat"): load_zks()
+	# ── Load game-world state from DB (load functions handle "no data" safely) ──
+	load_matches()
+	load_chests()
+	load_electrics()
+	load_corpses()
+	load_groups()
+	load_communitys()
+	load_group_bases()
+	load_tickets()
+	load_votes()
+	load_barricades()
+	load_ladders()
+	load_rain()
+	load_mines()
+	load_bikes()
+	load_timebombs()
+	load_zks()
+	load_npcs()
+	load_timeditems()
+	load_zombies()
+	load_items()
+	load_flags()
 
-	"""
-	try:
-		if file_exists("motors.dat"): load_motors()
-	except: pass
-"""
-	if file_exists("npcs.dat"): load_npcs()
-	if file_exists("timeditems.dat"): load_timeditems()
-	if file_exists("zombies.dat"): load_zombies()
-	if file_exists("items.dat"): load_items()
-	if file_exists("flags.dat"): load_flags()
-	if file_exists("language_data.dat"):
-		f=open("language_data.dat","rb")
+	data = _db.sv_read("language_data.dat")
+	if data:
 		languages.clear()
-		languages.update(pickle.loads(f.read()))
-		f.close()
-	import os
+		languages.update(pickle.loads(data))
 	if os.path.isdir("lang"):
 		for fname in os.listdir("lang"):
 			if fname.endswith(".lng"):
@@ -398,34 +420,28 @@ def main():
 	store_data.extend(load_store_data())
 	event_store_data.clear()
 	event_store_data.extend(load_event_store_data())
-	if not file_exists("compbans.svr"): open("compbans.svr","wb").close()
 	init_mapsystem()
 	load_compids()
 
 	load_bans()
 	load_mailbans()
 	load_tempmail_domains()
-	if file_exists("motd.txt")==False:
-		f=open("motd.txt","w")
-		f.close()
-	f=open("motd.txt","r")
-	f.close()
+	if not _db.sv_exists("motd.txt"):
+		_db.sv_write_text("motd.txt", "")
 	setupserver()
-	port = 10000 if "android" not in os.getcwd() else 10001
-	if os.path.exists("server.conf"):
-		try:
-			with open("server.conf", "r") as f:
-				for line in f:
-					# Skip comments and empty lines
-					clean_line = line.strip()
-					if not clean_line or clean_line.startswith("#") or clean_line.startswith(";"):
-						continue
-					if "=" in clean_line:
-						k, v = clean_line.split("=", 1)
-						if k.strip().lower() == "port":
-							port = int(v.strip())
-		except Exception as ex:
-			print(f"[!] Error reading server.conf: {ex}")
+
+	# Start admin dashboard
+	try:
+		import sys as _sys, os as _os
+		_dashboard_dir = _os.path.abspath(_os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "..", "..", "dashboard"))
+		if _dashboard_dir not in _sys.path:
+			_sys.path.insert(0, _os.path.dirname(_dashboard_dir))
+		import data_loader as _dl
+		from dashboard.app import start_dashboard
+		import globals as _g_ref
+		start_dashboard(_g_ref, _db, _dl, password=dashboard_password, port=dashboard_port)
+	except Exception as _dash_ex:
+		print(f"[!] Dashboard failed to start: {_dash_ex}")
 
 	print("=" * 65)
 	print("                    ZERO HOUR ASSAULT GAME SERVER")
@@ -539,7 +555,7 @@ def gameloops(match_loop=True,npc_loop=True):
 				g.n.send_reliable(pl.peer_id,"play_s misc251.ogg",0)
 				g.n.send_reliable(pl.peer_id,"The event "+oldtask+" has been finished. The new event is "+get_task_name(),2)
 		if os.path.exists("chars"):
-			for char in os.listdir("chars"):
+			for char in find_directories("chars"):
 				charfolder=os.path.join("chars",char)
 				file_delete(charfolder+"/currenteventpoint.usr")
 				file_delete(charfolder+"/task_data.usr")
@@ -647,10 +663,9 @@ def gameloops(match_loop=True,npc_loop=True):
 				TIME_MINUTE=current_time.minute
 				TIME_SECOND=current_time.second
 				if TIME_HOUR==23 and TIME_MINUTE==0 and TIME_SECOND<=10:
-					charfolders=find_directories("chars")
-					for dir in charfolders:
-						if os.path.isfile("chars/"+dir+"/mailsent.usr"): os.remove("chars/"+dir+"/mailsent.usr")
-						if os.path.isfile("chars/"+dir+"/todaygift.usr"): os.remove("chars/"+dir+"/todaygift.usr")
+					for _row in _db.get_all_players():
+						_db.chardelete(_row["name"], "mailsent")
+						_db.chardelete(_row["name"], "todaygift")
 
 		if 1:
 			for m in g.maps:
@@ -662,6 +677,7 @@ def gameloops(match_loop=True,npc_loop=True):
 						file_put_contents("maps/"+targetmap+".map",file_get_contents("maps/"+targetmap+".map").replace("platform:"+str(wall.minx)+":"+str(wall.maxx)+":"+str(wall.miny)+":"+str(wall.maxy)+":"+str(wall.minz)+":"+str(wall.maxz)+":"+str(wall.type),""))
 						update_map(targetmap)
 	if npc_loop: npcloop()
+	megabossloop()
 	spawnerloop()
 
 	if len(g.zombies)>0: zombieloop()
@@ -705,9 +721,7 @@ def gameloops(match_loop=True,npc_loop=True):
 		g.lolsavetimer.restart()
 #		garbage_collect()
 		save_all_chars()
-		f=open("language_data.dat","wb")
-		f.write(pickle.dumps(languages))
-		f.close()
+		_db.sv_write("language_data.dat", pickle.dumps(languages))
 
 
 def garbage_collect():

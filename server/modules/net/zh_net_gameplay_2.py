@@ -18,7 +18,7 @@ def handle_gameplay_2(e, parsed, index):
 		if handle_data_editor(e, parsed, index):
 			return True
 
-	cmds = {"ammocheck", "communityrequest2", "changestatus", "eml", "rename2", "addfriend", "friendstats", "createvote2", "communityrequest", "staffmenu", "communityinfoselect", "removefriend", "addfriendchoose", "groupmakeadmin", "serverstatus", "tokentransfer", "groupinvite", "groupremoveadmin", "confirmdelete", "confirmpasswdcode", "vote2", "cinvitation2", "createvote", "communitymakeowner", "ticketviewchoose", "groupdonate2", "addfriend3", "ticket_create_department", "bus_board", "addfriendchoose2", "groupinfoselect", "communitykick", "eml2", "serverviewchoose", "invitation", "handselect", "lchannelset", "addfriendchoose3", "grouprequest", "groupmakeowner", "cinvitation", "group2", "editmap", "grouprename", "communityinfoselect2", "communityremoveadmin", "compid", "serverviewcategory", "langoption", "groupinfoselect2", "groupannounce", "sitstop", "invitation2", "adminlog", "communityinvite", "addfriend2", "communityannounce", "eventschoose", "eml3", "sitstart", "grouprequest2", "groupinvite2", "ticket2", "ammocheck2", "friend2", "addfriend4", "communityrename", "changepasswd", "communitycreate", "securitychoose", "gamemenuopt", "groupcreate", "char", "communitymakeadmin", "groupkick", "groupdonate", "communityinvite2", "notifys", "community2"}
+	cmds = {"playersettings", "playersettings_input", "ammocheck", "communityrequest2", "changestatus", "eml", "rename2", "addfriend", "friendstats", "createvote2", "communityrequest", "staffmenu", "communityinfoselect", "removefriend", "addfriendchoose", "groupmakeadmin", "serverstatus", "tokentransfer", "groupinvite", "groupremoveadmin", "confirmdelete", "confirmpasswdcode", "vote2", "cinvitation2", "createvote", "communitymakeowner", "ticketviewchoose", "groupdonate2", "addfriend3", "ticket_create_department", "bus_board", "addfriendchoose2", "groupinfoselect", "communitykick", "eml2", "serverviewchoose", "invitation", "handselect", "lchannelset", "addfriendchoose3", "grouprequest", "groupmakeowner", "cinvitation", "group2", "editmap", "grouprename", "communityinfoselect2", "communityremoveadmin", "compid", "serverviewcategory", "langoption", "groupinfoselect2", "groupannounce", "sitstop", "invitation2", "adminlog", "communityinvite", "addfriend2", "communityannounce", "eventschoose", "eml3", "sitstart", "grouprequest2", "groupinvite2", "ticket2", "ammocheck2", "friend2", "addfriend4", "communityrename", "changepasswd", "communitycreate", "securitychoose", "gamemenuopt", "groupcreate", "char", "communitymakeadmin", "groupkick", "groupdonate", "communityinvite2", "notifys", "community2"}
 	subs = {}
 	matched = False
 	if len(parsed) > 0 and parsed[0] in cmds:
@@ -743,7 +743,7 @@ def handle_gameplay_2(e, parsed, index):
 				m.intro="Here you can view the players who were penalized in the game."
 				compbanloop()
 				m.add(get_comp_bans(),"a",False)
-				chars=os.listdir("chars")
+				chars=find_directories("chars")
 				for char in chars:
 					charfolder=os.path.join("chars",char)
 					if os.path.isfile(charfolder+"/disableallchattime.usr"):
@@ -1014,7 +1014,7 @@ def handle_gameplay_2(e, parsed, index):
 				m=server_menu()
 				m.intro="Select a member to remove invitation."
 				m.initial_packet="groupinvite2"
-				chars=os.listdir("chars")
+				chars=find_directories("chars")
 				for char in chars:
 					charfolder=os.path.join("chars",char)
 					try: invitations=pickle.loads(file_get_contents("chars/"+char+"/groupinvitations.usr","rb"))
@@ -1142,7 +1142,7 @@ def handle_gameplay_2(e, parsed, index):
 				m=server_menu()
 				m.intro="Select a member to remove invitation."
 				m.initial_packet="communityinvite2"
-				chars=os.listdir("chars")
+				chars=find_directories("chars")
 				for char in chars:
 					charfolder=os.path.join("chars",char)
 					try:
@@ -1642,9 +1642,7 @@ def handle_gameplay_2(e, parsed, index):
 
 			g.players[index].zhtoken-=150
 			try:
-				f=open("chars/"+g.players[index].name+"/renamehistory.usr","a")
-				f.write("You changed your name from "+g.players[index].name+" to "+parsed[1]+" in "+str(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))+"\n")
-				f.close()
+				file_put_contents("chars/"+g.players[index].name+"/renamehistory.usr","You changed your name from "+g.players[index].name+" to "+parsed[1]+" in "+str(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))+"\n","a")
 			except: pass
 			save_char(index)
 			notify_admins("zero hour assault, "+g.players[index].name+" changed their name to "+parsed[1]+"")
@@ -1697,9 +1695,9 @@ def handle_gameplay_2(e, parsed, index):
 					send_reliable(e.peer_id, "no logs", 0)
 					g.players[index].prevmenu()
 					return
-				r=open("adminlog.txt", "r")
-				changes=string_split(r.read(), "\n", True)
-				r.close()
+				import db as _db
+				r=_db.sv_read_text("adminlog.txt", "")
+				changes=string_split(r, "\n", True)
 				if len(changes)<=0:
 					send_reliable(e.peer_id, "no logs", 0)
 					g.players[index].prevmenu()
@@ -1715,9 +1713,7 @@ def handle_gameplay_2(e, parsed, index):
 					send_reliable(e.peer_id, "no help", 0)
 					g.players[index].prevmenu()
 					return
-				r=open("adminhelp.txt", "rb")
-				changes=string_split(r.read().decode("utf-8",errors="ignore"), "\n", True)
-				r.close()
+				changes=string_split(file_get_contents("adminhelp.txt"), "\n", True)
 				if len(changes)<=0:
 					send_reliable(e.peer_id, "no help", 0)
 					g.players[index].prevmenu()
@@ -1733,9 +1729,7 @@ def handle_gameplay_2(e, parsed, index):
 					send_reliable(e.peer_id, "no help", 0)
 					g.players[index].prevmenu()
 					return
-				r=open("moderatorhelp.txt", "r")
-				changes=string_split(r.read(), "\n", True)
-				r.close()
+				changes=string_split(file_get_contents("moderatorhelp.txt"), "\n", True)
 				if len(changes)<=0:
 					send_reliable(e.peer_id, "no help", 0)
 					g.players[index].prevmenu()
@@ -1752,9 +1746,7 @@ def handle_gameplay_2(e, parsed, index):
 					send_reliable(e.peer_id, "no help", 0)
 					g.players[index].prevmenu()
 					return
-				r=open("builderhelp.txt", "r")
-				changes=string_split(r.read(), "\n", True)
-				r.close()
+				changes=string_split(file_get_contents("builderhelp.txt"), "\n", True)
 				if len(changes)<=0:
 					send_reliable(e.peer_id, "no help", 0)
 					g.players[index].prevmenu()
@@ -1772,9 +1764,7 @@ def handle_gameplay_2(e, parsed, index):
 					send_reliable(e.peer_id, "no suggestions", 0)
 					g.players[index].prevmenu()
 					return
-				r=open("suggest.txt", "r")
-				changes=string_split(r.read(), "\n", True)
-				r.close()
+				changes=string_split(file_get_contents("suggest.txt"), "\n", True)
 				if len(changes)<=0:
 					send_reliable(e.peer_id, "no suggestions", 0)
 					g.players[index].prevmenu()
@@ -1792,6 +1782,22 @@ def handle_gameplay_2(e, parsed, index):
 					g.players[index].prevmenu()
 					return
 				handle_data_editor(e, ["de_main"], index)
+
+			if parsed[1]=="playersettings":
+				if not (g.players[index].is_admin() or g.players[index].dev or g.players[index].moderator):
+					g.n.send_reliable(e.peer_id,"You don't have permission to access Player Settings.",0)
+					g.players[index].prevmenu()
+					return
+				m = server_menu()
+				m.intro = "Player Settings Menu"
+				m.initial_packet = "playersettings"
+				m.add("Kick Player", "kick")
+				m.add("Ban / Unban Player", "ban_unban")
+				m.add("Jail / Unjail Player", "jail_unjail")
+				m.add("Manage Player Features", "features")
+				m.add("Set Player Stats", "stats")
+				m.add("Back", "back")
+				m.send(e.peer_id)
 	if parsed[0]=="confirmdelete":
 		index=g.get_player_index(e.peer_id)
 		if(index>-1):
@@ -1967,8 +1973,7 @@ def handle_gameplay_2(e, parsed, index):
 						g.n.send_reliable(e.peer_id,"You already got your daily zero tokens today, after "+str(hours)+" hours, "+str(minutes)+" minutes, "+str(seconds)+" seconds, try again.",0)
 						g.players[index].prevmenu()
 						return
-					f=open("chars/"+g.players[index].name+"/todaygift.usr","w")
-					f.close()
+					file_put_contents("chars/"+g.players[index].name+"/todaygift.usr","1")
 					amount=random(1,5)
 					g.players[index].zhtoken+=amount
 					g.n.send_reliable(e.peer_id,"You got "+str(amount)+" zero tokens",0)
@@ -2240,6 +2245,8 @@ here, since the player name is before the string "came online", we added =substr
 					if g.players[index].is_admin()==True or g.players[index].dev==True:
 						m.add("Data Editor - edit game balance configs live","dataeditor")
 
+					m.add("Player Settings - moderation, jail, chat blocks, stats", "playersettings")
+
 					m.send(e.peer_id)
 			if parsed[1]=="security":
 				if g.players[index].map=="jail": g.n.send_reliable(g.players[index].peer_id,"you  are jailed, so you can not perform this process",0); return
@@ -2292,9 +2299,7 @@ here, since the player name is before the string "came online", we added =substr
 				if not file_exists("changes.txt") or file_get_contents("changes.txt")=="":
 					send_reliable(e.peer_id, "no Latest Additions", 0)
 					return
-				r=open("changes.txt", "r")
-				changes=string_split(r.read(), "\n", True)
-				r.close()
+				changes=string_split(file_get_contents("changes.txt"), "\n", True)
 				if len(changes)<=0:
 					send_reliable(e.peer_id, "no Latest Additions", 0)
 					return
@@ -2308,9 +2313,7 @@ here, since the player name is before the string "came online", we added =substr
 				if not file_exists("rules.txt"):
 					send_reliable(e.peer_id, "no rules.", 0)
 					return
-				r=open("rules.txt", "rb")
-				changes=string_split(r.read().decode("utf-8",errors="ignore"), "\n", True)
-				r.close()
+				changes=string_split(file_get_contents("rules.txt"), "\n", True)
 				if len(changes)<=0:
 					send_reliable(e.peer_id, "no rules.", 0)
 					return
@@ -2325,9 +2328,7 @@ here, since the player name is before the string "came online", we added =substr
 				if not file_exists("readme.txt") or file_get_contents("readme.txt")=="":
 					send_reliable(e.peer_id, "The file could be not found.", 0)
 					return
-				r=open("readme.txt", "r")
-				changes=string_split(r.read(), "\n", True)
-				r.close()
+				changes=string_split(file_get_contents("readme.txt"), "\n", True)
 				if len(changes)<=0:
 					send_reliable(e.peer_id, "The file could be not found.", 0)
 					return
@@ -2826,9 +2827,7 @@ here, since the player name is before the string "came online", we added =substr
 				g.players[index].prevmenu()
 				return
 			if parsed[1] not in g.players[index].bought_chars:
-				f=open("razeon.txt","a")
-				f.write(g.players[index].name+", "+parsed[1])
-				f.close()
+				file_put_contents("razeon.txt", g.players[index].name+", "+parsed[1], "a")
 			g.players[index].current_char=parsed[1]
 			g.players[index].get_char_properties()
 			send_reliable(g.players[index].peer_id,"play_s misc11.ogg",0)
@@ -2872,3 +2871,671 @@ here, since the player name is before the string "came online", we added =substr
 			ammoamount=index.ammocheck(index.weapon2)
 			ra=index.get_item_count(get_ammotype(index.weapon2)+"")
 			g.n.send_reliable(e.peer_id,("no ammo loaded for " + index.weapon2 + ". and also you have " + str(ra) + " " + get_ammotype(index.weapon2) + " ammo" if ammoamount <= 0 else str(ammoamount) + " ammo for " + index.weapon2 + " loaded, and also you have " + str(ra) + " " + get_ammotype(index.weapon2) + " ammo"),0)
+
+	if(parsed[0]=="playersettings"):
+		index=g.get_player_index(e.peer_id)
+		if(index>-1):
+			if not (g.players[index].is_admin() or g.players[index].dev or g.players[index].moderator):
+				g.n.send_reliable(e.peer_id,"You don't have permission.",0)
+				g.players[index].prevmenu()
+				return
+
+			action = parsed[1]
+			if action == "back":
+				g.players[index].prevmenu()
+				return
+
+			# --- KICK PLAYER ---
+			if action == "kick":
+				m = server_menu()
+				m.intro = "Select player to kick"
+				m.initial_packet = "playersettings"
+				for i in range(len(g.players)):
+					if g.players[i].name != "":
+						m.add(g.players[i].name, "kick_target_" + g.players[i].name)
+				m.add("Back", "back_main")
+				m.send(e.peer_id)
+				return
+
+			if action.startswith("kick_target_"):
+				target = action.replace("kick_target_", "")
+				ind2 = get_player_index_from(target)
+				if ind2 > -1:
+					adminsend(f"{target} has been kicked by {g.players[index].name}.")
+					g.n.send_reliable(e.peer_id, f"Kicked player {target}.", 0)
+					remove_from_server(ind2)
+				else:
+					g.n.send_reliable(e.peer_id, f"Player {target} is not online.", 0)
+				# Refresh kick menu
+				m = server_menu()
+				m.intro = "Select player to kick"
+				m.initial_packet = "playersettings"
+				for i in range(len(g.players)):
+					if g.players[i].name != "":
+						m.add(g.players[i].name, "kick_target_" + g.players[i].name)
+				m.add("Back", "back_main")
+				m.send(e.peer_id)
+				return
+
+			# --- BAN / UNBAN PLAYER ---
+			if action == "ban_unban":
+				m = server_menu()
+				m.intro = "Ban / Unban Player"
+				m.initial_packet = "playersettings"
+				m.add("Ban Online Player", "ban_online_menu")
+				m.add("Ban Offline Player (Type Name)", "ban_offline_menu")
+				m.add("Unban Player", "unban_menu")
+				m.add("Back", "back_main")
+				m.send(e.peer_id)
+				return
+
+			if action == "ban_online_menu":
+				m = server_menu()
+				m.intro = "Select online player to ban"
+				m.initial_packet = "playersettings"
+				for i in range(len(g.players)):
+					if g.players[i].name != "":
+						m.add(g.players[i].name, "ban_target_" + g.players[i].name)
+				m.add("Back", "ban_unban")
+				m.send(e.peer_id)
+				return
+
+			if action == "ban_offline_menu":
+				g.players[index].m_action = "ban_username_input"
+				send_serverbox(e.peer_id, 0, -1, 0, -1, "playersettings_input", "Enter offline player name:")
+				return
+
+			if action == "unban_menu":
+				m = server_menu()
+				m.intro = "Select player to unban"
+				m.initial_packet = "playersettings"
+				banned_users = list(g.compbans.keys())
+				for char in banned_users:
+					m.add(char, "unban_target_" + char)
+				if len(banned_users) == 0:
+					m.add("No banned players found", "unban_none", False)
+				m.add("Back", "ban_unban")
+				m.send(e.peer_id)
+				return
+
+			if action.startswith("unban_target_"):
+				target = action.replace("unban_target_", "")
+				compid = get_compid_from_player(target)
+				for f in ["permaban.usr", "banreason.usr", "banenddate.usr"]:
+					file_delete("chars/" + target + "/" + f)
+				if compid:
+					for char in find_directories("chars"):
+						if file_exists("chars/" + char + "/compid.usr") and file_get_contents("chars/" + char + "/compid.usr") == compid:
+							for f in ["permaban.usr", "banreason.usr", "banenddate.usr"]:
+								file_delete("chars/" + char + "/" + f)
+				comp_unban(target)
+				adminsend(f"{target}'s ban has been removed by {g.players[index].name}.")
+				g.n.send_reliable(e.peer_id, f"Unbanned {target} successfully.", 0)
+				# Refresh unban list
+				m = server_menu()
+				m.intro = "Select player to unban"
+				m.initial_packet = "playersettings"
+				banned_users = list(g.compbans.keys())
+				for char in banned_users:
+					m.add(char, "unban_target_" + char)
+				if len(banned_users) == 0:
+					m.add("No banned players found", "unban_none", False)
+				m.add("Back", "ban_unban")
+				m.send(e.peer_id)
+				return
+
+			if action.startswith("ban_target_"):
+				target = action.replace("ban_target_", "")
+				g.players[index].m_target = target
+				# Show ban duration options
+				m = server_menu()
+				m.intro = f"Select ban duration for {target}"
+				m.initial_packet = "playersettings"
+				m.add("Permanent", "ban_dur_0")
+				m.add("1 Hour", "ban_dur_60")
+				m.add("2 Hours", "ban_dur_120")
+				m.add("12 Hours", "ban_dur_720")
+				m.add("24 Hours", "ban_dur_1440")
+				m.add("3 Days", "ban_dur_4320")
+				m.add("7 Days", "ban_dur_10080")
+				m.add("30 Days", "ban_dur_43200")
+				m.add("Custom Hours", "ban_dur_custom")
+				m.add("Back", "ban_unban")
+				m.send(e.peer_id)
+				return
+
+			if action.startswith("ban_dur_"):
+				dur_str = action.replace("ban_dur_", "")
+				if dur_str == "custom":
+					g.players[index].m_action = "ban_custom_hours"
+					send_serverbox(e.peer_id, 0, -1, 0, -1, "playersettings_input", "Enter custom duration in hours:")
+				else:
+					try:
+						g.players[index].m_duration = int(dur_str)
+					except:
+						g.players[index].m_duration = 0
+					g.players[index].m_action = "ban_reason_input"
+					send_serverbox(e.peer_id, 0, -1, 0, -1, "playersettings_input", "Enter ban reason:")
+				return
+
+			# --- JAIL / UNJAIL PLAYER ---
+			if action == "jail_unjail":
+				m = server_menu()
+				m.intro = "Jail / Unjail Player"
+				m.initial_packet = "playersettings"
+				m.add("Jail Player", "jail_online_menu")
+				m.add("Unjail Player", "unjail_menu")
+				m.add("Back", "back_main")
+				m.send(e.peer_id)
+				return
+
+			if action == "jail_online_menu":
+				m = server_menu()
+				m.intro = "Select online player to jail"
+				m.initial_packet = "playersettings"
+				for i in range(len(g.players)):
+					if g.players[i].name != "":
+						m.add(g.players[i].name, "jail_target_" + g.players[i].name)
+				m.add("Back", "jail_unjail")
+				m.send(e.peer_id)
+				return
+
+			if action == "unjail_menu":
+				m = server_menu()
+				m.intro = "Select player to unjail"
+				m.initial_packet = "playersettings"
+				jailed_users = []
+				for char in find_directories("chars"):
+					if file_exists("chars/" + char + "/jailtime.usr"):
+						jailed_users.append(char)
+				for char in jailed_users:
+					m.add(char, "unjail_target_" + char)
+				if len(jailed_users) == 0:
+					m.add("No jailed players found", "unjail_none", False)
+				m.add("Back", "jail_unjail")
+				m.send(e.peer_id)
+				return
+
+			if action.startswith("unjail_target_"):
+				target = action.replace("unjail_target_", "")
+				ind2 = get_player_index_from(target)
+				if ind2 > -1:
+					g.players[ind2].jailed = False
+					g.players[ind2].jailtimer.restart()
+					g.players[ind2].jailreason = ""
+					g.players[ind2].jailtime = 0
+					g.move_player(ind2, 5, 0, 0, "lobby")
+				file_delete("chars/" + target + "/jailtime.usr")
+				file_delete("chars/" + target + "/jailtimestamp.usr")
+				file_delete("chars/" + target + "/jailreason.usr")
+				compid = get_compid_from_player(target)
+				if compid:
+					for char in find_directories("chars"):
+						if file_exists("chars/" + char + "/compid.usr") and file_get_contents("chars/" + char + "/compid.usr") == compid and char != target:
+							file_delete("chars/" + char + "/jailtime.usr")
+							file_delete("chars/" + char + "/jailreason.usr")
+							file_delete("chars/" + char + "/jailtimestamp.usr")
+				adminsend(f"{target} has been unjailed by {g.players[index].name}.")
+				g.n.send_reliable(e.peer_id, f"Unjailed {target} successfully.", 0)
+				# Refresh unjail menu
+				m = server_menu()
+				m.intro = "Select player to unjail"
+				m.initial_packet = "playersettings"
+				jailed_users = []
+				for char in find_directories("chars"):
+					if file_exists("chars/" + char + "/jailtime.usr"):
+						jailed_users.append(char)
+				for char in jailed_users:
+					m.add(char, "unjail_target_" + char)
+				if len(jailed_users) == 0:
+					m.add("No jailed players found", "unjail_none", False)
+				m.add("Back", "jail_unjail")
+				m.send(e.peer_id)
+				return
+
+			if action.startswith("jail_target_"):
+				target = action.replace("jail_target_", "")
+				g.players[index].m_target = target
+				g.players[index].m_action = "jail_duration_input"
+				send_serverbox(e.peer_id, 0, -1, 0, -1, "playersettings_input", "Enter jail duration in minutes (0 for permanent):")
+				return
+
+			# --- MANAGE FEATURES ---
+			if action == "features":
+				m = server_menu()
+				m.intro = "Select player to manage features"
+				m.initial_packet = "playersettings"
+				for i in range(len(g.players)):
+					if g.players[i].name != "":
+						m.add(g.players[i].name, "feat_target_" + g.players[i].name)
+				m.add("Back", "back_main")
+				m.send(e.peer_id)
+				return
+
+			if action.startswith("feat_target_"):
+				target = action.replace("feat_target_", "")
+				g.players[index].m_target = target
+				show_features_menu(e.peer_id, index, target)
+				return
+
+			if action == "feat_back":
+				m = server_menu()
+				m.intro = "Select player to manage features"
+				m.initial_packet = "playersettings"
+				for i in range(len(g.players)):
+					if g.players[i].name != "":
+						m.add(g.players[i].name, "feat_target_" + g.players[i].name)
+				m.add("Back", "back_main")
+				m.send(e.peer_id)
+				return
+
+			if action.startswith("toggle_feat_"):
+				feature = action.replace("toggle_feat_", "")
+				target = g.players[index].m_target
+				
+				# Helper to check block status
+				def is_block_active_local(username, file_prefix):
+					time_file = f"chars/{username}/{file_prefix}time.usr"
+					if not file_exists(time_file): return False
+					try:
+						timestamp = int(file_get_contents(time_file))
+						if int(time.time()) < timestamp: return True
+					except: pass
+					return False
+
+				if feature == "voice":
+					voice_blocked = False
+					if file_exists(f"chars/{target}/blockvoice3.usr"):
+						try:
+							voice_blocked = (file_get_contents(f"chars/{target}/blockvoice3.usr").strip() == "1")
+						except: pass
+					
+					if voice_blocked:
+						file_delete(f"chars/{target}/blockvoice3.usr")
+						ind2 = get_player_index_from(target)
+						if ind2 > -1:
+							g.players[ind2].blockvoice3 = 0
+							g.n.send_reliable(g.players[ind2].peer_id, "enablevoicechat", 0)
+						adminsend(f"{target}'s voice chat has been unblocked by {g.players[index].name}.")
+						g.n.send_reliable(e.peer_id, "Voice chat unblocked.", 0)
+					else:
+						file_put_contents(f"chars/{target}/blockvoice3.usr", "1")
+						ind2 = get_player_index_from(target)
+						if ind2 > -1:
+							g.players[ind2].blockvoice3 = 1
+							g.n.send_reliable(g.players[ind2].peer_id, "disablevoicechat", 0)
+							g.n.send_reliable(g.players[ind2].peer_id, "disablevoicechat2", 0)
+						adminsend(f"{target}'s voice chat has been blocked by {g.players[index].name}.")
+						g.n.send_reliable(e.peer_id, "Voice chat blocked.", 0)
+					
+					show_features_menu(e.peer_id, index, target)
+					return
+				
+				prefixes = {
+					"allchat": "disableallchat",
+					"publicchat": "disablepublicchat",
+					"pmchat": "disablepmchat",
+					"teamchat": "disableteamchat",
+					"mapchat": "disablemapchat",
+					"groupchat": "disablegroupchat",
+					"vote": "disablevote"
+				}
+				prefix = prefixes.get(feature)
+				if prefix:
+					if is_block_active_local(target, prefix):
+						file_delete(f"chars/{target}/{prefix}time.usr")
+						file_delete(f"chars/{target}/{prefix}reason.usr")
+						adminsend(f"{target}'s {feature} feature has been unblocked by {g.players[index].name}.")
+						g.n.send_reliable(e.peer_id, f"Unblocked {feature} feature.", 0)
+						show_features_menu(e.peer_id, index, target)
+					else:
+						g.players[index].m_action = f"feat_block_duration_{prefix}"
+						send_serverbox(e.peer_id, 0, -1, 0, -1, "playersettings_input", f"Enter block duration in minutes for {feature}:")
+				return
+
+			# --- SET STATS ---
+			if action == "stats":
+				m = server_menu()
+				m.intro = "Select player to set stats"
+				m.initial_packet = "playersettings"
+				for i in range(len(g.players)):
+					if g.players[i].name != "":
+						m.add(g.players[i].name, "stat_target_" + g.players[i].name)
+				m.add("Back", "back_main")
+				m.send(e.peer_id)
+				return
+
+			if action.startswith("stat_target_"):
+				target = action.replace("stat_target_", "")
+				g.players[index].m_target = target
+				m = server_menu()
+				m.intro = f"Manage Stats for {target}"
+				m.initial_packet = "playersettings"
+				m.add("Set Score Points", "stat_choice_score")
+				m.add("Set Zero Tokens", "stat_choice_tokens")
+				m.add("Back", "stats")
+				m.send(e.peer_id)
+				return
+
+			if action == "stat_choice_score":
+				g.players[index].m_action = "stat_value_score"
+				send_serverbox(e.peer_id, 0, -1, 0, -1, "playersettings_input", "Enter new Score Points amount:")
+				return
+
+			if action == "stat_choice_tokens":
+				g.players[index].m_action = "stat_value_tokens"
+				send_serverbox(e.peer_id, 0, -1, 0, -1, "playersettings_input", "Enter new Zero Tokens amount:")
+				return
+
+			# --- BACK ROUTER ---
+			if action == "back_main":
+				m = server_menu()
+				m.intro = "Select an option"
+				m.initial_packet = "adminlog"
+				m.add("Copy what commands used, system notification, reports, etc","log2")
+				m.add("check what commands used, system notification, reports, etc","log")
+				m.add("view suggestions","suggestion")
+				if g.players[index].is_admin()==True or g.players[index].dev==True:
+					m.add("View Admin Help","adminhelp")
+				m.add("View moderator Help","moderatorhelp")
+
+				if g.players[index].is_admin()==True or g.players[index].builder==True or g.players[index].dev==True:
+					m.add("View builder Help","builderhelp")
+
+				if g.players[index].is_admin()==True or g.players[index].dev==True:
+					m.add("Data Editor - edit game balance configs live","dataeditor")
+
+				m.add("Player Settings - moderation, jail, chat blocks, stats", "playersettings")
+				m.send(e.peer_id)
+				return
+
+	if(parsed[0]=="playersettings_input"):
+		index=g.get_player_index(e.peer_id)
+		if(index>-1):
+			if not (g.players[index].is_admin() or g.players[index].dev or g.players[index].moderator):
+				return
+
+			input_value = e.message.replace("playersettings_input ", "")
+			if input_value == "[cncel]":
+				g.players[index].prevmenu()
+				return
+
+			action_state = getattr(g.players[index], "m_action", "")
+			target = getattr(g.players[index], "m_target", "")
+
+			# 1. Ban Offline Username Input
+			if action_state == "ban_username_input":
+				if not directory_exists("chars/" + input_value):
+					g.n.send_reliable(e.peer_id, "Error: No such account found.", 0)
+					g.players[index].prevmenu()
+					return
+				g.players[index].m_target = input_value
+				m = server_menu()
+				m.intro = f"Select ban duration for {input_value}"
+				m.initial_packet = "playersettings"
+				m.add("Permanent", "ban_dur_0")
+				m.add("1 Hour", "ban_dur_60")
+				m.add("2 Hours", "ban_dur_120")
+				m.add("12 Hours", "ban_dur_720")
+				m.add("24 Hours", "ban_dur_1440")
+				m.add("3 Days", "ban_dur_4320")
+				m.add("7 Days", "ban_dur_10080")
+				m.add("30 Days", "ban_dur_43200")
+				m.add("Custom Hours", "ban_dur_custom")
+				m.add("Back", "ban_unban")
+				m.send(e.peer_id)
+				return
+
+			# 2. Ban Custom Hours Input
+			if action_state == "ban_custom_hours":
+				try:
+					hours = int(input_value)
+					dur_mins = hours * 60
+				except:
+					dur_mins = 60
+				g.players[index].m_duration = dur_mins
+				g.players[index].m_action = "ban_reason_input"
+				send_serverbox(e.peer_id, 0, -1, 0, -1, "playersettings_input", "Enter ban reason:")
+				return
+
+			# 3. Ban Reason Input & Execution
+			if action_state == "ban_reason_input":
+				dur = g.players[index].m_duration
+				reason = input_value
+				
+				ind2 = get_player_index_from(target)
+				if dur != 0:
+					end_datetime = convert_minutes_to_datetime_object(dur)
+					time_str = f"for {dur} minutes"
+				else:
+					end_datetime = convert_minutes_to_datetime_object(900000000)
+					time_str = "permanently"
+
+				adminsend(f"{target} has been banned by {g.players[index].name} {time_str}. Reason: {reason}")
+
+				if ind2 > -1:
+					success = comp_ban(ind2)
+					if success == False:
+						g.n.send_reliable(e.peer_id, "That player cannot be banned.", 0)
+						g.players[index].prevmenu()
+						return
+					compid = g.players[ind2].compid
+					chars = find_directories("chars")
+					for char in chars:
+						if file_exists("chars/" + char + "/compid.usr") and file_get_contents("chars/" + char + "/compid.usr") == compid:
+							file_put_contents("chars/" + char + "/banreason.usr", reason)
+							file_put_contents("chars/" + char + "/banenddate.usr", pickle.dumps(end_datetime), "wb")
+							if dur == 0:
+								file_put_contents("chars/" + char + "/permaban.usr", "")
+					
+					file_put_contents("chars/" + target + "/banreason.usr", reason)
+					file_put_contents("chars/" + target + "/banenddate.usr", pickle.dumps(end_datetime), "wb")
+					if dur == 0:
+						file_put_contents("chars/" + target + "/permaban.usr", "")
+					
+					try:
+						ban_mail(file_get_contents("chars/" + target + "/mail.usr"))
+					except: pass
+
+					remove_from_server(ind2)
+					for i in range(len(g.players)):
+						if g.players[i].compid == compid:
+							remove_from_server(i)
+				else:
+					compid = get_compid_from_player(target)
+					g.compbans[target] = compid
+					save_bans()
+
+					chars = find_directories("chars")
+					for char in chars:
+						if compid and file_exists("chars/" + char + "/compid.usr") and file_get_contents("chars/" + char + "/compid.usr") == compid:
+							file_put_contents("chars/" + char + "/banreason.usr", reason)
+							file_put_contents("chars/" + char + "/banenddate.usr", pickle.dumps(end_datetime), "wb")
+							if dur == 0:
+								file_put_contents("chars/" + char + "/permaban.usr", "")
+					
+					file_put_contents("chars/" + target + "/banreason.usr", reason)
+					file_put_contents("chars/" + target + "/banenddate.usr", pickle.dumps(end_datetime), "wb")
+					if dur == 0:
+						file_put_contents("chars/" + target + "/permaban.usr", "")
+					
+					try:
+						ban_mail(file_get_contents("chars/" + target + "/mail.usr"))
+					except: pass
+
+					if compid:
+						for i in range(len(g.players)):
+							if g.players[i].compid == compid:
+								remove_from_server(i)
+
+				g.n.send_reliable(e.peer_id, "Player banned successfully.", 0)
+				g.players[index].prevmenu()
+				return
+
+			# 4. Jail Duration Input
+			if action_state == "jail_duration_input":
+				try:
+					dur = int(input_value)
+				except:
+					dur = 30
+				g.players[index].m_duration = dur
+				g.players[index].m_action = "jail_reason_input"
+				send_serverbox(e.peer_id, 0, -1, 0, -1, "playersettings_input", "Enter jail reason:")
+				return
+
+			# 5. Jail Reason Input & Execution
+			if action_state == "jail_reason_input":
+				dur = g.players[index].m_duration
+				reason = input_value
+				time_val = dur
+				if time_val == 0:
+					time_val = 100000000
+
+				ind2 = get_player_index_from(target)
+				if ind2 > -1:
+					g.players[ind2].jailed = True
+					g.players[ind2].jailtimer.restart()
+					g.players[ind2].jailreason = reason
+					g.players[ind2].jailtime = time_val * 60000
+				
+				file_put_contents("chars/" + target + "/jailtime.usr", str(time_val * 60000))
+				file_put_contents("chars/" + target + "/jailtimestamp.usr", str(round(time.time())))
+				file_put_contents("chars/" + target + "/jailreason.usr", reason)
+
+				compid = get_compid_from_player(target)
+				chars = find_directories("chars")
+				for char in chars:
+					if compid and file_exists("chars/" + char + "/compid.usr") and file_get_contents("chars/" + char + "/compid.usr") == compid and char != target:
+						file_put_contents("chars/" + char + "/jailtime.usr", str(time_val * 60000))
+						file_put_contents("chars/" + char + "/jailreason.usr", reason)
+						file_put_contents("chars/" + char + "/jailtimestamp.usr", str(round(time.time())))
+
+				time_str = f"for {dur} minutes" if dur != 0 else "permanently"
+				adminsend(f"{target} has been jailed by {g.players[index].name} {time_str}. Reason: {reason}")
+				g.n.send_reliable(e.peer_id, "Player jailed successfully.", 0)
+				g.players[index].prevmenu()
+				return
+
+			# 6. Feature Block Duration Input
+			if action_state.startswith("feat_block_duration_"):
+				prefix = action_state.replace("feat_block_duration_", "")
+				try:
+					dur = int(input_value)
+				except:
+					dur = 10
+				g.players[index].m_duration = dur
+				g.players[index].m_action = f"feat_block_reason_{prefix}"
+				send_serverbox(e.peer_id, 0, -1, 0, -1, "playersettings_input", "Enter block reason:")
+				return
+
+			# 7. Feature Block Reason Input & Execution
+			if action_state.startswith("feat_block_reason_"):
+				prefix = action_state.replace("feat_block_reason_", "")
+				dur = g.players[index].m_duration
+				reason = input_value
+
+				file_put_contents(f"chars/{target}/{prefix}time.usr", str(minutes_to_timestamp(dur)))
+				file_put_contents(f"chars/{target}/{prefix}reason.usr", reason)
+
+				ind2 = get_player_index_from(target)
+				if ind2 > -1:
+					p_obj = g.players[ind2]
+					if prefix == "disableallchat": p_obj.disable_all_chat(dur, reason)
+					elif prefix == "disablepublicchat": p_obj.disable_public_chat(dur, reason)
+					elif prefix == "disablepmchat": p_obj.disable_pm_chat(dur, reason)
+					elif prefix == "disableteamchat": p_obj.disable_team_chat(dur, reason)
+					elif prefix == "disablemapchat": p_obj.disable_map_chat(dur, reason)
+					elif prefix == "disablegroupchat": p_obj.disable_group_chat(dur, reason)
+					elif prefix == "disablevote": p_obj.disable_vote(dur, reason)
+
+				feature_name = prefix.replace("disable", "")
+				adminsend(f"{target}'s {feature_name} has been blocked by {g.players[index].name} for {dur} minutes. Reason: {reason}")
+				g.n.send_reliable(e.peer_id, f"Blocked {feature_name} successfully.", 0)
+				show_features_menu(e.peer_id, index, target)
+				return
+
+			# 8. Set Score Points Value Input & Execution
+			if action_state == "stat_value_score":
+				try:
+					val = int(input_value)
+				except:
+					g.n.send_reliable(e.peer_id, "Error: Invalid number.", 0)
+					g.players[index].prevmenu()
+					return
+				
+				file_put_contents(f"chars/{target}/scorepoint.usr", str(val))
+				import data_loader
+				new_rank = data_loader.get_rank(val)
+				file_put_contents(f"chars/{target}/scorerank.usr", new_rank)
+
+				ind2 = get_player_index_from(target)
+				if ind2 > -1:
+					g.players[ind2].scorepoint = val
+					g.players[ind2].check_rank()
+					save_char(ind2)
+
+				adminsend(f"{target}'s score points set to {val} by {g.players[index].name}.")
+				g.n.send_reliable(e.peer_id, "Score points updated successfully.", 0)
+				g.players[index].prevmenu()
+				return
+
+			# 9. Set Zero Tokens Value Input & Execution
+			if action_state == "stat_value_tokens":
+				try:
+					val = int(input_value)
+				except:
+					g.n.send_reliable(e.peer_id, "Error: Invalid number.", 0)
+					g.players[index].prevmenu()
+					return
+
+				file_put_contents(f"chars/{target}/zhtoken.usr", str(val))
+
+				ind2 = get_player_index_from(target)
+				if ind2 > -1:
+					g.players[ind2].zhtoken = val
+					save_char(ind2)
+
+				adminsend(f"{target}'s zero tokens set to {val} by {g.players[index].name}.")
+				g.n.send_reliable(e.peer_id, "Zero tokens updated successfully.", 0)
+				g.players[index].prevmenu()
+				return
+
+
+def show_features_menu(peer_id, index, target):
+	# Helper to check block status
+	def is_block_active_local(username, file_prefix):
+		time_file = f"chars/{username}/{file_prefix}time.usr"
+		if not file_exists(time_file): return False
+		try:
+			timestamp = int(file_get_contents(time_file))
+			if int(time.time()) < timestamp: return True
+		except: pass
+		return False
+
+	all_chat_blocked = is_block_active_local(target, "disableallchat")
+	public_chat_blocked = is_block_active_local(target, "disablepublicchat")
+	pm_chat_blocked = is_block_active_local(target, "disablepmchat")
+	team_chat_blocked = is_block_active_local(target, "disableteamchat")
+	map_chat_blocked = is_block_active_local(target, "disablemapchat")
+	group_chat_blocked = is_block_active_local(target, "disablegroupchat")
+	vote_blocked = is_block_active_local(target, "disablevote")
+
+	voice_blocked = False
+	if file_exists(f"chars/{target}/blockvoice3.usr"):
+		try:
+			voice_blocked = (file_get_contents(f"chars/{target}/blockvoice3.usr").strip() == "1")
+		except: pass
+
+	m = server_menu()
+	m.intro = f"Features for {target}"
+	m.initial_packet = "playersettings"
+	m.add(f"All Chat: [{'Blocked' if all_chat_blocked else 'Enabled'}]", "toggle_feat_allchat")
+	m.add(f"Public Chat: [{'Blocked' if public_chat_blocked else 'Enabled'}]", "toggle_feat_publicchat")
+	m.add(f"PM Chat: [{'Blocked' if pm_chat_blocked else 'Enabled'}]", "toggle_feat_pmchat")
+	m.add(f"Team Chat: [{'Blocked' if team_chat_blocked else 'Enabled'}]", "toggle_feat_teamchat")
+	m.add(f"Map Chat: [{'Blocked' if map_chat_blocked else 'Enabled'}]", "toggle_feat_mapchat")
+	m.add(f"Group Chat: [{'Blocked' if group_chat_blocked else 'Enabled'}]", "toggle_feat_groupchat")
+	m.add(f"Voting / Polls: [{'Blocked' if vote_blocked else 'Enabled'}]", "toggle_feat_vote")
+	m.add(f"Voice Chat: [{'Blocked' if voice_blocked else 'Enabled'}]", "toggle_feat_voice")
+	m.add("Back", "feat_back")
+	m.send(peer_id)

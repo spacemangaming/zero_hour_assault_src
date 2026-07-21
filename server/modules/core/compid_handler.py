@@ -26,7 +26,7 @@ def load_compids():
 	if not os.path.exists("chars"):
 		return
 
-	char_names = [d for d in os.listdir("chars") if os.path.isdir(os.path.join("chars", d))]
+	char_names = [d for d in find_directories("chars") if os.path.isdir(os.path.join("chars", d))]
 
 	def process_char(char_name):
 		path = os.path.join("chars", char_name, "compid.usr")

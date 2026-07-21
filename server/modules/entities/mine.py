@@ -34,9 +34,13 @@ def mineloop():
 			g.n.broadcast("distsound mineexplode "+str(t.x)+" "+str(t.y)+" "+str(t.z)+" "+t.map+"",0)
 			g.n.broadcast("distsound mineexplodedist "+str(t.x)+" "+str(t.y)+" "+str(t.z)+" "+t.map+"",0)
 
+			_mine_boss = getattr(g, "mega_boss", None)
 			for p in g.players:
 				if p.hidden: continue
 				if get_3d_distance(t.x,t.y,t.z,p.x,p.y,p.z)<=t.range and t.map==p.map:
+					if (t.map == "megaboss" and t.owner != p.name
+							and (_mine_boss is None or _mine_boss.health > 2500)):
+						continue
 					p.playsound("minehit")
 					inpact=random(t.mindammage, t.maxdammage)
 					p.health-=inpact

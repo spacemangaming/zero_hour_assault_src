@@ -12,6 +12,12 @@ import constants
 import sound
 import menu
 
+# Visual minimap HUD (sighted players) — safe to import; no-ops if screen absent
+try:
+    from ui.visual_hud import hud as _visual_hud
+except Exception:
+    _visual_hud = None
+
 def handle_exception(exc_type, exc_value, exc_traceback):
 	if not compiled:
 		with open("errors.log","a") as f: 		traceback.print_exception(exc_type, exc_value, exc_traceback, file=f)
@@ -70,6 +76,7 @@ hq-mode=true""")
 		directory_create(DIRECTORY_APPDATA+"/nbm-studios")
 	if(not directory_exists(DIRECTORY_APPDATA+"/nbm-studios/zero_hour_assault")):
 		directory_create(DIRECTORY_APPDATA+"/nbm-studios/zero_hour_assault")
+	_settings_is_new = not file_exists(g.sd.fn)
 	readprefs()
 
 	readprefs()
@@ -202,6 +209,10 @@ hq-mode=true""")
 		if m.get_item_name(mres)=="yes": speak("Readme file is opening..."); g.tutorial=1; writeprefs(); menu.readmemenu()
 		if m.get_item_name(mres)=="no": speak("Okay, well..."); g.tutorial=1; writeprefs(); menu.mainmenu()
 
+	# ── First-run visual mode prompt ──────────────────────────────────────────
+	if _settings_is_new and not g.sd.exists("visual_mode"):
+		_ask_visual_mode()
+
 	writeprefs()
 	menu.mainmenu()
 
@@ -285,6 +296,68 @@ def game(d=True):
 		process_events()
 	while(True):
 		zeroloop()
+
+
+def _ask_visual_mode():
+	"""First-run dialog asking whether to enable visual mode.
+
+	Rendered on-screen with pygame so sighted players who cannot hear
+	the TTS can still make a choice.  Audio players will also hear the
+	question spoken aloud.
+	"""
+	speak("Welcome! Do you want to play in Visual Mode? Visual mode turns off text-to-speech and always shows the minimap on screen. Press Y for yes, N for no.")
+	if g.screen:
+		try:
+			g.screen.fill((10, 20, 40))
+			font_big  = pygame.font.SysFont("segoeui", 36, bold=True)
+			font_med  = pygame.font.SysFont("segoeui", 22)
+			font_sm   = pygame.font.SysFont("segoeui", 16)
+			sw, sh = g.screen.get_size()
+			lines = [
+				font_big.render("Visual Mode", True, (230, 237, 243)),
+				font_med.render("Do you want to play in Visual Mode?", True, (200, 210, 220)),
+				font_med.render("", True, (0,0,0)),
+				font_med.render("Visual Mode turns off text-to-speech announcements", True, (180, 190, 200)),
+				font_med.render("and always shows the minimap on screen.", True, (180, 190, 200)),
+				font_med.render("", True, (0,0,0)),
+				font_sm.render("Recommended for sighted players.", True, (139, 148, 158)),
+				font_sm.render("Blind players should press N.", True, (139, 148, 158)),
+				font_big.render("", True, (0,0,0)),
+				font_big.render("Y  =  Yes, enable Visual Mode", True, (79, 195, 247)),
+				font_big.render("N  =  No, keep audio mode", True, (251, 146, 60)),
+			]
+			total_h = sum(s.get_height() + 6 for s in lines)
+			y = (sh - total_h) // 2
+			for surf in lines:
+				g.screen.blit(surf, ((sw - surf.get_width()) // 2, y))
+				y += surf.get_height() + 6
+			pygame.display.flip()
+		except Exception:
+			pass
+
+	# Wait for Y or N
+	while True:
+		process_events()
+		if key_pressed(K_y):
+			g.visual_mode = 1
+			speak("Visual mode enabled.")
+			if g.screen:
+				try:
+					g.screen.fill((10, 20, 40))
+					f = pygame.font.SysFont("segoeui", 28, bold=True)
+					s = f.render("Visual Mode enabled!", True, (79, 195, 247))
+					sw, sh = g.screen.get_size()
+					g.screen.blit(s, ((sw - s.get_width()) // 2, (sh - s.get_height()) // 2))
+					pygame.display.flip()
+				except Exception:
+					pass
+			g.delay(1200)
+			break
+		if key_pressed(K_n):
+			g.visual_mode = 0
+			speak("Audio mode kept. Enjoy the game!")
+			g.delay(800)
+			break
 
 
 def readprefs():
@@ -481,6 +554,9 @@ def readprefs():
 		g.bufferlog=g.sd.readn("bufferlog")
 		sound.listener.hrtf=2
 
+	if(g.sd.exists("visual_mode")):
+		g.visual_mode=g.sd.readn("visual_mode")
+
 
 def writeprefs():
 	g.sd.add("name",g.name)
@@ -581,6 +657,7 @@ def writeprefs():
 #	g.sd.add("playcanlogo",g.playcanlogo)
 	g.sd.add("usehrtf",g.hrtf)
 	g.sd.add("bufferlog",g.bufferlog)
+	g.sd.add("visual_mode",g.visual_mode)
 
 	g.sd.save()
 
@@ -691,6 +768,22 @@ def mainloop():
 
 	fallloop()
 	fallingloop()
+
+	# ── Visual minimap HUD ────────────────────────────────────────────────────
+	# Visual mode: always on. Audio mode: Alt+M to toggle.
+	if _visual_hud is not None and g.screen is not None and g.inthegame:
+		try:
+			if g.visual_mode:
+				_visual_hud.visible = True
+			else:
+				from zh_client_gameplay import alt_is_down
+				if key_pressed(K_m) and alt_is_down():
+					_visual_hud.toggle()
+			_visual_hud.draw(g.screen, g)
+			if _visual_hud.visible:
+				pygame.display.flip()
+		except Exception:
+			pass
 
 
 def exitfunction():

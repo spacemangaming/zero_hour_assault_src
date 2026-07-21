@@ -388,16 +388,9 @@ def handle_gameplay_6(e, parsed, index):
 					g.players[index].beacon=int(f.read())
 					f.close()
 				except: pass
-				try: 
-
-					f=open(dir+"/parachuted.usr","r")
-					g.players[index].parachuted=int(f.read())
-					f.close()
-				except: pass
-
-				if g.players[index].parachuted==1: g.players[index].parachuted=True
-				elif g.players[index].parachuted==0: g.players[index].parachuted=False
-				if g.players[index].parachuted:
+				# parachuted state is never restored on login — it only applies mid-air
+				g.players[index].parachuted = False
+				if False:
 					if 1:
 						if 1:
 							g.n.send_reliable(g.players[index].peer_id,"stopmoving",0)
@@ -1188,7 +1181,7 @@ def handle_gameplay_6(e, parsed, index):
 			m=server_menu()
 			m.intro="Select an account to login"
 			m.initial_packet="accountlogin"
-			chars=os.listdir("chars")
+			chars=find_directories("chars")
 			for char in chars:
 				charfolder=os.path.join("chars",char)
 				if char!=g.players[index].name and file_get_contents(charfolder+"/compid.usr")==g.players[index].compid:

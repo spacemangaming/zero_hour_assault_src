@@ -1,6 +1,6 @@
 Metadata-Version: 2.4
 Name: zero-hour-assault
-Version: 2.50
+Version: 3.1
 Summary: Zero Hour Assault - Cleaned public source release
 Requires-Python: <3.13,>=3.12
 Description-Content-Type: text/markdown
@@ -28,6 +28,8 @@ Requires-Dist: pyfmodex>=0.7.2
 Requires-Dist: py-spy>=0.4.2
 Requires-Dist: websockets>=12.0
 Requires-Dist: websocket-client>=1.8.0
+Requires-Dist: scp>=0.16.0
+Requires-Dist: flask>=3.0.0
 
 # Zero Hour Assault
 

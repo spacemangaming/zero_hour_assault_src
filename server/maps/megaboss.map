@@ -1,0 +1,31 @@
+mapname:megaboss
+maxx:200
+maxy:200
+maxz:500
+
+// Arena floor
+platform:0:200:0:200:0:0:concrete14
+
+// Arena walls
+platform:0:0:0:200:0:30:wallbuilding
+platform:200:200:0:200:0:30:wallbuilding
+platform:0:200:0:0:0:30:wallbuilding
+platform:0:200:200:200:0:30:wallbuilding
+
+// Ceiling (partial, keeps the open feel but bounds the space)
+platform:0:200:0:200:30:30:concrete6
+
+// Boss arena ambience + music
+amb:0:200:0:200:0:30:finalboss.ogg:-15
+amb:0:200:0:200:0:30:nbmambience2.ogg:-28
+
+// Reverb - large hall feel
+eaxreverb:0:200:0:200:0:30:1.0:1.0:0.32:0.89:4.3:0.83:1.0:0.05:0.007:0.0:1.26:0.011:0.0:0.25:0.0:0.25:0.0:0.994:5000.0:250.0:0.0
+
+// Zones
+zone:0:200:0:200:0:30:the Mega Boss Arena
+zone:95:105:95:105:0:5:center of the arena
+zone:0:20:0:20:0:5:northwest corner
+zone:180:200:0:20:0:5:northeast corner
+zone:0:20:180:200:0:5:southwest corner
+zone:180:200:180:200:0:5:southeast corner

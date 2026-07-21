@@ -494,198 +494,168 @@ class player:
 		self.drawtimer.restart()
 		g.n.send_reliable(self.peer_id,"drawtime "+str(d),0)
 	def get_last_motd_changelog_reboot_counts(self):
+		import db as _db
 		s="Since your last login, "
-		if file_exists("chars/"+self.name+"/rebootcount.usr"): s+="the server has been rebooted "+str(file_get_contents("chars/"+self.name+"/rebootcount.usr"))+" times. "
-		if file_exists("chars/"+self.name+"/votecount.usr"): s+=str(file_get_contents("chars/"+self.name+"/votecount.usr"))+" new votes created. "
-		if file_exists("chars/"+self.name+"/motdcount.usr"): s+="The message of the day changed "+str(file_get_contents("chars/"+self.name+"/motdcount.usr"))+" times. "
-		if file_exists("chars/"+self.name+"/changelogcount.usr"): s+="The last changes section updated "+str(file_get_contents("chars/"+self.name+"/changelogcount.usr"))+" times. "
-		file_delete("chars/"+self.name+"/changelogcount.usr")
-		file_delete("chars/"+self.name+"/rebootcount.usr")
-		file_delete("chars/"+self.name+"/votecount.usr")
-		file_delete("chars/"+self.name+"/motdcount.usr")
+		if _db.charexists(self.name,"rebootcount"): s+="the server has been rebooted "+_db.charread(self.name,"rebootcount")+" times. "
+		if _db.charexists(self.name,"votecount"): s+=_db.charread(self.name,"votecount")+" new votes created. "
+		if _db.charexists(self.name,"motdcount"): s+="The message of the day changed "+_db.charread(self.name,"motdcount")+" times. "
+		if _db.charexists(self.name,"changelogcount"): s+="The last changes section updated "+_db.charread(self.name,"changelogcount")+" times. "
+		_db.chardelete(self.name,"changelogcount")
+		_db.chardelete(self.name,"rebootcount")
+		_db.chardelete(self.name,"votecount")
+		_db.chardelete(self.name,"motdcount")
 		if s=="Since your last login, ": s=""
 		return s
+	def _chat_check(self, field_time, field_reason, label):
+		import db as _db
+		if not _db.charexists(self.name, field_time): return True
+		try: timestamp = int(_db.charread(self.name, field_time, "0"))
+		except: return True
+		if int(time.time()) < timestamp:
+			reason = _db.charread(self.name, field_reason, "")
+			g.n.send_reliable(self.peer_id, f"Error. Your {label} chat is disabled. Reason: {reason}. Re-enabled after {ms_to_readable_time(timestamp-int(time.time()))}.", 0)
+			return False
+		else:
+			_db.chardelete(self.name, field_time)
+			_db.chardelete(self.name, field_reason)
+			return True
+
 	def disable_public_chat_check(self):
 		if self.jailed: g.n.send_reliable(self.peer_id,"You are jailed",0); return False
+		return self._chat_check("disablepublicchattime","disablepublicchatreason","public")
 
-		if not file_exists("chars/"+self.name+"/disablepublicchattime.usr"): return True
-		timestamp=int(file_get_contents("chars/"+self.name+"/disablepublicchattime.usr"))
-		if int(time.time())<timestamp:
-			g.n.send_reliable(self.peer_id,"Error. Your public chat is disabled due to following reason: "+file_get_contents("chars/"+self.name+"/disablepublicchatreason.usr")+". It will be re-enabled after "+ms_to_readable_time(timestamp-int(time.time()))+".",0)
-			return False
-		else:
-			file_delete("chars/"+self.name+"/disablepublicchattime.usr")
-			file_delete("chars/"+self.name+"/disablepublicchatreason.usr")
-			return True
 	def disable_public_chat_check2(self):
-		if not file_exists("chars/"+self.name+"/disablepublicchattime.usr"): return True
-		timestamp=int(file_get_contents("chars/"+self.name+"/disablepublicchattime.usr"))
-		if int(time.time())<timestamp:
-			return False
-		else:
-			file_delete("chars/"+self.name+"/disablepublicchattime.usr")
-			file_delete("chars/"+self.name+"/disablepublicchatreason.usr")
-			g.n.send_reliable(self.peer_id,"Your public chat feature is enabled",2)
-			return True
+		import db as _db
+		if not _db.charexists(self.name,"disablepublicchattime"): return True
+		try: timestamp=int(_db.charread(self.name,"disablepublicchattime","0"))
+		except: return True
+		if int(time.time())<timestamp: return False
+		_db.chardelete(self.name,"disablepublicchattime"); _db.chardelete(self.name,"disablepublicchatreason")
+		g.n.send_reliable(self.peer_id,"Your public chat feature is enabled",2); return True
+
 	def disable_pm_chat_check2(self):
-		if not file_exists("chars/"+self.name+"/disablepmchattime.usr"): return True
-		timestamp=int(file_get_contents("chars/"+self.name+"/disablepmchattime.usr"))
-		if int(time.time())<timestamp:
-			return False
-		else:
-			file_delete("chars/"+self.name+"/disablepmchattime.usr")
-			file_delete("chars/"+self.name+"/disablepmchatreason.usr")
-			g.n.send_reliable(self.peer_id,"Your pm chat feature is enabled",2)
-			return True
+		import db as _db
+		if not _db.charexists(self.name,"disablepmchattime"): return True
+		try: timestamp=int(_db.charread(self.name,"disablepmchattime","0"))
+		except: return True
+		if int(time.time())<timestamp: return False
+		_db.chardelete(self.name,"disablepmchattime"); _db.chardelete(self.name,"disablepmchatreason")
+		g.n.send_reliable(self.peer_id,"Your pm chat feature is enabled",2); return True
 
 	def disable_team_chat_check2(self):
-		if not file_exists("chars/"+self.name+"/disableteamchattime.usr"): return True
-		timestamp=int(file_get_contents("chars/"+self.name+"/disableteamchattime.usr"))
-		if int(time.time())<timestamp:
-			return False
-		else:
-			file_delete("chars/"+self.name+"/disableteamchattime.usr")
-			file_delete("chars/"+self.name+"/disableteamchatreason.usr")
-			g.n.send_reliable(self.peer_id,"Your team chat feature is enabled",2)
-			return True
+		import db as _db
+		if not _db.charexists(self.name,"disableteamchattime"): return True
+		try: timestamp=int(_db.charread(self.name,"disableteamchattime","0"))
+		except: return True
+		if int(time.time())<timestamp: return False
+		_db.chardelete(self.name,"disableteamchattime"); _db.chardelete(self.name,"disableteamchatreason")
+		g.n.send_reliable(self.peer_id,"Your team chat feature is enabled",2); return True
 
 	def disable_group_chat_check2(self):
-		if not file_exists("chars/"+self.name+"/disablegroupchattime.usr"): return True
-		timestamp=int(file_get_contents("chars/"+self.name+"/disablegroupchattime.usr"))
-		if int(time.time())<timestamp:
-			return False
-		else:
-			file_delete("chars/"+self.name+"/disablegroupchattime.usr")
-			file_delete("chars/"+self.name+"/disablegroupchatreason.usr")
-			g.n.send_reliable(self.peer_id,"Your group chat feature is enabled",2)
-			return True
+		import db as _db
+		if not _db.charexists(self.name,"disablegroupchattime"): return True
+		try: timestamp=int(_db.charread(self.name,"disablegroupchattime","0"))
+		except: return True
+		if int(time.time())<timestamp: return False
+		_db.chardelete(self.name,"disablegroupchattime"); _db.chardelete(self.name,"disablegroupchatreason")
+		g.n.send_reliable(self.peer_id,"Your group chat feature is enabled",2); return True
 
 	def disable_map_chat_check2(self):
-		if not file_exists("chars/"+self.name+"/disablemapchattime.usr"): return True
-		timestamp=int(file_get_contents("chars/"+self.name+"/disablemapchattime.usr"))
-		if int(time.time())<timestamp:
-			return False
-		else:
-			file_delete("chars/"+self.name+"/disablemapchattime.usr")
-			file_delete("chars/"+self.name+"/disablemapchatreason.usr")
-			g.n.send_reliable(self.peer_id,"Your map chat feature is enabled",2)
-			return True
-
+		import db as _db
+		if not _db.charexists(self.name,"disablemapchattime"): return True
+		try: timestamp=int(_db.charread(self.name,"disablemapchattime","0"))
+		except: return True
+		if int(time.time())<timestamp: return False
+		_db.chardelete(self.name,"disablemapchattime"); _db.chardelete(self.name,"disablemapchatreason")
+		g.n.send_reliable(self.peer_id,"Your map chat feature is enabled",2); return True
 
 	def disable_public_chat(self,minutes,reason):
-		file_put_contents("chars/"+self.name+"/disablepublicchattime.usr",str(minutes_to_timestamp(minutes)))
-		file_put_contents("chars/"+self.name+"/disablepublicchatreason.usr",reason)
+		import db as _db
+		_db.charwrite(self.name,"disablepublicchattime",str(minutes_to_timestamp(minutes)))
+		_db.charwrite(self.name,"disablepublicchatreason",reason)
 		g.n.send_reliable(self.peer_id,"Your public chat feature has been disabled for "+str(minutes)+" minutes for the following reason: "+reason,2)
 	def disable_all_chat_check(self):
 		if self.jailed: g.n.send_reliable(self.peer_id,"You are jailed",0); return False
 
-		if not file_exists("chars/"+self.name+"/disableallchattime.usr"): return True
-		timestamp=int(file_get_contents("chars/"+self.name+"/disableallchattime.usr"))
+		import db as _db
+		if not _db.charexists(self.name,"disableallchattime"): return True
+		try: timestamp=int(_db.charread(self.name,"disableallchattime","0"))
+		except: return True
 		if int(time.time())<timestamp:
-			g.n.send_reliable(self.peer_id,"Error. Your all chat is disabled due to following reason: "+file_get_contents("chars/"+self.name+"/disableallchatreason.usr")+". It will be re-enabled after "+ms_to_readable_time(timestamp-int(time.time()))+".",0)
+			reason=_db.charread(self.name,"disableallchatreason","")
+			g.n.send_reliable(self.peer_id,"Error. Your all chat is disabled due to following reason: "+reason+". It will be re-enabled after "+ms_to_readable_time(timestamp-int(time.time()))+".",0)
 			return False
 		else:
-			file_delete("chars/"+self.name+"/disableallchattime.usr")
-			file_delete("chars/"+self.name+"/disableallchatreason.usr")
-			return True
+			_db.chardelete(self.name,"disableallchattime"); _db.chardelete(self.name,"disableallchatreason"); return True
 	def disable_all_chat_check2(self):
-		if not file_exists("chars/"+self.name+"/disableallchattime.usr"): return True
-		timestamp=int(file_get_contents("chars/"+self.name+"/disableallchattime.usr"))
-		if int(time.time())<timestamp:
-			return False
-		else:
-			file_delete("chars/"+self.name+"/disableallchattime.usr")
-			file_delete("chars/"+self.name+"/disableallchatreason.usr")
-			g.n.send_reliable(self.peer_id,"Your all chat feature is enabled",2)
-			return True
+		import db as _db
+		if not _db.charexists(self.name,"disableallchattime"): return True
+		try: timestamp=int(_db.charread(self.name,"disableallchattime","0"))
+		except: return True
+		if int(time.time())<timestamp: return False
+		_db.chardelete(self.name,"disableallchattime"); _db.chardelete(self.name,"disableallchatreason")
+		g.n.send_reliable(self.peer_id,"Your all chat feature is enabled",2); return True
 
 
 	def disable_all_chat(self,minutes,reason):
-		file_put_contents("chars/"+self.name+"/disableallchattime.usr",str(minutes_to_timestamp(minutes)))
-		file_put_contents("chars/"+self.name+"/disableallchatreason.usr",reason)
+		import db as _db
+		_db.charwrite(self.name,"disableallchattime",str(minutes_to_timestamp(minutes)))
+		_db.charwrite(self.name,"disableallchatreason",reason)
 		g.n.send_reliable(self.peer_id,"Your all chat feature has been disabled for "+str(minutes)+" minutes for the following reason: "+reason,2)
 
 	def disable_pm_chat_check(self):
 		if self.jailed: g.n.send_reliable(self.peer_id,"You are jailed",0); return False
+		return self._chat_check("disablepmchattime","disablepmchatreason","pm")
 
-		if not file_exists("chars/"+self.name+"/disablepmchattime.usr"): return True
-		timestamp=int(file_get_contents("chars/"+self.name+"/disablepmchattime.usr"))
-		if int(time.time())<timestamp:
-			g.n.send_reliable(self.peer_id,"Error. Your pm chat is disabled due to following reason: "+file_get_contents("chars/"+self.name+"/disablepmchatreason.usr")+". It will be re-enabled after "+ms_to_readable_time(timestamp-int(time.time()))+".",0)
-			return False
-		else:
-			file_delete("chars/"+self.name+"/disablepmchattime.usr")
-			file_delete("chars/"+self.name+"/disablepmchatreason.usr")
-			return True
 	def disable_vote_check(self):
 		if self.jailed: g.n.send_reliable(self.peer_id,"You are jailed",0); return False
-
-		if not file_exists("chars/"+self.name+"/disablevotetime.usr"): return True
-		timestamp=int(file_get_contents("chars/"+self.name+"/disablevotetime.usr"))
+		import db as _db
+		if not _db.charexists(self.name,"disablevotetime"): return True
+		try: timestamp=int(_db.charread(self.name,"disablevotetime","0"))
+		except: return True
 		if int(time.time())<timestamp:
-			g.n.send_reliable(self.peer_id,"Error. Your vote and poll feature is disabled due to following reason: "+file_get_contents("chars/"+self.name+"/disablevotereason.usr")+". It will be re-enabled after "+ms_to_readable_time(timestamp-int(time.time()))+".",0)
+			reason=_db.charread(self.name,"disablevotereason","")
+			g.n.send_reliable(self.peer_id,"Error. Your vote and poll feature is disabled due to following reason: "+reason+". It will be re-enabled after "+ms_to_readable_time(timestamp-int(time.time()))+".",0)
 			return False
-		else:
-			file_delete("chars/"+self.name+"/disablevotetime.usr")
-			file_delete("chars/"+self.name+"/disablevotereason.usr")
-			return True
+		_db.chardelete(self.name,"disablevotetime"); _db.chardelete(self.name,"disablevotereason"); return True
 
 	def disable_pm_chat(self,minutes,reason):
-		file_put_contents("chars/"+self.name+"/disablepmchattime.usr",str(minutes_to_timestamp(minutes)))
-		file_put_contents("chars/"+self.name+"/disablepmchatreason.usr",reason)
+		import db as _db
+		_db.charwrite(self.name,"disablepmchattime",str(minutes_to_timestamp(minutes)))
+		_db.charwrite(self.name,"disablepmchatreason",reason)
 		g.n.send_reliable(self.peer_id,"Your pm chat feature has been disabled for "+str(minutes)+" minutes for the following reason: "+reason,2)
 	def disable_vote(self,minutes,reason):
-		file_put_contents("chars/"+self.name+"/disablevotetime.usr",str(minutes_to_timestamp(minutes)))
-		file_put_contents("chars/"+self.name+"/disablevotereason.usr",reason)
+		import db as _db
+		_db.charwrite(self.name,"disablevotetime",str(minutes_to_timestamp(minutes)))
+		_db.charwrite(self.name,"disablevotereason",reason)
 		g.n.send_reliable(self.peer_id,"Your vote and poll feature has been disabled for "+str(minutes)+" minutes for the following reason: "+reason,2)
 
 	def disable_team_chat_check(self):
 		if self.jailed: g.n.send_reliable(self.peer_id,"You are jailed",0); return False
+		return self._chat_check("disableteamchattime","disableteamchatreason","team")
 
-		if not file_exists("chars/"+self.name+"/disableteamchattime.usr"): return True
-		timestamp=int(file_get_contents("chars/"+self.name+"/disableteamchattime.usr"))
-		if int(time.time())<timestamp:
-			g.n.send_reliable(self.peer_id,"Error. Your team chat is disabled due to following reason: "+file_get_contents("chars/"+self.name+"/disableteamchatreason.usr")+". It will be re-enabled after "+ms_to_readable_time(timestamp-int(time.time()))+".",0)
-			return False
-		else:
-			file_delete("chars/"+self.name+"/disableteamchattime.usr")
-			file_delete("chars/"+self.name+"/disableteamchatreason.usr")
-			return True
 	def disable_team_chat(self,minutes,reason):
-		file_put_contents("chars/"+self.name+"/disableteamchattime.usr",str(minutes_to_timestamp(minutes)))
-		file_put_contents("chars/"+self.name+"/disableteamchatreason.usr",reason)
+		import db as _db
+		_db.charwrite(self.name,"disableteamchattime",str(minutes_to_timestamp(minutes)))
+		_db.charwrite(self.name,"disableteamchatreason",reason)
 		g.n.send_reliable(self.peer_id,"Your team chat feature has been disabled for "+str(minutes)+" minutes for the following reason: "+reason,2)
 	def disable_map_chat_check(self):
 		if self.jailed: g.n.send_reliable(self.peer_id,"You are jailed",0); return False
+		return self._chat_check("disablemapchattime","disablemapchatreason","map")
 
-		if not file_exists("chars/"+self.name+"/disablemapchattime.usr"): return True
-		timestamp=int(file_get_contents("chars/"+self.name+"/disablemapchattime.usr"))
-		if int(time.time())<timestamp:
-			g.n.send_reliable(self.peer_id,"Error. Your map chat is disabled due to following reason: "+file_get_contents("chars/"+self.name+"/disablemapchatreason.usr")+". It will be re-enabled after "+ms_to_readable_time(timestamp-int(time.time()))+".",0)
-			return False
-		else:
-			file_delete("chars/"+self.name+"/disablemapchattime.usr")
-			file_delete("chars/"+self.name+"/disablemapchatreason.usr")
-			return True
 	def disable_map_chat(self,minutes,reason):
-		file_put_contents("chars/"+self.name+"/disablemapchattime.usr",str(minutes_to_timestamp(minutes)))
-		file_put_contents("chars/"+self.name+"/disablemapchatreason.usr",reason)
+		import db as _db
+		_db.charwrite(self.name,"disablemapchattime",str(minutes_to_timestamp(minutes)))
+		_db.charwrite(self.name,"disablemapchatreason",reason)
 		g.n.send_reliable(self.peer_id,"Your map chat feature has been disabled for "+str(minutes)+" minutes for the following reason: "+reason,2)
 	def disable_group_chat_check(self):
 		if self.jailed: g.n.send_reliable(self.peer_id,"You are jailed",0); return False
+		return self._chat_check("disablegroupchattime","disablegroupchatreason","group")
 
-		if not file_exists("chars/"+self.name+"/disablegroupchattime.usr"): return True
-		timestamp=int(file_get_contents("chars/"+self.name+"/disablegroupchattime.usr"))
-		if int(time.time())<timestamp:
-			g.n.send_reliable(self.peer_id,"Error. Your group chat is disabled due to following reason: "+file_get_contents("chars/"+self.name+"/disablegroupchatreason.usr")+". It will be re-enabled after "+ms_to_readable_time(timestamp-int(time.time()))+".",0)
-			return False
-		else:
-			file_delete("chars/"+self.name+"/disablegroupchattime.usr")
-			file_delete("chars/"+self.name+"/disablegroupchatreason.usr")
-			return True
 	def disable_group_chat(self,minutes,reason):
-		file_put_contents("chars/"+self.name+"/disablegroupchattime.usr",str(minutes_to_timestamp(minutes)))
-		file_put_contents("chars/"+self.name+"/disablegroupchatreason.usr",reason)
+		import db as _db
+		_db.charwrite(self.name,"disablegroupchattime",str(minutes_to_timestamp(minutes)))
+		_db.charwrite(self.name,"disablegroupchatreason",reason)
 		g.n.send_reliable(self.peer_id,"Your group chat feature has been disabled for "+str(minutes)+" minutes for the following reason: "+reason,2)
 
 	def motormove(self):
@@ -733,7 +703,8 @@ class player:
 					if p is not None:
 						packet+=p.matchteam+":"+p.name+", dead\n"
 					else:
-						team=file_get_contents("chars/"+pl+"/matchteam.usr")
+						import db as _db
+						team=_db.charread(pl,"matchteam","")
 						if team!="": packet+=team+":"+pl+", dead\n"
 		if packet!="":
 			self.packet("matchteammenu "+packet,0)
@@ -873,10 +844,7 @@ class player:
 		
 	def chat(self,message):
 	
-		if file_exists("chats.log")==False: f=open("chats.log","w"); f.close()
-		f=open("chats.log","a")
-		f.write(""+self.name+" in channel "+self.langchan+" "+message+"\n")
-		f.close()
+		file_put_contents("chats.log", ""+self.name+" in channel "+self.langchan+" "+message+"\n", "a")
 
 		for i in range(len(g.players)):
 		
@@ -1185,7 +1153,7 @@ def playerloop():
 			g.players[i].adrenaline=False
 			g.players[i].playsound("get_adreline_shot")
 			g.n.send_reliable(g.players[i].peer_id,"adrenaline shot time expired",2)
-			file_delete("chars/"+g.players[i].name+"/adrenaline.usr")
+			import db as _db; _db.chardelete(g.players[i].name,"adrenaline")
 			if g.players[i].weapon!="": 					g.n.send_reliable(g.players[i].peer_id,"weapondata "+g.wdata[g.players[i].weapon],0)
 			if g.players[i].weapon2!="": 					g.n.send_reliable(g.players[i].peer_id,"weapondata2 "+g.wdata[g.players[i].weapon2],0)
 
@@ -1193,7 +1161,7 @@ def playerloop():
 			g.players[i].jammer=False
 			g.n.send_reliable(g.players[i].peer_id,"jammer time expired",2)
 			g.players[i].playsound("misc45")
-			file_delete("chars/"+g.players[i].name+"/jammer.usr")
+			import db as _db; _db.chardelete(g.players[i].name,"jammer")
 
 		for sw in g.players[i].silenced:
 			if g.players[i].get_item_count(sw)<=0: g.players[i].silenced.remove(sw)
@@ -1293,17 +1261,15 @@ def playerloop():
 			g.players[i].jailtimer.restart()
 			g.players[i].jailreason=""
 			g.move_player(i,5,0,0,"lobby")
-			file_delete("chars/"+g.players[i].name+"/jailtime.usr")
-			file_delete("chars/"+g.players[i].name+"/jailreason.usr")
-			file_delete("chars/"+g.players[i].name+"/jailtimestamp.usr")
+			import db as _db
+			_db.chardelete(g.players[i].name,"jailtime"); _db.chardelete(g.players[i].name,"jailreason"); _db.chardelete(g.players[i].name,"jailtimestamp")
 		if g.players[i].jailed==False and g.players[i].map=="jail":
 			g.players[i].jailed=False
 			g.players[i].jailtimer.restart()
 			g.players[i].jailreason=""
 			g.move_player(i,5,0,0,"lobby")
-			file_delete("chars/"+g.players[i].name+"/jailtime.usr")
-			file_delete("chars/"+g.players[i].name+"/jailreason.usr")
-			file_delete("chars/"+g.players[i].name+"/jailtimestamp.usr")
+			import db as _db
+			_db.chardelete(g.players[i].name,"jailtime"); _db.chardelete(g.players[i].name,"jailreason"); _db.chardelete(g.players[i].name,"jailtimestamp")
 		if 1:
 			g.players[i].group=""
 			for grp in g.groups:
@@ -1373,16 +1339,27 @@ def playerloop():
 				#g.send_reliable(g.players[i].peer_id,"startmoving",0)
 #				g.players[g.get_player_index_from(dname)].give("mkek_yavuz16",1)
 #				g.players[g.get_player_index_from(dname)].give("9mm",39)
-				if "basement" not in g.players[g.get_player_index_from(dname)].map:
-					g.players[g.get_player_index_from(dname)].randomweapongive()
-					g.players[g.get_player_index_from(dname)].give("vitality_potion",1)
-					g.players[g.get_player_index_from(dname)].give("revival_nectar",1)
-					g.players[g.get_player_index_from(dname)].give("parachute",1)
+				_rdname_idx = g.get_player_index_from(dname)
+				if "basement" not in g.players[_rdname_idx].map and g.players[_rdname_idx].map != "megaboss":
+					g.players[_rdname_idx].randomweapongive()
+					g.players[_rdname_idx].give("vitality_potion",1)
+					g.players[_rdname_idx].give("revival_nectar",1)
+					g.players[_rdname_idx].give("parachute",1)
+				elif g.players[_rdname_idx].map == "megaboss":
+					g.players[_rdname_idx].give("dragunov_psl",1)
+					g.players[_rdname_idx].give("mkek_jng90",1)
+					g.players[_rdname_idx].give("7.62x51mm",250)
+					g.players[_rdname_idx].give("mkek_mpt76k",1)
+					g.players[_rdname_idx].give("5.56x45mm",400)
+					g.players[_rdname_idx].give("berettaM9",1)
+					g.players[_rdname_idx].give("9mm",150)
+					g.players[_rdname_idx].give("vitality_potion",4)
+					g.players[_rdname_idx].give("revival_nectar",2)
 				index=g.get_player_index_from(dname)
 				g.players[index].health=g.players[index].maxhealth
 				g.n.send_reliable(g.players[index].peer_id,"sitstop",0)
 				g.players[index].dead=False
-				if "basement" not in g.players[index].map and g.players[index].matchmode!="teamc" and g.players[index].map!="massacre_in_the_city":
+				if "basement" not in g.players[index].map and g.players[index].matchmode!="teamc" and g.players[index].map!="massacre_in_the_city" and g.players[index].map!="megaboss":
 					for m in g.matches:
 						if m.owner==g.players[index].joinedmatch:
 							g.players[index].map="lobby"
@@ -1390,7 +1367,12 @@ def playerloop():
 							g.players[index].y=0
 							g.move_player(index, random(5, 5), random(0, 0), 0, "lobby")
 				else:
-					if "basement" in g.players[index].map:
+					if g.players[index].map=="megaboss":
+						if getattr(g,"mega_boss_alive",False):
+							g.move_player(index,100,100,0,"megaboss")
+						else:
+							g.move_player(index,random(5,5),random(0,0),0,"lobby")
+					elif "basement" in g.players[index].map:
 						g.move_player(index,random(5,5),random(0,0),0,"lobby")
 					elif g.players[index].map=="massacre_in_the_city":
 						g.n.send_reliable(g.players[index].peer_id,"stopmoving",0)
@@ -1476,9 +1458,11 @@ def playerloop():
 			if g.players[i].get_item_count(-1)>0: g.players[i].give(-1,-100)
 			if g.players[i].get_item_count("corpse_bomb")<=0 and g.players[i].corpse_bomb: g.players[i].corpse_bomb=False
 			try:
-				if g.players[i].paid and time.time()-int(file_get_contents("chars/"+g.players[i].name+"/paidtime.usr"))>=g.players[i].paidmonths:
+				import db as _db
+				if g.players[i].paid and time.time()-int(_db.charread(g.players[i].name,"paidtime","0"))>=g.players[i].paidmonths:
 					g.players[i].paid=False
-					g.n.send_reliable(g.players[i].peer_id,"your paid account is expired",2); g.players[i].paid=False; file_delete("chars/"+g.players[i].name+"/paid.usr"); file_delete("chars/"+g.players[i].name+"/paidtime.usr"); file_delete("chars/"+g.players[i].name+"/paidmonths.usr")
+					g.n.send_reliable(g.players[i].peer_id,"your paid account is expired",2)
+					_db.charwrite(g.players[i].name,"paid",0); _db.chardelete(g.players[i].name,"paidtime"); _db.chardelete(g.players[i].name,"paidmonths")
 			except: pass
 			if g.players[i].get_item_count("shield")<=0 and g.players[i].shielded:
 				g.players[i].shielded=False; g.players[i].shieldchance=0
@@ -1651,8 +1635,7 @@ def playerloop():
 				update_nav_scanner(g.players[i])
 			except Exception as _nav_err:
 				try:
-					with open("errors.log", "a") as _f:
-						_f.write("nav_scanner error: {}\n".format(_nav_err))
+					file_put_contents("errors.log", "nav_scanner error: {}\n".format(_nav_err), "a")
 				except Exception:
 					pass
 
@@ -2072,10 +2055,13 @@ def playerloop():
 			g.players[i].firetimer.restart()
 			if g.players[i].get_ammo_count_from(g.players[i].weapon)<=0:
 				g.players[i].firing=False
-				g.players[i].playsound(g.players[i].weapon+"empty")
+				import data_loader as _dl
+				g.players[i].playsound(_dl.get_weapon_sound(g.players[i].weapon,"empty"))
 				return
-			g.players[i].playsound(""+g.players[i].weapon+"fire"+str(random(1,3))+"")
-			if not g.players[i].hidden: g.send_plus(g.players[i].name,"distsound "+g.players[i].weapon+"dist"+str(random(1,3))+" "+str(g.players[i].x)+" "+str(g.players[i].y)+" "+str(g.players[i].z)+" "+g.players[i].map,0)
+			import data_loader as _dl
+			_v=random(1,3)
+			g.players[i].playsound(_dl.get_weapon_sound(g.players[i].weapon,"fire",_v))
+			if not g.players[i].hidden: g.send_plus(g.players[i].name,"distsound "+_dl.get_weapon_sound(g.players[i].weapon,"dist",_v)+" "+str(g.players[i].x)+" "+str(g.players[i].y)+" "+str(g.players[i].z)+" "+g.players[i].map,0)
 			spawn_weapon(g.players[i].x, g.players[i].y, g.players[i].z, g.players[i].facing, g.players[i].weapon, g.players[i].map, g.players[i])
 			g.players[i].ammogive(g.players[i].weapon,-1)			
 		if(g.players[i].invchecktimer.elapsed>=1000) :
@@ -2277,8 +2263,7 @@ def playerloop():
 				j.give(item,item_map[item])
 
 			try:
-				f=open("chars/"+g.players[i].name+"/maldied.usr","w")
-				f.close()
+				import db as _db; _db.charwrite(g.players[i].name,"maldied",1)
 			except: pass
 			killer=""
 			if(string_contains(g.players[i].hitby,"'",1)>-1):

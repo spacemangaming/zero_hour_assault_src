@@ -58,9 +58,13 @@ def zkloop():
 					g.n.send_reliable(i.peer_id,"distsound planebomblounchdist "+str(t.x)+" "+str(t.y)+" "+str(t.z)+" "+str(t.map),0)
 					g.n.send_reliable(i.peer_id,"distsound grenadesomethingexplode "+str(t.x)+" "+str(t.y)+" "+str(t.z)+" "+str(t.map),0)
 
+			_zk_boss = getattr(g, "mega_boss", None)
 			for p in g.players:
 				if p.hidden: continue
 				if get_3d_distance(t.x,t.y,t.z,p.x,p.y,p.z)<=t.range and t.map==p.map:
+					if (t.map == "megaboss" and t.owner != p.name
+							and (_zk_boss is None or _zk_boss.health > 2500)):
+						continue
 					p.playsound("planebombhit")
 					inpact=random(t.mindammage, t.maxdammage)
 					p.health-=inpact

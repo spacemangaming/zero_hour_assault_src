@@ -57,14 +57,10 @@ def handle_channel_1(e):
 						return
 
 					if directory_exists("chars/"+parsed[1]+"")==False: g.n.send_reliable(g.players[index].peer_id,"no such account exists",2); return
-					f=os.listdir("chars/"+parsed[1]+"")
 					final=""+parsed[1]+" has the following accounts.\n"
-					if len(f)<=0:
-						g.n.send_reliable(g.players[index].peer_id, "char not found", 0)
-						return
 					accounts=0
 					mainid=file_get_contents("chars/"+parsed[1]+"/compid.usr")
-					c=os.listdir("chars")
+					c=find_directories("chars")
 					for i in c:
 						if file_get_contents("chars/"+i+"/compid.usr")==mainid:
 							accounts+=1
@@ -81,7 +77,7 @@ def handle_channel_1(e):
 						g.n.send_reliable(g.players[index].peer_id, "you are not authorized to do this", 0)
 				if parsed[0]=="/jails":
 					s=""
-					chars=os.listdir("chars")
+					chars=find_directories("chars")
 					for char in chars:
 						if file_exists("chars/"+char+"/jailtime.usr"):
 							try: time_elapsed=(tm.time()-int(file_get_contents("chars/"+char+"/jailtimestamp.usr")))*1000
@@ -109,7 +105,7 @@ def handle_channel_1(e):
 					file_put_contents("chars/"+user+"/jailtime.usr",str(time*60000))
 					file_put_contents("chars/"+user+"/jailtimestamp.usr",str(round(tm.time())))
 					file_put_contents("chars/"+user+"/jailreason.usr",reason)
-					chars=os.listdir("chars")
+					chars=find_directories("chars")
 					for char in chars:
 						if file_get_contents("chars/"+char+"/compid.usr")==file_get_contents("chars/"+user+"/compid.usr") and user!=char:
 							file_put_contents("chars/"+char+"/jailtime.usr",str(time*60000))
@@ -129,7 +125,7 @@ def handle_channel_1(e):
 					file_delete("chars/"+user+"/jailtime.usr")
 					file_delete("chars/"+user+"/jailtimestamp.usr")
 					file_delete("chars/"+user+"/jailreason.usr")
-					chars=os.listdir("chars")
+					chars=find_directories("chars")
 					for char in chars:
 						if file_get_contents("chars/"+char+"/compid.usr")==file_get_contents("chars/"+user+"/compid.usr") and user!=char:
 							file_delete("chars/"+char+"/jailtime.usr")
@@ -152,7 +148,7 @@ def handle_channel_1(e):
 								if int(parsed[2])==0: adminsend(""+parsed[1]+" has been permanently banned by "+g.players[index].name+": Reason: "+e.message.replace(parsed[0]+" "+parsed[1]+" "+parsed[2]+" ",""))
 								if parsed[2]!="0": end_datetime=convert_minutes_to_datetime_object(int(parsed[2]))
 								if parsed[2]=="0": end_datetime=convert_minutes_to_datetime_object(900000000); file_put_contents("chars/"+g.players[ind2].name+"/permaban.usr","")
-								chars=os.listdir("chars")
+								chars=find_directories("chars")
 								for char in chars:
 									if file_get_contents("chars/"+char+"/compid.usr")==file_get_contents("chars/"+g.players[ind2].name+"/compid.usr") and g.players[ind2].name!=char:
 										file_put_contents("chars/"+char+"/banreason.usr",e.message.replace(parsed[0]+" "+parsed[1]+" "+parsed[2]+" ",""))
@@ -175,7 +171,7 @@ def handle_channel_1(e):
 							if 1:
 								if parsed[2]!="0": end_datetime=convert_minutes_to_datetime_object(int(parsed[2]))
 								if parsed[2]=="0": end_datetime=convert_minutes_to_datetime_object(900000000); file_put_contents("chars/"+parsed[1]+"/permaban.usr","")
-								chars=os.listdir("chars")
+								chars=find_directories("chars")
 								for char in chars:
 									if file_get_contents("chars/"+char+"/compid.usr")==file_get_contents("chars/"+parsed[1]+"/compid.usr") and g.players[ind2].name!=char:
 										file_put_contents("chars/"+char+"/banreason.usr",e.message.replace(parsed[0]+" "+parsed[1]+" "+parsed[2]+" ",""))
@@ -207,7 +203,7 @@ def handle_channel_1(e):
 
 				elif parsed[0]=="/eventpointlist":
 					if g.players[index].is_admin():
-						chars=os.listdir("chars")
+						chars=find_directories("chars")
 						adminsend(""+g.players[index].name+" checked everyone's event points")
 						m=server_menu()
 						m.initial_packet="tokenlist_menu"
@@ -236,7 +232,7 @@ def handle_channel_1(e):
 
 				elif parsed[0]=="/tokenlist":
 					if g.players[index].is_admin():
-						chars=os.listdir("chars")
+						chars=find_directories("chars")
 						adminsend(""+g.players[index].name+" checked everyone's tokens")
 						m=server_menu()
 						m.initial_packet="tokenlist_menu"
@@ -289,9 +285,7 @@ def handle_channel_1(e):
 						item = {"name":item_name, "price":item_price, "category":category, "description":"no description"}
 
 						store_data.append(item)
-						filename="store.txt"
-						with open(filename, "a") as file:
-								file.write(""+item_name+":"+item_price+":"+category+":no description\n")
+						file_put_contents("store.txt", ""+item_name+":"+item_price+":"+category+":no description\n", "a")
 						
 						g.n.send_reliable(e.peer_id, f"Item '{item_name}' added to store.", 0)
 					else:
@@ -300,7 +294,6 @@ def handle_channel_1(e):
 				elif parsed[0] == "/removeitemstore" and len(parsed) > 2:
 					if g.players[index].is_admin():
 
-						filename="store.txt"
 						category=parsed[1]
 						item_name = parsed[2]
 						found_and_removed = False
@@ -311,9 +304,7 @@ def handle_channel_1(e):
 								break
 						
 						if found_and_removed:
-							with open(filename, 'w') as file:
-								for item in store_data:
-									file.write(f"{item['name']}:{item['price']}:{item['category']}:{item['description']}\n")
+							file_put_contents("store.txt", "".join(f"{item['name']}:{item['price']}:{item['category']}:{item['description']}\n" for item in store_data))
 
 							g.n.send_reliable(e.peer_id, f"Item '{item_name}' removed from store.", 0)
 						else:
@@ -330,9 +321,7 @@ def handle_channel_1(e):
 
 						event_store_data.append(item)
 
-						filename="event_store.txt"
-						with open(filename, "a") as file:
-								file.write(""+item_name+":"+item_price+":no description\n")
+						file_put_contents("event_store.txt", ""+item_name+":"+item_price+":no description\n", "a")
 						g.n.send_reliable(e.peer_id, f"Item '{item_name}' added to event store.", 0)
 					else:
 						g.n.send_reliable(e.peer_id, "You do not have permission to use this command.", 0)
@@ -342,7 +331,6 @@ def handle_channel_1(e):
 					if g.players[index].is_admin():
 
 						item_name = parsed[1]
-						filename="event_store.txt"
 						found_and_removed = False
 						for ind, item in enumerate(event_store_data):
 							if item["name"] == item_name:
@@ -352,9 +340,7 @@ def handle_channel_1(e):
 						
 
 						if found_and_removed:
-							with open(filename, 'w') as file:
-								for item in event_store_data:
-									file.write(f"{item['name']}:{item['price']}:{item['description']}\n")
+							file_put_contents("event_store.txt", "".join(f"{item['name']}:{item['price']}:{item['description']}\n" for item in event_store_data))
 
 							g.n.send_reliable(e.peer_id, f"Item '{item_name}' removed from event store.", 0)
 						else:
@@ -389,7 +375,7 @@ def handle_channel_1(e):
 						g.n.send_reliable(e.peer_id, "You do not have permission to use this command.", 0)
 				elif parsed[0]=="/listip":
 					if g.players[index].is_admin():
-						chars = os.listdir("chars")
+						chars = find_directories("chars")
 						ip_character_data = []  # List of tuples (ip, char_names)
 
 						for char in chars:
@@ -736,7 +722,7 @@ def handle_channel_1(e):
 							if directory_exists("chars/"+parsed[1]+"")==False: g.n.send_reliable(g.players[index].peer_id,"char does not exists",2); return
 							numm=string_to_number(parsed[2])
 							if numm==0: file_delete("chars/"+parsed[1]+"/moderator.usr"); adminsend(""+parsed[1]+"'s moderator rank has been demoted by "+g.players[index].name+""); return
-							if numm==1: f=open("chars/"+parsed[1]+"/moderator.usr","w"); f.close(); adminsend(""+parsed[1]+" is now moderator by "+g.players[index].name+""); return
+							if numm==1: file_put_contents("chars/"+parsed[1]+"/moderator.usr","1"); adminsend(""+parsed[1]+" is now moderator by "+g.players[index].name+""); return
 
 						else:
 						
@@ -750,8 +736,7 @@ def handle_channel_1(e):
 
 #										g.n.broadcast(""+g.players[ind2].name+" is now moderator of zero_hour_assault!",2)
 #										g.n.broadcast("play_s error-2-126514.ogg",0)
-								f=open("chars/"+g.players[ind2].name+"/moderator.usr","w")
-								f.close()
+								file_put_contents("chars/"+g.players[ind2].name+"/moderator.usr","1")
 								
 							elif(num==0):
 							
@@ -773,8 +758,7 @@ def handle_channel_1(e):
 				elif parsed[0]=="/addbeta" and len(parsed)>1:
 					if directory_exists("chars/"+parsed[1]+"")==False: g.n.send_reliable(g.players[index].peer_id,"invalid char",2); return
 					if file_exists("chars/"+parsed[1]+"/beta.usr")==True: g.n.send_reliable(g.players[index].peer_id,"this player is already a betatester",2); return
-					f=open("chars/"+parsed[1]+"/beta.usr","w")
-					f.close()
+					file_put_contents("chars/"+parsed[1]+"/beta.usr","1")
 					adminsend(""+parsed[1]+" is now beta member of the game by "+g.players[index].name+"")
 				elif parsed[0]=="/removebeta" and len(parsed)>1:
 					if directory_exists("chars/"+parsed[1]+"")==False: g.n.send_reliable(g.players[index].peer_id,"invalid char",2); return
@@ -794,7 +778,7 @@ def handle_channel_1(e):
 							if directory_exists("chars/"+parsed[1]+"")==False: g.n.send_reliable(g.players[index].peer_id,"char does not exists",2); return
 							numm=string_to_number(parsed[2])
 							if numm==0: file_delete("chars/"+parsed[1]+"/admin.usr"); adminsend(""+parsed[1]+"'s adminship has been demoted by "+g.players[index].name+""); return
-							if numm==1: f=open("chars/"+parsed[1]+"/admin.usr","w"); f.close(); adminsend(""+parsed[1]+" is now admin by "+g.players[index].name+""); return
+							if numm==1: file_put_contents("chars/"+parsed[1]+"/admin.usr","1"); adminsend(""+parsed[1]+" is now admin by "+g.players[index].name+""); return
 
 
 						else:
@@ -809,8 +793,7 @@ def handle_channel_1(e):
 
 #										g.n.broadcast(""+g.players[ind2].name+" is now admin of zero_hour_assault!",2)
 #										g.n.broadcast("play_s error-2-126514.ogg",0)
-								f=open("chars/"+g.players[ind2].name+"/admin.usr","w")
-								f.close()
+								file_put_contents("chars/"+g.players[ind2].name+"/admin.usr","1")
 								
 							elif(num==0):
 							
@@ -870,14 +853,10 @@ def handle_channel_1(e):
 
 				elif parsed[0]=="/givepack":
 					adminsend(""+g.players[index].name+" gived "+parsed[1]+" to "+parsed[2]+" "+str(parsed[3])+"")
-					f=open("zitemdata.txt","w")
-					f.write(parsed[2]+"="+parsed[1]+"="+parsed[3])
-					f.close()
+					file_put_contents("zitemdata.txt", parsed[2]+"="+parsed[1]+"="+parsed[3])
 				elif parsed[0]=="/givepack2":
 					adminsend(""+g.players[index].name+" gived "+parsed[1]+" to "+parsed[2]+" "+str(parsed[3])+"")
-					f=open("ioszitemdata.txt","w")
-					f.write(parsed[2]+"="+parsed[1]+"="+parsed[3])
-					f.close()
+					file_put_contents("ioszitemdata.txt", parsed[2]+"="+parsed[1]+"="+parsed[3])
 
 				elif parsed[0]=="/givetoken" and len(parsed)>2:
 					if g.players[index].is_admin()==True or g.players[index].moderator==True:
@@ -892,9 +871,7 @@ def handle_channel_1(e):
 							newtoken=int(parsed[2])
 							finaly=current_token + newtoken
 
-							f=open("chars/"+parsed[1]+"/zhtoken.usr","w")
-							f.write(str(finaly))
-							f.close()
+							file_put_contents("chars/"+parsed[1]+"/zhtoken.usr",str(finaly))
 							adminsend(""+g.players[index].name+" gaved "+str(parsed[2])+" zero token to "+parsed[1]+": Before value was "+str(current_token)+", now he has "+str(finaly)+" tokens")
 
 				elif parsed[0]=="/givetokenall" and len(parsed)>1:
@@ -915,7 +892,7 @@ def handle_channel_1(e):
 							if directory_exists("chars/"+parsed[1]+"")==False: g.n.send_reliable(g.players[index].peer_id,"char does not exists",2); return
 							numm=string_to_number(parsed[2])
 							if numm==0: file_delete("chars/"+parsed[1]+"/builder.usr"); adminsend(""+parsed[1]+"'s builder rank has been demoted by "+g.players[index].name+""); return
-							if numm==1: f=open("chars/"+parsed[1]+"/builder.usr","w"); f.close(); adminsend(""+parsed[1]+" is now builder by "+g.players[index].name+""); return
+							if numm==1: file_put_contents("chars/"+parsed[1]+"/builder.usr","1"); adminsend(""+parsed[1]+" is now builder by "+g.players[index].name+""); return
 
 						else:
 						
@@ -929,8 +906,7 @@ def handle_channel_1(e):
 
 #										g.n.broadcast(""+g.players[ind2].name+" is now builder of zero_hour_assault!",2)
 #										g.n.broadcast("play_s error-2-126514.ogg",0)
-								f=open("chars/"+g.players[ind2].name+"/builder.usr","w")
-								f.close()
+								file_put_contents("chars/"+g.players[ind2].name+"/builder.usr","1")
 								
 							elif(num==0):
 							
@@ -954,9 +930,8 @@ def handle_channel_1(e):
 						if phpresponse=="failed" or phpresponse!="success":
 							g.n.send_reliable(g.players[index].peer_id,"the motd could not be updated online. php response: "+phpresponse, 2)
 
-						f=open("motd.txt","w")
-						f.write(mess)
-						f.close()
+						import db as _db
+						_db.sv_write_text("motd.txt", mess)
 						adminsend("server message has been changed by "+g.players[index].name+": "+mess+"")
 						g.n.broadcast("play_s misc200.ogg",0)
 						g.n.broadcast("attention. Server message has been updated. Please press f1 for see more details",2)
@@ -994,9 +969,6 @@ def handle_channel_1(e):
 					g.players[index].scorepoint+=5
 				elif parsed[0]=="/updatechanges" and len(parsed)>1:
 					if g.players[index].is_admin()==True or g.players[index].dev==True:
-						if file_exists("changes.txt")==False:
-							f=open("changes.txt", "w")
-							f.close()
 						file_put_contents("changes.txt", string_replace(e.message, "/updatechanges ", "", False), "w")
 						adminsend(""+g.players[index].name+" updated to changes")
 						g.n.send_reliable(g.players[index].peer_id, "done", 0)
@@ -1031,9 +1003,7 @@ def handle_channel_1(e):
 					if g.players[index].is_admin()==True or g.players[index].moderator==True:
 						adminsend(""+g.players[index].name+" stopped to game")
 						g.gamestop=1
-						if file_exists("frozen.txt")==False:
-							f=open("frozen.txt","w")
-							f.close()
+						if not file_exists("frozen.txt"): file_put_contents("frozen.txt", "")
 
 						g.n.broadcast("stopmoving",0)
 						g.n.broadcast("Attention. The game has now been frozen by a staff member. Please be patiently.",2)
@@ -1238,7 +1208,7 @@ def handle_channel_1(e):
 					g.n.send_reliable(e.peer_id,s,2)
 				elif parsed[0]=="/namefind":
 					mails=[]
-					chars=os.listdir("chars")
+					chars=find_directories("chars")
 					for char in chars:
 						charfolder=os.path.join("chars",char)
 						if file_get_contents(charfolder+"/mail.usr")==parsed[1]: mails.append(char)

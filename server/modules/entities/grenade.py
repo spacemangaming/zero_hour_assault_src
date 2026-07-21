@@ -234,6 +234,13 @@ def grenadeloop():
 				if(g.players[x].map==j.map and get_3d_distance(j.x, j.y, j.z, g.players[x].x, g.players[x].y, g.players[x].z)<=j.range and g.players[x].map==j.map):
 				
 					if j.map!="massacre_in_the_city" and g.players[x].joinedmatch==j.owner.joinedmatch and j.owner.joinedmatch!="" and g.players[x].matchteam==j.owner.matchteam and j.owner.matchmode!="teaml"  and j.owner.matchmode!="minecraft"  and j.owner.matchmode!="g" and j.owner.matchmode!="g2" and g.players[x].joinedmatch!="" and g.players[x].matchmode!="" and j.owner.matchmode!="": continue
+					_boss = getattr(g, "mega_boss", None)
+					if (j.map == "megaboss"
+							and not getattr(j.owner, "isbot", True)
+							and not g.players[x].isbot
+							and g.players[x].name != j.owner.name
+							and (_boss is None or _boss.health > 2500)):
+						continue
 					inpact=random(j.mindammage,j.maxdammage)
 					if g.players[x].vi!=-1:
 						r=random(1,4)

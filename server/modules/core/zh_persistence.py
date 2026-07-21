@@ -8,31 +8,70 @@ import urllib.parse
 import requests
 from threading import Thread
 from timer import timer
+import db as _db
+
 
 def file_get_contents(filename, mode="r"):
-	ret=""
 	if file_exists(filename)==False:
 		return ""
-	f=open(filename, mode)
-	ret=f.read()
-	f.close()
-	return ret
-
-
-def charwrite(name,thing,value):
-	try:
-		f=open("chars/"+name+"/"+thing+".usr","w")
-		f.write(str(value))
+	if "b" in mode:
+		f=open(filename, mode)
+		ret=f.read()
 		f.close()
-	except: pass
-
-
-def charwriteb(name,thing,value):
-	try:
-		f=open("chars/"+name+"/"+thing+".usr","wb")
-		f.write(value)
+		return ret
+	else:
+		encodings = ["utf-8", "cp1254", "latin-1"]
+		for enc in encodings:
+			try:
+				f=open(filename, mode, encoding=enc)
+				ret=f.read()
+				f.close()
+				return ret
+			except UnicodeDecodeError:
+				continue
+		# Final fallback to prevent any crash
+		f=open(filename, mode, encoding="utf-8", errors="replace")
+		ret=f.read()
 		f.close()
-	except: pass
+		return ret
+
+
+# ── SQLite-backed char helpers ────────────────────────────────────────────────
+
+def charwrite(name, thing, value):
+	"""Write a text/int/real player field to SQLite."""
+	try:
+		_db.charwrite(name, thing, value)
+	except Exception:
+		pass
+
+
+def charwriteb(name, thing, value):
+	"""Write a binary (BLOB) player field to SQLite."""
+	try:
+		_db.charwriteb(name, thing, value)
+	except Exception:
+		pass
+
+
+def charread(name, thing, default=""):
+	"""Read a player field from SQLite as a string."""
+	return _db.charread(name, thing, default)
+
+
+def charreadb(name, thing):
+	"""Read a binary player field from SQLite as bytes."""
+	return _db.charreadb(name, thing)
+
+
+def charexists(name, thing):
+	"""Return True if the player field has been set."""
+	return _db.charexists(name, thing)
+
+
+def chardelete(name, thing):
+	"""Clear a player field (set to NULL)."""
+	_db.chardelete(name, thing)
 
 
 def save_char(index):
@@ -43,7 +82,7 @@ def save_char(index):
 	charwrite(np,"spatializertimer",g.players[index].spatializertimer.elapsed)
 	charwrite(np,"backpacks_level",g.players[index].backpacks_level)
 	charwrite(np,"beacon",g.players[index].beacon)
-	charwrite(np,"parachuted",("1" if g.players[index].parachuted else "0"))
+	# parachuted is intentionally not saved — it resets to False on every login
 	charwriteb(np,"backpacktimer",pickle.dumps(g.players[index].backpacktimer))
 	charwrite(np,"adrenalinetime",g.players[index].adrenalinetimer.elapsed)
 	charwrite(np,"jammertime",g.players[index].jammertimer.elapsed)
@@ -73,10 +112,11 @@ def save_char(index):
 
 
 	charwrite(np,"fainttime",g.players[index].fainttimer.elapsed)
-	if g.players[index].faint: 	charwrite(np,"faint","")
+	if g.players[index].faint:
+		charwrite(np, "faint", "1")
 	else:
-		file_delete("chars/"+g.players[index].name+"/faint.usr")
-		file_delete("chars/"+g.players[index].name+"/fainttime.usr")
+		chardelete(np, "faint")
+		chardelete(np, "fainttime")
 	if not g.players[index].hidden: charwrite(np,"lastactive",str(datetime.now().strftime("%Y-%m-%d %H:%M:%S")))
 
 
@@ -109,9 +149,7 @@ def save_char(index):
 	charwrite(np,"y",g.players[index].y)
 	charwrite(np,"z",g.players[index].z)
 	try:
-		f=open("chars/"+g.players[index].name+"/banned.usr","wb")
-		f.write(pickle.dumps(g.players[index].matchbanned))
-		f.close()
+		charwriteb(np, "banned", pickle.dumps(g.players[index].matchbanned))
 	except: pass
 	charwrite(np,"map",g.players[index].map)
 	charwrite(np,"gender",g.players[index].gender)
@@ -180,312 +218,265 @@ def save_all_chars():
 	save_flags()
 
 
-def save_matches():
-	with open("matches.dat","wb") as f:
-		f.write(pickle.dumps(g.matches))
+def _sv_pickle(key, obj):
+	_db.sv_write(key, pickle.dumps(obj))
 
+def _sv_unpickle(key):
+	data = _db.sv_read(key)
+	if not data: return None
+	return pickle.loads(data)
+
+
+def save_matches():
+	_sv_pickle("matches.dat", g.matches)
 
 def load_matches():
-	with open("matches.dat","rb") as f:
-		try: g.matches=pickle.loads(f.read())
-		except: pass
+	v = _sv_unpickle("matches.dat")
+	if v is not None: g.matches = v
 	for m in g.matches: m.removeplayertimer.restart()
 
 
 def save_chests():
-	with open("chesttimer.txt","w") as f: f.write(str(chesttimer.elapsed))
-	with open("tasktimer.txt","w") as f: f.write(str(tasktimer.elapsed))
-	with open("task.txt","w") as f: f.write(str(g.task))
-	with open("survivestage.txt","w") as f: f.write(str(survivestage))
-	with open("survivetime.txt","w") as f: f.write(str(survivetimer.elapsed))
-	with open("freedomsurvivor.txt","w") as f: f.write(str(g.freedomsurvivor))
-	with open("chests.dat","wb") as f:
-		f.write(pickle.dumps(g.chests))
-
+	_db.sv_write_text("chesttimer.txt", str(chesttimer.elapsed))
+	_db.sv_write_text("tasktimer.txt",  str(tasktimer.elapsed))
+	_db.sv_write_text("task.txt",       str(g.task))
+	_db.sv_write_text("survivestage.txt", str(survivestage))
+	_db.sv_write_text("survivetime.txt",  str(survivetimer.elapsed))
+	_db.sv_write_text("freedomsurvivor.txt", str(g.freedomsurvivor))
+	_sv_pickle("chests.dat", g.chests)
 
 def load_chests():
-	with open("chests.dat","rb") as f:
-		try: g.chests=pickle.loads(f.read())
-		except: pass
-	if file_exists("chesttimer.txt"):
-		with open("chesttimer.txt","r") as f: chesttimer.elapsed=int(f.read())
-	if file_exists("survivestage.txt"):
-		with open("survivestage.txt","r") as f: survivestage=int(f.read())
-	if file_exists("freedomsurvivor.txt"):
-		with open("freedomsurvivor.txt","r") as f: g.freedomsurvivor=str(f.read())
-
-	if file_exists("survivetime.txt"):
-		with open("survivetime.txt","r") as f: survivetimer.elapsed=int(f.read())
-
-	if file_exists("tasktimer.txt"):
-		with open("tasktimer.txt","r") as f: tasktimer.elapsed=int(f.read())
-	if file_exists("task.txt"):
-		with open("task.txt","r") as f: g.task=int(f.read())
+	v = _sv_unpickle("chests.dat")
+	if v is not None: g.chests = v
+	val = _db.sv_read_text("chesttimer.txt")
+	if val: chesttimer.elapsed = int(val)
+	val = _db.sv_read_text("survivestage.txt")
+	if val:
+		global survivestage
+		survivestage = int(val)
+	val = _db.sv_read_text("freedomsurvivor.txt")
+	if val: g.freedomsurvivor = val
+	val = _db.sv_read_text("survivetime.txt")
+	if val: survivetimer.elapsed = int(val)
+	val = _db.sv_read_text("tasktimer.txt")
+	if val: tasktimer.elapsed = int(val)
+	val = _db.sv_read_text("task.txt")
+	if val: g.task = int(val)
 
 
 def save_electrics():
-	with open("electrics.dat","wb") as f:
-		f.write(pickle.dumps(g.electrics))
-
+	_sv_pickle("electrics.dat", g.electrics)
 
 def load_electrics():
-	with open("electrics.dat","rb") as f:
-		try: g.electrics=pickle.loads(f.read())
-		except: pass
+	v = _sv_unpickle("electrics.dat")
+	if v is not None: g.electrics = v
 	for e in g.electrics:
-		e.mid=spawn_moving_sound("electricty.ogg",e.x,e.y,e.z,e.map,"",100)
+		e.mid = spawn_moving_sound("electricty.ogg", e.x, e.y, e.z, e.map, "", 100)
 
 
 def save_corpses():
-	with open("corpses.dat","wb") as f:
-		f.write(pickle.dumps(g.corpses))
-
+	_sv_pickle("corpses.dat", g.corpses)
 
 def load_corpses():
-	with open("corpses.dat","rb") as f:
-		try: g.corpses=pickle.loads(f.read())
-		except: pass
+	v = _sv_unpickle("corpses.dat")
+	if v is not None: g.corpses = v
 
 
 def save_tickets():
-	with open("tickets.dat","wb") as f:
-		f.write(pickle.dumps(g.tickets))
-
+	_sv_pickle("tickets.dat", g.tickets)
 
 def save_votes():
-	with open("votes.dat","wb") as f:
-		f.write(pickle.dumps(g.votes))
-
+	_sv_pickle("votes.dat", g.votes)
 
 def save_rain():
-	with open("rain.dat","wb") as f:
-		ls=[g.rain,g.rainstarttimer,g.rainstarttime,g.raintime,g.rainvoltimer,g.rainvoltime,g.rainvolume,g.raintimer]
-		f.write(pickle.dumps(ls))
-
+	ls = [g.rain, g.rainstarttimer, g.rainstarttime, g.raintime,
+	      g.rainvoltimer, g.rainvoltime, g.rainvolume, g.raintimer]
+	_sv_pickle("rain.dat", ls)
 
 def save_ladders():
-	with open("ladders.dat","wb") as f:
-		f.write(pickle.dumps(g.ladders))
-
+	_sv_pickle("ladders.dat", g.ladders)
 
 def save_barricades():
-	with open("barricades.dat","wb") as f:
-		f.write(pickle.dumps(g.barricades))
-
+	_sv_pickle("barricades.dat", g.barricades)
 
 def load_rain():
-	with open("rain.dat","rb") as f:
-		ls=pickle.loads(f.read())
-		g.rain=ls[0]
-		g.rainstarttimer=ls[1]
-		g.rainstarttime=ls[2]
-		g.raintime=ls[3]
-		g.rainvoltimer=ls[4]
-		g.rainvoltime=ls[5]
-		g.rainvolume=ls[6]
-		g.raintimer=ls[7]
-
+	ls = _sv_unpickle("rain.dat")
+	if ls is None: return
+	g.rain, g.rainstarttimer, g.rainstarttime, g.raintime, \
+	g.rainvoltimer, g.rainvoltime, g.rainvolume, g.raintimer = ls
 
 def load_ladders():
-	with open("ladders.dat","rb") as f:
-		g.ladders=pickle.loads(f.read())
-
+	v = _sv_unpickle("ladders.dat")
+	if v is not None: g.ladders = v
 
 def load_barricades():
-	with open("barricades.dat","rb") as f:
-		g.barricades=pickle.loads(f.read())
-
+	v = _sv_unpickle("barricades.dat")
+	if v is not None: g.barricades = v
 
 def load_tickets():
-	with open("tickets.dat","rb") as f:
-		g.tickets=pickle.loads(f.read())
+	v = _sv_unpickle("tickets.dat")
+	if v is not None: g.tickets = v
 	for ticket in g.tickets:
-		if "closetimer" not in ticket.keys(): ticket["closetimer"]=timer()
-
+		if "closetimer" not in ticket.keys(): ticket["closetimer"] = timer()
 
 def load_votes():
-	with open("votes.dat","rb") as f:
-		g.votes=pickle.loads(f.read())
-	# NEW: Initialize 'comments' attribute for older loaded polls if it doesn't exist
-	for v in g.votes:
-		if not hasattr(v,"stick"): v.stick=False
-		if not hasattr(v,"comments"): v.comments=[] # NEW: Ensure comments list exists for old data
+	v = _sv_unpickle("votes.dat")
+	if v is not None: g.votes = v
+	for v2 in g.votes:
+		if not hasattr(v2, "stick"):    v2.stick = False
+		if not hasattr(v2, "comments"): v2.comments = []
 
 
 def save_timebombs():
-	with open("timebombs.dat","wb") as f:
-		f.write(pickle.dumps(g.timebombs))
-
+	_sv_pickle("timebombs.dat", g.timebombs)
 
 def load_timebombs():
-	with open("timebombs.dat","rb") as f:
-		g.timebombs=pickle.loads(f.read())
+	v = _sv_unpickle("timebombs.dat")
+	if v is not None: g.timebombs = v
 
 
 def save_zks():
-	with open("zks.dat","wb") as f:
-		f.write(pickle.dumps(g.zks))
-
+	_sv_pickle("zks.dat", g.zks)
 
 def load_zks():
-	with open("zks.dat","rb") as f:
-		g.zks=pickle.loads(f.read())
+	v = _sv_unpickle("zks.dat")
+	if v is not None: g.zks = v
 
 
 def save_mines():
-	with open("mines.dat","wb") as f:
-		f.write(pickle.dumps(g.mines))
-
+	_sv_pickle("mines.dat", g.mines)
 
 def load_mines():
-	with open("mines.dat","rb") as f:
-		g.mines=pickle.loads(f.read())
+	v = _sv_unpickle("mines.dat")
+	if v is not None: g.mines = v
 
 
 def save_bikes():
-	with open("bikes.dat","wb") as f:
-		f.write(pickle.dumps(g.bikes))
-
+	_sv_pickle("bikes.dat", g.bikes)
 
 def load_bikes():
-	with open("bikes.dat","rb") as f:
-		g.bikes=pickle.loads(f.read())
+	v = _sv_unpickle("bikes.dat")
+	if v is not None: g.bikes = v
 
 
 def save_motors():
-	with open("motors.dat","wb") as f:
-		f.write(pickle.dumps(g.motors))
-
+	_sv_pickle("motors.dat", g.motors)
 
 def load_motors():
-	with open("motors.dat","rb") as f:
-		g.motors=pickle.loads(f.read())
+	v = _sv_unpickle("motors.dat")
+	if v is not None: g.motors = v
 	for m in g.motors:
-		if m.running: m.running=False; m.pitch=100
+		if m.running: m.running = False; m.pitch = 100
 
 
 def save_npcs():
-	with open("npcs.dat","wb") as f:
-		f.write(pickle.dumps(g.npcs))
-
+	_sv_pickle("npcs.dat", g.npcs)
 
 def load_npcs():
-	with open("npcs.dat","rb") as f:
-		g.npcs=pickle.loads(f.read())
+	v = _sv_unpickle("npcs.dat")
+	if v is not None: g.npcs = v
 	for n in g.npcs:
-		if not hasattr(n,"tokentimer"): n.tokentimer=timer()
-		if not hasattr(n,"scoretimer"): n.scoretimer=timer()
-		if not hasattr(n,"hidden"): n.hidden=False
+		if not hasattr(n, "tokentimer"): n.tokentimer = timer()
+		if not hasattr(n, "scoretimer"):  n.scoretimer = timer()
+		if not hasattr(n, "hidden"):      n.hidden = False
 
 
 def save_zombies():
-	with open("zombies.dat","wb") as f:
-		f.write(pickle.dumps(g.zombies))
-
+	_sv_pickle("zombies.dat", g.zombies)
 
 def load_zombies():
-	with open("zombies.dat","rb") as f:
-		g.zombies=pickle.loads(f.read())
+	v = _sv_unpickle("zombies.dat")
+	if v is not None: g.zombies = v
 
 
 def save_timeditems():
-	with open("timeditems.dat","wb") as f:
-		f.write(pickle.dumps(g.timeditems))
-
+	_sv_pickle("timeditems.dat", g.timeditems)
 
 def load_timeditems():
-	with open("timeditems.dat","rb") as f:
-		g.timeditems=pickle.loads(f.read())
+	v = _sv_unpickle("timeditems.dat")
+	if v is not None: g.timeditems = v
 
 
 def save_groups():
-	with open("groups.dat","wb") as f:
-		f.write(pickle.dumps(g.groups))
-
+	_sv_pickle("groups.dat", g.groups)
 
 def load_groups():
-	with open("groups.dat","rb") as f:
-		g.groups=pickle.loads(f.read())
+	v = _sv_unpickle("groups.dat")
+	if v is not None: g.groups = v
 	for group in g.groups:
-		if not hasattr(group,"freedomhit"): group.freedomhit=1
-		if not hasattr(group,"zhtoken"): group.zhtoken=0
-		if not hasattr(group,"donations"): group.donations=""
-		if not hasattr(group,"actions"): group.actions=""
-		if not hasattr(group,"announcement"): group.announcement=""
-	for item in g.groups:
-		if not hasattr(item, "join_requests"): item.join_requests=[]
+		if not hasattr(group, "freedomhit"):   group.freedomhit = 1
+		if not hasattr(group, "zhtoken"):      group.zhtoken = 0
+		if not hasattr(group, "donations"):    group.donations = ""
+		if not hasattr(group, "actions"):      group.actions = ""
+		if not hasattr(group, "announcement"): group.announcement = ""
+		if not hasattr(group, "join_requests"): group.join_requests = []
 
 
 def save_communitys():
-	with open("communitys.dat","wb") as f:
-		f.write(pickle.dumps(g.communitys))
-
+	_sv_pickle("communitys.dat", g.communitys)
 
 def load_communitys():
-	with open("communitys.dat","rb") as f:
-		g.communitys=pickle.loads(f.read())
-	for community in g.communitys:
-		if not hasattr(community,"actions"): community.actions=""
-		if not hasattr(community,"announcement"): community.announcement=""
-	for item in g.communitys:
-		if not hasattr(item, "join_requests"): item.join_requests=[]
+	v = _sv_unpickle("communitys.dat")
+	if v is not None: g.communitys = v
+	for c in g.communitys:
+		if not hasattr(c, "actions"):       c.actions = ""
+		if not hasattr(c, "announcement"):  c.announcement = ""
+		if not hasattr(c, "join_requests"): c.join_requests = []
 
 
 def save_group_bases():
-	with open("group_bases.dat","wb") as f:
-		f.write(pickle.dumps(g.group_bases))
-
+	_sv_pickle("group_bases.dat", g.group_bases)
 
 def load_group_bases():
-	with open("group_bases.dat","rb") as f:
-		g.group_bases=pickle.loads(f.read())
+	v = _sv_unpickle("group_bases.dat")
+	if v is not None: g.group_bases = v
 	for base in g.group_bases:
-		if not hasattr(base,"mapappend"): base.mapappend=""
-		if not hasattr(base,"ammo"): base.ammo=10
-		if not hasattr(base,"firetimer"): base.firetimer=timer()
-		if not hasattr(base,"password"): base.password=""
-		if not hasattr(base,"doorontimer"): base.doorontimer=timer()
-		if not hasattr(base,"dooropening"): base.dooropening=False
-		if not hasattr(base,"chestlog"): base.chestlog=""
-		if not hasattr(base,"wall_level"): base.wall_level=1
-		if not hasattr(base,"turrets"): base.turrets=[]
-		if not hasattr(base,"generator_on"): base.generator_on=False
-		if not hasattr(base,"generator_fuel"): base.generator_fuel=0.0
+		if not hasattr(base,"mapappend"):       base.mapappend=""
+		if not hasattr(base,"ammo"):            base.ammo=10
+		if not hasattr(base,"firetimer"):       base.firetimer=timer()
+		if not hasattr(base,"password"):        base.password=""
+		if not hasattr(base,"doorontimer"):     base.doorontimer=timer()
+		if not hasattr(base,"dooropening"):     base.dooropening=False
+		if not hasattr(base,"chestlog"):        base.chestlog=""
+		if not hasattr(base,"wall_level"):      base.wall_level=1
+		if not hasattr(base,"turrets"):         base.turrets=[]
+		if not hasattr(base,"generator_on"):    base.generator_on=False
+		if not hasattr(base,"generator_fuel"):  base.generator_fuel=0.0
 		if not hasattr(base,"generator_timer"): base.generator_timer=timer()
-		if not hasattr(base,"siren_timer"): base.siren_timer=timer()
+		if not hasattr(base,"siren_timer"):     base.siren_timer=timer()
 
 
 def save_items():
-	with open("items.dat","wb") as f:
-		f.write(pickle.dumps(g.items))
-
+	_sv_pickle("items.dat", g.items)
 
 def load_items():
-	with open("items.dat","rb") as f:
-		g.items=pickle.loads(f.read())
+	v = _sv_unpickle("items.dat")
+	if v is not None: g.items = v
 	for item in g.items:
 		if not hasattr(item,"yoursents"): item.yoursents=[]
 
 
 def save_flags():
-	with open("flags.dat","wb") as f:
-		f.write(pickle.dumps(g.flags))
-
+	_sv_pickle("flags.dat", g.flags)
 
 def load_flags():
-	with open("flags.dat","rb") as f:
-		g.flags=pickle.loads(f.read())
+	v = _sv_unpickle("flags.dat")
+	if v is not None: g.flags = v
 
 
 def load_mailbans():
-	if file_exists("mailbans.txt"):
-		g.mailbans=[m.lower().strip() for m in file_get_contents("mailbans.txt").split("\n") if m.strip()]
+	val = _db.sv_read_text("mailbans.txt", "")
+	if val:
+		g.mailbans = [m.lower().strip() for m in val.split("\n") if m.strip()]
+	elif file_exists("mailbans.txt"):
+		# fallback to filesystem on first run
+		g.mailbans = [m.lower().strip() for m in file_get_contents("mailbans.txt").split("\n") if m.strip()]
+		_db.sv_write_text("mailbans.txt", "\n".join(g.mailbans))
 	else:
-		g.mailbans=[]
-
+		g.mailbans = []
 
 def save_mailbans():
-	file_put_contents("mailbans.txt","\n".join(g.mailbans))
+	_db.sv_write_text("mailbans.txt", "\n".join(g.mailbans))
 
 
 def is_mailbanned(mail):

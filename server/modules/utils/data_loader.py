@@ -25,6 +25,7 @@ _chest_pool: dict = {}
 _inventory_limits: dict = {}
 _token_packs: dict = {}
 _item_sounds: dict = {}
+_match_modes: dict = {}
 
 # Try to locate data/ folder relative to the script location first.
 # If it doesn't exist, fall back to "data" in the current working directory.
@@ -145,6 +146,12 @@ def _load_economy():
     }
 
 
+def _load_match_modes():
+    global _match_modes
+    path = os.path.join(_DATA_DIR, "match_modes.json")
+    _match_modes = _load_json(path)
+
+
 def reload_all():
     """Hot-reload every config file. Safe to call at runtime."""
     _load_weapons()
@@ -155,6 +162,7 @@ def reload_all():
     _load_items()
     _load_chest()
     _load_economy()
+    _load_match_modes()
     print("[data_loader] All configs reloaded.")
 
 
@@ -247,6 +255,30 @@ def get_item_sound(item: str) -> str:
     return sounds.get(item) or sounds.get("_default", "itemget")
 
 
+def get_weapon_sound(name: str, slot: str, variant: int = 1) -> str:
+    """Return the sound name for a weapon slot with optional variant number.
+
+    slot is one of: fire, empty, dist, reload, draw
+    Checks optional override keys in the weapon JSON first
+    (e.g. fire_sound, reload_sound, draw_sound, empty_sound, dist_sound),
+    then falls back to the conventional naming: {name}{slot}{variant}.
+
+    For fire/dist there are 3 variants (1-3); for others variant is ignored.
+    """
+    w = _weapons.get(name, {})
+    override_key = f"{slot}_sound"
+    override = w.get(override_key)
+    if override:
+        # overrides always supply just the base name; append variant for multi-variant slots
+        if slot in ("fire", "dist"):
+            return f"{override}{variant}"
+        return override
+    # fallback: naming convention
+    if slot in ("fire", "dist"):
+        return f"{name}{slot}{variant}"
+    return f"{name}{slot}"
+
+
 def get_wdata_string(name: str) -> str:
     """Return the legacy 'wdata' string '<fire_interval> <auto|norm>' for a weapon."""
     w = _weapons.get(name)
@@ -277,3 +309,13 @@ def get_guns2_list() -> list:
     items = [(w.get("npc_priority", 99), name) for name, w in _weapons.items()]
     items.sort()
     return [name for _, name in items]
+
+
+def get_match_mode(mode: str) -> dict:
+    """Return the configuration dict for a match mode, or {} if unknown."""
+    return _match_modes.get(mode, {})
+
+
+def get_all_match_modes() -> dict:
+    """Return all loaded match modes keyed by mode name."""
+    return _match_modes

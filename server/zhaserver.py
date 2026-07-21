@@ -59,6 +59,7 @@ languages={}
 from guns import guns,guns2
 from npc import npcloop
 from zombie import zombieloop
+from mega_boss import megabossloop, spawn_mega_boss
 import gc
 
 from internet import url_post

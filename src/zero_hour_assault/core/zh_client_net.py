@@ -852,6 +852,29 @@ def netloop(events=False,request=True):
 				g.rain=True
 			elif parsed[0]=="rainfinishstart": g.rainfinish=True
 			elif parsed[0]=="rainfinishstop": g.rainfinish=False
+			elif parsed[0]=="boss_pos" and len(parsed)>=4:
+				# boss_pos <x> <y> <phase2>  — minimap overlay data
+				try:
+					g.tracked_boss = {
+						"x":      int(parsed[1]),
+						"y":      int(parsed[2]),
+						"phase2": parsed[3] == "1",
+						"map":    g.mapname,
+					}
+				except Exception:
+					pass
+			elif parsed[0]=="boss_dead":
+				g.tracked_boss = None
+			elif parsed[0]=="amb_pitch" and len(parsed)>2:
+				# amb_pitch <soundfile> <pitch_int>  — e.g. "amb_pitch finalboss.ogg 120"
+				target_sound = parsed[1]
+				try:
+					new_pitch = int(parsed[2])
+					for a in g.ambs:
+						if a.soundname == target_sound:
+							a.loop.pitch = new_pitch
+				except Exception:
+					pass
 			elif parsed[0]=="rainvolume":
 				g.target_rain_volume=stn(parsed[1])
 			elif parsed[0]=="rainstop":

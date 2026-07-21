@@ -158,9 +158,7 @@ def group_baseloop():
 			for pl in g.players:
 				if pl.map==i.map: i.remove_platform_to(pl)
 				if pl.map=="basement"+i.name+i.mapappend: g.move_player(g.get_player_index_from(pl),i.x,i.y,i.z,i.map)
-			f=open("grouphistory.txt","a")
-			f.write("group base "+i.name+" destroyed by "+i.hitby+" at "+str(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))+"\n")
-			f.close()
+			file_put_contents("grouphistory.txt", "group base "+i.name+" destroyed by "+i.hitby+" at "+str(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))+"\n", "a")
 			g.group_bases.remove(i)
 			file_delete("maps/basement"+i.name+i.mapappend+".map")
 			return

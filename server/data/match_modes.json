@@ -1,0 +1,209 @@
+{
+  "teamd": {
+    "display_name": "Team deathmatch",
+    "map": "main",
+    "team_based": true,
+    "allow_bots": true,
+    "use_helicopter": true,
+    "min_size": 1,
+    "max_size": 5
+  },
+  "teamk": {
+    "display_name": "Knife fight match teamed",
+    "map": "knife",
+    "team_based": true,
+    "allow_bots": true,
+    "use_helicopter": false,
+    "min_size": 1,
+    "max_size": 5
+  },
+  "teamk2": {
+    "display_name": "Knife fight match not teamed",
+    "map": "knife",
+    "team_based": false,
+    "allow_bots": true,
+    "use_helicopter": false,
+    "min_size": 2,
+    "max_size": 10
+  },
+  "teamf": {
+    "display_name": "hand to hand combat teamed",
+    "map": "combo",
+    "team_based": true,
+    "allow_bots": true,
+    "use_helicopter": false,
+    "min_size": 1,
+    "max_size": 5
+  },
+  "teamf2": {
+    "display_name": "hand to hand combat not teamed",
+    "map": "combo",
+    "team_based": false,
+    "allow_bots": true,
+    "use_helicopter": false,
+    "min_size": 2,
+    "max_size": 10
+  },
+  "teamsnow": {
+    "display_name": "Snowflake survival teamed",
+    "map": "snow",
+    "team_based": true,
+    "allow_bots": true,
+    "use_helicopter": false,
+    "min_size": 1,
+    "max_size": 5
+  },
+  "snow": {
+    "display_name": "Snowflake survival not teamed",
+    "map": "snow",
+    "team_based": false,
+    "allow_bots": true,
+    "use_helicopter": false,
+    "min_size": 2,
+    "max_size": 10
+  },
+  "teamsniper": {
+    "display_name": "Sniper duel teamed",
+    "map": "one_shot_one_kill",
+    "team_based": true,
+    "allow_bots": true,
+    "use_helicopter": false,
+    "min_size": 1,
+    "max_size": 5
+  },
+  "sniper": {
+    "display_name": "Sniper duel not teamed",
+    "map": "one_shot_one_kill",
+    "team_based": false,
+    "allow_bots": true,
+    "use_helicopter": false,
+    "min_size": 2,
+    "max_size": 10
+  },
+  "teamz": {
+    "display_name": "zombie survival",
+    "map": "zombie",
+    "team_based": true,
+    "allow_bots": true,
+    "use_helicopter": true,
+    "min_size": 1,
+    "max_size": 5
+  },
+  "teamz2": {
+    "display_name": "Zombie vs player",
+    "map": "zombie2",
+    "team_based": true,
+    "allow_bots": true,
+    "use_helicopter": false,
+    "min_size": 1,
+    "max_size": 5
+  },
+  "teamg": {
+    "display_name": "Explosive battle teamed",
+    "map": "grenade",
+    "team_based": true,
+    "allow_bots": true,
+    "use_helicopter": false,
+    "min_size": 1,
+    "max_size": 5
+  },
+  "g": {
+    "display_name": "Explosive battle not teamed",
+    "map": "grenade",
+    "team_based": false,
+    "allow_bots": true,
+    "use_helicopter": false,
+    "min_size": 2,
+    "max_size": 10
+  },
+  "teamg2": {
+    "display_name": "abyss clash teamed",
+    "map": "abyss_clash",
+    "team_based": true,
+    "allow_bots": true,
+    "use_helicopter": false,
+    "min_size": 1,
+    "max_size": 5
+  },
+  "g2": {
+    "display_name": "abyss clash not teamed",
+    "map": "abyss_clash",
+    "team_based": false,
+    "allow_bots": true,
+    "use_helicopter": false,
+    "min_size": 2,
+    "max_size": 10
+  },
+  "teamsword": {
+    "display_name": "Sword duel teamed",
+    "map": "sword",
+    "team_based": true,
+    "allow_bots": true,
+    "use_helicopter": false,
+    "min_size": 1,
+    "max_size": 5
+  },
+  "sword": {
+    "display_name": "Sword duel not teamed",
+    "map": "sword",
+    "team_based": false,
+    "allow_bots": true,
+    "use_helicopter": false,
+    "min_size": 2,
+    "max_size": 10
+  },
+  "teamcollect": {
+    "display_name": "collector's arena teamed",
+    "map": "collect",
+    "team_based": true,
+    "allow_bots": true,
+    "use_helicopter": false,
+    "min_size": 1,
+    "max_size": 5
+  },
+  "collect": {
+    "display_name": "collector's arena not teamed",
+    "map": "collect",
+    "team_based": false,
+    "allow_bots": true,
+    "use_helicopter": false,
+    "min_size": 2,
+    "max_size": 10
+  },
+  "teamc": {
+    "display_name": "capture the flag",
+    "map": "flag",
+    "team_based": true,
+    "allow_bots": true,
+    "use_helicopter": true,
+    "min_size": 1,
+    "max_size": 5
+  },
+  "teaml": {
+    "display_name": "last man standing",
+    "map": "main",
+    "team_based": false,
+    "allow_bots": true,
+    "use_helicopter": true,
+    "min_size": 2,
+    "max_size": 10
+  },
+  "teamminecraft": {
+    "display_name": "Medieval combat teamed",
+    "map": "minecraft",
+    "team_based": true,
+    "allow_bots": true,
+    "use_helicopter": false,
+    "min_size": 1,
+    "max_size": 5
+  },
+  "minecraft": {
+    "display_name": "Medieval combat not teamed",
+    "map": "minecraft",
+    "team_based": false,
+    "allow_bots": true,
+    "use_helicopter": false,
+    "min_size": 2,
+    "max_size": 10
+  }
+}

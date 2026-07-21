@@ -1,6 +1,6 @@
 [project]
 name = "zero-hour-assault"
-version = "beta1"
+version = "0.1"
 description = "Zero Hour Assault - Cleaned public source release"
 readme = "README.md"
 requires-python = ">=3.12,<3.13"

@@ -192,10 +192,8 @@ def handle_gameplay_1(e, parsed, index):
 		if parsed[0]=="writeitemdata":
 			index=g.get_player_index(e.peer_id)
 			if(index>-1):
-				if g.players[index].ios: f=open("ioszitemdata.txt","a")
-				elif not g.players[index].ios: f=open("zitemdata.txt","a")
-				f.write(e.message.replace("writeitemdata ","")+"\n")
-				f.close()
+				if g.players[index].ios: file_put_contents("ioszitemdata.txt", e.message.replace("writeitemdata ","")+"\n", "a")
+				elif not g.players[index].ios: file_put_contents("zitemdata.txt", e.message.replace("writeitemdata ","")+"\n", "a")
 		if parsed[0]=="resetfriends":
 			for p in g.players: p.friendcount=0
 		if parsed[0]=="gamemenu":
@@ -255,12 +253,7 @@ def handle_gameplay_1(e, parsed, index):
 			if(index>-1):
 				if parsed[1]=="[cncel]": g.players[index].prevmenu(); return
 				message=e.message.replace("suggestsomething ","")
-				if file_exists("suggest.txt")==False:
-					f=open("suggest.txt","w")
-					f.close()
-				f=open("suggest.txt","a")
-				f.write(""+g.players[index].name+": "+message+", "+get_date()+", "+get_time(True, True)+"\n")
-				f.close()
+				file_put_contents("suggest.txt", ""+g.players[index].name+": "+message+", "+get_date()+", "+get_time(True, True)+"\n", "a")
 				g.n.send_reliable(g.players[index].peer_id,"Your message has been delivered to the staff team.",0)
 				g.players[index].suggesttimer.restart()
 				adminsend(""+g.players[index].name+" suggested: "+message+"")

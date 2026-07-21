@@ -36,5 +36,6 @@
   "tm62":              "misc61",
   "zero_token":        "getpoints",
   "base_life_amplifier": "misc62",
+  "weapon_spawner":    "misc62",
   "_default":          "itemget"
 }

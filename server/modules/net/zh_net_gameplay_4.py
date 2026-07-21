@@ -33,9 +33,12 @@ def handle_gameplay_4(e, parsed, index):
 			if g.players[index].matchpassword=="" or g.players[index ].matchtypeamount=="0" or g.players[index].matchtypeamount=="":
 				g.n.send_reliable(g.players[index].peer_id,"Canceled",0)
 				return
-#				newmatch(g.players[index].name,g.players[index].matchtypeamount,parsed[1],g.players[index].matchpassword)
 			g.players[index].matchtypeamount=parsed[1]
-			if g.players[index].mmode=="teamc":
+			
+			import data_loader
+			mode_config = data_loader.get_match_mode(g.players[index].mmode)
+			allow_bots = mode_config.get("allow_bots", True) if mode_config else True
+			if not allow_bots:
 				for m in g.matches:
 					if m.owner==g.players[index].name: send_reliable(e.peer_id,"The match you created before didn't end yet, please wait for it to end before you can create a new match.",0); return
 
@@ -626,16 +629,11 @@ def handle_gameplay_4(e, parsed, index):
 					if g.players[index].weapon!="punch" or g.players[index].weapon2!="feet": g.n.send_reliable(g.players[index].peer_id,"reloading",0)
 					if g.players[index].weapon!="punch": ammoamount=g.players[index].ammocheck(g.players[index].weapon)
 					if g.players[index].weapon2!="feet": ammoamount=g.players[index].ammocheck(g.players[index].weapon2)
-					if g.players[index].weapon=="berettaM9":
-						g.players[index].playsoundmoving("ak47reload")
-
-					if g.players[index].weapon!="punch" or g.players[index].weapon!="berettaM9":
-						g.players[index].playsoundmoving(g.players[index].weapon+"reload")
-					if g.players[index].weapon2=="berettaM9":
-						g.players[index].playsoundmoving("ak47reload")
-
-					if g.players[index].weapon2!="feet" or g.players[index].weapon2!="berettaM9":
-						g.players[index].playsoundmoving(g.players[index].weapon2+"reload")
+					import data_loader as _dl
+					if g.players[index].weapon!="punch":
+						g.players[index].playsoundmoving(_dl.get_weapon_sound(g.players[index].weapon,"reload"))
+					if g.players[index].weapon2!="feet":
+						g.players[index].playsoundmoving(_dl.get_weapon_sound(g.players[index].weapon2,"reload"))
 					if g.players[index].weapon!="punch": g.players[index].reloadtime=get_reloadtime(g.players[index].weapon)
 					if g.players[index].weapon2!="feet": g.players[index].reloadtime=get_reloadtime(g.players[index].weapon2)
 					g.players[index].reloadtimer.restart()
@@ -956,11 +954,8 @@ def handle_gameplay_4(e, parsed, index):
 				send_reliable(e.peer_id,"errored invalid account data",0)
 				return
 			eml=file_get_contents("chars/"+un+"/mail.usr")
-			f=open("chars/"+un+"/mailsent.usr","w")
-			f.close()
-			f=open("chars/"+parsed[1]+"/pass.usr", "r")
-			p=f.read()
-			f.close()
+			file_put_contents("chars/"+un+"/mailsent.usr","1")
+			p=file_get_contents("chars/"+parsed[1]+"/pass.usr")
 			s+="Hello<br><br>You Have Requested The Password For The "+un+" Account<br>If You Did Not Make This Request, Ignore This Message<br>The Password Is: "+p+"<br>"
 			s+="Please Do Not Reply To This Message<br>"
 			s+="Copyright 2025 NBM DIGITAL LTD, all rights reserved<br>"

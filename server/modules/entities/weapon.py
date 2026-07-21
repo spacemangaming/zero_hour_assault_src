@@ -267,6 +267,14 @@ def weaponloop():
 					if g.weapons[j].map!="massacre_in_the_city" and g.players[x].joinedmatch==g.weapons[j].owner.joinedmatch and g.weapons[j].owner.joinedmatch!="" and g.players[x].matchteam==g.weapons[j].owner.matchteam and g.weapons[j].owner.matchmode!="teaml"  and g.weapons[j].owner.matchmode!="snow"  and g.weapons[j].owner.matchmode!="sniper"  and g.weapons[j].owner.matchmode!="sword"  and g.weapons[j].owner.matchmode!="teamk2"  and g.weapons[j].owner.matchmode!="teamf2"  and g.weapons[j].owner.matchmode!="minecraft"  and g.weapons[j].owner.matchmode!="g"  and g.weapons[j].owner.matchmode!="collect" and g.weapons[j].owner.matchmode!="g2"  and g.players[x].joinedmatch!="" and g.players[x].matchmode!="" and g.weapons[j].owner.matchmode!="": continue
 					if g.weapons[j].type!="base_gun" and not has_line_of_sight(g.weapons[j].x, g.weapons[j].y, g.weapons[j].startz, g.players[x].x, g.players[x].y, g.players[x].z, g.players[x].map): continue
 
+					# Megaboss map: PvP blocked until boss is at/below 2500 HP
+					_boss = getattr(g, "mega_boss", None)
+					if (g.weapons[j].map == "megaboss"
+							and not getattr(g.weapons[j].owner, "isbot", True)
+							and not g.players[x].isbot
+							and (_boss is None or _boss.health > 2500)):
+						continue
+
 					#if g.weapons[j].map=="massacre_in_the_city" and g.weapons[j].owner.group==g.players[x].group: continue
 					tx=g.weapons[j].x
 					ty=g.weapons[j].y
@@ -702,6 +710,25 @@ def weaponloop():
 
 					
 				
+			# ── Mega Boss hit detection ───────────────────────────────────
+			_boss = getattr(g, "mega_boss", None)
+			if not hit and _boss is not None and not _boss.dying:
+				if g.weapons[j].map == _boss.map:
+					bdist = get_3d_distance(rx, ry, g.weapons[j].z, _boss.x, _boss.y, _boss.z)
+					if bdist <= g.weapons[j].spread:
+						hit = True
+						inpact = random(g.weapons[j].mindammage, g.weapons[j].maxdammage)
+						_boss.health -= inpact
+						shooter = g.weapons[j].owner
+						if not getattr(shooter, "isbot", True):
+							from mega_boss import register_boss_hit
+							register_boss_hit(shooter.name)
+						g.play("zombiehurt", _boss.x, _boss.y, _boss.z, _boss.map)
+						if g.weapons[j].bullet:
+							g.play("bullet_impact_body" + str(random(1, 16)),
+							       _boss.x, _boss.y, _boss.z, _boss.map)
+							_play_bulletfall(g.weapons[j])
+
 			for wall in g.maps[g.get_map_index(g.weapons[j].map)].mapwalls:
 				if wall.health<=0: continue
 				for wx in range(wall.minx,wall.maxx+1):

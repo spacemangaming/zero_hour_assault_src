@@ -56,21 +56,9 @@ class match:
 		self.password=password
 		self.mode=mode
 		#self.mapname=""
-		if self.mode=="teamc": self.mapname="flag"
-		if self.mode=="teamminecraft" or self.mode=="minecraft": self.mapname="minecraft"
-		if self.mode=="teamsword" or self.mode=="sword": self.mapname="sword"
-		if self.mode=="teamcollect" or self.mode=="collect": self.mapname="collect"
-		if self.mode=="teamz": self.mapname="zombie"
-		if self.mode=="teamz2": self.mapname="zombie2"
-		if self.mode=="g" or self.mode=="teamg": self.mapname="grenade"
-		if self.mode=="g2" or self.mode=="teamg2": self.mapname="abyss_clash"
-
-		if self.mode=="teamd": self.mapname="main"
-		if self.mode=="teamk2" or self.mode=="teamk": self.mapname="knife"
-		if self.mode=="teamf2" or self.mode=="teamf": self.mapname="combo"
-		if self.mode=="snow" or self.mode=="teamsnow": self.mapname="snow"
-		if self.mode=="sniper" or self.mode=="teamsniper": self.mapname="one_shot_one_kill"
-		if self.mode=="teaml": self.mapname="main"
+		import data_loader
+		mode_config = data_loader.get_match_mode(self.mode)
+		self.mapname = mode_config.get("map", "main") if mode_config else "main"
 		self.playersinoneteam=playerinoneteam
 		self.owner=owner
 		self.helitimer=timer()
@@ -274,10 +262,14 @@ class match:
 				p2=g.getpc(p)
 				if p2 is not None:
 					if p2.map=="helicopter"+self.owner: g.move_player(g.get_player_index_from(p),p2.x,p2.y,119,self.get_cwmap())
-			if self.botcount==-1 and len(self.players)<(self.playersinoneteam*2 if self.mode!="teamk2" and self.mode!="teamf2" and self.mode!="teaml" and self.mode!="snow" and self.mode!="sniper" and self.mode!="g" and self.mode!="g2" and self.mode!="minecraft" and self.mode!="sword" and self.mode!="collect" else self.playersinoneteam): 
+			import data_loader
+			mode_config = data_loader.get_match_mode(self.mode)
+			is_team = mode_config.get("team_based", True) if mode_config else True
+			required_players = self.playersinoneteam * 2 if is_team else self.playersinoneteam
+			if self.botcount==-1 and len(self.players)<required_players: 
 				self.botadded=True
 				counter=len(self.players)
-				while(counter<(self.playersinoneteam*2 if self.mode!="teaml" and self.mode!="teamk2" and self.mode!="teamf2" and self.mode!="snow" and self.mode!="sniper" and self.mode!="g" and self.mode!="g2" and self.mode!="minecraft" and self.mode!="sword" and self.mode!="collect" else self.playersinoneteam)):
+				while(counter<required_players):
 					g.npcs.append(npc(0, 0, "bot", self.get_cwmap(), "botbeacon", 150, 1, 1, 30, 50, "voice", 16, "nothing", 0, 5000, 30, 100, "voice17", 0, 10, 0, self.maxx, 0, self.maxy, 0, 750, 5, 200, self.owner, self.get_free_team()))
 					counter+=1
 			self.inprogress=True
@@ -307,21 +299,24 @@ class match:
 			if i.map==self.get_cwmap(): g.items.remove(i)
 		self.send("play_s countdownfinish.ogg",0)
 
-		mainmap= string_replace(file_get_contents("maps/main.map"),"mapname:main","mapname:main"+self.owner,False)
-		ind=g.get_map_index("main")
+		mainmap= string_replace(file_get_contents("maps/"+self.mapname+".map"),"mapname:"+self.mapname,"mapname:"+self.mapname+self.owner,False)
+		ind=g.get_map_index(self.mapname)
 		for wall in g.maps[ind].mapwalls:
 			mainmap+="\nplatform:"+str(wall.minx)+":"+str(wall.maxx)+":"+str(wall.miny)+":"+str(wall.maxy)+":"+str(wall.minz)+":"+str(wall.maxz)+":"+str(wall.type)
 			mainmap=mainmap.replace("wall:"+str(wall.minx)+":"+str(wall.maxx)+":"+str(wall.miny)+":"+str(wall.maxy)+":"+str(wall.minz)+":"+str(wall.maxz)+":"+str(wall.type),"")
 			wall.health=50
 			wall.destroyed=False
-		file_put_contents("maps/main"+self.owner+".map",mainmap)
+		file_put_contents("maps/"+self.mapname+self.owner+".map",mainmap)
 		helicoptermap=string_replace(file_get_contents("maps/helicopter.map"),"mapname:helicopter","mapname:helicopter"+self.owner,False)
 		helicoptermap=helicoptermap.replace("maxx:500","maxx:500")
 		helicoptermap=helicoptermap.replace("maxy:500","maxy:500")
 		file_put_contents("maps/helicopter"+self.owner+".map",helicoptermap)
 		g.init_mapsystem()
 		self.helitimer.restart()
-		if self.mode!="snow" and self.mode!="teamcollect" and self.mode!="collect" and self.mode!="teamsnow" and self.mode!="sniper" and self.mode!="teamsniper" and self.mode!="teamk2" and self.mode!="teamf2" and self.mode!="teamg" and self.mode!="g" and self.mode!="sword" and self.mode!="teamsword" and self.mode!="g2" and self.mode!="teamg2" and self.mode!="teamc" and self.mode!="teamz2" and self.mode!="teamk" and self.mode!="teamf" and self.mode!="minecraft" and self.mode!="teamminecraft":
+		import data_loader
+		mode_config = data_loader.get_match_mode(self.mode)
+		use_heli = mode_config.get("use_helicopter", False) if mode_config else False
+		if use_heli:
 			self.send("play_s helicopterstart.ogg",0)
 			delay(1500)
 		self.send("startmoving",0)
@@ -385,11 +380,16 @@ class match:
 		if self.mode=="teamc":
 			spawn_flag(random(0, 100), random(0, 100), 0, self.get_cwmap(), "red")
 			spawn_flag(random(0, 100), random(0, 100), 0, self.get_cwmap(), "blue")
-		if self.mode=="collect" or self.mode=="teamcollect" or self.mode=="sniper" or self.mode=="teamsniper" or self.mode=="teamsnow" or self.mode=="snow" or self.mode=="teamk2" or self.mode=="teamf2" or self.mode=="sword" or self.mode=="teamsword" or self.mode=="g2" or self.mode=="g" or self.mode=="teamg" or self.mode=="teamg2" or self.mode=="teamz2" or self.mode=="teamk" or self.mode=="teamf" or self.mode=="minecraft" or self.mode=="teamminecraft":
-			if self.botcount==-1 and len(self.players)<(self.playersinoneteam*2 if self.mode!="teaml" and self.mode!="teamk2" and self.mode!="teamf2" and self.mode!="snow" and self.mode!="sniper" and self.mode!="g" and self.mode!="sword" and self.mode!="g2" and self.mode!="minecraft" else self.playersinoneteam): 
+		import data_loader
+		mode_config = data_loader.get_match_mode(self.mode)
+		use_heli = mode_config.get("use_helicopter", False) if mode_config else False
+		if not use_heli:
+			is_team = mode_config.get("team_based", True) if mode_config else True
+			required_players = self.playersinoneteam * 2 if is_team else self.playersinoneteam
+			if self.botcount==-1 and len(self.players)<required_players: 
 				self.botadded=True
 				counter=len(self.players)
-				while(counter<(self.playersinoneteam*2 if self.mode!="teaml" and self.mode!="teamk2" and self.mode!="teamf2" and self.mode!="snow" and self.mode!="sniper" and self.mode!="sword" and self.mode!="g" and self.mode!="g2" and self.mode!="minecraft" and self.mode!="collect" else self.playersinoneteam)):
+				while(counter<required_players):
 					g.npcs.append(npc(0, 0, "bot", self.get_cwmap(), "botbeacon", 150, 1, 1, 30, 50, "voice", 16, "nothing", 0, 5000, 30, 100, "voice17", 0, 10, 0, self.maxx, 0, self.maxy, 0, 750, 5, 200, self.owner, self.get_free_team()))
 					counter+=1
 			self.inprogress=True
@@ -406,41 +406,26 @@ class match:
 		for p in self.players:
 			pl=g.getpc(p)
 			if pl is not None and pl.matchteam==team: ret+=1
-			#elif pl is None and file_get_contents("chars/"+p+"/matchteam.usr")==team: ret+=1
+		for n in g.npcs:
+			if n.joinedmatch == self.owner and n.matchteam == team and n.health > 0:
+				ret += 1
 		return ret
 	def player_list_on_team(self,team):
 		ret=""
 		for p in self.players:
 			pl=g.getpc(p)
 			if pl is not None and pl.matchteam==team: ret+=p+", "
+		for n in g.npcs:
+			if n.joinedmatch == self.owner and n.matchteam == team and n.health > 0:
+				ret += n.name + ", "
 		return ret
 
 	def get_mode(self):
-		if self.mode=="teamd": return "team dead match"
-		if self.mode=="teamg": return "Explosive battle teamed"
-		if self.mode=="g": return "Explosive battle not teamed"
-		if self.mode=="teamg2": return "abyss clash teamed"
-		if self.mode=="g2": return "abyss clash not teamed"
-		if self.mode=="teamf": return "hand to hand combat teamed"
-		if self.mode=="teamf2": return "hand to hand combat not teamed"
-
-		if self.mode=="teamc": return "capture the flag"
-		if self.mode=="teamk": return "knife fight match teamed"
-		if self.mode=="teamk2": return "knife fight match not teamed"
-		if self.mode=="snow": return "Snowflake survival not teamed"
-		if self.mode=="teamsnow": return "Snowflake survival teamed"
-		if self.mode=="sniper": return "Sniper duel not teamed"
-		if self.mode=="teamsniper": return "Sniper duel teamed"
-
-		if self.mode=="teamz": return "zombie survival"
-		if self.mode=="teamz2": return "Zombie vs player"
-		if self.mode=="teaml": return "last man standing"
-		if self.mode=="teamminecraft": return "Medieval combat teamed"
-		if self.mode=="minecraft": return "Medieval combat not teamed"
-		if self.mode=="teamsword": return "Sword duel teamed"
-		if self.mode=="sword": return "Sword duel not teamed"
-		if self.mode=="teamcollect": return "collector's arena teamed"
-		if self.mode=="collect": return "collector's arena not teamed"
+		import data_loader
+		mode_config = data_loader.get_match_mode(self.mode)
+		if mode_config:
+			return mode_config.get("display_name", self.mode)
+		return self.mode
 
 	def get_cwmap(self):
 		return self.mapname+self.owner
@@ -541,8 +526,13 @@ class match:
 			if p==name: self.players.remove(p)
 
 		p=g.players[g.get_player_index_from(name)]
-		if self.mode!="collect" and self.mode!="snow" and self.mode!="sniper" and self.mode!="teamk2" and self.mode!="teamf2" and self.mode!="sword" and self.mode!="g2" and self.mode!="g" and self.mode!="teaml" and self.mode!="minecraft" and self.players_on_team(team)>=self.playersinoneteam: g.n.send_reliable(p.peer_id,"team full",0); return
-		if (self.mode=="collect" or self.mode=="snow" or self.mode=="sniper" or self.mode=="teamk2" or self.mode=="teamf2" or self.mode=="sword" or self.mode=="g2" or self.mode=="g" or self.mode=="teaml" or self.mode=="minecraft") and len(self.players)>=self.playersinoneteam: g.n.send_reliable(p.peer_id,"match full",0); return
+		import data_loader
+		mode_config = data_loader.get_match_mode(self.mode)
+		is_team = mode_config.get("team_based", True) if mode_config else True
+		if is_team:
+			if self.players_on_team(team)>=self.playersinoneteam: g.n.send_reliable(p.peer_id,"team full",0); return
+		else:
+			if len(self.players)>=self.playersinoneteam: g.n.send_reliable(p.peer_id,"match full",0); return
 		p2=g.players[g.get_player_index_from(self.owner)]
 		if p.name in p2.matchbanned:
 			g.n.send_reliable(p.peer_id,"Your banned from this player's all matches",0)
@@ -553,8 +543,8 @@ class match:
 
 		p.joinedmatch=self.owner
 		p.matchmode=self.mode
-		if self.mode!="collect" and self.mode!="snow" and self.mode!="sniper" and self.mode!="teamk2" and self.mode!="teamf2" and self.mode!="g" and self.mode!="g2" and self.mode!="teaml" and self.mode!="sword" and self.mode!="minecraft": self.send(p.name+" joined! They're in the "+p.matchteam+" team, match needs "+str((self.playersinoneteam*2)-len(self.players)-1)+" more players. If the owner turned on bots, and the match gets started without enough players, bots will fill in.",2)
-		if self.mode=="collect" or self.mode=="snow" or self.mode=="sniper" or self.mode=="teamk2" or self.mode=="teamf2" or self.mode=="sword" or self.mode=="g2" or self.mode=="g" or self.mode=="teaml" or self.mode=="minecraft": self.send(p.name+" joined! match needs "+str((self.playersinoneteam*1)-len(self.players)-1)+" more players. If the owner turned on bots, and the match gets started without enough players, bots will fill in.",2)
+		if is_team: self.send(p.name+" joined! They're in the "+p.matchteam+" team, match needs "+str((self.playersinoneteam*2)-len(self.players)-1)+" more players. If the owner turned on bots, and the match gets started without enough players, bots will fill in.",2)
+		if not is_team: self.send(p.name+" joined! match needs "+str((self.playersinoneteam*1)-len(self.players)-1)+" more players. If the owner turned on bots, and the match gets started without enough players, bots will fill in.",2)
 		self.send("play_s misc35.ogg",0)
 		g.move_player(g.get_player_index_from(p.name),0,0,0,"match"+self.owner)
 		self.players.append(p.name)
@@ -572,7 +562,10 @@ def newmatch(owner,playerinoneteam,mode,password,botcount):
 	g.players[index].mmode=mode
 	g.players[index].mpassword=password
 	g.players[index].mbotcount=botcount
-	if mode=="collect" or mode=="snow" or mode=="sniper" or mode=="teamk2" or mode=="teamf2" or mode=="sword" or mode=="g2" or mode=="g" or mode=="teaml" or mode=="minecraft": 				newmatch2(g.players[index].mowner,int(g.players[index].mplayerinoneteam),g.players[index].mmode,g.players[index].mpassword,g.players[index].mbotcount,""); return
+	import data_loader
+	mode_config = data_loader.get_match_mode(mode)
+	is_team = mode_config.get("team_based", True) if mode_config else True
+	if not is_team: newmatch2(g.players[index].mowner,int(g.players[index].mplayerinoneteam),g.players[index].mmode,g.players[index].mpassword,g.players[index].mbotcount,""); return
 	m=g.server_menu()
 	m.intro="select team"
 	m.initial_packet="matchteamselect2"
@@ -830,8 +823,12 @@ platform:{m.bluehousex}:{m.bluehousex+20}:{m.bluehousey+20}:{m.bluehousey+20}:0:
 	if owner_pc is None or not owner_pc.hidden:
 		for ii in g.players:
 			if ii.map=="lobby" and ii.matchmessage==1:
-				if m.password=="": g.n.send_reliable(ii.peer_id,"The player "+owner+" created a new public match! The match mode is "+m.get_mode()+", Amount of members required is "+str((m.playersinoneteam*2 if m.mode!="teaml" and m.mode!="snow" and m.mode!="sniper" and m.mode!="teamk2" and m.mode!="teamf2" and m.mode!="sword" and m.mode!="g" and m.mode!="g2" and m.mode!="minecraft" and m.mode!="collect" else m.playersinoneteam)),2)
-				if m.password!="": g.n.send_reliable(ii.peer_id,"The player "+owner+" created a new private match! The match mode is "+m.get_mode()+", Amount of members required is "+str((m.playersinoneteam*2 if m.mode!="teaml" and m.mode!="snow" and m.mode!="sniper" and m.mode!="teamk2" and m.mode!="teamf2" and m.mode!="sword" and m.mode!="g" and m.mode!="g2" and m.mode!="minecraft" and m.mode!="collect" else m.playersinoneteam)),2)
+				import data_loader
+				mode_config = data_loader.get_match_mode(m.mode)
+				is_team = mode_config.get("team_based", True) if mode_config else True
+				required_size = m.playersinoneteam * 2 if is_team else m.playersinoneteam
+				if m.password=="": g.n.send_reliable(ii.peer_id,"The player "+owner+" created a new public match! The match mode is "+m.get_mode()+", Amount of members required is "+str(required_size),2)
+				if m.password!="": g.n.send_reliable(ii.peer_id,"The player "+owner+" created a new private match! The match mode is "+m.get_mode()+", Amount of members required is "+str(required_size),2)
 			if ii.map=="lobby" and ii.matchmessage==1: g.n.send_reliable(ii.peer_id,"play_s misc260.ogg",0)
 	if mode=="teamz2" and g.players[g.get_player_index_from(owner)].matchteam=="blue": g.n.send_reliable(g.players[g.get_player_index_from(owner)].peer_id,"zombie",0)
 	g.n.send_reliable(g.players[g.get_player_index_from(owner)].peer_id,"stopmoving",0)
@@ -1034,7 +1031,7 @@ def matchloop():
 					if p.map=="helicopter"+m.owner: m.helicopterloop(p)
 					if m.inprogress and p.map!=m.get_cwmap(): m.players.remove(p.name); break
 					if p.map=="massacre_in_the_city": m.players.remove(p.name); break
-			if m.inprogress and m.players_on_team("red")==0 and m.mode!="teaml" and m.mode!="snow" and m.mode!="sniper" and m.mode!="teamk2" and m.mode!="teamf2" and m.mode!="g" and m.mode!="g2" and m.mode!="sword" and m.mode!="minecraft" and m.mode!="collect":
+			if m.inprogress and m.players_on_team("red")==0 and m.mode!="teaml" and m.mode!="snow" and m.mode!="sniper" and m.mode!="teamk2" and m.mode!="teamf2" and m.mode!="g" and m.mode!="g2" and m.mode!="sword" and m.mode!="minecraft" and m.mode!="collect" and m.mode!="teamc":
 				m.send("Match ended. Blue team won!",2)
 				m.teamsend("blue","play_s win.ogg",0)
 				m.teamsend("red","play_s misc171.ogg",0)
@@ -1077,7 +1074,7 @@ def matchloop():
 				try: g.matches.remove(m)
 				except: pass
 				return
-			if m.inprogress and m.players_on_team("blue")==0 and m.mode!="teaml" and m.mode!="snow" and m.mode!="sniper" and m.mode!="teamk2" and m.mode!="teamf2" and m.mode!="sword" and m.mode!="g" and m.mode!="g2" and m.mode!="minecraft" and m.mode!="collect":
+			if m.inprogress and m.players_on_team("blue")==0 and m.mode!="teaml" and m.mode!="snow" and m.mode!="sniper" and m.mode!="teamk2" and m.mode!="teamf2" and m.mode!="sword" and m.mode!="g" and m.mode!="g2" and m.mode!="minecraft" and m.mode!="collect" and m.mode!="teamc":
 				m.send("Match ended. Red team won!",2)
 				m.teamsend("red","play_s win.ogg",0)
 				m.teamsend("blue","play_s misc171.ogg",0)

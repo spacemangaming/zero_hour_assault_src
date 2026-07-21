@@ -66,6 +66,7 @@ class amb:
         self.maxy = c4
         self.minz = c5
         self.maxz = c6
+        self.soundname = so
         self.loop = sound()
         self.loop.load(so)
         self.loop.volume=self.volume
