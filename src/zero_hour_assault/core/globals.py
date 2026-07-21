@@ -71,7 +71,8 @@ currentcameratile=""
 mapname=""
 n=network()
 xtimer=timer()
-sd=savedata(DIRECTORY_APPDATA+"/nbm-studios/zero_hour_assault/settings.dat")
+appdata_dir=DIRECTORY_APPDATA+"/spacemangaming/zero_hour_assault"
+sd=savedata(appdata_dir+"/settings.dat")
 
 distpool=SoundPool()
 lastchar=""

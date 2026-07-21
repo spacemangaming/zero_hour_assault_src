@@ -172,7 +172,7 @@ def add_buffer_item(buffername,item, snd=""):
 
 
 
-	file_put_contents(DIRECTORY_APPDATA+"/nbm-studios/zero_hour_assault/buffers3.dat",pickle.dumps(g.buffers),"wb")
+	file_put_contents(g.appdata_dir+"/buffers3.dat",pickle.dumps(g.buffers),"wb")
 
 def speakfocusedbuffer():
 	if (len(g.buffers[g.bufferpos].items)>0):

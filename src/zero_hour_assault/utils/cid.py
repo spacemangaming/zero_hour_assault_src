@@ -3,6 +3,7 @@ import platform
 import psutil
 import uuid
 import os
+import globals as g
 
 def hash_mac_address(mac_address_bytes):
     hash_val = 0
@@ -123,7 +124,7 @@ def generate_computer_id(identifier=""):
     except ImportError:
         DIRECTORY_APPDATA = os.environ.get("appdata", os.environ.get("APPDATA", os.path.expanduser("~")))
 
-    device_id_dir = os.path.join(DIRECTORY_APPDATA, "nbm-studios", "zero_hour_assault")
+    device_id_dir = g.appdata_dir
     if not os.path.exists(device_id_dir):
         try:
             os.makedirs(device_id_dir, exist_ok=True)

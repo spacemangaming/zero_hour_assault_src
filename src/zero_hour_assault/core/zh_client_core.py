@@ -72,10 +72,10 @@ hq-mode=true""")
 	g.p.behind_pitch_decrease=-5
 	g.weapons.append("punch")
 	g.weapons2.append("feet")
-	if (not directory_exists(DIRECTORY_APPDATA+"/nbm-studios")):
-		directory_create(DIRECTORY_APPDATA+"/nbm-studios")
-	if(not directory_exists(DIRECTORY_APPDATA+"/nbm-studios/zero_hour_assault")):
-		directory_create(DIRECTORY_APPDATA+"/nbm-studios/zero_hour_assault")
+	if (not directory_exists(DIRECTORY_APPDATA+"/spacemangaming")):
+		directory_create(DIRECTORY_APPDATA+"/spacemangaming")
+	if(not directory_exists(g.appdata_dir)):
+		directory_create(g.appdata_dir)
 	_settings_is_new = not file_exists(g.sd.fn)
 	readprefs()
 
@@ -100,11 +100,11 @@ hq-mode=true""")
 	g.flash.play_looped()
 
 
-	if g.buffersave==1 and file_exists(DIRECTORY_APPDATA+"/nbm-studios/zero_hour_assault/buffers3.dat"):
-		try: g.buffers=pickle.loads(file_get_contents(DIRECTORY_APPDATA+"/nbm-studios/zero_hour_assault/buffers3.dat","rb"))
+	if g.buffersave==1 and file_exists(g.appdata_dir+"/buffers3.dat"):
+		try: g.buffers=pickle.loads(file_get_contents(g.appdata_dir+"/buffers3.dat","rb"))
 		except: pass
 	if g.buffersave==0:
-		file_delete(DIRECTORY_APPDATA+"/nbm-studios/zero_hour_assault/buffers3.dat")
+		file_delete(g.appdata_dir+"/buffers3.dat")
 	items_found=False
 	for buf in g.buffers:
 		if buf.name=="items": items_found=True
@@ -198,6 +198,12 @@ hq-mode=true""")
 
 	writeprefs()
 
+	# ── First-run visual mode prompt ──────────────────────────────────────────
+	# Must run BEFORE the tutorial branch, because readmemenu()/mainmenu()
+	# never return — execution would never reach code placed after them.
+	if _settings_is_new:
+		_ask_visual_mode()
+		writeprefs()
 
 	if g.tutorial==0:
 		m.reset(True)
@@ -208,10 +214,6 @@ hq-mode=true""")
 
 		if m.get_item_name(mres)=="yes": speak("Readme file is opening..."); g.tutorial=1; writeprefs(); menu.readmemenu()
 		if m.get_item_name(mres)=="no": speak("Okay, well..."); g.tutorial=1; writeprefs(); menu.mainmenu()
-
-	# ── First-run visual mode prompt ──────────────────────────────────────────
-	if _settings_is_new and not g.sd.exists("visual_mode"):
-		_ask_visual_mode()
 
 	writeprefs()
 	menu.mainmenu()

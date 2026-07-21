@@ -119,14 +119,14 @@ def mouse_pressed(button):
 
 
 def getmotd():
-	g.motdhash=file_get_contents(DIRECTORY_APPDATA+"/nbm-studios/zero_hour_assault/motdhash.dat")
+	g.motdhash=file_get_contents(g.appdata_dir+"/motdhash.dat")
 	motd=url_get("https://nbmstudios.com/zero_hour_assault/web_message.txt")
 	if string_hash(motd, 2, False) != g.motdhash:
 		g.motdhash=string_hash(motd, 2, False)
 		g.p.play_stationary("motd.ogg", False)
 		dlg(""+motd+"")
 		writeprefs()
-		file_put_contents(""+DIRECTORY_APPDATA+"/nbm-studios/zero_hour_assault/motdhash.dat", g.motdhash, "w")
+		file_put_contents(""+g.appdata_dir+"/motdhash.dat", g.motdhash, "w")
 
 
 def serverside_menu(sndtxt, Menu, menuitems, pos=0):
