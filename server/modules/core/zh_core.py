@@ -352,6 +352,8 @@ def main():
 	db_path = "zha_players.db"
 	dashboard_port = 8080
 	dashboard_password = "changeme"
+	dashboard_api_key = ""
+	motd_file = "motd.txt"
 	if os.path.exists("server.conf"):
 		try:
 			with open("server.conf", "r") as f:
@@ -371,6 +373,10 @@ def main():
 							dashboard_port = int(val)
 						elif key == "dashboard_password":
 							dashboard_password = val
+						elif key == "dashboard_api_key":
+							dashboard_api_key = val
+						elif key == "motd_file":
+							motd_file = val
 		except Exception as ex:
 			print(f"[!] Error reading server.conf: {ex}")
 
@@ -439,7 +445,8 @@ def main():
 		import data_loader as _dl
 		from dashboard.app import start_dashboard
 		import globals as _g_ref
-		start_dashboard(_g_ref, _db, _dl, password=dashboard_password, port=dashboard_port)
+		start_dashboard(_g_ref, _db, _dl, password=dashboard_password, port=dashboard_port,
+		                api_key=dashboard_api_key, motd_file=motd_file)
 	except Exception as _dash_ex:
 		print(f"[!] Dashboard failed to start: {_dash_ex}")
 

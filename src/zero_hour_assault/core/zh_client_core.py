@@ -153,6 +153,12 @@ hq-mode=true""")
 	pygame.display.set_caption("Zero hour assault "+g.ver)
 #	if(g.playcanlogo==1):
 
+	# ── First-run visual mode prompt ──────────────────────────────────────────
+	# Ask BEFORE rules/privacy so those menus render visually if needed.
+	if _settings_is_new:
+		_ask_visual_mode()
+		writeprefs()
+
 	speak("Forge Your Legend!")
 	g.p.play_stationary("misc329.ogg",False)
 	g.delay(4000)
@@ -197,13 +203,6 @@ hq-mode=true""")
 		if m.get_item_name(mres)=="noagree": g.p.play_stationary("misc140.ogg",False); speak("Unfortunately, you cannot play the game because you do not accept the privacy. Exiting the game..."); g.privacy=0; writeprefs(); g.delay(2000); sys.exit()
 
 	writeprefs()
-
-	# ── First-run visual mode prompt ──────────────────────────────────────────
-	# Must run BEFORE the tutorial branch, because readmemenu()/mainmenu()
-	# never return — execution would never reach code placed after them.
-	if _settings_is_new:
-		_ask_visual_mode()
-		writeprefs()
 
 	if g.tutorial==0:
 		m.reset(True)

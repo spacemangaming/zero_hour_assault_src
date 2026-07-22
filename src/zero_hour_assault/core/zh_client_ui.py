@@ -4,6 +4,11 @@ import time
 import sys
 import math
 
+# ── MOTD URL ──────────────────────────────────────────────────────────────────
+# Point this at wherever you host motd.txt (your web server, or the dashboard's
+# /motd.txt endpoint if it's publicly reachable, e.g. http://yourip:8080/motd.txt)
+MOTD_URL = "https://spacemangaming.vineyard.haus/zero/motd_update.php"
+
 class binput:
 	def __init__(self, names, input):
 		self.indata=input
@@ -120,7 +125,7 @@ def mouse_pressed(button):
 
 def getmotd():
 	g.motdhash=file_get_contents(g.appdata_dir+"/motdhash.dat")
-	motd=url_get("https://nbmstudios.com/zero_hour_assault/web_message.txt")
+	motd=url_get(MOTD_URL)
 	if string_hash(motd, 2, False) != g.motdhash:
 		g.motdhash=string_hash(motd, 2, False)
 		g.p.play_stationary("motd.ogg", False)

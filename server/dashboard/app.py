@@ -41,17 +41,31 @@ app.secret_key = os.urandom(32)   # regenerated each restart — sessions are ep
 # ── runtime globals (set by start_dashboard before Flask starts) ──────────────
 _dashboard_password: str = "admin"
 _dashboard_port: int = 8080
+_dashboard_api_key: str = ""
+_motd_file: str = ""
 _g = None          # globals module reference (set at start)
 _db = None         # db module reference
 _data_loader = None
 
-# ── auth helper ───────────────────────────────────────────────────────────────
+# ── auth helpers ──────────────────────────────────────────────────────────────
 
 def login_required(f):
     @functools.wraps(f)
     def wrapper(*args, **kwargs):
         if not session.get("logged_in"):
             return redirect(url_for("login"))
+        return f(*args, **kwargs)
+    return wrapper
+
+def api_key_required(f):
+    """Decorator for bot-facing API endpoints — authenticates via X-API-Key header."""
+    @functools.wraps(f)
+    def wrapper(*args, **kwargs):
+        if not _dashboard_api_key:
+            return jsonify({"error": "Bot API not configured"}), 403
+        key = request.headers.get("X-API-Key", "")
+        if key != _dashboard_api_key:
+            return jsonify({"error": "Unauthorized"}), 401
         return f(*args, **kwargs)
     return wrapper
 
@@ -1762,21 +1776,159 @@ def live_map():
 
 # ── startup ───────────────────────────────────────────────────────────────────
 
+# ── MOTD helpers ─────────────────────────────────────────────────────────────
+
+def _motd_path() -> str:
+    if _motd_file:
+        return os.path.join(SERVER_ROOT, _motd_file)
+    return os.path.join(SERVER_ROOT, "motd.txt")
+
+def _read_motd() -> str:
+    p = _motd_path()
+    if os.path.exists(p):
+        with open(p, "r", encoding="utf-8") as f:
+            return f.read().strip()
+    return ""
+
+def _write_motd(text: str) -> None:
+    with open(_motd_path(), "w", encoding="utf-8") as f:
+        f.write(text)
+
+def _broadcast_all(msg: str) -> int:
+    """Send a message to every online player. Returns count sent."""
+    if _g is None:
+        return 0
+    count = 0
+    for p in _g.players:
+        try:
+            _g.n.send_reliable(p.peer_id, msg, 2)
+            count += 1
+        except Exception:
+            pass
+    return count
+
+
+# ── public MOTD route (fetched by game clients) ───────────────────────────────
+
+@app.route("/motd.txt")
+def serve_motd():
+    from flask import Response
+    return Response(_read_motd(), mimetype="text/plain")
+
+
+# ── bot API routes (/api/bot/*) ───────────────────────────────────────────────
+
+@app.route("/api/bot/status")
+@api_key_required
+def bot_status():
+    players = _online_players()
+    boss = getattr(_g, "mega_boss", None) if _g else None
+    return jsonify({
+        "online": len(players),
+        "players": [getattr(p, "name", "") for p in players],
+        "boss_alive": boss is not None and not getattr(boss, "dying", True),
+        "boss_hp": getattr(boss, "health", 0) if boss else 0,
+        "boss_phase2": getattr(boss, "phase2", False) if boss else False,
+    })
+
+@app.route("/api/bot/boss/spawn", methods=["POST"])
+@api_key_required
+def bot_boss_spawn():
+    try:
+        sys.path.insert(0, os.path.join(SERVER_ROOT, "modules", "entities"))
+        from mega_boss import spawn_mega_boss
+        result = spawn_mega_boss(100, 100, 0)
+        return jsonify({"ok": result, "message": "Mega Boss spawned!" if result else "A Mega Boss is already alive."})
+    except Exception as ex:
+        return jsonify({"ok": False, "message": str(ex)}), 500
+
+@app.route("/api/bot/motd", methods=["GET"])
+@api_key_required
+def bot_motd_get():
+    return jsonify({"motd": _read_motd()})
+
+@app.route("/api/bot/motd", methods=["POST"])
+@api_key_required
+def bot_motd_set():
+    data = request.get_json(silent=True) or {}
+    text = data.get("text", "").strip()
+    if not text:
+        return jsonify({"ok": False, "message": "No text provided"}), 400
+    _write_motd(text)
+    return jsonify({"ok": True, "message": "MOTD updated."})
+
+@app.route("/api/bot/broadcast", methods=["POST"])
+@api_key_required
+def bot_broadcast():
+    data = request.get_json(silent=True) or {}
+    msg = data.get("message", "").strip()
+    if not msg:
+        return jsonify({"ok": False, "message": "No message provided"}), 400
+    count = _broadcast_all(f"xmessage {msg}")
+    return jsonify({"ok": True, "sent": count})
+
+@app.route("/api/bot/online")
+@api_key_required
+def bot_online():
+    players = _online_players()
+    return jsonify([
+        {"name": getattr(p, "name", ""), "map": getattr(p, "map", ""), "health": getattr(p, "health", 0)}
+        for p in players
+    ])
+
+@app.route("/api/bot/kick/<name>", methods=["POST"])
+@api_key_required
+def bot_kick(name):
+    ok = _kick_player(name)
+    return jsonify({"ok": ok, "message": f"Kicked {name}." if ok else f"{name} is not online."})
+
+@app.route("/api/bot/ban/<name>", methods=["POST"])
+@api_key_required
+def bot_ban(name):
+    data = request.get_json(silent=True) or {}
+    reason = data.get("reason", "Banned by admin")
+    try:
+        sys.path.insert(0, os.path.join(SERVER_ROOT, "modules", "core"))
+        import zh_auth as _auth
+        _auth.ban_player(name, reason)
+        _kick_player(name)
+        return jsonify({"ok": True, "message": f"Banned {name}."})
+    except Exception as ex:
+        return jsonify({"ok": False, "message": str(ex)}), 500
+
+@app.route("/api/bot/unban/<name>", methods=["POST"])
+@api_key_required
+def bot_unban(name):
+    try:
+        sys.path.insert(0, os.path.join(SERVER_ROOT, "modules", "core"))
+        import zh_auth as _auth
+        _auth.unban_player(name)
+        return jsonify({"ok": True, "message": f"Unbanned {name}."})
+    except Exception as ex:
+        return jsonify({"ok": False, "message": str(ex)}), 500
+
+
+# ── start ─────────────────────────────────────────────────────────────────────
+
 def start_dashboard(globals_module, db_module, data_loader_module,
-                    password: str = "admin", port: int = 8080) -> None:
+                    password: str = "admin", port: int = 8080,
+                    api_key: str = "", motd_file: str = "") -> None:
     """
     Launch the Flask dashboard in a daemon thread.
     Call this from zhaserver.py after init_db().
 
         from dashboard.app import start_dashboard
-        start_dashboard(g, db, data_loader, password=cfg_password, port=cfg_port)
+        start_dashboard(g, db, data_loader, password=cfg_password, port=cfg_port,
+                        api_key=cfg_api_key, motd_file=cfg_motd_file)
     """
-    global _g, _db, _data_loader, _dashboard_password, _dashboard_port
+    global _g, _db, _data_loader, _dashboard_password, _dashboard_port, _dashboard_api_key, _motd_file
     _g = globals_module
     _db = db_module
     _data_loader = data_loader_module
     _dashboard_password = password
     _dashboard_port = port
+    _dashboard_api_key = api_key
+    _motd_file = motd_file
 
     t = threading.Thread(
         target=lambda: app.run(host="127.0.0.1", port=port, debug=False, use_reloader=False),
