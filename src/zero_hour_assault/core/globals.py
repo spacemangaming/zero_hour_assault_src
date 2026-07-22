@@ -306,3 +306,15 @@ tiletimer=timer()
 tracked_boss=None   # set by boss_pos packet; used by visual_hud minimap
 ambs=[]             # populated by source.py on map load
 visual_mode=0       # 1 = sighted mode: TTS disabled, minimap always on
+
+# HUD data — updated by hud_data server packet every 500ms
+hud_health=100
+hud_maxhealth=100
+hud_weapon="none"
+hud_loaded=-1
+hud_reserve=-1
+hud_weapon2="none"
+hud_loaded2=-1
+hud_reserve2=-1
+hud_shield=0
+hud_helmet=0

@@ -177,6 +177,7 @@ class player:
 		self.fainttimer=timer()
 		self.maxhpcheckertimer=timer()
 		self.maxhpchecker2timer=timer()
+		self.hudtimer=timer()
 		self.blockvoice3=0
 		self.group=""
 		self.community=""
@@ -1989,6 +1990,20 @@ def playerloop():
 		if g.players[i].maxhpchecker2timer.elapsed>=1000:
 			g.players[i].maxhpchecker2timer.restart()
 			if g.players[i].map=="lobby" and g.players[i].health!=g.players[i].maxhealth: g.players[i].health=g.players[i].maxhealth
+		if g.players[i].hudtimer.elapsed>=500:
+			g.players[i].hudtimer.restart()
+			try:
+				p=g.players[i]
+				loaded1=p.ammocheck(p.weapon) if p.weapon and p.weapon!="punch" else -1
+				reserve1=p.get_item_count(g.get_ammotype(p.weapon)) if p.weapon and p.weapon!="punch" else -1
+				loaded2=p.ammocheck(p.weapon2) if p.weapon2 and p.weapon2!="feet" else -1
+				reserve2=p.get_item_count(g.get_ammotype(p.weapon2)) if p.weapon2 and p.weapon2!="feet" else -1
+				shield=int(p.shieldhitchance)
+				helmet=int(p.helmethitchance)
+				g.n.send_reliable(p.peer_id,
+					f"hud_data {int(p.health)} {int(p.maxhealth)} {p.weapon or 'none'} {loaded1} {reserve1} {p.weapon2 or 'none'} {loaded2} {reserve2} {shield} {helmet}",
+					0)
+			except Exception: pass
 		if(g.players[i].reloading):
 		
 			if(g.players[i].weapon!="" and g.players[i].reloadtimer.elapsed>g.players[i].reloadtime):

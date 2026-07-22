@@ -852,6 +852,21 @@ def netloop(events=False,request=True):
 				g.rain=True
 			elif parsed[0]=="rainfinishstart": g.rainfinish=True
 			elif parsed[0]=="rainfinishstop": g.rainfinish=False
+			elif parsed[0]=="hud_data" and len(parsed)>=10:
+				# hud_data <hp> <maxhp> <w1> <loaded1> <reserve1> <w2> <loaded2> <reserve2> <shield> <helmet>
+				try:
+					g.hud_health    = int(parsed[1])
+					g.hud_maxhealth = int(parsed[2])
+					g.hud_weapon    = parsed[3]
+					g.hud_loaded    = int(parsed[4])
+					g.hud_reserve   = int(parsed[5])
+					g.hud_weapon2   = parsed[6]
+					g.hud_loaded2   = int(parsed[7])
+					g.hud_reserve2  = int(parsed[8])
+					g.hud_shield    = int(parsed[9])
+					g.hud_helmet    = int(parsed[10]) if len(parsed) > 10 else 0
+				except Exception:
+					pass
 			elif parsed[0]=="boss_pos" and len(parsed)>=4:
 				# boss_pos <x> <y> <phase2>  — minimap overlay data
 				try:

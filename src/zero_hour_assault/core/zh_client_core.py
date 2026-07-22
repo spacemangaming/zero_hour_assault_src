@@ -770,18 +770,23 @@ def mainloop():
 	fallloop()
 	fallingloop()
 
-	# ── Visual minimap HUD ────────────────────────────────────────────────────
-	# Visual mode: always on. Audio mode: Alt+M to toggle.
-	if _visual_hud is not None and g.screen is not None and g.inthegame:
+	# ── Visual HUD ───────────────────────────────────────────────────────────
+	# Stats panel always visible in visual mode.
+	# Minimap: always on in visual mode, Alt+M to toggle in audio mode.
+	if _visual_hud is not None and g.screen is not None and g.inthegame and g.visual_mode:
 		try:
-			if g.visual_mode:
-				_visual_hud.visible = True
-			else:
-				from zh_client_gameplay import alt_is_down
-				if key_pressed(K_m) and alt_is_down():
-					_visual_hud.toggle()
+			_visual_hud.visible = True
 			_visual_hud.draw(g.screen, g)
+			pygame.display.flip()
+		except Exception:
+			pass
+	elif _visual_hud is not None and g.screen is not None and g.inthegame:
+		try:
+			from zh_client_gameplay import alt_is_down
+			if key_pressed(K_m) and alt_is_down():
+				_visual_hud.toggle()
 			if _visual_hud.visible:
+				_visual_hud.draw(g.screen, g)
 				pygame.display.flip()
 		except Exception:
 			pass
