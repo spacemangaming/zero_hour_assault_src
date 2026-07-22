@@ -1,5 +1,6 @@
 from network import event_receive
 import subprocess
+import subprocess
 from network import event_connect
 import re
 from bs4 import BeautifulSoup
@@ -324,8 +325,8 @@ def mainmenu():
 	m.add_item_tts("View game rules.","rules")
 	m.add_item_tts("View privacy.","privacy")
 
-	m.add_item_tts("Make us a small donation. If you like the game and if you can, a small donation would be appreciated.","donate")
-	m.add_item_tts("join the official telegram group of Zero Hour Assault.","telegram")
+	#m.add_item_tts("Make us a small donation. If you like the game and if you can, a small donation would be appreciated.","donate")
+	#m.add_item_tts("join the official telegram group of Zero Hour Assault.","telegram")
 	m.add_item_tts("Exit the game.","exit")
 	mres=m.run("zero hour assault Main Menu. Please select an option using the up and down arrow keys and press enter to confirm. Use the page up and page down keys to adjust the music volume.",True)
 	if (m.get_item_name(mres)=="readme"): readmemenu()

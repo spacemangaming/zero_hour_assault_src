@@ -30,6 +30,8 @@ Requires-Dist: websockets>=12.0
 Requires-Dist: websocket-client>=1.8.0
 Requires-Dist: scp>=0.16.0
 Requires-Dist: flask>=3.0.0
+Requires-Dist: pyinstaller>=6.21.0
+Requires-Dist: cython>=0.29.37
 
 # Zero Hour Assault
 
